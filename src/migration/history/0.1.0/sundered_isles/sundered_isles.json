@@ -135,10 +135,11 @@
 		"special_tracks": {}
 	},
 	"oracles": {
-		"campaign": {
-			"name": "Campaign Oracles",
+		"campaign_launch": {
+			"name": "Campaign Launch Oracles",
 			"type": "oracle_collection",
 			"oracle_type": "tables",
+			"enhances": ["oracle_collection:starforged/campaign_launch"],
 			"_source": {
 				"date": "2024-06-11",
 				"title": "Sundered Isles",
@@ -196,7 +197,7 @@
 									},
 									"text": "Akiya",
 									"text2": "Coalition of clans known for their sleek and speedy ships. They gather each year to celebrate the ebb of the storm season, and hang rows of vibrantly colored flags from their rigging to honor the dead.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.0"
 								},
 								{
 									"roll": {
@@ -205,7 +206,7 @@
 									},
 									"text": "Arsu / Azizos",
 									"text2": "Once a single tribe, the loyalty of these people is divided between two rulers descended from rival heirs. They often war against one another, but now have a fragile alliance against a mutual foe.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.1"
 								},
 								{
 									"roll": {
@@ -214,7 +215,7 @@
 									},
 									"text": "Kai",
 									"text2": "Seagoing folk who build their homes and ships from luminous glimmerwood. This resource is harvested from the coastal swamps of their homeland, an environment under threat of destruction.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.2"
 								},
 								{
 									"roll": {
@@ -223,7 +224,7 @@
 									},
 									"text": "Khazeera",
 									"text2": "Warring people who inhabit an enduring city-state at the edge of an active volcano. Molten rock and slag from this sacred volcano is used in the heated shot for their destructive cannonry, and their soldiers wield blades forged in its fires.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.3"
 								},
 								{
 									"roll": {
@@ -232,7 +233,7 @@
 									},
 									"text": "Morien",
 									"text2": "Seafolk who forsake cannons and muskets. They sail low-profile catamarans and set upon their foes with stealthy ambushes.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.4"
 								},
 								{
 									"roll": {
@@ -241,7 +242,7 @@
 									},
 									"text": "Otani",
 									"text2": "People who dwell in island highlands. They largely forsake the sea, but send out seafaring envoys to build ties with other communities.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.5"
 								},
 								{
 									"roll": {
@@ -250,7 +251,7 @@
 									},
 									"text": "Sularia",
 									"text2": "Beast-bonded people who commune with magnificent elder rays. They are sworn to protect the seas from hunters and despoilers.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.6"
 								},
 								{
 									"roll": {
@@ -259,7 +260,7 @@
 									},
 									"text": "Talan",
 									"text2": "Scrappy seafolk who range far among the islands. They maintain a floating trade settlement open to any who visit with shuttered gunports.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.7"
 								},
 								{
 									"roll": {
@@ -268,7 +269,7 @@
 									},
 									"text": "Thalassa",
 									"text2": "Recent refugees of a cataclysmic war. They are desperate to gain allies against the enemy they believe will follow them to the isles.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.8"
 								},
 								{
 									"roll": {
@@ -277,7 +278,7 @@
 									},
 									"text": "Uktanu",
 									"text2": "Reclusive people who trace their lineage to the first inhabitants of the isles. They are sworn to protect the sacred sites and relics of their ancient forebears.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/societies.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/societies.9"
 								}
 							],
 							"dice": "1d100",
@@ -286,7 +287,7 @@
 								"text": "Result",
 								"text2": "Details"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/faction_inspiration/societies"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/faction_inspiration/societies"
 						},
 						"organizations": {
 							"name": "Organizations",
@@ -317,7 +318,7 @@
 									},
 									"text": "Bloody Skulls",
 									"text2": "Bands of scavenging shipbreakers who lie in wait along hazardous passages. They believe that painting their faces with a death-like visage protect against retribution by spirits of the dead.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.0"
 								},
 								{
 									"roll": {
@@ -326,7 +327,7 @@
 									},
 									"text": "Cynosure League",
 									"text2": "Guild of scientists and naturalists who record their findings in exhaustively-detailed journals. Their works are copied and recorded by archivists at a grand central library.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.1"
 								},
 								{
 									"roll": {
@@ -335,7 +336,7 @@
 									},
 									"text": "Ebb Tide",
 									"text2": "Covert insurgency of spies and saboteurs. They seek to cripple imperial ambitions from within, and use trained gulls to carry vital messages to collaborators.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.2"
 								},
 								{
 									"roll": {
@@ -344,7 +345,7 @@
 									},
 									"text": "Faceless Accord",
 									"text2": "Renegades sailing in defiance of imperial powers. They conceal their identities behind iron masks to protect kinfolk still under imperial rule.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.3"
 								},
 								{
 									"roll": {
@@ -353,7 +354,7 @@
 									},
 									"text": "Forsaken Fleet",
 									"text2": "Powerful clan of pirates led by a marauder known as the Raven Queen. They recently sacked and seized a major port town and made it a refuge for outlaws and outcasts.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.4"
 								},
 								{
 									"roll": {
@@ -362,7 +363,7 @@
 									},
 									"text": "Ironmongers",
 									"text2": "Guild of shipbuilders and arms manufacturers who supply their destructive wares to the highest bidder. They secretly incite wars to expand their fortune.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.5"
 								},
 								{
 									"roll": {
@@ -371,7 +372,7 @@
 									},
 									"text": "Moonsingers",
 									"text2": "Mystic coven that draw their powers from the dance of the moons and the rhythm of the tides. They recruit and train talented initiates from across the isles.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.6"
 								},
 								{
 									"roll": {
@@ -380,7 +381,7 @@
 									},
 									"text": "Saltblood",
 									"text2": "Mariners bound to an age-old seafaring fellowship. They recognize fellow saltbloods and communicate using complex hand signals.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.7"
 								},
 								{
 									"roll": {
@@ -389,7 +390,7 @@
 									},
 									"text": "Tide Runners",
 									"text2": "Smugglers who ferry their ill-gotten goods from island to island. They rely on speed, stealth, and the cover of foul weather or moonless nights.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.8"
 								},
 								{
 									"roll": {
@@ -398,7 +399,7 @@
 									},
 									"text": "Wayfarers",
 									"text2": "Peddlers who range across the isles and beyond. They transport rare and unusual cargo aboard their vibrantly painted ships.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/organizations.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/organizations.9"
 								}
 							],
 							"dice": "1d100",
@@ -407,7 +408,7 @@
 								"text": "Result",
 								"text2": "Details"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/faction_inspiration/organizations"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/faction_inspiration/organizations"
 						},
 						"empires": {
 							"name": "Empires",
@@ -438,7 +439,7 @@
 									},
 									"text": "Argosy Company",
 									"text2": "Trade company that commands a fleet of beast-hunting ships and pays bounties on beasts to independent captains. Their unscrupulous merchants deal in trophies and resources gathered from slain creatures.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.0"
 								},
 								{
 									"roll": {
@@ -447,7 +448,7 @@
 									},
 									"text": "Eldarian Remnants",
 									"text2": "Loyalists of a fallen empire who seek to restore their former glory among the isles, guided by a charismatic and shrewd military leader. The sails of their ships are emblazoned with a burning phoenix.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.1"
 								},
 								{
 									"roll": {
@@ -456,7 +457,7 @@
 									},
 									"text": "Empire of Solas",
 									"text2": "Age-old dominion ruled by an immortal god-emperor. Their ostentatious ships are adorned with gold metalwork and filigreed sails.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.2"
 								},
 								{
 									"roll": {
@@ -465,7 +466,7 @@
 									},
 									"text": "Firgovian Regency",
 									"text2": "Fracturing empire facing a succession crisis in the aftermath of the monarch’s assassination. Rival claimants gather their armies and navies to take the crown by force.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.3"
 								},
 								{
 									"roll": {
@@ -474,7 +475,7 @@
 									},
 									"text": "Hand of Theya",
 									"text2": "Iron-fisted theocracy under the rule of a council of priests. Their mandates are enforced by red-robed inquisitors.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.4"
 								},
 								{
 									"roll": {
@@ -483,7 +484,7 @@
 									},
 									"text": "Kyrody Dominion",
 									"text2": "Expansive empire with far-flung territories. Their holdings within the isles are overseen by corrupt and squabbling governors, each vying for greater power and wealth.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.5"
 								},
 								{
 									"roll": {
@@ -492,7 +493,7 @@
 									},
 									"text": "Meridian Company",
 									"text2": "Powerful trade company with diverse holdings and boundless political influence. They function as a shadow government behind other powers.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.6"
 								},
 								{
 									"roll": {
@@ -501,7 +502,7 @@
 									},
 									"text": "Norish Empire",
 									"text2": "War-mongering clans newly united under a powerful warlord. Their warships are fitted with imposing rams and heavy boarding ramps.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.7"
 								},
 								{
 									"roll": {
@@ -510,7 +511,7 @@
 									},
 									"text": "Skulde Alliance",
 									"text2": "Ambitious empire that wields a powerful military. At the vanguard of their fleets are the dragon-riders of the Crimson Guard, who house their steeds and launch their attacks from colossal carrier ships.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.8"
 								},
 								{
 									"roll": {
@@ -519,7 +520,7 @@
 									},
 									"text": "Sovereign States",
 									"text2": "Industrialist power formed from the remnants of warring nations. They are governed by an oligarchical council whose members scheme and backstab to advance their own interests.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/empires.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/empires.9"
 								}
 							],
 							"dice": "1d100",
@@ -528,7 +529,7 @@
 								"text": "Result",
 								"text2": "Details"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/faction_inspiration/empires"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/faction_inspiration/empires"
 						},
 						"cursed": {
 							"name": "The Cursed",
@@ -554,7 +555,7 @@
 									},
 									"text": "Acheron’s Armada",
 									"text2": "Ghost ships under the command of an undead imperial admiral. This vengeful wraith seeks to carry on the war that cost them their life.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.0"
 								},
 								{
 									"roll": {
@@ -563,7 +564,7 @@
 									},
 									"text": "Blighthulk",
 									"text2": "Titanic ship cursed with incessant corrosion and rot. Its crew must constantly add wood, sails, and fittings from salvaged wrecks and defeated foes into this massive and unnerving chimera-craft.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.1"
 								},
 								{
 									"roll": {
@@ -572,7 +573,7 @@
 									},
 									"text": "Bloodmarked League",
 									"text2": "An order of occultists, each bearing a blood-red tattoo on their wrist, who are dedicated to hunting and banishing the restless dead.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.2"
 								},
 								{
 									"roll": {
@@ -581,7 +582,7 @@
 									},
 									"text": "Brineblessed",
 									"text2": "Cult of sailors cursed by a drowned god. Their bodies and ships are corrupted by horrible aspects of the sea—riddled with barnacles, rotting seaweed, and brackish slime.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.3"
 								},
 								{
 									"roll": {
@@ -590,7 +591,7 @@
 									},
 									"text": "Carrion Fleet",
 									"text2": "Fleet under the command of a necromancer. The dreadful ships are festooned with bones and bloodied sails, crewed by skeletal undead, and escorted by the risen corpse of a slain behemoth.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.4"
 								},
 								{
 									"roll": {
@@ -599,7 +600,7 @@
 									},
 									"text": "Fireships",
 									"text2": "Ships burning with unquenchable fire and crewed by bone-scorched undead. The flagship was set aflame by marauders in a port attack, and its cursed commander seeks to spread the fire to other vessels and expand the accursed fleet.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.5"
 								},
 								{
 									"roll": {
@@ -608,7 +609,7 @@
 									},
 									"text": "Forgeborn",
 									"text2": "Uncanny metal automatons who are said to embody the stolen souls of dead mariners. They cruise the isles in ironclad ships.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.6"
 								},
 								{
 									"roll": {
@@ -617,7 +618,7 @@
 									},
 									"text": "Gilded Fleet",
 									"text2": "Pirates who seized a forbidden treasure. They are cursed with a ceaseless, insatiable hunger to hoard riches from all corners of the isles.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.7"
 								},
 								{
 									"roll": {
@@ -626,7 +627,7 @@
 									},
 									"text": "Nightships",
 									"text2": "Dread ships of the vampire clans, shrouded in an eternal gloom. Their undead crews leave wrecks and blood-drained corpses in their wake.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.8"
 								},
 								{
 									"roll": {
@@ -635,7 +636,7 @@
 									},
 									"text": "Tidebound",
 									"text2": "Devout cultists who were granted eternal life in exchange for unending service to their patron sea god. They must not tarry on land or at anchor, lest death catches up with them to take its toll.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/faction_inspiration/cursed.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/faction_inspiration/cursed.9"
 								}
 							],
 							"dice": "1d100",
@@ -644,11 +645,11 @@
 								"text": "Result",
 								"text2": "Details"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/faction_inspiration/cursed"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/faction_inspiration/cursed"
 						}
 					},
 					"collections": {},
-					"_id": "oracle_collection:sundered_isles/campaign/faction_inspiration"
+					"_id": "oracle_collection:sundered_isles/campaign_launch/faction_inspiration"
 				},
 				"character": {
 					"name": "Your Character",
@@ -676,7 +677,7 @@
 							},
 							"tags": {
 								"sundered_isles": {
-									"cursed_by": "oracle_rollable:sundered_isles/campaign/character/backstory_cursed"
+									"cursed_by": "oracle_rollable:sundered_isles/campaign_launch/character/backstory_cursed"
 								}
 							},
 							"_source": {
@@ -697,7 +698,7 @@
 										"max": 3
 									},
 									"text": "Abandoned a life of privilege or power",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.0"
 								},
 								{
 									"roll": {
@@ -705,7 +706,7 @@
 										"max": 7
 									},
 									"text": "Betrayed by a close friend, lover, or family member",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.1"
 								},
 								{
 									"roll": {
@@ -713,7 +714,7 @@
 										"max": 11
 									},
 									"text": "Caught up in a forbidden or unlikely romance",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.2"
 								},
 								{
 									"roll": {
@@ -721,7 +722,7 @@
 										"max": 14
 									},
 									"text": "Deserted the military",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.3"
 								},
 								{
 									"roll": {
@@ -729,7 +730,7 @@
 										"max": 18
 									},
 									"text": "Entrusted with a valuable secret",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.4"
 								},
 								{
 									"roll": {
@@ -737,7 +738,7 @@
 										"max": 22
 									},
 									"text": "Escaped unjust captivity",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.5"
 								},
 								{
 									"roll": {
@@ -745,7 +746,7 @@
 										"max": 26
 									},
 									"text": "Fled a cruel upbringing",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.6"
 								},
 								{
 									"roll": {
@@ -753,7 +754,7 @@
 										"max": 30
 									},
 									"text": "Following in the footsteps of famous or notorious kin",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.7"
 								},
 								{
 									"roll": {
@@ -761,7 +762,7 @@
 										"max": 34
 									},
 									"text": "Forcefully exiled from your land or people",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.8"
 								},
 								{
 									"roll": {
@@ -769,7 +770,7 @@
 										"max": 37
 									},
 									"text": "Found adrift with no memory of your former life",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.9"
 								},
 								{
 									"roll": {
@@ -777,7 +778,7 @@
 										"max": 40
 									},
 									"text": "Framed for a crime you didn't commit",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.10"
 								},
 								{
 									"roll": {
@@ -785,7 +786,7 @@
 										"max": 43
 									},
 									"text": "Guided by a dream or prophecy",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.11"
 								},
 								{
 									"roll": {
@@ -793,7 +794,7 @@
 										"max": 46
 									},
 									"text": "Home destroyed by disaster or war",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.12"
 								},
 								{
 									"roll": {
@@ -801,7 +802,7 @@
 										"max": 49
 									},
 									"text": "Home occupied by an enemy faction",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.13"
 								},
 								{
 									"roll": {
@@ -809,7 +810,7 @@
 										"max": 53
 									},
 									"text": "Joined a mutiny, uprising, or rebellion",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.14"
 								},
 								{
 									"roll": {
@@ -817,7 +818,7 @@
 										"max": 56
 									},
 									"text": "Joined a secret society",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.15"
 								},
 								{
 									"roll": {
@@ -825,7 +826,7 @@
 										"max": 59
 									},
 									"text": "Living under a stolen or assumed identity",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.16"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.16"
 								},
 								{
 									"roll": {
@@ -833,7 +834,7 @@
 										"max": 63
 									},
 									"text": "Loved one gone missing",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.17"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.17"
 								},
 								{
 									"roll": {
@@ -841,7 +842,7 @@
 										"max": 67
 									},
 									"text": "Marooned by former shipmates",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.18"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.18"
 								},
 								{
 									"roll": {
@@ -849,7 +850,7 @@
 										"max": 71
 									},
 									"text": "On the run with a stolen object of great value",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.19"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.19"
 								},
 								{
 									"roll": {
@@ -857,7 +858,7 @@
 										"max": 75
 									},
 									"text": "Raised by or fell in with criminals or pirates",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.20"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.20"
 								},
 								{
 									"roll": {
@@ -865,7 +866,7 @@
 										"max": 79
 									},
 									"text": "Refugee from a distant land",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.21"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.21"
 								},
 								{
 									"roll": {
@@ -873,7 +874,7 @@
 										"max": 83
 									},
 									"text": "Survived a disaster or battle at sea",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.22"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.22"
 								},
 								{
 									"roll": {
@@ -881,7 +882,7 @@
 										"max": 86
 									},
 									"text": "Took up a vendetta against a powerful figure or faction",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.23"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.23"
 								},
 								{
 									"roll": {
@@ -889,7 +890,7 @@
 										"max": 89
 									},
 									"text": "Trained in a rare or secret craft by a skilled mentor",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.24"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.24"
 								},
 								{
 									"roll": {
@@ -897,7 +898,7 @@
 										"max": 93
 									},
 									"text": "Trying to forget a disastrous love affair",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.25"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.25"
 								},
 								{
 									"roll": {
@@ -905,7 +906,7 @@
 										"max": 96
 									},
 									"text": "Undone by a personal vice",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.26"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.26"
 								},
 								{
 									"roll": {
@@ -913,7 +914,7 @@
 										"max": 100
 									},
 									"text": "Wronged a powerful figure or faction who seeks retribution",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory.27"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory.27"
 								}
 							],
 							"dice": "1d100",
@@ -921,7 +922,7 @@
 								"roll": "Roll",
 								"text": "Result"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/character/backstory"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/character/backstory"
 						},
 						"backstory_cursed": {
 							"name": "Your Cursed Backstory",
@@ -930,7 +931,7 @@
 							"tags": {
 								"sundered_isles": {
 									"cursed_version_of": [
-										"oracle_rollable:sundered_isles/campaign/character/backstory"
+										"oracle_rollable:sundered_isles/campaign_launch/character/backstory"
 									],
 									"curse_behavior": "replace_result"
 								}
@@ -953,7 +954,7 @@
 										"max": 7
 									},
 									"text": "Banished because of uncanny nature or abilities",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.0"
 								},
 								{
 									"roll": {
@@ -961,7 +962,7 @@
 										"max": 14
 									},
 									"text": "Bearing a relic of dreadful power",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.1"
 								},
 								{
 									"roll": {
@@ -969,7 +970,7 @@
 										"max": 20
 									},
 									"text": "Desperate to unlock the secrets of forbidden magic",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.2"
 								},
 								{
 									"roll": {
@@ -977,7 +978,7 @@
 										"max": 26
 									},
 									"text": "Forged and made animate by forbidden technologies",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.3"
 								},
 								{
 									"roll": {
@@ -985,7 +986,7 @@
 										"max": 33
 									},
 									"text": "Grievously wounded and given new life by forbidden magic or technology",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.4"
 								},
 								{
 									"roll": {
@@ -993,7 +994,7 @@
 										"max": 40
 									},
 									"text": "Haunted by the spirit of someone you failed or wronged",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.5"
 								},
 								{
 									"roll": {
@@ -1001,7 +1002,7 @@
 										"max": 47
 									},
 									"text": "Home destroyed by a monstrous beast",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.6"
 								},
 								{
 									"roll": {
@@ -1009,7 +1010,7 @@
 										"max": 54
 									},
 									"text": "Home destroyed by undead or inhuman foes",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.7"
 								},
 								{
 									"roll": {
@@ -1017,7 +1018,7 @@
 										"max": 61
 									},
 									"text": "Inherited a dreadful curse",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.8"
 								},
 								{
 									"roll": {
@@ -1025,7 +1026,7 @@
 										"max": 67
 									},
 									"text": "Killed an albatross; plagued by foul luck ever since",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.9"
 								},
 								{
 									"roll": {
@@ -1033,7 +1034,7 @@
 										"max": 73
 									},
 									"text": "Sole survivor of a string of unlikely disasters",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.10"
 								},
 								{
 									"roll": {
@@ -1041,7 +1042,7 @@
 										"max": 80
 									},
 									"text": "Suffered a vision of a horrible fate",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.11"
 								},
 								{
 									"roll": {
@@ -1049,7 +1050,7 @@
 										"max": 87
 									},
 									"text": "Survived an attack at sea by a cursed ship",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.12"
 								},
 								{
 									"roll": {
@@ -1057,7 +1058,7 @@
 										"max": 94
 									},
 									"text": "Survived an attack at sea by a monstrous sea beast",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.13"
 								},
 								{
 									"roll": {
@@ -1065,7 +1066,7 @@
 										"max": 100
 									},
 									"text": "Targeted or hunted by a dreadful being",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/backstory_cursed.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/backstory_cursed.14"
 								}
 							],
 							"dice": "1d100",
@@ -1073,7 +1074,7 @@
 								"roll": "Roll",
 								"text": "Result"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/character/backstory_cursed"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/character/backstory_cursed"
 						},
 						"persona": {
 							"name": "Your Persona",
@@ -1104,7 +1105,7 @@
 									},
 									"text": "Apothecary",
 									"text2": "[Healer](asset:starforged/path/healer), [Peddler](asset:sundered_isles/path/peddler)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.0"
 								},
 								{
 									"roll": {
@@ -1113,7 +1114,7 @@
 									},
 									"text": "Apprentice",
 									"text2": "[Shipwright](asset:sundered_isles/path/shipwright), [Urchin](asset:sundered_isles/path/urchin)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.1"
 								},
 								{
 									"roll": {
@@ -1122,7 +1123,7 @@
 									},
 									"text": "Assassin",
 									"text2": "[Blademaster](asset:starforged/path/blademaster), [Bounty Hunter](asset:starforged/path/bounty_hunter)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.2"
 								},
 								{
 									"roll": {
@@ -1131,7 +1132,7 @@
 									},
 									"text": "Beast Hunter",
 									"text2": "[Harpooner](asset:sundered_isles/path/harpooner), [Slayer](asset:starforged/path/slayer)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.3"
 								},
 								{
 									"roll": {
@@ -1140,7 +1141,7 @@
 									},
 									"text": "Blockade Runner",
 									"text2": "[Courier](asset:starforged/path/courier), [Navigator](asset:starforged/path/navigator)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.4"
 								},
 								{
 									"roll": {
@@ -1149,7 +1150,7 @@
 									},
 									"text": "Brigand",
 									"text2": "[Pistoleer](asset:sundered_isles/path/pistoleer), [Scoundrel](asset:starforged/path/scoundrel)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.5"
 								},
 								{
 									"roll": {
@@ -1158,7 +1159,7 @@
 									},
 									"text": "Buccaneer",
 									"text2": "[Swashbuckler](asset:sundered_isles/path/swashbuckler), [Pirate Captain](asset:sundered_isles/path/pirate_captain)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.6"
 								},
 								{
 									"roll": {
@@ -1172,7 +1173,7 @@
 											"requires_allies": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.7"
 								},
 								{
 									"roll": {
@@ -1181,7 +1182,7 @@
 									},
 									"text": "Castaway",
 									"text2": "[Jinx](asset:sundered_isles/path/jinx), [Scavenger](asset:starforged/path/scavenger)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.8"
 								},
 								{
 									"roll": {
@@ -1190,7 +1191,7 @@
 									},
 									"text": "Charlatan",
 									"text2": "[Scoundrel](asset:starforged/path/scoundrel), [Socialite](asset:sundered_isles/path/socialite)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.9"
 								},
 								{
 									"roll": {
@@ -1199,7 +1200,7 @@
 									},
 									"text": "Cloak and Dagger",
 									"text2": "[Cutthroat](asset:sundered_isles/path/cutthroat), [Spy](asset:sundered_isles/path/spy)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.10"
 								},
 								{
 									"roll": {
@@ -1213,7 +1214,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.11"
 								},
 								{
 									"roll": {
@@ -1227,7 +1228,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.12"
 								},
 								{
 									"roll": {
@@ -1241,7 +1242,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.13"
 								},
 								{
 									"roll": {
@@ -1255,7 +1256,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.14"
 								},
 								{
 									"roll": {
@@ -1264,7 +1265,7 @@
 									},
 									"text": "Emissary",
 									"text2": "[Diplomat](asset:starforged/path/diplomat), [Spy](asset:sundered_isles/path/spy)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.15"
 								},
 								{
 									"roll": {
@@ -1273,7 +1274,7 @@
 									},
 									"text": "Gallant",
 									"text2": "[Duelist](asset:sundered_isles/path/duelist), [Socialite](asset:sundered_isles/path/socialite)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.16"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.16"
 								},
 								{
 									"roll": {
@@ -1287,7 +1288,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.17"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.17"
 								},
 								{
 									"roll": {
@@ -1296,7 +1297,7 @@
 									},
 									"text": "Gunner",
 									"text2": "[Cannoneer](asset:sundered_isles/path/cannoneer), [Veteran](asset:starforged/path/veteran)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.18"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.18"
 								},
 								{
 									"roll": {
@@ -1305,7 +1306,7 @@
 									},
 									"text": "Hired Gun",
 									"text2": "[Mercenary](asset:starforged/path/mercenary), [Musketeer](asset:sundered_isles/path/musketeer)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.19"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.19"
 								},
 								{
 									"roll": {
@@ -1319,7 +1320,7 @@
 											"technological": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.20"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.20"
 								},
 								{
 									"roll": {
@@ -1333,7 +1334,7 @@
 											"technological": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.21"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.21"
 								},
 								{
 									"roll": {
@@ -1347,7 +1348,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.22"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.22"
 								},
 								{
 									"roll": {
@@ -1361,7 +1362,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.23"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.23"
 								},
 								{
 									"roll": {
@@ -1370,7 +1371,7 @@
 									},
 									"text": "Naturalist",
 									"text2": "[Overlander](asset:sundered_isles/path/overlander), [Scholar](asset:sundered_isles/path/scholar) (Natural history)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.24"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.24"
 								},
 								{
 									"roll": {
@@ -1384,7 +1385,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.25"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.25"
 								},
 								{
 									"roll": {
@@ -1398,7 +1399,7 @@
 											"requires_allies": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.26"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.26"
 								},
 								{
 									"roll": {
@@ -1407,7 +1408,7 @@
 									},
 									"text": "Renegade",
 									"text2": "[Fugitive](asset:starforged/path/fugitive), [Veteran](asset:starforged/path/veteran)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.27"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.27"
 								},
 								{
 									"roll": {
@@ -1421,7 +1422,7 @@
 											"technological": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.28"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.28"
 								},
 								{
 									"roll": {
@@ -1435,7 +1436,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.29"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.29"
 								},
 								{
 									"roll": {
@@ -1449,7 +1450,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.30"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.30"
 								},
 								{
 									"roll": {
@@ -1463,7 +1464,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.31"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.31"
 								},
 								{
 									"roll": {
@@ -1477,7 +1478,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.32"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.32"
 								},
 								{
 									"roll": {
@@ -1491,7 +1492,7 @@
 											"requires_allies": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.33"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.33"
 								},
 								{
 									"roll": {
@@ -1500,7 +1501,7 @@
 									},
 									"text": "Smuggler",
 									"text2": "[Fugitive](asset:starforged/path/fugitive), [Peddler](asset:sundered_isles/path/peddler)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.34"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.34"
 								},
 								{
 									"roll": {
@@ -1514,7 +1515,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.35"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.35"
 								},
 								{
 									"roll": {
@@ -1528,7 +1529,7 @@
 											"supernatural": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.36"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.36"
 								},
 								{
 									"roll": {
@@ -1537,7 +1538,7 @@
 									},
 									"text": "Stowaway",
 									"text2": "[Urchin](asset:sundered_isles/path/urchin), [Outcast](asset:starforged/path/outcast)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.37"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.37"
 								},
 								{
 									"roll": {
@@ -1546,7 +1547,7 @@
 									},
 									"text": "Surgeon",
 									"text2": "[Healer](asset:starforged/path/healer), [Scholar](asset:sundered_isles/path/scholar) (Medicine)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.38"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.38"
 								},
 								{
 									"roll": {
@@ -1560,7 +1561,7 @@
 											"technological": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.39"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.39"
 								},
 								{
 									"roll": {
@@ -1569,7 +1570,7 @@
 									},
 									"text": "Vanguard",
 									"text2": "[Bannersworn](asset:starforged/path/bannersworn), [Scattershot](asset:sundered_isles/path/scattershot)",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.40"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.40"
 								},
 								{
 									"roll": {
@@ -1583,15 +1584,15 @@
 											"technological": true
 										}
 									},
-									"_id": "oracle_rollable.row:sundered_isles/campaign/character/persona.41"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/character/persona.41"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/character/persona"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/character/persona"
 						}
 					},
 					"collections": {},
-					"_id": "oracle_collection:sundered_isles/campaign/character"
+					"_id": "oracle_collection:sundered_isles/campaign_launch/character"
 				},
 				"command": {
 					"name": "Your Command",
@@ -1616,7 +1617,7 @@
 							"summary": "If you have a command, envision how you claimed or earned the vessel. For inspiration, use the table below. If you sail under the command of a non-player character, you can use this table to give their ship a backstory.",
 							"tags": {
 								"sundered_isles": {
-									"cursed_by": "oracle_rollable:sundered_isles/campaign/command/ship_history_cursed"
+									"cursed_by": "oracle_rollable:sundered_isles/campaign_launch/command/ship_history_cursed"
 								}
 							},
 							"_source": {
@@ -1637,7 +1638,7 @@
 										"max": 5
 									},
 									"text": "Acquired in a duel of honor",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.0"
 								},
 								{
 									"roll": {
@@ -1645,7 +1646,7 @@
 										"max": 10
 									},
 									"text": "Awarded by a vote of the crew, after the former captain died an untimely death",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.1"
 								},
 								{
 									"roll": {
@@ -1653,7 +1654,7 @@
 										"max": 15
 									},
 									"text": "Bestowed by an eccentric shipwright",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.2"
 								},
 								{
 									"roll": {
@@ -1661,7 +1662,7 @@
 										"max": 20
 									},
 									"text": "Built or refitted by a community, and granted to its captain as their emissary",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.3"
 								},
 								{
 									"roll": {
@@ -1669,7 +1670,7 @@
 										"max": 25
 									},
 									"text": "Captured in battle, and awarded by the former captain",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.4"
 								},
 								{
 									"roll": {
@@ -1677,7 +1678,7 @@
 										"max": 30
 									},
 									"text": "Earned in exchange for a perilous undertaking or heroic deed",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.5"
 								},
 								{
 									"roll": {
@@ -1685,7 +1686,7 @@
 										"max": 35
 									},
 									"text": "Entrusted by a faction, and commanded in their service",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.6"
 								},
 								{
 									"roll": {
@@ -1693,7 +1694,7 @@
 										"max": 40
 									},
 									"text": "Found as a wreck, and refitted to make it seaworthy",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.7"
 								},
 								{
 									"roll": {
@@ -1701,7 +1702,7 @@
 										"max": 45
 									},
 									"text": "Gifted by an anonymous benefactor",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.8"
 								},
 								{
 									"roll": {
@@ -1709,7 +1710,7 @@
 										"max": 50
 									},
 									"text": "Inherited from a dead or missing relative or mentor",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.9"
 								},
 								{
 									"roll": {
@@ -1717,7 +1718,7 @@
 										"max": 55
 									},
 									"text": "Leased under exorbitant terms",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.10"
 								},
 								{
 									"roll": {
@@ -1725,7 +1726,7 @@
 										"max": 60
 									},
 									"text": "Obtained in trade for a precious object",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.11"
 								},
 								{
 									"roll": {
@@ -1733,7 +1734,7 @@
 										"max": 65
 									},
 									"text": "Obtained through a false identity or counterfeit documents",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.12"
 								},
 								{
 									"roll": {
@@ -1741,7 +1742,7 @@
 										"max": 70
 									},
 									"text": "On grant from an underworld figure in exchange for completing unscrupulous missions",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.13"
 								},
 								{
 									"roll": {
@@ -1749,7 +1750,7 @@
 										"max": 75
 									},
 									"text": "Once a timeworn, unwanted ship, painstakingly refitted to its new role",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.14"
 								},
 								{
 									"roll": {
@@ -1757,7 +1758,7 @@
 										"max": 80
 									},
 									"text": "Purchased at a suspiciously cheap price",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.15"
 								},
 								{
 									"roll": {
@@ -1765,7 +1766,7 @@
 										"max": 85
 									},
 									"text": "Seized in a mutiny against its former captain",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.16"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.16"
 								},
 								{
 									"roll": {
@@ -1773,7 +1774,7 @@
 										"max": 90
 									},
 									"text": "Stolen from under the nose of a powerful faction",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.17"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.17"
 								},
 								{
 									"roll": {
@@ -1781,7 +1782,7 @@
 										"max": 95
 									},
 									"text": "Taken while fleeing an attack or disaster",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.18"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.18"
 								},
 								{
 									"roll": {
@@ -1789,7 +1790,7 @@
 										"max": 100
 									},
 									"text": "Won in a high-stakes bet",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history.19"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history.19"
 								}
 							],
 							"dice": "1d100",
@@ -1797,7 +1798,7 @@
 								"roll": "Roll",
 								"text": "Result"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/command/ship_history"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/command/ship_history"
 						},
 						"ship_history_cursed": {
 							"name": "Cursed Ship",
@@ -1806,7 +1807,7 @@
 							"tags": {
 								"sundered_isles": {
 									"cursed_version_of": [
-										"oracle_rollable:sundered_isles/campaign/command/ship_history"
+										"oracle_rollable:sundered_isles/campaign_launch/command/ship_history"
 									],
 									"curse_behavior": "replace_result"
 								}
@@ -1829,7 +1830,7 @@
 										"max": 10
 									},
 									"text": "Awarded by its former—and now dead—captain, who still haunts its decks",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.0"
 								},
 								{
 									"roll": {
@@ -1837,7 +1838,7 @@
 										"max": 20
 									},
 									"text": "Bound to a role as its new commander by a beguiling curse",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.1"
 								},
 								{
 									"roll": {
@@ -1845,7 +1846,7 @@
 										"max": 30
 									},
 									"text": "Cobbled together from salvage found within a graveyard of forsaken ships",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.2"
 								},
 								{
 									"roll": {
@@ -1853,7 +1854,7 @@
 										"max": 40
 									},
 									"text": "Discovered within a hidden sea cave after calling to you in a dream",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.3"
 								},
 								{
 									"roll": {
@@ -1861,7 +1862,7 @@
 										"max": 50
 									},
 									"text": "Found adrift in perfect condition, with no sign of the crew",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.4"
 								},
 								{
 									"roll": {
@@ -1869,7 +1870,7 @@
 										"max": 60
 									},
 									"text": "Gifted by a dreadful entity in exchange for a dark favor; you reneged on their terms",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.5"
 								},
 								{
 									"roll": {
@@ -1877,7 +1878,7 @@
 										"max": 70
 									},
 									"text": "Granted in an accursed agreement, sealed in blood",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.6"
 								},
 								{
 									"roll": {
@@ -1885,7 +1886,7 @@
 										"max": 80
 									},
 									"text": "Improbably found as a derelict well inland; moved and refloated with much effort",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.7"
 								},
 								{
 									"roll": {
@@ -1893,7 +1894,7 @@
 										"max": 90
 									},
 									"text": "Raised from the sunken depths as a boon from the sea itself",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.8"
 								},
 								{
 									"roll": {
@@ -1901,7 +1902,7 @@
 										"max": 100
 									},
 									"text": "Taken in spite of its cursed reputation, when no one else would sail it",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/ship_history_cursed.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/ship_history_cursed.9"
 								}
 							],
 							"dice": "1d100",
@@ -1909,7 +1910,7 @@
 								"roll": "Roll",
 								"text": "Result"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/command/ship_history_cursed"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/command/ship_history_cursed"
 						},
 						"crew": {
 							"name": "Crew Characteristics",
@@ -1918,7 +1919,7 @@
 							"summary": "Envision the makeup of the ship’s crew, using the table below for inspiration. Rolling for a result can inspire details for your own background and potential quests—or it may put you at odds with a crew that is contrary to your nature and goals.",
 							"tags": {
 								"sundered_isles": {
-									"cursed_by": "oracle_rollable:sundered_isles/campaign/command/crew_cursed"
+									"cursed_by": "oracle_rollable:sundered_isles/campaign_launch/command/crew_cursed"
 								}
 							},
 							"_source": {
@@ -1939,7 +1940,7 @@
 										"max": 8
 									},
 									"text": "Eclectic mix of all sorts of folk",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.0"
 								},
 								{
 									"roll": {
@@ -1947,7 +1948,7 @@
 										"max": 14
 									},
 									"text": "Adventurers and trailblazers, seeking the far horizon",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.1"
 								},
 								{
 									"roll": {
@@ -1955,7 +1956,7 @@
 										"max": 18
 									},
 									"text": "Disciplined military force, doing their duty",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.2"
 								},
 								{
 									"roll": {
@@ -1963,7 +1964,7 @@
 										"max": 22
 									},
 									"text": "Experienced mariners, lending an able hand",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.3"
 								},
 								{
 									"roll": {
@@ -1971,7 +1972,7 @@
 										"max": 26
 									},
 									"text": "Glory hunters, looking to make a mark",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.4"
 								},
 								{
 									"roll": {
@@ -1979,7 +1980,7 @@
 										"max": 32
 									},
 									"text": "Kin of a seafaring people, honoring traditions",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.5"
 								},
 								{
 									"roll": {
@@ -1987,7 +1988,7 @@
 										"max": 38
 									},
 									"text": "Marauders and brigands, taking their share of the spoils",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.6"
 								},
 								{
 									"roll": {
@@ -1995,7 +1996,7 @@
 										"max": 44
 									},
 									"text": "Novice mariners, undertaking their first adventure",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.7"
 								},
 								{
 									"roll": {
@@ -2003,7 +2004,7 @@
 										"max": 48
 									},
 									"text": "Old salts brought out of retirement, undertaking a final adventure",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.8"
 								},
 								{
 									"roll": {
@@ -2011,7 +2012,7 @@
 										"max": 54
 									},
 									"text": "Outcasts and exiles, bound by their differences",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.9"
 								},
 								{
 									"roll": {
@@ -2019,7 +2020,7 @@
 										"max": 60
 									},
 									"text": "Rebels, fighting for freedom",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.10"
 								},
 								{
 									"roll": {
@@ -2027,7 +2028,7 @@
 										"max": 66
 									},
 									"text": "Refugees from a faraway land, finding a new home",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.11"
 								},
 								{
 									"roll": {
@@ -2035,7 +2036,7 @@
 										"max": 70
 									},
 									"text": "Religious zealots, serving their god",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.12"
 								},
 								{
 									"roll": {
@@ -2043,7 +2044,7 @@
 										"max": 74
 									},
 									"text": "Scoundrels and spies, always watching",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.13"
 								},
 								{
 									"roll": {
@@ -2051,7 +2052,7 @@
 										"max": 78
 									},
 									"text": "Survivors of a horrible cataclysm, preserving what remains",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.14"
 								},
 								{
 									"roll": {
@@ -2059,7 +2060,7 @@
 										"max": 82
 									},
 									"text": "Survivors of a terrible attack, seeking revenge",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.15"
 								},
 								{
 									"roll": {
@@ -2067,7 +2068,7 @@
 										"max": 86
 									},
 									"text": "Turncoat imperials, sworn against former compatriots",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.16"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.16"
 								},
 								{
 									"roll": {
@@ -2075,7 +2076,7 @@
 										"max": 90
 									},
 									"text": "Unprincipled mercenaries, earning blood money",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.17"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.17"
 								},
 								{
 									"roll": {
@@ -2092,7 +2093,7 @@
 											"dice": null
 										}
 									],
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew.18"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew.18"
 								}
 							],
 							"dice": "1d100",
@@ -2100,7 +2101,7 @@
 								"roll": "Roll",
 								"text": "Result"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/command/crew"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/command/crew"
 						},
 						"crew_cursed": {
 							"name": "Cursed Crew",
@@ -2110,7 +2111,7 @@
 							"tags": {
 								"sundered_isles": {
 									"cursed_version_of": [
-										"oracle_rollable:sundered_isles/campaign/command/crew"
+										"oracle_rollable:sundered_isles/campaign_launch/command/crew"
 									],
 									"curse_behavior": "add_result"
 								}
@@ -2133,7 +2134,7 @@
 										"max": 5
 									},
 									"text": "Bound to the ship, unable to sail another",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.0"
 								},
 								{
 									"roll": {
@@ -2141,7 +2142,7 @@
 										"max": 10
 									},
 									"text": "Bound to the will of a dreadful artifact",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.1"
 								},
 								{
 									"roll": {
@@ -2149,7 +2150,7 @@
 										"max": 15
 									},
 									"text": "Built or augmented with strange technologies",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.2"
 								},
 								{
 									"roll": {
@@ -2157,7 +2158,7 @@
 										"max": 20
 									},
 									"text": "Cursed with foreknowledge of a dreadful fate",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.3"
 								},
 								{
 									"roll": {
@@ -2165,7 +2166,7 @@
 										"max": 25
 									},
 									"text": "Hunted by a vengeful sea beast",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.4"
 								},
 								{
 									"roll": {
@@ -2173,7 +2174,7 @@
 										"max": 30
 									},
 									"text": "In the service of a malevolent god or entity",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.5"
 								},
 								{
 									"roll": {
@@ -2181,7 +2182,7 @@
 										"max": 40
 									},
 									"text": "Obsessed with superstitious routines and rituals",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.6"
 								},
 								{
 									"roll": {
@@ -2189,7 +2190,7 @@
 										"max": 45
 									},
 									"text": "Once dead, now cursed with unnatural life",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.7"
 								},
 								{
 									"roll": {
@@ -2197,7 +2198,7 @@
 										"max": 50
 									},
 									"text": "Plagued with unnatural sickness",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.8"
 								},
 								{
 									"roll": {
@@ -2205,7 +2206,7 @@
 										"max": 60
 									},
 									"text": "Suffers a jinxed reputation, and forsaken by others",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.9"
 								},
 								{
 									"roll": {
@@ -2213,7 +2214,7 @@
 										"max": 65
 									},
 									"text": "Suffers an insatiable need",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.10"
 								},
 								{
 									"roll": {
@@ -2221,7 +2222,7 @@
 										"max": 75
 									},
 									"text": "Survivors of an attack by a horrifying foe or monstrous beast",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.11"
 								},
 								{
 									"roll": {
@@ -2229,7 +2230,7 @@
 										"max": 85
 									},
 									"text": "Tattooed with elaborate mystical wards",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.12"
 								},
 								{
 									"roll": {
@@ -2237,7 +2238,7 @@
 										"max": 95
 									},
 									"text": "Tormented by unforgiving spirits",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.13"
 								},
 								{
 									"roll": {
@@ -2245,7 +2246,7 @@
 										"max": 100
 									},
 									"text": "True nature revealed under moonlight",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/command/crew_cursed.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/command/crew_cursed.14"
 								}
 							],
 							"dice": "1d100",
@@ -2253,11 +2254,11 @@
 								"roll": "Roll",
 								"text": "Result"
 							},
-							"_id": "oracle_rollable:sundered_isles/campaign/command/crew_cursed"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/command/crew_cursed"
 						}
 					},
 					"collections": {},
-					"_id": "oracle_collection:sundered_isles/campaign/command"
+					"_id": "oracle_collection:sundered_isles/campaign_launch/command"
 				},
 				"beasts": {
 					"name": "Beasts of the Isles",
@@ -2305,7 +2306,7 @@
 									"text": "Predatory Shark",
 									"text2": "Various Ranks",
 									"text3": "Most sharks offer little threat, but certain species of large, aggressive sharks are properly feared and respected by seagoing folk. Mariners also speak of ancient sharks, relentless hunters the size of whales whose teeth splinter hull and bone alike.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.0"
 								},
 								{
 									"roll": {
@@ -2315,7 +2316,7 @@
 									"text": "Great Whale",
 									"text2": "Various Ranks",
 									"text3": "The seas teem with whales of all sorts. Even the largest of them, the great whales, are generally friendly and curious. They are nevertheless under threat by whalers and despoilers, and some islanders sail in defense of these gentle creatures.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.1"
 								},
 								{
 									"roll": {
@@ -2325,7 +2326,7 @@
 									"text": "Leviathan",
 									"text2": "Epic",
 									"text3": "These ancient whales are far larger and more aggressive than their common kin. Their bone-white hide bears the scars of harpoon strikes and hard-won battles with other beasts. They are keenly intelligent, have long memories, and do not forgive or forget.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.2"
 								},
 								{
 									"roll": {
@@ -2335,7 +2336,7 @@
 									"text": "Rothulk",
 									"text2": "Extreme",
 									"text3": "Circling carrion birds and the stench of death often forewarn the appearance of a rothulk, a cadaverous but still animate great whale. These unfortunate beasts are infested by a multitude of parasites that bind grasping tendrils to flesh and bone. The small creatures steal the life of their host and puppeteer what remains.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.3"
 								},
 								{
 									"roll": {
@@ -2345,7 +2346,7 @@
 									"text": "Giant Squid",
 									"text2": "Formidable",
 									"text3": "The largest of these creatures can easily crush a longboat with their powerful tentacles, but they only reluctantly emerge from the lightless depths that is their preferred hunting grounds.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.4"
 								},
 								{
 									"roll": {
@@ -2355,7 +2356,7 @@
 									"text": "The Kraken",
 									"text2": "Epic",
 									"text3": "The Kraken is the singular master of the seas, a beast of horrific scale, cunning, and ferocity. It has the sleek form and speed of a giant whale, but is armed with powerful tentacles and a gaping, toothy maw. Along its flank are rows of luminescent eyes; doom lights, mariners call them, for they are a presage of certain death.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.5"
 								},
 								{
 									"roll": {
@@ -2365,7 +2366,7 @@
 									"text": "Sea Dragon",
 									"text2": "Formidable",
 									"text3": "These aquatic dragons have glittering scales, toothy jaws, and long, bladed tails. Their winglike fins propel them through the water at amazing speeds, and send them leaping and gliding over the waves.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.6"
 								},
 								{
 									"roll": {
@@ -2375,7 +2376,7 @@
 									"text": "Elder Ray",
 									"text2": "Extreme",
 									"text3": "Like their lesser brethren, these creatures have flattened bodies and broad fins. They are inherently gentle, often traveling with seafolk who recognize individual rays by their luminescent markings.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.7"
 								},
 								{
 									"roll": {
@@ -2385,7 +2386,7 @@
 									"text": "Whipneck",
 									"text2": "Formidable",
 									"text3": "These creatures are about the length of a sloop, with long necks, broad bodies, and turtle-like fins. They are not overly aggressive, but often hound fishing boats in hopes of stealing their catch.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.8"
 								},
 								{
 									"roll": {
@@ -2395,7 +2396,7 @@
 									"text": "Eel Swarm",
 									"text2": "Formidable",
 									"text3": "These masses of black-eyed, sharp-toothed eels rely on sheer numbers to overwhelm larger prey. Some say they are capable of chewing through a ship’s hull, and pour into a breached vessel in a slithering, biting torrent.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.9"
 								},
 								{
 									"roll": {
@@ -2405,7 +2406,7 @@
 									"text": "Sea Serpent",
 									"text2": "Epic",
 									"text3": "These titanic beasts have sinuous bodies, glittering scales, and spiny red fins larger than the greatest mainsail. They are largely ambivalent to the presence of most seagoing folk—all but the largest ship passes beneath their notice.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.10"
 								},
 								{
 									"roll": {
@@ -2415,7 +2416,7 @@
 									"text": "Reefstrider",
 									"text2": "Extreme",
 									"text3": "The shells of these gigantic, squat crustaceans are encrusted with coral and sea life, camouflaging them among reef systems. They are territorial and protective of their habitats.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.11"
 								},
 								{
 									"roll": {
@@ -2425,7 +2426,7 @@
 									"text": "Starlume",
 									"text2": "Dangerous",
 									"text3": "Hundreds of pinpoint lights shimmer within the translucent form of these gigantic jellyfish. According to legend, the lights of a starlume reveal complex celestial maps. Those who look deeply into those alluring lights may find themselves gifted—or cursed—with visions of lost seas and hidden places.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.12"
 								},
 								{
 									"roll": {
@@ -2435,7 +2436,7 @@
 									"text": "Vortex Forge",
 									"text2": "Epic",
 									"text3": "From a distance, this titanic entity might be mistaken for a great whale, but it is a crewless metal construct that wanders the seas on an inscrutable mission. Its rotating maw generates powerful whirlpools to draw in prey, sending ship and sailor alike into an ever-burning furnace deep within its mechanical gullet.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.13"
 								},
 								{
 									"roll": {
@@ -2445,7 +2446,7 @@
 									"text": "Herald",
 									"text2": "Epic",
 									"text3": "These colossal tortoise-like beings are the longest-lived creatures of the isles—perhaps as ancient as the world itself. Islanders interpret wondrous and grim portents from the sighting of a herald, but these creatures often go unseen; their craggy shell is easily mistaken for a small, rocky island.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.14"
 								},
 								{
 									"roll": {
@@ -2455,11 +2456,11 @@
 									"text": "Abomination",
 									"text2": "Various Ranks",
 									"text3": "Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it a water form.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sea.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sea.15"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/beasts/sea"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/beasts/sea"
 						},
 						"land": {
 							"name": "Beasts of the Land",
@@ -2491,7 +2492,7 @@
 									"text": "Predatory Big Cat",
 									"text2": "Various Ranks",
 									"text3": "Big cats are the most common land predator in the isles. Some live among the high branches of jungle canopies, climbing and leaping with ease. Others dwell within the shadows of the forest floor or amid the rocks and crags of highland terrain, stalking their prey with deadly skill.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.0"
 								},
 								{
 									"roll": {
@@ -2501,7 +2502,7 @@
 									"text": "Reaper",
 									"text2": "Formidable",
 									"text3": "Reapers are bipedal, cunning reptiles who move in packs, striking unseen from the shadows and chasing prey into flanking ambushes. They dispatch their quarry with wicked, sickle-shaped claws.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.1"
 								},
 								{
 									"roll": {
@@ -2511,7 +2512,7 @@
 									"text": "Great Ape",
 									"text2": "Epic",
 									"text3": "The towering great apes of the isles live in the most rugged and remote jungles. They are reclusive creatures and do not abide rivals or trespassers. Their long lives are marked by the innumerable scars of fights with other beasts.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.2"
 								},
 								{
 									"roll": {
@@ -2521,7 +2522,7 @@
 									"text": "Thundermaw",
 									"text2": "Extreme",
 									"text3": "This bipedal reptile is feared for its towering size, toothy maw, and dreadful roar. A small circlet of bone rings the beast’s skull, leading some to name the thundermaw a king among the isles. Despite its legendary reputation, the thundermaw prefers to scavenge its meals, and tires easily when giving chase.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.3"
 								},
 								{
 									"roll": {
@@ -2531,7 +2532,7 @@
 									"text": "Primordial",
 									"text2": "Epic",
 									"text3": "This titanic, reptilian beast dwells within deep jungles and mountainous highlands. It is a creature of the ancient world, unconcerned with the petty affairs of island folk but protective of its mist-shrouded domain. It is taller than the highest jungle canopy, and leaves trails of splintered trees and sundered earth in its wake.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.4"
 								},
 								{
 									"roll": {
@@ -2541,7 +2542,7 @@
 									"text": "Avithor",
 									"text2": "Dangerous",
 									"text3": "These person-sized, flightless birds are drawn to shiny things, and collect bits of stone, metal, and trinkets in their nests. They are jealously protective of this hoard. When a trespasser comes near, they use a chittering call and display of colorful plumage to warn them away. If that fails, their surprising jumping ability, razor-like claws, and sharp beak make quick work of any threat.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.5"
 								},
 								{
 									"roll": {
@@ -2551,7 +2552,7 @@
 									"text": "Verdant Mammoth",
 									"text2": "Extreme",
 									"text3": "These majestic, nomadic creatures have prehensile trunks, long tusks, and spiraling horns. The largest and oldest of a herd, the matriarch, is covered in a layer of moss, lichen, and plant sprigs—it wears this lush garden like an elaborate, earthy cape. Birds roost along the matriarch’s back and circle above while the herd travels, providing a squawking alarm when danger is near.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.6"
 								},
 								{
 									"roll": {
@@ -2561,7 +2562,7 @@
 									"text": "Serrabrus",
 									"text2": "Formidable",
 									"text3": "The serrabrus is a large boar-like beast. It is an industrious creature, felling trees, gathering deadwood, and building crude barriers with its sweeping, sawtooth tusks. To find oneself lost within the strange, meandering fences of the serrabrus is to incite the rage of the builder.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.7"
 								},
 								{
 									"roll": {
@@ -2571,7 +2572,7 @@
 									"text": "Night Weaver",
 									"text2": "Formidable",
 									"text3": "These enormous spiders have a sleek, obsidian exoskeleton and slender legs tipped with razor-sharp hooks. They lurk in shadowy places—such as grounded shipwrecks, deep caves, and dense woodlands—building elaborate webs as traps for unwary prey.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.8"
 								},
 								{
 									"roll": {
@@ -2581,7 +2582,7 @@
 									"text": "Sylvan Strider",
 									"text2": "Extreme",
 									"text3": "This gargantuan, insect-like creature moves through woodlands on multi-jointed legs the size of tree trunks. It often stands perfectly still while lying in wait for prey, indiscernible from the surrounding wilds.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.9"
 								},
 								{
 									"roll": {
@@ -2591,7 +2592,7 @@
 									"text": "Mimic Serpent",
 									"text2": "Extreme",
 									"text3": "The scales of this massive, canopy-dwelling snake can shift in hue and texture, allowing it to blend invisibly within its surroundings. After grasping its unaware prey, the mimic serpent coils around its victim, stealing air and crushing bones.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.10"
 								},
 								{
 									"roll": {
@@ -2601,7 +2602,7 @@
 									"text": "Ghost Rat",
 									"text2": "Dangerous",
 									"text3": "These pale rats of unusual size are accustomed to life within lightless caves. Ghost rats are blind, and use their keen sense of smell to navigate the depths. They pursue potential meals with hound-like persistence.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.11"
 								},
 								{
 									"roll": {
@@ -2611,7 +2612,7 @@
 									"text": "Gangle",
 									"text2": "Formidable",
 									"text3": "This large, cave-dwelling insect contorts its long limbs with uncanny flexibility—the joints cracking like breaking bones—to navigate the smallest crevices. These limbs, equipped with delicate sensory organs, enable the creature to perceive the subtlest vibrations and detect prey or threats from afar. After unfolding itself from its hiding place, the gangle attacks with a spray of burning saliva.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.12"
 								},
 								{
 									"roll": {
@@ -2621,7 +2622,7 @@
 									"text": "Deep Dragon",
 									"text2": "Epic",
 									"text3": "These ancient dragons lair in volcanic chambers, hibernating for centuries amid superheated steam and gases. They are flightless, with only vestigial wings, but their titanic scale and molten breath mark them as the greatest of dragon-kind. The rare emergence of a deep dragon from its burrow is a catastrophic reckoning for the surface world.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.13"
 								},
 								{
 									"roll": {
@@ -2631,11 +2632,11 @@
 									"text": "Abomination",
 									"text2": "Various Ranks",
 									"text3": "Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it a land form.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/land.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/land.14"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/beasts/land"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/beasts/land"
 						},
 						"shore_and_river": {
 							"name": "Beasts of the Shore and River",
@@ -2667,7 +2668,7 @@
 									"text": "Great Crocodile",
 									"text2": "Various Ranks",
 									"text3": "Large crocodiles dwell in waters throughout the isles, including coastal wetlands, rivers, and the depths of tidal caves. The greatest and fiercest of them are the size of a sloop­­ —armed with dagger-like teeth, impenetrable hides, and powerful tails capable of shattering stone.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.0"
 								},
 								{
 									"roll": {
@@ -2677,7 +2678,7 @@
 									"text": "Tenebrous Squid",
 									"text2": "Extreme",
 									"text3": "This beast dwells within shoreline hollows and sea caves. It is a cunning and patient creature, slumbering for months or years until hapless prey wanders into its dark lair. As it awakens, its orb-like eyes glimmer with a foul, hungry light, and its barbed tentacles prepare to strike.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.1"
 								},
 								{
 									"roll": {
@@ -2687,7 +2688,7 @@
 									"text": "Diving Spider",
 									"text2": "Dangerous",
 									"text3": "These semi-aquatic arachnids trap air with their silk, enabling them to hunt along riverbeds and coastal shallows, or lurk along the shore in wait of prey. They occasionally get caught up in nets, an unlucky catch for fisher folk.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.2"
 								},
 								{
 									"roll": {
@@ -2697,7 +2698,7 @@
 									"text": "Muck Toad",
 									"text2": "Formidable",
 									"text3": "This creature lurks within the mire of swamps and muddy rivers. What the muck toad lacks in speed and agility, it makes up for in strength and scale, grasping prey with its prehensile tongue and swallowing it whole with its cavernous maw.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.3"
 								},
 								{
 									"roll": {
@@ -2707,7 +2708,7 @@
 									"text": "Sand Dragon",
 									"text2": "Formidable",
 									"text3": "Sand dragons are the smallest of dragon-kind, but are still a fearsome foe. Burrowing beneath shoreline dunes, it stirs at the telltale vibrations of footfalls upon its lair. It attacks with dagger-like claws, teeth as long and wicked as cutlasses, and breath of scalding steam.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.4"
 								},
 								{
 									"roll": {
@@ -2717,7 +2718,7 @@
 									"text": "Keelback Crab",
 									"text2": "Extreme",
 									"text3": "The keelback crab uses a scavenged ship as a protective shell for its soft exoskeleton. Reports of ghost ships can often be attributed to keelbacks, scuttling along coastal waters with wrecks on their backs. As it grows, a keelback must commandeer vessels of increasing size.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.5"
 								},
 								{
 									"roll": {
@@ -2727,7 +2728,7 @@
 									"text": "Jade Crab",
 									"text2": "Extreme",
 									"text3": "The jade crab is the largest and most aggressive of the crustaceans, able to snap a longboat or even a small ship in two with its vice-like pincers. At rest, their shell is slate gray, easily mistaken for rocks or reefs. On the hunt, they shimmer with an iridescent blue-green. Fiercely territorial, these creatures often claim a waterway, cove, or sea cave as their lair.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.6"
 								},
 								{
 									"roll": {
@@ -2737,11 +2738,11 @@
 									"text": "Abomination",
 									"text2": "Various Ranks",
 									"text3": "Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it a land or water form.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/shore_and_river.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/shore_and_river.7"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/beasts/shore_and_river"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/beasts/shore_and_river"
 						},
 						"sky": {
 							"name": "Beasts of the Sky",
@@ -2773,7 +2774,7 @@
 									"text": "Great Hawk",
 									"text2": "Various Ranks",
 									"text3": "Various types of enormous hawks hunt among the isles, including the mangrove-dwelling ash hawk and the coastal wind reaver. The greatest of them, the fabled vastwing, is said to be capable of grasping and lifting a fully loaded longboat in its enormous talons.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.0"
 								},
 								{
 									"roll": {
@@ -2783,7 +2784,7 @@
 									"text": "Iron Dragon",
 									"text2": "Extreme",
 									"text3": "The most common dragon of the isles, the iron dragon dwells in a variety of environments, from rocky coasts to deep inland jungles. They have a tough hide the color of weathered iron, dreadful claws, and a long, powerful tail. But their most potent weapon is their fiery breath, the bane of any wooden ship that earns their ire. Some island folk revere these creatures. But others harness them and ride into battle, launching from a seaside fort or a ship’s deck to lay waste to their enemies.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.1"
 								},
 								{
 									"roll": {
@@ -2793,7 +2794,7 @@
 									"text": "Wave Skimmer",
 									"text2": "Formidable",
 									"text3": "These winged reptilian beasts nest along waterside cliffs, and are adept at diving to spear fish with barbed beaks. Fishing boats and cargo ships often fall prey to wave skimmer ambushes, as the cunning predators have learned of the great bounties hidden within those vessels.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.2"
 								},
 								{
 									"roll": {
@@ -2803,7 +2804,7 @@
 									"text": "Goregull",
 									"text2": "Dangerous",
 									"text3": "Scavengers by nature, the vulture-sized goregulls feed primarily on dead sea life, but are known to harass the crews of floundering ships.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.3"
 								},
 								{
 									"roll": {
@@ -2813,7 +2814,7 @@
 									"text": "Monarch Bat",
 									"text2": "Formidable",
 									"text3": "These oversized bats, large enough to carry off an unlucky islander, dwell in caves and amid jungle canopies. As the sun sets, they leave their roosts to hunt. They are particularly dangerous on moonless nights when their swift, silent approach goes unnoticed.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.4"
 								},
 								{
 									"roll": {
@@ -2823,7 +2824,7 @@
 									"text": "Bloodmite",
 									"text2": "Dangerous",
 									"text3": "Bloodmites are hound-sized, flying insects. They primarily cling to the hide of titanic beasts, feeding through a blade-tipped proboscis, but are not averse to preying upon smaller targets.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.5"
 								},
 								{
 									"roll": {
@@ -2833,7 +2834,7 @@
 									"text": "Thanatoi",
 									"text2": "Dangerous",
 									"text3": "These moth-like creatures are unsettlingly large but harmless. They are often seen on nights when Wraith is full—they shimmer with a strange, ethereal glow, as if reflecting the light of the moon. Many islanders believe they escort souls into the world beyond. Look too long into their alluring glow, they say, and you suffer a glimpse of your own death.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.6"
 								},
 								{
 									"roll": {
@@ -2843,15 +2844,15 @@
 									"text": "Abomination",
 									"text2": "Various Ranks",
 									"text3": "Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it an air form.",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/beasts/sky.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/beasts/sky.7"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/beasts/sky"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/beasts/sky"
 						}
 					},
 					"collections": {},
-					"_id": "oracle_collection:sundered_isles/campaign/beasts"
+					"_id": "oracle_collection:sundered_isles/campaign_launch/beasts"
 				},
 				"notable_locations": {
 					"name": "Notable Locations",
@@ -2884,7 +2885,7 @@
 							},
 							"tags": {
 								"sundered_isles": {
-									"cursed_by": "oracle_rollable:sundered_isles/campaign/notable_locations/details_cursed"
+									"cursed_by": "oracle_rollable:sundered_isles/campaign_launch/notable_locations/details_cursed"
 								}
 							},
 							"_source": {
@@ -2906,7 +2907,7 @@
 									},
 									"text": "Abyssal sinkhole",
 									"text2": "What is rumored to lie at the bottom of these depths?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.0"
 								},
 								{
 									"roll": {
@@ -2915,7 +2916,7 @@
 									},
 									"text": "Active volcano",
 									"text2": "What important location does this eruption threaten?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.1"
 								},
 								{
 									"roll": {
@@ -2924,7 +2925,7 @@
 									},
 									"text": "Ancient ruins",
 									"text2": "Who or what defends this place against intruders?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.2"
 								},
 								{
 									"roll": {
@@ -2933,7 +2934,7 @@
 									},
 									"text": "Colossal monument",
 									"text2": "What legendary figure does this monument honor?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.3"
 								},
 								{
 									"roll": {
@@ -2942,7 +2943,7 @@
 									},
 									"text": "Crucial trade route",
 									"text2": "What is disrupting trade along this route?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.4"
 								},
 								{
 									"roll": {
@@ -2951,7 +2952,7 @@
 									},
 									"text": "Deserted settlement",
 									"text2": "Why was this place abandoned?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.5"
 								},
 								{
 									"roll": {
@@ -2960,7 +2961,7 @@
 									},
 									"text": "Expansive cave",
 									"text2": "What treasure is said to lie at the heart of this cave?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.6"
 								},
 								{
 									"roll": {
@@ -2969,7 +2970,7 @@
 									},
 									"text": "Floating tradepost",
 									"text2": "Who is hounding these traders, demanding tribute?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.7"
 								},
 								{
 									"roll": {
@@ -2978,7 +2979,7 @@
 									},
 									"text": "Hull-breaching rocks",
 									"text2": "Who or what preys upon careless ships in this area?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.8"
 								},
 								{
 									"roll": {
@@ -2987,7 +2988,7 @@
 									},
 									"text": "Kelp-clogged waters",
 									"text2": "What ship went missing here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.9"
 								},
 								{
 									"roll": {
@@ -2996,7 +2997,7 @@
 									},
 									"text": "Meteorite scar",
 									"text2": "What prophecy foretold the meteorite's fall?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.10"
 								},
 								{
 									"roll": {
@@ -3005,7 +3006,7 @@
 									},
 									"text": "Military encampment",
 									"text2": "Who is this faction warring against?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.11"
 								},
 								{
 									"roll": {
@@ -3014,7 +3015,7 @@
 									},
 									"text": "Military fort",
 									"text2": "What notable prisoner is held here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.12"
 								},
 								{
 									"roll": {
@@ -3023,7 +3024,7 @@
 									},
 									"text": "Mining operation",
 									"text2": "What danger have these miners unearthed?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.13"
 								},
 								{
 									"roll": {
@@ -3032,7 +3033,7 @@
 									},
 									"text": "Mist-shrouded peak",
 									"text2": "What is said to stand atop this mountain?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.14"
 								},
 								{
 									"roll": {
@@ -3041,7 +3042,7 @@
 									},
 									"text": "Navigation beacon",
 									"text2": "Why has this lighthouse fallen into disrepair?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.15"
 								},
 								{
 									"roll": {
@@ -3050,7 +3051,7 @@
 									},
 									"text": "Ongoing naval blockade",
 									"text2": "Who seeks an escort through or around this blockade?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.16"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.16"
 								},
 								{
 									"roll": {
@@ -3059,7 +3060,7 @@
 									},
 									"text": "Palatial manor",
 									"text2": "What lavish event is scheduled to take place here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.17"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.17"
 								},
 								{
 									"roll": {
@@ -3068,7 +3069,7 @@
 									},
 									"text": "Pirate conclave",
 									"text2": "What opportunity or crisis brings the pirates together?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.18"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.18"
 								},
 								{
 									"roll": {
@@ -3077,7 +3078,7 @@
 									},
 									"text": "Recently wrecked ship",
 									"text2": "What prize was this ship rumored to carry?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.19"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.19"
 								},
 								{
 									"roll": {
@@ -3086,7 +3087,7 @@
 									},
 									"text": "Refugee encampment",
 									"text2": "What danger or crisis displaced these refugees?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.20"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.20"
 								},
 								{
 									"roll": {
@@ -3095,7 +3096,7 @@
 									},
 									"text": "Religious commune",
 									"text2": "Why are these adherents desperate for supplies?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.21"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.21"
 								},
 								{
 									"roll": {
@@ -3104,7 +3105,7 @@
 									},
 									"text": "Sentinel tree",
 									"text2": "What threatens this sacred site?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.22"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.22"
 								},
 								{
 									"roll": {
@@ -3113,7 +3114,7 @@
 									},
 									"text": "Sheltered anchorage",
 									"text2": "What infamous ship lies anchored here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.23"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.23"
 								},
 								{
 									"roll": {
@@ -3122,7 +3123,7 @@
 									},
 									"text": "Warship patrols",
 									"text2": "What are these ships hunting?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.24"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.24"
 								},
 								{
 									"roll": {
@@ -3131,7 +3132,7 @@
 									},
 									"text": "Whale graveyard",
 									"text2": "Who seeks to harvest these bones?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.25"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.25"
 								},
 								{
 									"roll": {
@@ -3140,7 +3141,7 @@
 									},
 									"text": "Whaling grounds",
 									"text2": "Who or what is hunting these creatures to near-extinction?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.26"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.26"
 								},
 								{
 									"roll": {
@@ -3149,11 +3150,11 @@
 									},
 									"text": "Wide, navigable river",
 									"text2": "What important location lies upriver?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details.27"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details.27"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/notable_locations/details"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/notable_locations/details"
 						},
 						"details_cursed": {
 							"name": "Cursed Location Details",
@@ -3167,7 +3168,7 @@
 							"tags": {
 								"sundered_isles": {
 									"cursed_version_of": [
-										"oracle_rollable:sundered_isles/campaign/notable_locations/details"
+										"oracle_rollable:sundered_isles/campaign_launch/notable_locations/details"
 									],
 									"curse_behavior": "replace_result"
 								}
@@ -3191,7 +3192,7 @@
 									},
 									"text": "Area of endless dead calm",
 									"text2": "What ship is trapped in these waters?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.0"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.0"
 								},
 								{
 									"roll": {
@@ -3200,7 +3201,7 @@
 									},
 									"text": "Colossal bones",
 									"text2": "Who lives in the shadow of this age-old corpse?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.1"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.1"
 								},
 								{
 									"roll": {
@@ -3209,7 +3210,7 @@
 									},
 									"text": "Corrupted cave",
 									"text2": "What cult is said to practice foul rites here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.2"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.2"
 								},
 								{
 									"roll": {
@@ -3218,7 +3219,7 @@
 									},
 									"text": "Eldritch monument",
 									"text2": "What forsaken god or entity does this monument honor?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.3"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.3"
 								},
 								{
 									"roll": {
@@ -3227,7 +3228,7 @@
 									},
 									"text": "Forsaken settlement",
 									"text2": "What foul creatures now dwell here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.4"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.4"
 								},
 								{
 									"roll": {
@@ -3236,7 +3237,7 @@
 									},
 									"text": "Frozen wastes",
 									"text2": "What long-lost ship lies trapped here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.5"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.5"
 								},
 								{
 									"roll": {
@@ -3245,7 +3246,7 @@
 									},
 									"text": "Ghost-haunted waters",
 									"text2": "What infamous cursed ship sails these waters?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.6"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.6"
 								},
 								{
 									"roll": {
@@ -3254,7 +3255,7 @@
 									},
 									"text": "Ghost-plagued ruins",
 									"text2": "What sad fate befell these people?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.7"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.7"
 								},
 								{
 									"roll": {
@@ -3263,7 +3264,7 @@
 									},
 									"text": "Haunted battlefield",
 									"text2": "What force or faction was defeated in this battle?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.8"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.8"
 								},
 								{
 									"roll": {
@@ -3272,7 +3273,7 @@
 									},
 									"text": "Hidden island",
 									"text2": "On what rare event does this mystical island reappear?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.9"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.9"
 								},
 								{
 									"roll": {
@@ -3281,7 +3282,7 @@
 									},
 									"text": "Inscrutable iron pillars",
 									"text2": "What faction worships these mysterious relics?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.10"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.10"
 								},
 								{
 									"roll": {
@@ -3290,7 +3291,7 @@
 									},
 									"text": "Lair of a beast",
 									"text2": "What beast is reputed to dwell here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.11"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.11"
 								},
 								{
 									"roll": {
@@ -3299,7 +3300,7 @@
 									},
 									"text": "Perpetual fog bank",
 									"text2": "What is said to lie on the other side of this mist?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.12"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.12"
 								},
 								{
 									"roll": {
@@ -3308,7 +3309,7 @@
 									},
 									"text": "Powerful maelstrom",
 									"text2": "Who do you know that was lost to this swirling vortex?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.13"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.13"
 								},
 								{
 									"roll": {
@@ -3317,7 +3318,7 @@
 									},
 									"text": "Ship graveyard",
 									"text2": "What monstrous creature lurks here?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.14"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.14"
 								},
 								{
 									"roll": {
@@ -3326,7 +3327,7 @@
 									},
 									"text": "Shipwreck on high ground",
 									"text2": "To which faction did this ship belong?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.15"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.15"
 								},
 								{
 									"roll": {
@@ -3335,7 +3336,7 @@
 									},
 									"text": "Skull-shaped outcrop",
 									"text2": "Why does this place haunt your dreams?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.16"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.16"
 								},
 								{
 									"roll": {
@@ -3344,7 +3345,7 @@
 									},
 									"text": "Sorcerous nexus",
 									"text2": "Who has gathered to reap the chaotic energy of this place?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.17"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.17"
 								},
 								{
 									"roll": {
@@ -3353,7 +3354,7 @@
 									},
 									"text": "Titanic machinery",
 									"text2": "Who seeks to reactivate this ancient machine?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.18"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.18"
 								},
 								{
 									"roll": {
@@ -3362,19 +3363,19 @@
 									},
 									"text": "Unending cyclonic storm",
 									"text2": "What is said to lie at this storm's center?",
-									"_id": "oracle_rollable.row:sundered_isles/campaign/notable_locations/details_cursed.19"
+									"_id": "oracle_rollable.row:sundered_isles/campaign_launch/notable_locations/details_cursed.19"
 								}
 							],
 							"dice": "1d100",
-							"_id": "oracle_rollable:sundered_isles/campaign/notable_locations/details_cursed"
+							"_id": "oracle_rollable:sundered_isles/campaign_launch/notable_locations/details_cursed"
 						}
 					},
 					"collections": {},
-					"_id": "oracle_collection:sundered_isles/campaign/notable_locations"
+					"_id": "oracle_collection:sundered_isles/campaign_launch/notable_locations"
 				}
 			},
 			"contents": {},
-			"_id": "oracle_collection:sundered_isles/campaign"
+			"_id": "oracle_collection:sundered_isles/campaign_launch"
 		},
 		"cave": {
 			"name": "Cave Oracles",

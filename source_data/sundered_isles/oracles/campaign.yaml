@@ -10,10 +10,12 @@ ruleset: starforged
   authors:
     - name: Shawn Tomkin
 oracles:
-  campaign:
-    name: Campaign Oracles
+  campaign_launch:
+    name: Campaign Launch Oracles
     type: oracle_collection
     oracle_type: tables
+    enhances:
+      - oracle_collection:starforged/campaign_launch
     _source: *Source
     collections:
       faction_inspiration:
@@ -198,7 +200,7 @@ oracles:
             recommended_rolls: { min: 1, max: 2 }
             tags:
               sundered_isles:
-                cursed_by: oracle_rollable:sundered_isles/campaign/character/backstory_cursed
+                cursed_by: oracle_rollable:sundered_isles/campaign_launch/character/backstory_cursed
             _source:
               <<: *Source
             rows:
@@ -265,7 +267,7 @@ oracles:
             tags:
               sundered_isles:
                 cursed_version_of:
-                  - oracle_rollable:sundered_isles/campaign/character/backstory
+                  - oracle_rollable:sundered_isles/campaign_launch/character/backstory
                 curse_behavior: replace_result
             _source:
               <<: *Source
@@ -485,7 +487,7 @@ oracles:
             summary: If you have a command, envision how you claimed or earned the vessel. For inspiration, use the table below. If you sail under the command of a non-player character, you can use this table to give their ship a backstory.
             tags:
               sundered_isles:
-                cursed_by: oracle_rollable:sundered_isles/campaign/command/ship_history_cursed
+                cursed_by: oracle_rollable:sundered_isles/campaign_launch/command/ship_history_cursed
             _source:
               <<: *Source
             rows:
@@ -536,7 +538,7 @@ oracles:
             tags:
               sundered_isles:
                 cursed_version_of:
-                  - oracle_rollable:sundered_isles/campaign/command/ship_history
+                  - oracle_rollable:sundered_isles/campaign_launch/command/ship_history
                 curse_behavior: replace_result
             _source:
               <<: *Source
@@ -568,7 +570,7 @@ oracles:
             summary: Envision the makeup of the ship’s crew, using the table below for inspiration. Rolling for a result can inspire details for your own background and potential quests—or it may put you at odds with a crew that is contrary to your nature and goals.
             tags:
               sundered_isles:
-                cursed_by: oracle_rollable:sundered_isles/campaign/command/crew_cursed
+                cursed_by: oracle_rollable:sundered_isles/campaign_launch/command/crew_cursed
             _source:
               <<: *Source
             rows:
@@ -622,7 +624,7 @@ oracles:
             tags:
               sundered_isles:
                 cursed_version_of:
-                  - oracle_rollable:sundered_isles/campaign/command/crew
+                  - oracle_rollable:sundered_isles/campaign_launch/command/crew
                 curse_behavior: add_result
             _source:
               <<: *Source
@@ -909,7 +911,7 @@ oracles:
               max: 3
             tags:
               sundered_isles:
-                cursed_by: oracle_rollable:sundered_isles/campaign/notable_locations/details_cursed
+                cursed_by: oracle_rollable:sundered_isles/campaign_launch/notable_locations/details_cursed
             _source:
               <<: *Source
             rows:
@@ -1008,7 +1010,7 @@ oracles:
             tags:
               sundered_isles:
                 cursed_version_of:
-                  - oracle_rollable:sundered_isles/campaign/notable_locations/details
+                  - oracle_rollable:sundered_isles/campaign_launch/notable_locations/details
                 curse_behavior: replace_result
             _source:
               <<: *Source

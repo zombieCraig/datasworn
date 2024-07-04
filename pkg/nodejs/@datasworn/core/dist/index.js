@@ -37,3 +37,4 @@ exports.Migrations = __importStar(require("./Migrations/index.js"));
 var index_js_1 = require("./Validators/index.js");
 Object.defineProperty(exports, "Validators", { enumerable: true, get: function () { return __importDefault(index_js_1).default; } });
 exports.Builders = __importStar(require("./Builders/index.js"));
+__exportStar(require("./mergeExpansion.js"), exports);

@@ -33,7 +33,7 @@ export function getCollectionNodeMetadata(
 	collectionChild?: TCollectionDictionary
 ) {
 	const props = {
-		enhances: Type.Optional(
+		[CONST.EnhancesKey]: Type.Optional(
 			Type.Array(enhances, {
 				description:
 					"This node's content enhances all nodes that match these wildcards, rather than being a standalone item of its own."

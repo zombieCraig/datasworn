@@ -8,15 +8,15 @@ const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
 exports.unsortableKeys = [
     'columns',
     'controls',
-    'contents',
+    CONST_js_1.default.ContentsKey,
     'options',
-    'collections',
+    CONST_js_1.default.CollectionsKey,
     'choices'
 ];
 exports.idKeys = [CONST_js_1.default.IdKey, '_key', '_index'];
 exports.relationshipKeys = [
-    'replaces',
-    'enhances',
+    CONST_js_1.default.ReplacesKey,
+    CONST_js_1.default.EnhancesKey,
     'oracle',
     'asset',
     'region',
@@ -143,8 +143,8 @@ exports.dataswornKeyOrder = [
     'abilities',
     'template',
     'rolls',
-    'contents',
-    'collections',
+    CONST_js_1.default.ContentsKey,
+    CONST_js_1.default.CollectionsKey,
     'outcomes',
     'quest_starter',
     'your_truth',

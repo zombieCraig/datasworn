@@ -97,12 +97,12 @@ abstract class IdParser<
 	/**
 	 * Returns a string representation of the ID.
 	 */
-	get id() {
+	toString() {
 		return IdParser.#toString(this)
 	}
 
-	toString(): this['id'] {
-		return this.id
+	toJSON() {
+		return this.toString()
 	}
 
 	// ID parts
@@ -142,7 +142,7 @@ abstract class IdParser<
 
 	/** Does this ID contain any wildcard ("*") or globstar ("**") elements? */
 	get isWildcard() {
-		return this.id.includes(CONST.WildcardString)
+		return this.toString().includes(CONST.WildcardString)
 	}
 
 	/** Can this ID contain recursive elements in its path? */
@@ -168,7 +168,7 @@ abstract class IdParser<
 			)
 		if (this.isWildcard)
 			throw new Error(
-				`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.id}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`
+				`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.toString()}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`
 			)
 
 		try {
@@ -200,22 +200,16 @@ abstract class IdParser<
 	 * @throws If `target` is a wildcard.
 	 */
 	isMatch(target: IdParser | string): boolean {
-		let that: IdParser
-		if (typeof target === 'string')
-			try {
-				that = IdParser.parse(target as any)
-			} catch {
-				return false
-			}
-		else that = target
+		const targetIsWildcard = target.toString().includes(CONST.WildcardString)
 
-		// check trivial matches
-
-		if (that.isWildcard)
+		if (targetIsWildcard)
 			throw new Error(`Expected a non-wildcard ID, got "${target.toString()}"`)
 
-		// exact match always returns true
-		if (this.id === that.id) return true
+		// lazy evaluation for exact matches
+		if (this.toString() === target.toString()) return true
+
+		const that: IdParser =
+			typeof target === 'string' ? IdParser.parse(target as any) : target
 
 		// if it's not an exact match, and this isn't a wildcard, then it logically can't be a match
 		if (!this.isWildcard) return false
@@ -226,6 +220,28 @@ abstract class IdParser<
 		// no more trivial matches, fall back regular expression (more computationally expensive)
 
 		return this.pathRegExp.test(that.compositePath)
+	}
+
+	/** Is this non-wildcard ID matched by one of the provided wildcard IDs?
+	 * @throws If this instance is a wildcard ID; if it attempts a comparison with an invalid ID string
+	 */
+	isMatchedBy(...wildcardIds: (IdParser | string)[]): boolean {
+		if (this.isWildcard)
+			throw new Error(
+				`Matching a wildcard ID as a subset of another wildcard ID is not implemented.`
+			)
+
+		for (const wildcardId of wildcardIds) {
+			// short circuit parsing if it's a trivial match
+			if (this.toString() === wildcardId.toString()) return true
+
+			const parsed =
+				typeof wildcardId === 'string' ? IdParser.parse(wildcardId) : wildcardId
+
+			if (parsed.isMatch(this)) return true
+		}
+
+		return false
 	}
 
 	/** @internal */
@@ -319,18 +335,18 @@ abstract class IdParser<
 
 		if (CONST.IdKey in node && typeof node._id === 'string')
 			IdParser.logger.warn(
-				`Can't assign <${this.id}>, node already has <${node._id}>`
+				`Can't assign <${this.toString()}>, node already has <${node._id}>`
 			)
 		else {
-			if (index instanceof Map && index.has(this.id))
+			if (index instanceof Map && index.has(this.toString()))
 				throw new Error(
-					`Generated ID <${this.id}>, but it already exists in the index`
+					`Generated ID <${this.toString()}>, but it already exists in the index`
 				)
 
 			// @ts-expect-error
-			node._id = this.id
+			node._id = this.toString()
 
-			if (index instanceof Map) index.set(this.id, node)
+			if (index instanceof Map) index.set(this.toString(), node)
 		}
 
 		return node
@@ -876,7 +892,7 @@ abstract class IdParser<
 			)
 		if (this.isWildcard)
 			throw new Error(
-				`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.id}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`
+				`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.toString()}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`
 			)
 
 		if (tree instanceof Map) return tree.get(this.rulesPackageId) ?? undefined
@@ -1117,7 +1133,7 @@ interface NonCollectableId<
 	RulesPackage extends string = string,
 	Key extends string = string
 > extends EmbeddingId<[TTypeId], [`${RulesPackage}${CONST.PathKeySep}${Key}`]> {
-	get id(): StringId.NonCollectable<TTypeId, RulesPackage, Key>
+	toString(): StringId.NonCollectable<TTypeId, RulesPackage, Key>
 	get rulesPackageId(): RulesPackage
 	get typeId(): TTypeId
 
@@ -1246,7 +1262,7 @@ class CollectableId<
 		const parent = this.getCollectionIdParent()
 		const parentNode = parent._getUnsafe(tree)
 
-		// console.log(`<${this.id}> got parent`, parentNode)
+		// console.log(`<${this}> got parent`, parentNode)
 		const thisKey = this.primaryPathKeys.at(-1)
 
 		const { contents } = parentNode
@@ -1259,7 +1275,7 @@ class CollectableId<
 				thisKey as keyof typeof contents
 			] as TypeNode.Collectable<TTypeId>
 
-		if (result == null) throw new Error(`No result for <${this.id}>`)
+		if (result == null) throw new Error(`No result for <${this.toString()}>`)
 
 		return result
 	}
@@ -1303,7 +1319,7 @@ interface CollectableId<
 	> {
 	// declaring these so TS doesn't have to compute them
 
-	get id(): StringId.Collectable<
+	toString(): StringId.Collectable<
 		TTypeId,
 		RulesPackage,
 		CollectableAncestorKeys,
@@ -1444,7 +1460,7 @@ class CollectionId<
 	): CollectionId.ChildCollectionOf<this, ChildKey> {
 		if (this.recursionDepth >= CONST.COLLECTION_DEPTH_MAX)
 			throw new ParseError(
-				this.id,
+				this.toString(),
 				`Cant't generate a child collection ID because this ID has reached the maximum recursion depth (${CONST.COLLECTION_DEPTH_MAX})`
 			)
 
@@ -1496,7 +1512,7 @@ class CollectionId<
 	getCollectionIdParent(): CollectionId.ParentCollectionOf<this> {
 		if (this.collectionAncestorKeys.length === 0)
 			throw new ParseError(
-				this.id,
+				this.toString(),
 				`Can't generate a parent ID because this ID has no ancestors.`
 			)
 
@@ -1664,7 +1680,7 @@ interface CollectionId<
 
 	get isCollectable(): false
 	get isCollection(): true
-	get id(): StringId.Collection<
+	toString(): StringId.Collection<
 		TTypeId,
 		RulesPackage,
 		CollectionAncestorKeys,
@@ -1813,7 +1829,7 @@ interface EmbeddedId<
 			length: [...ParentId['typeIds'], TTypeId]['length']
 		}
 	> {
-	get id(): `${this['compositeTypeId']}${CONST.PrefixSep}${Join<this['pathSegments'], CONST.TypeSep>}`
+	toString(): `${this['compositeTypeId']}${CONST.PrefixSep}${Join<this['pathSegments'], CONST.TypeSep>}`
 
 	get embeddableTypes(): TTypeId extends TypeId.EmbeddingWhenEmbeddedType
 		? [...TypeId.EmbeddableInEmbeddedType<TTypeId>[]]

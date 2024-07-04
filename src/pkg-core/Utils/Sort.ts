@@ -4,16 +4,16 @@ import type { Datasworn } from '../index.js'
 export const unsortableKeys = [
 	'columns',
 	'controls',
-	'contents',
+	CONST.ContentsKey,
 	'options',
-	'collections',
+	CONST.CollectionsKey,
 	'choices'
 ] as const
 export const idKeys = [CONST.IdKey, '_key', '_index'] as const
 
 export const relationshipKeys = [
-	'replaces',
-	'enhances',
+	CONST.ReplacesKey,
+	CONST.EnhancesKey,
 	'oracle',
 	'asset',
 	'region',
@@ -149,8 +149,8 @@ export const dataswornKeyOrder = [
 	'abilities',
 	'template',
 	'rolls',
-	'contents',
-	'collections',
+	CONST.ContentsKey,
+	CONST.CollectionsKey,
 	'outcomes',
 	'quest_starter',
 	'your_truth',

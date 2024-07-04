@@ -64,11 +64,11 @@ class IdParser {
     /**
      * Returns a string representation of the ID.
      */
-    get id() {
+    toString() {
         return __classPrivateFieldGet(_a, _a, "m", _IdParser_toString).call(_a, this);
     }
-    toString() {
-        return this.id;
+    toJSON() {
+        return this.toString();
     }
     // ID parts
     /** The type ID of the target node. For primary IDs, this is the same as {@link IdParser.typeId}. */
@@ -99,7 +99,7 @@ class IdParser {
     }
     /** Does this ID contain any wildcard ("*") or globstar ("**") elements? */
     get isWildcard() {
-        return this.id.includes(CONST_js_1.default.WildcardString);
+        return this.toString().includes(CONST_js_1.default.WildcardString);
     }
     /** Get an array of the types that are embeddable by this type. */
     getEmbeddableTypes() {
@@ -114,7 +114,7 @@ class IdParser {
         if (tree == null)
             throw new Error(`No Datasworn tree found -- set the static property ${_a.constructor.name}#tree, or provide one as a parameter.`);
         if (this.isWildcard)
-            throw new Error(`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.id}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`);
+            throw new Error(`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.toString()}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`);
         try {
             return this._getUnsafe(tree);
         }
@@ -143,22 +143,13 @@ class IdParser {
      * @throws If `target` is a wildcard.
      */
     isMatch(target) {
-        let that;
-        if (typeof target === 'string')
-            try {
-                that = _a.parse(target);
-            }
-            catch (_b) {
-                return false;
-            }
-        else
-            that = target;
-        // check trivial matches
-        if (that.isWildcard)
+        const targetIsWildcard = target.toString().includes(CONST_js_1.default.WildcardString);
+        if (targetIsWildcard)
             throw new Error(`Expected a non-wildcard ID, got "${target.toString()}"`);
-        // exact match always returns true
-        if (this.id === that.id)
+        // lazy evaluation for exact matches
+        if (this.toString() === target.toString())
             return true;
+        const that = typeof target === 'string' ? _a.parse(target) : target;
         // if it's not an exact match, and this isn't a wildcard, then it logically can't be a match
         if (!this.isWildcard)
             return false;
@@ -167,6 +158,22 @@ class IdParser {
             return false;
         // no more trivial matches, fall back regular expression (more computationally expensive)
         return this.pathRegExp.test(that.compositePath);
+    }
+    /** Is this non-wildcard ID matched by one of the provided wildcard IDs?
+     * @throws If this instance is a wildcard ID; if it attempts a comparison with an invalid ID string
+     */
+    isMatchedBy(...wildcardIds) {
+        if (this.isWildcard)
+            throw new Error(`Matching a wildcard ID as a subset of another wildcard ID is not implemented.`);
+        for (const wildcardId of wildcardIds) {
+            // short circuit parsing if it's a trivial match
+            if (this.toString() === wildcardId.toString())
+                return true;
+            const parsed = typeof wildcardId === 'string' ? _a.parse(wildcardId) : wildcardId;
+            if (parsed.isMatch(this))
+                return true;
+        }
+        return false;
     }
     /** @internal */
     _getPrefixRegExpSource() {
@@ -238,14 +245,14 @@ class IdParser {
         if (typeof node !== 'object' || node === null)
             throw new Error(`Expected a Datasworn node object, but got ${String(node)}`);
         if (CONST_js_1.default.IdKey in node && typeof node._id === 'string')
-            _a.logger.warn(`Can't assign <${this.id}>, node already has <${node._id}>`);
+            _a.logger.warn(`Can't assign <${this.toString()}>, node already has <${node._id}>`);
         else {
-            if (index instanceof Map && index.has(this.id))
-                throw new Error(`Generated ID <${this.id}>, but it already exists in the index`);
+            if (index instanceof Map && index.has(this.toString()))
+                throw new Error(`Generated ID <${this.toString()}>, but it already exists in the index`);
             // @ts-expect-error
-            node._id = this.id;
+            node._id = this.toString();
             if (index instanceof Map)
-                index.set(this.id, node);
+                index.set(this.toString(), node);
         }
         return node;
     }
@@ -453,7 +460,7 @@ class IdParser {
         if (tree == null)
             throw new Error(`No Datasworn tree found -- set the static property ${_a.constructor.name}#tree, or provide one as a parameter.`);
         if (this.isWildcard)
-            throw new Error(`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.id}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`);
+            throw new Error(`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.toString()}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`);
         if (tree instanceof Map)
             return (_b = tree.get(this.rulesPackageId)) !== null && _b !== void 0 ? _b : undefined;
         return (_c = tree[this.rulesPackageId]) !== null && _c !== void 0 ? _c : undefined;
@@ -703,7 +710,7 @@ class CollectableId extends EmbeddingId {
     _getUnsafe(tree = IdParser.tree) {
         const parent = this.getCollectionIdParent();
         const parentNode = parent._getUnsafe(tree);
-        // console.log(`<${this.id}> got parent`, parentNode)
+        // console.log(`<${this}> got parent`, parentNode)
         const thisKey = this.primaryPathKeys.at(-1);
         const { contents } = parentNode;
         let result;
@@ -712,7 +719,7 @@ class CollectableId extends EmbeddingId {
         else if (Object.hasOwn(contents, thisKey))
             result = contents[thisKey];
         if (result == null)
-            throw new Error(`No result for <${this.id}>`);
+            throw new Error(`No result for <${this.toString()}>`);
         return result;
     }
     /** @internal */
@@ -781,7 +788,7 @@ class CollectionId extends IdParser {
      */
     createCollectionIdChild(key) {
         if (this.recursionDepth >= CONST_js_1.default.COLLECTION_DEPTH_MAX)
-            throw new Errors_js_1.ParseError(this.id, `Cant't generate a child collection ID because this ID has reached the maximum recursion depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX})`);
+            throw new Errors_js_1.ParseError(this.toString(), `Cant't generate a child collection ID because this ID has reached the maximum recursion depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX})`);
         return new CollectionId(this.primaryTypeId, ...this.primaryPathKeys, key);
     }
     assignIdsIn(node, recursive = true, index) {
@@ -819,7 +826,7 @@ class CollectionId extends IdParser {
      */
     getCollectionIdParent() {
         if (this.collectionAncestorKeys.length === 0)
-            throw new Errors_js_1.ParseError(this.id, `Can't generate a parent ID because this ID has no ancestors.`);
+            throw new Errors_js_1.ParseError(this.toString(), `Can't generate a parent ID because this ID has no ancestors.`);
         return new CollectionId(this.primaryTypeId, this.rulesPackageId, ...this.collectionAncestorKeys);
     }
     /** @internal */

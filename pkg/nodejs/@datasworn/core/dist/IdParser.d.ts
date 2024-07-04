@@ -45,8 +45,8 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
     /**
      * Returns a string representation of the ID.
      */
-    get id(): string;
-    toString(): this['id'];
+    toString(): string;
+    toJSON(): string;
     /** The type ID of the target node. For primary IDs, this is the same as {@link IdParser.typeId}. */
     get typeId(): string;
     /** The type ID of the most recent primary node. For primary IDs, this is the same as {@link IdParser.typeId} */
@@ -86,6 +86,10 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
      * @throws If `target` is a wildcard.
      */
     isMatch(target: IdParser | string): boolean;
+    /** Is this non-wildcard ID matched by one of the provided wildcard IDs?
+     * @throws If this instance is a wildcard ID; if it attempts a comparison with an invalid ID string
+     */
+    isMatchedBy(...wildcardIds: (IdParser | string)[]): boolean;
     /** @internal */
     _getPrefixRegExpSource(): string;
     get pathRegExp(): RegExp;
@@ -194,7 +198,7 @@ declare class NonCollectableId<TTypeId extends TypeId.NonCollectable = TypeId.No
     constructor(typeId: TTypeId, rulesPackage: RulesPackage, key: Key);
 }
 interface NonCollectableId<TTypeId extends TypeId.NonCollectable = TypeId.NonCollectable, RulesPackage extends string = string, Key extends string = string> extends EmbeddingId<[TTypeId], [`${RulesPackage}${CONST.PathKeySep}${Key}`]> {
-    get id(): StringId.NonCollectable<TTypeId, RulesPackage, Key>;
+    toString(): StringId.NonCollectable<TTypeId, RulesPackage, Key>;
     get rulesPackageId(): RulesPackage;
     get typeId(): TTypeId;
     createEmbeddedIdChild<T extends TTypeId extends TypeId.Embedding ? TypeId.EmbeddableIn<TTypeId> : never, K extends string>(embeddedTypeId: T, key: string): TTypeId extends TypeId.Embedding ? EmbeddedId<this, T, K> : never;
@@ -236,7 +240,7 @@ interface CollectableId<TTypeId extends TypeId.Collectable = TypeId.Collectable,
 ], [
     Join<[RulesPackage, ...CollectableAncestorKeys, Key]>
 ]> {
-    get id(): StringId.Collectable<TTypeId, RulesPackage, CollectableAncestorKeys, Key>;
+    toString(): StringId.Collectable<TTypeId, RulesPackage, CollectableAncestorKeys, Key>;
     createEmbeddedIdChild<T extends TTypeId extends TypeId.Embedding ? TypeId.EmbeddableIn<TTypeId> : never, K extends string>(embeddedTypeId: T, key: string): TTypeId extends TypeId.Embedding ? EmbeddedId<this, T, K> : never;
     assignIdsIn<T extends TypeNode.CollectableSource<TTypeId>>(node: T, recursive?: boolean, index?: Map<string, unknown>): TypeNode.Collectable<TTypeId>;
     get typeId(): TTypeId;
@@ -320,7 +324,7 @@ interface CollectionId<TTypeId extends TypeId.Collection = TypeId.Collection, Ru
     get typeId(): TTypeId;
     get isCollectable(): false;
     get isCollection(): true;
-    get id(): StringId.Collection<TTypeId, RulesPackage, CollectionAncestorKeys, Key>;
+    toString(): StringId.Collection<TTypeId, RulesPackage, CollectionAncestorKeys, Key>;
     get primaryTypeId(): TTypeId;
     get primaryPathKeys(): [RulesPackage, ...CollectionAncestorKeys, Key];
     /** @internal */
@@ -367,7 +371,7 @@ interface EmbeddedId<ParentId extends EmbeddingId = EmbeddingId, TTypeId extends
 ] & {
     length: [...ParentId['typeIds'], TTypeId]['length'];
 }> {
-    get id(): `${this['compositeTypeId']}${CONST.PrefixSep}${Join<this['pathSegments'], CONST.TypeSep>}`;
+    toString(): `${this['compositeTypeId']}${CONST.PrefixSep}${Join<this['pathSegments'], CONST.TypeSep>}`;
     get embeddableTypes(): TTypeId extends TypeId.EmbeddingWhenEmbeddedType ? [...TypeId.EmbeddableInEmbeddedType<TTypeId>[]] : [];
     get(): TypeNode.Embedded<TTypeId>;
     get typeId(): TTypeId;
