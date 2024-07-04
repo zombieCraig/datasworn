@@ -32,6 +32,20 @@ namespace CONST {
 	/** Key in Collection that contains a dictionary object of collectable items. */
 	export const ContentsKey = 'contents' as const
 	export type ContentsKey = typeof ContentsKey
+
+	/** Key in Collection that specifies other collections that the Collection should be merged in to.  */
+	export const EnhancesKey = 'enhances' as const
+	export type EnhancesKey = typeof EnhancesKey
+
+	/** Key in primary node that specifies other nodes replaced by this object. */
+	export const ReplacesKey = 'replaces' as const
+	export type ReplacesKey = typeof ReplacesKey
+
+	export const IdKey = '_id' as const
+	export type IdKey = typeof IdKey
+
+	export const SourceInfoKey = '_source' as const
+	export type SourceInfoKey = typeof SourceInfoKey
 }
 
 export default CONST

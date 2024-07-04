@@ -10,7 +10,7 @@ import {
 	type TUnion
 } from '@sinclair/typebox'
 import type { Writable } from 'type-fest'
-import type CONST from '../../pkg-core/IdElements/CONST.js'
+import CONST from '../../pkg-core/IdElements/CONST.js'
 import TypeId from '../../pkg-core/IdElements/TypeId.js'
 import { Computed } from './Computed.js'
 import { pascalCase } from './string.js'
@@ -18,9 +18,13 @@ import { pascalCase } from './string.js'
 const EmbeddedDictionaryKeys = Object.values(TypeId.BranchKey)
 type EmbeddedDictionaryKeys = (typeof EmbeddedDictionaryKeys)[number]
 
-const ReplacedEmbedKeys = ['_id'] as const
+const ReplacedEmbedKeys = [CONST.IdKey] as const
 type ReplacedEmbedKeys = Writable<typeof ReplacedEmbedKeys>
-const OmittedEmbedKeys = ['_source', 'enhances', 'replaces'] as const
+const OmittedEmbedKeys = [
+	CONST.SourceInfoKey,
+	CONST.EnhancesKey,
+	CONST.ReplacesKey
+] as const
 type OmittedEmbedKeys = Writable<typeof OmittedEmbedKeys>
 
 type TTypeNode = TObject<{ type: TLiteral<string> }>

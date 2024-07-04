@@ -1,3 +1,4 @@
+import CONST from './IdElements/CONST.js'
 import type TypeNode from './TypeNode.js'
 // import fs from 'fs-extra'
 // import { IdParser, type Datasworn } from './index.js'
@@ -72,7 +73,7 @@ export function enhanceCollection<T extends TypeNode.Collection>(
 		!('enhances' in source && String(source.enhances) === String(target._id))
 	)
 		throw new Error(
-			'strict mode requires a `enhances` property in the parameter `source`; its value must match the ID of the collection being enhanced.'
+			'strict mode requires a `enhances` property in the source object; its value must match the ID of the collection being enhanced.'
 		)
 
 	// no changes to make -- skip
@@ -117,12 +118,13 @@ export function enhanceCollection<T extends TypeNode.Collection>(
 
 		switch (key) {
 			// target's id should never be overwritten -- they need to relate to the object's 'real' position or the id lookup won't work.
-			case '_id':
-			case 'enhances':
-			case 'replaces':
-				// these metadata shouldn't be replicated on the merged tree
+			case CONST.IdKey:
+			case CONST.EnhancesKey:
+			case CONST.ReplacesKey:
+			case CONST.SourceInfoKey:
+				// metadata shouldn't be replicated on the merged tree -- skip
 				continue
-			case 'contents':
+			case CONST.ContentsKey:
 				{
 					const sourceChildren: Iterable<[string, unknown]> =
 						newValue instanceof Map ? newValue : Object.entries(newValue)
@@ -155,7 +157,7 @@ export function enhanceCollection<T extends TypeNode.Collection>(
 					}
 				}
 				break
-			case 'collections': {
+			case CONST.CollectionsKey: {
 				// child collections are enhanced recursively
 				const sourceChildren: Iterable<[string, TypeNode.Collection]> =
 					newValue instanceof Map ? newValue : Object.entries(newValue)
@@ -185,7 +187,7 @@ export function enhanceCollection<T extends TypeNode.Collection>(
 				break
 			}
 			default:
-				target[key] = newValue
+				// target[key] = newValue
 				break
 		}
 	}

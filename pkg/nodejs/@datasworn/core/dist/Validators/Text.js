@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.forEachPrimitiveValue = exports.validateIdPointer = exports.validateMarkdownIdPointers = exports.validateMacroIdPointers = exports.validateIdsInStrings = exports.forEachIdRef = exports.extractIdRefs = void 0;
+const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
 const Pattern_js_1 = __importDefault(require("../IdElements/Pattern.js"));
 const typeIdPattern = '[a-z][a-z_](?:\\.[a-z][a-z_]){0,2}';
 const dictKeyOrIndexPattern = `[\\/\\.](?:[a-z_0-9\\]|\\*{1,2})+`;
@@ -79,7 +80,7 @@ function needsIdValidation(k, v) {
     if (typeof v !== 'string')
         return false;
     switch (true) {
-        case k === '_id':
+        case k === CONST_js_1.default.IdKey:
         case plainTextKeys.has(k):
         case urlKeys.has(k):
         case nonTextKeys.has(k):

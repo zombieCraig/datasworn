@@ -25,5 +25,15 @@ declare namespace CONST {
     /** Key in Collection that contains a dictionary object of collectable items. */
     const ContentsKey: "contents";
     type ContentsKey = typeof ContentsKey;
+    /** Key in Collection that specifies other collections that the Collection should be merged in to.  */
+    const EnhancesKey: "enhances";
+    type EnhancesKey = typeof EnhancesKey;
+    /** Key in primary node that specifies other nodes replaced by this object. */
+    const ReplacesKey: "replaces";
+    type ReplacesKey = typeof ReplacesKey;
+    const IdKey: "_id";
+    type IdKey = typeof IdKey;
+    const SourceInfoKey: "_source";
+    type SourceInfoKey = typeof SourceInfoKey;
 }
 export default CONST;

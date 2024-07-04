@@ -1,3 +1,4 @@
+import CONST from '../IdElements/CONST.js'
 import type { Datasworn } from '../index.js'
 
 export const unsortableKeys = [
@@ -8,7 +9,7 @@ export const unsortableKeys = [
 	'collections',
 	'choices'
 ] as const
-export const idKeys = ['_id', '_key', '_index'] as const
+export const idKeys = [CONST.IdKey, '_key', '_index'] as const
 
 export const relationshipKeys = [
 	'replaces',

@@ -1,8 +1,9 @@
 import { Type, type TObject, type TOmit } from '@sinclair/typebox'
+import CONST from '../../pkg-core/IdElements/CONST.js'
 
 const MetaKeys = [
-	'_id',
-	'_source',
+	CONST.IdKey,
+	CONST.SourceInfoKey,
 	'rendering',
 	'name',
 	'suggestions',

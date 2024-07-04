@@ -13,7 +13,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getPathKeyCount, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _EmbeddedId_parent;
+var _a, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _EmbeddedId_parent;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NonCollectableId = exports.IdParser = exports.EmbeddedId = exports.CollectionId = exports.CollectableId = void 0;
 const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
@@ -45,6 +45,8 @@ class IdParser {
     constructor(options) {
         _IdParser_pathSegments.set(this, void 0);
         _IdParser_typeIds.set(this, void 0);
+        _IdParser_pathRegExp.set(this, null);
+        _IdParser_regExp.set(this, null);
         // prepare the ID so we can throw errors with it if necessary
         const id = __classPrivateFieldGet(_a, _a, "m", _IdParser_toString).call(_a, options);
         const { typeIds, pathSegments } = options;
@@ -91,7 +93,7 @@ class IdParser {
     get compositeTypeId() {
         return this.typeIds.join(CONST_js_1.default.TypeSep);
     }
-    /** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.typeId}  */
+    /** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.primaryPath}  */
     get compositePath() {
         return this.pathSegments.join(CONST_js_1.default.TypeSep);
     }
@@ -136,6 +138,96 @@ class IdParser {
         }
         return this._getMatchesUnsafe(tree);
     }
+    /**
+     * Can the target ID be matched with this ID?
+     * @throws If `target` is a wildcard.
+     */
+    isMatch(target) {
+        let that;
+        if (typeof target === 'string')
+            try {
+                that = _a.parse(target);
+            }
+            catch (_b) {
+                return false;
+            }
+        else
+            that = target;
+        // check trivial matches
+        if (that.isWildcard)
+            throw new Error(`Expected a non-wildcard ID, got "${target.toString()}"`);
+        // exact match always returns true
+        if (this.id === that.id)
+            return true;
+        // if it's not an exact match, and this isn't a wildcard, then it logically can't be a match
+        if (!this.isWildcard)
+            return false;
+        // can never match a different type composite
+        if (this.compositeTypeId !== that.compositeTypeId)
+            return false;
+        // no more trivial matches, fall back regular expression (more computationally expensive)
+        return this.pathRegExp.test(that.compositePath);
+    }
+    /** @internal */
+    _getPrefixRegExpSource() {
+        const src = this.typeIds.join(`\\${CONST_js_1.default.TypeSep}`);
+        return src;
+    }
+    get pathRegExp() {
+        if (__classPrivateFieldGet(this, _IdParser_pathRegExp, "f") == null)
+            __classPrivateFieldSet(this, _IdParser_pathRegExp, RegExp('^' + this._getPathRegExpSource() + '$'), "f");
+        return __classPrivateFieldGet(this, _IdParser_pathRegExp, "f");
+    }
+    get regExp() {
+        if (__classPrivateFieldGet(this, _IdParser_regExp, "f") == null)
+            __classPrivateFieldSet(this, _IdParser_regExp, RegExp('^' +
+                this._getPrefixRegExpSource() +
+                CONST_js_1.default.PrefixSep +
+                this._getPathRegExpSource() +
+                '$'), "f");
+        return __classPrivateFieldGet(this, _IdParser_regExp, "f");
+    }
+    /** @internal */
+    _flush() {
+        __classPrivateFieldSet(this, _IdParser_pathRegExp, null, "f");
+        __classPrivateFieldSet(this, _IdParser_regExp, null, "f");
+    }
+    /** @internal */
+    _getPathRegExpSource() {
+        let pathPattern = '';
+        const keySep = '\\' + CONST_js_1.default.PathKeySep;
+        const { min, max } = _a._getPathKeyCount(this.primaryTypeId);
+        /** The minimum number of path keys a single globstar ("**") may stand in for */
+        const expansionMin = Math.max(0, min - (this.primaryPathKeys.length - 1));
+        /** The maximum number of keys that a single globstar ("**") may stand in for. */
+        const expansionMax = Math.max(0, max - (this.primaryPathKeys.length - 1));
+        for (let i = 0; i < this.primaryPathKeys.length; i++) {
+            const currentKey = this.primaryPathKeys[i];
+            switch (true) {
+                // first key is always the rules package, which allows more characters
+                case i === 0:
+                    pathPattern += TypeGuard_js_1.default.Wildcard(currentKey)
+                        ? index_js_1.Pattern.RulesPackageElement.source
+                        : currentKey;
+                    break;
+                case TypeGuard_js_1.default.Wildcard(currentKey):
+                    if (i > 0)
+                        pathPattern += keySep;
+                    pathPattern += index_js_1.Pattern.DictKeyElement.source;
+                    break;
+                case TypeGuard_js_1.default.Globstar(currentKey):
+                    // no key separator here since it's part of the non-capturing group
+                    pathPattern += `(?:${keySep}${index_js_1.Pattern.DictKeyElement.source}){${expansionMin},${expansionMax}}`;
+                    break;
+                default:
+                    if (i > 0)
+                        pathPattern += keySep;
+                    pathPattern += currentKey;
+                    break;
+            }
+        }
+        return pathPattern;
+    }
     /** Assign `_id` strings in a Datasworn node.
      * @param node The Datasworn
      * @param recursive Should IDs be assigned to descendant objects too? (default: true)
@@ -145,7 +237,7 @@ class IdParser {
     assignIdsIn(node, recursive = true, index) {
         if (typeof node !== 'object' || node === null)
             throw new Error(`Expected a Datasworn node object, but got ${String(node)}`);
-        if ('_id' in node && typeof node._id === 'string')
+        if (CONST_js_1.default.IdKey in node && typeof node._id === 'string')
             _a.logger.warn(`Can't assign <${this.id}>, node already has <${node._id}>`);
         else {
             if (index instanceof Map && index.has(this.id))
@@ -269,13 +361,36 @@ class IdParser {
     static _validateIndexKey(value) {
         return TypeGuard_js_1.default.Wildcard(value) || TypeGuard_js_1.default.IndexKey(value);
     }
+    /** @internal */
+    static _getPathKeyCount(typeId) {
+        let min, max;
+        switch (true) {
+            case TypeGuard_js_1.default.CollectionType(typeId):
+                // has a rulespackage
+                min = CONST_js_1.default.COLLECTION_DEPTH_MIN + 1;
+                max = CONST_js_1.default.COLLECTION_DEPTH_MAX + 1;
+                break;
+            case TypeGuard_js_1.default.CollectableType(typeId):
+                // has a rulespackage + its own key
+                min = CONST_js_1.default.COLLECTION_DEPTH_MIN + 2;
+                max = CONST_js_1.default.COLLECTION_DEPTH_MAX + 2;
+                break;
+            case TypeGuard_js_1.default.NonCollectableType(typeId):
+                // has a rulespackage
+                min = max = CONST_js_1.default.COLLECTION_DEPTH_MIN + 1;
+                break;
+            default:
+                throw new Error(`Expected primary TypeId but got ${String(typeId)}`);
+        }
+        return { min, max };
+    }
     /**
      * @throws If the typeId isn't a primary TypeId; if the path doesn't meet the minimum or maximum length for its type; or if any of the individual elements are invalid.
      */
     static _validatePrimaryPath(typeId, path) {
         if (!TypeGuard_js_1.default.PrimaryType(typeId))
             throw new Error(`Expected a primary TypeId, but got ${JSON.stringify(typeId)}. Valid TypeIds are: ${JSON.stringify(TypeId_js_1.default.Primary)}`);
-        const { min, max } = __classPrivateFieldGet(this, _a, "m", _IdParser_getPathKeyCount).call(this, typeId);
+        const { min, max } = this._getPathKeyCount(typeId);
         const [rulesPackageId, ...tail] = path.split(CONST_js_1.default.PathKeySep);
         const errors = [];
         let nonGlobstarCount = 0;
@@ -390,7 +505,7 @@ class IdParser {
     }
 }
 exports.IdParser = IdParser;
-_a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new WeakMap(), _IdParser_validateTypeIds = function _IdParser_validateTypeIds(typeIds) {
+_a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new WeakMap(), _IdParser_pathRegExp = new WeakMap(), _IdParser_regExp = new WeakMap(), _IdParser_validateTypeIds = function _IdParser_validateTypeIds(typeIds) {
     if (!Array.isArray(typeIds) ||
         !typeIds.every((str) => typeof str === 'string'))
         throw new Error(`Expected an array of strings but got ${JSON.stringify(typeIds)}`);
@@ -434,27 +549,6 @@ _a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new W
         default:
             throw new Error(`Expected TypeId.AnyPrimary, but got ${JSON.stringify(typeId)}`);
     }
-}, _IdParser_getPathKeyCount = function _IdParser_getPathKeyCount(typeId) {
-    let min, max;
-    switch (true) {
-        case TypeGuard_js_1.default.CollectionType(typeId):
-            // has a rulespackage
-            min = CONST_js_1.default.COLLECTION_DEPTH_MIN + 1;
-            max = CONST_js_1.default.COLLECTION_DEPTH_MAX + 1;
-            break;
-        case TypeGuard_js_1.default.CollectableType(typeId):
-            // has a rulespackage + its own key
-            min = CONST_js_1.default.COLLECTION_DEPTH_MIN + 2;
-            max = CONST_js_1.default.COLLECTION_DEPTH_MAX + 2;
-            break;
-        case TypeGuard_js_1.default.NonCollectableType(typeId):
-            // has a rulespackage
-            min = max = CONST_js_1.default.COLLECTION_DEPTH_MIN + 1;
-            break;
-        default:
-            throw new Error(`Expected primary TypeId but got ${String(typeId)}`);
-    }
-    return { min, max };
 }, _IdParser_getMatchesFromArray = function _IdParser_getMatchesFromArray(array, matchKey = CONST_js_1.default.WildcardString) {
     if (!Array.isArray(array))
         throw new Error(`Expected an Array, but got ${String(array)}`);
@@ -811,6 +905,26 @@ class EmbeddedId extends EmbeddingId {
     getEmbeddingIdParent() {
         return __classPrivateFieldGet(this, _EmbeddedId_parent, "f");
     }
+    _getPathRegExpSource() {
+        let basePath = __classPrivateFieldGet(this, _EmbeddedId_parent, "f")._getPathRegExpSource();
+        const [_primaryPathSegment, ...secondaryPathSegments] = this.pathSegments;
+        for (const segment of secondaryPathSegments) {
+            basePath += '\\' + CONST_js_1.default.TypeSep;
+            const keys = segment.split(CONST_js_1.default.PathKeySep);
+            for (const key of keys) {
+                switch (true) {
+                    // FIXME: this doesn't account for globstars because these are always single-element path segments right now
+                    case TypeGuard_js_1.default.AnyWildcard(key):
+                        basePath += index_js_1.Pattern.DictKeyElement.source;
+                        break;
+                    default:
+                        basePath += key;
+                        break;
+                }
+            }
+        }
+        return basePath;
+    }
     constructor(parent, typeId, key) {
         const options = {
             typeIds: [...parent.typeIds, typeId],
@@ -823,3 +937,19 @@ class EmbeddedId extends EmbeddingId {
 }
 exports.EmbeddedId = EmbeddedId;
 _EmbeddedId_parent = new WeakMap();
+// const test = IdParser.parse('move_category:starforged/**') as CollectionId
+// console.log(test.id)
+// console.log(test._getPrefixRegExpSource())
+// console.log(test._getPathRegExpSource())
+// console.log(test.regExp)
+// const test2 = test.createCollectableIdChild('pay_the_price')
+// console.log(test2.id)
+// console.log(test2.regExp)
+// const staticId = 'move:starforged/fate/pay_the_price'
+// console.log(
+// 	`<${test2.id}> matches <${staticId}>?`,
+// 	test2.canMatchWith('move:starforged/fate/pay_the_price')
+// )
+// const test3 = test2.createEmbeddedIdChild('oracle_rollable', '*')
+// console.log(test3.id)
+// console.log(test3.regExp)

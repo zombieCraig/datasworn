@@ -18,5 +18,11 @@ var CONST;
     CONST.CollectionsKey = 'collections';
     /** Key in Collection that contains a dictionary object of collectable items. */
     CONST.ContentsKey = 'contents';
+    /** Key in Collection that specifies other collections that the Collection should be merged in to.  */
+    CONST.EnhancesKey = 'enhances';
+    /** Key in primary node that specifies other nodes replaced by this object. */
+    CONST.ReplacesKey = 'replaces';
+    CONST.IdKey = '_id';
+    CONST.SourceInfoKey = '_source';
 })(CONST || (CONST = {}));
 exports.default = CONST;

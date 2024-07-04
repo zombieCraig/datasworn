@@ -57,7 +57,7 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
     get rulesPackageId(): string;
     /** The dot-separated, fully-qualified type ID. For primary types, this is the same as {@link IdParser.typeId}  */
     get compositeTypeId(): string;
-    /** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.typeId}  */
+    /** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.primaryPath}  */
     get compositePath(): string;
     /** Does this ID contain any wildcard ("*") or globstar ("**") elements? */
     get isWildcard(): boolean;
@@ -81,6 +81,19 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
     getMatches(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): Map<string, {
         _id: string;
     }>;
+    /**
+     * Can the target ID be matched with this ID?
+     * @throws If `target` is a wildcard.
+     */
+    isMatch(target: IdParser | string): boolean;
+    /** @internal */
+    _getPrefixRegExpSource(): string;
+    get pathRegExp(): RegExp;
+    get regExp(): RegExp;
+    /** @internal */
+    _flush(): void;
+    /** @internal */
+    _getPathRegExpSource(): string;
     /** Assign `_id` strings in a Datasworn node.
      * @param node The Datasworn
      * @param recursive Should IDs be assigned to descendant objects too? (default: true)
@@ -101,10 +114,6 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
      */
     static getMatches<T extends StringId.Primary>(id: T, tree?: (typeof IdParser)['datasworn']): TypeNode.ByType<ExtractTypeId<T>>;
     static getMatches<T extends IdParser>(id: T, tree?: (typeof IdParser)['datasworn']): ReturnType<T['get']>;
-    static parse<T extends StringId.NonCollectable>(id: T): NonCollectableId.FromString<T>;
-    static parse<T extends StringId.Collectable>(id: T): CollectableId.FromString<T>;
-    static parse<T extends StringId.Collection>(id: T): CollectionId.FromString<T>;
-    static parse<T extends StringId.Embedded<TypeId.Primary & TypeId.Embedding, string, TypeId.EmbeddableIn<TypeId.Primary & TypeId.Embedding>, string>>(id: T): EmbeddedId;
     static parse(id: string): CollectionId | CollectableId | NonCollectableId | EmbeddedId;
     /**
      * Recursively assigns IDs to all eligibile nodes within a given {@link DataswornSource.RulesPackage}.
@@ -116,6 +125,11 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
     protected static _validatePathSegments(typeIds: string[], pathSegments: unknown): pathSegments is string[];
     protected static _validateEmbeddedPath(typeIds: [TypeId.Primary, ...string[]], path: string): boolean;
     static _validateIndexKey(value: unknown): boolean;
+    /** @internal */
+    static _getPathKeyCount(typeId: TypeId.Primary): {
+        min: number;
+        max: number;
+    };
     /**
      * @throws If the typeId isn't a primary TypeId; if the path doesn't meet the minimum or maximum length for its type; or if any of the individual elements are invalid.
      */
@@ -339,6 +353,7 @@ declare class EmbeddedId<ParentId extends EmbeddingId = EmbeddingId, TTypeId ext
      * Returns the embedding ID parent of this ID.
      */
     getEmbeddingIdParent(): ParentId;
+    _getPathRegExpSource(): string;
     /** @internal */
     constructor(parent: ParentId, typeId: TTypeId, key: string);
     constructor(parent: ParentId, typeId: TTypeId, index: number);

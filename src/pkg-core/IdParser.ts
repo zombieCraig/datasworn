@@ -15,7 +15,6 @@ import type { Tree } from './Tree.js'
 import type TypeNode from './TypeNode.js'
 import type { DropFirst, Head, LastElementOf } from './Utils/Array.js'
 import type { Join, Split } from './Utils/String.js'
-import { match } from 'assert'
 
 interface RecursiveId<
 	TypeIds extends StringId.TypeIdParts = StringId.TypeIdParts,
@@ -136,7 +135,7 @@ abstract class IdParser<
 		return this.typeIds.join(CONST.TypeSep)
 	}
 
-	/** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.typeId}  */
+	/** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.primaryPath}  */
 	get compositePath() {
 		return this.pathSegments.join(CONST.TypeSep)
 	}
@@ -196,6 +195,112 @@ abstract class IdParser<
 		return this._getMatchesUnsafe(tree)
 	}
 
+	/**
+	 * Can the target ID be matched with this ID?
+	 * @throws If `target` is a wildcard.
+	 */
+	isMatch(target: IdParser | string): boolean {
+		let that: IdParser
+		if (typeof target === 'string')
+			try {
+				that = IdParser.parse(target as any)
+			} catch {
+				return false
+			}
+		else that = target
+
+		// check trivial matches
+
+		if (that.isWildcard)
+			throw new Error(`Expected a non-wildcard ID, got "${target.toString()}"`)
+
+		// exact match always returns true
+		if (this.id === that.id) return true
+
+		// if it's not an exact match, and this isn't a wildcard, then it logically can't be a match
+		if (!this.isWildcard) return false
+
+		// can never match a different type composite
+		if (this.compositeTypeId !== that.compositeTypeId) return false
+
+		// no more trivial matches, fall back regular expression (more computationally expensive)
+
+		return this.pathRegExp.test(that.compositePath)
+	}
+
+	/** @internal */
+	_getPrefixRegExpSource(): string {
+		const src = this.typeIds.join(`\\${CONST.TypeSep}`)
+		return src
+	}
+
+	#pathRegExp: RegExp | null = null
+
+	get pathRegExp(): RegExp {
+		if (this.#pathRegExp == null)
+			this.#pathRegExp = RegExp('^' + this._getPathRegExpSource() + '$')
+		return this.#pathRegExp
+	}
+
+	#regExp: RegExp | null = null
+
+	get regExp(): RegExp {
+		if (this.#regExp == null)
+			this.#regExp = RegExp(
+				'^' +
+					this._getPrefixRegExpSource() +
+					CONST.PrefixSep +
+					this._getPathRegExpSource() +
+					'$'
+			)
+		return this.#regExp
+	}
+
+	/** @internal */
+	_flush() {
+		this.#pathRegExp = null
+		this.#regExp = null
+	}
+
+	/** @internal */
+	_getPathRegExpSource(): string {
+		let pathPattern = ''
+		const keySep = '\\' + CONST.PathKeySep
+
+		const { min, max } = IdParser._getPathKeyCount(this.primaryTypeId)
+		/** The minimum number of path keys a single globstar ("**") may stand in for */
+		const expansionMin = Math.max(0, min - (this.primaryPathKeys.length - 1))
+		/** The maximum number of keys that a single globstar ("**") may stand in for. */
+		const expansionMax = Math.max(0, max - (this.primaryPathKeys.length - 1))
+
+		for (let i = 0; i < this.primaryPathKeys.length; i++) {
+			const currentKey = this.primaryPathKeys[i]
+
+			switch (true) {
+				// first key is always the rules package, which allows more characters
+				case i === 0:
+					pathPattern += TypeGuard.Wildcard(currentKey)
+						? Pattern.RulesPackageElement.source
+						: currentKey
+					break
+				case TypeGuard.Wildcard(currentKey):
+					if (i > 0) pathPattern += keySep
+					pathPattern += Pattern.DictKeyElement.source
+					break
+				case TypeGuard.Globstar(currentKey):
+					// no key separator here since it's part of the non-capturing group
+					pathPattern += `(?:${keySep}${Pattern.DictKeyElement.source}){${expansionMin},${expansionMax}}`
+					break
+				default:
+					if (i > 0) pathPattern += keySep
+					pathPattern += currentKey
+					break
+			}
+		}
+
+		return pathPattern
+	}
+
 	/** Assign `_id` strings in a Datasworn node.
 	 * @param node The Datasworn
 	 * @param recursive Should IDs be assigned to descendant objects too? (default: true)
@@ -212,7 +317,7 @@ abstract class IdParser<
 				`Expected a Datasworn node object, but got ${String(node)}`
 			)
 
-		if ('_id' in node && typeof node._id === 'string')
+		if (CONST.IdKey in node && typeof node._id === 'string')
 			IdParser.logger.warn(
 				`Can't assign <${this.id}>, node already has <${node._id}>`
 			)
@@ -276,21 +381,21 @@ abstract class IdParser<
 
 	// Public static  methods
 
-	static parse<T extends StringId.NonCollectable>(
-		id: T
-	): NonCollectableId.FromString<T>
-	static parse<T extends StringId.Collectable>(
-		id: T
-	): CollectableId.FromString<T>
-	static parse<T extends StringId.Collection>(id: T): CollectionId.FromString<T>
-	static parse<
-		T extends StringId.Embedded<
-			TypeId.Primary & TypeId.Embedding,
-			string,
-			TypeId.EmbeddableIn<TypeId.Primary & TypeId.Embedding>,
-			string
-		>
-	>(id: T): EmbeddedId
+	// static parse<T extends StringId.NonCollectable>(
+	// 	id: T
+	// ): NonCollectableId.FromString<T>
+	// static parse<T extends StringId.Collectable>(
+	// 	id: T
+	// ): CollectableId.FromString<T>
+	// static parse<T extends StringId.Collection>(id: T): CollectionId.FromString<T>
+	// static parse<
+	// 	T extends StringId.Embedded<
+	// 		TypeId.Primary & TypeId.Embedding,
+	// 		string,
+	// 		TypeId.EmbeddableIn<TypeId.Primary & TypeId.Embedding>,
+	// 		string
+	// 	>
+	// >(id: T): EmbeddedId
 	static parse(
 		id: string
 	): CollectionId | CollectableId | NonCollectableId | EmbeddedId
@@ -542,7 +647,8 @@ abstract class IdParser<
 		}
 	}
 
-	static #getPathKeyCount(typeId: TypeId.Primary): {
+	/** @internal */
+	static _getPathKeyCount(typeId: TypeId.Primary): {
 		min: number
 		max: number
 	} {
@@ -577,7 +683,7 @@ abstract class IdParser<
 				`Expected a primary TypeId, but got ${JSON.stringify(typeId)}. Valid TypeIds are: ${JSON.stringify(TypeId.Primary)}`
 			)
 
-		const { min, max } = this.#getPathKeyCount(typeId)
+		const { min, max } = this._getPathKeyCount(typeId)
 
 		const [rulesPackageId, ...tail] = path.split(CONST.PathKeySep)
 
@@ -1602,7 +1708,10 @@ namespace CollectionId {
 			: never,
 		K
 	>
-	export type ChildCollectionOf<T extends CollectionId, K extends string = string> =
+	export type ChildCollectionOf<
+		T extends CollectionId,
+		K extends string = string
+	> =
 		DropFirst<T['primaryPathKeys']> extends CollectionAncestorKeys
 			? CollectionId<
 					T['typeId'],
@@ -1646,6 +1755,28 @@ class EmbeddedId<
 	 */
 	getEmbeddingIdParent(): ParentId {
 		return this.#parent
+	}
+
+	override _getPathRegExpSource(): string {
+		let basePath = this.#parent._getPathRegExpSource()
+		const [_primaryPathSegment, ...secondaryPathSegments] = this.pathSegments
+
+		for (const segment of secondaryPathSegments) {
+			basePath += '\\' + CONST.TypeSep
+			const keys = segment.split(CONST.PathKeySep)
+			for (const key of keys) {
+				switch (true) {
+					// FIXME: this doesn't account for globstars because these are always single-element path segments right now
+					case TypeGuard.AnyWildcard(key):
+						basePath += Pattern.DictKeyElement.source
+						break
+					default:
+						basePath += key
+						break
+				}
+			}
+		}
+		return basePath
 	}
 
 	/** @internal */
@@ -1702,3 +1833,26 @@ interface EmbeddedId<
 
 export { CollectableId, CollectionId, EmbeddedId, IdParser, NonCollectableId }
 
+// const test = IdParser.parse('move_category:starforged/**') as CollectionId
+
+// console.log(test.id)
+// console.log(test._getPrefixRegExpSource())
+// console.log(test._getPathRegExpSource())
+// console.log(test.regExp)
+
+// const test2 = test.createCollectableIdChild('pay_the_price')
+
+// console.log(test2.id)
+// console.log(test2.regExp)
+
+// const staticId = 'move:starforged/fate/pay_the_price'
+
+// console.log(
+// 	`<${test2.id}> matches <${staticId}>?`,
+// 	test2.canMatchWith('move:starforged/fate/pay_the_price')
+// )
+
+// const test3 = test2.createEmbeddedIdChild('oracle_rollable', '*')
+
+// console.log(test3.id)
+// console.log(test3.regExp)

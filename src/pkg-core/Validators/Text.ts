@@ -89,7 +89,7 @@ function needsIdValidation(k: unknown, v: unknown) {
 	if (typeof v !== 'string') return false
 
 	switch (true) {
-		case k === '_id':
+		case k === CONST.IdKey:
 		case plainTextKeys.has(k as string):
 		case urlKeys.has(k as string):
 		case nonTextKeys.has(k as string):

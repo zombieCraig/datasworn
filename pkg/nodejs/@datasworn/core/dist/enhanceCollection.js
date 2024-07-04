@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.enhanceCollection = void 0;
+const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
 // import fs from 'fs-extra'
 // import { IdParser, type Datasworn } from './index.js'
 // const classic = fs.readJSONSync(
@@ -51,7 +55,7 @@ exports.enhanceCollection = void 0;
 function enhanceCollection(target, source, strictOverrides = true) {
     if (strictOverrides &&
         !('enhances' in source && String(source.enhances) === String(target._id)))
-        throw new Error('strict mode requires a `enhances` property in the parameter `source`; its value must match the ID of the collection being enhanced.');
+        throw new Error('strict mode requires a `enhances` property in the source object; its value must match the ID of the collection being enhanced.');
     // no changes to make -- skip
     if (source === undefined ||
         source === null ||
@@ -81,12 +85,13 @@ function enhanceCollection(target, source, strictOverrides = true) {
         }
         switch (key) {
             // target's id should never be overwritten -- they need to relate to the object's 'real' position or the id lookup won't work.
-            case '_id':
-            case 'enhances':
-            case 'replaces':
-                // these metadata shouldn't be replicated on the merged tree
+            case CONST_js_1.default.IdKey:
+            case CONST_js_1.default.EnhancesKey:
+            case CONST_js_1.default.ReplacesKey:
+            case CONST_js_1.default.SourceInfoKey:
+                // metadata shouldn't be replicated on the merged tree -- skip
                 continue;
-            case 'contents':
+            case CONST_js_1.default.ContentsKey:
                 {
                     const sourceChildren = newValue instanceof Map ? newValue : Object.entries(newValue);
                     for (const [childKey, sourceChild] of sourceChildren) {
@@ -114,7 +119,7 @@ function enhanceCollection(target, source, strictOverrides = true) {
                     }
                 }
                 break;
-            case 'collections': {
+            case CONST_js_1.default.CollectionsKey: {
                 // child collections are enhanced recursively
                 const sourceChildren = newValue instanceof Map ? newValue : Object.entries(newValue);
                 for (const [childKey, sourceChild] of sourceChildren) {
@@ -134,7 +139,7 @@ function enhanceCollection(target, source, strictOverrides = true) {
                 break;
             }
             default:
-                target[key] = newValue;
+                // target[key] = newValue
                 break;
         }
     }

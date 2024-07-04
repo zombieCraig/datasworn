@@ -7,6 +7,7 @@ import { loadDataswornNamespace } from '../datasworn/loadDatasworn.js'
 import { extractLocaleStrings } from './extractLocaleStrings.js'
 import path from 'path'
 import { Datasworn } from '../../types/Datasworn.js'
+import CONST from '../../pkg-core/IdElements/CONST.js'
 
 const DEFAULT_LOCALE = 'en'
 
@@ -21,7 +22,7 @@ for (const pkg of Object.values(pkgs)) {
 	await fs.emptyDir(localeDir)
 
 	for (const collection of collections) {
-		const omitKeys: (keyof Datasworn)[] = ['_source', '_id']
+		const omitKeys: (keyof Datasworn)[] = ['_source', CONST.IdKey]
 		const [type] = Object.keys(collection).filter(
 			(k) => !omitKeys.includes(k as any)
 		)
