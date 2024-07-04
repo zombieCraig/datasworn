@@ -117,7 +117,9 @@ function applyDictionaryReplacements(targetDictionary, sourceDictionary) {
     const result = targetDictionary instanceof Map ? targetMap : Object.fromEntries(targetMap);
     return result;
 }
-function mergeExpansion(ruleset, expansion) {
+function mergeExpansion(ruleset, expansion, strict = true) {
+    if (strict && ruleset._id !== expansion.ruleset)
+        throw new Error(`Can only merge to the expansion's matching ruleset "${expansion.ruleset}" in strict mode, but got ruleset "${ruleset._id}".`);
     // apply noncollectable merges
     // const nonCollectables = TypeId.NonCollectable.map(TypeId.getBranchKey)
     const collections = TypeId_js_1.default.Collectable.map(TypeId_js_1.default.getBranchKey);

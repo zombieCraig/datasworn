@@ -180,8 +180,14 @@ function applyDictionaryReplacements<
 
 export function mergeExpansion(
 	ruleset: Datasworn.Ruleset,
-	expansion: Datasworn.Expansion
+	expansion: Datasworn.Expansion,
+	strict = true
 ) {
+	if (strict && ruleset._id !== expansion.ruleset)
+		throw new Error(
+			`Can only merge to the expansion's matching ruleset "${expansion.ruleset}" in strict mode, but got ruleset "${ruleset._id}".`
+		)
+
 	// apply noncollectable merges
 	// const nonCollectables = TypeId.NonCollectable.map(TypeId.getBranchKey)
 	const collections = TypeId.Collectable.map(TypeId.getBranchKey)
