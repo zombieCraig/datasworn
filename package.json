@@ -48,7 +48,8 @@
 		"ts-node": "^10.9.2",
 		"tsconfig-paths": "^4.2.0",
 		"type-fest": "^4.21.0",
-		"typescript": "^5.5.3"
+		"typescript": "^5.5.3",
+		"@types/bun": "latest"
 	},
 	"dependencies": {
 		"@sinclair/typebox": "^0.32.34",
