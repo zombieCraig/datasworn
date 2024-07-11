@@ -16,7 +16,7 @@ oracles:
     oracle_type: tables
     replaces:
       - oracle_collection:starforged/character
-    summary: When encountering a character, focus on what you learn or perceive as a first impression using tables such as [First Look](oracle_rollable:sundered_isles/character/first_look) and [Initial Disposition](oracle_rollable:sundered_isles/character/initial_disposition). Then envision or generate additional details over time.
+    summary: When encountering a character, focus on what you learn or perceive as a first impression using tables such as [First Look](datasworn:oracle_rollable:sundered_isles/character/first_look) and [Initial Disposition](datasworn:oracle_rollable:sundered_isles/character/initial_disposition). Then envision or generate additional details over time.
     _source:
       <<: *Source
     contents:
@@ -193,103 +193,103 @@ oracles:
           <<: *Source
         rows:
           - roll: { min: 1, max: 5 }
-            text: '[Academic](oracle_rollable:sundered_isles/character/role_details/academic)'
+            text: '[Academic](datasworn:oracle_rollable:sundered_isles/character/role_details/academic)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/academic
           - roll: { min: 6, max: 10 }
-            text: '[Agent](oracle_rollable:sundered_isles/character/role_details/agent)'
+            text: '[Agent](datasworn:oracle_rollable:sundered_isles/character/role_details/agent)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/agent
           - roll: { min: 11, max: 15 }
-            text: '[Caregiver](oracle_rollable:sundered_isles/character/role_details/caregiver)'
+            text: '[Caregiver](datasworn:oracle_rollable:sundered_isles/character/role_details/caregiver)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/caregiver
           - roll: { min: 16, max: 20 }
-            text: '[Combatant](oracle_rollable:sundered_isles/character/role_details/combatant)'
+            text: '[Combatant](datasworn:oracle_rollable:sundered_isles/character/role_details/combatant)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/combatant
           - roll: { min: 21, max: 25 }
-            text: '[Devotant](oracle_rollable:sundered_isles/character/role_details/devotant)'
+            text: '[Devotant](datasworn:oracle_rollable:sundered_isles/character/role_details/devotant)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/devotant
           - roll: { min: 26, max: 30 }
-            text: '[Laborer](oracle_rollable:sundered_isles/character/role_details/laborer)'
+            text: '[Laborer](datasworn:oracle_rollable:sundered_isles/character/role_details/laborer)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/laborer
           - roll: { min: 31, max: 35 }
-            text: '[Merchant](oracle_rollable:sundered_isles/character/role_details/merchant)'
+            text: '[Merchant](datasworn:oracle_rollable:sundered_isles/character/role_details/merchant)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/merchant
           - roll: { min: 36, max: 40 }
-            text: '[Mystic](oracle_rollable:sundered_isles/character/role_details/mystic)'
+            text: '[Mystic](datasworn:oracle_rollable:sundered_isles/character/role_details/mystic)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/mystic
           - roll: { min: 41, max: 45 }
-            text: '[Outcast](oracle_rollable:sundered_isles/character/role_details/outcast)'
+            text: '[Outcast](datasworn:oracle_rollable:sundered_isles/character/role_details/outcast)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/outcast
           - roll: { min: 46, max: 50 }
-            text: '[Outlander](oracle_rollable:sundered_isles/character/role_details/outlander)'
+            text: '[Outlander](datasworn:oracle_rollable:sundered_isles/character/role_details/outlander)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/outlander
           - roll: { min: 51, max: 55 }
-            text: '[Outlaw](oracle_rollable:sundered_isles/character/role_details/outlaw)'
+            text: '[Outlaw](datasworn:oracle_rollable:sundered_isles/character/role_details/outlaw)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/outlaw
           - roll: { min: 56, max: 60 }
-            text: '[Performer](oracle_rollable:sundered_isles/character/role_details/performer)'
+            text: '[Performer](datasworn:oracle_rollable:sundered_isles/character/role_details/performer)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/performer
           - roll: { min: 61, max: 70 }
-            text: '[Sailor](oracle_rollable:sundered_isles/character/role_details/sailor)'
+            text: '[Sailor](datasworn:oracle_rollable:sundered_isles/character/role_details/sailor)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/sailor
           - roll: { min: 71, max: 75 }
-            text: '[Scavenger](oracle_rollable:sundered_isles/character/role_details/scavenger)'
+            text: '[Scavenger](datasworn:oracle_rollable:sundered_isles/character/role_details/scavenger)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/scavenger
           - roll: { min: 76, max: 80 }
-            text: '[Statesperson](oracle_rollable:sundered_isles/character/role_details/statesperson)'
+            text: '[Statesperson](datasworn:oracle_rollable:sundered_isles/character/role_details/statesperson)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/statesperson
           - roll: { min: 81, max: 85 }
-            text: '[Tradesperson](oracle_rollable:sundered_isles/character/role_details/tradesperson)'
+            text: '[Tradesperson](datasworn:oracle_rollable:sundered_isles/character/role_details/tradesperson)'
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/character/role_details/tradesperson
           - roll: { min: 86, max: 95 }
-            text: '[Action](oracle_rollable:sundered_isles/core/action) + [Theme](oracle_rollable:sundered_isles/core/theme)'
+            text: '[Action](datasworn:oracle_rollable:sundered_isles/core/action) + [Theme](datasworn:oracle_rollable:sundered_isles/core/theme)'
             oracle_rolls:
               - auto: true
                 oracle: oracle_rollable:sundered_isles/core/action
@@ -306,7 +306,7 @@ oracles:
         type: oracle_rollable
         oracle_type: table_text
         recommended_rolls: { min: 1, max: 2 }
-        summary: This table includes conspicuous gear, adornment, and clothing. Use it to help envision the look of a notable character, particularly one who is a seafarer or adventurer. To arm them with a favorite weapon, check [Trademark Weapons](oracle_rollable:sundered_isles/character/trademark_weapons).
+        summary: This table includes conspicuous gear, adornment, and clothing. Use it to help envision the look of a notable character, particularly one who is a seafarer or adventurer. To arm them with a favorite weapon, check [Trademark Weapons](datasworn:oracle_rollable:sundered_isles/character/trademark_weapons).
         _source:
           <<: *Source
         rows:
@@ -409,7 +409,7 @@ oracles:
           - roll: { min: 97, max: 98 }
             text: Wooden religious medallion
           - roll: { min: 99, max: 100 }
-            text: '[Descriptor](oracle_rollable:sundered_isles/core/descriptor) + [Focus](oracle_rollable:sundered_isles/core/focus)'
+            text: '[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor) + [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)'
             oracle_rolls:
               - auto: true
                 oracle: oracle_rollable:sundered_isles/core/descriptor
@@ -511,7 +511,7 @@ oracles:
             cursed_version_of:
               - oracle_rollable:sundered_isles/character/trademark_weapons
             curse_behavior: add_result
-        summary: If you roll a [Trademark Weapon](oracle_rollable:sundered_isles/character/trademark_weapons) curse, take your result and give that weapon a cursed aspect from the table below.
+        summary: If you roll a [Trademark Weapon](datasworn:oracle_rollable:sundered_isles/character/trademark_weapons) curse, take your result and give that weapon a cursed aspect from the table below.
         _source:
           <<: *Source
         rows:
@@ -917,7 +917,7 @@ oracles:
           - roll: { min: 93, max: 94 }
             text: Uphold or enforce laws
           - roll: { min: 95, max: 100 }
-            text: '[Action](oracle_rollable:sundered_isles/core/action) + [Theme](oracle_rollable:sundered_isles/core/theme)'
+            text: '[Action](datasworn:oracle_rollable:sundered_isles/core/action) + [Theme](datasworn:oracle_rollable:sundered_isles/core/theme)'
             oracle_rolls:
               - auto: true
                 oracle: oracle_rollable:sundered_isles/core/action
@@ -2356,7 +2356,7 @@ oracles:
             name: Cursed Moniker
             type: oracle_collection
             oracle_type: tables
-            summary: Use these tables to reveal an epitaph for a dreadful, eldritch, ill-fated, or mechanical character. For example, a pirate captain who adopts a much-feared identity would have a [Dreadful Persona](oracle_rollable:sundered_isles/character/name/moniker_cursed/dreadful_persona). A wretched, outcast mariner would have an [Ill-Fated Nature](oracle_rollable:sundered_isles/character/name/moniker_cursed/ill_fated_nature). Use the result alone, combine with a name, or pair results from two Cursed Moniker categories.
+            summary: Use these tables to reveal an epitaph for a dreadful, eldritch, ill-fated, or mechanical character. For example, a pirate captain who adopts a much-feared identity would have a [Dreadful Persona](datasworn:oracle_rollable:sundered_isles/character/name/moniker_cursed/dreadful_persona). A wretched, outcast mariner would have an [Ill-Fated Nature](datasworn:oracle_rollable:sundered_isles/character/name/moniker_cursed/ill_fated_nature). Use the result alone, combine with a name, or pair results from two Cursed Moniker categories.
             _source:
               <<: *Source
             contents:
@@ -2373,25 +2373,25 @@ oracles:
                   <<: *Source
                 rows:
                   - roll: { min: 1, max: 40 }
-                    text: '[Dreadful Persona](oracle_rollable:sundered_isles/character/name/moniker_cursed/dreadful_persona)'
+                    text: '[Dreadful Persona](datasworn:oracle_rollable:sundered_isles/character/name/moniker_cursed/dreadful_persona)'
                     oracle_rolls:
                       - auto: false
                         number_of_rolls: 1
                         oracle: oracle_rollable:sundered_isles/character/name/moniker_cursed/dreadful_persona
                   - roll: { min: 41, max: 60 }
-                    text: '[Eldritch Powers](oracle_rollable:sundered_isles/character/name/moniker_cursed/eldritch_powers)'
+                    text: '[Eldritch Powers](datasworn:oracle_rollable:sundered_isles/character/name/moniker_cursed/eldritch_powers)'
                     oracle_rolls:
                       - auto: false
                         number_of_rolls: 1
                         oracle: oracle_rollable:sundered_isles/character/name/moniker_cursed/eldritch_powers
                   - roll: { min: 61, max: 90 }
-                    text: '[Ill-Fated Nature](oracle_rollable:sundered_isles/character/name/moniker_cursed/ill_fated_nature)'
+                    text: '[Ill-Fated Nature](datasworn:oracle_rollable:sundered_isles/character/name/moniker_cursed/ill_fated_nature)'
                     oracle_rolls:
                       - auto: false
                         number_of_rolls: 1
                         oracle: oracle_rollable:sundered_isles/character/name/moniker_cursed/ill_fated_nature
                   - roll: { min: 91, max: 100 }
-                    text: '[Mechanical Form](oracle_rollable:sundered_isles/character/name/moniker_cursed/mechanical_form)'
+                    text: '[Mechanical Form](datasworn:oracle_rollable:sundered_isles/character/name/moniker_cursed/mechanical_form)'
                     oracle_rolls:
                       - auto: false
                         number_of_rolls: 1

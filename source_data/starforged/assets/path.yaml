@@ -32,7 +32,7 @@ assets:
             title: 'Ironsworn: Starforged Assets'
         abilities:
           - text: |-
-              When you [Face Danger](move:starforged/adventure/face_danger) or [React Under Fire](move:starforged/combat/react_under_fire) by guiding your vehicle through a hazard or out of harm’s way, add +1 and take +1 momentum on a hit.
+              When you [Face Danger](datasworn:move:starforged/adventure/face_danger) or [React Under Fire](datasworn:move:starforged/combat/react_under_fire) by guiding your vehicle through a hazard or out of harm’s way, add +1 and take +1 momentum on a hit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -46,7 +46,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Gain Ground](move:starforged/combat/gain_ground) by maneuvering your vehicle against a foe, add +1. If you score a strong hit with a 4, 5, or 6 on the action die, you may put yourself in firing position. If you do, set aside the action die or note its value. If you or an ally [Strike](move:starforged/combat/strike) using the vehicle’s weapons, preset your action die with that value. This persists until you fail to score a strong hit on that move, or until you make another move which changes your vehicle’s position.
+              When you [Gain Ground](datasworn:move:starforged/combat/gain_ground) by maneuvering your vehicle against a foe, add +1. If you score a strong hit with a 4, 5, or 6 on the action die, you may put yourself in firing position. If you do, set aside the action die or note its value. If you or an ally [Strike](datasworn:move:starforged/combat/strike) using the vehicle’s weapons, preset your action die with that value. This persists until you fail to score a strong hit on that move, or until you make another move which changes your vehicle’s position.
             enhance_moves:
               - roll_type: action_roll
                 enhances:
@@ -57,7 +57,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you must [Endure Stress](move:starforged/suffer/endure_stress) while piloting a vehicle, you may roll +integrity. If you do, take +1 momentum on a strong hit.
+              When you must [Endure Stress](datasworn:move:starforged/suffer/endure_stress) while piloting a vehicle, you may roll +integrity. If you do, take +1 momentum on a strong hit.
             enhance_moves:
               - enhances:
                   - move:starforged/suffer/endure_stress
@@ -90,7 +90,7 @@ assets:
                 - asset.ability.move:starforged/path/archer.0.craft_projectiles
         abilities:
           - text: &ArcherMove.text |-
-              You carry 6 ammo. When you [Strike](move:starforged/combat/strike) or [Clash](move:starforged/combat/clash), you may add +1 or +2 and suffer that amount as -ammo. To replenish your ammo by crafting projectiles, roll +wits. On a strong hit, take up to +6 ammo. On a weak hit, take up to +4 ammo and [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1). On a miss, [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1).
+              You carry 6 ammo. When you [Strike](datasworn:move:starforged/combat/strike) or [Clash](datasworn:move:starforged/combat/clash), you may add +1 or +2 and suffer that amount as -ammo. To replenish your ammo by crafting projectiles, roll +wits. On a strong hit, take up to +6 ammo. On a weak hit, take up to +4 ammo and [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1). On a miss, [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1).
             moves:
               craft_projectiles:
                 name: Craft Projectiles
@@ -110,14 +110,14 @@ assets:
                       On a __strong hit__, take up to +6 ammo.
                   weak_hit:
                     text: |-
-                      On a __weak hit__, take up to +4 ammo and [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1).
+                      On a __weak hit__, take up to +4 ammo and [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1).
                   miss:
                     text: |-
-                      On a __miss__, [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1).
+                      On a __miss__, [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1).
 
             enabled: true
           - text: |-
-              You may [Enter the Fray](move:starforged/combat/enter_the_fray) by unleashing a volley of bow shots. If you do, roll +ammo and suffer -1 ammo. On a hit, mark progress.
+              You may [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) by unleashing a volley of bow shots. If you do, roll +ammo and suffer -1 ammo. On a hit, mark progress.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/enter_the_fray
@@ -157,7 +157,7 @@ assets:
             disables_asset: true
         abilities:
           - text: |-
-              When you [Face Danger](move:starforged/adventure/face_danger), [React Under Fire](move:starforged/combat/react_under_fire), or [Clash](move:starforged/combat/clash) against physical attacks or impact, you may put trust in your armor’s strength. If you do, preset your action die to 4. On a strong hit with a match, take +2 momentum as you build confidence, make an impression on your foes, or improve your position.
+              When you [Face Danger](datasworn:move:starforged/adventure/face_danger), [React Under Fire](datasworn:move:starforged/combat/react_under_fire), or [Clash](datasworn:move:starforged/combat/clash) against physical attacks or impact, you may put trust in your armor’s strength. If you do, preset your action die to 4. On a strong hit with a match, take +2 momentum as you build confidence, make an impression on your foes, or improve your position.
             enabled: true
             enhance_moves:
               - enhances:
@@ -173,7 +173,7 @@ assets:
           - text: |-
               You add an important new piece to your set of armor, or upgrade its materials. As above, but preset your action die to 5 instead of 4.
           - text: |-
-              When you must [Endure Harm](move:starforged/suffer/endure_harm), you may instead let your armor take the hit. If you do, roll your action die. On a 4 or greater, ignore the harm. On a 1-3, ignore the harm but your armor is now broken; you must [Repair](move:starforged/recover/repair) and spend 5 repair points to bring it back to working condition.
+              When you must [Endure Harm](datasworn:move:starforged/suffer/endure_harm), you may instead let your armor take the hit. If you do, roll your action die. On a 4 or greater, ignore the harm. On a 1-3, ignore the harm but your armor is now broken; you must [Repair](datasworn:move:starforged/recover/repair) and spend 5 repair points to bring it back to working condition.
             enhance_moves:
               - enhances:
                   - move:starforged/suffer/endure_harm
@@ -199,7 +199,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Gather Information](move:starforged/adventure/gather_information) or [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by studying the aesthetics of a being or culture, add +2.
+              When you [Gather Information](datasworn:move:starforged/adventure/gather_information) or [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by studying the aesthetics of a being or culture, add +2.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/gather_information
@@ -211,7 +211,7 @@ assets:
                       roll_options: null
                       method: null
           - text: &ArtistMove |-
-              When you create or perform a significant artistic work as a public memorial or tribute, roll +the stat which best represents the work’s nature. On a strong hit, the work will stand the test of time; mark 2 ticks on your bonds legacy track. On a weak hit, its impact is short-lived; mark 1 tick instead of 2. On a miss, the work is ignored, misunderstood, or co-opted, and you must [Pay the Price](move:starforged/fate/pay_the_price).
+              When you create or perform a significant artistic work as a public memorial or tribute, roll +the stat which best represents the work’s nature. On a strong hit, the work will stand the test of time; mark 2 ticks on your bonds legacy track. On a weak hit, its impact is short-lived; mark 1 tick instead of 2. On a miss, the work is ignored, misunderstood, or co-opted, and you must [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
             moves:
               commemorate:
                 name: Commemorate
@@ -243,7 +243,7 @@ assets:
                       On a __weak hit__, the work's impact is short-lived; mark 1 tick on your bonds legacy track.
                   miss:
                     text: |-
-                      On a __miss__, the work is ignored, misunderstood, or co-opted, and you must [Pay the Price](move:starforged/fate/pay_the_price).
+                      On a __miss__, the work is ignored, misunderstood, or co-opted, and you must [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
       augmented:
         name: Augmented
         type: asset
@@ -267,7 +267,7 @@ assets:
         #   broken_two: *BrokenControl
         abilities:
           - text: |-
-              You are equipped with an advanced prosthetic, implant, or mechanical enhancement. When you make a move directly aided by the augment, envision how it gives you exceptional capabilities and add +1. On a strong hit with a match, your augment exceeds expectations; take +2 momentum. On a miss with a match, the augment is broken; you must [Repair](move:starforged/recover/repair) and spend 3 repair points to bring it back to working condition.
+              You are equipped with an advanced prosthetic, implant, or mechanical enhancement. When you make a move directly aided by the augment, envision how it gives you exceptional capabilities and add +1. On a strong hit with a match, your augment exceeds expectations; take +2 momentum. On a miss with a match, the augment is broken; you must [Repair](datasworn:move:starforged/recover/repair) and spend 3 repair points to bring it back to working condition.
             enabled: true
             enhance_moves:
               - roll_type: action_roll
@@ -279,7 +279,7 @@ assets:
           - text: |-
               You are equipped with a second augment. It functions as above, but the benefits of the two augments do not stack.
           - text: |-
-              When you must [Endure Harm](move:starforged/suffer/endure_harm) or [Face Death](move:starforged/threshold/face_death), you may instead mark an augment as broken. [Repair](move:starforged/recover/repair) it as detailed above.
+              When you must [Endure Harm](datasworn:move:starforged/suffer/endure_harm) or [Face Death](datasworn:move:starforged/threshold/face_death), you may instead mark an augment as broken. [Repair](datasworn:move:starforged/recover/repair) it as detailed above.
             enhance_moves:
               - enhances:
                   - move:starforged/suffer/endure_harm
@@ -298,7 +298,7 @@ assets:
             field_type: text
         abilities:
           - text: |-
-              You are bound to a clan, faction, or creed. When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) in service to this ideology, reroll any dice. On a hit, mark 1 tick on your bonds legacy track.
+              You are bound to a clan, faction, or creed. When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) in service to this ideology, reroll any dice. On a hit, mark 1 tick on your bonds legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -310,7 +310,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you or an ally [Sojourn](move:starforged/recover/sojourn) and score a strong hit with a match, you may envision meeting someone of the same ideology. If you [Make a Connection](move:starforged/connection/make_a_connection) with them and score a hit, mark 1 tick on your bonds legacy track. When you [Forge a Bond](move:starforged/connection/forge_a_bond) with anyone of your ideology, make the legacy reward one rank higher (1 extra box if already epic).
+              When you or an ally [Sojourn](datasworn:move:starforged/recover/sojourn) and score a strong hit with a match, you may envision meeting someone of the same ideology. If you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) with them and score a hit, mark 1 tick on your bonds legacy track. When you [Forge a Bond](datasworn:move:starforged/connection/forge_a_bond) with anyone of your ideology, make the legacy reward one rank higher (1 extra box if already epic).
             enhance_moves:
               - enhances:
                   - move:starforged/recover/sojourn
@@ -349,7 +349,7 @@ assets:
         requirement: If you wield a bladed weapon...
         abilities:
           - text: |-
-              When you [Clash](move:starforged/combat/clash) or [Strike](move:starforged/combat/strike) in close quarters, add +1. On a strong hit with a match, you are unstoppable; mark progress.
+              When you [Clash](datasworn:move:starforged/combat/clash) or [Strike](datasworn:move:starforged/combat/strike) in close quarters, add +1. On a strong hit with a match, you are unstoppable; mark progress.
             enabled: true
             enhance_moves:
               - enhances:
@@ -362,7 +362,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              If you [Gain Ground](move:starforged/combat/gain_ground) by moving into close quarters against your foe, choose your approach.
+              If you [Gain Ground](datasworn:move:starforged/combat/gain_ground) by moving into close quarters against your foe, choose your approach.
 
                 * Charge: Roll +heart, and mark progress on a hit.
                 * Evade: Roll +edge, and take +1 momentum on a hit.
@@ -388,7 +388,7 @@ assets:
                           stat: edge
                       method: null
           - text: |-
-              You wield an iconic blade. Give it a name. When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) by binding your promise to the blade, add +1. On a hit, fill the box below. If you make a move (including a progress move) using this oathbound blade and score a miss, you may clear the box to reroll any dice.
+              You wield an iconic blade. Give it a name. When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) by binding your promise to the blade, add +1. On a hit, fill the box below. If you make a move (including a progress move) using this oathbound blade and score a miss, you may clear the box to reroll any dice.
             options:
               name:
                 label: name
@@ -416,7 +416,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you take a bounty contract and [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) to see it done, add +1. On a strong hit, you’ve got a solid lead and may mark progress on the quest. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) on a hunt, make the legacy reward one rank higher (1 extra box if already epic).
+              When you take a bounty contract and [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) to see it done, add +1. On a strong hit, you’ve got a solid lead and may mark progress on the quest. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) on a hunt, make the legacy reward one rank higher (1 extra box if already epic).
             enabled: true
             enhance_moves:
               - enhances:
@@ -424,7 +424,7 @@ assets:
                 roll_type: action_roll
                 trigger:
                   conditions:
-                    - text: When you take a bounty contract and [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) to see it done
+                    - text: When you take a bounty contract and [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) to see it done
                       roll_options: null
                       method: null
               - enhances:
@@ -436,10 +436,10 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Gather Information](move:starforged/adventure/gather_information) related to a bounty, add +1. On a match, you reveal a surprising or sinister aspect of the contract; envision what you discover, and choose one.
+              When you [Gather Information](datasworn:move:starforged/adventure/gather_information) related to a bounty, add +1. On a match, you reveal a surprising or sinister aspect of the contract; envision what you discover, and choose one.
 
                 * Forge ahead: Mark progress on the quest. If you scored a strong hit with a match, also take +2 momentum.
-                * Change loyalties: [Forsake Your Vow](move:starforged/quest/forsake_your_vow) and mark 2 ticks on your bonds legacy track.
+                * Change loyalties: [Forsake Your Vow](datasworn:move:starforged/quest/forsake_your_vow) and mark 2 ticks on your bonds legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/gather_information
@@ -450,7 +450,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Take Decisive Action](move:starforged/combat/take_decisive_action) in a fight against a bounty target or their agents, you may reroll one challenge die.
+              When you [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action) in a fight against a bounty target or their agents, you may reroll one challenge die.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/take_decisive_action
@@ -470,7 +470,7 @@ assets:
         requirement: If you fight unarmed or with a close quarters weapon...
         abilities:
           - text: |-
-              When you [Gain Ground](move:starforged/combat/gain_ground) by attempting to disarm, trip, shove, grapple, or stun your foe, add +1 and take +1 momentum on a hit.
+              When you [Gain Ground](datasworn:move:starforged/combat/gain_ground) by attempting to disarm, trip, shove, grapple, or stun your foe, add +1 and take +1 momentum on a hit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -483,7 +483,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Clash](move:starforged/combat/clash) in close quarters, you may draw on your momentum to gain advantage. If you do, [Lose Momentum](move:starforged/suffer/lose_momentum) (-2) and choose one (before rolling).
+              When you [Clash](datasworn:move:starforged/combat/clash) in close quarters, you may draw on your momentum to gain advantage. If you do, [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-2) and choose one (before rolling).
 
                 * Aggressive: Count a weak hit as a strong hit.
                 * Defensive: Count a miss as a weak hit.
@@ -505,7 +505,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Enter the Fray](move:starforged/combat/enter_the_fray) already positioned in close quarters against your foe, mark progress on a hit. On a strong hit with a match, your initial assault leaves them stunned; also take +2 momentum.
+              When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) already positioned in close quarters against your foe, mark progress on a hit. On a strong hit with a match, your initial assault leaves them stunned; also take +2 momentum.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/enter_the_fray
@@ -524,7 +524,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) to transport and protect something precious, set its safety to 5. When you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition) or [Set a Course](move:starforged/exploration/set_a_course) and score a weak hit or miss, you may suffer -1 safety as the cost. On a miss with a match, you must suffer -2 safety as the cost. When safety falls to 0, envision a major complication related to this mission. If you overcome the threat, mark progress twice on this quest. Then, set safety to 3.
+              When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) to transport and protect something precious, set its safety to 5. When you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition) or [Set a Course](datasworn:move:starforged/exploration/set_a_course) and score a weak hit or miss, you may suffer -1 safety as the cost. On a miss with a match, you must suffer -2 safety as the cost. When safety falls to 0, envision a major complication related to this mission. If you overcome the threat, mark progress twice on this quest. Then, set safety to 3.
             enabled: true
             enhance_moves:
               - enhances:
@@ -547,7 +547,7 @@ assets:
                 #         When safety falls to 0, envision a major complication related to this mission. If you overcome the threat, mark progress twice on this quest. Then, set safety to 3.
           - # TODO: revisit - should this be post-roll text? what roll outcomes should it apply to?
             text: |-
-              When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) to an unbonded connection by completing a courier mission, mark progress twice on the relationship.
+              When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) to an unbonded connection by completing a courier mission, mark progress twice on the relationship.
             enhance_moves:
               - enhances:
                   - move:starforged/quest/fulfill_your_vow
@@ -559,7 +559,7 @@ assets:
                       roll_options: null
 
           - text: |-
-              When you [Sojourn](move:starforged/recover/sojourn) during a courier mission, you may roll +safety. On a strong hit, take +1 safety or +1 momentum.
+              When you [Sojourn](datasworn:move:starforged/recover/sojourn) during a courier mission, you may roll +safety. On a strong hit, take +1 safety or +1 momentum.
             enhance_moves:
               - enhances:
                   - move:starforged/recover/sojourn
@@ -610,7 +610,7 @@ assets:
                       method: null
 
           - text: |-
-              When your momentum is at its max, you may reset momentum (before rolling) to trigger an explosive device as you [Take Decisive Action](move:starforged/combat/take_decisive_action). If you do, reroll any challenge dice.
+              When your momentum is at its max, you may reset momentum (before rolling) to trigger an explosive device as you [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action). If you do, reroll any challenge dice.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/take_decisive_action
@@ -664,7 +664,7 @@ assets:
                 choice_type: choice
         abilities:
           - text: |-
-              You worship a god, power, or entity. Give it a name and choose one of your stats to represent its nature. When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) or [Gain Ground](move:starforged/combat/gain_ground) by calling on it for guidance or aid, roll +linked stat. On a hit, take +1 momentum or +1 spirit. On a strong hit with a match, a miracle or sign manifests; take another +1 momentum or +1 spirit.
+              You worship a god, power, or entity. Give it a name and choose one of your stats to represent its nature. When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Gain Ground](datasworn:move:starforged/combat/gain_ground) by calling on it for guidance or aid, roll +linked stat. On a hit, take +1 momentum or +1 spirit. On a strong hit with a match, a miracle or sign manifests; take another +1 momentum or +1 spirit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -685,7 +685,7 @@ assets:
                 #           * Take +2 momentum
                 #           * Take +1 spirit and +1 momentum
           - text: |-
-              When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) in service to your faith, roll +linked stat and take +2 momentum or +2 spirit on a hit. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) on a divine quest (formidable or greater) and score a hit, also mark 2 ticks on your bonds legacy track.
+              When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) in service to your faith, roll +linked stat and take +2 momentum or +2 spirit on a hit. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) on a divine quest (formidable or greater) and score a hit, also mark 2 ticks on your bonds legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/quest/swear_an_iron_vow
@@ -707,7 +707,7 @@ assets:
                       text: On a divine quest (formidable or greater)
                       roll_options: null
           - text: |-
-              When you [Hearten](move:starforged/recover/hearten) through contemplation or sharing of your faith, you may roll +linked stat. If you do, take +1 spirit or +1 momentum on a strong hit.
+              When you [Hearten](datasworn:move:starforged/recover/hearten) through contemplation or sharing of your faith, you may roll +linked stat. If you do, take +1 spirit or +1 momentum on a strong hit.
             enhance_moves:
               - enhances:
                   - move:starforged/recover/hearten
@@ -729,7 +729,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) to resolve a dispute, negotiate an agreement, or gather support, add +1. On a strong hit, mark progress on the quest. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) on a diplomatic mission (formidable or greater) and score a hit, also mark 2 ticks on your bonds legacy track.
+              When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) to resolve a dispute, negotiate an agreement, or gather support, add +1. On a strong hit, mark progress on the quest. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) on a diplomatic mission (formidable or greater) and score a hit, also mark 2 ticks on your bonds legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -749,7 +749,7 @@ assets:
                       text: On a diplomatic mission (formidable or greater)
                       roll_options: null
           - text: |-
-              When you make a move to defuse, reason, or negotiate, add +1. On a miss, you may take a different tack. Envision this new approach, reroll all dice, and add +2. If you score a miss yet again, face a dire complication or blow to your reputation as you [Pay the Price](move:starforged/fate/pay_the_price).
+              When you make a move to defuse, reason, or negotiate, add +1. On a miss, you may take a different tack. Envision this new approach, reroll all dice, and add +2. If you score a miss yet again, face a dire complication or blow to your reputation as you [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
             enhance_moves:
               - roll_type: action_roll
                 trigger:
@@ -757,9 +757,9 @@ assets:
                     - text: To defuse, reason, or negotiate
                       roll_options: null
                       method: null
-                #         You may take a different tack. Envision this new approach, reroll all dice, and add +2. If you score a miss yet again, face a dire complication or blow to your reputation as you [Pay the Price](move:starforged/fate/pay_the_price).
+                #         You may take a different tack. Envision this new approach, reroll all dice, and add +2. If you score a miss yet again, face a dire complication or blow to your reputation as you [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
           - text: |-
-              When you [Make a Connection](move:starforged/connection/make_a_connection) or [Sojourn](move:starforged/recover/sojourn), add +1. If you [Sojourn](move:starforged/recover/sojourn) and score a strong hit with a match, you are shown great kindness or respect; take +2 momentum or make an extra recover move with an automatic strong hit.
+              When you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) or [Sojourn](datasworn:move:starforged/recover/sojourn), add +1. If you [Sojourn](datasworn:move:starforged/recover/sojourn) and score a strong hit with a match, you are shown great kindness or respect; take +2 momentum or make an extra recover move with an automatic strong hit.
             enhance_moves:
               - enhances:
                   - move:starforged/connection/make_a_connection
@@ -779,7 +779,7 @@ assets:
             supernatural: true
         abilities:
           - text: &EmpathMove |-
-              When you read the intent, emotions, or memories of a nearby being, roll +heart. On a strong hit, you glimpse a helpful aspect of their inner self. Envision what you learn, take +2 momentum, and add +1 when you make moves to interact with them in this scene. On a weak hit, the visions are murky; take +1 momentum. On a miss, you reveal a troubling motive or secret; [Pay the Price](move:starforged/fate/pay_the_price).
+              When you read the intent, emotions, or memories of a nearby being, roll +heart. On a strong hit, you glimpse a helpful aspect of their inner self. Envision what you learn, take +2 momentum, and add +1 when you make moves to interact with them in this scene. On a weak hit, the visions are murky; take +1 momentum. On a miss, you reveal a troubling motive or secret; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
             enabled: true
             moves:
               read_heart:
@@ -803,7 +803,7 @@ assets:
                       On a __weak hit__, the visions are murky; take +1 momentum.
                   miss:
                     text: |-
-                      On a __miss__, you reveal a troubling motive or secret; [Pay the Price](move:starforged/fate/pay_the_price).
+                      On a __miss__, you reveal a troubling motive or secret; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
           - text: |-
               As above, and if you score a hit as you read them, you may subtly influence their attitude or actions, such as making a hostile being hesitate. Take another +1 momentum. If in a fight, mark progress.
             enhance_moves:
@@ -811,7 +811,7 @@ assets:
                   - asset.ability.move:starforged/path/empath.0.read_heart
                 roll_type: action_roll
           - text: |-
-              When you [Face Danger](move:starforged/adventure/face_danger) to soothe a being’s distress by creating an empathic bond, roll +spirit and take +1 momentum on a hit. If they are an ally, also give them +2 spirit on a hit.
+              When you [Face Danger](datasworn:move:starforged/adventure/face_danger) to soothe a being’s distress by creating an empathic bond, roll +spirit and take +1 momentum on a hit. If they are an ally, also give them +2 spirit on a hit.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/face_danger'
@@ -829,7 +829,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Explore a Waypoint](move:starforged/exploration/explore_a_waypoint), take +1 momentum on a hit. When you [Finish an Expedition](move:starforged/exploration/finish_an_expedition) and score a hit, mark 1 extra tick on your discoveries legacy track.
+              When you [Explore a Waypoint](datasworn:move:starforged/exploration/explore_a_waypoint), take +1 momentum on a hit. When you [Finish an Expedition](datasworn:move:starforged/exploration/finish_an_expedition) and score a hit, mark 1 extra tick on your discoveries legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -843,9 +843,9 @@ assets:
               When you come across a wondrous sight or phenomenon, such as an extraordinary planet, majestic creature, or dazzling stellar object, choose one:
 
                 * Find inspiration: Take +1 momentum
-                * Soak it all in: [Hearten](move:starforged/recover/hearten); add +1, and take +1 momentum on a hit.
+                * Soak it all in: [Hearten](datasworn:move:starforged/recover/hearten); add +1, and take +1 momentum on a hit.
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by studying a newfound place from a safe position, add +1 and take +1 momentum on a hit. On a strong hit with a match, take another +1 momentum and envision an unusual aspect of the site.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by studying a newfound place from a safe position, add +1 and take +1 momentum on a hit. On a strong hit with a match, take another +1 momentum and envision an unusual aspect of the site.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -864,7 +864,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you fill a box on your background vow progress track, also mark 1 tick on your quests legacy track. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) on the background vow, your fate is at hand; take an automatic strong hit and envision the final sacrifice that brings your story to an end.
+              When you fill a box on your background vow progress track, also mark 1 tick on your quests legacy track. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) on the background vow, your fate is at hand; take an automatic strong hit and envision the final sacrifice that brings your story to an end.
             enabled: true
             # TODO: non move trigger (fill background vow progress)
             enhance_moves:
@@ -877,7 +877,7 @@ assets:
                       roll_options: null
                       method: strong_hit
           - text: |-
-              When you [Face Death](move:starforged/threshold/face_death) or [Face Desolation](move:starforged/threshold/face_desolation) while your background vow is unfulfilled, it is not yet your time. Instead of rolling, you may take an automatic strong hit. If you do, this asset counts as an impact (and you no longer have this protection) until you next [Reach a Milestone](move:starforged/quest/reach_a_milestone) on the background vow.
+              When you [Face Death](datasworn:move:starforged/threshold/face_death) or [Face Desolation](datasworn:move:starforged/threshold/face_desolation) while your background vow is unfulfilled, it is not yet your time. Instead of rolling, you may take an automatic strong hit. If you do, this asset counts as an impact (and you no longer have this protection) until you next [Reach a Milestone](datasworn:move:starforged/quest/reach_a_milestone) on the background vow.
             # TODO: conditional impact
             enhance_moves:
               - enhances:
@@ -909,7 +909,7 @@ assets:
             supernatural: true
         abilities:
           - text: &FirebrandMove |-
-              You wield fiery energy. When you rest and meditate to gather this energy, roll +spirit. On a strong hit, take up to +3 fire. On a weak hit, take +2. On a miss, take +2 fire but [Endure Harm](move:starforged/suffer/endure_harm) (-2). Your max fire is +5. When you make moves aided by this energy to attack or overcome obstacles, add +2 and suffer -1 fire.
+              You wield fiery energy. When you rest and meditate to gather this energy, roll +spirit. On a strong hit, take up to +3 fire. On a weak hit, take +2. On a miss, take +2 fire but [Endure Harm](datasworn:move:starforged/suffer/endure_harm) (-2). Your max fire is +5. When you make moves aided by this energy to attack or overcome obstacles, add +2 and suffer -1 fire.
             enabled: true
             moves:
               gather_energy:
@@ -937,17 +937,17 @@ assets:
                       When you make moves aided by this energy to attack or overcome obstacles, add +2 and suffer -1 fire.
                   miss:
                     text: |-
-                      On a __miss__, take up to +2 fire but [Endure Harm](move:starforged/suffer/endure_harm) (-2).
+                      On a __miss__, take up to +2 fire but [Endure Harm](datasworn:move:starforged/suffer/endure_harm) (-2).
 
                       When you make moves aided by this energy to attack or overcome obstacles, add +2 and suffer -1 fire.
           - text: |-
-              When you [Endure Harm](move:starforged/suffer/endure_harm) and score a strong hit with a match, you may instead ignore the harm and take +fire equal to the amount of harm faced (+1, +2, or +3).
+              When you [Endure Harm](datasworn:move:starforged/suffer/endure_harm) and score a strong hit with a match, you may instead ignore the harm and take +fire equal to the amount of harm faced (+1, +2, or +3).
             enhance_moves:
               - enhances:
                   - move:starforged/suffer/endure_harm
                 roll_type: action_roll
           - text: |-
-              When you have at least +3 fire, you may [Gain Ground](move:starforged/combat/gain_ground) or [Strike](move:starforged/combat/strike) by unleashing hell. If you do, take an automatic strong hit and mark progress. Then, set your fire to 0.
+              When you have at least +3 fire, you may [Gain Ground](datasworn:move:starforged/combat/gain_ground) or [Strike](datasworn:move:starforged/combat/strike) by unleashing hell. If you do, take an automatic strong hit and mark progress. Then, set your fire to 0.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/gain_ground
@@ -996,7 +996,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) (extreme or greater) by clearing your name or defeating the power or authority who marked you as a fugitive, gain this ability at no cost. You may then exchange this asset for another with the same number of marked abilities.
+              When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) (extreme or greater) by clearing your name or defeating the power or authority who marked you as a fugitive, gain this ability at no cost. You may then exchange this asset for another with the same number of marked abilities.
             # TODO: figure out if there's a sensible way to handle this
             # Alter moves:
             #   - moves:
@@ -1028,7 +1028,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Gather Information](move:starforged/adventure/gather_information) by studying or disassembling a machine or device, reroll any dice. On a match, you reveal an unexpected function, capability, or danger; mark 1 tick on your discoveries legacy track.
+              When you [Gather Information](datasworn:move:starforged/adventure/gather_information) by studying or disassembling a machine or device, reroll any dice. On a match, you reveal an unexpected function, capability, or danger; mark 1 tick on your discoveries legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/gather_information
@@ -1039,7 +1039,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              With sufficient time (a couple of hours or more), you may [Secure an Advantage](move:starforged/adventure/secure_an_advantage) to assemble or enhance a device for a powerful but limited role. On a hit, the device is ready for use. One time only, when you or an ally make a move aided by the device, take an automatic strong hit. If you are in a fight, also mark progress.
+              With sufficient time (a couple of hours or more), you may [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) to assemble or enhance a device for a powerful but limited role. On a hit, the device is ready for use. One time only, when you or an ally make a move aided by the device, take an automatic strong hit. If you are in a fight, also mark progress.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -1057,7 +1057,7 @@ assets:
         requirement: If you wield a heavy ranged personal weapon...
         abilities:
           - text: |-
-              When you [Strike](move:starforged/combat/strike), choose one (before rolling).
+              When you [Strike](datasworn:move:starforged/combat/strike), choose one (before rolling).
 
                 * Pin them down: Add +1 and take +1 momentum on a hit.
                 * Make them hurt: Mark progress on a hit.
@@ -1081,7 +1081,7 @@ assets:
                       method: null
                       roll_options: null
           - text: |-
-              When you [Take Decisive Action](move:starforged/combat/take_decisive_action) by emptying your gun (decide before rolling), you may [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1) and reroll one challenge die. If the fight continues or you are caught up another fight, [Check Your Gear](move:starforged/adventure/check_your_gear) to see if you have more ammo on-hand.
+              When you [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action) by emptying your gun (decide before rolling), you may [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1) and reroll one challenge die. If the fight continues or you are caught up another fight, [Check Your Gear](datasworn:move:starforged/adventure/check_your_gear) to see if you have more ammo on-hand.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/take_decisive_action
@@ -1089,10 +1089,10 @@ assets:
                 trigger:
                   conditions:
                     - method: null
-                      text: By emptying your gun as you [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1)
+                      text: By emptying your gun as you [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1)
                       roll_options: null
           - text: |-
-              Give your favorite gun a name. When you [Clash](move:starforged/combat/clash) with it, add +1. When you [Enter the Fray](move:starforged/combat/enter_the_fray) or [Endure Stress](move:starforged/suffer/endure_stress) while wielding it, add +1 and take +1 momentum on a hit.
+              Give your favorite gun a name. When you [Clash](datasworn:move:starforged/combat/clash) with it, add +1. When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) or [Endure Stress](datasworn:move:starforged/suffer/endure_stress) while wielding it, add +1 and take +1 momentum on a hit.
             options:
               name:
                 label: name
@@ -1123,7 +1123,7 @@ assets:
         requirement: If you wield a pistol...
         abilities:
           - text: |-
-              When you [Enter the Fray](move:starforged/combat/enter_the_fray) by facing off against your foe (+heart), or by preparing to act without tipping them off (+shadow), add +1 and take +1 momentum on a hit. On a strong hit with a match, you may immediately take a shot (without making a move) and mark progress twice.
+              When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) by facing off against your foe (+heart), or by preparing to act without tipping them off (+shadow), add +1 and take +1 momentum on a hit. On a strong hit with a match, you may immediately take a shot (without making a move) and mark progress twice.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1142,7 +1142,7 @@ assets:
                         - using: stat
                           stat: shadow
           - text: |-
-              When you [Gain Ground](move:starforged/combat/gain_ground) or [React Under Fire](move:starforged/combat/react_under_fire) by moving into cover, add +1. On a strong hit, this cover gives you leverage; add +1 when you make a move to attack or defend at range. If you then score a miss, the cover is lost or compromised.
+              When you [Gain Ground](datasworn:move:starforged/combat/gain_ground) or [React Under Fire](datasworn:move:starforged/combat/react_under_fire) by moving into cover, add +1. On a strong hit, this cover gives you leverage; add +1 when you make a move to attack or defend at range. If you then score a miss, the cover is lost or compromised.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/gain_ground
@@ -1154,7 +1154,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Compel](move:starforged/adventure/compel) or [Gain Ground](move:starforged/combat/gain_ground) with the threat of violence by holding someone at gunpoint, add +1 and take +1 momentum on a hit.
+              When you [Compel](datasworn:move:starforged/adventure/compel) or [Gain Ground](datasworn:move:starforged/combat/gain_ground) with the threat of violence by holding someone at gunpoint, add +1 and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/compel
@@ -1177,7 +1177,7 @@ assets:
             supernatural: true
         abilities:
           - text: |-
-              You are haunted by the spirit of someone whose death you caused or mourn (or both). When you make a move to call upon their insight, add +1. On a weak hit, also [Endure Stress](move:starforged/suffer/endure_stress) (-1). On a strong hit with a match, mark 1 tick on your bonds legacy track.
+              You are haunted by the spirit of someone whose death you caused or mourn (or both). When you make a move to call upon their insight, add +1. On a weak hit, also [Endure Stress](datasworn:move:starforged/suffer/endure_stress) (-1). On a strong hit with a match, mark 1 tick on your bonds legacy track.
             enabled: true
             enhance_moves:
               - roll_type: action_roll
@@ -1187,7 +1187,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Face Death](move:starforged/threshold/face_death) guided by the spirit, add +1. On a strong hit, envision what you learn from them or about them, and mark 2 ticks on your bonds legacy track.
+              When you [Face Death](datasworn:move:starforged/threshold/face_death) guided by the spirit, add +1. On a strong hit, envision what you learn from them or about them, and mark 2 ticks on your bonds legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/threshold/face_death
@@ -1198,7 +1198,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              One time only, when you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) (extreme or greater) in service to the spirit, take this ability at no cost and choose one.
+              One time only, when you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) (extreme or greater) in service to the spirit, take this ability at no cost and choose one.
 
                 * Let them go: Mark 2 ticks on your bonds legacy track for each marked ability, and discard this asset.
                 * Bolster your link: When you use a HAUNTED asset ability, take +1 momentum on a hit.
@@ -1218,7 +1218,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you give medical care to [Heal](move:starforged/recover/heal) yourself or another character, add +1. If you are treating someone other than yourself, take +1 spirit or +1 momentum on a hit.
+              When you give medical care to [Heal](datasworn:move:starforged/recover/heal) yourself or another character, add +1. If you are treating someone other than yourself, take +1 spirit or +1 momentum on a hit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1238,7 +1238,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Gather Information](move:starforged/adventure/gather_information) by studying medical evidence or biological remains, add +1 and take +1 momentum on a hit. On a strong hit with a match, you also reveal an unexpected medical anomaly; mark 1 tick on your discoveries legacy track.
+              When you [Gather Information](datasworn:move:starforged/adventure/gather_information) by studying medical evidence or biological remains, add +1 and take +1 momentum on a hit. On a strong hit with a match, you also reveal an unexpected medical anomaly; mark 1 tick on your discoveries legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/gather_information
@@ -1249,7 +1249,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              Once every day or so, when you are in a safe place with plenty of time on your hands, you may [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1) and provide basic medical care for yourself, companions, or allies without risk. If you do, roll only your action die. On a 1-4, automatically give +1 health to everyone whose health is greater than 0. On a 5-6, make it +2.
+              Once every day or so, when you are in a safe place with plenty of time on your hands, you may [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1) and provide basic medical care for yourself, companions, or allies without risk. If you do, roll only your action die. On a 1-4, automatically give +1 health to everyone whose health is greater than 0. On a 5-6, make it +2.
       # TODO: style as move?
       infiltrator:
         name: Infiltrator
@@ -1267,7 +1267,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Face Danger](move:starforged/adventure/face_danger) or [Secure an Advantage](move:starforged/adventure/secure_an_advantage) to establish a false identity, add +1. On a hit, you may add +1 when using that identity to deceive or influence others. If you score a miss with a match when using that identity, your deception is completely and dramatically undone.
+              When you [Face Danger](datasworn:move:starforged/adventure/face_danger) or [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) to establish a false identity, add +1. On a hit, you may add +1 when using that identity to deceive or influence others. If you score a miss with a match when using that identity, your deception is completely and dramatically undone.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/face_danger'
@@ -1280,7 +1280,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Check Your Gear](move:starforged/adventure/check_your_gear) for a device with a specific function to aid in infiltration, espionage, or sabotage, add +1. On a hit, reroll any dice the first time you make a move aided by the device.
+              When you [Check Your Gear](datasworn:move:starforged/adventure/check_your_gear) for a device with a specific function to aid in infiltration, espionage, or sabotage, add +1. On a hit, reroll any dice the first time you make a move aided by the device.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/check_your_gear
@@ -1301,7 +1301,7 @@ assets:
             supernatural: true
         abilities:
           - text: |-
-              You wield kinetic powers. By focusing, you may remotely push, pull, lift, or constrict objects and beings that are about your size or smaller. When you are in a risky situation and draw on your powers to make a move, add +2 and [Lose Momentum](move:starforged/suffer/lose_momentum) (-2).
+              You wield kinetic powers. By focusing, you may remotely push, pull, lift, or constrict objects and beings that are about your size or smaller. When you are in a risky situation and draw on your powers to make a move, add +2 and [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-2).
             enabled: true
             enhance_moves:
               - roll_type: action_roll
@@ -1311,7 +1311,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              As above, but you may instead draw on your powers in a desperate effort to change the outcome of an action. If you do, add +2 (after you roll) and [Lose Momentum](move:starforged/suffer/lose_momentum) (-3).
+              As above, but you may instead draw on your powers in a desperate effort to change the outcome of an action. If you do, add +2 (after you roll) and [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-3).
             # TODO: non-move trigger? sth to handle after the fact triggers?
             # alternatively: non-trigger move add-in?
           - text: |-
@@ -1333,7 +1333,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Aid Your Ally](move:starforged/adventure/aid_your_ally) through leadership, coordination, or planning, add +1. On a strong hit, any allies who are present take +1 momentum.
+              When you [Aid Your Ally](datasworn:move:starforged/adventure/aid_your_ally) through leadership, coordination, or planning, add +1. On a strong hit, any allies who are present take +1 momentum.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1341,11 +1341,11 @@ assets:
                 roll_type: action_roll
                 trigger:
                   conditions:
-                    - text: When you [Aid Your Ally](move:starforged/adventure/aid_your_ally) through leadership, coordination, or planning
+                    - text: When you [Aid Your Ally](datasworn:move:starforged/adventure/aid_your_ally) through leadership, coordination, or planning
                       roll_options: null
                       method: null
           - text: |-
-              When you [Enter the Fray](move:starforged/combat/enter_the_fray) (+heart) by coordinating with your team as they wade into the fight, make your move before your allies act. On a strong hit, all allies may take an automatic strong hit. On a strong hit with a match, also mark progress on any objectives in this fight.
+              When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) (+heart) by coordinating with your team as they wade into the fight, make your move before your allies act. On a strong hit, all allies may take an automatic strong hit. On a strong hit with a match, also mark progress on any objectives in this fight.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/enter_the_fray
@@ -1378,7 +1378,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you score a miss on a suffer move (not [Endure Stress](move:starforged/suffer/endure_stress)), you may loop back a second or two. If you do, [Lose Momentum](move:starforged/suffer/lose_momentum) (-2), reroll any dice, and take +1 momentum on a strong hit.
+              When you score a miss on a suffer move (not [Endure Stress](datasworn:move:starforged/suffer/endure_stress)), you may loop back a second or two. If you do, [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-2), reroll any dice, and take +1 momentum on a strong hit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1388,7 +1388,7 @@ assets:
                 roll_type: action_roll
                   # TODO: possible to add cost option here?
           - text: &LooperMove |-
-              When you create a link to the current point in time, note the value of condition meters for you and your allies. You can retain only one active link. If you later loop back to this moment, roll +the gap in time: +4 if minutes, +3 if hours, or +2 if days. You may not burn momentum on this roll. On a strong hit, return to the linked point, retain any progress, and set condition meters (except for spirit) to their original values. On a weak hit, as above, but [Endure Stress](move:starforged/suffer/endure_stress) (-2). On a miss, as with a strong hit, but you find the timeline corrupted; [Pay the Price](move:starforged/fate/pay_the_price).
+              When you create a link to the current point in time, note the value of condition meters for you and your allies. You can retain only one active link. If you later loop back to this moment, roll +the gap in time: +4 if minutes, +3 if hours, or +2 if days. You may not burn momentum on this roll. On a strong hit, return to the linked point, retain any progress, and set condition meters (except for spirit) to their original values. On a weak hit, as above, but [Endure Stress](datasworn:move:starforged/suffer/endure_stress) (-2). On a miss, as with a strong hit, but you find the timeline corrupted; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
             moves:
               loop_back:
                 name: Loop Back
@@ -1420,12 +1420,12 @@ assets:
                     text: |-
                       On a __weak hit__, you and your allies return to the linked point, retain any progress, and set condition meters (except for spirit) to their original values
 
-                      However, you [Endure Stress](move:starforged/suffer/endure_stress) (-2).
+                      However, you [Endure Stress](datasworn:move:starforged/suffer/endure_stress) (-2).
                   miss:
                     text: |-
                       On a __miss__, you and your allies return to the linked point, retain any progress, and set condition meters (except for spirit) to their original values.
 
-                      However, you find the timeline corrupted! [Pay the Price](move:starforged/fate/pay_the_price).
+                      However, you find the timeline corrupted! [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
           - text: |-
               When you make a reroll granted by any asset ability on an action roll, also add +1.
       # TODO: this is a weird one! is there a non-silly way to apply this to every action die reroll from an asset ability?
@@ -1436,7 +1436,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) (formidable or greater) to recover valuable knowledge or an extraordinary relic, reroll any dice. When you [Reach a Milestone](move:starforged/quest/reach_a_milestone) in the pursuit of that quest, take +2 momentum. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your discoveries legacy track.
+              When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) (formidable or greater) to recover valuable knowledge or an extraordinary relic, reroll any dice. When you [Reach a Milestone](datasworn:move:starforged/quest/reach_a_milestone) in the pursuit of that quest, take +2 momentum. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your discoveries legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1465,7 +1465,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you recall esoteric knowledge to [Secure an Advantage](move:starforged/adventure/secure_an_advantage) or [Gain Ground](move:starforged/combat/gain_ground), add +1. On a hit, envision the obscure but helpful fact, theory, or technique you put to use, and take +1 momentum.
+              When you recall esoteric knowledge to [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Gain Ground](datasworn:move:starforged/combat/gain_ground), add +1. On a hit, envision the obscure but helpful fact, theory, or technique you put to use, and take +1 momentum.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -1485,7 +1485,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you [Aid Your Ally](move:starforged/adventure/aid_your_ally), add +1 and take +1 momentum on a hit. This is in addition to the benefits taken by your ally. On a strong hit with a match, envision how this moment marks a breakthrough or milestone in your relationship; both of you may mark 1 tick on your bonds legacy track.
+              When you [Aid Your Ally](datasworn:move:starforged/adventure/aid_your_ally), add +1 and take +1 momentum on a hit. This is in addition to the benefits taken by your ally. On a strong hit with a match, envision how this moment marks a breakthrough or milestone in your relationship; both of you may mark 1 tick on your bonds legacy track.
             enabled: true
             enhance_moves:
               - roll_type: no_roll
@@ -1514,7 +1514,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you agree to wage war or defend others from war in exchange for payment or promises, you may [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) to see the mission done. If you do, reroll any dice. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow), make the legacy reward one rank higher (1 extra box if already epic).
+              When you agree to wage war or defend others from war in exchange for payment or promises, you may [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) to see the mission done. If you do, reroll any dice. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow), make the legacy reward one rank higher (1 extra box if already epic).
             enabled: true
             enhance_moves:
               - enhances:
@@ -1530,7 +1530,7 @@ assets:
                 roll_type: progress_roll
                 trigger: *Mercenary.trigger
           - text: |-
-              When you [Make a Connection](move:starforged/connection/make_a_connection) by searching out or making contact with someone in need of your services, add +1 and take +1 momentum on a hit. On a strong hit with a match, this mission pits you against an unresolved aspect of your past or a hated foe; mark 2 ticks on your quests legacy track.
+              When you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) by searching out or making contact with someone in need of your services, add +1 and take +1 momentum on a hit. On a strong hit with a match, this mission pits you against an unresolved aspect of your past or a hated foe; mark 2 ticks on your quests legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/connection/make_a_connection
@@ -1541,7 +1541,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Check Your Gear](move:starforged/adventure/check_your_gear) in the midst of a fight, or [Resupply](move:starforged/recover/resupply) by looting the field of battle in the aftermath of a fight, add +2.
+              When you [Check Your Gear](datasworn:move:starforged/adventure/check_your_gear) in the midst of a fight, or [Resupply](datasworn:move:starforged/recover/resupply) by looting the field of battle in the aftermath of a fight, add +2.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/check_your_gear
@@ -1565,7 +1565,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) or [Gather Information](move:starforged/adventure/gather_information) using your knowledge of lifeforms or planetside ecosystems, add +1 and take +1 momentum on a hit. On a strong hit with a match, you also confirm an obscure theory or reveal a surprising aspect of the encounter; mark 1 tick on your discoveries legacy track.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Gather Information](datasworn:move:starforged/adventure/gather_information) using your knowledge of lifeforms or planetside ecosystems, add +1 and take +1 momentum on a hit. On a strong hit with a match, you also confirm an obscure theory or reveal a surprising aspect of the encounter; mark 1 tick on your discoveries legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1578,7 +1578,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you make a move by taking a risky action to pacify, avoid, or outwit a creature (decide before rolling), you may reroll any dice, but must [Lose Momentum](move:starforged/suffer/lose_momentum) (-2).
+              When you make a move by taking a risky action to pacify, avoid, or outwit a creature (decide before rolling), you may reroll any dice, but must [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-2).
             enhance_moves:
               - roll_type: action_roll
                 trigger:
@@ -1587,7 +1587,7 @@ assets:
                       method: null
                       roll_options: null
           - text: |-
-              You are skilled at planetside survival. When you [Resupply](move:starforged/recover/resupply) to scavenge resources in a life-bearing natural environment, take +1 supply on a hit. When you [Face Danger](move:starforged/adventure/face_danger) against an environmental threat, add +1 and take +1 momentum on a hit.
+              You are skilled at planetside survival. When you [Resupply](datasworn:move:starforged/recover/resupply) to scavenge resources in a life-bearing natural environment, take +1 supply on a hit. When you [Face Danger](datasworn:move:starforged/adventure/face_danger) against an environmental threat, add +1 and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - move:starforged/recover/resupply
@@ -1615,7 +1615,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Set a Course](move:starforged/exploration/set_a_course), choose one.
+              When you [Set a Course](datasworn:move:starforged/exploration/set_a_course), choose one.
 
                 * Follow the fastest path: Take +2 momentum on a strong hit.
                 * Follow the safest path: Add +1
@@ -1632,7 +1632,7 @@ assets:
                 #     * Follow the fastest path: Take +2 momentum on a strong hit.
                 #     * Follow the safest path: Add +1
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by charting the way forward, [Face Danger](move:starforged/adventure/face_danger) to find a path around a hazard, or [Gather Information](move:starforged/adventure/gather_information) about a location by studying your charts, add +1 and take +1 momentum on a hit.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by charting the way forward, [Face Danger](datasworn:move:starforged/adventure/face_danger) to find a path around a hazard, or [Gather Information](datasworn:move:starforged/adventure/gather_information) about a location by studying your charts, add +1 and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -1662,7 +1662,7 @@ assets:
                       method: null
 
           - text: |-
-              Once per expedition, when you or an ally [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition) and score a weak hit or miss, you may ignore that result, plot an alternate path, and make it an automatic strong hit.
+              Once per expedition, when you or an ally [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition) and score a weak hit or miss, you may ignore that result, plot an alternate path, and make it an automatic strong hit.
             enhance_moves:
               - enhances:
                   - move:starforged/exploration/undertake_an_expedition
@@ -1680,7 +1680,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Hearten](move:starforged/recover/hearten) in isolation, you may attempt to find solace in fond memories or a hopeful wish. If you do (decide before rolling), reroll any dice but count a strong hit as a weak hit.
+              When you [Hearten](datasworn:move:starforged/recover/hearten) in isolation, you may attempt to find solace in fond memories or a hopeful wish. If you do (decide before rolling), reroll any dice but count a strong hit as a weak hit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1693,14 +1693,14 @@ assets:
                       method: null
                 #     count_as: weak_hit
           - text: &OutcastMove |-
-              When you [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) and your supply is reduced to 0, roll +wits. On a strong hit, you manage to scrape by and take +1 supply. On a weak hit, you may [Lose Momentum](move:starforged/suffer/lose_momentum) (-1) in exchange for +1 supply. On a miss, your supply remains at 0 and you [Lose Momentum](move:starforged/suffer/lose_momentum) (-1).
+              When you [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) and your supply is reduced to 0, roll +wits. On a strong hit, you manage to scrape by and take +1 supply. On a weak hit, you may [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1) in exchange for +1 supply. On a miss, your supply remains at 0 and you [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1).
             moves:
               scrape_by:
                 name: Scrape By
                 type: move
                 roll_type: action_roll
                 trigger:
-                  text: When you [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) and your supply is reduced to 0...
+                  text: When you [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) and your supply is reduced to 0...
                   conditions:
                     - method: player_choice
                       roll_options:
@@ -1711,11 +1711,11 @@ assets:
                   strong_hit:
                     text: On a __strong hit__, you manage to scrape by and take +1 supply.
                   weak_hit:
-                    text: On a __weak hit__, you may [Lose Momentum](move:starforged/suffer/lose_momentum) (-1) in exchange for +1 supply.
+                    text: On a __weak hit__, you may [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1) in exchange for +1 supply.
                   miss:
-                    text: On a __miss__, your supply remains at 0 and you [Lose Momentum](move:starforged/suffer/lose_momentum) (-1).
+                    text: On a __miss__, your supply remains at 0 and you [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1).
           - text: |-
-              When you or an ally [Sojourn](move:starforged/recover/sojourn) and score a strong hit with a match, you may envision encountering someone who knows or understands you. If you [Make a Connection](move:starforged/connection/make_a_connection) with them, take an automatic strong hit and mark 2 ticks on your bonds legacy track.
+              When you or an ally [Sojourn](datasworn:move:starforged/recover/sojourn) and score a strong hit with a match, you may envision encountering someone who knows or understands you. If you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) with them, take an automatic strong hit and mark 2 ticks on your bonds legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/recover/sojourn
@@ -1736,7 +1736,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you [Gather Information](move:starforged/adventure/gather_information) or [Resupply](move:starforged/recover/resupply) by scavenging a wreck, ruin, or abandoned site, add +1 and take +1 momentum on a hit. On a strong hit with a match, you also find something of unique value, significance, or function; envision the nature of this discovery, take +2 momentum, and mark 2 ticks on your discoveries legacy track.
+              When you [Gather Information](datasworn:move:starforged/adventure/gather_information) or [Resupply](datasworn:move:starforged/recover/resupply) by scavenging a wreck, ruin, or abandoned site, add +1 and take +1 momentum on a hit. On a strong hit with a match, you also find something of unique value, significance, or function; envision the nature of this discovery, take +2 momentum, and mark 2 ticks on your discoveries legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -1748,7 +1748,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) to cobble together an ad hoc tool, device, or weapon, envision what you intend to create. On a hit, you may add +1 when making a move aided by the item. If you roll a 1 on your action die while using the item, it is permanently broken, lost, or depleted.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) to cobble together an ad hoc tool, device, or weapon, envision what you intend to create. On a hit, you may add +1 when making a move aided by the item. If you roll a 1 on your action die while using the item, it is permanently broken, lost, or depleted.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -1759,7 +1759,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Check Your Gear](move:starforged/adventure/check_your_gear), roll +wits or +supply (whichever is highest) and take +1 momentum on a hit.
+              When you [Check Your Gear](datasworn:move:starforged/adventure/check_your_gear), roll +wits or +supply (whichever is highest) and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/check_your_gear
@@ -1798,7 +1798,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Make a Connection](move:starforged/connection/make_a_connection) to search out a new contact, you may roll +shadow. If you do, reroll any dice on a miss and envision how your reputation or underworld contacts lead you to a disreputable connection.
+              When you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) to search out a new contact, you may roll +shadow. If you do, reroll any dice on a miss and envision how your reputation or underworld contacts lead you to a disreputable connection.
             enhance_moves:
               - enhances:
                   - move:starforged/connection/make_a_connection
@@ -1830,24 +1830,24 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you envision experiencing a prophetic dream, you may [Ask the Oracle](move:starforged/fate/ask_the_oracle) for details using an interpretive oracle such as Action/Theme or Descriptor/Focus. If you record the answer, and later face a situation which gives truth to the vision, take an automatic strong hit (one time only) when making a move to act on your foresight. Then, clear the prophecy. Only one prophecy can be active at a time.
+              When you envision experiencing a prophetic dream, you may [Ask the Oracle](datasworn:move:starforged/fate/ask_the_oracle) for details using an interpretive oracle such as Action/Theme or Descriptor/Focus. If you record the answer, and later face a situation which gives truth to the vision, take an automatic strong hit (one time only) when making a move to act on your foresight. Then, clear the prophecy. Only one prophecy can be active at a time.
             enabled: true
             # TODO: as move?
           - text: |-
-              When you focus or meditate to [Gather Information](move:starforged/adventure/gather_information) about a place, being, or situation (in person or remotely), roll +spirit and take +1 momentum on a hit.
+              When you focus or meditate to [Gather Information](datasworn:move:starforged/adventure/gather_information) about a place, being, or situation (in person or remotely), roll +spirit and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/gather_information
                 roll_type: action_roll
                 trigger:
                   conditions:
-                    - text: When you focus or meditate to [Gather Information](move:starforged/adventure/gather_information) about a place, being, or situation (in person or remotely)
+                    - text: When you focus or meditate to [Gather Information](datasworn:move:starforged/adventure/gather_information) about a place, being, or situation (in person or remotely)
                       method: player_choice
                       roll_options:
                         - using: condition_meter
                           condition_meter: spirit
           - text: |-
-              When you or an ally roll a match as you [Sojourn](move:starforged/recover/sojourn) in a community or [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition) within a site, you may envision gaining sudden and unbidden insight about the location. If you do, take +2 momentum.
+              When you or an ally roll a match as you [Sojourn](datasworn:move:starforged/recover/sojourn) in a community or [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition) within a site, you may envision gaining sudden and unbidden insight about the location. If you do, take +2 momentum.
             enhance_moves:
               - enhances:
                   - move:starforged/exploration/undertake_an_expedition
@@ -1947,7 +1947,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) (formidable or greater) to slay an inhuman foe in service to a community, reroll any dice. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your bonds legacy track.
+              When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) (formidable or greater) to slay an inhuman foe in service to a community, reroll any dice. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your bonds legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/quest/swear_an_iron_vow
@@ -1962,7 +1962,7 @@ assets:
                 roll_type: progress_roll
                 trigger: *Slayer.trigger
           - text: |-
-              When you [Enter the Fray](move:starforged/combat/enter_the_fray) with an objective to slay an inhuman foe, take +2 momentum. If you choose to face the creature on its own terms as you begin the fight, envision the crucial weapon, protection, or aid you set aside, and set the objective one rank higher. If you [Take Decisive Action](move:starforged/combat/take_decisive_action) after making this sacrifice and score a strong hit, take a trophy of your victory and mark 2 ticks on your quests legacy track.
+              When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) with an objective to slay an inhuman foe, take +2 momentum. If you choose to face the creature on its own terms as you begin the fight, envision the crucial weapon, protection, or aid you set aside, and set the objective one rank higher. If you [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action) after making this sacrifice and score a strong hit, take a trophy of your victory and mark 2 ticks on your quests legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/enter_the_fray
@@ -1981,7 +1981,7 @@ assets:
             recommended: true
         abilities:
           - text: |-
-              When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) to solve a murder, disappearance, theft, or other mystery, make the rank of the quest no greater than formidable. Then, when you [Gather Information](move:starforged/adventure/gather_information) in the course of the investigation, roll three challenge dice and choose two. If any challenge dice match, you must use those values. On a miss with a match, envision what you learn of a deepening conspiracy or betrayal, make the rank of your quest one higher (no greater than epic), and use the new rank when marking future progress.
+              When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) to solve a murder, disappearance, theft, or other mystery, make the rank of the quest no greater than formidable. Then, when you [Gather Information](datasworn:move:starforged/adventure/gather_information) in the course of the investigation, roll three challenge dice and choose two. If any challenge dice match, you must use those values. On a miss with a match, envision what you learn of a deepening conspiracy or betrayal, make the rank of your quest one higher (no greater than epic), and use the new rank when marking future progress.
             enabled: true
             # TODO: some way of providing reminder text? hmm. the roll 3 dice but choose two (forced on a match) is interesting.
             enhance_moves:
@@ -2004,7 +2004,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Make a Connection](move:starforged/connection/make_a_connection) with a potential informant, you may (instead of rolling) take an automatic weak hit.
+              When you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) with a potential informant, you may (instead of rolling) take an automatic weak hit.
             enhance_moves:
               - enhances:
                   - move:starforged/connection/make_a_connection
@@ -2021,7 +2021,7 @@ assets:
         requirement: If you wield a rifle...
         abilities:
           - text: &SniperMove |-
-              When you target a minor foe from a distance (outside of a fight), roll +wits. On a strong hit, they are out of action. If other foes remain and you [Enter the Fray](move:starforged/combat/enter_the_fray) against them, mark progress. On a weak hit, as above, but you sacrifice time or position; [Lose Momentum](move:starforged/suffer/lose_momentum) (-1). On a miss, you draw attention or face a reprisal; [Pay the Price](move:starforged/fate/pay_the_price).
+              When you target a minor foe from a distance (outside of a fight), roll +wits. On a strong hit, they are out of action. If other foes remain and you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) against them, mark progress. On a weak hit, as above, but you sacrifice time or position; [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1). On a miss, you draw attention or face a reprisal; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
             enabled: true
             moves:
               snipe_minor_foe:
@@ -2038,16 +2038,16 @@ assets:
                 text: *SniperMove
                 outcomes:
                   strong_hit:
-                    text: On a __strong hit__, the foe is out of action. If other foes remain and you [Enter the Fray](move:starforged/combat/enter_the_fray) against them, mark progress.
+                    text: On a __strong hit__, the foe is out of action. If other foes remain and you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) against them, mark progress.
                   weak_hit:
                     text: |-
-                      On a __weak hit__, the foe is out of action. However, you sacrifice time or position; [Lose Momentum](move:starforged/suffer/lose_momentum) (-1).
+                      On a __weak hit__, the foe is out of action. However, you sacrifice time or position; [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1).
 
-                      If other foes remain and you [Enter the Fray](move:starforged/combat/enter_the_fray) against them, mark progress.
+                      If other foes remain and you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) against them, mark progress.
                   miss:
-                    text: On a __miss__, you draw attention or face a reprisal; [Pay the Price](move:starforged/fate/pay_the_price).
+                    text: On a __miss__, you draw attention or face a reprisal; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
           - text: |-
-              When you [Strike](move:starforged/combat/strike) from a distance with time enough to line up your shot, you may roll +wits. If you do, mark progress on a strong hit.
+              When you [Strike](datasworn:move:starforged/combat/strike) from a distance with time enough to line up your shot, you may roll +wits. If you do, mark progress on a strong hit.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/strike
@@ -2060,7 +2060,7 @@ assets:
                         - using: stat
                           stat: wits
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by studying a distant situation through your rifle scope, or [Gain Ground](move:starforged/combat/gain_ground) by taking careful aim, you may sacrifice time for greater certainty. If you do (decide before rolling), [Lose Momentum](move:starforged/suffer/lose_momentum) (-1, -2, or -3) and add that amount. Then, take +1 momentum on a strong hit.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by studying a distant situation through your rifle scope, or [Gain Ground](datasworn:move:starforged/combat/gain_ground) by taking careful aim, you may sacrifice time for greater certainty. If you do (decide before rolling), [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1, -2, or -3) and add that amount. Then, take +1 momentum on a strong hit.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -2095,13 +2095,13 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Withstand Damage](move:starforged/suffer/withstand_damage) and score a miss, you may attempt to reroute power or reboot critical systems. If you do, first [Lose Momentum](move:starforged/suffer/lose_momentum) (-2). Then, reroll all dice, add +wits instead of +integrity, and count a weak hit as a miss.
+              When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) and score a miss, you may attempt to reroute power or reboot critical systems. If you do, first [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-2). Then, reroll all dice, add +wits instead of +integrity, and count a weak hit as a miss.
             enhance_moves:
               - enhances:
                   - move:starforged/suffer/withstand_damage
                 roll_type: action_roll
           - text: |-
-              When you [Face Danger](move:starforged/adventure/face_danger) or [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by creating a computer program to perform a specific, complex function, add +2 and take +1 momentum on a hit. One time only, when you trigger the program to fulfill its purpose, reroll any dice.
+              When you [Face Danger](datasworn:move:starforged/adventure/face_danger) or [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by creating a computer program to perform a specific, complex function, add +2 and take +1 momentum on a hit. One time only, when you trigger the program to fulfill its purpose, reroll any dice.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/face_danger'
@@ -2118,7 +2118,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              When you [Sojourn](move:starforged/recover/sojourn) or [Compel](move:starforged/adventure/compel), you may roll +supply. If you do, [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1).
+              When you [Sojourn](datasworn:move:starforged/recover/sojourn) or [Compel](datasworn:move:starforged/adventure/compel), you may roll +supply. If you do, [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1).
             enhance_moves:
               - enhances:
                   - move:starforged/recover/sojourn
@@ -2132,7 +2132,7 @@ assets:
                       method: player_choice
             enabled: true
           - text: |-
-              When you [Make a Connection](move:starforged/connection/make_a_connection) with a merchant or supplier, add +1. When you [Resupply](move:starforged/recover/resupply) by bartering with them, reroll your action die if its value is less than your supply. On a strong hit, take +1 momentum or +1 supply.
+              When you [Make a Connection](datasworn:move:starforged/connection/make_a_connection) with a merchant or supplier, add +1. When you [Resupply](datasworn:move:starforged/recover/resupply) by bartering with them, reroll your action die if its value is less than your supply. On a strong hit, take +1 momentum or +1 supply.
             enhance_moves:
               - enhances:
                   - move:starforged/connection/make_a_connection
@@ -2151,7 +2151,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you or an ally [Sojourn](move:starforged/recover/sojourn) and score a strong hit with a match, you have a chance to secure a unique item or valuable payload. Envision the nature of the opportunity and the obstacle you must overcome to acquire it. If you are successful, mark 2 ticks on your quests legacy track. One time only, you may use this acquisition to gain an automatic strong hit on any move where your resources are a factor.
+              When you or an ally [Sojourn](datasworn:move:starforged/recover/sojourn) and score a strong hit with a match, you have a chance to secure a unique item or valuable payload. Envision the nature of the opportunity and the obstacle you must overcome to acquire it. If you are successful, mark 2 ticks on your quests legacy track. One time only, you may use this acquisition to gain an automatic strong hit on any move where your resources are a factor.
             enhance_moves:
               - enhances:
                   - move:starforged/recover/sojourn
@@ -2173,7 +2173,7 @@ assets:
             field_type: text
         abilities:
           - text: |-
-              You are all that remains of a people, culture, or tradition. When you [Face Death](move:starforged/threshold/face_death) or [Face Desolation](move:starforged/threshold/face_desolation), visions of your heritage give you the strength to carry on. Envision how this manifests, and reroll any dice. On a strong hit with a match, a surprising new aspect of your heritage is revealed; take +2 momentum and mark 2 ticks on your bonds legacy track.
+              You are all that remains of a people, culture, or tradition. When you [Face Death](datasworn:move:starforged/threshold/face_death) or [Face Desolation](datasworn:move:starforged/threshold/face_desolation), visions of your heritage give you the strength to carry on. Envision how this manifests, and reroll any dice. On a strong hit with a match, a surprising new aspect of your heritage is revealed; take +2 momentum and mark 2 ticks on your bonds legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -2181,7 +2181,7 @@ assets:
                   - move:starforged/threshold/face_desolation
                 roll_type: action_roll
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) or [Compel](move:starforged/adventure/compel) through a tale, performance, or ceremony, envision what you reveal of your heritage. Then, add +1 and take +1 momentum on a hit.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Compel](datasworn:move:starforged/adventure/compel) through a tale, performance, or ceremony, envision what you reveal of your heritage. Then, add +1 and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -2227,17 +2227,17 @@ assets:
             #       - trigger:
             #         effect:
           - text: |-
-              When you [Make a Connection](move:starforged/connection/make_a_connection), add +1. If you roll a match, you have a history.
+              When you [Make a Connection](datasworn:move:starforged/connection/make_a_connection), add +1. If you roll a match, you have a history.
 
-                * On a strong hit with a match, you once fought beside them, and they owe you a favor. Mark 1 tick on your bonds legacy track, and [Develop Your Relationship](move:starforged/connection/develop_your_relationship) now.
+                * On a strong hit with a match, you once fought beside them, and they owe you a favor. Mark 1 tick on your bonds legacy track, and [Develop Your Relationship](datasworn:move:starforged/connection/develop_your_relationship) now.
                 * On a miss with a match, you once fought against them, and they hold a grudge.
             enhance_moves:
               - enhances:
                   - move:starforged/connection/make_a_connection
                 roll_type: action_roll
-                #         You have a history: you once fought beside them, and they owe you a favor. Mark 1 tick on your bonds legacy track, and [Develop Your Relationship](move:starforged/connection/develop_your_relationship) now.
+                #         You have a history: you once fought beside them, and they owe you a favor. Mark 1 tick on your bonds legacy track, and [Develop Your Relationship](datasworn:move:starforged/connection/develop_your_relationship) now.
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) or [Gain Ground](move:starforged/combat/gain_ground) by recounting or recalling a hard-won lesson from your battlefield experiences, envision the memory and add +1. On a hit, take +1 momentum.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Gain Ground](datasworn:move:starforged/combat/gain_ground) by recounting or recalling a hard-won lesson from your battlefield experiences, envision the memory and add +1. On a hit, take +1 momentum.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -2254,10 +2254,10 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              You are most suited to life in the limitless void. When you are in space (or a spacebound vehicle or station), increase your momentum reset by 1. When you enter a planetside or high gravity environment, [Lose Momentum](move:starforged/suffer/lose_momentum) (-1).
+              You are most suited to life in the limitless void. When you are in space (or a spacebound vehicle or station), increase your momentum reset by 1. When you enter a planetside or high gravity environment, [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1).
             enabled: true
           - text: |-
-              When you [Sojourn](move:starforged/recover/sojourn) or [Make a Connection](move:starforged/connection/make_a_connection) within a spacebound community, add +1. If you [Hearten](move:starforged/recover/hearten) there and score a strong hit, take +1 spirit or +1 momentum.
+              When you [Sojourn](datasworn:move:starforged/recover/sojourn) or [Make a Connection](datasworn:move:starforged/connection/make_a_connection) within a spacebound community, add +1. If you [Hearten](datasworn:move:starforged/recover/hearten) there and score a strong hit, take +1 spirit or +1 momentum.
             enhance_moves:
               - enhances:
                   - move:starforged/recover/sojourn
@@ -2291,7 +2291,7 @@ assets:
         <<: *PathAsset
         abilities:
           - text: |-
-              You are a walking armory, with a weapon for every occasion. When you [Enter the Fray](move:starforged/combat/enter_the_fray) in personal combat, add +1 and take +1 momentum on a hit. Once per fight, when you [Gain Ground](move:starforged/combat/gain_ground) by switching weapons or changing tactics, take an automatic strong hit.
+              You are a walking armory, with a weapon for every occasion. When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) in personal combat, add +1 and take +1 momentum on a hit. Once per fight, when you [Gain Ground](datasworn:move:starforged/combat/gain_ground) by switching weapons or changing tactics, take an automatic strong hit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -2312,7 +2312,7 @@ assets:
                       text: By switching weapons or changing tactics in personal combat (once per fight)
                       method: strong_hit
           - text: |-
-              When you [Strike](move:starforged/combat/strike) using a personal weapon which has limited ammo or a single-use mode, add +1 and mark progress on a hit. Then, [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1). If you score a strong hit on this attack and immediately [Take Decisive Action](move:starforged/combat/take_decisive_action), you may retain the value of one challenge die from your [Strike](move:starforged/combat/strike) action instead of rolling that die.
+              When you [Strike](datasworn:move:starforged/combat/strike) using a personal weapon which has limited ammo or a single-use mode, add +1 and mark progress on a hit. Then, [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1). If you score a strong hit on this attack and immediately [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action), you may retain the value of one challenge die from your [Strike](datasworn:move:starforged/combat/strike) action instead of rolling that die.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/strike
@@ -2323,7 +2323,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by suiting up and gathering your gear for a perilous encounter or mission, you may roll +supply. If you do, take +2 momentum on a hit.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by suiting up and gathering your gear for a perilous encounter or mission, you may roll +supply. If you do, take +2 momentum on a hit.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'

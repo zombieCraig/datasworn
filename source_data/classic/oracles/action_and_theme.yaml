@@ -23,7 +23,7 @@ oracles:
         canonical_name: 'Oracle 1: Action'
         suggestions:
             - oracle_rollable:classic/action_and_theme/theme
-        summary: Use this table to inspire a discovery, event, character goal, or situation. A roll on this table can be combined with a [Theme](oracle_rollable:classic/action_and_theme/theme) to provide an action and a subject. Then, interpret the result based on the context of the question and your current situation.
+        summary: Use this table to inspire a discovery, event, character goal, or situation. A roll on this table can be combined with a [Theme](datasworn:oracle_rollable:classic/action_and_theme/theme) to provide an action and a subject. Then, interpret the result based on the context of the question and your current situation.
         _source:
           <<: *Source
           page: 174
@@ -341,7 +341,7 @@ oracles:
           page: 175
         suggestions:
             - oracle_rollable:classic/action_and_theme/action
-        summary: As with the [Action](oracle_rollable:classic/action_and_theme/action) oracle, this is an interpretative table which you can use to answer questions or generate new situations. Combined, the Action and Theme tables provide creative prompts suitable for most situations and questions. In fact, with some creative interpretations, it’s entirely possible to play with only these two tables.
+        summary: As with the [Action](datasworn:oracle_rollable:classic/action_and_theme/action) oracle, this is an interpretative table which you can use to answer questions or generate new situations. Combined, the Action and Theme tables provide creative prompts suitable for most situations and questions. In fact, with some creative interpretations, it’s entirely possible to play with only these two tables.
         rows:
           - roll: { min: 1, max: 1 }
             text: Risk

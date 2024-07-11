@@ -31,47 +31,47 @@ oracles:
         summary: This oracle provides a simple method of generating a planetary class. If this is enough information, stop there and envision the world as appropriate to its type. For a bit more detail, make a roll on the Descriptor oracle and envision how that aspect defines the nature of the planet or a specific planetside location.
         rows:
           - roll: { min: 1, max: 15 }
-            text: '[Desert World](oracle_collection:starforged/planet/desert)'
+            text: '[Desert World](datasworn:oracle_collection:starforged/planet/desert)'
             # game_objects: *obj:Planet.Desert
             # images: *images:DesertWorld
           - roll: { min: 16, max: 30 }
-            text: '[Furnace World](oracle_collection:starforged/planet/furnace)'
+            text: '[Furnace World](datasworn:oracle_collection:starforged/planet/furnace)'
             # game_objects: *obj:Planet.Furnace
             # images: *images:FurnaceWorld
           - roll: { min: 31, max: 35 }
-            text: '[Grave World](oracle_collection:starforged/planet/grave)'
+            text: '[Grave World](datasworn:oracle_collection:starforged/planet/grave)'
             # game_objects: *obj:Planet.Grave
             # images: *images:GraveWorld
           - roll: { min: 36, max: 50 }
-            text: '[Ice World](oracle_collection:starforged/planet/ice)'
+            text: '[Ice World](datasworn:oracle_collection:starforged/planet/ice)'
             # game_objects: *obj:Planet.Ice
             # images: *images:IceWorld
           - roll: { min: 51, max: 65 }
-            text: '[Jovian World](oracle_collection:starforged/planet/jovian)'
+            text: '[Jovian World](datasworn:oracle_collection:starforged/planet/jovian)'
             # game_objects: *obj:Planet.Jovian
             # images: *images:JovianWorld
           - roll: { min: 66, max: 70 }
-            text: '[Jungle World](oracle_collection:starforged/planet/jungle)'
+            text: '[Jungle World](datasworn:oracle_collection:starforged/planet/jungle)'
             # game_objects: *obj:Planet.Jungle
             # images: *images:JungleWorld
           - roll: { min: 71, max: 75 }
-            text: '[Ocean World](oracle_collection:starforged/planet/ocean)'
+            text: '[Ocean World](datasworn:oracle_collection:starforged/planet/ocean)'
             # game_objects: *obj:Planet.Ocean
             # images: *images:OceanWorld
           - roll: { min: 76, max: 90 }
-            text: '[Rocky World](oracle_collection:starforged/planet/rocky)'
+            text: '[Rocky World](datasworn:oracle_collection:starforged/planet/rocky)'
             # game_objects: *obj:Planet.Rocky
             # images: *images:RockyWorld
           - roll: { min: 91, max: 92 }
-            text: '[Shattered World](oracle_collection:starforged/planet/shattered)'
+            text: '[Shattered World](datasworn:oracle_collection:starforged/planet/shattered)'
             # game_objects: *obj:Planet.Shattered
             # images: *images:ShatteredWorld
           - roll: { min: 93, max: 98 }
-            text: '[Tainted World](oracle_collection:starforged/planet/tainted)'
+            text: '[Tainted World](datasworn:oracle_collection:starforged/planet/tainted)'
             # game_objects: *obj:Planet.Tainted
             # images: *images:TaintedWorld
           - roll: { min: 99, max: 100 }
-            text: '[Vital World](oracle_collection:starforged/planet/vital)'
+            text: '[Vital World](datasworn:oracle_collection:starforged/planet/vital)'
             # game_objects: *obj:Planet.Vital
             # images: *images:VitalWorld
     collections:
@@ -227,7 +227,7 @@ oracles:
                   text: Wreckage or ruins portend a new threat
               - roll: { min: 97, max: 99 }
                 <<: &ActionTheme
-                  text: '[Action](oracle_rollable:starforged/core/action) + [Theme](oracle_rollable:starforged/core/theme)'
+                  text: '[Action](datasworn:oracle_rollable:starforged/core/action) + [Theme](datasworn:oracle_rollable:starforged/core/theme)'
                   oracle_rolls:
                     - oracle: oracle_rollable:starforged/core/action
                       auto: true
@@ -325,7 +325,7 @@ oracles:
         #     attributes:
         #       life: null
         summary: |-
-          Choose or roll on this table when you want inspiration for a beneficial encounter or event on a planetside journey, such as when you roll a strong hit with a match as you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition), or if you [Explore a Waypoint](move:starforged/exploration/explore_a_waypoint) and find an opportunity.
+          Choose or roll on this table when you want inspiration for a beneficial encounter or event on a planetside journey, such as when you roll a strong hit with a match as you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition), or if you [Explore a Waypoint](datasworn:move:starforged/exploration/explore_a_waypoint) and find an opportunity.
         contents:
           lifebearing:
             oracle_type: column_text

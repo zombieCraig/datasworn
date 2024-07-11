@@ -24,24 +24,24 @@ oracles:
         type: oracle_rollable
         oracle_type: table_text2
         # TODO figure out a way to implement this. might only be possible with entity templates? or a more complex tags object
-        summary: "On a cursed result, choose one: Make the faction one of [The Cursed](oracle_rollable:sundered_isles/faction/cursed/role), or keep the result and give the faction [Cursed Aspects](oracle_rollable:sundered_isles/faction/cursed/aspects)."
+        summary: "On a cursed result, choose one: Make the faction one of [The Cursed](datasworn:oracle_rollable:sundered_isles/faction/cursed/role), or keep the result and give the faction [Cursed Aspects](datasworn:oracle_rollable:sundered_isles/faction/cursed/aspects)."
         _source:
           <<: *Source
         rows:
           - roll: { min: 1, max: 50 }
-            text: "[Society](oracle_collection:sundered_isles/faction/society)"
+            text: "[Society](datasworn:oracle_collection:sundered_isles/faction/society)"
             text2: &Society.summary People who share traditions and a way of life
             tags:
               sundered_isles:
                 faction_type: society
           - roll: { min: 51, max: 80 }
-            text: "[Organization](oracle_collection:sundered_isles/faction/organization)"
+            text: "[Organization](datasworn:oracle_collection:sundered_isles/faction/organization)"
             text2: &Organization.summary People joined in a collective trade, pursuit, or goal
             tags:
               sundered_isles:
                 faction_type: organization
           - roll: { min: 81, max: 100 }
-            text: "[Empire](oracle_collection:sundered_isles/faction/empire)"
+            text: "[Empire](datasworn:oracle_collection:sundered_isles/faction/empire)"
             text2: &Empire.summary People seeking dominion over the isles
             tags:
               sundered_isles:
@@ -783,7 +783,7 @@ oracles:
         type: oracle_collection
         name: The Cursed
         oracle_type: tables
-        summary: For cursed factions that function as an organization, use the [Organization Methods](oracle_rollable:sundered_isles/faction/organization/methods) or [Organization Secrets](oracle_rollable:sundered_isles/faction/organization/secrets) tables for additional details. To reveal a current goal for a cursed faction or its leaders, use the [Cursed Character Goals](oracle_rollable:sundered_isles/character/goals_cursed) table. You can also give a cursed faction one or more [Cursed Aspects](oracle_rollable:sundered_isles/faction/cursed/aspects).
+        summary: For cursed factions that function as an organization, use the [Organization Methods](datasworn:oracle_rollable:sundered_isles/faction/organization/methods) or [Organization Secrets](datasworn:oracle_rollable:sundered_isles/faction/organization/secrets) tables for additional details. To reveal a current goal for a cursed faction or its leaders, use the [Cursed Character Goals](datasworn:oracle_rollable:sundered_isles/character/goals_cursed) table. You can also give a cursed faction one or more [Cursed Aspects](datasworn:oracle_rollable:sundered_isles/faction/cursed/aspects).
         _source:
           <<: *Source
         contents:
@@ -1233,25 +1233,25 @@ oracles:
                   <<: *Source
                 rows:
                   - roll: { min: 1, max: 10 }
-                    text: "[Affluence](oracle_collection:sundered_isles/faction/name/themes/affluence)"
+                    text: "[Affluence](datasworn:oracle_collection:sundered_isles/faction/name/themes/affluence)"
                   - roll: { min: 11, max: 20 }
-                    text: "[Craft](oracle_collection:sundered_isles/faction/name/themes/craft)"
+                    text: "[Craft](datasworn:oracle_collection:sundered_isles/faction/name/themes/craft)"
                   - roll: { min: 21, max: 30 }
-                    text: "[Discovery](oracle_collection:sundered_isles/faction/name/themes/discovery)"
+                    text: "[Discovery](datasworn:oracle_collection:sundered_isles/faction/name/themes/discovery)"
                   - roll: { min: 31, max: 40 }
-                    text: "[Faith](oracle_collection:sundered_isles/faction/name/themes/faith)"
+                    text: "[Faith](datasworn:oracle_collection:sundered_isles/faction/name/themes/faith)"
                   - roll: { min: 41, max: 50 }
-                    text: "[Loyalty](oracle_collection:sundered_isles/faction/name/themes/loyalty)"
+                    text: "[Loyalty](datasworn:oracle_collection:sundered_isles/faction/name/themes/loyalty)"
                   - roll: { min: 51, max: 60 }
-                    text: "[Mysticism](oracle_collection:sundered_isles/faction/name/themes/mysticism)"
+                    text: "[Mysticism](datasworn:oracle_collection:sundered_isles/faction/name/themes/mysticism)"
                   - roll: { min: 61, max: 70 }
-                    text: "[Rebellion](oracle_collection:sundered_isles/faction/name/themes/rebellion)"
+                    text: "[Rebellion](datasworn:oracle_collection:sundered_isles/faction/name/themes/rebellion)"
                   - roll: { min: 71, max: 80 }
-                    text: "[Secrecy](oracle_collection:sundered_isles/faction/name/themes/secrecy)"
+                    text: "[Secrecy](datasworn:oracle_collection:sundered_isles/faction/name/themes/secrecy)"
                   - roll: { min: 81, max: 90 }
-                    text: "[War](oracle_collection:sundered_isles/faction/name/themes/war)"
+                    text: "[War](datasworn:oracle_collection:sundered_isles/faction/name/themes/war)"
                   - roll: { min: 91, max: 100 }
-                    text: "[Curses](oracle_collection:sundered_isles/faction/name/themes/curses)"
+                    text: "[Curses](datasworn:oracle_collection:sundered_isles/faction/name/themes/curses)"
             collections:
               affluence:
                 name: Affluence

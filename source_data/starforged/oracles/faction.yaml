@@ -32,7 +32,7 @@ oracles:
         #   initial: true
         rows:
           - roll: { min: 1, max: 40 }
-            text: '[Dominion](oracle_rollable:starforged/faction/dominion)'
+            text: '[Dominion](datasworn:oracle_rollable:starforged/faction/dominion)'
             text2: 'Governing power'
             tags: {starforged: {faction_type: dominion}}
             oracle_rolls:
@@ -40,14 +40,14 @@ oracles:
               - oracle: oracle_rollable:starforged/faction/dominion_leadership
             # set_attributes: {faction_type: [dominion]}
           - roll: { min: 41, max: 70 }
-            text: '[Guild](oracle_rollable:starforged/faction/guild)'
+            text: '[Guild](datasworn:oracle_rollable:starforged/faction/guild)'
             text2: 'Organization of specialists'
             tags: {starforged: {faction_type: guild}}
             oracle_rolls:
               - oracle: oracle_rollable:starforged/faction/guild
             # set_attributes: {faction_type: [guild]}
           - roll: { min: 71, max: 100 }
-            text: '[Fringe Group](oracle_rollable:starforged/faction/fringe_group)'
+            text: '[Fringe Group](datasworn:oracle_rollable:starforged/faction/fringe_group)'
             text2: 'Band of outlaws, outcasts, or rogues'
             tags: {starforged: {faction_type: fringe_group}}
             oracle_rolls:
@@ -491,7 +491,7 @@ oracles:
             text: Usurp leadership within a rival faction
           - roll: { min: 97, max: 100 }
             <<: &ActionTheme
-              text: '[Action](oracle_rollable:starforged/core/action) + [Theme](oracle_rollable:starforged/core/theme)'
+              text: '[Action](datasworn:oracle_rollable:starforged/core/action) + [Theme](datasworn:oracle_rollable:starforged/core/theme)'
               oracle_rolls:
                 - oracle: oracle_rollable:starforged/core/action
                   auto: true
@@ -757,22 +757,22 @@ oracles:
                       text:
                         part_of_speech: proper_noun
                 roll: { min: 1, max: 40 }
-                text: '[Legacy](oracle_rollable:starforged/faction/name/legacy) [Affiliation](oracle_rollable:starforged/faction/name/affiliation)'
+                text: '[Legacy](datasworn:oracle_rollable:starforged/faction/name/legacy) [Affiliation](datasworn:oracle_rollable:starforged/faction/name/affiliation)'
                 template:
                   text: '{{text>oracle_rollable:starforged/faction/name/legacy}} {{text>oracle_rollable:starforged/faction/name/affiliation}}'
               - <<: *i18n.template.result.proper_noun
                 roll: { min: 41, max: 55 }
-                text: '[Legacy](oracle_rollable:starforged/faction/name/legacy) [Identity](oracle_rollable:starforged/faction/name/identity)'
+                text: '[Legacy](datasworn:oracle_rollable:starforged/faction/name/legacy) [Identity](datasworn:oracle_rollable:starforged/faction/name/identity)'
                 template:
                   text: '{{text>oracle_rollable:starforged/faction/name/legacy}} {{text>oracle_rollable:starforged/faction/name/identity}}'
               - <<: *i18n.template.result.proper_noun
                 roll: { min: 56, max: 70 }
-                text: '[Identity](oracle_rollable:starforged/faction/name/identity) *of the* [Legacy](oracle_rollable:starforged/faction/name/legacy) [Affiliation](oracle_rollable:starforged/faction/name/affiliation)'
+                text: '[Identity](datasworn:oracle_rollable:starforged/faction/name/identity) *of the* [Legacy](datasworn:oracle_rollable:starforged/faction/name/legacy) [Affiliation](datasworn:oracle_rollable:starforged/faction/name/affiliation)'
                 template:
                   text: '{{text>oracle_rollable:starforged/faction/name/identity}} of the {{text>oracle_rollable:starforged/faction/name/legacy}} {{text>oracle_rollable:starforged/faction/name/affiliation}}'
               - <<: *i18n.template.result.proper_noun
                 roll: { min: 71, max: 100 }
-                text: '[Affiliation](oracle_rollable:starforged/faction/name/affiliation) *of the* [Legacy](oracle_rollable:starforged/faction/name/legacy) [Identity](oracle_rollable:starforged/faction/name/identity)'
+                text: '[Affiliation](datasworn:oracle_rollable:starforged/faction/name/affiliation) *of the* [Legacy](datasworn:oracle_rollable:starforged/faction/name/legacy) [Identity](datasworn:oracle_rollable:starforged/faction/name/identity)'
                 template:
                   text: '{{text>oracle_rollable:starforged/faction/name/affiliation}} of the {{text>oracle_rollable:starforged/faction/name/legacy}} {{text>oracle_rollable:starforged/faction/name/identity}}'
           legacy:

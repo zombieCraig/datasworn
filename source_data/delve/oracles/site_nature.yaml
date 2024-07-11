@@ -9,7 +9,7 @@ oracles:
     type: oracle_collection
     oracle_type: tables
     description: |-
-      Use these oracles to generate a random theme and domain for a site. Alternatively, you can print out the theme and domain cards and draw a random result. Or use the [Site Name oracles](oracle_collection:delve/site_name) to inspire the selection of a theme and domain.
+      Use these oracles to generate a random theme and domain for a site. Alternatively, you can print out the theme and domain cards and draw a random result. Or use the [Site Name oracles](datasworn:oracle_collection:delve/site_name) to inspire the selection of a theme and domain.
     _source:
       <<:  &Source
         license: https://creativecommons.org/licenses/by/4.0
@@ -31,21 +31,21 @@ oracles:
           page: 212
         rows:
           - roll: { min: 1, max: 11 }
-            text: '[Ancient](delve_site_theme:delve/ancient)'
+            text: '[Ancient](datasworn:delve_site_theme:delve/ancient)'
           - roll: { min: 12, max: 23 }
-            text: '[Corrupted](delve_site_theme:delve/corrupted)'
+            text: '[Corrupted](datasworn:delve_site_theme:delve/corrupted)'
           - roll: { min: 24, max: 35 }
-            text: '[Fortified](delve_site_theme:delve/fortified)'
+            text: '[Fortified](datasworn:delve_site_theme:delve/fortified)'
           - roll: { min: 36, max: 48 }
-            text: '[Hallowed](delve_site_theme:delve/hallowed)'
+            text: '[Hallowed](datasworn:delve_site_theme:delve/hallowed)'
           - roll: { min: 49, max: 61 }
-            text: '[Haunted](delve_site_theme:delve/haunted)'
+            text: '[Haunted](datasworn:delve_site_theme:delve/haunted)'
           - roll: { min: 62, max: 74 }
-            text: '[Infested](delve_site_theme:delve/infested)'
+            text: '[Infested](datasworn:delve_site_theme:delve/infested)'
           - roll: { min: 75, max: 87 }
-            text: '[Ravaged](delve_site_theme:delve/ravaged)'
+            text: '[Ravaged](datasworn:delve_site_theme:delve/ravaged)'
           - roll: { min: 88, max: 100 }
-            text: '[Wild](delve_site_theme:delve/wild)'
+            text: '[Wild](datasworn:delve_site_theme:delve/wild)'
       domain:
         name: Domain
         canonical_name: 'Site Nature: Domain'
@@ -56,26 +56,26 @@ oracles:
           page: 212
         rows:
           - roll: { min: 1, max: 6 }
-            text: '[Barrow](delve_site_domain:delve/barrow)'
+            text: '[Barrow](datasworn:delve_site_domain:delve/barrow)'
           - roll: { min: 7, max: 18 }
-            text: '[Cavern](delve_site_domain:delve/cavern)'
+            text: '[Cavern](datasworn:delve_site_domain:delve/cavern)'
           - roll: { min: 19, max: 28 }
-            text: '[Frozen Cavern](delve_site_domain:delve/frozen_cavern)'
+            text: '[Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern)'
           - roll: { min: 29, max: 32 }
-            text: '[Icereach](delve_site_domain:delve/icereach)'
+            text: '[Icereach](datasworn:delve_site_domain:delve/icereach)'
           - roll: { min: 33, max: 38 }
-            text: '[Mine](delve_site_domain:delve/mine)'
+            text: '[Mine](datasworn:delve_site_domain:delve/mine)'
           - roll: { min: 39, max: 48 }
-            text: '[Pass](delve_site_domain:delve/pass)'
+            text: '[Pass](datasworn:delve_site_domain:delve/pass)'
           - roll: { min: 49, max: 58 }
-            text: '[Ruin](delve_site_domain:delve/ruin)'
+            text: '[Ruin](datasworn:delve_site_domain:delve/ruin)'
           - roll: { min: 59, max: 68 }
-            text: '[Sea Cave](delve_site_domain:delve/sea_cave)'
+            text: '[Sea Cave](datasworn:delve_site_domain:delve/sea_cave)'
           - roll: { min: 69, max: 78 }
-            text: '[Shadowfen](delve_site_domain:delve/shadowfen)'
+            text: '[Shadowfen](datasworn:delve_site_domain:delve/shadowfen)'
           - roll: { min: 79, max: 83 }
-            text: '[Stronghold](delve_site_domain:delve/stronghold)'
+            text: '[Stronghold](datasworn:delve_site_domain:delve/stronghold)'
           - roll: { min: 84, max: 95 }
-            text: '[Tanglewood](delve_site_domain:delve/tanglewood)'
+            text: '[Tanglewood](datasworn:delve_site_domain:delve/tanglewood)'
           - roll: { min: 96, max: 100 }
-            text: '[Underkeep](delve_site_domain:delve/underkeep)'
+            text: '[Underkeep](datasworn:delve_site_domain:delve/underkeep)'

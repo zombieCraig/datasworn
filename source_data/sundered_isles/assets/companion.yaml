@@ -39,16 +39,16 @@ assets:
           text: |-
             Your albatross companion brings good luck, but its fate is tied to your own. When you are at sea, increase your momentum reset by 1. If the albatross is killed, discard this asset and suffer a permanent impact.
         - text: |-
-            When the albatross flies ahead of your ship or perches on the ship’s mast as you [Finish an Expedition](move:starforged/exploration/finish_an_expedition), its luck is on your side. You may reroll one challenge die.
+            When the albatross flies ahead of your ship or perches on the ship’s mast as you [Finish an Expedition](datasworn:move:starforged/exploration/finish_an_expedition), its luck is on your side. You may reroll one challenge die.
           enhance_moves:
           - enhances:
             - move:starforged/exploration/finish_an_expedition
             roll_type: progress_roll
             trigger:
               conditions:
-              - text: When the albatross flies ahead of your ship or perches on the ship’s mast as you [Finish an Expedition](move:starforged/exploration/finish_an_expedition)
+              - text: When the albatross flies ahead of your ship or perches on the ship’s mast as you [Finish an Expedition](datasworn:move:starforged/exploration/finish_an_expedition)
         - text: |-
-            When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) at sea by asking the spirit embodied by the albatross for a favorable boon, you may roll +its health. If you do, take +1 momentum on a hit. On a strong hit with a match, also mark 1 tick on your bonds legacy track as you deepen your connection to your companion.
+            When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) at sea by asking the spirit embodied by the albatross for a favorable boon, you may roll +its health. If you do, take +1 momentum on a hit. On a strong hit with a match, also mark 1 tick on your bonds legacy track as you deepen your connection to your companion.
           enhance_moves:
           - enhances:
             - move:starforged/*/secure_an_advantage
@@ -119,7 +119,7 @@ assets:
         abilities:
         - enabled: true
           text: &CallDolphin |-
-            Your dolphin companion is a helpful but often errant friend. When you call the dolphin, roll +heart. On a hit, it appears and will remain in the area for an hour or two. You may (one time only) reroll any dice on a move to overcome an obstacle or hazard with its help. On a strong hit, also take +2 momentum. On a miss, it is away or unable to respond; [Pay the Price](move:starforged/fate/pay_the_price).
+            Your dolphin companion is a helpful but often errant friend. When you call the dolphin, roll +heart. On a hit, it appears and will remain in the area for an hour or two. You may (one time only) reroll any dice on a move to overcome an obstacle or hazard with its help. On a strong hit, also take +2 momentum. On a miss, it is away or unable to respond; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
           moves:
             call_dolphin:
               type: move
@@ -139,7 +139,7 @@ assets:
                 weak_hit:
                   text: On a __weak hit__, it appears and will remain in the area for an hour or two. You may (one time only) reroll any dice on a move to overcome an obstacle or hazard with its help.
                 miss:
-                  text: On a __miss__, it is away or unable to respond; [Pay the Price](move:starforged/fate/pay_the_price).
+                  text: On a __miss__, it is away or unable to respond; [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
         - text: |-
             When you make a move to detect or evade a threat while swimming in the company of the dolphin, roll +its health and take +1 momentum on a hit.
           enhance_moves:
@@ -151,7 +151,7 @@ assets:
                     - using: asset_control
                       control: health
         - text: |-
-            When you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition) and score a miss with a match, you may envision the dolphin appearing unbidden to guide you out of trouble. If you do, reroll both challenge dice.
+            When you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition) and score a miss with a match, you may envision the dolphin appearing unbidden to guide you out of trouble. If you do, reroll both challenge dice.
           enhance_moves:
           - enhances:
             - move:starforged/exploration/undertake_an_expedition
@@ -173,7 +173,7 @@ assets:
         abilities:
         - enabled: true
           text: |-
-            Your dragon companion wards off trouble. When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) by letting it roam, roll +its health. You must [Sacrifice Resources](move:starforged/suffer/sacrifice_resources) (-1) about once a day to satiate its fierce appetite; otherwise, make the [Companion Takes a Hit](move:starforged/suffer/companion_takes_a_hit) (-2) move.
+            Your dragon companion wards off trouble. When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) by letting it roam, roll +its health. You must [Sacrifice Resources](datasworn:move:starforged/suffer/sacrifice_resources) (-1) about once a day to satiate its fierce appetite; otherwise, make the [Companion Takes a Hit](datasworn:move:starforged/suffer/companion_takes_a_hit) (-2) move.
           enhance_moves:
           - enhances:
             - move:starforged/*/secure_an_advantage
@@ -188,7 +188,7 @@ assets:
         - text: |-
             The dragon accepts you as a rider. It flies under your direction, and assails your foes using tooth, tail, claw, and fiery breath. When you make a move from the saddle to lead an expedition or leverage the dragon as a weapon, you may roll +its health. If you then roll a 1 or 2 on your action die, the dragon must bear the brunt of any cost or counterattack.
         - text: |-
-            When you make the [Companion Takes a Hit](move:starforged/suffer/companion_takes_a_hit) move, take +1 momentum on a strong hit.
+            When you make the [Companion Takes a Hit](datasworn:move:starforged/suffer/companion_takes_a_hit) move, take +1 momentum on a strong hit.
           enhance_moves:
           - enhances:
             - move:starforged/suffer/companion_takes_a_hit
@@ -213,7 +213,7 @@ assets:
         abilities:
         - enabled: true
           text: |-
-            Your jungle cat companion leaps into the fight at your side. When you [Strike](move:starforged/combat/strike) aided by the cat, or if you make a move to intimidate your foes, add +1. If you [Clash](move:starforged/combat/clash), take +1 momentum on a hit.
+            Your jungle cat companion leaps into the fight at your side. When you [Strike](datasworn:move:starforged/combat/strike) aided by the cat, or if you make a move to intimidate your foes, add +1. If you [Clash](datasworn:move:starforged/combat/clash), take +1 momentum on a hit.
           enhance_moves:
           - enhances:
             - move:starforged/combat/strike
@@ -233,16 +233,16 @@ assets:
               conditions:
                 - text: aided by the jungle cat
         - text: |-
-            The jungle cat leads the way on treacherous overland journeys. When you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition) through wilderness, add +1. On a strong hit with a match, the cat guides you to an otherwise unseen opportunity; envision what you find and take +2 momentum.
+            The jungle cat leads the way on treacherous overland journeys. When you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition) through wilderness, add +1. On a strong hit with a match, the cat guides you to an otherwise unseen opportunity; envision what you find and take +2 momentum.
           enhance_moves:
           - enhances:
             - move:starforged/exploration/undertake_an_expedition
             roll_type: action_roll
             trigger:
               conditions:
-              - text: When you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition) through wilderness
+              - text: When you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition) through wilderness
         - text: |-
-            When you [Endure Stress](move:starforged/suffer/endure_stress) in the company of the jungle cat, or if you [Hearten](move:starforged/recover/hearten) in their company, add +1. On a strong hit with a match, you find inspiration or solace; take +momentum equal to their health.
+            When you [Endure Stress](datasworn:move:starforged/suffer/endure_stress) in the company of the jungle cat, or if you [Hearten](datasworn:move:starforged/recover/hearten) in their company, add +1. On a strong hit with a match, you find inspiration or solace; take +momentum equal to their health.
           enhance_moves:
           - enhances:
             - move:starforged/suffer/endure_stress
@@ -300,14 +300,14 @@ assets:
               conditions:
               - text: When you make a move by sending the monkey to complete a task involving theft, infiltration, or sabotage
         - text: |-
-            When you [Resupply](move:starforged/recover/resupply) by asking the monkey to search or scavenge, add +1.
+            When you [Resupply](datasworn:move:starforged/recover/resupply) by asking the monkey to search or scavenge, add +1.
           enhance_moves:
           - enhances:
             - move:starforged/recover/resupply
             roll_type: action_roll
             trigger:
               conditions:
-              - text: When you [Resupply](move:starforged/recover/resupply) by asking the monkey to search or scavenge
+              - text: When you [Resupply](datasworn:move:starforged/recover/resupply) by asking the monkey to search or scavenge
         controls:
           health:
             <<: *BiologicalCompanionHealth
@@ -322,7 +322,7 @@ assets:
         abilities:
         - enabled: true
           text: |-
-            Your parrot companion offers random wisdom. When you seek inspiration, context, or direction, use your oracle dice to choose a table (1–25: [Action](oracle_rollable:sundered_isles/core/action), 26–50: [Theme](oracle_rollable:sundered_isles/core/theme), 51–75: [Descriptor](oracle_rollable:sundered_isles/core/descriptor), 76–100: [Focus](oracle_rollable:sundered_isles/core/focus)). Then, roll to learn what your parrot says. If you connect this prompt to your current situation for new insight, take +1 momentum.
+            Your parrot companion offers random wisdom. When you seek inspiration, context, or direction, use your oracle dice to choose a table (1–25: [Action](datasworn:oracle_rollable:sundered_isles/core/action), 26–50: [Theme](datasworn:oracle_rollable:sundered_isles/core/theme), 51–75: [Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor), 76–100: [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)). Then, roll to learn what your parrot says. If you connect this prompt to your current situation for new insight, take +1 momentum.
           oracles:
             parrot_wisdom:
               type: oracle_rollable
@@ -330,42 +330,42 @@ assets:
               oracle_type: table_text
               rows:
               - roll: {min: 1, max: 25}
-                text: "[Action](oracle_rollable:sundered_isles/core/action)"
+                text: "[Action](datasworn:oracle_rollable:sundered_isles/core/action)"
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/action
               - roll: {min: 26, max: 50}
-                text: "[Theme](oracle_rollable:sundered_isles/core/theme)"
+                text: "[Theme](datasworn:oracle_rollable:sundered_isles/core/theme)"
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/theme
               - roll: {min: 51, max: 75}
-                text: "[Descriptor](oracle_rollable:sundered_isles/core/descriptor)"
+                text: "[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor)"
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/descriptor
               - roll: {min: 76, max: 100}
-                text: "[Focus](oracle_rollable:sundered_isles/core/focus)"
+                text: "[Focus](datasworn:oracle_rollable:sundered_isles/core/focus)"
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/focus
         - text: |-
             Once per fight, when you score a miss, you may envision how the parrot appears on the scene to cause a timely distraction. If you do, make it a strong hit instead.
         - text: |-
-            The parrot squawks a warning when danger is near. When you [Face Danger](move:starforged/adventure/face_danger) to detect a threat, or if you [Enter the Fray](move:starforged/combat/enter_the_fray) against an ambush, add +its health.
+            The parrot squawks a warning when danger is near. When you [Face Danger](datasworn:move:starforged/adventure/face_danger) to detect a threat, or if you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) against an ambush, add +its health.
           enhance_moves:
           - enhances:
             - move:starforged/combat/enter_the_fray
             roll_type: action_roll
             trigger:
               conditions:
-              - text: When you [Enter the Fray](move:starforged/combat/enter_the_fray) against an ambush
+              - text: When you [Enter the Fray](datasworn:move:starforged/combat/enter_the_fray) against an ambush
           - enhances:
             - move:starforged/*/face_danger
             roll_type: action_roll
             trigger:
               conditions:
-              - text: When you [Face Danger](move:starforged/adventure/face_danger) to detect a threat
+              - text: When you [Face Danger](datasworn:move:starforged/adventure/face_danger) to detect a threat
         controls:
           health:
             <<: *BiologicalCompanionHealth
@@ -396,7 +396,7 @@ assets:
                   - text: When you make a move by setting loose the rat to cause a distraction or commotion among a crowd or in a public space
               enhances: null
         - text: |-
-            You may [Explore a Waypoint](move:starforged/exploration/explore_a_waypoint) (even if not on an expedition) by sending the rat to search a promising confined area for something of interest or value. If you do, roll +its health. On a miss, its instincts have you forewarned; you may reroll one challenge die.
+            You may [Explore a Waypoint](datasworn:move:starforged/exploration/explore_a_waypoint) (even if not on an expedition) by sending the rat to search a promising confined area for something of interest or value. If you do, roll +its health. On a miss, its instincts have you forewarned; you may reroll one challenge die.
           enhance_moves:
           - enhances:
             - move:starforged/exploration/explore_a_waypoint
@@ -427,7 +427,7 @@ assets:
         abilities:
         - enabled: true
           text: |-
-            When you summon the Kraken, fill one segment of a four-segment clock. The Kraken will heed a single command to destroy or overcome any foe or obstacle. If you are in a fight, [Take Decisive Action](move:starforged/combat/take_decisive_action) with an automatic strong hit. When the clock is filled, [Ask the Oracle](move.oracle_rollable:starforged/fate/ask_the_oracle.fifty_fifty) (using the yes/no table) if the Kraken turns against you, making it 50/50. On a yes, discard this asset; the Kraken is now an epic foe. On a no, clear one segment of the clock.
+            When you summon the Kraken, fill one segment of a four-segment clock. The Kraken will heed a single command to destroy or overcome any foe or obstacle. If you are in a fight, [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action) with an automatic strong hit. When the clock is filled, [Ask the Oracle](datasworn:move.oracle_rollable:starforged/fate/ask_the_oracle.fifty_fifty) (using the yes/no table) if the Kraken turns against you, making it 50/50. On a yes, discard this asset; the Kraken is now an epic foe. On a no, clear one segment of the clock.
           controls:
             clock:
               label: the Kraken turns against you
@@ -449,11 +449,11 @@ assets:
                 conditions:
                   - text: When you make a move using a threat to call the Kraken as leverage
         - text: |-
-            One time only, when you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) (formidable or greater) in service to the Kraken and score a hit, choose one: clear all clock segments, or discard this asset and mark three boxes on your bonds legacy track.
+            One time only, when you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) (formidable or greater) in service to the Kraken and score a hit, choose one: clear all clock segments, or discard this asset and mark three boxes on your bonds legacy track.
           enhance_moves:
           - enhances:
             - move:starforged/quest/fulfill_your_vow
             roll_type: progress_roll
             trigger:
               conditions:
-              - text: One time only, when you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) (formidable or greater) in service to the Kraken
+              - text: One time only, when you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) (formidable or greater) in service to the Kraken

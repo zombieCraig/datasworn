@@ -208,7 +208,7 @@ oracles:
               - &ObservedFromSpace.8
                 roll: { min: 89, max: 98 }
                 <<: &DescriptorFocus
-                  text: &DF.result '[Descriptor](oracle_rollable:starforged/core/descriptor) + [Focus](oracle_rollable:starforged/core/focus)'
+                  text: &DF.result '[Descriptor](datasworn:oracle_rollable:starforged/core/descriptor) + [Focus](datasworn:oracle_rollable:starforged/core/focus)'
                   oracle_rolls: &DF.rolls
                     - oracle: oracle_rollable:starforged/core/descriptor
                       auto: true
@@ -216,7 +216,7 @@ oracles:
                       auto: true
               - &ObservedFromSpace.9
                 roll: { min: 99, max: 100 }
-                text: '[Precursor Vault](oracle_collection:starforged/precursor_vault) (orbital)'
+                text: '[Precursor Vault](datasworn:oracle_collection:starforged/precursor_vault) (orbital)'
           feature:
             <<: &Feature
               name: Planetside Feature
@@ -269,7 +269,7 @@ oracles:
                 <<: *DescriptorFocus
               - &Feature.14
                 roll: { min: 99, max: 100 }
-                text: '[Precursor Vault](oracle_collection:starforged/precursor_vault) (planetside)'
+                text: '[Precursor Vault](datasworn:oracle_collection:starforged/precursor_vault) (planetside)'
           life:
             <<: &Life
               name: Life
@@ -1922,7 +1922,7 @@ oracles:
                 text: Sludge-filled river networks
               - roll: { min: 89, max: 98 }
                 <<: &DescriptorFocus
-                  text: '[Descriptor](oracle_rollable:starforged/core/descriptor) + [Focus](oracle_rollable:starforged/core/focus)'
+                  text: '[Descriptor](datasworn:oracle_rollable:starforged/core/descriptor) + [Focus](datasworn:oracle_rollable:starforged/core/focus)'
                   oracle_rolls:
                     - oracle: oracle_rollable:starforged/core/descriptor
                       auto: true
@@ -2114,7 +2114,7 @@ oracles:
                 text: Narrow livable band
               - roll: { min: 89, max: 98 }
                 <<: &DescriptorFocus
-                  text: '[Descriptor](oracle_rollable:starforged/core/descriptor) + [Focus](oracle_rollable:starforged/core/focus)'
+                  text: '[Descriptor](datasworn:oracle_rollable:starforged/core/descriptor) + [Focus](datasworn:oracle_rollable:starforged/core/focus)'
                   oracle_rolls:
                     - oracle: oracle_rollable:starforged/core/descriptor
                       auto: true

@@ -37,10 +37,10 @@ assets:
           bond_mate:
             label: bond-mate
             field_type: text
-        requirement: One time only, once you [Forge a Bond](move:starforged/connection/forge_a_bond) with a special individual...
+        requirement: One time only, once you [Forge a Bond](datasworn:move:starforged/connection/forge_a_bond) with a special individual...
         abilities:
           - text: |-
-              This person is your bond-mate. When you [Sojourn](move:starforged/recover/sojourn) at their home, [Hearten](move:starforged/recover/hearten) in their presence, or [Test Your Relationship](move:starforged/connection/test_your_relationship) or [Develop Your Relationship](move:starforged/connection/develop_your_relationship) with them, reroll any dice. On a strong hit, take +1 momentum.
+              This person is your bond-mate. When you [Sojourn](datasworn:move:starforged/recover/sojourn) at their home, [Hearten](datasworn:move:starforged/recover/hearten) in their presence, or [Test Your Relationship](datasworn:move:starforged/connection/test_your_relationship) or [Develop Your Relationship](datasworn:move:starforged/connection/develop_your_relationship) with them, reroll any dice. On a strong hit, take +1 momentum.
             enabled: true
             enhance_moves:
               - enhances:
@@ -69,7 +69,7 @@ assets:
                       method: null
                       roll_options: null
           - text: |-
-              When you [Set a Course](move:starforged/exploration/set_a_course) back to your bond-mate's location, add +heart. On a strong hit with a match, envision a special reunion and mark two ticks on your bonds legacy track.
+              When you [Set a Course](datasworn:move:starforged/exploration/set_a_course) back to your bond-mate's location, add +heart. On a strong hit with a match, envision a special reunion and mark two ticks on your bonds legacy track.
             enhance_moves:
               - enhances:
                   - move:starforged/exploration/set_a_course
@@ -80,7 +80,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you make a move in a crucial moment and score a miss, you may cling to thoughts of your bond-mate for support. If you do, reroll any dice. On another miss, in addition to the outcome of the move, you must mark shaken or traumatized. If both debilities are already marked, [Face Desolation](move:starforged/threshold/face_desolation).
+              When you make a move in a crucial moment and score a miss, you may cling to thoughts of your bond-mate for support. If you do, reroll any dice. On another miss, in addition to the outcome of the move, you must mark shaken or traumatized. If both debilities are already marked, [Face Desolation](datasworn:move:starforged/threshold/face_desolation).
             enhance_moves:
               - roll_type: action_roll
       homesteader:
@@ -97,7 +97,7 @@ assets:
         requirement: Once you fill 4 boxes on your bonds legacy track...
         abilities:
           - text: |-
-              You have chosen or established a community as your home. When you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) (formidable or greater) in service to your home, reroll any dice. On a hit, mark 1 tick on your bonds legacy track. When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your bonds legacy track.
+              You have chosen or established a community as your home. When you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) (formidable or greater) in service to your home, reroll any dice. On a hit, mark 1 tick on your bonds legacy track. When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your bonds legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -117,7 +117,7 @@ assets:
                       text: In service to your home (formidable or greater)
                       roll_options: null
           - text: |-
-              When you [Sojourn](move:starforged/recover/sojourn) in your home, choose one.
+              When you [Sojourn](datasworn:move:starforged/recover/sojourn) in your home, choose one.
 
                 * Don't linger: Take an automatic weak hit
                 * Stay a bit: Add +1 and take +1 momentum on a hit
@@ -140,7 +140,7 @@ assets:
                       text: In your home (and you stay a bit)
                       method: weak_hit
           - text: |-
-              When you [Set a Course](move:starforged/exploration/set_a_course) for home, you may reroll your action die if its value is less than your spirit.
+              When you [Set a Course](datasworn:move:starforged/exploration/set_a_course) for home, you may reroll your action die if its value is less than your spirit.
             enhance_moves:
               - enhances:
                   - move:starforged/exploration/set_a_course
@@ -161,7 +161,7 @@ assets:
         requirement: Once you fill 5 boxes on your quests legacy track...
         abilities:
           - text: |-
-              Envision the title, sigil, uniform, or tattoo you bear in recognition of your achievements. When you [Compel](move:starforged/adventure/compel) or [Make a Connection](move:starforged/connection/make_a_connection) among those who would know your reputation, add +1. On a strong hit with a match, your notoriety grows; mark 2 ticks on your bonds legacy track.
+              Envision the title, sigil, uniform, or tattoo you bear in recognition of your achievements. When you [Compel](datasworn:move:starforged/adventure/compel) or [Make a Connection](datasworn:move:starforged/connection/make_a_connection) among those who would know your reputation, add +1. On a strong hit with a match, your notoriety grows; mark 2 ticks on your bonds legacy track.
             enabled: true
             enhance_moves:
               - enhances:
@@ -185,7 +185,7 @@ assets:
                 value: 0
                 min: 0
           - text: |-
-              Once per fight, when you [Gain Ground](move:starforged/combat/gain_ground) through intimidation or command, reroll any dice and mark progress on a hit.
+              Once per fight, when you [Gain Ground](datasworn:move:starforged/combat/gain_ground) through intimidation or command, reroll any dice and mark progress on a hit.
             enhance_moves:
               - enhances:
                   - move:starforged/combat/gain_ground
@@ -202,11 +202,11 @@ assets:
             recommended: true
         type: asset
         <<: *DeedAsset
-        requirement: Once you [Forsake Your Vow](move:starforged/quest/forsake_your_vow)...
+        requirement: Once you [Forsake Your Vow](datasworn:move:starforged/quest/forsake_your_vow)...
         count_as_impact: true
         abilities:
           - text: |-
-              This asset counts as an impact. One time only, when you [Swear an Iron Vow](move:starforged/quest/swear_an_iron_vow) (extreme or greater) to redeem yourself, give that vow a special mark. When you [Reach a Milestone](move:starforged/quest/reach_a_milestone) on the marked vow, take +2 momentum. If you [Forsake Your Vow](move:starforged/quest/forsake_your_vow) on the quest, discard this asset and retain the impact.
+              This asset counts as an impact. One time only, when you [Swear an Iron Vow](datasworn:move:starforged/quest/swear_an_iron_vow) (extreme or greater) to redeem yourself, give that vow a special mark. When you [Reach a Milestone](datasworn:move:starforged/quest/reach_a_milestone) on the marked vow, take +2 momentum. If you [Forsake Your Vow](datasworn:move:starforged/quest/forsake_your_vow) on the quest, discard this asset and retain the impact.
             enabled: true
             enhance_moves:
               - enhances:
@@ -221,7 +221,7 @@ assets:
                 enhances:
                   - move:starforged/quest/forsake_your_vow
           - text: |-
-              When you [Secure an Advantage](move:starforged/adventure/secure_an_advantage) or [Compel](move:starforged/adventure/compel) by reaffirming your commitment to your marked vow, add +1 and take +1 momentum on a hit.
+              When you [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Compel](datasworn:move:starforged/adventure/compel) by reaffirming your commitment to your marked vow, add +1 and take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - 'move:starforged/*/secure_an_advantage'
@@ -234,7 +234,7 @@ assets:
                       method: null
 
           - text: |-
-              When you [Fulfill Your Vow](move:starforged/quest/fulfill_your_vow) on the marked quest and score a hit, you find redemption and automatically gain this ability at no cost. You may then improve one of your stats by +1 and discard this asset. Once the asset is discarded, you may not take it again.
+              When you [Fulfill Your Vow](datasworn:move:starforged/quest/fulfill_your_vow) on the marked quest and score a hit, you find redemption and automatically gain this ability at no cost. You may then improve one of your stats by +1 and discard this asset. Once the asset is discarded, you may not take it again.
             enhance_moves:
               - enhances:
                   - move:starforged/quest/fulfill_your_vow
@@ -251,10 +251,10 @@ assets:
             recommended: true
         type: asset
         <<: *DeedAsset
-        requirement: Once you [Face Death](move:starforged/threshold/face_death)...
+        requirement: Once you [Face Death](datasworn:move:starforged/threshold/face_death)...
         abilities:
           - text: |-
-              When you are at 0 health, and [Endure Harm](move:starforged/suffer/endure_harm) or [Face Death](move:starforged/threshold/face_death), add +1. You may then reroll your action die if its value is less than your spirit.
+              When you are at 0 health, and [Endure Harm](datasworn:move:starforged/suffer/endure_harm) or [Face Death](datasworn:move:starforged/threshold/face_death), add +1. You may then reroll your action die if its value is less than your spirit.
             enabled: true
             enhance_moves:
               - enhances:
@@ -267,7 +267,7 @@ assets:
                       roll_options: null
                       method: null
           - text: |-
-              When you [Take Decisive Action](move:starforged/combat/take_decisive_action) by bringing death to a foe, you may burn momentum to zero out one (not both) of the challenge dice if your momentum is greater than the value of that die. If you do, [Endure Stress](move:starforged/suffer/endure_stress) (-2).
+              When you [Take Decisive Action](datasworn:move:starforged/combat/take_decisive_action) by bringing death to a foe, you may burn momentum to zero out one (not both) of the challenge dice if your momentum is greater than the value of that die. If you do, [Endure Stress](datasworn:move:starforged/suffer/endure_stress) (-2).
             enhance_moves:
               - enhances:
                   - move:starforged/combat/take_decisive_action
@@ -278,7 +278,7 @@ assets:
                       text: By bringing death to a foe
                       roll_options: null
           - text: |-
-              When you [Gather Information](move:starforged/adventure/gather_information) by studying a place where death left its mark, you may roll +heart. If you do, take +1 momentum on a hit. On a strong hit with a match, you experience a detailed vision or insightful revelation of what occurred here; take +1 momentum more.
+              When you [Gather Information](datasworn:move:starforged/adventure/gather_information) by studying a place where death left its mark, you may roll +heart. If you do, take +1 momentum on a hit. On a strong hit with a match, you experience a detailed vision or insightful revelation of what occurred here; take +1 momentum more.
             enhance_moves:
               - enhances:
                   - move:starforged/adventure/gather_information
@@ -300,7 +300,7 @@ assets:
         requirement: Once you mark traumatized or permanently harmed...
         abilities:
           - text: |-
-              When you are haunted by past experiences and must [Endure Stress](move:starforged/suffer/endure_stress), you may [Lose Momentum](move:starforged/suffer/lose_momentum) (-1) before rolling as you attempt to find focus or calm. If you do, reroll any dice. On a strong hit, take +1 momentum.
+              When you are haunted by past experiences and must [Endure Stress](datasworn:move:starforged/suffer/endure_stress), you may [Lose Momentum](datasworn:move:starforged/suffer/lose_momentum) (-1) before rolling as you attempt to find focus or calm. If you do, reroll any dice. On a strong hit, take +1 momentum.
             enabled: true
             enhance_moves:
               - enhances:
@@ -327,7 +327,7 @@ assets:
         requirement: Once you fill 6 boxes on your discoveries legacy track...
         abilities:
           - text: &VanguardMove |-
-              When you seek a safe location in a remote environment, make a progress roll against your discoveries legacy track. On a strong hit, you establish a haven; add +2 whenever you make a recovery move at that location. On a weak hit, as above, but add +1 when making a recovery move. On a miss, you are drawn into a bad situation and must [Pay the Price](move:starforged/fate/pay_the_price). If you establish a haven but score a miss on a recovery move, that location is no longer safe.
+              When you seek a safe location in a remote environment, make a progress roll against your discoveries legacy track. On a strong hit, you establish a haven; add +2 whenever you make a recovery move at that location. On a weak hit, as above, but add +1 when making a recovery move. On a miss, you are drawn into a bad situation and must [Pay the Price](datasworn:move:starforged/fate/pay_the_price). If you establish a haven but score a miss on a recovery move, that location is no longer safe.
             enabled: true
             moves:
               seek_safe_haven:
@@ -354,7 +354,7 @@ assets:
                       If you establish a haven but score a miss on a recovery move, that location is no longer safe.
                   miss:
                     text: |-
-                      On a __miss__, you are drawn into a bad situation and must [Pay the Price](move:starforged/fate/pay_the_price).
+                      On a __miss__, you are drawn into a bad situation and must [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
           - text: |-
               When you make a move +wits and score a strong hit with a match, your hard-won experience lends insight; take +1 momentum.
             enhance_moves:
@@ -366,7 +366,7 @@ assets:
                         - using: stat
                           stat: wits
           - text: |-
-              When you [Endure Stress](move:starforged/suffer/endure_stress), you may roll +wits. If you do, take +1 momentum on a hit.
+              When you [Endure Stress](datasworn:move:starforged/suffer/endure_stress), you may roll +wits. If you do, take +1 momentum on a hit.
             enhance_moves:
               - enhances:
                   - move:starforged/suffer/endure_stress

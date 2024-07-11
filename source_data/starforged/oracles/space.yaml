@@ -23,7 +23,7 @@ oracles:
         oracle_type: table_shared_text
         type: oracle_collection
         summary: |-
-          Use the Space Sightings oracle to introduce a location or encounter on a spaceborne expedition. For example, roll on this table when you [Ask the Oracle](move:starforged/fate/ask_the_oracle) to envision the primary feature of a waypoint as you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition). Check your result by referencing the column for your current location: Terminus, Outlands, or Expanse.
+          Use the Space Sightings oracle to introduce a location or encounter on a spaceborne expedition. For example, roll on this table when you [Ask the Oracle](datasworn:move:starforged/fate/ask_the_oracle) to envision the primary feature of a waypoint as you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition). Check your result by referencing the column for your current location: Terminus, Outlands, or Expanse.
         # usage:
         #   allow_duplicates: true
         #   requires:
@@ -41,30 +41,30 @@ oracles:
             rows:
               - &Sighting.0
                 roll: { min: 1, max: 15 }
-                text: '[Stellar Object](oracle_rollable:starforged/space/stellar_object)'
+                text: '[Stellar Object](datasworn:oracle_rollable:starforged/space/stellar_object)'
                 oracle_rolls:
                   - oracle: oracle_rollable:starforged/space/stellar_object
               - &Sighting.1
                 roll: { min: 16, max: 35 }
-                text: '[Planet](oracle_collection:starforged/planet)'
+                text: '[Planet](datasworn:oracle_collection:starforged/planet)'
               - roll: { min: 36, max: 40 }
                 <<: &Sighting.2
-                  text: '[Settlement](oracle_collection:starforged/settlement)'
+                  text: '[Settlement](datasworn:oracle_collection:starforged/settlement)'
               - roll: { min: 41, max: 47 }
                 <<: &Sighting.3
-                  text: '[Starship](oracle_collection:starforged/starship)'
+                  text: '[Starship](datasworn:oracle_collection:starforged/starship)'
               - roll: { min: 48, max: 51 }
                 <<: &Sighting.4
-                  text: '[Derelict](oracle_collection:starforged/derelict)'
+                  text: '[Derelict](datasworn:oracle_collection:starforged/derelict)'
               - roll: { min: 52, max: 53 }
                 <<: &Sighting.5
-                  text: '[Precursor Vault](oracle_collection:starforged/precursor_vault)'
+                  text: '[Precursor Vault](datasworn:oracle_collection:starforged/precursor_vault)'
               - roll: { min: 54, max: 55 }
                 <<: &Sighting.6
-                  text: '[Creature](oracle_collection:starforged/creature)'
+                  text: '[Creature](datasworn:oracle_collection:starforged/creature)'
               - roll: { min: 56, max: 60 }
                 <<: &Sighting.7
-                  text: '[Descriptor](oracle_rollable:starforged/core/descriptor) + [Focus](oracle_rollable:starforged/core/focus)'
+                  text: '[Descriptor](datasworn:oracle_rollable:starforged/core/descriptor) + [Focus](datasworn:oracle_rollable:starforged/core/focus)'
                   oracle_rolls:
                     - oracle: oracle_rollable:starforged/core/descriptor
                       auto: true
@@ -724,7 +724,7 @@ oracles:
             text: Unsettling sounds or disturbances
           - roll: { min: 97, max: 99 }
             <<: &ActionTheme
-              text: '[Action](oracle_rollable:starforged/core/action) + [Theme](oracle_rollable:starforged/core/theme)'
+              text: '[Action](datasworn:oracle_rollable:starforged/core/action) + [Theme](datasworn:oracle_rollable:starforged/core/theme)'
               oracle_rolls:
                 - oracle: oracle_rollable:starforged/core/action
                   auto: true
@@ -750,7 +750,7 @@ oracles:
         # content:
         #   part_of_speech: [fragment]
         #   tags: [opportunity]
-        summary: Choose or roll on this table when you want inspiration for a beneficial encounter or event on a spaceborne journey, such as when you roll a strong hit with a match as you [Undertake an Expedition](move:starforged/exploration/undertake_an_expedition), or if you [Explore a Waypoint](move:starforged/exploration/explore_a_waypoint) and find an opportunity.
+        summary: Choose or roll on this table when you want inspiration for a beneficial encounter or event on a spaceborne journey, such as when you roll a strong hit with a match as you [Undertake an Expedition](datasworn:move:starforged/exploration/undertake_an_expedition), or if you [Explore a Waypoint](datasworn:move:starforged/exploration/explore_a_waypoint) and find an opportunity.
         rows:
           - roll: { min: 1, max: 4 }
             text: Advance warning of an environmental threat

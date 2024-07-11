@@ -18,7 +18,7 @@ oracles:
       page: 330
     # Aliases: [NPC]
     summary: |-
-      Don’t try to build a fully formed understanding character when you first encounter them; instead, focus on what your character learns or perceives as a first impression using oracles such as [First Look](oracle_rollable:starforged/character/first_look) and [Initial Disposition](oracle_rollable:starforged/character/initial_disposition). Then envision or generate additional details over time.
+      Don’t try to build a fully formed understanding character when you first encounter them; instead, focus on what your character learns or perceives as a first impression using oracles such as [First Look](datasworn:oracle_rollable:starforged/character/first_look) and [Initial Disposition](datasworn:oracle_rollable:starforged/character/initial_disposition). Then envision or generate additional details over time.
     collections:
       name:
         name: Character Name
@@ -1293,7 +1293,7 @@ oracles:
             _i18n: *CommonNoun
           - roll: { min: 93, max: 95 }
             <<: &ActionTheme
-              text: '[Action](oracle_rollable:starforged/core/action) + [Theme](oracle_rollable:starforged/core/theme)'
+              text: '[Action](datasworn:oracle_rollable:starforged/core/action) + [Theme](datasworn:oracle_rollable:starforged/core/theme)'
               oracle_rolls:
                 - oracle: oracle_rollable:starforged/core/action
                   auto: true

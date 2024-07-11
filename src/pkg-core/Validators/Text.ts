@@ -19,7 +19,7 @@ const idPointerPattern = new RegExp(`^${idLike}$`)
 
 const linkSymbolPattern = new RegExp(
 	[
-		`(?<=\\[\\w.+?\\]\\()`, // lookbehind for markdown text in square brackets, plus left paren
+		`(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
 		`(?<id>${idLike})`,
 		`(?=\\))` // lookahead for right paren
 	].join(''),
@@ -222,7 +222,7 @@ export function validateMarkdownIdPointers(
 }
 
 const testStr =
-	'[Bannersworn](asset:starforged/path/bannersworn); [Diplomat](asset:starforged/path/diplomat)'
+	'[Bannersworn](datasworn:asset:starforged/path/bannersworn); [Diplomat](datasworn:asset:starforged/path/diplomat)'
 
 // for (const f of testStr.matchAll(idPattern)) {
 // 	console.log(f)

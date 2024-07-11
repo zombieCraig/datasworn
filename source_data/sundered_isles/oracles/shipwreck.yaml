@@ -136,13 +136,13 @@ oracles:
           - roll: { min: 87, max: 88 }
             text: Unusual or unknown type of ship
           - roll: { min: 89, max: 94 }
-            text: Scattered [Cargo](oracle_rollable:sundered_isles/ship/cargo)
+            text: Scattered [Cargo](datasworn:oracle_rollable:sundered_isles/ship/cargo)
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/ship/cargo
           - roll: { min: 95, max: 100 }
-            text: '[Descriptor](oracle_rollable:sundered_isles/core/descriptor) + [Focus](oracle_rollable:sundered_isles/core/focus)'
+            text: '[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor) + [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)'
             oracle_rolls:
               - auto: true
                 oracle: oracle_rollable:sundered_isles/core/descriptor
@@ -286,13 +286,13 @@ oracles:
           - roll: { min: 82, max: 84 }
             text: Untouched compartment
           - roll: { min: 85, max: 92 }
-            text: Personal memento ([Token](oracle_rollable:sundered_isles/treasure/tokens))
+            text: Personal memento ([Token](datasworn:oracle_rollable:sundered_isles/treasure/tokens))
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/treasure/tokens
           - roll: { min: 93, max: 100 }
-            text: '[Descriptor](oracle_rollable:sundered_isles/core/descriptor) + [Focus](oracle_rollable:sundered_isles/core/focus)'
+            text: '[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor) + [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)'
             oracle_rolls:
               - auto: true
                 oracle: oracle_rollable:sundered_isles/core/descriptor
@@ -365,19 +365,19 @@ oracles:
           - roll: { min: 85, max: 86 }
             text: Victims entombed in ship structure
           - roll: { min: 87, max: 88 }
-            text: "Onset of [Cursed Weather](oracle_rollable:sundered_isles/weather/cursed)"
+            text: "Onset of [Cursed Weather](datasworn:oracle_rollable:sundered_isles/weather/cursed)"
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/weather/cursed
           - roll: { min: 89, max: 92 }
-            text: "[Cursed Token](oracle_rollable:sundered_isles/treasure/tokens_cursed)"
+            text: "[Cursed Token](datasworn:oracle_rollable:sundered_isles/treasure/tokens_cursed)"
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
                 oracle: oracle_rollable:sundered_isles/treasure/tokens_cursed
           - roll: { min: 93, max: 100 }
-            text: "[Cursed Cargo](oracle_rollable:sundered_isles/ship/cargo_cursed)"
+            text: "[Cursed Cargo](datasworn:oracle_rollable:sundered_isles/ship/cargo_cursed)"
             oracle_rolls:
               - auto: false
                 number_of_rolls: 1
@@ -449,25 +449,25 @@ oracles:
             - roll: { min: 56, max: 65 }
               text: Explorer or survivor with a tale to tell
             - roll: { min: 66, max: 85 }
-              text: Intact [Cargo](oracle_rollable:sundered_isles/ship/cargo)
+              text: Intact [Cargo](datasworn:oracle_rollable:sundered_isles/ship/cargo)
               oracle_rolls:
                 - auto: false
                   number_of_rolls: 1
                   oracle: oracle_rollable:sundered_isles/ship/cargo
             - roll: { min: 86, max: 96 }
-              text: "[Treasure](oracle_rollable:sundered_isles/treasure/value/small) (small repository)"
+              text: "[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/small) (small repository)"
               oracle_rolls:
                 - auto: false
                   number_of_rolls: 1
                   oracle: oracle_rollable:sundered_isles/treasure/value/small
             - roll: { min: 97, max: 99 }
-              text: "[Treasure](oracle_rollable:sundered_isles/treasure/value/medium) (medium repository)"
+              text: "[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/medium) (medium repository)"
               oracle_rolls:
                 - auto: false
                   number_of_rolls: 1
                   oracle: oracle_rollable:sundered_isles/treasure/value/medium
             - roll: { min: 100, max: 100 }
-              text: "[Treasure](oracle_rollable:sundered_isles/treasure/value/large) (large repository)"
+              text: "[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/large) (large repository)"
               oracle_rolls:
                 - auto: false
                   number_of_rolls: 1

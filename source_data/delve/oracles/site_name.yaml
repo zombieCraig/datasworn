@@ -9,17 +9,17 @@ oracles:
     oracle_type: tables
     summary: Give a site a name or learn more about its characteristics and history.
     description: |-
-      To generate a name for a site, first roll on the [Format](oracle_rollable:delve/site_name/format) table. Then, fill in the blanks by using the [Description](oracle_rollable:delve/site_name/description), [Detail](oracle_rollable:delve/site_name/detail), [Namesake](oracle_rollable:delve/site_name/namesake), and [Place](oracle_rollable:delve/site_name/place) oracles.
+      To generate a name for a site, first roll on the [Format](datasworn:oracle_rollable:delve/site_name/format) table. Then, fill in the blanks by using the [Description](datasworn:oracle_rollable:delve/site_name/description), [Detail](datasworn:oracle_rollable:delve/site_name/detail), [Namesake](datasworn:oracle_rollable:delve/site_name/namesake), and [Place](datasworn:oracle_rollable:delve/site_name/place) oracles.
 
       If the form of a particular word doesn’t work, try making it plural instead of singular, or vice-versa.
 
-      If you already know the theme and domain, you can pick from the tables instead of rolling. If not, you can use these oracles to help define those aspects of the site. Use the [Place](oracle_rollable:delve/site_name/place) oracle to roll for a domain, and let the [Description](oracle_rollable:delve/site_name/description) and [Detail](oracle_rollable:delve/site_name/detail) oracles inform your selection of a theme.
+      If you already know the theme and domain, you can pick from the tables instead of rolling. If not, you can use these oracles to help define those aspects of the site. Use the [Place](datasworn:oracle_rollable:delve/site_name/place) oracle to roll for a domain, and let the [Description](datasworn:oracle_rollable:delve/site_name/description) and [Detail](datasworn:oracle_rollable:delve/site_name/detail) oracles inform your selection of a theme.
 
       The site’s name might be known in your world, or it could just be an evocative label you use to understand its history and nature.
 
-      Even without giving a site a name, you can use the [Description](oracle_rollable:delve/site_name/description) and [Detail](oracle_rollable:delve/site_name/detail) oracles to help flesh out the theme and nature of that place.
+      Even without giving a site a name, you can use the [Description](datasworn:oracle_rollable:delve/site_name/description) and [Detail](datasworn:oracle_rollable:delve/site_name/detail) oracles to help flesh out the theme and nature of that place.
 
-      For example, you hear rumors about a nearby ruin while visiting a settlement. What do you learn? You [Ask the Oracle](move:classic/fate/ask_the_oracle), using the [Description](oracle_rollable:delve/site_name/description) and [Detail](oracle_rollable:delve/site_name/detail) tables. The oracle responds, “Bloodied Banishment.”
+      For example, you hear rumors about a nearby ruin while visiting a settlement. What do you learn? You [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle), using the [Description](datasworn:oracle_rollable:delve/site_name/description) and [Detail](datasworn:oracle_rollable:delve/site_name/detail) tables. The oracle responds, “Bloodied Banishment.”
 
       Interpreting these keywords, you envision this settlement’s grim method of enacting justice. Anyone sentenced to death for a crime is taken to the ruins. There, under the fading light of the setting sun, they are bloodied by the quick slash of a ceremonial blade. Finally, they are chained to an altar within the central courtyard. The foul creatures who dwell in that place do the rest.
     _source:
@@ -45,7 +45,7 @@ oracles:
                   text:
                     part_of_speech: proper_noun
             roll: { min: 1, max: 25 }
-            text: '[Description](oracle_rollable:delve/site_name/description) [Place](oracle_rollable:delve/site_name/place)'
+            text: '[Description](datasworn:oracle_rollable:delve/site_name/description) [Place](datasworn:oracle_rollable:delve/site_name/place)'
             template:
               text: '{{text>oracle_rollable:delve/site_name/description}} {{text>oracle_rollable:delve/site_name/place}}'
             oracle_rolls:
@@ -53,7 +53,7 @@ oracles:
               - oracle: oracle_rollable:delve/site_name/place
           - <<: *i18n.template.result.proper_noun
             roll: { min: 26, max: 50 }
-            text: '[Place](oracle_rollable:delve/site_name/place) of [Detail](oracle_rollable:delve/site_name/detail)'
+            text: '[Place](datasworn:oracle_rollable:delve/site_name/place) of [Detail](datasworn:oracle_rollable:delve/site_name/detail)'
             template:
               text: '{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/detail}}'
             oracle_rolls:
@@ -61,7 +61,7 @@ oracles:
               - oracle: oracle_rollable:delve/site_name/detail
           - <<: *i18n.template.result.proper_noun
             roll: { min: 51, max: 70 }
-            text: '[Place](oracle_rollable:delve/site_name/place) of [Description](oracle_rollable:delve/site_name/description) [Detail](oracle_rollable:delve/site_name/detail)'
+            text: '[Place](datasworn:oracle_rollable:delve/site_name/place) of [Description](datasworn:oracle_rollable:delve/site_name/description) [Detail](datasworn:oracle_rollable:delve/site_name/detail)'
             template:
               text: '{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/description}} {{text>oracle_rollable:delve/site_name/detail}}'
             oracle_rolls:
@@ -70,7 +70,7 @@ oracles:
               - oracle: oracle_rollable:delve/site_name/detail
           - <<: *i18n.template.result.proper_noun
             roll: { min: 71, max: 80 }
-            text: "[Place](oracle_rollable:delve/site_name/place) of [Namesake's](oracle_rollable:delve/site_name/namesake) [Detail](oracle_rollable:delve/site_name/detail)"
+            text: "[Place](datasworn:oracle_rollable:delve/site_name/place) of [Namesake's](datasworn:oracle_rollable:delve/site_name/namesake) [Detail](datasworn:oracle_rollable:delve/site_name/detail)"
             template:
               text: "{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/namesake}}'s {{text>oracle_rollable:delve/site_name/detail}}"
             oracle_rolls:
@@ -79,7 +79,7 @@ oracles:
               - oracle: oracle_rollable:delve/site_name/detail
           - <<: *i18n.template.result.proper_noun
             roll: { min: 81, max: 85 }
-            text: "[Namesake's](oracle_rollable:delve/site_name/namesake) [Place](oracle_rollable:delve/site_name/place)"
+            text: "[Namesake's](datasworn:oracle_rollable:delve/site_name/namesake) [Place](datasworn:oracle_rollable:delve/site_name/place)"
             template:
               text: "{{text>oracle_rollable:delve/site_name/namesake}}'s {{text>oracle_rollable:delve/site_name/place}}"
             oracle_rolls:
@@ -87,7 +87,7 @@ oracles:
               - oracle: oracle_rollable:delve/site_name/place
           - <<: *i18n.template.result.proper_noun
             roll: { min: 86, max: 95 }
-            text: '[Description](oracle_rollable:delve/site_name/description) [Place](oracle_rollable:delve/site_name/place) of [Namesake](oracle_rollable:delve/site_name/namesake)'
+            text: '[Description](datasworn:oracle_rollable:delve/site_name/description) [Place](datasworn:oracle_rollable:delve/site_name/place) of [Namesake](datasworn:oracle_rollable:delve/site_name/namesake)'
             template:
               text: '{{text>oracle_rollable:delve/site_name/description}} {{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/namesake}}'
             oracle_rolls:
@@ -96,7 +96,7 @@ oracles:
               - oracle: oracle_rollable:delve/site_name/namesake
           - <<: *i18n.template.result.proper_noun
             roll: { min: 96, max: 100 }
-            text: '[Place](oracle_rollable:delve/site_name/place) of [Namesake](oracle_rollable:delve/site_name/namesake)'
+            text: '[Place](datasworn:oracle_rollable:delve/site_name/place) of [Namesake](datasworn:oracle_rollable:delve/site_name/namesake)'
             template:
               text: '{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/namesake}}'
             oracle_rolls:
@@ -438,7 +438,7 @@ oracles:
         type: oracle_rollable
         name: Namesake
         summary: |-
-          You may also use your preferred name randomizer to generate a Namesake for your site. If you want to add details for the Namesake, use the [Character oracles](oracle_collection:classic/character) in *Ironsworn Core*. This may help inspire a deeper understanding of the history of the site.
+          You may also use your preferred name randomizer to generate a Namesake for your site. If you want to add details for the Namesake, use the [Character oracles](datasworn:oracle_collection:classic/character) in *Ironsworn Core*. This may help inspire a deeper understanding of the history of the site.
         _source:
           <<: *Source
           page: 209
@@ -606,73 +606,73 @@ oracles:
           page: 210
         rows:
           - roll: { min: 1, max: 6 }
-            text: '[Barrow](delve_site_domain:delve/barrow)'
+            text: '[Barrow](datasworn:delve_site_domain:delve/barrow)'
             oracle_rolls:
               - oracle: &barrowTableID 'oracle_rollable:delve/site_name/place/barrow'
                 auto: true
             embed_table: *barrowTableID
           - roll: { min: 7, max: 18 }
-            text: '[Cavern](delve_site_domain:delve/cavern)'
+            text: '[Cavern](datasworn:delve_site_domain:delve/cavern)'
             oracle_rolls:
               - oracle: &cavernTableID 'oracle_rollable:delve/site_name/place/cavern'
                 auto: true
             embed_table: *cavernTableID
           - roll: { min: 19, max: 28 }
-            text: '[Frozen Cavern](delve_site_domain:delve/frozen_cavern)'
+            text: '[Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern)'
             oracle_rolls:
               - oracle: &frozen_cavernTableID 'oracle_rollable:delve/site_name/place/frozen_cavern'
                 auto: true
             embed_table: *frozen_cavernTableID
           - roll: { min: 29, max: 32 }
-            text: '[Icereach](delve_site_domain:delve/icereach)'
+            text: '[Icereach](datasworn:delve_site_domain:delve/icereach)'
             oracle_rolls:
               - oracle: &icereachTableID 'oracle_rollable:delve/site_name/place/icereach'
                 auto: true
             embed_table: *icereachTableID
           - roll: { min: 33, max: 38 }
-            text: '[Mine](delve_site_domain:delve/mine)'
+            text: '[Mine](datasworn:delve_site_domain:delve/mine)'
             oracle_rolls:
               - oracle: &mineTableID 'oracle_rollable:delve/site_name/place/mine'
                 auto: true
             embed_table: *mineTableID
           - roll: { min: 39, max: 48 }
-            text: '[Pass](delve_site_domain:delve/pass)'
+            text: '[Pass](datasworn:delve_site_domain:delve/pass)'
             oracle_rolls:
               - oracle: &passTableID 'oracle_rollable:delve/site_name/place/pass'
                 auto: true
             embed_table: *passTableID
           - roll: { min: 49, max: 58 }
-            text: '[Ruin](delve_site_domain:delve/ruin)'
+            text: '[Ruin](datasworn:delve_site_domain:delve/ruin)'
             oracle_rolls:
               - oracle: &ruinTableID 'oracle_rollable:delve/site_name/place/ruin'
                 auto: true
             embed_table: *ruinTableID
           - roll: { min: 59, max: 68 }
-            text: '[Sea Cave](delve_site_domain:delve/sea_cave)'
+            text: '[Sea Cave](datasworn:delve_site_domain:delve/sea_cave)'
             oracle_rolls:
               - oracle: &sea_caveTableID 'oracle_rollable:delve/site_name/place/sea_cave'
                 auto: true
             embed_table: *sea_caveTableID
           - roll: { min: 69, max: 78 }
-            text: '[Shadowfen](delve_site_domain:delve/shadowfen)'
+            text: '[Shadowfen](datasworn:delve_site_domain:delve/shadowfen)'
             oracle_rolls:
               - oracle: &shadowfenTableID 'oracle_rollable:delve/site_name/place/shadowfen'
                 auto: true
             embed_table: *shadowfenTableID
           - roll: { min: 79, max: 83 }
-            text: '[Stronghold](delve_site_domain:delve/stronghold)'
+            text: '[Stronghold](datasworn:delve_site_domain:delve/stronghold)'
             oracle_rolls:
               - oracle: &strongholdTableID 'oracle_rollable:delve/site_name/place/stronghold'
                 auto: true
             embed_table: *strongholdTableID
           - roll: { min: 84, max: 95 }
-            text: '[Tanglewood](delve_site_domain:delve/tanglewood)'
+            text: '[Tanglewood](datasworn:delve_site_domain:delve/tanglewood)'
             oracle_rolls:
               - oracle: &tanglewoodTableID 'oracle_rollable:delve/site_name/place/tanglewood'
                 auto: true
             embed_table: *tanglewoodTableID
           - roll: { min: 96, max: 100 }
-            text: '[Underkeep](delve_site_domain:delve/underkeep)'
+            text: '[Underkeep](datasworn:delve_site_domain:delve/underkeep)'
             oracle_rolls:
               - oracle: &underkeepTableID 'oracle_rollable:delve/site_name/place/underkeep'
                 auto: true

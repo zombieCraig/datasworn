@@ -17,7 +17,7 @@ oracles:
           - name: Shawn Tomkin
       page: 336
     summary: |-
-      Roll for a [basic form](oracle_collection:starforged/creature/basic_form), and flesh out the creature’s appearance using this [Creature First Look](oracle_rollable:starforged/creature/first_look) table. Then, roll on the [Encountered Behavior](oracle_rollable:starforged/creature/encountered_behavior) table to envision this creature’s motivation and frame how the encounter begins.
+      Roll for a [basic form](datasworn:oracle_collection:starforged/creature/basic_form), and flesh out the creature’s appearance using this [Creature First Look](datasworn:oracle_collection:starforged/creature/first_look) table. Then, roll on the [Encountered Behavior](datasworn:oracle_collection:starforged/creature/encountered_behavior) table to envision this creature’s motivation and frame how the encounter begins.
     contents:
       environment:
         name: Environment
@@ -123,7 +123,7 @@ oracles:
             # set_attributes: {creature_scale: [huge]}
           - <<: *i18n.result.adjective
             roll: { min: 100, max: 100 }
-            text: '[Ultra-scale](oracle_rollable:starforged/creature/ultra_scale)'
+            text: '[Ultra-scale](datasworn:oracle_rollable:starforged/creature/ultra_scale)'
             oracle_rolls:
               - oracle: oracle_rollable:starforged/creature/ultra_scale
                 auto: true
@@ -497,7 +497,7 @@ oracles:
         # content:
         # part_of_speech: [fragment]
         summary: |-
-          Roll for a basic form, and flesh out the creature’s appearance using the [First Look](oracle_rollable:starforged/creature/first_look) table.
+          Roll for a basic form, and flesh out the creature’s appearance using the [First Look](datasworn:oracle_rollable:starforged/creature/first_look) table.
         contents:
           space:
             name: Space

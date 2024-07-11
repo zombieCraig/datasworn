@@ -28,7 +28,7 @@ moves:
         trigger:
           text: When you resolve to enter a perilous site in pursuit of an objective...
         text: |-
-          When __you resolve to enter a perilous site in pursuit of an objective__, choose the theme and domain which best represent its nature ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure), and give it a rank.
+          When __you resolve to enter a perilous site in pursuit of an objective__, choose the theme and domain which best represent its nature ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure), and give it a rank.
 
             * Troublesome site: 3 progress per area.
             * Dangerous site: 2 progress per area.
@@ -38,7 +38,7 @@ moves:
 
           If you are returning to a previously explored site, roll both challenge dice, take the lowest value, and clear that number of progress boxes.
 
-          Then, [Delve the Depths](move:delve/delve/delve_the_depths) to explore this place.
+          Then, [Delve the Depths](datasworn:move:delve/delve/delve_the_depths) to explore this place.
       delve_the_depths:
         name: Delve the Depths
         roll_type: action_roll
@@ -72,15 +72,15 @@ moves:
               type: oracle_rollable
             rows:
               - roll: { min: 1, max: 45 }
-                text: &DelveTheDepths.0 'Mark progress and [Reveal a Danger](move:delve/delve/reveal_a_danger).'
+                text: &DelveTheDepths.0 'Mark progress and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).'
               - roll: { min: 46, max: 65 }
                 text: &DelveTheDepths.1 'Mark progress.'
               - roll: { min: 66, max: 75 }
-                text: &DelveTheDepths.2 'Choose one: Mark progress or [Find an Opportunity](move:delve/delve/find_an_opportunity).'
+                text: &DelveTheDepths.2 'Choose one: Mark progress or [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).'
               - roll: { min: 76, max: 80 }
-                text: &DelveTheDepths.3 'Take both: Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity).'
+                text: &DelveTheDepths.3 'Take both: Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).'
               - roll: { min: 81, max: 100 }
-                text: &DelveTheDepths.4 'Mark progress twice and [Reveal a Danger](move:delve/delve/reveal_a_danger).'
+                text: &DelveTheDepths.4 'Mark progress twice and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).'
           shadow:
             name: Shadow
             <<: *DelveTheDepths
@@ -111,20 +111,20 @@ moves:
                 text: *DelveTheDepths.4
 
         text: |-
-          When you __traverse an area within a perilous site__, envision your surroundings ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure). Then, consider your approach. If you navigate this area...
+          When you __traverse an area within a perilous site__, envision your surroundings ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure). Then, consider your approach. If you navigate this area...
 
             * With haste: Roll +edge.
             * With stealth or trickery: Roll +shadow.
             * With observation, intuition, or expertise: Roll +wits.
 
-          On a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity). On a __weak hit__, roll on the following table according to your stat.
+          On a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity). On a __weak hit__, roll on the following table according to your stat.
 
-          On a __miss__, [Reveal a Danger](move:delve/delve/reveal_a_danger).
+          On a __miss__, [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).
 
           {{table_columns>move:delve/delve/delve_the_depths}}
         outcomes:
           strong_hit:
-            text: On a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity).
+            text: On a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).
           weak_hit:
             text: |-
               On a __weak hit__, roll on the following table according to your stat.
@@ -132,7 +132,7 @@ moves:
               {{table_columns>move:delve/delve/delve_the_depths}}
           miss:
             text: |-
-              On a __miss__, [Reveal a Danger](move:delve/delve/reveal_a_danger).
+              On a __miss__, [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).
 
       find_an_opportunity:
         name: Find an Opportunity
@@ -170,7 +170,7 @@ moves:
               - roll: { min: 99, max: 100 }
                 text: 'You encounter a denizen in need of help.'
         text: |-
-          When __you encounter a helpful situation or feature within a site__, roll on the following table. If you are making this move as a result of a strong hit on [Delve the Depths](move:delve/delve/delve_the_depths), you may pick or envision an opportunity instead of rolling.
+          When __you encounter a helpful situation or feature within a site__, roll on the following table. If you are making this move as a result of a strong hit on [Delve the Depths](datasworn:move:delve/delve/delve_the_depths), you may pick or envision an opportunity instead of rolling.
 
           Then, choose one.
 
@@ -246,14 +246,14 @@ moves:
 
           On a __weak hit__, you have it, but your resources are diminished. Take +1 momentum and suffer -1 supply.
 
-          On a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](move:classic/fate/pay_the_price).
+          On a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](datasworn:move:classic/fate/pay_the_price).
         outcomes:
           strong_hit:
             text: On a __strong hit__, you have it. Take +1 momentum.
           weak_hit:
             text: On a __weak hit__, you have it, but your resources are diminished. Take +1 momentum and suffer -1 supply.
           miss:
-            text: On a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](move:classic/fate/pay_the_price).
+            text: On a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](datasworn:move:classic/fate/pay_the_price).
       locate_your_objective:
         name: Locate Your Objective
         _source:
@@ -276,7 +276,7 @@ moves:
             * Make another move now (not a progress move), and add +1.
             * Take +1 momentum.
 
-          On a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure).
+          On a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure).
 
           On a __miss__, your objective falls out of reach, you have been misled about the nature of your objective, or you discover that this site holds unexpected depths. If you continue your exploration, clear all but one filled progress and raise the site’s rank by one (if not already epic).
         outcomes:
@@ -287,7 +287,7 @@ moves:
                 * Make another move now (not a progress move), and add +1.
                 * Take +1 momentum.
           weak_hit:
-            text: On a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure).
+            text: On a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure).
           miss:
             text: On a __miss__, your objective falls out of reach, you have been misled about the nature of your objective, or you discover that this site holds unexpected depths. If you continue your exploration, clear all but one filled progress and raise the site’s rank by one (if not already epic).
       escape_the_depths:
@@ -338,14 +338,14 @@ moves:
 
           On a __weak hit__, you find your way out, but this place exacts its price. Choose one.
 
-            * You are weary or wounded: [Endure Harm](move:classic/suffer/endure_harm).
-            * The experience leaves you shaken: [Endure Stress](move:classic/suffer/endure_stress).
+            * You are weary or wounded: [Endure Harm](datasworn:move:classic/suffer/endure_harm).
+            * The experience leaves you shaken: [Endure Stress](datasworn:move:classic/suffer/endure_stress).
             * You are delayed, and it costs you.
             * You leave behind something important.
             * You face a new complication as you emerge from the depths.
             * A denizen plots their revenge.
 
-          On a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](move:delve/delve/reveal_a_danger). If you survive, you may make your escape.
+          On a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger). If you survive, you may make your escape.
         outcomes:
           strong_hit:
             text: |-
@@ -354,15 +354,15 @@ moves:
             text: |-
               On a __weak hit__, you find your way out, but this place exacts its price. Choose one.
 
-                * You are weary or wounded: [Endure Harm](move:classic/suffer/endure_harm).
-                * The experience leaves you shaken: [Endure Stress](move:classic/suffer/endure_stress).
+                * You are weary or wounded: [Endure Harm](datasworn:move:classic/suffer/endure_harm).
+                * The experience leaves you shaken: [Endure Stress](datasworn:move:classic/suffer/endure_stress).
                 * You are delayed, and it costs you.
                 * You leave behind something important.
                 * You face a new complication as you emerge from the depths.
                 * A denizen plots their revenge.
           miss:
             text: |-
-              On a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](move:delve/delve/reveal_a_danger). If you survive, you may make your escape.
+              On a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger). If you survive, you may make your escape.
       reveal_a_danger_alt:
         roll_type: no_roll
         type: move
@@ -450,7 +450,7 @@ moves:
           On a __strong hit__, you commit to making a dramatic change. Take 3 experience and clear all progress. Then, choose one.
 
             * Adjust your approach: Discard a single asset, and take 2 experience for each marked ability.
-            * Make an oath: [Swear an Iron Vow](move:classic/quest/swear_an_iron_vow), and reroll any dice.
+            * Make an oath: [Swear an Iron Vow](datasworn:move:classic/quest/swear_an_iron_vow), and reroll any dice.
             * Ready your next steps: Take +3 momentum.
 
           On a __weak hit__, you learn from your mistakes. Take 2 experience and clear all progress.
@@ -462,7 +462,7 @@ moves:
               On a __strong hit__, you commit to making a dramatic change. Take 3 experience and clear all progress. Then, choose one.
 
                 * Adjust your approach: Discard a single asset, and take 2 experience for each marked ability.
-                * Make an oath: [Swear an Iron Vow](move:classic/quest/swear_an_iron_vow), and reroll any dice.
+                * Make an oath: [Swear an Iron Vow](datasworn:move:classic/quest/swear_an_iron_vow), and reroll any dice.
                 * Ready your next steps: Take +3 momentum.
           weak_hit:
             text: |-
@@ -502,7 +502,7 @@ moves:
                 On a match, this development also exposes a surprising aspect of the threat’s plan or nature.
             rows:
               - roll: { min: 1, max: 30 }
-                text: 'The threat readies its next step, or a new danger looms. If you are in a position to prevent this development, you may attempt to do so. If you succeed, [Reach a Milestone](move:classic/quest/reach_a_milestone). Otherwise, mark menace.'
+                text: 'The threat readies its next step, or a new danger looms. If you are in a position to prevent this development, you may attempt to do so. If you succeed, [Reach a Milestone](datasworn:move:classic/quest/reach_a_milestone). Otherwise, mark menace.'
               - roll: { min: 31, max: 70 }
                 text: 'The threat works subtly to advance toward its goal, or the danger escalates. Mark menace.'
               - roll: { min: 71, max: 100 }
@@ -510,13 +510,13 @@ moves:
         trigger:
           text: When you give ground to a threat through inaction, failure, or delay...
         text: |-
-          When __you give ground to a threat through inaction, failure, or delay__, roll on the table below and envision how the change manifests in your world ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure).
+          When __you give ground to a threat through inaction, failure, or delay__, roll on the table below and envision how the change manifests in your world ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure).
 
           {{table>move.oracle_rollable:delve/threat/advance_a_threat.advance_a_threat}}
 
           On a match, this development also exposes a surprising aspect of the threat’s plan or nature.
 
-          If __you mark the last box on the threat’s menace track__, the threat achieves its goal, or the final dire outcome occurs. You must [Forsake Your Vow](move:classic/quest/forsake_your_vow).
+          If __you mark the last box on the threat’s menace track__, the threat achieves its goal, or the final dire outcome occurs. You must [Forsake Your Vow](datasworn:move:classic/quest/forsake_your_vow).
       take_a_hiatus:
         name: Take a Hiatus
         # optional: true
@@ -534,7 +534,7 @@ moves:
             * Set your health, spirit, supply, and companion health to their maximum values.
             * Set your momentum to its reset value.
 
-          Then, for each active threat, [Advance a Threat](move:delve/threat/advance_a_threat).
+          Then, for each active threat, [Advance a Threat](datasworn:move:delve/threat/advance_a_threat).
   rarity:
     name: Rarity Moves
     type: move_category

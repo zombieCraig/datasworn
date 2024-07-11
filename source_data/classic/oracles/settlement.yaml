@@ -15,7 +15,7 @@ oracles:
         url: https://ironswornrpg.com
         date: 2019-06-05
       page: 178
-    summary: To give the settlement additional detail, roll on the [Location Descriptor](oracle_rollable:classic/place/descriptor) oracle. To spark an idea for an event or feature related to the settlement, roll on the [Action](oracle_rollable:classic/action_and_theme/action) and [Theme](oracle_rollable:classic/action_and_theme/theme) oracles.
+    summary: To give the settlement additional detail, roll on the [Location Descriptor](datasworn:oracle_rollable:classic/place/descriptor) oracle. To spark an idea for an event or feature related to the settlement, roll on the [Action](datasworn:oracle_rollable:classic/action_and_theme/action) and [Theme](datasworn:oracle_rollable:classic/action_and_theme/theme) oracles.
     contents:
       trouble:
         name: Settlement Trouble

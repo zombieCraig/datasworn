@@ -78,7 +78,7 @@ oracles:
           - roll: { min: 89, max: 94 }
             text: Well-used path
           - roll: { min: 95, max: 100 }
-            text: '[Descriptor](oracle_rollable:sundered_isles/core/descriptor) + [Focus](oracle_rollable:sundered_isles/core/focus)'
+            text: '[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor) + [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)'
             oracle_rolls:
               - auto: true
                 oracle: oracle_rollable:sundered_isles/core/descriptor
@@ -408,15 +408,15 @@ oracles:
               - roll: { min: 90, max: 91 }
                 text: Wrecked or sunken boat
               - roll: { min: 92, max: 93 }
-                text: Corpse clutching a [Token](oracle_rollable:sundered_isles/treasure/tokens)
+                text: Corpse clutching a [Token](datasworn:oracle_rollable:sundered_isles/treasure/tokens)
                 oracle_rolls:
                   - auto: false
                     number_of_rolls: 1
                     oracle: oracle_rollable:sundered_isles/treasure/tokens
               - roll: { min: 94, max: 95 }
-                text: Connection to an [Inland Cave](oracle_collection:sundered_isles/cave/inland_cave)
+                text: Connection to an [Inland Cave](datasworn:oracle_collection:sundered_isles/cave/inland_cave)
               - roll: { min: 96, max: 100 }
-                text: '[Descriptor](oracle_rollable:sundered_isles/core/descriptor) + [Focus](oracle_rollable:sundered_isles/core/focus)'
+                text: '[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor) + [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)'
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/descriptor
@@ -485,7 +485,7 @@ oracles:
             rows:
               - roll: { min: 1, max: 20 }
                 <<: &LurkingThreat
-                  text: '[Lurking Threat](oracle_rollable:sundered_isles/cave/lurking_threat)'
+                  text: '[Lurking Threat](datasworn:oracle_rollable:sundered_isles/cave/lurking_threat)'
                   oracle_rolls:
                     - oracle: oracle_rollable:sundered_isles/cave/lurking_threat
               - roll: { min: 21, max: 24 }
@@ -527,7 +527,7 @@ oracles:
               - roll: { min: 86, max: 88 }
                 text: Venomous creature
               - roll: { min: 89, max: 94 }
-                text: '[Action](oracle_rollable:sundered_isles/core/action) + [Theme](oracle_rollable:sundered_isles/core/theme)'
+                text: '[Action](datasworn:oracle_rollable:sundered_isles/core/action) + [Theme](datasworn:oracle_rollable:sundered_isles/core/theme)'
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/action
@@ -562,21 +562,21 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Useful equipment or supplies
               - roll: { min: 71, max: 80 }
-                text: Washed up or lost [Cargo](oracle_rollable:sundered_isles/ship/cargo)
+                text: Washed up or lost [Cargo](datasworn:oracle_rollable:sundered_isles/ship/cargo)
                 oracle_rolls:
                   - auto: false
                     number_of_rolls: 1
                     oracle: oracle_rollable:sundered_isles/ship/cargo
               - roll: { min: 81, max: 90 }
                 <<: &RepositorySmall
-                  text: '[Treasure](oracle_rollable:sundered_isles/treasure/value/small) (small repository)'
+                  text: '[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/small) (small repository)'
                   oracle_rolls:
                     - auto: false
                       number_of_rolls: 1
                       oracle: oracle_rollable:sundered_isles/treasure/value/small
               - roll: { min: 91, max: 100 }
                 <<: &RepositoryMedium
-                  text: '[Treasure](oracle_rollable:sundered_isles/treasure/value/medium) (medium repository)'
+                  text: '[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/medium) (medium repository)'
                   oracle_rolls:
                     - auto: false
                       number_of_rolls: 1
@@ -601,21 +601,21 @@ oracles:
               - roll: { min: 41, max: 50 }
                 text: Wondrous natural environment
               - roll: { min: 51, max: 60 }
-                text: '[Ruin](oracle_collection:sundered_isles/ruin)'
+                text: '[Ruin](datasworn:oracle_collection:sundered_isles/ruin)'
               - roll: { min: 61, max: 70 }
-                text: '[Ship](oracle_collection:sundered_isles/ship)'
+                text: '[Ship](datasworn:oracle_collection:sundered_isles/ship)'
               - roll: { min: 71, max: 80 }
-                text: '[Shipwreck](oracle_collection:sundered_isles/shipwreck)'
+                text: '[Shipwreck](datasworn:oracle_collection:sundered_isles/shipwreck)'
               - roll: { min: 81, max: 90 }
                 <<: &RepositoryLarge
-                  text: '[Treasure](oracle_rollable:sundered_isles/treasure/value/large) (large repository)'
+                  text: '[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/large) (large repository)'
                   oracle_rolls:
                     - auto: false
                       number_of_rolls: 1
                       oracle: oracle_rollable:sundered_isles/treasure/value/large
               - roll: { min: 91, max: 100 }
                 <<: &RepositoryVast
-                  text: '[Treasure](oracle_rollable:sundered_isles/treasure/value/vast) (vast repository)'
+                  text: '[Treasure](datasworn:oracle_rollable:sundered_isles/treasure/value/vast) (vast repository)'
                   oracle_rolls:
                     - auto: false
                       number_of_rolls: 1
@@ -772,13 +772,13 @@ oracles:
               - roll: { min: 92, max: 93 }
                 text: Vertical chimney leading upward
               - roll: { min: 94, max: 95 }
-                text: Corpse clutching a [Token](oracle_rollable:sundered_isles/treasure/tokens)
+                text: Corpse clutching a [Token](datasworn:oracle_rollable:sundered_isles/treasure/tokens)
                 oracle_rolls:
                   - auto: false
                     number_of_rolls: 1
                     oracle: oracle_rollable:sundered_isles/treasure/tokens
               - roll: { min: 96, max: 100 }
-                text: '[Descriptor](oracle_rollable:sundered_isles/core/descriptor) + [Focus](oracle_rollable:sundered_isles/core/focus)'
+                text: '[Descriptor](datasworn:oracle_rollable:sundered_isles/core/descriptor) + [Focus](datasworn:oracle_rollable:sundered_isles/core/focus)'
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/descriptor
@@ -886,7 +886,7 @@ oracles:
               - roll: { min: 86, max: 88 }
                 text: Venomous creature
               - roll: { min: 89, max: 94 }
-                text: '[Action](oracle_rollable:sundered_isles/core/action) + [Theme](oracle_rollable:sundered_isles/core/theme)'
+                text: '[Action](datasworn:oracle_rollable:sundered_isles/core/action) + [Theme](datasworn:oracle_rollable:sundered_isles/core/theme)'
                 oracle_rolls:
                   - auto: true
                     oracle: oracle_rollable:sundered_isles/core/action
@@ -950,7 +950,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Secret hideout or refuge
               - roll: { min: 71, max: 80 }
-                text: '[Ruin](oracle_collection:sundered_isles/ruin)'
+                text: '[Ruin](datasworn:oracle_collection:sundered_isles/ruin)'
               - roll: { min: 81, max: 90 }
                 <<: *RepositoryLarge
               - roll: { min: 91, max: 100 }
