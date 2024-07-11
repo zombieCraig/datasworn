@@ -24,7 +24,7 @@ const pathPattern = `${Pattern_js_1.default.RulesPackageElement.source}(?:${dict
 const idLike = /(?<typeId>[a-z\d_.]{3,}|\*{1,2}):(?<path>(?:[a-z_]+|\*{1,2})(?:\/(?:[a-z\d_.]+|\*{1,2})+)+|\*{2})/g;
 const idPointerPattern = new RegExp(`^${idLike}$`);
 const linkSymbolPattern = new RegExp([
-    `(?<=\\[\\w.+?\\]\\()`, // lookbehind for markdown text in square brackets, plus left paren
+    `(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
     `(?<id>${idLike})`,
     `(?=\\))` // lookahead for right paren
 ].join(''), 'g');
@@ -190,7 +190,7 @@ function validateMarkdownIdPointers(text, validIds) {
         throw new Error(errors.map(String).join('\n'));
     return true;
 }
-const testStr = '[Bannersworn](asset:starforged/path/bannersworn); [Diplomat](asset:starforged/path/diplomat)';
+const testStr = '[Bannersworn](datasworn:asset:starforged/path/bannersworn); [Diplomat](datasworn:asset:starforged/path/diplomat)';
 // for (const f of testStr.matchAll(idPattern)) {
 // 	console.log(f)
 // }

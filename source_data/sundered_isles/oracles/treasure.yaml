@@ -208,7 +208,7 @@ oracles:
         name: Precious Items
         type: oracle_rollable
         oracle_type: table_text
-        summary: Roll or select a number of items on this table as set by the treasure’s [Value](datasworn:oracle_collection:sundered_isles/treasure/value). Each result represents a quantity of that item, such as a strongbox filled with pearls, barrels of aged rum, or a stack of precious metal ingots. To instead reveal a specific item of intrinsic or personal worth, check the [Tokens](datasworn:oracle_collection:sundered_isles/treasure/tokens) table.
+        summary: Roll or select a number of items on this table as set by the treasure’s [Value](datasworn:oracle_collection:sundered_isles/treasure/value). Each result represents a quantity of that item, such as a strongbox filled with pearls, barrels of aged rum, or a stack of precious metal ingots. To instead reveal a specific item of intrinsic or personal worth, check the [Tokens](datasworn:oracle_rollable:sundered_isles/treasure/tokens) table.
         _source:
           <<: *Source
         rows:

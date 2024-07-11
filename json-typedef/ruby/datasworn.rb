@@ -6572,8 +6572,8 @@ module Datasworn
   # for use "out of the box"; it uses some custom syntax, intended to be
   # replaced in whatever way is most appropriate for your implementation.
   # 
-  # * `[Link text](move:starforged/suffer/pay_the_price)`: A link to the
-  # identified object. The ID must conform to the `AnyId` type; no wildcards
+  # * `[Link text](datasworn:move:starforged/suffer/pay_the_price)`: A link to
+  # the identified object. The ID must conform to the `AnyId` type; no wildcards
   # allowed.
   # * `{{table>oracle_rollable:starforged/core/action}}`: the referenced
   # oracle is rendered here in the source material. The ID must conform to the

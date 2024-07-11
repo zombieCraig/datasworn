@@ -51,7 +51,7 @@
 					"canonical_name": "Character: Activity",
 					"oracle_type": "table_text",
 					"type": "oracle_rollable",
-					"summary": "To give an NPC or faction a task or objective, use the Activity oracle. For more detail, you can combine this prompt with the [Focus](oracle_rollable:delve/feature/focus) oracle or [Theme](oracle_rollable:classic/action_and_theme/theme) oracle.",
+					"summary": "To give an NPC or faction a task or objective, use the Activity oracle. For more detail, you can combine this prompt with the [Focus](datasworn:oracle_rollable:delve/feature/focus) oracle or [Theme](datasworn:oracle_rollable:classic/action_and_theme/theme) oracle.",
 					"suggestions": [
 						"oracle_rollable:delve/feature/focus",
 						"oracle_rollable:classic/action_and_theme/theme"
@@ -931,7 +931,7 @@
 				],
 				"page": 218
 			},
-			"description": "Use the Combat Event oracles to answer questions about the actions of a foe or enemy force. You can use these oracles instead of—or in addition to—the [Combat Action](oracle_rollable:classic/turning_point/combat_action) oracle.\n\nRoll once each on the [Method](oracle_rollable:delve/combat_event/method) oracle and the [Target](oracle_rollable:delve/combat_event/target) oracle. Then, interpret the response as appropriate to the current situation and the nature of your foe.\n\nFor example, you are fighting a rhaskar, a bear-like beast. It has initiative, and you want to know what it does next. You [Ask the Oracle](move:classic/fate/ask_the_oracle), rolling [Method](oracle_rollable:delve/combat_event/method) and [Target](oracle_rollable:delve/combat_event/target). The oracle responds, “Await Weakness.” You envision the rhaskar circling you, its keen eyes narrowing as it looks for an opening in your defenses. You must [Face Danger](move:classic/adventure/face_danger) to avoid being outmaneuvered.",
+			"description": "Use the Combat Event oracles to answer questions about the actions of a foe or enemy force. You can use these oracles instead of—or in addition to—the [Combat Action](datasworn:oracle_rollable:classic/turning_point/combat_action) oracle.\n\nRoll once each on the [Method](datasworn:oracle_rollable:delve/combat_event/method) oracle and the [Target](datasworn:oracle_rollable:delve/combat_event/target) oracle. Then, interpret the response as appropriate to the current situation and the nature of your foe.\n\nFor example, you are fighting a rhaskar, a bear-like beast. It has initiative, and you want to know what it does next. You [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle), rolling [Method](datasworn:oracle_rollable:delve/combat_event/method) and [Target](datasworn:oracle_rollable:delve/combat_event/target). The oracle responds, “Await Weakness.” You envision the rhaskar circling you, its keen eyes narrowing as it looks for an opening in your defenses. You must [Face Danger](datasworn:move:classic/adventure/face_danger) to avoid being outmaneuvered.",
 			"suggestions": ["oracle_rollable:classic/turning_point/combat_action"],
 			"contents": {
 				"method": {
@@ -2308,8 +2308,8 @@
 				],
 				"page": 204
 			},
-			"summary": "Use the [Aspect](oracle_rollable:delve/feature/aspect) and [Focus](oracle_rollable:delve/feature/focus) oracles to answer questions or provide inspiration for a location or event within a site.",
-			"description": "Use the [Aspect](oracle_rollable:delve/feature/aspect) and [Focus](oracle_rollable:delve/feature/focus) oracles to generate the details of a location or event within a site, or to answer questions about the site’s nature or history.\n\nThe basic function of these oracles is similar to the [Action](oracle_rollable:classic/action_and_theme/action) and [Theme](oracle_rollable:classic/action_and_theme/theme) oracles in Ironsworn Core. They are abstract word prompts you can interpret as appropriate to the current situation and setting. For example, you are traveling through a [Wild](delve_site_theme:delve/wild) [Tanglewood](delve_site_domain:delve/tanglewood) and roll “Something unusual or unexpected” on the domain feature table. You then [Ask the Oracle](move:classic/fate/ask_the_oracle) what you discover using the [Aspect](oracle_rollable:delve/feature/aspect) and [Focus](oracle_rollable:delve/feature/focus) tables. The oracle responds, “Depleted Environment.” Interpreting this answer, you envision coming upon an expanse of cleared forest. All that remains of this once thick woodland is rotted stumps. What happened here? Perhaps the answer lies ahead...",
+			"summary": "Use the [Aspect](datasworn:oracle_rollable:delve/feature/aspect) and [Focus](datasworn:oracle_rollable:delve/feature/focus) oracles to answer questions or provide inspiration for a location or event within a site.",
+			"description": "Use the [Aspect](datasworn:oracle_rollable:delve/feature/aspect) and [Focus](datasworn:oracle_rollable:delve/feature/focus) oracles to generate the details of a location or event within a site, or to answer questions about the site’s nature or history.\n\nThe basic function of these oracles is similar to the [Action](datasworn:oracle_rollable:classic/action_and_theme/action) and [Theme](datasworn:oracle_rollable:classic/action_and_theme/theme) oracles in Ironsworn Core. They are abstract word prompts you can interpret as appropriate to the current situation and setting. For example, you are traveling through a [Wild](datasworn:delve_site_theme:delve/wild) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood) and roll “Something unusual or unexpected” on the domain feature table. You then [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) what you discover using the [Aspect](datasworn:oracle_rollable:delve/feature/aspect) and [Focus](datasworn:oracle_rollable:delve/feature/focus) tables. The oracle responds, “Depleted Environment.” Interpreting this answer, you envision coming upon an expanse of cleared forest. All that remains of this once thick woodland is rotted stumps. What happened here? Perhaps the answer lies ahead...",
 			"contents": {
 				"aspect": {
 					"name": "Aspect",
@@ -3673,8 +3673,8 @@
 			"name": "Monstrosity",
 			"type": "oracle_collection",
 			"oracle_type": "tables",
-			"summary": "Discover the nature of a [nightspawn](npc:delve/beasts/nightspawn) or other frightful creature within your world.",
-			"description": "Use the Monstrosity oracle to define the nature of a [Nightspawn](npc:delve/beasts/nightspawn), or to introduce a new type of [animal](npc_collection:classic/animals), [beast](npc_collection:classic/beasts), or [horror](npc_collection:classic/horrors) in your world.\n\nTo create a monstrosity, start by rolling for its [Size](oracle_rollable:delve/monstrosity/size) and [Primary Form](oracle_rollable:delve/monstrosity/primary_form). Then, roll up to four times for [Characteristics](oracle_rollable:delve/monstrosity/characteristics) and keep up to three of those results. Do the same for [Abilities](oracle_rollable:delve/monstrosity/abilities).\n\nGive the monstrosity a rank. Choose one appropriate to its features, or use the [Challenge Rank](oracle_rollable:classic/turning_point/challenge_rank) oracle.\n\nFinally, envision your creation and give it a name. It’s part of your world now.\n\nSome results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!\n\nYou should weave these abilities into the fiction of your encounter with a monstrosity. Combined with its physical characteristics, they help define the creature’s approach and tactics. Make moves as appropriate to overcome, avoid, or face the consequences of these abilities.\n\nTo learn more about your creation’s nature, you can roll on additional tables. Use the [Character Goal](oracle_rollable:classic/character/goal) oracle to give the monstrosity a purpose. Roll on the [Character Disposition](oracle_rollable:delve/character/disposition) and [Activity](oracle_rollable:delve/character/activity) oracles to frame your initial encounter. Another roll or two can give your monstrosity nuance and complexity, making it a deeper part of your story.",
+			"summary": "Discover the nature of a [nightspawn](datasworn:npc:delve/beasts/nightspawn) or other frightful creature within your world.",
+			"description": "Use the Monstrosity oracle to define the nature of a [Nightspawn](datasworn:npc:delve/beasts/nightspawn), or to introduce a new type of [animal](datasworn:npc_collection:classic/animals), [beast](datasworn:npc_collection:classic/beasts), or [horror](datasworn:npc_collection:classic/horrors) in your world.\n\nTo create a monstrosity, start by rolling for its [Size](datasworn:oracle_rollable:delve/monstrosity/size) and [Primary Form](datasworn:oracle_rollable:delve/monstrosity/primary_form). Then, roll up to four times for [Characteristics](datasworn:oracle_rollable:delve/monstrosity/characteristics) and keep up to three of those results. Do the same for [Abilities](datasworn:oracle_rollable:delve/monstrosity/abilities).\n\nGive the monstrosity a rank. Choose one appropriate to its features, or use the [Challenge Rank](datasworn:oracle_rollable:classic/turning_point/challenge_rank) oracle.\n\nFinally, envision your creation and give it a name. It’s part of your world now.\n\nSome results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!\n\nYou should weave these abilities into the fiction of your encounter with a monstrosity. Combined with its physical characteristics, they help define the creature’s approach and tactics. Make moves as appropriate to overcome, avoid, or face the consequences of these abilities.\n\nTo learn more about your creation’s nature, you can roll on additional tables. Use the [Character Goal](datasworn:oracle_rollable:classic/character/goal) oracle to give the monstrosity a purpose. Roll on the [Character Disposition](datasworn:oracle_rollable:delve/character/disposition) and [Activity](datasworn:oracle_rollable:delve/character/activity) oracles to frame your initial encounter. Another roll or two can give your monstrosity nuance and complexity, making it a deeper part of your story.",
 			"suggestions": [
 				"oracle_rollable:classic/turning_point/challenge_rank",
 				"oracle_rollable:classic/character/goal",
@@ -3773,7 +3773,7 @@
 					"canonical_name": "Monstrosity: Primary Form",
 					"oracle_type": "table_text",
 					"type": "oracle_rollable",
-					"summary": "Some results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!",
+					"summary": "Some results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!",
 					"_source": {
 						"license": "https://creativecommons.org/licenses/by/4.0",
 						"url": "https://ironswornrpg.com",
@@ -4039,7 +4039,7 @@
 					"oracle_type": "table_text",
 					"type": "oracle_rollable",
 					"summary": "Roll up to four times for Characteristics and keep up to three of those results.",
-					"description": "Some results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!",
+					"description": "Some results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!",
 					"_source": {
 						"license": "https://creativecommons.org/licenses/by/4.0",
 						"url": "https://ironswornrpg.com",
@@ -4291,7 +4291,7 @@
 					"oracle_type": "table_text",
 					"type": "oracle_rollable",
 					"summary": "Roll up to four times for Abilities and keep up to three of those results.",
-					"description": "Some results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!\n\nYou should weave these abilities into the fiction of your encounter with a monstrosity. Combined with its physical characteristics, they help define the creature’s approach and tactics. Make moves as appropriate to overcome, avoid, or face the consequences of these abilities.",
+					"description": "Some results on these tables include two related options separated by a slash (/). Pick the one which best fits the nature of the creature or is the most interesting. You can also make one of the options likely, and [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) (using the pick two procedure) to confirm your choice. Or just take both!\n\nYou should weave these abilities into the fiction of your encounter with a monstrosity. Combined with its physical characteristics, they help define the creature’s approach and tactics. Make moves as appropriate to overcome, avoid, or face the consequences of these abilities.",
 					"_source": {
 						"license": "https://creativecommons.org/licenses/by/4.0",
 						"url": "https://ironswornrpg.com",
@@ -4642,7 +4642,7 @@
 			"type": "oracle_collection",
 			"oracle_type": "tables",
 			"summary": "Give a site a name or learn more about its characteristics and history.",
-			"description": "To generate a name for a site, first roll on the [Format](oracle_rollable:delve/site_name/format) table. Then, fill in the blanks by using the [Description](oracle_rollable:delve/site_name/description), [Detail](oracle_rollable:delve/site_name/detail), [Namesake](oracle_rollable:delve/site_name/namesake), and [Place](oracle_rollable:delve/site_name/place) oracles.\n\nIf the form of a particular word doesn’t work, try making it plural instead of singular, or vice-versa.\n\nIf you already know the theme and domain, you can pick from the tables instead of rolling. If not, you can use these oracles to help define those aspects of the site. Use the [Place](oracle_rollable:delve/site_name/place) oracle to roll for a domain, and let the [Description](oracle_rollable:delve/site_name/description) and [Detail](oracle_rollable:delve/site_name/detail) oracles inform your selection of a theme.\n\nThe site’s name might be known in your world, or it could just be an evocative label you use to understand its history and nature.\n\nEven without giving a site a name, you can use the [Description](oracle_rollable:delve/site_name/description) and [Detail](oracle_rollable:delve/site_name/detail) oracles to help flesh out the theme and nature of that place.\n\nFor example, you hear rumors about a nearby ruin while visiting a settlement. What do you learn? You [Ask the Oracle](move:classic/fate/ask_the_oracle), using the [Description](oracle_rollable:delve/site_name/description) and [Detail](oracle_rollable:delve/site_name/detail) tables. The oracle responds, “Bloodied Banishment.”\n\nInterpreting these keywords, you envision this settlement’s grim method of enacting justice. Anyone sentenced to death for a crime is taken to the ruins. There, under the fading light of the setting sun, they are bloodied by the quick slash of a ceremonial blade. Finally, they are chained to an altar within the central courtyard. The foul creatures who dwell in that place do the rest.",
+			"description": "To generate a name for a site, first roll on the [Format](datasworn:oracle_rollable:delve/site_name/format) table. Then, fill in the blanks by using the [Description](datasworn:oracle_rollable:delve/site_name/description), [Detail](datasworn:oracle_rollable:delve/site_name/detail), [Namesake](datasworn:oracle_rollable:delve/site_name/namesake), and [Place](datasworn:oracle_rollable:delve/site_name/place) oracles.\n\nIf the form of a particular word doesn’t work, try making it plural instead of singular, or vice-versa.\n\nIf you already know the theme and domain, you can pick from the tables instead of rolling. If not, you can use these oracles to help define those aspects of the site. Use the [Place](datasworn:oracle_rollable:delve/site_name/place) oracle to roll for a domain, and let the [Description](datasworn:oracle_rollable:delve/site_name/description) and [Detail](datasworn:oracle_rollable:delve/site_name/detail) oracles inform your selection of a theme.\n\nThe site’s name might be known in your world, or it could just be an evocative label you use to understand its history and nature.\n\nEven without giving a site a name, you can use the [Description](datasworn:oracle_rollable:delve/site_name/description) and [Detail](datasworn:oracle_rollable:delve/site_name/detail) oracles to help flesh out the theme and nature of that place.\n\nFor example, you hear rumors about a nearby ruin while visiting a settlement. What do you learn? You [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle), using the [Description](datasworn:oracle_rollable:delve/site_name/description) and [Detail](datasworn:oracle_rollable:delve/site_name/detail) tables. The oracle responds, “Bloodied Banishment.”\n\nInterpreting these keywords, you envision this settlement’s grim method of enacting justice. Anyone sentenced to death for a crime is taken to the ruins. There, under the fading light of the setting sun, they are bloodied by the quick slash of a ceremonial blade. Finally, they are chained to an altar within the central courtyard. The foul creatures who dwell in that place do the rest.",
 			"_source": {
 				"license": "https://creativecommons.org/licenses/by/4.0",
 				"url": "https://ironswornrpg.com",
@@ -4685,7 +4685,7 @@
 								"min": 1,
 								"max": 25
 							},
-							"text": "[Description](oracle_rollable:delve/site_name/description) [Place](oracle_rollable:delve/site_name/place)",
+							"text": "[Description](datasworn:oracle_rollable:delve/site_name/description) [Place](datasworn:oracle_rollable:delve/site_name/place)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/description}} {{text>oracle_rollable:delve/site_name/place}}"
 							},
@@ -4719,7 +4719,7 @@
 								"min": 26,
 								"max": 50
 							},
-							"text": "[Place](oracle_rollable:delve/site_name/place) of [Detail](oracle_rollable:delve/site_name/detail)",
+							"text": "[Place](datasworn:oracle_rollable:delve/site_name/place) of [Detail](datasworn:oracle_rollable:delve/site_name/detail)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/detail}}"
 							},
@@ -4753,7 +4753,7 @@
 								"min": 51,
 								"max": 70
 							},
-							"text": "[Place](oracle_rollable:delve/site_name/place) of [Description](oracle_rollable:delve/site_name/description) [Detail](oracle_rollable:delve/site_name/detail)",
+							"text": "[Place](datasworn:oracle_rollable:delve/site_name/place) of [Description](datasworn:oracle_rollable:delve/site_name/description) [Detail](datasworn:oracle_rollable:delve/site_name/detail)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/description}} {{text>oracle_rollable:delve/site_name/detail}}"
 							},
@@ -4794,7 +4794,7 @@
 								"min": 71,
 								"max": 80
 							},
-							"text": "[Place](oracle_rollable:delve/site_name/place) of [Namesake's](oracle_rollable:delve/site_name/namesake) [Detail](oracle_rollable:delve/site_name/detail)",
+							"text": "[Place](datasworn:oracle_rollable:delve/site_name/place) of [Namesake's](datasworn:oracle_rollable:delve/site_name/namesake) [Detail](datasworn:oracle_rollable:delve/site_name/detail)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/namesake}}'s {{text>oracle_rollable:delve/site_name/detail}}"
 							},
@@ -4835,7 +4835,7 @@
 								"min": 81,
 								"max": 85
 							},
-							"text": "[Namesake's](oracle_rollable:delve/site_name/namesake) [Place](oracle_rollable:delve/site_name/place)",
+							"text": "[Namesake's](datasworn:oracle_rollable:delve/site_name/namesake) [Place](datasworn:oracle_rollable:delve/site_name/place)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/namesake}}'s {{text>oracle_rollable:delve/site_name/place}}"
 							},
@@ -4869,7 +4869,7 @@
 								"min": 86,
 								"max": 95
 							},
-							"text": "[Description](oracle_rollable:delve/site_name/description) [Place](oracle_rollable:delve/site_name/place) of [Namesake](oracle_rollable:delve/site_name/namesake)",
+							"text": "[Description](datasworn:oracle_rollable:delve/site_name/description) [Place](datasworn:oracle_rollable:delve/site_name/place) of [Namesake](datasworn:oracle_rollable:delve/site_name/namesake)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/description}} {{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/namesake}}"
 							},
@@ -4910,7 +4910,7 @@
 								"min": 96,
 								"max": 100
 							},
-							"text": "[Place](oracle_rollable:delve/site_name/place) of [Namesake](oracle_rollable:delve/site_name/namesake)",
+							"text": "[Place](datasworn:oracle_rollable:delve/site_name/place) of [Namesake](datasworn:oracle_rollable:delve/site_name/namesake)",
 							"template": {
 								"text": "{{text>oracle_rollable:delve/site_name/place}} of {{text>oracle_rollable:delve/site_name/namesake}}"
 							},
@@ -6297,7 +6297,7 @@
 					"oracle_type": "table_text",
 					"type": "oracle_rollable",
 					"name": "Namesake",
-					"summary": "You may also use your preferred name randomizer to generate a Namesake for your site. If you want to add details for the Namesake, use the [Character oracles](oracle_collection:classic/character) in *Ironsworn Core*. This may help inspire a deeper understanding of the history of the site.",
+					"summary": "You may also use your preferred name randomizer to generate a Namesake for your site. If you want to add details for the Namesake, use the [Character oracles](datasworn:oracle_collection:classic/character) in *Ironsworn Core*. This may help inspire a deeper understanding of the history of the site.",
 					"_source": {
 						"license": "https://creativecommons.org/licenses/by/4.0",
 						"url": "https://ironswornrpg.com",
@@ -6992,7 +6992,7 @@
 								"min": 1,
 								"max": 6
 							},
-							"text": "[Barrow](delve_site_domain:delve/barrow)",
+							"text": "[Barrow](datasworn:delve_site_domain:delve/barrow)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/barrow",
@@ -7010,7 +7010,7 @@
 								"min": 7,
 								"max": 18
 							},
-							"text": "[Cavern](delve_site_domain:delve/cavern)",
+							"text": "[Cavern](datasworn:delve_site_domain:delve/cavern)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/cavern",
@@ -7028,7 +7028,7 @@
 								"min": 19,
 								"max": 28
 							},
-							"text": "[Frozen Cavern](delve_site_domain:delve/frozen_cavern)",
+							"text": "[Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/frozen_cavern",
@@ -7046,7 +7046,7 @@
 								"min": 29,
 								"max": 32
 							},
-							"text": "[Icereach](delve_site_domain:delve/icereach)",
+							"text": "[Icereach](datasworn:delve_site_domain:delve/icereach)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/icereach",
@@ -7064,7 +7064,7 @@
 								"min": 33,
 								"max": 38
 							},
-							"text": "[Mine](delve_site_domain:delve/mine)",
+							"text": "[Mine](datasworn:delve_site_domain:delve/mine)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/mine",
@@ -7082,7 +7082,7 @@
 								"min": 39,
 								"max": 48
 							},
-							"text": "[Pass](delve_site_domain:delve/pass)",
+							"text": "[Pass](datasworn:delve_site_domain:delve/pass)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/pass",
@@ -7100,7 +7100,7 @@
 								"min": 49,
 								"max": 58
 							},
-							"text": "[Ruin](delve_site_domain:delve/ruin)",
+							"text": "[Ruin](datasworn:delve_site_domain:delve/ruin)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/ruin",
@@ -7118,7 +7118,7 @@
 								"min": 59,
 								"max": 68
 							},
-							"text": "[Sea Cave](delve_site_domain:delve/sea_cave)",
+							"text": "[Sea Cave](datasworn:delve_site_domain:delve/sea_cave)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/sea_cave",
@@ -7136,7 +7136,7 @@
 								"min": 69,
 								"max": 78
 							},
-							"text": "[Shadowfen](delve_site_domain:delve/shadowfen)",
+							"text": "[Shadowfen](datasworn:delve_site_domain:delve/shadowfen)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/shadowfen",
@@ -7154,7 +7154,7 @@
 								"min": 79,
 								"max": 83
 							},
-							"text": "[Stronghold](delve_site_domain:delve/stronghold)",
+							"text": "[Stronghold](datasworn:delve_site_domain:delve/stronghold)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/stronghold",
@@ -7172,7 +7172,7 @@
 								"min": 84,
 								"max": 95
 							},
-							"text": "[Tanglewood](delve_site_domain:delve/tanglewood)",
+							"text": "[Tanglewood](datasworn:delve_site_domain:delve/tanglewood)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/tanglewood",
@@ -7190,7 +7190,7 @@
 								"min": 96,
 								"max": 100
 							},
-							"text": "[Underkeep](delve_site_domain:delve/underkeep)",
+							"text": "[Underkeep](datasworn:delve_site_domain:delve/underkeep)",
 							"oracle_rolls": [
 								{
 									"oracle": "oracle_rollable:delve/site_name/place/underkeep",
@@ -8869,7 +8869,7 @@
 			"summary": "Randomly select a theme and domain for a perilous location.",
 			"type": "oracle_collection",
 			"oracle_type": "tables",
-			"description": "Use these oracles to generate a random theme and domain for a site. Alternatively, you can print out the theme and domain cards and draw a random result. Or use the [Site Name oracles](oracle_collection:delve/site_name) to inspire the selection of a theme and domain.",
+			"description": "Use these oracles to generate a random theme and domain for a site. Alternatively, you can print out the theme and domain cards and draw a random result. Or use the [Site Name oracles](datasworn:oracle_collection:delve/site_name) to inspire the selection of a theme and domain.",
 			"_source": {
 				"license": "https://creativecommons.org/licenses/by/4.0",
 				"url": "https://ironswornrpg.com",
@@ -8906,7 +8906,7 @@
 								"min": 1,
 								"max": 11
 							},
-							"text": "[Ancient](delve_site_theme:delve/ancient)",
+							"text": "[Ancient](datasworn:delve_site_theme:delve/ancient)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.0"
 						},
 						{
@@ -8914,7 +8914,7 @@
 								"min": 12,
 								"max": 23
 							},
-							"text": "[Corrupted](delve_site_theme:delve/corrupted)",
+							"text": "[Corrupted](datasworn:delve_site_theme:delve/corrupted)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.1"
 						},
 						{
@@ -8922,7 +8922,7 @@
 								"min": 24,
 								"max": 35
 							},
-							"text": "[Fortified](delve_site_theme:delve/fortified)",
+							"text": "[Fortified](datasworn:delve_site_theme:delve/fortified)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.2"
 						},
 						{
@@ -8930,7 +8930,7 @@
 								"min": 36,
 								"max": 48
 							},
-							"text": "[Hallowed](delve_site_theme:delve/hallowed)",
+							"text": "[Hallowed](datasworn:delve_site_theme:delve/hallowed)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.3"
 						},
 						{
@@ -8938,7 +8938,7 @@
 								"min": 49,
 								"max": 61
 							},
-							"text": "[Haunted](delve_site_theme:delve/haunted)",
+							"text": "[Haunted](datasworn:delve_site_theme:delve/haunted)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.4"
 						},
 						{
@@ -8946,7 +8946,7 @@
 								"min": 62,
 								"max": 74
 							},
-							"text": "[Infested](delve_site_theme:delve/infested)",
+							"text": "[Infested](datasworn:delve_site_theme:delve/infested)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.5"
 						},
 						{
@@ -8954,7 +8954,7 @@
 								"min": 75,
 								"max": 87
 							},
-							"text": "[Ravaged](delve_site_theme:delve/ravaged)",
+							"text": "[Ravaged](datasworn:delve_site_theme:delve/ravaged)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.6"
 						},
 						{
@@ -8962,7 +8962,7 @@
 								"min": 88,
 								"max": 100
 							},
-							"text": "[Wild](delve_site_theme:delve/wild)",
+							"text": "[Wild](datasworn:delve_site_theme:delve/wild)",
 							"_id": "oracle_rollable.row:delve/site_nature/theme.7"
 						}
 					],
@@ -8996,7 +8996,7 @@
 								"min": 1,
 								"max": 6
 							},
-							"text": "[Barrow](delve_site_domain:delve/barrow)",
+							"text": "[Barrow](datasworn:delve_site_domain:delve/barrow)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.0"
 						},
 						{
@@ -9004,7 +9004,7 @@
 								"min": 7,
 								"max": 18
 							},
-							"text": "[Cavern](delve_site_domain:delve/cavern)",
+							"text": "[Cavern](datasworn:delve_site_domain:delve/cavern)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.1"
 						},
 						{
@@ -9012,7 +9012,7 @@
 								"min": 19,
 								"max": 28
 							},
-							"text": "[Frozen Cavern](delve_site_domain:delve/frozen_cavern)",
+							"text": "[Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.2"
 						},
 						{
@@ -9020,7 +9020,7 @@
 								"min": 29,
 								"max": 32
 							},
-							"text": "[Icereach](delve_site_domain:delve/icereach)",
+							"text": "[Icereach](datasworn:delve_site_domain:delve/icereach)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.3"
 						},
 						{
@@ -9028,7 +9028,7 @@
 								"min": 33,
 								"max": 38
 							},
-							"text": "[Mine](delve_site_domain:delve/mine)",
+							"text": "[Mine](datasworn:delve_site_domain:delve/mine)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.4"
 						},
 						{
@@ -9036,7 +9036,7 @@
 								"min": 39,
 								"max": 48
 							},
-							"text": "[Pass](delve_site_domain:delve/pass)",
+							"text": "[Pass](datasworn:delve_site_domain:delve/pass)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.5"
 						},
 						{
@@ -9044,7 +9044,7 @@
 								"min": 49,
 								"max": 58
 							},
-							"text": "[Ruin](delve_site_domain:delve/ruin)",
+							"text": "[Ruin](datasworn:delve_site_domain:delve/ruin)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.6"
 						},
 						{
@@ -9052,7 +9052,7 @@
 								"min": 59,
 								"max": 68
 							},
-							"text": "[Sea Cave](delve_site_domain:delve/sea_cave)",
+							"text": "[Sea Cave](datasworn:delve_site_domain:delve/sea_cave)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.7"
 						},
 						{
@@ -9060,7 +9060,7 @@
 								"min": 69,
 								"max": 78
 							},
-							"text": "[Shadowfen](delve_site_domain:delve/shadowfen)",
+							"text": "[Shadowfen](datasworn:delve_site_domain:delve/shadowfen)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.8"
 						},
 						{
@@ -9068,7 +9068,7 @@
 								"min": 79,
 								"max": 83
 							},
-							"text": "[Stronghold](delve_site_domain:delve/stronghold)",
+							"text": "[Stronghold](datasworn:delve_site_domain:delve/stronghold)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.9"
 						},
 						{
@@ -9076,7 +9076,7 @@
 								"min": 84,
 								"max": 95
 							},
-							"text": "[Tanglewood](delve_site_domain:delve/tanglewood)",
+							"text": "[Tanglewood](datasworn:delve_site_domain:delve/tanglewood)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.10"
 						},
 						{
@@ -9084,7 +9084,7 @@
 								"min": 96,
 								"max": 100
 							},
-							"text": "[Underkeep](delve_site_domain:delve/underkeep)",
+							"text": "[Underkeep](datasworn:delve_site_domain:delve/underkeep)",
 							"_id": "oracle_rollable.row:delve/site_nature/domain.11"
 						}
 					],
@@ -9104,7 +9104,7 @@
 			"type": "oracle_collection",
 			"oracle_type": "tables",
 			"summary": "In support of the optional threat mechanics, use these oracles to introduce a threat and determine its actions within your world.",
-			"description": "These oracles support the optional threat mechanics detailed in Chapter 6.\n\nYou can use the [Category](oracle_rollable:delve/threat/category) oracle above to randomly select a broad type of threat for your campaign. If you are told to roll twice, take both results and decide how these two threats act together or represent a more complex situation. For example, choosing both a [Malignant Plague](oracle_rollable:delve/threat/malignant_plague) and [Zealous Cult](oracle_rollable:delve/threat/zealous_cult) might signify an evil sect which has unleashed a sickness upon the Ironlands in service to some dark god.\n\nFor additional detail, use other oracles as appropriate. For example, you can look to the [Action](oracle_rollable:classic/action_and_theme/action) and [Theme](oracle_rollable:classic/action_and_theme/theme) oracles (Ironsworn Core, page 174) or [Character Goal](oracle_rollable:classic/character/goal) oracle (Ironsworn Core, page 182) to define the motivations of a [Scheming Leader](oracle_rollable:delve/threat/scheming_leader).\n\nOnce you’ve introduced a threat, consider how it endangers something or someone important to you, and [Swear an Iron Vow](move:classic/quest/swear_an_iron_vow) to see its goal undone.\n\nThen, as you [Advance a Threat](move:delve/threat/advance_a_threat), you can roll on the oracle table for your specific threat to generate an action, approach, or complication. Interpret the oracle’s answer as appropriate to the nature of the threat and the current situation.\n\nIf you aren’t using the threat mechanics within your campaign, you can use still these oracles to inspire details for enemies, troubles, and complications.",
+			"description": "These oracles support the optional threat mechanics detailed in Chapter 6.\n\nYou can use the [Category](datasworn:oracle_rollable:delve/threat/category) oracle above to randomly select a broad type of threat for your campaign. If you are told to roll twice, take both results and decide how these two threats act together or represent a more complex situation. For example, choosing both a [Malignant Plague](datasworn:oracle_rollable:delve/threat/malignant_plague) and [Zealous Cult](datasworn:oracle_rollable:delve/threat/zealous_cult) might signify an evil sect which has unleashed a sickness upon the Ironlands in service to some dark god.\n\nFor additional detail, use other oracles as appropriate. For example, you can look to the [Action](datasworn:oracle_rollable:classic/action_and_theme/action) and [Theme](datasworn:oracle_rollable:classic/action_and_theme/theme) oracles (Ironsworn Core, page 174) or [Character Goal](datasworn:oracle_rollable:classic/character/goal) oracle (Ironsworn Core, page 182) to define the motivations of a [Scheming Leader](datasworn:oracle_rollable:delve/threat/scheming_leader).\n\nOnce you’ve introduced a threat, consider how it endangers something or someone important to you, and [Swear an Iron Vow](datasworn:move:classic/quest/swear_an_iron_vow) to see its goal undone.\n\nThen, as you [Advance a Threat](datasworn:move:delve/threat/advance_a_threat), you can roll on the oracle table for your specific threat to generate an action, approach, or complication. Interpret the oracle’s answer as appropriate to the nature of the threat and the current situation.\n\nIf you aren’t using the threat mechanics within your campaign, you can use still these oracles to inspire details for enemies, troubles, and complications.",
 			"_source": {
 				"license": "https://creativecommons.org/licenses/by/4.0",
 				"url": "https://ironswornrpg.com",
@@ -9141,7 +9141,7 @@
 								"min": 1,
 								"max": 10
 							},
-							"text": "[Burgeoning Conflict](oracle_rollable:delve/threat/burgeoning_conflict)",
+							"text": "[Burgeoning Conflict](datasworn:oracle_rollable:delve/threat/burgeoning_conflict)",
 							"_id": "oracle_rollable.row:delve/threat/category.0"
 						},
 						{
@@ -9149,7 +9149,7 @@
 								"min": 11,
 								"max": 20
 							},
-							"text": "[Cursed Site](oracle_rollable:delve/threat/cursed_site)",
+							"text": "[Cursed Site](datasworn:oracle_rollable:delve/threat/cursed_site)",
 							"_id": "oracle_rollable.row:delve/threat/category.1"
 						},
 						{
@@ -9157,7 +9157,7 @@
 								"min": 21,
 								"max": 30
 							},
-							"text": "[Environmental Calamity](oracle_rollable:delve/threat/environmental_calamity)",
+							"text": "[Environmental Calamity](datasworn:oracle_rollable:delve/threat/environmental_calamity)",
 							"_id": "oracle_rollable.row:delve/threat/category.2"
 						},
 						{
@@ -9165,7 +9165,7 @@
 								"min": 31,
 								"max": 40
 							},
-							"text": "[Malignant Plague](oracle_rollable:delve/threat/malignant_plague)",
+							"text": "[Malignant Plague](datasworn:oracle_rollable:delve/threat/malignant_plague)",
 							"_id": "oracle_rollable.row:delve/threat/category.3"
 						},
 						{
@@ -9173,7 +9173,7 @@
 								"min": 41,
 								"max": 50
 							},
-							"text": "[Rampaging Creature](oracle_rollable:delve/threat/rampaging_creature)",
+							"text": "[Rampaging Creature](datasworn:oracle_rollable:delve/threat/rampaging_creature)",
 							"_id": "oracle_rollable.row:delve/threat/category.4"
 						},
 						{
@@ -9181,7 +9181,7 @@
 								"min": 51,
 								"max": 60
 							},
-							"text": "[Ravaging Horde](oracle_rollable:delve/threat/ravaging_horde)",
+							"text": "[Ravaging Horde](datasworn:oracle_rollable:delve/threat/ravaging_horde)",
 							"_id": "oracle_rollable.row:delve/threat/category.5"
 						},
 						{
@@ -9189,7 +9189,7 @@
 								"min": 61,
 								"max": 70
 							},
-							"text": "[Scheming Leader](oracle_rollable:delve/threat/scheming_leader)",
+							"text": "[Scheming Leader](datasworn:oracle_rollable:delve/threat/scheming_leader)",
 							"_id": "oracle_rollable.row:delve/threat/category.6"
 						},
 						{
@@ -9197,7 +9197,7 @@
 								"min": 71,
 								"max": 80
 							},
-							"text": "[Power-Hungry Mystic](oracle_rollable:delve/threat/power_hungry_mystic)",
+							"text": "[Power-Hungry Mystic](datasworn:oracle_rollable:delve/threat/power_hungry_mystic)",
 							"_id": "oracle_rollable.row:delve/threat/category.7"
 						},
 						{
@@ -9205,7 +9205,7 @@
 								"min": 81,
 								"max": 90
 							},
-							"text": "[Zealous Cult](oracle_rollable:delve/threat/zealous_cult)",
+							"text": "[Zealous Cult](datasworn:oracle_rollable:delve/threat/zealous_cult)",
 							"_id": "oracle_rollable.row:delve/threat/category.8"
 						},
 						{
@@ -10208,7 +10208,7 @@
 			"type": "oracle_collection",
 			"oracle_type": "tables",
 			"summary": "Identify the characteristics and effects of a trap within a site.",
-			"description": "If you encounter a trap within a site, use these oracles to better understand the nature or function of this obstacle. Roll once for an [Event](oracle_rollable:delve/trap/event) and once for a [Component](oracle_rollable:delve/trap/component), and interpret the response as appropriate to the situation and environment. A trap might be a physical, supernatural, or an ambush by a denizen.\n\nIf you are in a position to overcome or avoid the trap, make moves to see what happens. A simple trap might be dealt with in a single action, such as through the [Face Danger](move:classic/adventure/face_danger) move. A complex trap could be represented as a scene challenge (*Ironsworn Core*, page 234).",
+			"description": "If you encounter a trap within a site, use these oracles to better understand the nature or function of this obstacle. Roll once for an [Event](datasworn:oracle_rollable:delve/trap/event) and once for a [Component](datasworn:oracle_rollable:delve/trap/component), and interpret the response as appropriate to the situation and environment. A trap might be a physical, supernatural, or an ambush by a denizen.\n\nIf you are in a position to overcome or avoid the trap, make moves to see what happens. A simple trap might be dealt with in a single action, such as through the [Face Danger](datasworn:move:classic/adventure/face_danger) move. A complex trap could be represented as a scene challenge (*Ironsworn Core*, page 234).",
 			"contents": {
 				"event": {
 					"name": "Event",
@@ -10959,7 +10959,7 @@
 						"text": "When you resolve to enter a perilous site in pursuit of an objective...",
 						"conditions": null
 					},
-					"text": "When __you resolve to enter a perilous site in pursuit of an objective__, choose the theme and domain which best represent its nature ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure), and give it a rank.\n\n  * Troublesome site: 3 progress per area.\n  * Dangerous site: 2 progress per area.\n  * Formidable site: 1 progress per area.\n  * Extreme site: 2 ticks per area.\n  * Epic site: 1 tick per area.\n\nIf you are returning to a previously explored site, roll both challenge dice, take the lowest value, and clear that number of progress boxes.\n\nThen, [Delve the Depths](move:delve/delve/delve_the_depths) to explore this place.",
+					"text": "When __you resolve to enter a perilous site in pursuit of an objective__, choose the theme and domain which best represent its nature ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure), and give it a rank.\n\n  * Troublesome site: 3 progress per area.\n  * Dangerous site: 2 progress per area.\n  * Formidable site: 1 progress per area.\n  * Extreme site: 2 ticks per area.\n  * Epic site: 1 tick per area.\n\nIf you are returning to a previously explored site, roll both challenge dice, take the lowest value, and clear that number of progress boxes.\n\nThen, [Delve the Depths](datasworn:move:delve/delve/delve_the_depths) to explore this place.",
 					"outcomes": null,
 					"oracles": {},
 					"allow_momentum_burn": false,
@@ -11027,7 +11027,7 @@
 										"min": 1,
 										"max": 45
 									},
-									"text": "Mark progress and [Reveal a Danger](move:delve/delve/reveal_a_danger).",
+									"text": "Mark progress and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.edge.0"
 								},
 								{
@@ -11043,7 +11043,7 @@
 										"min": 66,
 										"max": 75
 									},
-									"text": "Choose one: Mark progress or [Find an Opportunity](move:delve/delve/find_an_opportunity).",
+									"text": "Choose one: Mark progress or [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.edge.2"
 								},
 								{
@@ -11051,7 +11051,7 @@
 										"min": 76,
 										"max": 80
 									},
-									"text": "Take both: Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity).",
+									"text": "Take both: Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.edge.3"
 								},
 								{
@@ -11059,7 +11059,7 @@
 										"min": 81,
 										"max": 100
 									},
-									"text": "Mark progress twice and [Reveal a Danger](move:delve/delve/reveal_a_danger).",
+									"text": "Mark progress twice and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.edge.4"
 								}
 							],
@@ -11076,7 +11076,7 @@
 										"min": 1,
 										"max": 30
 									},
-									"text": "Mark progress and [Reveal a Danger](move:delve/delve/reveal_a_danger).",
+									"text": "Mark progress and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.shadow.0"
 								},
 								{
@@ -11092,7 +11092,7 @@
 										"min": 66,
 										"max": 90
 									},
-									"text": "Choose one: Mark progress or [Find an Opportunity](move:delve/delve/find_an_opportunity).",
+									"text": "Choose one: Mark progress or [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.shadow.2"
 								},
 								{
@@ -11100,7 +11100,7 @@
 										"min": 91,
 										"max": 99
 									},
-									"text": "Take both: Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity).",
+									"text": "Take both: Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.shadow.3"
 								},
 								{
@@ -11108,7 +11108,7 @@
 										"min": 100,
 										"max": 100
 									},
-									"text": "Mark progress twice and [Reveal a Danger](move:delve/delve/reveal_a_danger).",
+									"text": "Mark progress twice and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.shadow.4"
 								}
 							],
@@ -11125,7 +11125,7 @@
 										"min": 1,
 										"max": 40
 									},
-									"text": "Mark progress and [Reveal a Danger](move:delve/delve/reveal_a_danger).",
+									"text": "Mark progress and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.wits.0"
 								},
 								{
@@ -11141,7 +11141,7 @@
 										"min": 56,
 										"max": 80
 									},
-									"text": "Choose one: Mark progress or [Find an Opportunity](move:delve/delve/find_an_opportunity).",
+									"text": "Choose one: Mark progress or [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.wits.2"
 								},
 								{
@@ -11149,7 +11149,7 @@
 										"min": 81,
 										"max": 99
 									},
-									"text": "Take both: Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity).",
+									"text": "Take both: Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.wits.3"
 								},
 								{
@@ -11157,7 +11157,7 @@
 										"min": 100,
 										"max": 100
 									},
-									"text": "Mark progress twice and [Reveal a Danger](move:delve/delve/reveal_a_danger).",
+									"text": "Mark progress twice and [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).",
 									"_id": "move.oracle_rollable.row:delve/delve/delve_the_depths.wits.4"
 								}
 							],
@@ -11165,16 +11165,16 @@
 							"_id": "move.oracle_rollable:delve/delve/delve_the_depths.wits"
 						}
 					},
-					"text": "When you __traverse an area within a perilous site__, envision your surroundings ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure). Then, consider your approach. If you navigate this area...\n\n  * With haste: Roll +edge.\n  * With stealth or trickery: Roll +shadow.\n  * With observation, intuition, or expertise: Roll +wits.\n\nOn a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity). On a __weak hit__, roll on the following table according to your stat.\n\nOn a __miss__, [Reveal a Danger](move:delve/delve/reveal_a_danger).\n\n{{table_columns>move:delve/delve/delve_the_depths}}",
+					"text": "When you __traverse an area within a perilous site__, envision your surroundings ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure). Then, consider your approach. If you navigate this area...\n\n  * With haste: Roll +edge.\n  * With stealth or trickery: Roll +shadow.\n  * With observation, intuition, or expertise: Roll +wits.\n\nOn a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity). On a __weak hit__, roll on the following table according to your stat.\n\nOn a __miss__, [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger).\n\n{{table_columns>move:delve/delve/delve_the_depths}}",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](move:delve/delve/find_an_opportunity)."
+							"text": "On a __strong hit__, you delve deeper. Mark progress and [Find an Opportunity](datasworn:move:delve/delve/find_an_opportunity)."
 						},
 						"weak_hit": {
 							"text": "On a __weak hit__, roll on the following table according to your stat.\n\n{{table_columns>move:delve/delve/delve_the_depths}}"
 						},
 						"miss": {
-							"text": "On a __miss__, [Reveal a Danger](move:delve/delve/reveal_a_danger)."
+							"text": "On a __miss__, [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger)."
 						}
 					},
 					"allow_momentum_burn": true,
@@ -11295,7 +11295,7 @@
 							"_id": "move.oracle_rollable:delve/delve/find_an_opportunity.find_an_opportunity"
 						}
 					},
-					"text": "When __you encounter a helpful situation or feature within a site__, roll on the following table. If you are making this move as a result of a strong hit on [Delve the Depths](move:delve/delve/delve_the_depths), you may pick or envision an opportunity instead of rolling.\n\nThen, choose one.\n\n  * Gain insight or prepare: Take +1 momentum.\n  * Take action now: You and any allies may make a move (not a progress move) which directly leverages the opportunity. When you do, add +1 and take +1 momentum on a hit.\n\n{{table>move.oracle_rollable:delve/delve/find_an_opportunity.find_an_opportunity}}",
+					"text": "When __you encounter a helpful situation or feature within a site__, roll on the following table. If you are making this move as a result of a strong hit on [Delve the Depths](datasworn:move:delve/delve/delve_the_depths), you may pick or envision an opportunity instead of rolling.\n\nThen, choose one.\n\n  * Gain insight or prepare: Take +1 momentum.\n  * Take action now: You and any allies may make a move (not a progress move) which directly leverages the opportunity. When you do, add +1 and take +1 momentum on a hit.\n\n{{table>move.oracle_rollable:delve/delve/find_an_opportunity.find_an_opportunity}}",
 					"outcomes": null,
 					"allow_momentum_burn": false,
 					"_id": "move:delve/delve/find_an_opportunity"
@@ -11475,7 +11475,7 @@
 						"date": "2020-02-13",
 						"page": 38
 					},
-					"text": "When __you check to see if you have a specific helpful item__, and you have at least +1 supply, roll +supply.\n\nOn a __strong hit__, you have it. Take +1 momentum.\n\nOn a __weak hit__, you have it, but your resources are diminished. Take +1 momentum and suffer -1 supply.\n\nOn a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](move:classic/fate/pay_the_price).",
+					"text": "When __you check to see if you have a specific helpful item__, and you have at least +1 supply, roll +supply.\n\nOn a __strong hit__, you have it. Take +1 momentum.\n\nOn a __weak hit__, you have it, but your resources are diminished. Take +1 momentum and suffer -1 supply.\n\nOn a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](datasworn:move:classic/fate/pay_the_price).",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you have it. Take +1 momentum."
@@ -11484,7 +11484,7 @@
 							"text": "On a __weak hit__, you have it, but your resources are diminished. Take +1 momentum and suffer -1 supply."
 						},
 						"miss": {
-							"text": "On a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](move:classic/fate/pay_the_price)."
+							"text": "On a __miss__, you don’t have it and the situation grows more perilous. [Pay the Price](datasworn:move:classic/fate/pay_the_price)."
 						}
 					},
 					"oracles": {},
@@ -11524,13 +11524,13 @@
 							}
 						]
 					},
-					"text": "When __your exploration of a site comes to an end__, roll the challenge dice and compare to your progress. Momentum is ignored on this roll.\n\nOn a __strong hit__, you locate your objective and the situation favors you. Choose one.\n\n  * Make another move now (not a progress move), and add +1.\n  * Take +1 momentum.\n\nOn a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure).\n\nOn a __miss__, your objective falls out of reach, you have been misled about the nature of your objective, or you discover that this site holds unexpected depths. If you continue your exploration, clear all but one filled progress and raise the site’s rank by one (if not already epic).",
+					"text": "When __your exploration of a site comes to an end__, roll the challenge dice and compare to your progress. Momentum is ignored on this roll.\n\nOn a __strong hit__, you locate your objective and the situation favors you. Choose one.\n\n  * Make another move now (not a progress move), and add +1.\n  * Take +1 momentum.\n\nOn a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure).\n\nOn a __miss__, your objective falls out of reach, you have been misled about the nature of your objective, or you discover that this site holds unexpected depths. If you continue your exploration, clear all but one filled progress and raise the site’s rank by one (if not already epic).",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you locate your objective and the situation favors you. Choose one.\n\n  * Make another move now (not a progress move), and add +1.\n  * Take +1 momentum."
 						},
 						"weak_hit": {
-							"text": "On a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure)."
+							"text": "On a __weak hit__, you locate your objective but face an unforeseen hazard or complication. Envision what you find ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure)."
 						},
 						"miss": {
 							"text": "On a __miss__, your objective falls out of reach, you have been misled about the nature of your objective, or you discover that this site holds unexpected depths. If you continue your exploration, clear all but one filled progress and raise the site’s rank by one (if not already epic)."
@@ -11611,16 +11611,16 @@
 						"date": "2020-02-13",
 						"page": 42
 					},
-					"text": "When __you flee or withdraw from a site__, consider the situation and your approach. If you...\n\n  * Find the fastest way out: Roll +edge.\n  * Steel yourself against the horrors of this place: Roll +heart.\n  * Fight your way out: Roll +iron.\n  * Retrace your steps or locate an alternate path: Roll +wits.\n  * Keep out of sight: Roll +shadow.\n\nOn a __strong hit__, you make your way safely out of the site. Take +1 momentum.\n\nOn a __weak hit__, you find your way out, but this place exacts its price. Choose one.\n\n  * You are weary or wounded: [Endure Harm](move:classic/suffer/endure_harm).\n  * The experience leaves you shaken: [Endure Stress](move:classic/suffer/endure_stress).\n  * You are delayed, and it costs you.\n  * You leave behind something important.\n  * You face a new complication as you emerge from the depths.\n  * A denizen plots their revenge.\n\nOn a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](move:delve/delve/reveal_a_danger). If you survive, you may make your escape.",
+					"text": "When __you flee or withdraw from a site__, consider the situation and your approach. If you...\n\n  * Find the fastest way out: Roll +edge.\n  * Steel yourself against the horrors of this place: Roll +heart.\n  * Fight your way out: Roll +iron.\n  * Retrace your steps or locate an alternate path: Roll +wits.\n  * Keep out of sight: Roll +shadow.\n\nOn a __strong hit__, you make your way safely out of the site. Take +1 momentum.\n\nOn a __weak hit__, you find your way out, but this place exacts its price. Choose one.\n\n  * You are weary or wounded: [Endure Harm](datasworn:move:classic/suffer/endure_harm).\n  * The experience leaves you shaken: [Endure Stress](datasworn:move:classic/suffer/endure_stress).\n  * You are delayed, and it costs you.\n  * You leave behind something important.\n  * You face a new complication as you emerge from the depths.\n  * A denizen plots their revenge.\n\nOn a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger). If you survive, you may make your escape.",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you make your way safely out of the site. Take +1 momentum."
 						},
 						"weak_hit": {
-							"text": "On a __weak hit__, you find your way out, but this place exacts its price. Choose one.\n\n  * You are weary or wounded: [Endure Harm](move:classic/suffer/endure_harm).\n  * The experience leaves you shaken: [Endure Stress](move:classic/suffer/endure_stress).\n  * You are delayed, and it costs you.\n  * You leave behind something important.\n  * You face a new complication as you emerge from the depths.\n  * A denizen plots their revenge."
+							"text": "On a __weak hit__, you find your way out, but this place exacts its price. Choose one.\n\n  * You are weary or wounded: [Endure Harm](datasworn:move:classic/suffer/endure_harm).\n  * The experience leaves you shaken: [Endure Stress](datasworn:move:classic/suffer/endure_stress).\n  * You are delayed, and it costs you.\n  * You leave behind something important.\n  * You face a new complication as you emerge from the depths.\n  * A denizen plots their revenge."
 						},
 						"miss": {
-							"text": "On a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](move:delve/delve/reveal_a_danger). If you survive, you may make your escape."
+							"text": "On a __miss__, a dire threat or imposing obstacle stands in your way. [Reveal a Danger](datasworn:move:delve/delve/reveal_a_danger). If you survive, you may make your escape."
 						}
 					},
 					"oracles": {},
@@ -11833,10 +11833,10 @@
 							}
 						]
 					},
-					"text": "When __you spend time reflecting on your hardships and missteps__, and your failure track is +6 or greater, roll your challenge dice and compare to your progress. Momentum is ignored on this roll.\n\nOn a __strong hit__, you commit to making a dramatic change. Take 3 experience and clear all progress. Then, choose one.\n\n  * Adjust your approach: Discard a single asset, and take 2 experience for each marked ability.\n  * Make an oath: [Swear an Iron Vow](move:classic/quest/swear_an_iron_vow), and reroll any dice.\n  * Ready your next steps: Take +3 momentum.\n\nOn a __weak hit__, you learn from your mistakes. Take 2 experience and clear all progress.\n\nOn a __miss__, you’ve learned the wrong lessons. Take 1 experience and clear all progress. Then, envision how you set off on an ill-fated path.",
+					"text": "When __you spend time reflecting on your hardships and missteps__, and your failure track is +6 or greater, roll your challenge dice and compare to your progress. Momentum is ignored on this roll.\n\nOn a __strong hit__, you commit to making a dramatic change. Take 3 experience and clear all progress. Then, choose one.\n\n  * Adjust your approach: Discard a single asset, and take 2 experience for each marked ability.\n  * Make an oath: [Swear an Iron Vow](datasworn:move:classic/quest/swear_an_iron_vow), and reroll any dice.\n  * Ready your next steps: Take +3 momentum.\n\nOn a __weak hit__, you learn from your mistakes. Take 2 experience and clear all progress.\n\nOn a __miss__, you’ve learned the wrong lessons. Take 1 experience and clear all progress. Then, envision how you set off on an ill-fated path.",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__, you commit to making a dramatic change. Take 3 experience and clear all progress. Then, choose one.\n\n  * Adjust your approach: Discard a single asset, and take 2 experience for each marked ability.\n  * Make an oath: [Swear an Iron Vow](move:classic/quest/swear_an_iron_vow), and reroll any dice.\n  * Ready your next steps: Take +3 momentum."
+							"text": "On a __strong hit__, you commit to making a dramatic change. Take 3 experience and clear all progress. Then, choose one.\n\n  * Adjust your approach: Discard a single asset, and take 2 experience for each marked ability.\n  * Make an oath: [Swear an Iron Vow](datasworn:move:classic/quest/swear_an_iron_vow), and reroll any dice.\n  * Ready your next steps: Take +3 momentum."
 						},
 						"weak_hit": {
 							"text": "On a __weak hit__, you learn from your mistakes. Take 2 experience and clear all progress."
@@ -11901,7 +11901,7 @@
 										"min": 1,
 										"max": 30
 									},
-									"text": "The threat readies its next step, or a new danger looms. If you are in a position to prevent this development, you may attempt to do so. If you succeed, [Reach a Milestone](move:classic/quest/reach_a_milestone). Otherwise, mark menace.",
+									"text": "The threat readies its next step, or a new danger looms. If you are in a position to prevent this development, you may attempt to do so. If you succeed, [Reach a Milestone](datasworn:move:classic/quest/reach_a_milestone). Otherwise, mark menace.",
 									"_id": "move.oracle_rollable.row:delve/threat/advance_a_threat.advance_a_threat.0"
 								},
 								{
@@ -11933,7 +11933,7 @@
 						"text": "When you give ground to a threat through inaction, failure, or delay...",
 						"conditions": null
 					},
-					"text": "When __you give ground to a threat through inaction, failure, or delay__, roll on the table below and envision how the change manifests in your world ([Ask the Oracle](move:classic/fate/ask_the_oracle) if unsure).\n\n{{table>move.oracle_rollable:delve/threat/advance_a_threat.advance_a_threat}}\n\nOn a match, this development also exposes a surprising aspect of the threat’s plan or nature.\n\nIf __you mark the last box on the threat’s menace track__, the threat achieves its goal, or the final dire outcome occurs. You must [Forsake Your Vow](move:classic/quest/forsake_your_vow).",
+					"text": "When __you give ground to a threat through inaction, failure, or delay__, roll on the table below and envision how the change manifests in your world ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure).\n\n{{table>move.oracle_rollable:delve/threat/advance_a_threat.advance_a_threat}}\n\nOn a match, this development also exposes a surprising aspect of the threat’s plan or nature.\n\nIf __you mark the last box on the threat’s menace track__, the threat achieves its goal, or the final dire outcome occurs. You must [Forsake Your Vow](datasworn:move:classic/quest/forsake_your_vow).",
 					"outcomes": null,
 					"allow_momentum_burn": false,
 					"_id": "move:delve/threat/advance_a_threat"
@@ -11958,7 +11958,7 @@
 						"text": "When you spend an extended time recovering in a safe place while a threat is active...",
 						"conditions": null
 					},
-					"text": "When __you spend an extended time recovering in a safe place while a threat is active__, do any of the following.\n\n  * Clear any marked conditions.\n  * Set your health, spirit, supply, and companion health to their maximum values.\n  * Set your momentum to its reset value.\n\nThen, for each active threat, [Advance a Threat](move:delve/threat/advance_a_threat).",
+					"text": "When __you spend an extended time recovering in a safe place while a threat is active__, do any of the following.\n\n  * Clear any marked conditions.\n  * Set your health, spirit, supply, and companion health to their maximum values.\n  * Set your momentum to its reset value.\n\nThen, for each active threat, [Advance a Threat](datasworn:move:delve/threat/advance_a_threat).",
 					"outcomes": null,
 					"oracles": {},
 					"allow_momentum_burn": false,
@@ -12069,7 +12069,7 @@
 						"Consume the essence of others"
 					],
 					"description": "A husk is what remains of an Ironlander whose body, mind, and soul are hollowed out by dark magic. In their unquenchable thirst for power, they use their own essence to power foul rituals. Bit by bit, they give themselves to this ruinous path. They abandon their kin. They forsake their former lives. Their physical form wastes away. Their mind is shattered.\n\nIn time, only the husk is left. They are a needful thing, tormented by the memory of all they have lost, but willing to lose even more in their quest for power.\n\nA husk may make tempting offers of rituals or rarities, but be wary. Their bargains are always in their own favor. When they turn against you, a husk is a cunning foe. They weave dreadful spells, summon swarms of lesser creatures, and unleash a savagery inflamed by their anguish.",
-					"quest_starter": "Someone you are sworn to protect is stricken with a curse and falls into an unending sleep. Slowly, their heartbeat fades. They lie at the threshold between life and death. Your only hope lies with the husk who dwells in a nearby [Infested](delve_site_theme:delve/infested) [Shadowfen](delve_site_domain:delve/shadowfen). Will they have a cure? What will they demand in return?",
+					"quest_starter": "Someone you are sworn to protect is stricken with a curse and falls into an unending sleep. Slowly, their heartbeat fades. They lie at the threshold between life and death. Your only hope lies with the husk who dwells in a nearby [Infested](datasworn:delve_site_theme:delve/infested) [Shadowfen](datasworn:delve_site_domain:delve/shadowfen). Will they have a cure? What will they demand in return?",
 					"variants": {},
 					"_id": "npc:delve/ironlanders/husk"
 				},
@@ -12102,7 +12102,7 @@
 						"Stand together to overcome nonbelievers"
 					],
 					"description": "Zealots are those we have lost to their faith. Friends and loved ones are discarded or forgotten. Communities are left behind. Possessions are discarded or turned over to the needs of the sect. They live for one purpose, and all other vows are forsaken. This single-minded devotion changes them, sometimes irrevocably.\n\nSome zealots worship ancient, forgotten gods, and seek to return them to their former horrible glory. Others serve new religious movements, caught up in promises of a better life. Some worship mortal leaders as if they were gods—perhaps even believing them to be the avatar of divinity.\n\nThis sense of belonging, of purpose, can be a powerful lure in this perilous land.",
-					"quest_starter": "You have lost someone to an emerging sect which seeks to unleash a forgotten power or entity. They dwell within a [Hallowed](delve_site_theme:delve/hallowed) [Underkeep](delve_site_domain:delve/underkeep). What is the nature of their belief? Will you attempt to save this person from their faith, or see them destroyed along with it?",
+					"quest_starter": "You have lost someone to an emerging sect which seeks to unleash a forgotten power or entity. They dwell within a [Hallowed](datasworn:delve_site_theme:delve/hallowed) [Underkeep](datasworn:delve_site_domain:delve/underkeep). What is the nature of their belief? Will you attempt to save this person from their faith, or see them destroyed along with it?",
 					"variants": {},
 					"_id": "npc:delve/ironlanders/zealot"
 				}
@@ -12154,8 +12154,8 @@
 						"Strike with spears",
 						"Fight as one, and embody the power of the mighty sea"
 					],
-					"description": "These people of the sea dwell among the [Barrier Islands](atlas_entry:classic/ironlands/barrier_islands), along the [Ragged Coast](atlas_entry:classic/ironlands/ragged_coast), and amid the frozen landscapes of the far north. Some live in isolated villages clinging to rugged shores, or as nomads among the icereaches. Others spend their lives aboard finely-crafted vessels called drift-homes. These ships find safe anchorage during the cruelest depths of winter, and return to the sea in calmer months.\n\nThe atanya are a diverse people, but most are well-suited to a life amid the northern climes. They are strong, hardy, and long-lived. Their height and stout forms give them an imposing physical presence, but they are generally good-natured. They have an unnatural sense of the coming weather and an innate understanding of the sea. Some say they once lived in the depths of the ocean, but were cursed by a forsaken god and banished to the world above.",
-					"quest_starter": "A generation ago, one of your kin was rescued at sea by an atanya ship. By their tradition, this incurred a life debt—which went unpaid by your long-dead relative and now passes to you. They ask you to delve into the flooded bowels of a  [Ravaged](delve_site_theme:delve/ravaged) [Sea Cave](delve_site_domain:delve/sea_cave) to recover a precious item. What is it they seek?",
+					"description": "These people of the sea dwell among the [Barrier Islands](datasworn:atlas_entry:classic/ironlands/barrier_islands), along the [Ragged Coast](datasworn:atlas_entry:classic/ironlands/ragged_coast), and amid the frozen landscapes of the far north. Some live in isolated villages clinging to rugged shores, or as nomads among the icereaches. Others spend their lives aboard finely-crafted vessels called drift-homes. These ships find safe anchorage during the cruelest depths of winter, and return to the sea in calmer months.\n\nThe atanya are a diverse people, but most are well-suited to a life amid the northern climes. They are strong, hardy, and long-lived. Their height and stout forms give them an imposing physical presence, but they are generally good-natured. They have an unnatural sense of the coming weather and an innate understanding of the sea. Some say they once lived in the depths of the ocean, but were cursed by a forsaken god and banished to the world above.",
+					"quest_starter": "A generation ago, one of your kin was rescued at sea by an atanya ship. By their tradition, this incurred a life debt—which went unpaid by your long-dead relative and now passes to you. They ask you to delve into the flooded bowels of a  [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Sea Cave](datasworn:delve_site_domain:delve/sea_cave) to recover a precious item. What is it they seek?",
 					"your_truth": "Atanya ships sometimes sail to the west, and do not return for months or years. Some are never seen again. What is rumored to lie beyond the western horizon?",
 					"variants": {},
 					"_id": "npc:delve/firstborn/atanya"
@@ -12184,8 +12184,8 @@
 						"Entangle in nets",
 						"Drag back to the depths"
 					],
-					"description": "These semiaquatic beings dwell within coastal waters, sea caves, and saltwater marshes. They are fierce protectors of their realm, driven by a zealous devotion to their gods. Their eyes are large and glossy black. They have hunched forms and long limbs, and move with deadly grace in watery environments. Their language is a cacophony of clicks, low grunts, and whistles.\n\nThey war against the [atanya](npc:delve/firstborn/atanya) clans, rarely interact with other firstborn, and are openly hostile to Ironlanders. They emerge from their sunken lairs to swarm over ships or coastal settlements, dragging their victims into the depths. As night falls, the people of seaside villages light their torches, ward their gates, and keep an eye to the waters.",
-					"quest_starter": "Sailors speak in hushed tones of a large merrow, its skin translucent white, wielding a wicked stone blade. It strikes out from a hidden [Fortified](delve_site_theme:delve/fortified) [Sea Cave](delve_site_domain:delve/sea_cave) to raid indiscriminately. This merrow and its clan take no prisoners, instead performing bloodletting rituals aboard the ships they attack. What is the origin of this leader? What is the purpose of these violent rituals?",
+					"description": "These semiaquatic beings dwell within coastal waters, sea caves, and saltwater marshes. They are fierce protectors of their realm, driven by a zealous devotion to their gods. Their eyes are large and glossy black. They have hunched forms and long limbs, and move with deadly grace in watery environments. Their language is a cacophony of clicks, low grunts, and whistles.\n\nThey war against the [atanya](datasworn:npc:delve/firstborn/atanya) clans, rarely interact with other firstborn, and are openly hostile to Ironlanders. They emerge from their sunken lairs to swarm over ships or coastal settlements, dragging their victims into the depths. As night falls, the people of seaside villages light their torches, ward their gates, and keep an eye to the waters.",
+					"quest_starter": "Sailors speak in hushed tones of a large merrow, its skin translucent white, wielding a wicked stone blade. It strikes out from a hidden [Fortified](datasworn:delve_site_theme:delve/fortified) [Sea Cave](datasworn:delve_site_domain:delve/sea_cave) to raid indiscriminately. This merrow and its clan take no prisoners, instead performing bloodletting rituals aboard the ships they attack. What is the origin of this leader? What is the purpose of these violent rituals?",
 					"your_truth": "The merrow worship one god above all others. What form does it take? What does it demand of its supplicants?",
 					"variants": {},
 					"_id": "npc:delve/firstborn/merrow"
@@ -12239,7 +12239,7 @@
 					],
 					"tactics": ["Glide silently", "Sudden, swift attack"],
 					"description": "These carnivorous creatures dwell in caves and ruins, and emerge at night to hunt. They have a lean, angular form, with a wingspan as wide as an Ironlander’s outstretched arms.\n\nThey typically feed on smaller prey, but a pack of hungry bladewings will harass larger victims, diving and slashing in coordinated attacks. During the long nights of winter, swarms of these creatures have descended on Ironlander settlements or unwary travelers.",
-					"quest_starter": "Night after night, a colony of bladewings emerges to prey on a remote settlement. The creatures are rumored to lair in a long-abandoned [Ravaged](delve_site_theme:delve/ravaged) [Mine](delve_site_domain:delve/mine). What is driving their attacks?",
+					"quest_starter": "Night after night, a colony of bladewings emerges to prey on a remote settlement. The creatures are rumored to lair in a long-abandoned [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Mine](datasworn:delve_site_domain:delve/mine). What is driving their attacks?",
 					"your_truth": "A clan of hill people conduct ceremonial hunts of the bladewings, and decorate their banners and shields with its form. Their mystics and warriors even wear the leathery wings as ornamentation. What powers or protections do they believe this imparts?",
 					"variants": {},
 					"_id": "npc:delve/animals/bladewing"
@@ -12273,7 +12273,7 @@
 						"Unyielding bite"
 					],
 					"description": "These semiaquatic creatures dwell within the freshwater rivers and subterranean waterways of the Ironlands. They have a long, eel-like body, a flat head, and short, claw-tipped legs.\n\nA mature adult grows to the length of a horse. They are ungainly on land, but fast and agile within the water. They prefer to attack landbound prey by lurking along the water’s edge and waiting for an unfortunate animal (or Ironlander) to come near their hiding spot.\n\nCarrion newts lay their eggs within the carcass of their kills. The rotting body nurtures the eggs and feeds the young newts until they burst forth into the world. If you come upon a corpse at the water’s edge—be cautious. It might be filled with dozens of hungry young newts.",
-					"quest_starter": "In the depths of a [Wild](delve_site_theme:delve/wild) [Shadowfen](delve_site_domain:delve/shadowfen), the carrion newt they call Old-Gray lurks within a wide, slow river—an important waterway for trade. It is an ancient animal, larger than any newt ever seen. It has one blind eye and ash-colored skin. Recently, a trading boat was attacked and swamped by the creature. Others refuse to make the passage until Old-Gray is dealt with.",
+					"quest_starter": "In the depths of a [Wild](datasworn:delve_site_theme:delve/wild) [Shadowfen](datasworn:delve_site_domain:delve/shadowfen), the carrion newt they call Old-Gray lurks within a wide, slow river—an important waterway for trade. It is an ancient animal, larger than any newt ever seen. It has one blind eye and ash-colored skin. Recently, a trading boat was attacked and swamped by the creature. Others refuse to make the passage until Old-Gray is dealt with.",
 					"your_truth": "Carrion newt eggs are prized by a specific culture or settlement for some purpose. What is it?",
 					"variants": {},
 					"_id": "npc:delve/animals/carrion_newt"
@@ -12298,8 +12298,8 @@
 					"features": ["Feline grace", "Tawny, striped coat"],
 					"drives": ["Hunt"],
 					"tactics": ["Stalk prey", "Leap and bite", "Intimidating roar"],
-					"description": "Cave lions are sleek, powerful creatures who dwell primarily in the [Hinterlands](atlas_entry:classic/ironlands/hinterlands) and [Tempest Hills](atlas_entry:classic/ironlands/tempest_hills). They lair in caverns and other hidden places, emerging to hunt prey such as deer, boar, and rodents. They are typically solitary creatures, but have been seen working together to bring down larger quarry. Even a [mammoth](npc:classic/beasts/mammoth) is no match for a determined pack of cave lions.",
-					"quest_starter": "A large cave lion kills livestock in outlying Ironlander steadings, and attacked a farmer. It hunts well beyond its usual territory, and is said to lair in a [Wild](delve_site_theme:delve/wild) [Cavern](delve_site_domain:delve/cavern). What has driven this beast from its hunting grounds?",
+					"description": "Cave lions are sleek, powerful creatures who dwell primarily in the [Hinterlands](datasworn:atlas_entry:classic/ironlands/hinterlands) and [Tempest Hills](datasworn:atlas_entry:classic/ironlands/tempest_hills). They lair in caverns and other hidden places, emerging to hunt prey such as deer, boar, and rodents. They are typically solitary creatures, but have been seen working together to bring down larger quarry. Even a [mammoth](datasworn:npc:classic/beasts/mammoth) is no match for a determined pack of cave lions.",
+					"quest_starter": "A large cave lion kills livestock in outlying Ironlander steadings, and attacked a farmer. It hunts well beyond its usual territory, and is said to lair in a [Wild](datasworn:delve_site_theme:delve/wild) [Cavern](datasworn:delve_site_domain:delve/cavern). What has driven this beast from its hunting grounds?",
 					"variants": {},
 					"_id": "npc:delve/animals/cave_lion"
 				},
@@ -12329,7 +12329,7 @@
 					"drives": ["Dig", "Feed"],
 					"tactics": ["Undermine paths", "Swarm and bite"],
 					"description": "These foul, oversized rats have squat bodies and stubby tails. They are essentially blind, but navigate through smell and touch.\n\nDeep rats are constantly collecting food and will eat anything even vaguely edible. They often dwell in caves or subterranean structures, digging compulsively to expand their lair. In those places, they serve as fodder for greater creatures.",
-					"quest_starter": "A fallen hero must be laid to rest with their kinfolk, but deep rats have invaded the settlement’s tomb. Within the dark depths of this [Infested](delve_site_theme:delve/infested) [Barrow](delve_site_domain:delve/barrow) is the massive brood mother, a formidable creature that will fight savagely to protect the horde.",
+					"quest_starter": "A fallen hero must be laid to rest with their kinfolk, but deep rats have invaded the settlement’s tomb. Within the dark depths of this [Infested](datasworn:delve_site_theme:delve/infested) [Barrow](datasworn:delve_site_domain:delve/barrow) is the massive brood mother, a formidable creature that will fight savagely to protect the horde.",
 					"your_truth": "During the longest night of winter, deep rats swarm the surface world. They are drawn inexorably to a specific place. What is it?",
 					"variants": {},
 					"_id": "npc:delve/animals/deep_rat"
@@ -12363,7 +12363,7 @@
 						"Pierce with venomous fangs"
 					],
 					"description": "Nightmare spiders are monstrous creatures which dwell in caves, ruins, thick woods, and other dark places. They have narrow, translucent bodies, three pairs of black eyes, and long, slender legs. They typically feed on bats and rodents, but are opportunistic hunters and attack anything straying into their path or stumbling into their webbing. Their lairs are often strung with large silk egg sacs.\n\nFor smaller animals, the toxic bite of the nightmare spider causes paralysis. For a typical Ironlander, it dulls the senses and induces vivid hallucinations. It is these frightening, dreamlike visions which earn the creature its name.",
-					"quest_starter": "Within a [Wild](delve_site_theme:delve/wild) [Tanglewood](delve_site_domain:delve/tanglewood), mystics live in cooperation with the spiders, supplying them with live prey. They’ve abducted someone you care about and will use them as food for these foul creatures. What is the aim of these mystics?",
+					"quest_starter": "Within a [Wild](datasworn:delve_site_theme:delve/wild) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood), mystics live in cooperation with the spiders, supplying them with live prey. They’ve abducted someone you care about and will use them as food for these foul creatures. What is the aim of these mystics?",
 					"your_truth": "Nightmare spider toxin is harvested for a specific rite or practice. What is it?",
 					"variants": {},
 					"_id": "npc:delve/animals/nightmare_spider"
@@ -12398,7 +12398,7 @@
 						"Stab and slash"
 					],
 					"description": "Shroud crabs threaten careless or unlucky Ironlanders along coasts and icereaches. They have long legs, a segmented tail, and large, serrated claws.\n\nTheir carapace changes color to perfectly match their environment, making them nearly invisible among rocks or ice. When potential prey strays near, a shroud crab uses its powerful legs to spring at its victim. Then, it wraps around them in a horrible embrace, stabbing and slashing with its claws and barbed tail.\n\nPacks of shroud crabs are known to work in tandem to bring down large prey. Some report seeing mighty elk engulfed by these voracious creatures. On occasion, the body of a missing Ironlander is found with their flesh picked clean to the bones.",
-					"quest_starter": "A vengeful [husk](npc:delve/ironlanders/husk) curses a seaside settlement and summons a horde of shroud crabs to overrun the place in a flood of clattering legs and snapping claws. The husk dwells within an [Infested](delve_site_theme:delve/infested) [Sea Cave](delve_site_domain:delve/sea_cave), protected by other shroud crabs. There, she prepares an even more horrible show of her power—one which will threaten villages up and down the [Ragged Coast](atlas_entry:classic/ironlands/ragged_coast).",
+					"quest_starter": "A vengeful [husk](datasworn:npc:delve/ironlanders/husk) curses a seaside settlement and summons a horde of shroud crabs to overrun the place in a flood of clattering legs and snapping claws. The husk dwells within an [Infested](datasworn:delve_site_theme:delve/infested) [Sea Cave](datasworn:delve_site_domain:delve/sea_cave), protected by other shroud crabs. There, she prepares an even more horrible show of her power—one which will threaten villages up and down the [Ragged Coast](datasworn:atlas_entry:classic/ironlands/ragged_coast).",
 					"variants": {},
 					"_id": "npc:delve/animals/shroud_crab"
 				},
@@ -12433,7 +12433,7 @@
 						"Bite and thrash"
 					],
 					"description": "Trogs are warm-blooded reptilian animals. They dwell in the deepest places of the Ironlands, but have moved closer to the surface in recent years. Some suggest a greater threat in those dark domains is driving them toward the surface. Many a barrow or underkeep has been breached by trogs who tunnel into those spaces.\n\nThey are strong and agile, able to run, climb, and swim with equal speed. When they stand on two legs as a display of aggression, they are nearly as tall as an Ironlander. They have a hunched back lined with a ridge of spines, a long snout, and serrated teeth. Their scales glimmer with a colorful, ghostly light. Their bite is as powerful and unyielding as a hammer blow.",
-					"quest_starter": "Pilgrims to a [Hallowed](delve_site_theme:delve/hallowed) [Ruin](delve_site_domain:delve/ruin) report the site is overrun by trogs. Within the ruins, an altar to ancient gods is said to bestow fair weather and plentiful crops. Spring is near, and the pilgrims must carry out the rites of the harvest. If they don’t, the will of the people in nearby settlements will falter.",
+					"quest_starter": "Pilgrims to a [Hallowed](datasworn:delve_site_theme:delve/hallowed) [Ruin](datasworn:delve_site_domain:delve/ruin) report the site is overrun by trogs. Within the ruins, an altar to ancient gods is said to bestow fair weather and plentiful crops. Spring is near, and the pilgrims must carry out the rites of the harvest. If they don’t, the will of the people in nearby settlements will falter.",
 					"your_truth": "Some insist that following a trog tunnel into the depths of the earth will eventually lead you to a vast cavern as expansive as the overlands. Is there any truth to this? What secret people or culture lives within this hidden realm?",
 					"variants": {},
 					"_id": "npc:delve/animals/trog"
@@ -12484,7 +12484,7 @@
 						"Spew putrid vomit"
 					],
 					"description": "Chitters are unnaturally large insects which dwell underground, nesting in subterranean caves, ruins and barrows. They stand half the height of an Ironlander, and move on six segmented legs.\n\nThey are primarily scavengers, using their keen sense of smell to locate and retrieve carcasses above or below ground. Instead of eyes, chitters have three thumb-sized holes in the center of their heads through which they issue a distinctive twittering sound. This call is used to communicate with others of its kind and to help visualize their surroundings—much like bats find their way in darkness.\n\nThey are covered in a rigid shell, and their mandibles are as sharp and destructive as a finely forged blade. They are not necessarily hostile, but will aggressively defend their nests or fight to secure a food source.\n\nAs a last resort, a chitter may attack by spewing the contents of its stomach in a noxious spray, leaving all but the hardiest of Ironlanders temporarily blinded and retching.",
-					"quest_starter": "An Ironlander scavenged a relic from an [Ancient](delve_site_theme:delve/ancient) [Underkeep](delve_site_domain:delve/underkeep), bringing it back to their settlement. Now, as if lured by this object, chitters attack in overwhelming waves. The walls will not hold much longer. What is this object, and what connection does it have to these creatures?",
+					"quest_starter": "An Ironlander scavenged a relic from an [Ancient](datasworn:delve_site_theme:delve/ancient) [Underkeep](datasworn:delve_site_domain:delve/underkeep), bringing it back to their settlement. Now, as if lured by this object, chitters attack in overwhelming waves. The walls will not hold much longer. What is this object, and what connection does it have to these creatures?",
 					"variants": {},
 					"_id": "npc:delve/beasts/chitter"
 				},
@@ -12514,7 +12514,7 @@
 					"drives": ["Keep to the woodlands", "Forage"],
 					"tactics": ["Threatening posture", "Powerful charge", "Stomp"],
 					"description": "Gnarls dwell in woodlands throughout the Ironlands. The tallest of them are nearly the height of towering trees, with a long neck and legs as stout as trunks. Atop their heads are sprays of horns which twist and intertwine like slender branches. They roam the forest alone or in small family groups, feeding on lichen, leaves, and other plants. They are not naturally aggressive, but are mighty foes when threatened.\n\nThe color of a gnarl’s bark-like hide changes through its life, emulating the passage of the seasons. A young gnarl’s hide is the verdant green of spring. As they mature, it transitions to the deeper brown-green of summer, then the burnished amber of fall, and finally the cold gray of winter. To protect itself from potential predators, a gnarl will stand among a copse of trees. It will plant its feet, straighten its back, stretch its neck, and stay perfectly still, blending in with its surroundings.\n\nThe low, resonant call of a gnarl can carry for miles. It is a lonely sound, as evocative and heartrending as the most mournful funeral song.",
-					"quest_starter": "A fire rages within a [Ravaged](delve_site_theme:delve/ravaged) [Tanglewood](delve_site_domain:delve/tanglewood). In that place dwells an unusually large gnarl, its ancient hide as white as new snow. Why are you sworn to guide this creature safely through the blaze? What was the source of the fire? Who opposes you in this quest?",
+					"quest_starter": "A fire rages within a [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood). In that place dwells an unusually large gnarl, its ancient hide as white as new snow. Why are you sworn to guide this creature safely through the blaze? What was the source of the fire? Who opposes you in this quest?",
 					"variants": {},
 					"_id": "npc:delve/beasts/gnarl"
 				},
@@ -12543,8 +12543,8 @@
 					],
 					"tactics": ["Attack with brutal rage", "Bite and devour"],
 					"description": "We don’t know the origin of the Iron Blight, nor do we know its cure. It inflicts creatures of the wilds and transforms their flesh slowly to iron. These pitiful but powerful beasts are scarred by patches of metal flesh within ragged, weeping wounds. The iron is like a parasite, devouring the host as it torments them with unstoppable pain and insatiable hunger. Their howls echo with animalistic agony and the clangor of hammer against anvil.\n\nIn time, the Blight takes too much, and the beast dies while it is still more flesh than iron. We pray a creature never survives beyond that stage. What would it become?",
-					"quest_starter": "Your animal companion is stricken with the Iron Blight. The disease is in its early stages, but time is your enemy. Locals say the origin of the blight lies within a [Corrupted](delve_site_theme:delve/corrupted) [Tanglewood](delve_site_domain:delve/tanglewood). What will you do to stop the relentless progression of the iron corruption?",
-					"your_truth": "A sect of [zealots](npc:delve/ironlanders/zealot) believe the Iron Blight is a divine manifestation. What god do they worship? What purpose do they believe the disease fulfills, and how to they intend to hasten the will of their god?",
+					"quest_starter": "Your animal companion is stricken with the Iron Blight. The disease is in its early stages, but time is your enemy. Locals say the origin of the blight lies within a [Corrupted](datasworn:delve_site_theme:delve/corrupted) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood). What will you do to stop the relentless progression of the iron corruption?",
+					"your_truth": "A sect of [zealots](datasworn:npc:delve/ironlanders/zealot) believe the Iron Blight is a divine manifestation. What god do they worship? What purpose do they believe the disease fulfills, and how to they intend to hasten the will of their god?",
 					"variants": {},
 					"_id": "npc:delve/beasts/iron_wracked_beast"
 				},
@@ -12578,7 +12578,7 @@
 						"Sweep sailors from the deck"
 					],
 					"description": "The kraken is a sea beast, as large as the mightiest longship. It is octopoid in form, with eight arms, two longer feeding tentacles, and a beak-like mouth. It emerges from the depths to hunt whales, sharks, and other large sea creatures. It is also prone to attack any Ironlander ships which stray into its waters, plucking the crew off the deck and crushing the vessel as easily as one would snap a piece of kindling.",
-					"quest_starter": "A kraken lurks at the mouth of a fjord. Fisher folk refuse to sail those waters, and trade ships rarely survive the passage. The settlement on the fjord cannot survive without resupply, and overland travel is impossible during this harsh winter. Elders tell of the Dawnrunner, a blessed longship of the original settlers, sealed away in a [Hallowed](delve_site_theme:delve/hallowed) [Sea Cave](delve_site_domain:delve/sea_cave) with the body of its legendary captain. Only this ship, it is said, can outrun the kraken.",
+					"quest_starter": "A kraken lurks at the mouth of a fjord. Fisher folk refuse to sail those waters, and trade ships rarely survive the passage. The settlement on the fjord cannot survive without resupply, and overland travel is impossible during this harsh winter. Elders tell of the Dawnrunner, a blessed longship of the original settlers, sealed away in a [Hallowed](datasworn:delve_site_theme:delve/hallowed) [Sea Cave](datasworn:delve_site_domain:delve/sea_cave) with the body of its legendary captain. Only this ship, it is said, can outrun the kraken.",
 					"your_truth": "A clan of seafolk conduct a yearly hunt to kill a kraken. Although they have never succeeded, and untold Ironlanders have died in the quest, the practice persists. What event or change do they believe killing the beast will bring about? What venerated weapon do they wield in this hunt?",
 					"variants": {},
 					"_id": "npc:delve/beasts/kraken"
@@ -12601,7 +12601,7 @@
 						"page": 125
 					},
 					"features": [
-						"Mutated form (see the [Monstrosity oracle](oracle_collection:delve/monstrosity))"
+						"Mutated form (see the [Monstrosity oracle](datasworn:oracle_collection:delve/monstrosity))"
 					],
 					"drives": [
 						"Guard against intruders",
@@ -12609,10 +12609,10 @@
 						"Endure beyond memory"
 					],
 					"tactics": [
-						"Varied (see the [Monstrosity oracle](oracle_collection:delve/monstrosity))"
+						"Varied (see the [Monstrosity oracle](datasworn:oracle_collection:delve/monstrosity))"
 					],
-					"description": "What we call the nightspawn are mutated beasts which take a variety of forms. Some are animal-like, or combine the characteristics of different creatures. Others are bizarre aberrations seemingly born of chaos. A few even possess twisted mockeries of human features.\n\nThey are rare beasts, but dwell in every region and environment of the Ironlands, from the dark waters of the [Ragged Coast](atlas_entry:classic/ironlands/ragged_coast) to the icy plains of the [Shattered Wastes](atlas_entry:classic/ironlands/shattered_wastes). Often, they protect ancient ruins, forgotten relics, and other secrets. They watch and wait, and show no mercy to those who trespass in their domain.\n\nWe do not know the origin of the nightspawn. They are enigmatic creatures, rarely emerging from their dark lairs except during the long nights of winter. Is it the latent magic of these lands which gives them life? Have they passed through the veil from some other realm? Perhaps some questions are best left unanswered.",
-					"quest_starter": "The first settlers, your forebears, told tales of a great nightspawn at the heart of a [Ravaged](delve_site_theme:delve/ravaged) [Ruin](delve_site_domain:delve/ruin). According to those stories, it guards a pool of life-giving water. Any who have since tried to plunder that place have not returned. Or they have come back broken in mind or body. What now compels you to delve into this site?",
+					"description": "What we call the nightspawn are mutated beasts which take a variety of forms. Some are animal-like, or combine the characteristics of different creatures. Others are bizarre aberrations seemingly born of chaos. A few even possess twisted mockeries of human features.\n\nThey are rare beasts, but dwell in every region and environment of the Ironlands, from the dark waters of the [Ragged Coast](datasworn:atlas_entry:classic/ironlands/ragged_coast) to the icy plains of the [Shattered Wastes](datasworn:atlas_entry:classic/ironlands/shattered_wastes). Often, they protect ancient ruins, forgotten relics, and other secrets. They watch and wait, and show no mercy to those who trespass in their domain.\n\nWe do not know the origin of the nightspawn. They are enigmatic creatures, rarely emerging from their dark lairs except during the long nights of winter. Is it the latent magic of these lands which gives them life? Have they passed through the veil from some other realm? Perhaps some questions are best left unanswered.",
+					"quest_starter": "The first settlers, your forebears, told tales of a great nightspawn at the heart of a [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Ruin](datasworn:delve_site_domain:delve/ruin). According to those stories, it guards a pool of life-giving water. Any who have since tried to plunder that place have not returned. Or they have come back broken in mind or body. What now compels you to delve into this site?",
 					"variants": {},
 					"_id": "npc:delve/beasts/nightspawn"
 				},
@@ -12646,8 +12646,8 @@
 						"Clamp down with a powerful bite",
 						"Shake victims like a hound with a rat"
 					],
-					"description": "In the language of the [atanya](npc:delve/firstborn/atanya), rhaskar means “white death.” This mighty beast dwells within northern waters and amid frozen icereaches. It hunts along shorelines, lurks beneath ice, or tracks the frigid wastes in search of prey. Some rhaskar have even been known to attack ships in coastal waters. It is a highly territorial creature, and does not abide trespassers within its domain.\n\nWith its mane of dorsal fur and long, angular head, the rhaskar looks like a fusion of shark and bear—and embodies the strength and cunning of both. It is the uncaring ferocity of these cold northern realms given form.",
-					"quest_starter": "Settlements and ships along the northern expanse of the [Ragged Coast](atlas_entry:classic/ironlands/ragged_coast) face repeated attacks from a large rhaskar. The creature appears amidst a fierce snowstorm, makes it savage assault, and fades back into the blizzard like a ghost. It seems to act out of a pure compulsion to cause terror and inflict violence rather than any need for food. A hunter tracked it to a [Wild](delve_site_theme:delve/wild) [Frozen Cavern](delve_site_domain:delve/frozen_cavern). But they heeded the warning of a pile of bones at the entrance and refused to enter that place.",
+					"description": "In the language of the [atanya](datasworn:npc:delve/firstborn/atanya), rhaskar means “white death.” This mighty beast dwells within northern waters and amid frozen icereaches. It hunts along shorelines, lurks beneath ice, or tracks the frigid wastes in search of prey. Some rhaskar have even been known to attack ships in coastal waters. It is a highly territorial creature, and does not abide trespassers within its domain.\n\nWith its mane of dorsal fur and long, angular head, the rhaskar looks like a fusion of shark and bear—and embodies the strength and cunning of both. It is the uncaring ferocity of these cold northern realms given form.",
+					"quest_starter": "Settlements and ships along the northern expanse of the [Ragged Coast](datasworn:atlas_entry:classic/ironlands/ragged_coast) face repeated attacks from a large rhaskar. The creature appears amidst a fierce snowstorm, makes it savage assault, and fades back into the blizzard like a ghost. It seems to act out of a pure compulsion to cause terror and inflict violence rather than any need for food. A hunter tracked it to a [Wild](datasworn:delve_site_theme:delve/wild) [Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern). But they heeded the warning of a pile of bones at the entrance and refused to enter that place.",
 					"variants": {},
 					"_id": "npc:delve/beasts/rhaskar"
 				},
@@ -12682,7 +12682,7 @@
 						"Savage claw and bite"
 					],
 					"description": "Wyrms are massive serpentine creatures. They are kin to the wyverns, but are much larger and wingless. Their lairs are found in deep caves, subterranean vaults, or at the heart of dense forests. They hibernate in those places for weeks or months at a time, waking only to satiate their massive appetites. They are low-slung beasts, with short, thick legs, elongated jaws, and a dense hide.\n\nFiercely territorial, a wyrm is sure to attack any who stray into their domain. It can sense movement through vibration, and its golden eyes can pierce the thickest darkness.",
-					"quest_starter": "Last year, a huge white wyrm destroyed several mining camps in the [Veiled Mountains](atlas_entry:classic/ironlands/veiled_mountains). Winter has passed, but Ironlander miners are refusing to return to those camps without assurance that the wyrm is dead. Its lair is in an [Ancient](delve_site_theme:delve/ancient) [Frozen Cavern](delve_site_domain:delve/frozen_cavern) deep within the mountains.",
+					"quest_starter": "Last year, a huge white wyrm destroyed several mining camps in the [Veiled Mountains](datasworn:atlas_entry:classic/ironlands/veiled_mountains). Winter has passed, but Ironlander miners are refusing to return to those camps without assurance that the wyrm is dead. Its lair is in an [Ancient](datasworn:delve_site_theme:delve/ancient) [Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern) deep within the mountains.",
 					"your_truth": "Tales tell of the World-Eater, the mother of all wyrms, and the great hero who battled her to save an Old World kingdom. Many claim to have relics from that great battle, or to be descended from that hero. But there is only one true legacy which survives today. What is it, and what clans or factions seek to control it?",
 					"variants": {},
 					"_id": "npc:delve/beasts/wyrm"
@@ -12733,7 +12733,7 @@
 					],
 					"tactics": ["Unearthly howl", "Piercing gaze", "Savage bite"],
 					"description": "Blighthounds lurk on blood-soaked battlefields, on the outskirts of settlements destined for famine, or within the dark catacombs of ancient tombs. Drawn to the dead, and foretelling great doom, they are capable predators and grim messengers of death.\n\nThey appear as gaunt, emaciated hounds, often mistaken for starving animals at first glance. Their fiendish form reveals itself in blood-red eyes, sweeping horns, and skin the texture of charred and blistered wood.",
-					"quest_starter": "Every night, a blighthound appears outside a settlement at the edge of a [Wild](delve_site_theme:delve/wild) [Tanglewood](delve_site_domain:delve/tanglewood), observing silently from within the mist. The people are gripped with a cold fear, wondering what fate will befall them. If any approach the blighthound, it leads them into the depths of the woods...",
+					"quest_starter": "Every night, a blighthound appears outside a settlement at the edge of a [Wild](datasworn:delve_site_theme:delve/wild) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood), observing silently from within the mist. The people are gripped with a cold fear, wondering what fate will befall them. If any approach the blighthound, it leads them into the depths of the woods...",
 					"variants": {},
 					"_id": "npc:delve/horrors/blighthound"
 				},
@@ -12765,9 +12765,9 @@
 						"Crush with unexpected strength",
 						"Share dreadful secrets"
 					],
-					"description": "Long ago, before we arrived on the shores of the Ironlands, other people lived here. Some of those folk dwelled in what we now call the [Flooded Lands](atlas_entry:classic/ironlands/flooded_lands), and laid their kin to rest in the vast peat bogs of that place.\n\nA few of those dead do not rest, and rise as bog rots. They are horrible creatures, with preserved flesh stained and withered like old leather. Their eyes are black pits, and their mouths hang open in a perpetual, silent scream.\n\nIt is said a bog rot can only find rest by committing another victim to the mire. A soul for a soul. In those final moments, the creature whispers of ancient secrets and forbidden lore, as if unloading the burden of that dark knowledge. For those few who escape the grasp of a bog rot, these awful truths are sometimes worse than death.",
-					"quest_starter": "In a [Corrupted](delve_site_theme:delve/corrupted) [Shadowfen](delve_site_domain:delve/shadowfen), a great battle once took place. Hundreds died amid the morass. Their mummified corpses lie buried in mud and peat, but many do not rest easily. What secret or artifact is said to lie with them? Why are you sworn to seek it out?",
-					"your_truth": "Ironlanders in the [Flooded Lands](atlas_entry:classic/ironlands/flooded_lands) enact a particular burial practice to ensure their kin do not someday rise as a bog rot from that baneful soil. What is it?",
+					"description": "Long ago, before we arrived on the shores of the Ironlands, other people lived here. Some of those folk dwelled in what we now call the [Flooded Lands](datasworn:atlas_entry:classic/ironlands/flooded_lands), and laid their kin to rest in the vast peat bogs of that place.\n\nA few of those dead do not rest, and rise as bog rots. They are horrible creatures, with preserved flesh stained and withered like old leather. Their eyes are black pits, and their mouths hang open in a perpetual, silent scream.\n\nIt is said a bog rot can only find rest by committing another victim to the mire. A soul for a soul. In those final moments, the creature whispers of ancient secrets and forbidden lore, as if unloading the burden of that dark knowledge. For those few who escape the grasp of a bog rot, these awful truths are sometimes worse than death.",
+					"quest_starter": "In a [Corrupted](datasworn:delve_site_theme:delve/corrupted) [Shadowfen](datasworn:delve_site_domain:delve/shadowfen), a great battle once took place. Hundreds died amid the morass. Their mummified corpses lie buried in mud and peat, but many do not rest easily. What secret or artifact is said to lie with them? Why are you sworn to seek it out?",
+					"your_truth": "Ironlanders in the [Flooded Lands](datasworn:atlas_entry:classic/ironlands/flooded_lands) enact a particular burial practice to ensure their kin do not someday rise as a bog rot from that baneful soil. What is it?",
 					"variants": {},
 					"_id": "npc:delve/horrors/bog_rot"
 				},
@@ -12800,7 +12800,7 @@
 						"Envelop and crush"
 					],
 					"description": "A bonehorde is a mass of moldering skeletal remains given unnatural life. They are spawned in old battlefields or tombs, but often range beyond those places to seek out new victims. At the heart of a horde, surrounded by layers of clattering bones, are the remains of the spiteful being who gives the horror its cruel intelligence.\n\nIts form varies. In tight spaces, a bonehorde may appear as an amorphous mound or as a spider-like entity with long, skittering limbs. In the open, it can crudely mimic the shape of an animal or person. The bones constantly shift—snapping like dry twigs—to accommodate its environment, propel its movement, and lash out against its victims.",
-					"quest_starter": "For months, someone has been stealing remains from local graves and barrows. Now, a bonehorde emerges from a [Haunted](delve_site_theme:delve/haunted) [Tanglewood](delve_site_domain:delve/tanglewood) to attack nearby communities and travelers. Who commands this foul aberration, and for what purpose?",
+					"quest_starter": "For months, someone has been stealing remains from local graves and barrows. Now, a bonehorde emerges from a [Haunted](datasworn:delve_site_theme:delve/haunted) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood) to attack nearby communities and travelers. Who commands this foul aberration, and for what purpose?",
 					"variants": {},
 					"_id": "npc:delve/horrors/bonehorde"
 				},
@@ -12836,7 +12836,7 @@
 						"Lash out with unnatural strength"
 					],
 					"description": "A thrall is a living person controlled by the will of a powerful undead spirit. The malignant presence can lie dormant for some time, feeding on the suffering of the host and subtly manipulating them to achieve its mysterious and often malevolent ends. Once the host is weakened, the spirit supplants their will entirely.",
-					"quest_starter": "A spirit has taken possession of someone you care about. They are fading, and will soon be a thrall to its will. Within a [Haunted](delve_site_theme:delve/haunted) [Barrow](delve_site_domain:delve/barrow), the spirit’s remains lie entombed. What ritual must you enact there to banish this foul presence?",
+					"quest_starter": "A spirit has taken possession of someone you care about. They are fading, and will soon be a thrall to its will. Within a [Haunted](datasworn:delve_site_theme:delve/haunted) [Barrow](datasworn:delve_site_domain:delve/barrow), the spirit’s remains lie entombed. What ritual must you enact there to banish this foul presence?",
 					"your_truth": "To detect the presence of a spirit, drawing it out of the thrall for a few moments, mystics must perform a dangerous ritual. What is the nature of this ritual, and what rare or elusive component does it require?",
 					"variants": {},
 					"_id": "npc:delve/horrors/thrall"
@@ -12870,7 +12870,7 @@
 						"Exploit knowledge and powers from beyond death"
 					],
 					"description": "Wights are beings who carry out their sworn charge—to protect a place, object or person—even beyond death. They retain their reasoning and intelligence, but are driven obsessively by this singular purpose.\n\nA wight’s steadfast will can delay their inevitable physical decay for decades, but they are marked by death nonetheless. They have the pallor of a freshly entombed corpse, with sallow skin stretched thin over bones. They often hide their corrupted features behind iron burial masks.\n\nSome wights wield the armor and weapons they favored in life, and are relentless, unyielding fighters. Others master dark rituals, empowered by the knowledge of what lies beyond our mortal realm.\n\nA wight who forsakes their vow will continue their tortured existence as a bonewalker, fated to lurk forever at the precipice of death.",
-					"quest_starter": "A wight is in search of the person it is sworn to protect, now held in a [Fortified](delve_site_theme:delve/fortified) [Stronghold](delve_site_domain:delve/stronghold). Who does it seek? Why were they taken? Will you stand against the wight, or help them?",
+					"quest_starter": "A wight is in search of the person it is sworn to protect, now held in a [Fortified](datasworn:delve_site_theme:delve/fortified) [Stronghold](datasworn:delve_site_domain:delve/stronghold). Who does it seek? Why were they taken? Will you stand against the wight, or help them?",
 					"variants": {},
 					"_id": "npc:delve/horrors/wight"
 				}
@@ -12919,8 +12919,8 @@
 					],
 					"drives": ["Consume blood", "Proliferate"],
 					"tactics": ["Lie in wait", "Grasp, entangle, and feed"],
-					"description": "A blood thorn is a malignant, carnivorous plant. It seizes its victims with long, creeping tendrils. Then, it leeches their life through hollow thorns, eventually bleeding them dry.\n\nBlood thorns appear in woodland areas throughout the Ironlands. They are especially common in the [Deep Wilds](atlas_entry:classic/ironlands/deep_wilds), where they often encircle [elf](npc:classic/firstborn/elf) villages. Some suspect they are cultivated by the elves, or share a symbiotic relationship with them.",
-					"quest_starter": "Ironlanders attempted to found a settlement at the heart of a [Wild](delve_site_theme:delve/wild) [Tanglewood](delve_site_domain:delve/tanglewood) a decade ago. That place is now abandoned and infested by blood thorns. Why did the settlers try to create a home in such an untamed place? What object or information do you seek there?",
+					"description": "A blood thorn is a malignant, carnivorous plant. It seizes its victims with long, creeping tendrils. Then, it leeches their life through hollow thorns, eventually bleeding them dry.\n\nBlood thorns appear in woodland areas throughout the Ironlands. They are especially common in the [Deep Wilds](datasworn:atlas_entry:classic/ironlands/deep_wilds), where they often encircle [elf](datasworn:npc:classic/firstborn/elf) villages. Some suspect they are cultivated by the elves, or share a symbiotic relationship with them.",
+					"quest_starter": "Ironlanders attempted to found a settlement at the heart of a [Wild](datasworn:delve_site_theme:delve/wild) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood) a decade ago. That place is now abandoned and infested by blood thorns. Why did the settlers try to create a home in such an untamed place? What object or information do you seek there?",
 					"your_truth": "Each spring, a vibrant red flower sprouts from blood thorn branches. This blossom is coveted as an ingredient for alchemical elixirs. What effect does it provide?",
 					"variants": {},
 					"_id": "npc:delve/anomalies/blood_thorn"
@@ -12954,7 +12954,7 @@
 						"Grant knowledge, for a price"
 					],
 					"description": "The ancient standing stones, crafted long before we settled here, preserve the memories and secrets of the Ironlands.\n\nBecause the stones are often hidden within dense thickets, buried in snow, or obscured by veils of mist, a traveler may find themselves unexpectedly breaking the boundary of a circle. The stones hunger for new knowledge, and our memories are fodder for their insatiable appetites. What they take is sometimes gone forever.\n\nSome Ironlanders enter a circle willingly. Perhaps they hope to abandon a painful memory to the stones, discarding that piece of themselves like slag hammered from wrought iron. Then, there are those who wish to forsake the world and live with their memories. For them, an unreal life within the circle is better than the cruel reality outside of it.\n\nThose in need of information may choose to risk a negotiation within a circle. Knowledge for knowledge is the customary trade, but the stones are cunning and may demand a more horrible price.",
-					"quest_starter": "A clan of Ironlanders protect and worship a circle of stones found in a [Hallowed](delve_site_theme:delve/hallowed) [Tanglewood](delve_site_domain:delve/tanglewood). What forbidden secrets do these stones offer? How does the price for these secrets threaten you or your kin?",
+					"quest_starter": "A clan of Ironlanders protect and worship a circle of stones found in a [Hallowed](datasworn:delve_site_theme:delve/hallowed) [Tanglewood](datasworn:delve_site_domain:delve/tanglewood). What forbidden secrets do these stones offer? How does the price for these secrets threaten you or your kin?",
 					"your_truth": "The stones covet a particular type of memory above all others. What is it, and what do they offer in exchange?",
 					"variants": {},
 					"_id": "npc:delve/anomalies/circle_of_stones"
@@ -12987,7 +12987,7 @@
 						"Lead astray"
 					],
 					"description": "The glimmer are beings of mysterious origin and intent. They are most often encountered as particles of light which coalesce into a luminous humanoid or animal form.\n\nThey are drawn to those who need guidance. For wayward travelers and seekers of hidden things, a glimmer will make a silent offer of passage. Relief from the dangers of the Ironlands or a quick journey to a distant destination is a tempting invitation, but not without its own price.\n\nThe path the glimmer reveals is not wholly of our world. It can descend into the past, or climb into the future. It can wend its way across other lands and through strange realities. These trails are navigated not just by the glimmer, but by ancient, baneful things beyond comprehension.\n\nIf you accept a glimmer’s guidance, steel yourself for the journey. Envision the places and people that give you hope, and you may find yourself among them. But do not be distracted. The temptations and terrors along the way can lead all but the most resolute astray. To be lost along a glimmer’s path is to remain lost—perhaps forever.",
-					"quest_starter": "Someone you love entered a [Corrupted](delve_site_theme:delve/corrupted) [Shadowfen](delve_site_domain:delve/shadowfen) in search of a glimmer’s aid. They did not return. What did they seek? Can you walk the glimmer’s path and bring them back home?",
+					"quest_starter": "Someone you love entered a [Corrupted](datasworn:delve_site_theme:delve/corrupted) [Shadowfen](datasworn:delve_site_domain:delve/shadowfen) in search of a glimmer’s aid. They did not return. What did they seek? Can you walk the glimmer’s path and bring them back home?",
 					"your_truth": "If you seek the guidance of a glimmer, you can try summoning one through a specific rite. What must you do? What cost must be paid?",
 					"variants": {},
 					"_id": "npc:delve/anomalies/glimmer"
@@ -13018,7 +13018,7 @@
 						"Show painful and horrifying visions"
 					],
 					"description": "A gloom is a mass of malignant shadow. It dwells in dark places beneath the earth, or in the shadows of thick woods. At twilight and during the long gray days of winter, it emerges from its lightless refuge to sate its hunger.\n\nThe gloom’s amorphous form cannot exert physical force. Instead, it will draw in its victims through illusion, mimicking familiar voices or forms. Or it will use the cover of darkness to ambush unwary prey. Once enveloped, the victim is a captive audience for the gloom’s apparitions, forced to face their innermost doubts and fears. The gloom picks at their sanity like a scavenger cleaning meat from bones. After a time, there is nothing left but an empty shell.\n\nIf trapped within a gloom, let your conviction and courage be your light. Against hopelessness, find hope. Against despair, find peace of mind. Against terror, find faith. In the darkness, it is not the gloom that is your enemy. It is yourself.",
-					"quest_starter": "[Zealots](npc:delve/ironlanders/zealot) nurture a gloom within a [Hallowed](delve_site_theme:delve/hallowed) [Underkeep](delve_site_domain:delve/underkeep). They believe this anomaly offers true enlightenment, and seek a means to unleash it on the Ironlands. Who is the leader of this sect?",
+					"quest_starter": "[Zealots](datasworn:npc:delve/ironlanders/zealot) nurture a gloom within a [Hallowed](datasworn:delve_site_theme:delve/hallowed) [Underkeep](datasworn:delve_site_domain:delve/underkeep). They believe this anomaly offers true enlightenment, and seek a means to unleash it on the Ironlands. Who is the leader of this sect?",
 					"your_truth": "Is there a benevolent counterpart to a gloom—one which offers light and hope instead of darkness and despair? Is this the cure for someone who suffers the aftermath of a gloom’s visions? What is it called, and where can it be found?",
 					"variants": {},
 					"_id": "npc:delve/anomalies/gloom"
@@ -13053,7 +13053,7 @@
 						"Drag into abyssal darkness"
 					],
 					"description": "In coastal waters and cavern pools, these swirling vortexes of frigid water drag the unwary into their depths, stealing the breath from their lungs.\n\nMaelstroms often manifest in places of great loss and tragedy, on the sites of shipwrecks or the watery graves of drowned travelers. The debris swept into the maelstrom’s heart batter armor and flesh. The voices of the maelstrom’s victims, ripped from their chests with their dying breaths, cry out from the turbulent water.",
-					"quest_starter": "Within a waterway cutting through a [Ravaged](delve_site_theme:delve/ravaged) [Icereach](delve_site_domain:delve/icereach), a great maelstrom drew a longship and its crew into the depths. Despite an exhaustive search, no survivors—or even bodies—are found. They are simply gone. Why are you compelled to discover the fate of these victims?",
+					"quest_starter": "Within a waterway cutting through a [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Icereach](datasworn:delve_site_domain:delve/icereach), a great maelstrom drew a longship and its crew into the depths. Despite an exhaustive search, no survivors—or even bodies—are found. They are simply gone. Why are you compelled to discover the fate of these victims?",
 					"your_truth": "Some believe that you must cast a particular thing of value into a maelstrom in trade for your life. What is it?",
 					"variants": {},
 					"_id": "npc:delve/anomalies/maelstrom"
@@ -13087,7 +13087,7 @@
 						"Grant release, at great cost"
 					],
 					"description": "A tempest is a fierce, unnatural storm. It can appear in any season or in any weather, but is larger and more powerful in the depths of winter. It is drawn to the warmth of living beings, and seeks to douse that life as one would snuff out a candle.\n\nA tempest’s true nature is a mystery. Is it intelligent, or just a force of nature? Those who survive an encounter sometimes report hearing hushed voices and seeing strange forms within the whirlwind. Some few tell tales of the eye of the storm, where the colds and wind abate, and where relief from certain death is offered—for a price.",
-					"quest_starter": "In the [Havens](atlas_entry:classic/ironlands/havens), a massive, swirling tempest has appeared. It is expanding with grim purpose. A settlement was destroyed, and others are threatened. At the heart of the storm lies an [Ancient](delve_site_theme:delve/ancient) [Ruin](delve_site_domain:delve/ruin). What force powers this tempest? Can it be stopped, or will it someday cover all the Ironlands in its cold wrath?",
+					"quest_starter": "In the [Havens](datasworn:atlas_entry:classic/ironlands/havens), a massive, swirling tempest has appeared. It is expanding with grim purpose. A settlement was destroyed, and others are threatened. At the heart of the storm lies an [Ancient](datasworn:delve_site_theme:delve/ancient) [Ruin](datasworn:delve_site_domain:delve/ruin). What force powers this tempest? Can it be stopped, or will it someday cover all the Ironlands in its cold wrath?",
 					"your_truth": "Are there Ironlanders in your world who can foretell or influence the weather? If so, what are they called? What signs do they look for as a portent of a coming tempest?",
 					"variants": {},
 					"_id": "npc:delve/anomalies/tempest"
@@ -14593,7 +14593,7 @@
 					"_id": "delve_site.denizen:delve/bleakroot_depths.11"
 				}
 			],
-			"description": "The roots of the trees run deep into the veins of the earth, tangling amid the frozen tunnels of Bleakroot Depths. The site is perilous, but provides the only passage between the remote villages of Idleburrow and Lora’s Rise. Those settlements depend on each other for trade and protection amid the perilous heights of the [Tempest Hills](atlas_entry:classic/ironlands/tempest_hills).\n\nRecently, the beasts of the hills have taken to the tunnels, drawn there inexplicably. Within, they become frenzied and wild. They ambush all who dare enter Bleakroot Depths, cutting off this critical route. What primal force is at work here?",
+			"description": "The roots of the trees run deep into the veins of the earth, tangling amid the frozen tunnels of Bleakroot Depths. The site is perilous, but provides the only passage between the remote villages of Idleburrow and Lora’s Rise. Those settlements depend on each other for trade and protection amid the perilous heights of the [Tempest Hills](datasworn:atlas_entry:classic/ironlands/tempest_hills).\n\nRecently, the beasts of the hills have taken to the tunnels, drawn there inexplicably. Within, they become frenzied and wild. They ambush all who dare enter Bleakroot Depths, cutting off this critical route. What primal force is at work here?",
 			"_id": "delve_site:delve/bleakroot_depths"
 		},
 		"bonewilds": {
@@ -14974,7 +14974,7 @@
 					"_id": "delve_site.denizen:delve/deeprot_bog.11"
 				}
 			],
-			"description": "The marshes of Deeprot Bog sit within a low valley, surrounded by impassible cliffs. The only accessible approach to this place is through a [Ravaged](delve_site_theme:delve/ravaged) [Cavern](delve_site_domain:delve/cavern), carved into the heart of the enclosing hills. It is a dangerous path, prone to floods and collapse.\n\nWithin the bog itself, amid the black waters and tangled wilds of the fen, the cult of the One Beneath Us practices their rituals. Utterly devoted to the strange deity of decay, the cultists formerly kept to themselves. But recently, they’ve struck out, traveling by boat through the cavern passage. They gather supplies and new adherents from local settlements—through force if necessary.\n\nA perpetual storm seems to hang over the marsh, its dark clouds roiling. Could the cultists serving the One Beneath Us be reaching a zenith in their work?",
+			"description": "The marshes of Deeprot Bog sit within a low valley, surrounded by impassible cliffs. The only accessible approach to this place is through a [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Cavern](datasworn:delve_site_domain:delve/cavern), carved into the heart of the enclosing hills. It is a dangerous path, prone to floods and collapse.\n\nWithin the bog itself, amid the black waters and tangled wilds of the fen, the cult of the One Beneath Us practices their rituals. Utterly devoted to the strange deity of decay, the cultists formerly kept to themselves. But recently, they’ve struck out, traveling by boat through the cavern passage. They gather supplies and new adherents from local settlements—through force if necessary.\n\nA perpetual storm seems to hang over the marsh, its dark clouds roiling. Could the cultists serving the One Beneath Us be reaching a zenith in their work?",
 			"_id": "delve_site:delve/deeprot_bog"
 		},
 		"egans_folly": {
@@ -15229,7 +15229,7 @@
 					"_id": "delve_site.denizen:delve/foulwater_plunge.11"
 				}
 			],
-			"description": "On the [Ragged Coast](atlas_entry:classic/ironlands/ragged_coast), countless caves riddle the fjords, carved over eons by the relentless tides. One such cave hosts a misshapen beast of unknown origin: a nightspawn, birthed from hellish depths to prey on the fishers and sailors of the coast. The monster’s presence taints the waters of the cave, blackening them, tinging them with an acrid odor. Moreover, nearby aquatic life takes on qualities of the nightspawn, reshaped into aberrant forms by its creeping vileness. These monstrosities drift farther and farther from the cave, spreading the corruption to ships and settlements.\n\nRecently, folk have undertaken pilgrimages to this sea cave. They say the nightspawn calls to them, like a mother to its children. What has become of them in that vile place?",
+			"description": "On the [Ragged Coast](datasworn:atlas_entry:classic/ironlands/ragged_coast), countless caves riddle the fjords, carved over eons by the relentless tides. One such cave hosts a misshapen beast of unknown origin: a nightspawn, birthed from hellish depths to prey on the fishers and sailors of the coast. The monster’s presence taints the waters of the cave, blackening them, tinging them with an acrid odor. Moreover, nearby aquatic life takes on qualities of the nightspawn, reshaped into aberrant forms by its creeping vileness. These monstrosities drift farther and farther from the cave, spreading the corruption to ships and settlements.\n\nRecently, folk have undertaken pilgrimages to this sea cave. They say the nightspawn calls to them, like a mother to its children. What has become of them in that vile place?",
 			"_id": "delve_site:delve/foulwater_plunge"
 		},
 		"frostmark": {
@@ -15357,7 +15357,7 @@
 					"_id": "delve_site.denizen:delve/frostmark.11"
 				}
 			],
-			"description": "A clan of raiders established a settlement on this icereach. Their village, Thilda’s Hold, sits high atop a high frozen crag. Elsewhere, they’ve built several work camps and outposts. In the spring, when the surrounding waters thaw, they board their longboats to raid along the coast.\n\nReaching the clan’s remote village requires difficult overland travel. In warmer seasons, a skilled seafarer can navigate the ice-strewn waterways that cut through Frostmark like ragged scars.\n\nA large tribe of broken also live here, sheltered in an [Ancient](delve_site_theme:delve/ancient) [Frozen Cavern](delve_site_domain:delve/frozen_cavern). In a recent nighttime attack on Thilda’s Hold, they killed many of the raiders, including the clan leader’s son. What will the raider’s do in retaliation?",
+			"description": "A clan of raiders established a settlement on this icereach. Their village, Thilda’s Hold, sits high atop a high frozen crag. Elsewhere, they’ve built several work camps and outposts. In the spring, when the surrounding waters thaw, they board their longboats to raid along the coast.\n\nReaching the clan’s remote village requires difficult overland travel. In warmer seasons, a skilled seafarer can navigate the ice-strewn waterways that cut through Frostmark like ragged scars.\n\nA large tribe of broken also live here, sheltered in an [Ancient](datasworn:delve_site_theme:delve/ancient) [Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern). In a recent nighttime attack on Thilda’s Hold, they killed many of the raiders, including the clan leader’s son. What will the raider’s do in retaliation?",
 			"_id": "delve_site:delve/frostmark"
 		},
 		"greathammer_deep": {
@@ -15484,7 +15484,7 @@
 					"_id": "delve_site.denizen:delve/greathammer_deep.11"
 				}
 			],
-			"description": "In ancient days, a lineage of giants lived beyond the [Veiled Mountains](atlas_entry:classic/ironlands/veiled_mountains) in the great expanse we now call the [Shattered Wastes](atlas_entry:classic/ironlands/shattered_wastes). The cavernous entrance to this abandoned mine sits at the summit of an icy mount. In the frozen depths, the giants once mined for ore and fashioned great weapons. Today, their abandoned tools and preserved corpses are all that remain of their legacy.\n\nExploration of this place is treacherous. The mine is shaken by frequent earthquakes, causing cave-ins and pitfalls. The cold is as piercing and deadly as the sharpest blade. Horrid things lurk amid the echoing shadows.\n\nSome say the giants unleashed a long-buried power. Did this cause the cataclysm which sealed these northern lands in perpetual ice?",
+			"description": "In ancient days, a lineage of giants lived beyond the [Veiled Mountains](datasworn:atlas_entry:classic/ironlands/veiled_mountains) in the great expanse we now call the [Shattered Wastes](datasworn:atlas_entry:classic/ironlands/shattered_wastes). The cavernous entrance to this abandoned mine sits at the summit of an icy mount. In the frozen depths, the giants once mined for ore and fashioned great weapons. Today, their abandoned tools and preserved corpses are all that remain of their legacy.\n\nExploration of this place is treacherous. The mine is shaken by frequent earthquakes, causing cave-ins and pitfalls. The cold is as piercing and deadly as the sharpest blade. Horrid things lurk amid the echoing shadows.\n\nSome say the giants unleashed a long-buried power. Did this cause the cataclysm which sealed these northern lands in perpetual ice?",
 			"_id": "delve_site:delve/greathammer_deep"
 		},
 		"holdfast_barrow": {
@@ -16244,7 +16244,7 @@
 					"_id": "delve_site.denizen:delve/sinking_temple.11"
 				}
 			],
-			"description": "A massive ruin, ancient and abandoned, stands silent and still along the coast. Once, a lost people worshiped gods of the sea in this place. Today, the ground beneath it gives way, toppling the temple into the ocean and flooding its lower chambers.\n\nIronlanders pilgrimage here to pay respect to those old gods. They cast cherished items into the sea and pray for calm waters and safe voyages for their kin. Recently, these pilgrims found the ruin overrun with savage [merrow](npc:delve/firstborn/merrow), invading from the ocean’s depths.\n\nWhat brings the merrow to this place, and what hidden dangers lurk within its deluged chambers?",
+			"description": "A massive ruin, ancient and abandoned, stands silent and still along the coast. Once, a lost people worshiped gods of the sea in this place. Today, the ground beneath it gives way, toppling the temple into the ocean and flooding its lower chambers.\n\nIronlanders pilgrimage here to pay respect to those old gods. They cast cherished items into the sea and pray for calm waters and safe voyages for their kin. Recently, these pilgrims found the ruin overrun with savage [merrow](datasworn:npc:delve/firstborn/merrow), invading from the ocean’s depths.\n\nWhat brings the merrow to this place, and what hidden dangers lurk within its deluged chambers?",
 			"_id": "delve_site:delve/sinking_temple"
 		},
 		"smoldering_wood": {
@@ -16627,7 +16627,7 @@
 					"_id": "delve_site.denizen:delve/stonesong_spire.11"
 				}
 			],
-			"description": "Visions of a once-great fortress drew Kord the Stonewright to a deep lake in the northern [Havens](atlas_entry:classic/ironlands/havens). There, he discovered the stones scattered in shallow waters and buried in mud near the shore—all that was left of the ancient place which haunted his dreams. Piece by piece, he recovered the remains of the fortress, transplanting the stones laboriously to an island at the lake’s center.\n\nMost laughed at this crazy venture. But some joined Kord, drawn to this place by a compulsion they can’t understand or explain. Guided by the stonewright’s unwavering vision, they rebuilt the vaults of the fortress and its tall central spire. Today, nearly two decades later, the workforce numbers in the hundreds. They live in ramshackle camps encircling the fortress and on the lakeshore. Many protect the place with spear and shield. The stones sing to them, they say, and with each block mortared in place the words become clearer. Folk of this area call them the builders.\n\nThe strange tower, nearly complete, now looms over the valley. There’s a hum in the air, an expectant energy like the lull before a great storm. What is about to happen?",
+			"description": "Visions of a once-great fortress drew Kord the Stonewright to a deep lake in the northern [Havens](datasworn:atlas_entry:classic/ironlands/havens). There, he discovered the stones scattered in shallow waters and buried in mud near the shore—all that was left of the ancient place which haunted his dreams. Piece by piece, he recovered the remains of the fortress, transplanting the stones laboriously to an island at the lake’s center.\n\nMost laughed at this crazy venture. But some joined Kord, drawn to this place by a compulsion they can’t understand or explain. Guided by the stonewright’s unwavering vision, they rebuilt the vaults of the fortress and its tall central spire. Today, nearly two decades later, the workforce numbers in the hundreds. They live in ramshackle camps encircling the fortress and on the lakeshore. Many protect the place with spear and shield. The stones sing to them, they say, and with each block mortared in place the words become clearer. Folk of this area call them the builders.\n\nThe strange tower, nearly complete, now looms over the valley. There’s a hum in the air, an expectant energy like the lull before a great storm. What is about to happen?",
 			"_id": "delve_site:delve/stonesong_spire"
 		},
 		"topplekeep": {
@@ -16753,7 +16753,7 @@
 					"_id": "delve_site.denizen:delve/topplekeep.11"
 				}
 			],
-			"description": "The skeletal structure of Topplekeep strikes an unsettling silhouette. It is a crumbling, tilting ruin, once a mighty fortress to some forgotten warlord. Time and weather have had their way with the place, eroding it down to its bones as it sinks deeper into the yielding ground and brackish waterways of the surrounding [Wild](delve_site_theme:delve/wild) [Shadowfen](delve_site_domain:delve/shadowfen). Many of its passages and rooms are flooded with foul, stagnant water.\n\nA colony of bladewings, emerging to hunt under cover of darkness, roost within this place. Wayward travelers and opportunistic treasure-seekers provide ample prey for the beasts, and gnawed bones litter the dilapidated ruin. It’s said the trove of the warlord lies in the heart of Topplekeep, and perhaps could be reached at night, when the bladewings hunt. But this is a fool’s errand. More than just the bladewings lurk in this place. What other dangers lie within?",
+			"description": "The skeletal structure of Topplekeep strikes an unsettling silhouette. It is a crumbling, tilting ruin, once a mighty fortress to some forgotten warlord. Time and weather have had their way with the place, eroding it down to its bones as it sinks deeper into the yielding ground and brackish waterways of the surrounding [Wild](datasworn:delve_site_theme:delve/wild) [Shadowfen](datasworn:delve_site_domain:delve/shadowfen). Many of its passages and rooms are flooded with foul, stagnant water.\n\nA colony of bladewings, emerging to hunt under cover of darkness, roost within this place. Wayward travelers and opportunistic treasure-seekers provide ample prey for the beasts, and gnawed bones litter the dilapidated ruin. It’s said the trove of the warlord lies in the heart of Topplekeep, and perhaps could be reached at night, when the bladewings hunt. But this is a fool’s errand. More than just the bladewings lurk in this place. What other dangers lie within?",
 			"_id": "delve_site:delve/topplekeep"
 		},
 		"trail_of_spirits": {
@@ -16880,7 +16880,7 @@
 					"_id": "delve_site.denizen:delve/trail_of_spirits.11"
 				}
 			],
-			"description": "A long-dead civilization once used this path through the [Veiled Mountains](atlas_entry:classic/ironlands/veiled_mountains) as a trade road. Their crumbling outposts, forts, and waystones, half-buried in snow and fallen glacial stones, mark the way. Some say you can still hear their voices and songs carried on the wind; echoes of lives long lost.\n\nA clan of [giants](npc:classic/firstborn/giant) now live here, drawn to the remains of this once-powerful place like travelers huddling close to a dying fire. They defend the pass against a massive tribe of [broken](npc:classic/ironlanders/broken) who lurk within the caves and ruins of this frozen land. What purpose do the giants have here, and what can be done to aid their defense against the broken?",
+			"description": "A long-dead civilization once used this path through the [Veiled Mountains](datasworn:atlas_entry:classic/ironlands/veiled_mountains) as a trade road. Their crumbling outposts, forts, and waystones, half-buried in snow and fallen glacial stones, mark the way. Some say you can still hear their voices and songs carried on the wind; echoes of lives long lost.\n\nA clan of [giants](datasworn:npc:classic/firstborn/giant) now live here, drawn to the remains of this once-powerful place like travelers huddling close to a dying fire. They defend the pass against a massive tribe of [broken](datasworn:npc:classic/ironlanders/broken) who lurk within the caves and ruins of this frozen land. What purpose do the giants have here, and what can be done to aid their defense against the broken?",
 			"_id": "delve_site:delve/trail_of_spirits"
 		}
 	},
@@ -17902,7 +17902,7 @@
 				"page": 91
 			},
 			"summary": "The crumbling legacy of a dead civilization.",
-			"description": "These decaying edifices, skeletal and shadowed, mark the remains of once-great communities and civilizations. Some of these sites have been newly adapted by [Ironlanders](npc_collection:classic/ironlanders) as shelter, temple, or citadel. Others are home only to dangerous creatures and dark forces.\n\nNewly discovered ruins tempt bold explorers with the promise of powerful legacies and forgotten secrets. But most see these places as a portent of our inescapable, grim fate in these lands. Someday, another people may delve into the ruins of what we leave behind.",
+			"description": "These decaying edifices, skeletal and shadowed, mark the remains of once-great communities and civilizations. Some of these sites have been newly adapted by [Ironlanders](datasworn:npc_collection:classic/ironlanders) as shelter, temple, or citadel. Others are home only to dangerous creatures and dark forces.\n\nNewly discovered ruins tempt bold explorers with the promise of powerful legacies and forgotten secrets. But most see these places as a portent of our inescapable, grim fate in these lands. Someday, another people may delve into the ruins of what we leave behind.",
 			"features": [
 				{
 					"roll": {
@@ -18744,7 +18744,7 @@
 				"page": 93
 			},
 			"summary": "An age-old subterranean dungeon.",
-			"description": "These subterranean structures are a mystery. They are inexplicably ancient, older perhaps than even the [Firstborn](npc_collection:classic/firstborn). Their passages and halls hide dangers within unfathomable darkness.\n\nMost [Ironlanders](npc_collection:classic/ironlanders) stay well clear of these places. But some stumble upon the entrance to an underkeep and delve inside, drawn by its secrets or the alluring promise of forgotten power. Others, desperate for protection from the perils of the surface world, foolishly try to use the depths of an underkeep as a sanctum for their kin or clan. They soon discover that the greatest threats lie beneath.",
+			"description": "These subterranean structures are a mystery. They are inexplicably ancient, older perhaps than even the [Firstborn](datasworn:npc_collection:classic/firstborn). Their passages and halls hide dangers within unfathomable darkness.\n\nMost [Ironlanders](datasworn:npc_collection:classic/ironlanders) stay well clear of these places. But some stumble upon the entrance to an underkeep and delve inside, drawn by its secrets or the alluring promise of forgotten power. Others, desperate for protection from the perils of the surface world, foolishly try to use the depths of an underkeep as a sanctum for their kin or clan. They soon discover that the greatest threats lie beneath.",
 			"features": [
 				{
 					"roll": {

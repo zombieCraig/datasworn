@@ -242,7 +242,7 @@ delve_sites:
         roll: { min: 100, max: 100 }
         npc: npc:classic/horrors/chimera
     description: |-
-      The marshes of Deeprot Bog sit within a low valley, surrounded by impassible cliffs. The only accessible approach to this place is through a [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Cavern](datasworn:delve_site_theme:delve/cavern), carved into the heart of the enclosing hills. It is a dangerous path, prone to floods and collapse.
+      The marshes of Deeprot Bog sit within a low valley, surrounded by impassible cliffs. The only accessible approach to this place is through a [Ravaged](datasworn:delve_site_theme:delve/ravaged) [Cavern](datasworn:delve_site_domain:delve/cavern), carved into the heart of the enclosing hills. It is a dangerous path, prone to floods and collapse.
 
       Within the bog itself, amid the black waters and tangled wilds of the fen, the cult of the One Beneath Us practices their rituals. Utterly devoted to the strange deity of decay, the cultists formerly kept to themselves. But recently, they’ve struck out, traveling by boat through the cavern passage. They gather supplies and new adherents from local settlements—through force if necessary.
 
@@ -388,7 +388,7 @@ delve_sites:
 
       Reaching the clan’s remote village requires difficult overland travel. In warmer seasons, a skilled seafarer can navigate the ice-strewn waterways that cut through Frostmark like ragged scars.
 
-      A large tribe of broken also live here, sheltered in an [Ancient](datasworn:delve_site_theme:delve/ancient) [Frozen Cavern](datasworn:delve_site_theme:delve/frozen_cavern). In a recent nighttime attack on Thilda’s Hold, they killed many of the raiders, including the clan leader’s son. What will the raider’s do in retaliation?
+      A large tribe of broken also live here, sheltered in an [Ancient](datasworn:delve_site_theme:delve/ancient) [Frozen Cavern](datasworn:delve_site_domain:delve/frozen_cavern). In a recent nighttime attack on Thilda’s Hold, they killed many of the raiders, including the clan leader’s son. What will the raider’s do in retaliation?
   greathammer_deep:
     type: delve_site
     name: Greathammer Deep
@@ -901,7 +901,7 @@ delve_sites:
       - frequency: unforeseen
         roll: { min: 100, max: 100 }
     description: |-
-      The skeletal structure of Topplekeep strikes an unsettling silhouette. It is a crumbling, tilting ruin, once a mighty fortress to some forgotten warlord. Time and weather have had their way with the place, eroding it down to its bones as it sinks deeper into the yielding ground and brackish waterways of the surrounding [Wild](datasworn:delve_site_theme:delve/wild) [Shadowfen](datasworn:delve_site_theme:delve/shadowfen). Many of its passages and rooms are flooded with foul, stagnant water.
+      The skeletal structure of Topplekeep strikes an unsettling silhouette. It is a crumbling, tilting ruin, once a mighty fortress to some forgotten warlord. Time and weather have had their way with the place, eroding it down to its bones as it sinks deeper into the yielding ground and brackish waterways of the surrounding [Wild](datasworn:delve_site_theme:delve/wild) [Shadowfen](datasworn:delve_site_domain:delve/shadowfen). Many of its passages and rooms are flooded with foul, stagnant water.
 
       A colony of bladewings, emerging to hunt under cover of darkness, roost within this place. Wayward travelers and opportunistic treasure-seekers provide ample prey for the beasts, and gnawed bones litter the dilapidated ruin. It’s said the trove of the warlord lies in the heart of Topplekeep, and perhaps could be reached at night, when the bladewings hunt. But this is a fool’s errand. More than just the bladewings lurk in this place. What other dangers lie within?
   trail_of_spirits:
