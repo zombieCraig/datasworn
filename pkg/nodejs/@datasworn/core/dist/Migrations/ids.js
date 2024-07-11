@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateId = exports.updateIdsInMarkdown = exports.updateIdInString = void 0;
+exports.updateIdInString = updateIdInString;
+exports.updateIdsInMarkdown = updateIdsInMarkdown;
+exports.updateId = updateId;
 const neverLegacyIdSubstrings = new Set([
     ',',
     '. ',
@@ -66,7 +68,6 @@ function updateIdInString(k, v, replacementMap, unreplacedIds) {
             return updateIdsInMarkdown(v, replacementMap, unreplacedIds);
     }
 }
-exports.updateIdInString = updateIdInString;
 /**
  * Updates markdown ID pointers and templates from v0.0.10 to v0.1.0.
  * @param md The markdown string to change.
@@ -88,7 +89,6 @@ function updateIdsInMarkdown(md, replacementMap, unreplacedIds) {
     });
     return newStr;
 }
-exports.updateIdsInMarkdown = updateIdsInMarkdown;
 function updateId(id, replacementMap, unreplacedIds) {
     const replacement = replacementMap[id];
     if (replacement == null) {
@@ -97,7 +97,6 @@ function updateId(id, replacementMap, unreplacedIds) {
     }
     return replacement;
 }
-exports.updateId = updateId;
 /**
  * Matches the entire markdown macro.
  * @example "{{text:starforged/oracle_rollable/factions/name/legacy}}"

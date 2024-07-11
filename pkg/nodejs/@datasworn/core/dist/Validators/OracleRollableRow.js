@@ -23,10 +23,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validate = void 0;
+exports.validate = validate;
 const DiceRange = __importStar(require("./DiceRange.js"));
 function validate(object) {
     DiceRange.validate(object.roll);
     return true;
 }
-exports.validate = validate;

@@ -23,14 +23,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.compareRanges = exports.validate = void 0;
+exports.validate = validate;
+exports.compareRanges = compareRanges;
 const OracleRollableRow = __importStar(require("./OracleRollableRow.js"));
 const diceExpressionPattern = /^(?<numberOfDice>[1-9][0-9]*)d(?<sides>[1-9][0-9]*)(?<modifier>[+-]([1-9][0-9]*))?$/;
 function validate(object) {
     validateTableRollRanges(object, false);
     return true;
 }
-exports.validate = validate;
 // assumes that rows are sorted sequentially
 function validateTableRollRanges(oracleRollable, sort = false) {
     var _a;
@@ -99,4 +99,3 @@ function compareRanges(a, b) {
         return 1;
     return a.roll.min < b.roll.min ? -1 : b.roll.min > a.roll.min ? 1 : 0;
 }
-exports.compareRanges = compareRanges;

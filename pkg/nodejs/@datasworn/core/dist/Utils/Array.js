@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.arrayIs = void 0;
+exports.arrayIs = arrayIs;
 function arrayIs(a, b) {
     if (a.length !== b.length)
         return false;
@@ -11,4 +11,3 @@ function arrayIs(a, b) {
         return Object.is(valueA, valueB);
     });
 }
-exports.arrayIs = arrayIs;

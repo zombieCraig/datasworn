@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mergeExpansion = void 0;
+exports.mergeExpansion = mergeExpansion;
 const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
 const index_js_1 = require("./index.js");
 const TypeId_js_1 = __importDefault(require("./IdElements/TypeId.js"));
@@ -156,4 +156,3 @@ function mergeExpansion(ruleset, expansion, strict = true) {
     }
     return ruleset;
 }
-exports.mergeExpansion = mergeExpansion;

@@ -9,16 +9,12 @@
     "./src/**/*"
   ],
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "es2015",
-    "declaration": false,
-    "lib": [
-      "es2020",
-      "es2021",
-      "esnext"
-    ],
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "esModuleInterop": false
-  }
+		"module": "CommonJS",
+		"target": "ES2018",
+		"declaration": false,
+		"lib": ["es2020", "es2021", "esnext"],
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"esModuleInterop": false
+	}
 }

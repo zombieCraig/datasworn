@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validate = void 0;
+exports.validate = validate;
 function validate(collection) {
     const errors = [];
     const { oracle_type } = collection;
@@ -31,7 +31,6 @@ function validate(collection) {
     }
     return true;
 }
-exports.validate = validate;
 /**
  *
  * @param equalityFn The function used to test equality of two parallel rows with the same index.

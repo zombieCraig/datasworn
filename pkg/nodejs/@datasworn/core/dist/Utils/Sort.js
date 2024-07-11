@@ -3,7 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortObjectKeys = exports.sortDataswornKeys = exports.compareObjectKeys = exports.dataswornKeyOrder = exports.sourceMetadataKeys = exports.rulesKeys = exports.numericKeys = exports.longArrayKeys = exports.longDescriptionKeys = exports.shortDescriptionKeys = exports.usageKeys = exports.discriminatorKeys = exports.relationshipKeys = exports.idKeys = exports.unsortableKeys = void 0;
+exports.dataswornKeyOrder = exports.sourceMetadataKeys = exports.rulesKeys = exports.numericKeys = exports.longArrayKeys = exports.longDescriptionKeys = exports.shortDescriptionKeys = exports.usageKeys = exports.discriminatorKeys = exports.relationshipKeys = exports.idKeys = exports.unsortableKeys = void 0;
+exports.compareObjectKeys = compareObjectKeys;
+exports.sortDataswornKeys = sortDataswornKeys;
+exports.sortObjectKeys = sortObjectKeys;
 const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
 exports.unsortableKeys = [
     'columns',
@@ -197,15 +200,12 @@ function compareObjectKeys(a, b, keyOrder = [], unsortableKeys) {
         return -1;
     return indexA - indexB;
 }
-exports.compareObjectKeys = compareObjectKeys;
 function sortDataswornKeys(object, sortOrder = exports.dataswornKeyOrder) {
     return sortObjectKeys(object, sortOrder);
 }
-exports.sortDataswornKeys = sortDataswornKeys;
 function sortObjectKeys(object, keyOrder = []) {
     if (Array.isArray(object))
         return object;
     const entries = Object.entries(object).sort(([a], [b]) => compareObjectKeys(a, b, keyOrder));
     return Object.fromEntries(entries);
 }
-exports.sortObjectKeys = sortObjectKeys;

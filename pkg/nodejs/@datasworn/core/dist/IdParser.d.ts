@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import CONST from './IdElements/CONST.js';
 import TypeId from './IdElements/TypeId.js';
 import type * as StringId from './StringId.js';

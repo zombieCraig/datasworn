@@ -3,7 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.forEachPrimitiveValue = exports.validateIdPointer = exports.validateMarkdownIdPointers = exports.validateMacroIdPointers = exports.validateIdsInStrings = exports.forEachIdRef = exports.extractIdRefs = void 0;
+exports.extractIdRefs = extractIdRefs;
+exports.forEachIdRef = forEachIdRef;
+exports.validateIdsInStrings = validateIdsInStrings;
+exports.validateMacroIdPointers = validateMacroIdPointers;
+exports.validateMarkdownIdPointers = validateMarkdownIdPointers;
+exports.validateIdPointer = validateIdPointer;
+exports.forEachPrimitiveValue = forEachPrimitiveValue;
 const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
 const Pattern_js_1 = __importDefault(require("../IdElements/Pattern.js"));
 const typeIdPattern = '[a-z][a-z_](?:\\.[a-z][a-z_]){0,2}';
@@ -95,7 +101,6 @@ function extractIdRefs(data) {
     forEachIdRef(data, extractedIds.add);
     return extractedIds;
 }
-exports.extractIdRefs = extractIdRefs;
 function forEachIdRef(data, forEach) {
     forEachPrimitiveValue(data, undefined, (v, k) => {
         if (typeof v !== 'string')
@@ -109,7 +114,6 @@ function forEachIdRef(data, forEach) {
             forEach(match[0]);
     });
 }
-exports.forEachIdRef = forEachIdRef;
 function validateIdsInStrings(data, index) {
     const errors = [];
     const extractedIds = new Set();
@@ -148,7 +152,6 @@ function validateIdsInStrings(data, index) {
         throw new Error(errors.map(String).join('\n'));
     return true;
 }
-exports.validateIdsInStrings = validateIdsInStrings;
 function validateMacroIdPointers(text, validIds) {
     const macros = text.matchAll(macroSymbolPattern);
     const errors = [];
@@ -169,7 +172,6 @@ function validateMacroIdPointers(text, validIds) {
         throw new Error(errors.map(String).join('\n'));
     return true;
 }
-exports.validateMacroIdPointers = validateMacroIdPointers;
 function validateMarkdownIdPointers(text, validIds) {
     const links = text.matchAll(linkSymbolPattern);
     const errors = [];
@@ -188,7 +190,6 @@ function validateMarkdownIdPointers(text, validIds) {
         throw new Error(errors.map(String).join('\n'));
     return true;
 }
-exports.validateMarkdownIdPointers = validateMarkdownIdPointers;
 const testStr = '[Bannersworn](asset:starforged/path/bannersworn); [Diplomat](asset:starforged/path/diplomat)';
 // for (const f of testStr.matchAll(idPattern)) {
 // 	console.log(f)
@@ -198,7 +199,6 @@ function validateIdPointer(id, index) {
         throw Error(`Bad Datasworn ID pointer: ${id}`);
     return true;
 }
-exports.validateIdPointer = validateIdPointer;
 /** Recursively iterates over JSON values, applying a function to every primitive boolean, number, string, and null value. */
 function forEachPrimitiveValue(value, key, fn) {
     switch (typeof value) {
@@ -224,4 +224,3 @@ function forEachPrimitiveValue(value, key, fn) {
             throw Error('Unrecognized type');
     }
 }
-exports.forEachPrimitiveValue = forEachPrimitiveValue;
