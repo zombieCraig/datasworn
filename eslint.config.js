@@ -1,11 +1,15 @@
+import { ESLint } from 'eslint'
+import { default as love } from 'eslint-config-love'
+import { default as tsdoc } from 'eslint-plugin-tsdoc'
+
 /**
- * @type { import('eslint').ESLint.ConfigData }
+ * @type {ESLint.ConfigData}
  */
-module.exports = {
-	extends: ['standard-with-typescript', 'prettier'],
-	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'eslint-plugin-tsdoc'],
-	ignorePatterns: [
+const config = {
+	...love,
+	plugins: { ...love.plugins, 'eslint-plugin-tsdoc': tsdoc },
+
+	ignores: [
 		'pkg',
 		'github',
 		'vscode',
@@ -24,15 +28,9 @@ module.exports = {
 		'.eslintrc.js',
 		'*.d.ts',
 		'*.json',
+		'*.config.js',
 		'*.cjs'
 	],
-	parserOptions: {
-		tsconfigRootDir: __dirname,
-		project: './tsconfig.json',
-		ecmaVersion: 'latest'
-		// supposedly this is faster: https://typescript-eslint.io/packages/parser/#experimental_useprojectservice
-		// EXPERIMENTAL_useProjectService: true
-	},
 	rules: {
 		'@typescript-eslint/class-literal-property-style': 'off',
 		'@typescript-eslint/prefer-readonly': 'error',
@@ -65,4 +63,16 @@ module.exports = {
 		],
 		'no-implicit-coercion': ['error', { string: true }]
 	}
+	// // parserOptions: {
+	// // 	tsconfigRootDir: cwd(),
+	// // 	project: './tsconfig.json',
+	// // 	ecmaVersion: 'latest'
+	// // 	// supposedly this is faster: https://typescript-eslint.io/packages/parser/#experimental_useprojectservice
+	// // 	// EXPERIMENTAL_useProjectService: true
+	// // },
 }
+
+/**
+ * @type { import('eslint').ESLint.ConfigData }
+ */
+export default config
