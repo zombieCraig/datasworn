@@ -17,6 +17,7 @@ export async function loadSchemaFile(filePath: string, key: string) {
 		validateKeyword
 	})
 
+
 	Log.info(`✅ Loaded ${key} schema from ${formatPath(filePath)}`)
 
 	return { AJV, JSL }

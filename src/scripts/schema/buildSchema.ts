@@ -85,6 +85,8 @@ function replacer(k: string, v: unknown) {
 	return v
 }
 
+const writeOps: Promise<any>[] = []
+
 for (const { rootSchema, name, paths, messages } of schemaOptions) {
 	// serialize first as a lazy way to strip some properties
 	// const serialized = JSON.stringify(options.rootSchema)
@@ -110,15 +112,22 @@ for (const { rootSchema, name, paths, messages } of schemaOptions) {
 			// console.log(sortedSchema)
 
 			for (const path of paths)
+				writeOps.push(
+					writeJSON(path, sortedSchema, {
+						prettierOptions,
+						replacer
+					})
+				)
+
+			writeOps.push(
 				writeJSON(path, sortedSchema, {
 					prettierOptions,
 					replacer
 				})
+			)
 
-			writeJSON(path, sortedSchema, {
-				prettierOptions,
-				replacer
-			}).then(() => Log.info(messages.writeFinish))
+			await Promise.all(writeOps)
+			Log.info(messages.writeFinish)
 		}
 	} catch (error) {
 		Log.error(error)

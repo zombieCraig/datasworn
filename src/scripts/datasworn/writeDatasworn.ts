@@ -23,6 +23,11 @@ import Log from '../utils/Log.js'
 import { readSourceData, writeJSON } from '../utils/readWrite.js'
 import AJV from '../validation/ajv.js'
 
+// flush any old schema...
+AJV.removeSchema()
+// ...and load some fresh ones
+const loadSchemata = Promise.all([loadSourceSchema(), loadSchema()])
+
 const schemaValidator = <SchemaValidator<Datasworn.RulesPackage>>(
 	_validate.bind(undefined, SCHEMA_NAME)
 )
@@ -33,18 +38,10 @@ const sourceSchemaValidator = <SchemaValidator<DataswornSource.RulesPackage>>(
 
 await buildRulesPackages(PkgConfig)
 
-export async function buildRulesPackages(
-	pkgs: Record<string, RulesPackageConfig>
-) {
+async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 	const profiler = Log.startTimer()
 
 	Log.info('📖 Reading schema...')
-
-	// prepare schemata for AJV validation
-	AJV.removeSchema()
-
-	await loadSourceSchema()
-	await loadSchema()
 
 	Log.info('⚙️  Building rules packages...')
 
@@ -143,6 +140,8 @@ async function assemblePkgFiles(
 	)
 
 	const builderOps: Promise<unknown>[] = []
+
+	await loadSchemata
 
 	// begin loading and adding files
 	for await (const filePath of sourceFiles) {
