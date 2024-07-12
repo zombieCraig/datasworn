@@ -5,7 +5,7 @@ import fs from 'fs-extra'
 import JsonSchema from 'json-schema-library'
 import { loadDataswornNamespace } from '../datasworn/loadDatasworn.js'
 import { extractLocaleStrings } from './extractLocaleStrings.js'
-import path from 'path'
+import path from 'node:path'
 import { Datasworn } from '../../types/Datasworn.js'
 import CONST from '../../pkg-core/IdElements/CONST.js'
 

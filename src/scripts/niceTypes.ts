@@ -1,6 +1,5 @@
 import Codegen from '@sinclair/typebox-codegen'
 import Defs from '../schema/Defs.js'
-import fs from 'fs-extra'
 import { isInteger, mapValues, omit, pick } from 'lodash-es'
 import {
 	TDiscriminatedUnion,

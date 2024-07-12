@@ -1,11 +1,14 @@
-import fastGlob from 'fast-glob'
-import path from 'path'
-import { cwd } from 'process'
+import path from 'node:path'
+import {
+	RulesPackageBuilder,
+	type SchemaValidator
+} from '../../pkg-core/Builders/RulesPackageBuilder.js'
 import {
 	IdParser,
 	type Datasworn,
 	type DataswornSource
 } from '../../pkg-core/index.js'
+import { forEachIdRef } from '../../pkg-core/Validators/Text.js'
 import { type RulesPackageConfig } from '../../schema/tools/build/index.js'
 import { formatPath } from '../../utils.js'
 import {
@@ -14,16 +17,11 @@ import {
 	SCHEMA_NAME,
 	SOURCE_SCHEMA_NAME
 } from '../const.js'
+import * as PkgConfig from '../pkg/pkgConfig.js'
 import { loadSchema, loadSourceSchema } from '../schema/loadSchema.js'
 import Log from '../utils/Log.js'
 import { readSourceData, writeJSON } from '../utils/readWrite.js'
 import AJV from '../validation/ajv.js'
-import {
-	RulesPackageBuilder,
-	type SchemaValidator
-} from '../../pkg-core/Builders/RulesPackageBuilder.js'
-import * as PkgConfig from '../pkg/pkgConfig.js'
-import { extractIdRefs, forEachIdRef } from '../../pkg-core/Validators/Text.js'
 
 const schemaValidator = <SchemaValidator<Datasworn.RulesPackage>>(
 	_validate.bind(undefined, SCHEMA_NAME)
@@ -55,16 +53,13 @@ export async function buildRulesPackages(
 	// indexes all package contents by their ID, so we can validate package links after they're built
 	const index = new Map<string, unknown>()
 
-	// collects paths for files that need cleanup
-	const filesToDelete: string[] = []
-
 	for (const k in pkgs) {
 		const pkg = pkgs[k]
 		const { type, id } = pkg
 
 		Log.info(`⚙️  Building ${type}: ${id}`)
 
-		toBuild.push(assemblePkgFiles(pkg, filesToDelete, index))
+		toBuild.push(assemblePkgFiles(pkg, index))
 	}
 
 	const errors = []
@@ -78,7 +73,7 @@ export async function buildRulesPackages(
 
 	// console.log(new Set(index.keys()))
 
-	// now that we have all IDs available, we can validate the built packages
+	// now that we have all IDs. available, we can validate the built packages
 
 	const visitedIds = new Set<string>()
 
@@ -101,8 +96,7 @@ export async function buildRulesPackages(
 				path.join(ROOT_OUTPUT, pkgId),
 				path.join(DIR_HISTORY_CURRENT, pkgId)
 			]
-			for (const dir of pathsToWriteTo)
-				toWrite.push(_writePkgFiles(dir, pkg, filesToDelete))
+			for (const dir of pathsToWriteTo) toWrite.push(_writePkgFiles(dir, pkg))
 		} catch (e) {
 			errors.push(e)
 		}
@@ -119,18 +113,15 @@ export async function buildRulesPackages(
 /** Loads files for a given Datasworn package configuration and assembles them with RulesPackageBuilder. */
 async function assemblePkgFiles(
 	{ id, paths }: RulesPackageConfig,
-	filesToDelete: string[],
 	index: Map<string, unknown>
 ) {
 	const destDir = path.join(ROOT_OUTPUT, id)
 
-	const [sourceFiles, oldJsonFiles, oldErrorFiles] = await Promise.all([
-		getSourceFiles(paths.source),
-		getOldJsonFiles(destDir),
-		getOldErrorFiles(paths.source)
-	])
+	const sourceFiles = getSourceFiles(paths.source)
+	const oldJsonFiles = getOldJsonFiles(destDir)
+	const oldErrorFiles = getOldErrorFiles(paths.source)
 
-	filesToDelete.push(...oldJsonFiles)
+	const srcFileMatches = []
 
 	// flush old error files; hold off on flushing old built files for now, as the build can fail
 
@@ -138,11 +129,11 @@ async function assemblePkgFiles(
 	// 	fs.unlink(filePath)
 	// )
 
-	Log.info(
-		`🔍 Found ${
-			sourceFiles.length
-		} source files for "${id}" in ${formatPath(paths.source)}`
-	)
+	// Log.info(
+	// 	`🔍 Found ${
+	// 		sourceFiles.length
+	// 	} source files for "${id}" in ${formatPath(paths.source)}`
+	// )
 
 	const builder = new RulesPackageBuilder(
 		id,
@@ -151,27 +142,20 @@ async function assemblePkgFiles(
 		Log
 	)
 
+	const builderOps: Promise<unknown>[] = []
+
 	// begin loading and adding files
-	await Promise.all(
-		sourceFiles.map(async (filePath) => {
-			Log.debug(`📖 Reading ${formatPath(filePath)}`)
-			try {
-				let data = await readSourceData(filePath)
+	for await (const filePath of sourceFiles) {
+		Log.info(`📖 Reading ${formatPath(filePath)}`)
 
-				// yaml parsing creates anchors as references to the same object, but we need to edit them as unique instances.
-				if (['.yaml', '.yml'].includes(path.extname(filePath)))
-					// lazy way to deep clone dereferenced values
-					data = JSON.parse(JSON.stringify(data))
+		try {
+			builderOps.push(_loadBuilderFile(filePath, builder))
+		} catch (error) {
+			Log.error(error)
+		}
+	}
 
-				builder.addFiles({
-					name: path.relative(cwd(), filePath),
-					data
-				})
-			} catch (error) {
-				Log.error(error)
-			}
-		})
-	)
+	await Promise.all(builderOps)
 
 	builder.build()
 	for (const [k, v] of builder.index) index.set(k, v)
@@ -179,17 +163,26 @@ async function assemblePkgFiles(
 	return builder
 }
 
-async function _writePkgFiles(
-	destDir: string,
-	data: Datasworn.RulesPackage,
-	filesToDelete: string[]
+async function _loadBuilderFile(
+	filePath: string,
+	builder: RulesPackageBuilder
 ) {
+	let data = await readSourceData(filePath)
+	const isYaml = ['.yaml', '.yml'].includes(path.extname(filePath))
+
+	// yaml parsing creates anchors as references to the same object, but we need to edit them as unique instances.
+	if (isYaml)
+		// lazy way to deep clone dereferenced values
+		data = JSON.parse(JSON.stringify(data))
+
+	return builder.addFiles({
+		name: path.relative(process.cwd(), filePath),
+		data
+	})
+}
+
+async function _writePkgFiles(destDir: string, data: Datasworn.RulesPackage) {
 	const outPath = path.join(destDir, `${data._id}.json`)
-
-	// const toDelete = filesToDelete.filter((path) => path !== outPath)
-
-	// if (toDelete.length > 0)
-	// 	await Promise.all(toDelete.map(async (f) => fs.unlink(f)))
 
 	Log.info(`✏️  Writing to ${formatPath(outPath)}`)
 
@@ -200,23 +193,23 @@ async function _writePkgFiles(
 	}
 }
 
-async function getSourceFiles(path: string) {
-	const glob = `${path}/**/*.(yaml|yml|json)`
-	const files = await fastGlob(glob)
-	if (files?.length === 0)
-		throw new Error(`Could not find any source files with the glob "${glob}"`)
+function getSourceFiles(path: string) {
+	const glob = new Bun.Glob('**/*.{yaml,yml,json}')
+	const files = glob.scan({ cwd: path, absolute: true })
+	// if (files?.length === 0)
+	// 	throw new Error(`Could not find any source files with the glob "${glob}"`)
 
 	return files
 }
 
-async function getOldJsonFiles(path: string) {
-	const glob = `${path}/*.json`
-	return fastGlob(glob)
+function getOldJsonFiles(path: string) {
+	const glob = new Bun.Glob('*.json')
+	return glob.scan({ cwd: path, absolute: true })
 }
 
-async function getOldErrorFiles(path: string) {
-	const glob = `${path}/**/*.error.json`
-	return fastGlob(glob)
+function getOldErrorFiles(path: string) {
+	const glob = new Bun.Glob('**/*.error.json')
+	return glob.scan({ cwd: path, absolute: true })
 }
 
 function _validate<T>(schemaId: string, data: unknown): data is T {

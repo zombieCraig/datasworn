@@ -1,7 +1,10 @@
-import path from 'path'
-import fs from 'fs-extra'
+import path from 'node:path'
 
-const toolsPkg = fs.readJSONSync(path.join(process.cwd(), 'package.json')) as {
+const toolsPkg = JSON.parse(
+	await Bun.file(path.join(process.cwd(), 'package.json'), {
+		type: 'application/json'
+	}).text()
+) as {
 	version: `${number}.${number}.${number}`
 }
 
@@ -30,7 +33,6 @@ export const ROOT_OUTPUT = path.join(process.cwd(), 'datasworn')
 export const ROOT_HISTORY = path.join(src, 'migration/history')
 export const DIR_HISTORY_CURRENT = path.join(ROOT_HISTORY, VERSION)
 export const ROOT_TYPES_OUT = path.join(src, 'types')
-
 
 export const SCHEMA_PATH = path.join(ROOT_OUTPUT, 'datasworn.schema.json')
 export const SOURCE_SCHEMA_PATH = path.join(
@@ -62,7 +64,6 @@ export const DELVE_SCHEMA_ID =
 
 export const DELVE_SOURCE_ID =
 	'https://ironswornrpg.com/datasworn-delve-source.schema.json'
-
 
 // FIXME: it'd be nice to migrate to https://json-schema.org/draft/2020-12/meta/core some day, but currently vscode doesn't support it very well
 

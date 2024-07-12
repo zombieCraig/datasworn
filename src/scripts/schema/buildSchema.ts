@@ -13,7 +13,7 @@ import * as Schema from '../../schema/index.js'
 
 import JSL from 'json-schema-library'
 import { type TRoot } from '../../schema/root/Root.js'
-import path from 'path'
+import path from 'node:path'
 import { kebabCase } from 'lodash-es'
 
 const draft7 = new JSL.Draft07()

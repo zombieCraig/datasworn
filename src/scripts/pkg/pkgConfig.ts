@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import { type RulesPackageConfig } from '../../schema/tools/build/index.js'
 import {
 	PKG_SCOPE_OFFICIAL,

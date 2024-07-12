@@ -6,12 +6,14 @@
 	"json.format.enable": false,
 	"json.schemas": [
 
+
 		{
 			"url": "./datasworn/datasworn.schema.json",
 			"fileMatch": [
 				"datasworn/*/*.json",
 				"source_data/**/*.error.json",
-				"!**/*.jtd.json"
+				"!**/*.jtd.json",
+				"!.**"
 			]
 		}
 	],

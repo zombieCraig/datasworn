@@ -1,17 +1,14 @@
-import fs from 'fs-extra'
-import path from 'path'
+import { Compiler } from '@swc/core'
+import path from 'node:path'
 import {
 	LEGACY_ID_PATH,
 	PKG_DIR_NODE,
 	PKG_SCOPE_OFFICIAL,
-	ROOT_SOURCE_DATA,
 	SCHEMA_PATH,
-	SOURCE_SCHEMA_PATH,
-	SOURCE_TYPES_OUT,
-	TYPES_OUT
+	SOURCE_SCHEMA_PATH
 } from '../../const.js'
 import Log from '../../utils/Log.js'
-import { Compiler } from '@swc/core'
+import { copyFile, emptyDir } from '../../utils/readWrite.js'
 
 new Compiler()
 
@@ -30,29 +27,23 @@ export const config = {
 } as const
 
 /** Assembles the core package from built data, which contains types, schema, and documentation. */
-export async function buildCorePackage({ id, jsonDir }: typeof config = config) {
+export async function buildCorePackage({
+	id,
+	jsonDir
+}: typeof config = config) {
 	Log.info(`⚙️  Building ${id}...`)
 
-	await fs.emptyDir(jsonDir)
-	await fs.emptyDir(corePkgDist)
+	await Promise.all([emptyDir(jsonDir), emptyDir(corePkgDist)])
 	await Promise.all([
-		fs.copy(SCHEMA_PATH, path.join(jsonDir, 'datasworn.schema.json'), {
-			overwrite: true
-		}),
-		fs.copy(
+		copyFile(SCHEMA_PATH, path.join(jsonDir, 'datasworn.schema.json')),
+		copyFile(
 			SOURCE_SCHEMA_PATH,
-			path.join(jsonDir, 'datasworn-source.schema.json'),
-			{
-				overwrite: true
-			}
+			path.join(jsonDir, 'datasworn-source.schema.json')
 		),
-		fs.copy(
+		copyFile(
 			// TODO: script to build the legacy ID map?
 			LEGACY_ID_PATH,
-			path.join(jsonDir, path.basename(LEGACY_ID_PATH)),
-			{
-				overwrite: true
-			}
+			path.join(jsonDir, path.basename(LEGACY_ID_PATH))
 		)
 	])
 

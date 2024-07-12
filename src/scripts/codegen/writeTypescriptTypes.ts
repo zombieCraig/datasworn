@@ -1,6 +1,4 @@
-import fs from 'fs-extra'
-
-import path from 'path'
+import path from 'node:path'
 import { DataswornSchema, DataswornSourceSchema } from '../../schema/Root.js'
 import {
 	CORE_COMMON,
@@ -8,7 +6,7 @@ import {
 	DefsKey,
 	ROOT_TYPES_OUT
 } from '../const.js'
-import { writeCode } from '../utils/readWrite.js'
+import { emptyDir, writeCode } from '../utils/readWrite.js'
 import { extractDefs } from './schemaToTsDeclaration.js'
 
 const rootSchemas = {
@@ -16,7 +14,7 @@ const rootSchemas = {
 	DataswornSource: DataswornSourceSchema
 } satisfies Record<string, unknown>
 
-await fs.emptyDir(ROOT_TYPES_OUT)
+await emptyDir(ROOT_TYPES_OUT)
 
 const writeJobs: Promise<void>[] = []
 

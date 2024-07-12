@@ -1,9 +1,7 @@
-import FastGlob from 'fast-glob'
-import fs from 'fs-extra'
 import { ROOT_HISTORY, VERSION } from '../scripts/const.js'
 import { replacementMap } from './replacementMap.js'
-import { writeJSON } from '../scripts/utils/readWrite.js'
-import path from 'path'
+import { readJSON, writeJSON } from '../scripts/utils/readWrite.js'
+import path from 'node:path'
 import CONST from '../pkg-core/IdElements/CONST.js'
 import { escapeRegExp } from 'lodash-es'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
@@ -52,25 +50,24 @@ export async function forEachIdInVersion(
 	version: string,
 	forEach: (id: string) => void
 ) {
-	const glob = `${ROOT_HISTORY}/${version}/*/*.json`
+	const dir = path.join(ROOT_HISTORY, version)
+	const glob = `*/*.json`
 
-	const files = await FastGlob(glob)
+	const files = new Bun.Glob(glob).scan(dir)
 
-	const readJobs: Promise<unknown>[] = []
+	const readOps: Promise<unknown>[] = []
 
-	for (const file of files)
-		readJobs.push(
-			fs.readFile(file, { encoding: 'utf-8' }).then((v) =>
-				JSON.parse(v.toString(), (k, v) => {
-					if (idKeys.has(k) || (!stringKeyBlacklist.has(k) && mightBeId(v)))
-						forEach(v as string)
+	for await (const file of files)
+		readOps.push(
+			readJSON(file, (k, v) => {
+				if (idKeys.has(k) || (!stringKeyBlacklist.has(k) && mightBeId(v)))
+					forEach(v as string)
 
-					return v
-				})
-			)
+				return v
+			})
 		)
 
-	await Promise.all(readJobs)
+	await Promise.all(readOps)
 }
 
 function getWildcardRegex(wildcardId: string) {

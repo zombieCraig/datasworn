@@ -1,9 +1,9 @@
 import * as pkgConfig from '../pkgConfig.js'
-import path from 'path'
+import path from 'node:path'
 import { PKG_DIR_NODE } from '../../const.js'
 import { exec } from 'child_process'
 import Log from '../../utils/Log.js'
-import { updatePackageVersions } from './updatePackageVersions.js'
+import { updatePackageVersion } from './updatePackageVersions.js'
 
 function publishCommand(dir: string, tag: string = 'latest', dryRun = false) {
 	let cmd = `npm publish "${dir}" --tag ${tag}`
@@ -12,7 +12,7 @@ function publishCommand(dir: string, tag: string = 'latest', dryRun = false) {
 	return cmd
 }
 
-await updatePackageVersions()
+await updatePackageVersion()
 
 const corePkgId = '@datasworn/core'
 const corePkgPath = path.join(PKG_DIR_NODE, corePkgId)

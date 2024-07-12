@@ -1,6 +1,5 @@
-import path from 'path'
-import fs from 'fs-extra'
-import Log from '../../utils/Log.js'
+import path from 'node:path'
+import { copyDir, updateJSON } from 'scripts/utils/readWrite.js'
 import { type RulesPackageConfig } from '../../../schema/tools/build/index.js'
 import {
 	PKG_DIR_NODE,
@@ -8,7 +7,8 @@ import {
 	ROOT_OUTPUT,
 	VERSION
 } from '../../const.js'
-import { updateJSON } from './updateJSON.js'
+import Log from '../../utils/Log.js'
+import { emptyDir } from '../../utils/readWrite.js'
 
 /** Assemble a NodeJS package from a {@link RulesPackageConfig} using data in {@link ROOT_OUTPUT} */
 export async function buildContentPackage({
@@ -28,7 +28,7 @@ export async function buildContentPackage({
 	const pkgRoot = path.join(PKG_DIR_NODE, pkgID)
 
 	/** Path to the NPM package's package.json */
-	const nodePackageJsonPath = path.join(pkgRoot, 'package.json')
+	const nodePackageJsonPath = Bun.file(path.join(pkgRoot, 'package.json'))
 
 	jsonOps.push(
 		// update package.json from data in the RulesPackageConfig
@@ -52,31 +52,23 @@ export async function buildContentPackage({
 		)
 	)
 
-	/** Destination path for the JSON content */
+	/** Destination path for the JSON content directory */
 	const pkgJsonDest = path.join(pkgRoot, 'json')
-	/** Path to the prebuilt JSON content */
+	/** Path to the prebuilt JSON content directory */
 	const jsonSrc = path.join(ROOT_OUTPUT, id)
 
 	jsonOps.push(
 		// empty JSON destination directory
-		fs.emptyDir(pkgJsonDest).then(() =>
-			// copy prebuilt JSON to destination
-			fs.copy(jsonSrc, pkgJsonDest)
-		)
+		emptyDir(pkgJsonDest).then(() => copyDir(jsonSrc, pkgJsonDest))
 	)
 
 	/** async operations on package image assets */
-	const assetOps: Promise<void>[] = []
+	const assetOps: Promise<any>[] = []
 
 	for (const assetSrc of paths.assets ?? []) {
 		const assetDest = path.join(pkgRoot, assetSrc.split('/').pop() as string)
 
-		assetOps.push(
-			fs.exists(assetSrc).then((exists) => {
-				if (!exists) throw Error(`Missing asset dir: ${assetSrc}`)
-				fs.emptyDir(assetDest).then(() => fs.copy(assetSrc, assetDest))
-			})
-		)
+		assetOps.push(emptyDir(assetDest).then(() => copyDir(assetSrc, assetDest)))
 	}
 
 	await Promise.all([...jsonOps, ...assetOps])

@@ -1,4 +1,3 @@
-import fs from 'fs-extra'
 import * as JTD from 'jtd'
 import Log from '../utils/Log.js'
 import { refTracker, toJtdRoot } from './utils.js'
@@ -8,6 +7,7 @@ import { isEmpty } from 'lodash-es'
 import { buildTypeDefs } from './buildTypeDefs.js'
 import { JTD_JSON_PATH } from './const.js'
 import { log } from 'console'
+import { writeJSON } from '../utils/readWrite.js'
 
 const root: JTD.Schema = toJtdRoot(DataswornSchema)
 
@@ -25,7 +25,7 @@ const json = JSON.stringify(
 )
 const filePath = JTD_JSON_PATH
 
-fs.writeFile(filePath, json).then(() => {
+Bun.write(Bun.file(filePath), json).then(() => {
 	if (!JTD.isValidSchema(JSON.parse(json)))
 		Log.error(`Wrote to ${filePath}, but it\'s not a valid JSON Typedef schema`)
 })

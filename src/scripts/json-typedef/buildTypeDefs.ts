@@ -1,9 +1,9 @@
-import fs from 'fs-extra'
 import path from 'path'
 import { PKG_NAME, rootSchemaName } from '../const.js'
 import { shellify, type ShellCommandParams } from '../../shellify.js'
 import { merge } from 'lodash-es'
 import { JTD_JSON_PATH, JTD_TYPES_ROOT } from './const.js'
+import { emptyDir } from '../utils/readWrite.js'
 
 type JtdOptions = {
 	/** Namespace for C# + System.Text.Json generated types */
@@ -70,6 +70,6 @@ export async function buildTypeDefs() {
 		.filter(([k, v]) => k.endsWith('Out'))
 		.map(([k, v]) => v)
 	// flush old files
-	await Promise.all(paths.map(fs.emptyDir))
+	await Promise.all(paths.map(emptyDir))
 	shellify(params)
 }
