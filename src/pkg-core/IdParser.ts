@@ -16,12 +16,16 @@ import type TypeNode from './TypeNode.js'
 import type { DropFirst, Head, LastElementOf } from './Utils/Array.js'
 import type { Join, Split } from './Utils/String.js'
 
+type DictionaryLike<T> = Record<string, T> | Map<string, T>
+type UnknownNode = { [CONST.IdKey]: string }
+
 interface RecursiveId<
 	TypeIds extends StringId.TypeIdParts = StringId.TypeIdParts,
 	PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 		length: TypeIds['length']
-	}
-> extends IdParser<TypeIds, PathSegments> {
+	},
+	Node extends UnknownNode = UnknownNode
+> extends IdParser<TypeIds, PathSegments, Node> {
 	/** The current collection recursion depth. */
 	get recursionDepth(): this['collectionAncestorKeys']['length']
 	get collectionAncestorKeys(): string[]
@@ -29,17 +33,29 @@ interface RecursiveId<
 	getCollectionIdParent(): CollectionId
 }
 
+/** Performs parsing, validation, and construction of Datasworn IDs, and traverses the Datasworn hierarchy to retrieve matching node(s).  */
 abstract class IdParser<
 	TypeIds extends StringId.TypeIdParts = StringId.TypeIdParts,
 	PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 		length: TypeIds['length']
-	}
+	},
+	Node extends UnknownNode = UnknownNode
 > implements IdParser.Options<TypeIds, PathSegments>
 {
-	static tree:
-		| Map<string, Datasworn.RulesPackage>
-		| Record<string, Datasworn.RulesPackage>
-		| null = null
+	static #tree: DictionaryLike<Datasworn.RulesPackage> | null = null
+
+	/**  */
+	static get tree(): DictionaryLike<Datasworn.RulesPackage> | null {
+		return IdParser.#tree
+	}
+	static set tree(
+		value:
+			| Map<string, Datasworn.RulesPackage>
+			| Record<string, Datasworn.RulesPackage>
+			| null
+	) {
+		IdParser.#tree = value
+	}
 
 	#pathSegments: PathSegments
 	#typeIds: TypeIds
@@ -158,10 +174,11 @@ abstract class IdParser<
 
 	/**
 	 * Get a Datasworn node by its ID.
-	 * @throws If the ID is a wildcard ID. If no Datasworn tree is provided (either in {@link IdParser.tree} or as an argument).
+	 * @throws If the ID is a wildcard ID; if no Datasworn tree is provided (either in {@link IdParser.tree} or as an argument).
 	 * @returns The identified node, or `undefined` if the node doesn't exist.
 	 */
-	get(tree = IdParser.tree): { _id: string } {
+	get(tree = IdParser.tree): Node | undefined {
+		tree ||= IdParser.tree
 		if (tree == null)
 			throw new Error(
 				`No Datasworn tree found -- set the static property ${IdParser.constructor.name}#tree, or provide one as a parameter.`
@@ -185,14 +202,24 @@ abstract class IdParser<
 	 * @returns A {@link Map}
 	 */
 	getMatches(
-		tree = IdParser.tree,
+		tree = IdParser['tree'],
 		forEach?: (id: string, node: unknown) => boolean
-	): Map<string, { _id: string }> {
+	): Map<string, Node> {
+		tree ||= IdParser.tree
+		if (tree == null)
+			throw new Error(
+				`No Datasworn tree found -- set the static property ${IdParser.constructor.name}#tree, or provide one as a parameter.`
+			)
+
 		// skip the matching process if it's not actually a wildcard ID
 		if (!this.isWildcard) {
 			const match = this.get(tree)
-			const matches = new Map()
-			if (match != null) matches.set(this.toString(), match)
+			const matches = new Map<string, Node>()
+			if (match != null) {
+				matches.set(this.toString(), match)
+				if (typeof forEach === 'function') forEach(this.toString(), match)
+			}
+
 			return matches
 		}
 
@@ -226,7 +253,7 @@ abstract class IdParser<
 		return this.pathRegExp.test(that.compositePath)
 	}
 
-	/** Is this non-wildcard ID matched by one of the provided wildcard IDs?
+	/** Is this non-wildcard ID matched by at least one of the provided wildcard IDs?
 	 * @throws If this instance is a wildcard ID; if it attempts a comparison with an invalid ID string
 	 */
 	isMatchedBy(...wildcardIds: (IdParser | string)[]): boolean {
@@ -368,10 +395,14 @@ abstract class IdParser<
 		id: T,
 		tree?: (typeof IdParser)['datasworn']
 	): ReturnType<T['get']>
-	static get<T extends StringId.Primary | IdParser>(
+	static get<T extends string>(
+		id: T,
+		tree?: (typeof IdParser)['datasworn']
+	): UnknownNode
+	static get<T extends string | IdParser>(
 		id: T,
 		tree = IdParser.datasworn
-	): { _id: string } {
+	): UnknownNode {
 		const parsed = id instanceof IdParser ? id : IdParser.parse(id as any)
 
 		return parsed.get(tree)
@@ -384,19 +415,22 @@ abstract class IdParser<
 	 */
 	static getMatches<T extends StringId.Primary>(
 		id: T,
-		tree?: (typeof IdParser)['datasworn']
+		tree: (typeof IdParser)['datasworn'],
+		forEach?: (id: string, node: unknown) => boolean
 	): TypeNode.ByType<ExtractTypeId<T>>
 	static getMatches<T extends IdParser>(
 		id: T,
-		tree?: (typeof IdParser)['datasworn']
+		tree: (typeof IdParser)['datasworn'],
+		forEach?: (id: string, node: unknown) => boolean
 	): ReturnType<T['get']>
 	static getMatches<T extends StringId.Primary | IdParser>(
 		id: T,
-		tree = IdParser.datasworn
+		tree = IdParser.datasworn,
+		forEach?: (id: string, node: unknown) => boolean
 	) {
 		const parsed = id instanceof IdParser ? id : IdParser.parse(id as any)
 
-		return parsed.getMatches(tree)
+		return parsed.getMatches(tree, forEach)
 	}
 
 	// Public static  methods
@@ -789,6 +823,10 @@ abstract class IdParser<
 	protected static _getMatchesFrom<
 		V,
 		TFrom extends Record<string, V> | Array<V> | Map<string, V>
+	>(obj: TFrom, matchKey?: string | number): Map<string | number, V>
+	protected static _getMatchesFrom<
+		V,
+		TFrom extends Record<string, V> | Array<V> | Map<string, V>
 	>(
 		obj: TFrom,
 		matchKey: string | number = CONST.WildcardString
@@ -888,7 +926,7 @@ abstract class IdParser<
 
 	/** @internal */
 	protected _getRulesPackage(
-		tree: (typeof IdParser)['tree'] = IdParser.tree
+		tree: (typeof IdParser)['tree']
 	): Datasworn.RulesPackage | undefined {
 		if (tree == null)
 			throw new Error(
@@ -905,8 +943,8 @@ abstract class IdParser<
 
 	/** @internal */
 	protected _getTypeBranch(
-		tree: (typeof IdParser)['tree'] = IdParser.tree
-	): Record<string, unknown> | Map<string, unknown> | undefined {
+		tree: (typeof IdParser)['tree']
+	): DictionaryLike<UnknownNode> | undefined {
 		const pkg = this._getRulesPackage(tree)
 
 		if (pkg == null)
@@ -918,7 +956,7 @@ abstract class IdParser<
 	}
 
 	/** @internal */
-	protected _getUnsafe(tree: (typeof IdParser)['tree'] = IdParser.tree) {
+	protected _getUnsafe(tree: (typeof IdParser)['tree']): Node {
 		const typeBranch = this._getTypeBranch(tree)
 
 		if (typeBranch == null)
@@ -928,18 +966,17 @@ abstract class IdParser<
 
 		const [_rulesPackageId, key, ..._tailKeys] = this.primaryPathKeys
 
-		let result: { _id: string } | undefined
+		let result: UnknownNode | undefined
 
-		if (typeBranch instanceof Map)
-			result = (typeBranch.get(key) as { _id: string }) ?? undefined
-		else result = (typeBranch[key] as { _id: string }) ?? undefined
+		if (typeBranch instanceof Map) result = typeBranch.get(key)
+		else result = typeBranch[key]
 
 		if (result == null)
 			throw new Error(
 				`Couldn't find key <${key}> in <${this.rulesPackageId}.${this.typeBranchKey}>`
 			)
 
-		return result
+		return result as Node
 	}
 
 	/** @internal */
@@ -959,20 +996,19 @@ abstract class IdParser<
 	 * @internal
 	 */
 	_getMatchesUnsafe(
-		tree = IdParser.tree,
+		tree: typeof IdParser.tree,
 		forEach?: (id: string, node: unknown) => boolean
-	): Map<string, { _id: string }> {
+	): Map<string, Node> {
 		const pkgs = this._matchRulesPackages(tree)
-		const results = new Map<string, { _id: string }>()
+		const results = new Map<string, Node>()
 
 		const [_rulesPackageId, nextKey] = this.primaryPathKeys
 
 		const joiner = this instanceof EmbeddedId ? CONST.TypeSep : CONST.PathKeySep
 
 		for (const [pkgId, pkg] of pkgs) {
-			const typeBranch = pkg[this.typeBranchKey] as
-				| Record<string, { _id: string }>
-				| Map<string, { _id: string }>
+			// @ts-expect-error
+			const typeBranch = pkg[this.typeBranchKey] as DictionaryLike<Node>
 			if (typeBranch == null) continue
 			const matches = IdParser._getMatchesFrom(typeBranch, nextKey)
 			for (const [key, match] of matches) {
@@ -1010,8 +1046,9 @@ abstract class EmbeddingId<
 	TypeIds extends StringId.TypeIdParts = StringId.TypeIdParts,
 	PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 		length: TypeIds['length']
-	}
-> extends IdParser<TypeIds, PathSegments> {
+	},
+	Node extends UnknownNode = UnknownNode
+> extends IdParser<TypeIds, PathSegments, Node> {
 	/**
 	 * Create a child EmbeddedId with a given type and key.
 	 */
@@ -1133,7 +1170,11 @@ class NonCollectableId<
 	TTypeId extends TypeId.NonCollectable = TypeId.NonCollectable,
 	RulesPackage extends string = string,
 	Key extends string = string
-> extends EmbeddingId<[TTypeId], [Join<[RulesPackage, Key]>]> {
+> extends EmbeddingId<
+	[TTypeId],
+	[Join<[RulesPackage, Key]>],
+	TypeNode.NonCollectable<TTypeId>
+> {
 	get isRecursive(): false {
 		return false
 	}
@@ -1153,7 +1194,7 @@ interface NonCollectableId<
 	TTypeId extends TypeId.NonCollectable = TypeId.NonCollectable,
 	RulesPackage extends string = string,
 	Key extends string = string
-> extends EmbeddingId<[TTypeId], [`${RulesPackage}${CONST.PathKeySep}${Key}`]> {
+> {
 	toString(): StringId.NonCollectable<TTypeId, RulesPackage, Key>
 	get rulesPackageId(): RulesPackage
 	get typeId(): TTypeId
@@ -1173,27 +1214,29 @@ interface NonCollectableId<
 
 	/** @internal */
 	_getTypeBranch(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree']
 	):
 		| Map<string, TypeNode.NonCollectable<TTypeId>>
 		| Record<string, TypeNode.NonCollectable<TTypeId>>
 		| undefined
 
 	get(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree']
 	): TypeNode.NonCollectable<TTypeId> | undefined
 
 	getMatches(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree'],
+		forEach?: (id: string, node: unknown) => boolean
 	): Map<string, TypeNode.NonCollectable<TTypeId>>
 
 	/** @internal */
-	_getUnsafe(tree?: (typeof IdParser)['tree']): TypeNode.NonCollectable<TTypeId>
+	_getUnsafe(tree: (typeof IdParser)['tree']): TypeNode.NonCollectable<TTypeId>
 
 	// no override needed, as they only have the one key
 	/** @internal */
 	_getMatchesUnsafe(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree'],
+		forEach?: (id: string, node: unknown) => boolean
 	): Map<string, TypeNode.NonCollectable<TTypeId>>
 }
 namespace NonCollectableId {
@@ -1215,12 +1258,14 @@ class CollectableId<
 	>
 	extends EmbeddingId<
 		[TTypeId],
-		[Join<[RulesPackage, ...CollectableAncestorKeys, Key]>]
+		[Join<[RulesPackage, ...CollectableAncestorKeys, Key]>],
+		TypeNode.Collectable<TTypeId>
 	>
 	implements
 		RecursiveId<
 			[TTypeId],
-			[Join<[RulesPackage, ...CollectableAncestorKeys, Key]>]
+			[Join<[RulesPackage, ...CollectableAncestorKeys, Key]>],
+			TypeNode.Collectable<TTypeId>
 		>
 {
 	get isRecursive(): true {
@@ -1278,7 +1323,7 @@ class CollectableId<
 
 	/** @internal */
 	override _getUnsafe(
-		tree: (typeof IdParser)['tree'] = IdParser.tree
+		tree: (typeof IdParser)['tree']
 	): TypeNode.Collectable<TTypeId> {
 		const parent = this.getCollectionIdParent()
 		const parentNode = parent._getUnsafe(tree)
@@ -1303,7 +1348,7 @@ class CollectableId<
 
 	/** @internal */
 	override _getMatchesUnsafe(
-		tree = IdParser.tree,
+		tree: typeof IdParser.tree,
 		forEach?: (id: string, node: unknown) => boolean
 	): Map<string, TypeNode.Collectable<TTypeId>> {
 		const parentId = this.getCollectionIdParent()
@@ -1311,12 +1356,13 @@ class CollectableId<
 		let matches: Map<string, TypeNode.Collectable<TTypeId>>
 		const thisKey = this.primaryPathKeys.at(-1)
 
+		// these aren't the targets, so they don't get forEach passed to them
 		const parentMatches = parentId._getMatchesUnsafe(tree)
 
 		for (const [parentId, parentMatch] of parentMatches) {
-			const contents = parentMatch[CONST.ContentsKey] as
-				| Record<string, TypeNode.Collectable<TTypeId>>
-				| Map<string, TypeNode.Collectable<TTypeId>>
+			const contents = parentMatch[CONST.ContentsKey] as DictionaryLike<
+				TypeNode.Collectable<TTypeId>
+			>
 			if (contents == null) continue
 			const collectables = IdParser._getMatchesFrom(contents, thisKey)
 			for (const [currentKey, match] of collectables) {
@@ -1342,10 +1388,7 @@ interface CollectableId<
 	CollectableAncestorKeys extends
 		PathKeys.CollectableAncestorKeys = PathKeys.CollectableAncestorKeys,
 	Key extends string = string
-> extends RecursiveId<
-		[TTypeId],
-		[Join<[RulesPackage, ...CollectableAncestorKeys, Key]>]
-	> {
+> {
 	// declaring these so TS doesn't have to compute them
 
 	toString(): StringId.Collectable<
@@ -1381,14 +1424,14 @@ interface CollectableId<
 
 	/** @internal */
 	_getTypeBranch(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree']
 	):
 		| Record<string, TypeNode.Collection<TypeId.CollectionOf<TTypeId>>>
 		| Map<string, TypeNode.Collection<TypeId.CollectionOf<TTypeId>>>
 		| undefined
 
 	get(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree']
 	): TypeNode.Collectable<TTypeId> | undefined
 }
 namespace CollectableId {
@@ -1410,12 +1453,14 @@ class CollectionId<
 	>
 	extends IdParser<
 		[TTypeId],
-		[Join<[RulesPackage, ...CollectionAncestorKeys, Key]>]
+		[Join<[RulesPackage, ...CollectionAncestorKeys, Key]>],
+		TypeNode.Collection<TTypeId>
 	>
 	implements
 		RecursiveId<
 			[TTypeId],
-			[Join<[RulesPackage, ...CollectionAncestorKeys, Key]>]
+			[Join<[RulesPackage, ...CollectionAncestorKeys, Key]>],
+			TypeNode.Collection<TTypeId>
 		>
 {
 	constructor(
@@ -1554,7 +1599,7 @@ class CollectionId<
 
 	/** @internal */
 	override _getUnsafe(
-		tree?:
+		tree:
 			| Record<string, Datasworn.RulesPackage>
 			| Map<string, Datasworn.RulesPackage>
 	): TypeNode.Collection<TTypeId> {
@@ -1579,7 +1624,7 @@ class CollectionId<
 			ancestorNodes.push(nextNode)
 		}
 
-		return ancestorNodes.at(-1)
+		return ancestorNodes.at(-1) as TypeNode.Collection<TTypeId>
 	}
 
 	static #getPositionId(path: string[], node: TypeNode.Collection) {
@@ -1656,7 +1701,7 @@ class CollectionId<
 
 	/** @internal */
 	override _getMatchesUnsafe(
-		tree = IdParser.tree,
+		tree: typeof IdParser.tree,
 		forEach?: (id: string, node: unknown) => boolean
 	): Map<string, TypeNode.Collection<TTypeId>> {
 		const pkgs = this._matchRulesPackages(tree)
@@ -1737,10 +1782,7 @@ interface CollectionId<
 	CollectionAncestorKeys extends
 		PathKeys.CollectionAncestorKeys = PathKeys.CollectionAncestorKeys,
 	Key extends string = string
-> extends RecursiveId<
-		[TTypeId],
-		[Join<[RulesPackage, ...CollectionAncestorKeys, Key]>]
-	> {
+> {
 	get compositeTypeId(): TTypeId
 	get rulesPackageId(): RulesPackage
 
@@ -1759,15 +1801,13 @@ interface CollectionId<
 
 	/** @internal */
 	_getTypeBranch(
-		tree?: (typeof IdParser)['tree']
+		tree: (typeof IdParser)['tree']
 	):
 		| Record<string, TypeNode.Collection<TTypeId>>
 		| Map<string, TypeNode.Collection<TTypeId>>
 		| undefined
 
-	get(
-		tree?: (typeof IdParser)['tree']
-	): TypeNode.Collection<TTypeId> | undefined
+	get(tree: (typeof IdParser)['tree']): TypeNode.Collection<TTypeId> | undefined
 }
 
 namespace CollectionId {
@@ -1830,7 +1870,8 @@ class EmbeddedId<
 	[...ParentId['typeIds'], TTypeId],
 	[...ParentId['pathSegments'], Key] & {
 		length: [...ParentId['typeIds'], TTypeId]['length']
-	}
+	},
+  TypeNode.Embedded<TTypeId>
 > {
 	readonly #parent: ParentId
 
@@ -1899,19 +1940,14 @@ interface EmbeddedId<
 	ParentId extends EmbeddingId = EmbeddingId,
 	TTypeId extends TypeId.Embeddable = TypeId.Embeddable,
 	Key extends string = string
-> extends EmbeddingId<
-		[...ParentId['typeIds'], TTypeId],
-		[...ParentId['pathSegments'], Key] & {
-			length: [...ParentId['typeIds'], TTypeId]['length']
-		}
-	> {
+> {
 	toString(): `${this['compositeTypeId']}${CONST.PrefixSep}${Join<this['pathSegments'], CONST.TypeSep>}`
 
 	get embeddableTypes(): TTypeId extends TypeId.EmbeddingWhenEmbeddedType
 		? [...TypeId.EmbeddableInEmbeddedType<TTypeId>[]]
 		: []
 
-	get(tree?: (typeof IdParser)['tree']): TypeNode.Embedded<TTypeId>
+	get(tree: (typeof IdParser)['tree']): TypeNode.Embedded<TTypeId>
 
 	get typeId(): TTypeId
 	get typeIds(): [...ParentId['typeIds'], TTypeId]

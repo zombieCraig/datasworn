@@ -13,7 +13,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _b, _CollectionId_getPositionId, _EmbeddedId_parent;
+var _a, _IdParser_tree, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _b, _CollectionId_getPositionId, _EmbeddedId_parent;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NonCollectableId = exports.IdParser = exports.EmbeddedId = exports.CollectionId = exports.CollectableId = void 0;
 const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
@@ -21,7 +21,15 @@ const TypeGuard_js_1 = __importDefault(require("./IdElements/TypeGuard.js"));
 const TypeId_js_1 = __importDefault(require("./IdElements/TypeId.js"));
 const Errors_js_1 = require("./Errors.js");
 const index_js_1 = require("./IdElements/index.js");
+/** Performs parsing, validation, and construction of Datasworn IDs, and traverses the Datasworn hierarchy to retrieve matching node(s).  */
 class IdParser {
+    /**  */
+    static get tree() {
+        return __classPrivateFieldGet(_a, _a, "f", _IdParser_tree);
+    }
+    static set tree(value) {
+        __classPrivateFieldSet(_a, _a, value, "f", _IdParser_tree);
+    }
     get typeIds() {
         return __classPrivateFieldGet(this, _IdParser_typeIds, "f");
     }
@@ -107,10 +115,11 @@ class IdParser {
     }
     /**
      * Get a Datasworn node by its ID.
-     * @throws If the ID is a wildcard ID. If no Datasworn tree is provided (either in {@link IdParser.tree} or as an argument).
+     * @throws If the ID is a wildcard ID; if no Datasworn tree is provided (either in {@link IdParser.tree} or as an argument).
      * @returns The identified node, or `undefined` if the node doesn't exist.
      */
     get(tree = _a.tree) {
+        tree || (tree = _a.tree);
         if (tree == null)
             throw new Error(`No Datasworn tree found -- set the static property ${_a.constructor.name}#tree, or provide one as a parameter.`);
         if (this.isWildcard)
@@ -128,13 +137,19 @@ class IdParser {
      * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return only the matches it has made so far.
      * @returns A {@link Map}
      */
-    getMatches(tree = _a.tree, forEach) {
+    getMatches(tree = _a['tree'], forEach) {
+        tree || (tree = _a.tree);
+        if (tree == null)
+            throw new Error(`No Datasworn tree found -- set the static property ${_a.constructor.name}#tree, or provide one as a parameter.`);
         // skip the matching process if it's not actually a wildcard ID
         if (!this.isWildcard) {
             const match = this.get(tree);
             const matches = new Map();
-            if (match != null)
+            if (match != null) {
                 matches.set(this.toString(), match);
+                if (typeof forEach === 'function')
+                    forEach(this.toString(), match);
+            }
             return matches;
         }
         return this._getMatchesUnsafe(tree, forEach);
@@ -160,7 +175,7 @@ class IdParser {
         // no more trivial matches, fall back regular expression (more computationally expensive)
         return this.pathRegExp.test(that.compositePath);
     }
-    /** Is this non-wildcard ID matched by one of the provided wildcard IDs?
+    /** Is this non-wildcard ID matched by at least one of the provided wildcard IDs?
      * @throws If this instance is a wildcard ID; if it attempts a comparison with an invalid ID string
      */
     isMatchedBy(...wildcardIds) {
@@ -261,9 +276,9 @@ class IdParser {
         const parsed = id instanceof _a ? id : _a.parse(id);
         return parsed.get(tree);
     }
-    static getMatches(id, tree = _a.datasworn) {
+    static getMatches(id, tree = _a.datasworn, forEach) {
         const parsed = id instanceof _a ? id : _a.parse(id);
-        return parsed.getMatches(tree);
+        return parsed.getMatches(tree, forEach);
     }
     static parse(id) {
         const { typeIds, pathSegments } = __classPrivateFieldGet(this, _a, "m", _IdParser_parseOptions).call(this, id);
@@ -456,7 +471,7 @@ class IdParser {
         }
     }
     /** @internal */
-    _getRulesPackage(tree = _a.tree) {
+    _getRulesPackage(tree) {
         var _c, _d;
         if (tree == null)
             throw new Error(`No Datasworn tree found -- set the static property ${_a.constructor.name}#tree, or provide one as a parameter.`);
@@ -467,24 +482,23 @@ class IdParser {
         return (_d = tree[this.rulesPackageId]) !== null && _d !== void 0 ? _d : undefined;
     }
     /** @internal */
-    _getTypeBranch(tree = _a.tree) {
+    _getTypeBranch(tree) {
         const pkg = this._getRulesPackage(tree);
         if (pkg == null)
             throw new Error(`Couldn't find a RulesPackage with the id "${this.rulesPackageId}"`);
         return pkg[this.typeBranchKey];
     }
     /** @internal */
-    _getUnsafe(tree = _a.tree) {
-        var _c, _d;
+    _getUnsafe(tree) {
         const typeBranch = this._getTypeBranch(tree);
         if (typeBranch == null)
             throw new Error(`RulesPackage <${this.rulesPackageId}> doesn't have a "${this.typeBranchKey}" type branch.`);
         const [_rulesPackageId, key, ..._tailKeys] = this.primaryPathKeys;
         let result;
         if (typeBranch instanceof Map)
-            result = (_c = typeBranch.get(key)) !== null && _c !== void 0 ? _c : undefined;
+            result = typeBranch.get(key);
         else
-            result = (_d = typeBranch[key]) !== null && _d !== void 0 ? _d : undefined;
+            result = typeBranch[key];
         if (result == null)
             throw new Error(`Couldn't find key <${key}> in <${this.rulesPackageId}.${this.typeBranchKey}>`);
         return result;
@@ -499,12 +513,13 @@ class IdParser {
      * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return whatever results it currently has.
      * @internal
      */
-    _getMatchesUnsafe(tree = _a.tree, forEach) {
+    _getMatchesUnsafe(tree, forEach) {
         const pkgs = this._matchRulesPackages(tree);
         const results = new Map();
         const [_rulesPackageId, nextKey] = this.primaryPathKeys;
         const joiner = this instanceof EmbeddedId ? CONST_js_1.default.TypeSep : CONST_js_1.default.PathKeySep;
         for (const [pkgId, pkg] of pkgs) {
+            // @ts-expect-error
             const typeBranch = pkg[this.typeBranchKey];
             if (typeBranch == null)
                 continue;
@@ -609,7 +624,7 @@ _a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new W
     }
     return results;
 };
-IdParser.tree = null;
+_IdParser_tree = { value: null };
 /**
  * The object used for log messages.
  * @default console
@@ -718,7 +733,7 @@ class CollectableId extends EmbeddingId {
         return new CollectionId(this.parentTypeId, ...ancestorKeys);
     }
     /** @internal */
-    _getUnsafe(tree = IdParser.tree) {
+    _getUnsafe(tree) {
         const parent = this.getCollectionIdParent();
         const parentNode = parent._getUnsafe(tree);
         // console.log(`<${this}> got parent`, parentNode)
@@ -734,10 +749,11 @@ class CollectableId extends EmbeddingId {
         return result;
     }
     /** @internal */
-    _getMatchesUnsafe(tree = IdParser.tree, forEach) {
+    _getMatchesUnsafe(tree, forEach) {
         const parentId = this.getCollectionIdParent();
         let matches;
         const thisKey = this.primaryPathKeys.at(-1);
+        // these aren't the targets, so they don't get forEach passed to them
         const parentMatches = parentId._getMatchesUnsafe(tree);
         for (const [parentId, parentMatch] of parentMatches) {
             const contents = parentMatch[CONST_js_1.default.ContentsKey];
@@ -893,7 +909,7 @@ class CollectionId extends IdParser {
         return matches;
     }
     /** @internal */
-    _getMatchesUnsafe(tree = IdParser.tree, forEach) {
+    _getMatchesUnsafe(tree, forEach) {
         const pkgs = this._matchRulesPackages(tree);
         // defer creating this until we need it
         let matches;
@@ -938,6 +954,12 @@ class EmbeddedId extends EmbeddingId {
      */
     getEmbeddingIdParent() {
         return __classPrivateFieldGet(this, _EmbeddedId_parent, "f");
+    }
+    _getUnsafe(tree) {
+        const parentNode = __classPrivateFieldGet(this, _EmbeddedId_parent, "f").get(tree);
+        const property = TypeId_js_1.default.getEmbeddedPropertyKey(this.typeId);
+        const obj = parentNode === null || parentNode === void 0 ? void 0 : parentNode[property];
+        return obj[this.pathSegments.at(-1)];
     }
     _getPathRegExpSource() {
         let basePath = __classPrivateFieldGet(this, _EmbeddedId_parent, "f")._getPathRegExpSource();

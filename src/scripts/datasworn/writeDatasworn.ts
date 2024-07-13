@@ -131,7 +131,11 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 		errors.push(`Couldn't reach referenced ID: ${id}`)
 
 	if (errors.length > 0)
-		throw new Error(errors.map((e) => e.toString()).join('\n'))
+		throw new Error(
+			['Found invalid ID references:', ...errors.map((e) => e.toString())].join(
+				'\n\t'
+			)
+		)
 
 	await Promise.all(writeOps)
 
