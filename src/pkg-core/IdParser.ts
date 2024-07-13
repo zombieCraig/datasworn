@@ -371,7 +371,7 @@ abstract class IdParser<
 	static get<T extends StringId.Primary | IdParser>(
 		id: T,
 		tree = IdParser.datasworn
-	) {
+	): { _id: string } {
 		const parsed = id instanceof IdParser ? id : IdParser.parse(id as any)
 
 		return parsed.get(tree)
@@ -967,7 +967,7 @@ abstract class IdParser<
 
 		const [_rulesPackageId, nextKey] = this.primaryPathKeys
 
-    const joiner = this instanceof EmbeddedId ? CONST.TypeSep : CONST.PathKeySep
+		const joiner = this instanceof EmbeddedId ? CONST.TypeSep : CONST.PathKeySep
 
 		for (const [pkgId, pkg] of pkgs) {
 			const typeBranch = pkg[this.typeBranchKey] as
@@ -978,8 +978,8 @@ abstract class IdParser<
 			for (const [key, match] of matches) {
 				const path = [pkgId, key].join(joiner)
 
-        // computing the ID for this *position*, not the value of the _id property;
-        // this is done so that a node that overrides this position's default node retains its own ID, but still matches as intended.
+				// computing the ID for this *position*, not the value of the _id property;
+				// this is done so that a node that overrides this position's default node retains its own ID, but still matches as intended.
 				const positionId = [this.compositeTypeId, path].join(CONST.PrefixSep)
 
 				results.set(positionId, match)
@@ -1320,10 +1320,10 @@ class CollectableId<
 			if (contents == null) continue
 			const collectables = IdParser._getMatchesFrom(contents, thisKey)
 			for (const [currentKey, match] of collectables) {
-        const [_parentTypeId,parentPath] = parentId.split(CONST.PrefixSep)
+				const [_parentTypeId, parentPath] = parentId.split(CONST.PrefixSep)
 
-        const currentPath = parentPath + CONST.PathKeySep + currentKey
-        const currentId = this.compositeTypeId + CONST.PrefixSep + currentPath
+				const currentPath = parentPath + CONST.PathKeySep + currentKey
+				const currentId = this.compositeTypeId + CONST.PrefixSep + currentPath
 
 				matches ||= new Map()
 				matches.set(currentId, match)
@@ -1841,6 +1841,14 @@ class EmbeddedId<
 		return this.#parent
 	}
 
+	override _getUnsafe(tree) {
+		const parentNode = this.#parent.get(tree)
+		const property = TypeId.getEmbeddedPropertyKey(this.typeId)
+		const obj = parentNode?.[property as any]
+
+		return obj[this.pathSegments.at(-1)]
+	}
+
 	override _getPathRegExpSource(): string {
 		let basePath = this.#parent._getPathRegExpSource()
 		const [_primaryPathSegment, ...secondaryPathSegments] = this.pathSegments
@@ -1903,7 +1911,7 @@ interface EmbeddedId<
 		? [...TypeId.EmbeddableInEmbeddedType<TTypeId>[]]
 		: []
 
-	get(): TypeNode.Embedded<TTypeId>
+	get(tree?: (typeof IdParser)['tree']): TypeNode.Embedded<TTypeId>
 
 	get typeId(): TTypeId
 	get typeIds(): [...ParentId['typeIds'], TTypeId]
