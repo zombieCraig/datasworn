@@ -13,8 +13,11 @@ const space = '\t'
  * Reads source data from a YAML or JSON file.
  * @return The deserialized object.
  */
-export async function readSourceData<T extends DataswornSource.RulesPackage>(
-	filePath: string | BunFile
+export async function readDataswornSourceData<
+	T extends DataswornSource.RulesPackage
+>(
+	filePath: string | BunFile,
+	reviver?: (key: unknown, value: unknown) => unknown
 ): Promise<T> {
 	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
 
@@ -23,9 +26,9 @@ export async function readSourceData<T extends DataswornSource.RulesPackage>(
 	switch (path.extname(pathStr)) {
 		case '.yaml':
 		case '.yml':
-			return await readYAML<T>(file)
+			return await readYAML<T>(file, { reviver })
 		case '.json':
-			return await readJSON<T>(file)
+			return await readJSON<T>(file, reviver)
 		default:
 			throw new Error(`Unrecognized file extension in "${filePath}"`)
 	}
@@ -90,30 +93,60 @@ export async function readJSON<T>(
 	return JSON.parse(await file.text(), reviver)
 }
 
+type WriteJsonOptions = {
+	skipCopyAwait?: boolean
+	replacer?: (this: any, key: string, value: any) => any
+	prettierOptions?: Prettier.Options
+}
 export async function writeJSON(
 	filePath: string | BunFile,
-	value: any,
-	{
-		replacer,
-		prettierOptions
-	}: {
-		replacer?: (this: any, key: string, value: any) => any
-		prettierOptions?: Prettier.Options
-	} = {}
-) {
-	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
+	jsonContent: any,
+	options?: WriteJsonOptions
+): Promise<any>
+export async function writeJSON(
+	filePaths: (string | BunFile)[],
+	jsonContent: any,
+	options?: WriteJsonOptions
+): Promise<any>
+export async function writeJSON(
+	filePath: string | BunFile | (string | BunFile)[],
+	jsonContent: any,
+	{ skipCopyAwait = false, replacer, prettierOptions }: WriteJsonOptions = {}
+): Promise<any> {
+	const pathParams = Array.isArray(filePath) ? filePath : [filePath]
 
-	await ensureDir(path.dirname(file.name as string))
+	// nothing to do
+	if (pathParams.length === 0) return
+
+	const [writeDestination, ...copyDestinations]: BunFile[] = pathParams.map(
+		(destination) =>
+			typeof destination === 'string' ? Bun.file(destination) : destination
+	)
 
 	if (prettierOptions == null)
-		prettierOptions = await getPrettierOptions(filePath)
+		prettierOptions = await getPrettierOptions(writeDestination.name as string)
 
-	const data = await Prettier.format(
-		JSON.stringify(value, replacer, space),
+	const json = await Prettier.format(
+		JSON.stringify(jsonContent, replacer, space),
 		prettierOptions
 	)
-	await Bun.write(file, data)
+
+	// write to the first destination
+	await ensureDir(path.dirname(writeDestination.name as string))
+	await Bun.write(writeDestination, json)
+
+	// nothing left to do
+	if (copyDestinations.length === 0) return
+
+	const copyOps: Promise<any>[] = []
+
+	for (const copyDestionation of copyDestinations)
+		copyOps.push(copyFile(writeDestination, copyDestionation))
+
+	if (skipCopyAwait) return void Promise.all(copyOps)
+	else return await Promise.all(copyOps)
 }
+
 export async function getPrettierOptions(
 	filePath: string | BunFile,
 	parser: string = 'json'

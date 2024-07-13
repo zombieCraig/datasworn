@@ -181,18 +181,22 @@ abstract class IdParser<
 	/**
 	 * Get all Datasworn nodes that match this wildcard ID.
 	 * @remarks Non-wildcard IDs work here too; technically they're valid as wildcard IDs.
+	 * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return only the matches it has made so far.
 	 * @returns A {@link Map}
 	 */
-	getMatches(tree = IdParser.tree): Map<string, { _id: string }> {
-		// skip a bunch of iteration if it's not actually a wildcard ID
+	getMatches(
+		tree = IdParser.tree,
+		forEach?: (id: string, node: unknown) => boolean
+	): Map<string, { _id: string }> {
+		// skip the matching process if it's not actually a wildcard ID
 		if (!this.isWildcard) {
 			const match = this.get(tree)
 			const matches = new Map()
-			if (match != null) matches.set(match._id, match)
+			if (match != null) matches.set(this.toString(), match)
 			return matches
 		}
 
-		return this._getMatchesUnsafe(tree)
+		return this._getMatchesUnsafe(tree, forEach)
 	}
 
 	/**
@@ -788,7 +792,7 @@ abstract class IdParser<
 	>(
 		obj: TFrom,
 		matchKey: string | number = CONST.WildcardString
-	): Map<string, V> | Map<number, V> {
+	): Map<string | number, V> {
 		switch (true) {
 			case Array.isArray(obj):
 				return this.#getMatchesFromArray(obj, matchKey)
@@ -951,20 +955,37 @@ abstract class IdParser<
 	}
 
 	/**
-	 * @internal */
-	_getMatchesUnsafe(tree = IdParser.tree): Map<string, { _id: string }> {
+	 * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return whatever results it currently has.
+	 * @internal
+	 */
+	_getMatchesUnsafe(
+		tree = IdParser.tree,
+		forEach?: (id: string, node: unknown) => boolean
+	): Map<string, { _id: string }> {
 		const pkgs = this._matchRulesPackages(tree)
 		const results = new Map<string, { _id: string }>()
 
 		const [_rulesPackageId, nextKey] = this.primaryPathKeys
 
-		for (const pkg of pkgs.values()) {
+    const joiner = this instanceof EmbeddedId ? CONST.TypeSep : CONST.PathKeySep
+
+		for (const [pkgId, pkg] of pkgs) {
 			const typeBranch = pkg[this.typeBranchKey] as
 				| Record<string, { _id: string }>
 				| Map<string, { _id: string }>
 			if (typeBranch == null) continue
 			const matches = IdParser._getMatchesFrom(typeBranch, nextKey)
-			for (const [_, match] of matches) results.set(match._id, match)
+			for (const [key, match] of matches) {
+				const path = [pkgId, key].join(joiner)
+
+        // computing the ID for this *position*, not the value of the _id property;
+        // this is done so that a node that overrides this position's default node retains its own ID, but still matches as intended.
+				const positionId = [this.compositeTypeId, path].join(CONST.PrefixSep)
+
+				results.set(positionId, match)
+				if (typeof forEach === 'function' && forEach(positionId, match))
+					return results
+			}
 		}
 
 		return results
@@ -1281,8 +1302,9 @@ class CollectableId<
 	}
 
 	/** @internal */
-	_getMatchesUnsafe(
-		tree = IdParser.tree
+	override _getMatchesUnsafe(
+		tree = IdParser.tree,
+		forEach?: (id: string, node: unknown) => boolean
 	): Map<string, TypeNode.Collectable<TTypeId>> {
 		const parentId = this.getCollectionIdParent()
 
@@ -1291,15 +1313,22 @@ class CollectableId<
 
 		const parentMatches = parentId._getMatchesUnsafe(tree)
 
-		for (const parentMatch of parentMatches.values()) {
+		for (const [parentId, parentMatch] of parentMatches) {
 			const contents = parentMatch[CONST.ContentsKey] as
 				| Record<string, TypeNode.Collectable<TTypeId>>
 				| Map<string, TypeNode.Collectable<TTypeId>>
 			if (contents == null) continue
 			const collectables = IdParser._getMatchesFrom(contents, thisKey)
-			for (const match of collectables.values()) {
+			for (const [currentKey, match] of collectables) {
+        const [_parentTypeId,parentPath] = parentId.split(CONST.PrefixSep)
+
+        const currentPath = parentPath + CONST.PathKeySep + currentKey
+        const currentId = this.compositeTypeId + CONST.PrefixSep + currentPath
+
 				matches ||= new Map()
-				matches.set(match._id, match)
+				matches.set(currentId, match)
+				if (typeof forEach === 'function' && forEach(currentId, match))
+					return matches
 			}
 		}
 
@@ -1553,25 +1582,37 @@ class CollectionId<
 		return ancestorNodes.at(-1)
 	}
 
+	static #getPositionId(path: string[], node: TypeNode.Collection) {
+		const pathStr = path.join(CONST.PathKeySep)
+		return [node.type, pathStr].join(CONST.PrefixSep)
+	}
+
 	/** @internal */
 	protected static _recurseMatches<T extends TypeNode.Collection>(
 		from: T,
-		keys: string[],
+		currentPath: string[],
+		nextPath: string[],
 		matches = new Map<string, T>(),
+		forEach?: (id: string, node: unknown) => boolean,
 		depth = 0
 	): Map<string, T> {
-		// console.log(keys)
+		// no further traversal needed
+		if (nextPath.length === 0) {
+			// from.type is fine here since collections can't be embedded.
+			const positionId = this.#getPositionId(currentPath, from)
 
-		if (keys.length === 0) return matches.set(from._id, from)
+			if (typeof forEach === 'function') forEach(positionId, from)
+			return matches.set(positionId, from)
+		}
 
 		if (depth > CONST.COLLECTION_DEPTH_MAX) {
 			console.warn(
-				`Exceeded max collection depth (${CONST.COLLECTION_DEPTH_MAX}) @ <${from._id}>`
+				`Exceeded max collection depth (${CONST.COLLECTION_DEPTH_MAX}) @ <${this.#getPositionId(currentPath, from)}>`
 			)
 			return matches
 		}
 
-		const [currentKey, ...tailKeys] = keys
+		const [keyToMatch, ...tailKeys] = nextPath
 
 		const childCollections = from[CONST.CollectionsKey] as
 			| Record<string, T>
@@ -1581,25 +1622,30 @@ class CollectionId<
 
 		const childMatches = IdParser._getMatchesFrom<T>(
 			childCollections,
-			currentKey
+			keyToMatch
 		)
 
-		for (const child of childMatches.values()) {
-			if (TypeGuard.Globstar(currentKey)) {
+		for (const [childKey, child] of childMatches) {
+			const currentChildPath = [...currentPath, childKey]
+			if (TypeGuard.Globstar(keyToMatch))
 				// recurse through children without consuming the globstar
 				for (const [matchId, match] of CollectionId._recurseMatches<T>(
 					child,
-					keys,
+					currentChildPath,
+					nextPath,
 					matches,
+					forEach,
 					depth + 1
 				))
 					matches.set(matchId, match)
-			}
+
 			// regular key + * matches
 			for (const [matchId, match] of CollectionId._recurseMatches<T>(
 				child,
+				currentChildPath,
 				tailKeys,
 				matches,
+				forEach,
 				depth + 1
 			))
 				matches.set(matchId, match)
@@ -1610,16 +1656,17 @@ class CollectionId<
 
 	/** @internal */
 	override _getMatchesUnsafe(
-		tree = IdParser.tree
+		tree = IdParser.tree,
+		forEach?: (id: string, node: unknown) => boolean
 	): Map<string, TypeNode.Collection<TTypeId>> {
 		const pkgs = this._matchRulesPackages(tree)
 
 		// defer creating this until we need it
 		let matches: Map<string, TypeNode.Collection<TTypeId>>
 
-		const [rulesPackageId, currentKey, ...tailKeys] = this.primaryPathKeys
+		const [_pkgMatchKey, matchKey, ...tailKeys] = this.primaryPathKeys
 
-		for (const pkg of pkgs.values()) {
+		for (const [rulesPackageId, pkg] of pkgs) {
 			const typeBranch = pkg[this.typeBranchKey] as
 				| Record<string, TypeNode.Collection<TTypeId>>
 				| Map<string, TypeNode.Collection<TTypeId>>
@@ -1628,35 +1675,56 @@ class CollectionId<
 
 			const collectionMatches = IdParser._getMatchesFrom<
 				TypeNode.Collection<TTypeId>
-			>(typeBranch, currentKey)
+			>(typeBranch, matchKey)
 
-			for (const collection of collectionMatches.values())
+			for (const [collectionKey, collection] of collectionMatches) {
+				const currentCollectionPath = [rulesPackageId, collectionKey]
+
 				if (TypeGuard.Globstar(rulesPackageId)) {
 					// carry forward the rules package globstar if it's present
 					matches = new Map([
 						...CollectionId._recurseMatches(
 							collection,
-							[CONST.GlobstarString, currentKey, ...tailKeys],
-							matches
+							currentCollectionPath,
+							[CONST.GlobstarString, matchKey, ...tailKeys],
+							matches,
+							forEach
 						),
 						...CollectionId._recurseMatches(
 							collection,
-							[currentKey, ...tailKeys],
-							matches
+							currentCollectionPath,
+							[matchKey, ...tailKeys],
+							matches,
+							forEach
 						)
 					])
-				} else if (TypeGuard.Globstar(currentKey)) {
+				} else if (TypeGuard.Globstar(matchKey)) {
 					// carry forward current key if it's a globstar
 					matches = new Map([
 						...CollectionId._recurseMatches(
 							collection,
-							[currentKey, ...tailKeys],
-							matches
+							currentCollectionPath,
+							[matchKey, ...tailKeys],
+							matches,
+							forEach
 						),
-						...CollectionId._recurseMatches(collection, tailKeys, matches)
+						...CollectionId._recurseMatches(
+							collection,
+							currentCollectionPath,
+							tailKeys,
+							matches,
+							forEach
+						)
 					])
 				} else
-					matches = CollectionId._recurseMatches(collection, tailKeys, matches)
+					matches = CollectionId._recurseMatches(
+						collection,
+						currentCollectionPath,
+						tailKeys,
+						matches,
+						forEach
+					)
+			}
 		}
 
 		return matches ?? new Map()

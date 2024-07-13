@@ -3,6 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.idLike = void 0;
+exports.needsIdValidation = needsIdValidation;
 exports.extractIdRefs = extractIdRefs;
 exports.forEachIdRef = forEachIdRef;
 exports.validateIdsInStrings = validateIdsInStrings;
@@ -21,17 +23,17 @@ const pathPattern = `${Pattern_js_1.default.RulesPackageElement.source}(?:${dict
 //      (?:[a-z\d_.]+|\*{1,2})+
 //    )+
 // |\*{2})
-const idLike = /(?<typeId>[a-z\d_.]{3,}|\*{1,2}):(?<path>(?:[a-z_]+|\*{1,2})(?:\/(?:[a-z\d_.]+|\*{1,2})+)+|\*{2})/g;
-const idPointerPattern = new RegExp(`^${idLike}$`);
+exports.idLike = /(?<typeId>[a-z\d_.]{3,}|\*{1,2}):(?<path>(?:[a-z_]+|\*{1,2})(?:\/(?:[a-z\d_.]+|\*{1,2})+)+|\*{2})/g;
+const idPointerPattern = new RegExp(`^${exports.idLike}$`);
 const linkSymbolPattern = new RegExp([
     `(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
-    `(?<id>${idLike})`,
+    `(?<id>${exports.idLike})`,
     `(?=\\))` // lookahead for right paren
 ].join(''), 'g');
 const macroSymbolPattern = new RegExp([
     `(?<=\\{\\{)`, // lookbehind for left curly braces
     `(?<directive>[a-z][a-z_]+>)`,
-    `(?<id>${idLike})`,
+    `(?<id>${exports.idLike})`,
     `(?=\\}\\})` // lookahead for right curly braces
 ].join(''), 'g');
 const plainTextKeys = new Set([
@@ -107,7 +109,7 @@ function forEachIdRef(data, forEach) {
             return;
         if (!needsIdValidation(k, v))
             return;
-        const ids = v.matchAll(idLike);
+        const ids = v.matchAll(exports.idLike);
         if (ids == null)
             return;
         for (const match of ids)
@@ -118,11 +120,9 @@ function validateIdsInStrings(data, index) {
     const errors = [];
     const extractedIds = new Set();
     forEachPrimitiveValue(data, undefined, (v, k) => {
-        if (typeof v !== 'string')
-            return;
         if (!needsIdValidation(k, v))
             return;
-        const ids = v.matchAll(idLike);
+        const ids = v.matchAll(exports.idLike);
         if (ids == null)
             return;
         for (const match of ids) {
@@ -149,7 +149,7 @@ function validateIdsInStrings(data, index) {
         // }
     });
     if (errors.length > 0)
-        throw new Error(errors.map(String).join('\n'));
+        throw new Error(errors.map((e) => e.toString()).join('\n'));
     return true;
 }
 function validateMacroIdPointers(text, validIds) {
@@ -169,7 +169,7 @@ function validateMacroIdPointers(text, validIds) {
         }
     }
     if (errors.length > 0)
-        throw new Error(errors.map(String).join('\n'));
+        throw new Error(errors.map((e) => e.toString()).join('\n'));
     return true;
 }
 function validateMarkdownIdPointers(text, validIds) {
@@ -187,7 +187,7 @@ function validateMarkdownIdPointers(text, validIds) {
         }
     }
     if (errors.length > 0)
-        throw new Error(errors.map(String).join('\n'));
+        throw new Error(errors.map((e) => e.toString()).join('\n'));
     return true;
 }
 const testStr = '[Bannersworn](datasworn:asset:starforged/path/bannersworn); [Diplomat](datasworn:asset:starforged/path/diplomat)';

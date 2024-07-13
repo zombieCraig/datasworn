@@ -13,17 +13,41 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _RulesPackageBuilder_instances, _a, _RulesPackageBuilder_result, _RulesPackageBuilder_isSorted, _RulesPackageBuilder_isMergeComplete, _RulesPackageBuilder_isValidated, _RulesPackageBuilder_countTypes, _RulesPackageBuilder_build, _RulesPackageBuilder_sortKeys, _RulesPackageBuilder_addFile, _RulesPackageBuilder_isObject, _RulesPackageBuilder_merge, _RulesPackagePart_data, _RulesPackagePart_isValidated;
+var _RulesPackageBuilder_instances, _a, _RulesPackageBuilder_schemaValidator, _RulesPackageBuilder_sourceSchemaValidator, _RulesPackageBuilder_result, _RulesPackageBuilder_isSorted, _RulesPackageBuilder_isMergeComplete, _RulesPackageBuilder_isValidated, _RulesPackageBuilder_countTypes, _RulesPackageBuilder_build, _RulesPackageBuilder_sortKeys, _RulesPackageBuilder_addFile, _RulesPackageBuilder_isObject, _RulesPackageBuilder_merge, _RulesPackagePart_data, _RulesPackagePart_isValidated;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RulesPackageBuilder = void 0;
 const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
 const Sort_js_1 = require("../Utils/Sort.js");
+const Text_js_1 = require("../Validators/Text.js");
 const index_js_1 = __importDefault(require("../Validators/index.js"));
 const index_js_2 = require("../index.js");
 /**
  * Merges, assigns IDs to, and validates multiple {@link DataswornSource.RulesPackage}s to create a complete {@link Datasworn.RulesPackage} object.
+ *
+ * Before creating an instance use {@link RulesPackageBuilder.init} to provide validation functions.
  * */
 class RulesPackageBuilder {
+    static get schemaValidator() {
+        return __classPrivateFieldGet(this, _a, "f", _RulesPackageBuilder_schemaValidator);
+    }
+    static get sourceSchemaValidator() {
+        return __classPrivateFieldGet(this, _a, "f", _RulesPackageBuilder_sourceSchemaValidator);
+    }
+    get packageType() {
+        if (this.files.size)
+            for (const [_filePath, file] of this.files)
+                return file.packageType;
+        return undefined;
+    }
+    static init({ validator, sourceValidator }) {
+        __classPrivateFieldSet(this, _a, validator, "f", _RulesPackageBuilder_schemaValidator);
+        __classPrivateFieldSet(this, _a, sourceValidator, "f", _RulesPackageBuilder_sourceSchemaValidator);
+        return this;
+    }
+    static get isInitialized() {
+        return (typeof this.schemaValidator === 'function' &&
+            typeof this.sourceSchemaValidator === 'function');
+    }
     countType(typeId) {
         let ct = 0;
         for (const [k] of this.index)
@@ -47,10 +71,38 @@ class RulesPackageBuilder {
     toJSON() {
         return __classPrivateFieldGet(this, _RulesPackageBuilder_result, "f");
     }
+    static validateIdRef(id, idTracker, tree = index_js_2.IdParser.tree) {
+        if (idTracker.valid.has(id))
+            return true;
+        if (idTracker.unreachable.has(id) || idTracker.invalid.has(id))
+            return false;
+        let parsedId;
+        try {
+            parsedId = index_js_2.IdParser.parse(id);
+        }
+        catch (e) {
+            idTracker.invalid.add(id);
+            return false;
+        }
+        const idHasMatches = parsedId.getMatches(tree, () => true).size > 0;
+        if (idHasMatches) {
+            idTracker.valid.add(id);
+            return true;
+        }
+        idTracker.unreachable.add(id);
+        return false;
+    }
+    validateIdRefs(idTracker, tree = index_js_2.IdParser.tree) {
+        (0, Text_js_1.forEachIdRef)(this.toJSON(), (id) => {
+            _a.validateIdRef(id, idTracker, tree);
+        });
+        return idTracker;
+    }
+    /** Performs JSON schema validation on the built data. */
     validate(force = false) {
         if (!force && __classPrivateFieldGet(this, _RulesPackageBuilder_isValidated, "f"))
             return this;
-        this.schemaValidator(__classPrivateFieldGet(this, _RulesPackageBuilder_result, "f"));
+        _a.schemaValidator(__classPrivateFieldGet(this, _RulesPackageBuilder_result, "f"));
         for (const [id, typeNode] of this.index) {
             if (typeNode == null)
                 continue;
@@ -75,19 +127,19 @@ class RulesPackageBuilder {
     }
     build(force = false) {
         try {
+            // refuse to build if one of the files isn't valid
+            if (this.errors.size > 0) {
+                const msg = Array.from(this.errors)
+                    .map(([file, error]) => `"${file}" failed DataswornSource schema validation: ${error}`)
+                    .join('\n');
+                throw new Error(msg);
+            }
             __classPrivateFieldGet(this, _RulesPackageBuilder_instances, "m", _RulesPackageBuilder_build).call(this, force);
             this.validate(force);
             // console.table(this.#countTypes())
             return this;
         }
         catch (e) {
-            // fsExtra.writeJSONSync(
-            // 	`datasworn/${this.id}/${this.id}.error.json`,
-            // 	this.toJSON(),
-            // 	{
-            // 		spaces: '\t'
-            // 	}
-            // )
             throw new Error(`Couldn't build "${this.id}". ${String(e)}`);
         }
     }
@@ -98,7 +150,7 @@ class RulesPackageBuilder {
      * @param sourceValidator A function that validates the individual package file contents against the DataswornSource JSON schema.
      * @param logger The destination for logging build messages.
      */
-    constructor(id, validator, sourceValidator, logger) {
+    constructor(id, logger) {
         _RulesPackageBuilder_instances.add(this);
         this.files = new Map();
         this.index = new Map();
@@ -106,9 +158,12 @@ class RulesPackageBuilder {
         _RulesPackageBuilder_isSorted.set(this, false);
         _RulesPackageBuilder_isMergeComplete.set(this, false);
         _RulesPackageBuilder_isValidated.set(this, false);
+        this.counter = {};
+        this.idRefs = new Set();
+        this.errors = new Map();
+        if (!_a.isInitialized)
+            throw new Error(`RulesPackageBuilder constructor is missing validator functions. Set them with the RulesPackageBuilder.init static method before creating an instance.`);
         this.id = id;
-        this.schemaValidator = validator;
-        this.sourceSchemaValidator = sourceValidator;
         this.logger = logger;
     }
     addFiles(...files) {
@@ -117,7 +172,7 @@ class RulesPackageBuilder {
                 void __classPrivateFieldGet(this, _RulesPackageBuilder_instances, "m", _RulesPackageBuilder_addFile).call(this, file);
             }
             catch (e) {
-                throw new Error(`Failed to add "${file.name}"! ${String(e)}`);
+                throw new Error(`Failed to add "${file.name}" to ${this.packageType} "${this.id}"! ${String(e)}`);
             }
         return this;
     }
@@ -145,7 +200,16 @@ _a = RulesPackageBuilder, _RulesPackageBuilder_result = new WeakMap(), _RulesPac
 }, _RulesPackageBuilder_addFile = function _RulesPackageBuilder_addFile(file) {
     const fileToAdd = file instanceof RulesPackagePart
         ? file
-        : new RulesPackagePart(file, this.sourceSchemaValidator, this.logger);
+        : new RulesPackagePart(file, this.logger);
+    if (this.packageType != null && this.packageType !== fileToAdd.packageType)
+        throw new Error(`Expected a source file with the type "${this.packageType}", but got "${fileToAdd.packageType}"`);
+    if (!fileToAdd.isValidated)
+        try {
+            fileToAdd.init();
+        }
+        catch (e) {
+            this.errors.set(fileToAdd.name, e);
+        }
     this.files.set(fileToAdd.name, fileToAdd);
     return this;
 }, _RulesPackageBuilder_isObject = function _RulesPackageBuilder_isObject(value) {
@@ -180,6 +244,8 @@ _a = RulesPackageBuilder, _RulesPackageBuilder_result = new WeakMap(), _RulesPac
     return __classPrivateFieldGet(this, _RulesPackageBuilder_instances, "m", _RulesPackageBuilder_merge).call(this, target, ...sources);
 };
 RulesPackageBuilder.postSchemaValidators = index_js_1.default;
+_RulesPackageBuilder_schemaValidator = { value: void 0 };
+_RulesPackageBuilder_sourceSchemaValidator = { value: void 0 };
 /** Top-level RulesPackage properties to omit from key sorting. */
 RulesPackageBuilder.topLevelKeysBlackList = [
     'rules'
@@ -189,6 +255,12 @@ RulesPackageBuilder.pointerSep = '/';
 /** Hash character that prepends generated JSON pointers. */
 RulesPackageBuilder.hashChar = '#';
 class RulesPackagePart {
+    static get sourceValidator() {
+        return RulesPackageBuilder.sourceSchemaValidator;
+    }
+    get packageType() {
+        return this.data.type;
+    }
     get data() {
         return __classPrivateFieldGet(this, _RulesPackagePart_data, "f");
     }
@@ -199,26 +271,25 @@ class RulesPackagePart {
     get isValidated() {
         return __classPrivateFieldGet(this, _RulesPackagePart_isValidated, "f");
     }
-    validate() {
-        const result = this.validator(this.data);
+    validateSource() {
+        const result = RulesPackagePart.sourceValidator(this.data);
         __classPrivateFieldSet(this, _RulesPackagePart_isValidated, true, "f");
         return result;
     }
-    constructor({ data, name }, validator, logger) {
+    constructor({ data, name }, logger) {
         this.index = new Map();
         _RulesPackagePart_data.set(this, void 0);
         _RulesPackagePart_isValidated.set(this, false);
         this.name = name;
         this.logger = logger;
-        this.validator = validator;
         __classPrivateFieldSet(this, _RulesPackagePart_data, data, "f");
-        this.init();
     }
     init() {
-        const isValid = this.validate();
+        const isValid = this.validateSource();
         if (!isValid)
-            throw new Error(`${this.name} doesn't match DataswornSource`);
+            throw new Error(`File "${this.name}" doesn't match DataswornSource schema`);
         void index_js_2.IdParser.assignIdsInRulesPackage(this.data, this.index);
+        return isValid;
     }
 }
 _RulesPackagePart_data = new WeakMap(), _RulesPackagePart_isValidated = new WeakMap();

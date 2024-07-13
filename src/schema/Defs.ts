@@ -100,6 +100,5 @@ const entries: [string, TSchema][] = Object.values<TSchema>(defsBase).map(
 )
 
 const Defs: Defs = Object.fromEntries(entries)
-// await fs.writeJson('baddefs.json', Defs, { spaces: '\t' })
 
 export default Defs

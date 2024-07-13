@@ -12,7 +12,7 @@ const pathPattern = `${Pattern.RulesPackageElement.source}(?:${dictKeyOrIndexPat
 //    )+
 // |\*{2})
 
-const idLike =
+export const idLike =
 	/(?<typeId>[a-z\d_.]{3,}|\*{1,2}):(?<path>(?:[a-z_]+|\*{1,2})(?:\/(?:[a-z\d_.]+|\*{1,2})+)+|\*{2})/g
 
 const idPointerPattern = new RegExp(`^${idLike}$`)
@@ -84,7 +84,7 @@ function isBareId(v: string) {
 	return true
 }
 
-function needsIdValidation(k: unknown, v: unknown) {
+export function needsIdValidation(k: unknown, v: unknown): v is string {
 	if (!(typeof k === 'number' || typeof k === 'string')) return false
 	if (typeof v !== 'string') return false
 
@@ -101,7 +101,7 @@ function needsIdValidation(k: unknown, v: unknown) {
 	return true
 }
 
-export function extractIdRefs(data) {
+export function extractIdRefs(data: unknown) {
 	const extractedIds = new Set<string>()
 
 	forEachIdRef(data, extractedIds.add)
@@ -109,7 +109,7 @@ export function extractIdRefs(data) {
 	return extractedIds
 }
 
-export function forEachIdRef(data, forEach: (id: string) => void) {
+export function forEachIdRef(data: unknown, forEach: (id: string) => void) {
 	forEachPrimitiveValue(data, undefined, (v, k) => {
 		if (typeof v !== 'string') return
 		if (!needsIdValidation(k, v)) return
@@ -131,7 +131,6 @@ export function validateIdsInStrings(
 	const extractedIds = new Set()
 
 	forEachPrimitiveValue(data, undefined, (v, k) => {
-		if (typeof v !== 'string') return
 		if (!needsIdValidation(k, v)) return
 
 		const ids = v.matchAll(idLike)
@@ -163,7 +162,8 @@ export function validateIdsInStrings(
 		// }
 	})
 
-	if (errors.length > 0) throw new Error(errors.map(String).join('\n'))
+	if (errors.length > 0)
+		throw new Error(errors.map((e) => e.toString()).join('\n'))
 
 	return true
 }
@@ -192,7 +192,8 @@ export function validateMacroIdPointers(
 		}
 	}
 
-	if (errors.length > 0) throw new Error(errors.map(String).join('\n'))
+	if (errors.length > 0)
+		throw new Error(errors.map((e) => e.toString()).join('\n'))
 
 	return true
 }
@@ -216,7 +217,8 @@ export function validateMarkdownIdPointers(
 		}
 	}
 
-	if (errors.length > 0) throw new Error(errors.map(String).join('\n'))
+	if (errors.length > 0)
+		throw new Error(errors.map((e) => e.toString()).join('\n'))
 
 	return true
 }

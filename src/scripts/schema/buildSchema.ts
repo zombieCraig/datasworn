@@ -85,56 +85,37 @@ function replacer(k: string, v: unknown) {
 	return v
 }
 
+/** Pending operations to write the schema to disk */
 const writeOps: Promise<any>[] = []
 
 for (const { rootSchema, name, paths, messages } of schemaOptions) {
-	// serialize first as a lazy way to strip some properties
-	// const serialized = JSON.stringify(options.rootSchema)
-
-	// await fsExtra.writeJSON('dump.json', rootSchema)
-
 	AJV.addSchema(rootSchema as JsonSchema, name)
 
-	Log.info(messages.writeStart)
+	let sortedSchema: Record<string, unknown> = {}
 
 	try {
-		for (const path of paths) {
-			let sortedSchema: Record<string, unknown> = {}
+		Log.info(messages.writeStart)
 
-			draft7.eachSchema((schema, hashPointer) => {
-				const pointer = hashPointer.replace(/^#/, '/')
-				const newSchema = sortSchemaKeys(JSON.parse(JSON.stringify(schema)))
+		draft7.eachSchema((schema, hashPointer) => {
+			const pointer = hashPointer.replace(/^#/, '/')
+			const newSchema = sortSchemaKeys(JSON.parse(JSON.stringify(schema)))
 
-				if (pointer === '/') sortedSchema = newSchema
-				else JsonPointer.set(sortedSchema, pointer, newSchema)
-			}, rootSchema)
+			if (pointer === '/') sortedSchema = newSchema
+			else JsonPointer.set(sortedSchema, pointer, newSchema)
+		}, rootSchema)
 
-			// console.log(sortedSchema)
-
-			for (const path of paths)
-				writeOps.push(
-					writeJSON(path, sortedSchema, {
-						prettierOptions,
-						replacer
-					})
-				)
-
-			writeOps.push(
-				writeJSON(path, sortedSchema, {
-					prettierOptions,
-					replacer
-				})
-			)
-
-			await Promise.all(writeOps)
-			Log.info(messages.writeFinish)
-		}
+		writeOps.push(
+			writeJSON(paths, sortedSchema, {
+				prettierOptions,
+				replacer
+			}).then(() => Log.info(messages.writeFinish))
+		)
 	} catch (error) {
 		Log.error(error)
 
-		for (const path of paths)
-			writeJSON(path, rootSchema, { prettierOptions, replacer })
+		await writeJSON(paths, rootSchema, { prettierOptions, replacer })
 	}
 }
 
-AJV.removeSchema()
+await Promise.all(writeOps)
+

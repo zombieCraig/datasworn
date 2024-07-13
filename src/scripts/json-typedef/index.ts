@@ -2,12 +2,10 @@ import * as JTD from 'jtd'
 import Log from '../utils/Log.js'
 import { refTracker, toJtdRoot } from './utils.js'
 
-import { DataswornSchema } from '../../schema/index.js'
 import { isEmpty } from 'lodash-es'
+import { DataswornSchema } from '../../schema/index.js'
 import { buildTypeDefs } from './buildTypeDefs.js'
 import { JTD_JSON_PATH } from './const.js'
-import { log } from 'console'
-import { writeJSON } from '../utils/readWrite.js'
 
 const root: JTD.Schema = toJtdRoot(DataswornSchema)
 
@@ -24,6 +22,8 @@ const json = JSON.stringify(
 	'\t'
 )
 const filePath = JTD_JSON_PATH
+
+
 
 Bun.write(Bun.file(filePath), json).then(() => {
 	if (!JTD.isValidSchema(JSON.parse(json)))

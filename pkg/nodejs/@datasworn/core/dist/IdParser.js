@@ -13,7 +13,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _EmbeddedId_parent;
+var _a, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _b, _CollectionId_getPositionId, _EmbeddedId_parent;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NonCollectableId = exports.IdParser = exports.EmbeddedId = exports.CollectionId = exports.CollectableId = void 0;
 const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
@@ -125,18 +125,19 @@ class IdParser {
     /**
      * Get all Datasworn nodes that match this wildcard ID.
      * @remarks Non-wildcard IDs work here too; technically they're valid as wildcard IDs.
+     * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return only the matches it has made so far.
      * @returns A {@link Map}
      */
-    getMatches(tree = _a.tree) {
-        // skip a bunch of iteration if it's not actually a wildcard ID
+    getMatches(tree = _a.tree, forEach) {
+        // skip the matching process if it's not actually a wildcard ID
         if (!this.isWildcard) {
             const match = this.get(tree);
             const matches = new Map();
             if (match != null)
-                matches.set(match._id, match);
+                matches.set(this.toString(), match);
             return matches;
         }
-        return this._getMatchesUnsafe(tree);
+        return this._getMatchesUnsafe(tree, forEach);
     }
     /**
      * Can the target ID be matched with this ID?
@@ -456,14 +457,14 @@ class IdParser {
     }
     /** @internal */
     _getRulesPackage(tree = _a.tree) {
-        var _b, _c;
+        var _c, _d;
         if (tree == null)
             throw new Error(`No Datasworn tree found -- set the static property ${_a.constructor.name}#tree, or provide one as a parameter.`);
         if (this.isWildcard)
             throw new Error(`${this.constructor.name}#${this.get.name} expected a non-wildcard ID, but got <${this.toString()}>. If you want to get wildcard matches, use ${this.constructor.name}#${this.getMatches.name} instead.`);
         if (tree instanceof Map)
-            return (_b = tree.get(this.rulesPackageId)) !== null && _b !== void 0 ? _b : undefined;
-        return (_c = tree[this.rulesPackageId]) !== null && _c !== void 0 ? _c : undefined;
+            return (_c = tree.get(this.rulesPackageId)) !== null && _c !== void 0 ? _c : undefined;
+        return (_d = tree[this.rulesPackageId]) !== null && _d !== void 0 ? _d : undefined;
     }
     /** @internal */
     _getTypeBranch(tree = _a.tree) {
@@ -474,16 +475,16 @@ class IdParser {
     }
     /** @internal */
     _getUnsafe(tree = _a.tree) {
-        var _b, _c;
+        var _c, _d;
         const typeBranch = this._getTypeBranch(tree);
         if (typeBranch == null)
             throw new Error(`RulesPackage <${this.rulesPackageId}> doesn't have a "${this.typeBranchKey}" type branch.`);
         const [_rulesPackageId, key, ..._tailKeys] = this.primaryPathKeys;
         let result;
         if (typeBranch instanceof Map)
-            result = (_b = typeBranch.get(key)) !== null && _b !== void 0 ? _b : undefined;
+            result = (_c = typeBranch.get(key)) !== null && _c !== void 0 ? _c : undefined;
         else
-            result = (_c = typeBranch[key]) !== null && _c !== void 0 ? _c : undefined;
+            result = (_d = typeBranch[key]) !== null && _d !== void 0 ? _d : undefined;
         if (result == null)
             throw new Error(`Couldn't find key <${key}> in <${this.rulesPackageId}.${this.typeBranchKey}>`);
         return result;
@@ -495,18 +496,28 @@ class IdParser {
         return _a._getMatchesFrom(tree, this.rulesPackageId);
     }
     /**
-     * @internal */
-    _getMatchesUnsafe(tree = _a.tree) {
+     * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return whatever results it currently has.
+     * @internal
+     */
+    _getMatchesUnsafe(tree = _a.tree, forEach) {
         const pkgs = this._matchRulesPackages(tree);
         const results = new Map();
         const [_rulesPackageId, nextKey] = this.primaryPathKeys;
-        for (const pkg of pkgs.values()) {
+        const joiner = this instanceof EmbeddedId ? CONST_js_1.default.TypeSep : CONST_js_1.default.PathKeySep;
+        for (const [pkgId, pkg] of pkgs) {
             const typeBranch = pkg[this.typeBranchKey];
             if (typeBranch == null)
                 continue;
             const matches = _a._getMatchesFrom(typeBranch, nextKey);
-            for (const [_, match] of matches)
-                results.set(match._id, match);
+            for (const [key, match] of matches) {
+                const path = [pkgId, key].join(joiner);
+                // computing the ID for this *position*, not the value of the _id property;
+                // this is done so that a node that overrides this position's default node retains its own ID, but still matches as intended.
+                const positionId = [this.compositeTypeId, path].join(CONST_js_1.default.PrefixSep);
+                results.set(positionId, match);
+                if (typeof forEach === 'function' && forEach(positionId, match))
+                    return results;
+            }
         }
         return results;
     }
@@ -723,19 +734,24 @@ class CollectableId extends EmbeddingId {
         return result;
     }
     /** @internal */
-    _getMatchesUnsafe(tree = IdParser.tree) {
+    _getMatchesUnsafe(tree = IdParser.tree, forEach) {
         const parentId = this.getCollectionIdParent();
         let matches;
         const thisKey = this.primaryPathKeys.at(-1);
         const parentMatches = parentId._getMatchesUnsafe(tree);
-        for (const parentMatch of parentMatches.values()) {
+        for (const [parentId, parentMatch] of parentMatches) {
             const contents = parentMatch[CONST_js_1.default.ContentsKey];
             if (contents == null)
                 continue;
             const collectables = IdParser._getMatchesFrom(contents, thisKey);
-            for (const match of collectables.values()) {
+            for (const [currentKey, match] of collectables) {
+                const [_parentTypeId, parentPath] = parentId.split(CONST_js_1.default.PrefixSep);
+                const currentPath = parentPath + CONST_js_1.default.PathKeySep + currentKey;
+                const currentId = this.compositeTypeId + CONST_js_1.default.PrefixSep + currentPath;
                 matches || (matches = new Map());
-                matches.set(match._id, match);
+                matches.set(currentId, match);
+                if (typeof forEach === 'function' && forEach(currentId, match))
+                    return matches;
             }
         }
         return matches !== null && matches !== void 0 ? matches : new Map();
@@ -789,7 +805,7 @@ class CollectionId extends IdParser {
     createCollectionIdChild(key) {
         if (this.recursionDepth >= CONST_js_1.default.COLLECTION_DEPTH_MAX)
             throw new Errors_js_1.ParseError(this.toString(), `Cant't generate a child collection ID because this ID has reached the maximum recursion depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX})`);
-        return new CollectionId(this.primaryTypeId, ...this.primaryPathKeys, key);
+        return new _b(this.primaryTypeId, ...this.primaryPathKeys, key);
     }
     assignIdsIn(node, recursive = true, index) {
         // run this up front so the log ordering is more intuitive
@@ -827,7 +843,7 @@ class CollectionId extends IdParser {
     getCollectionIdParent() {
         if (this.collectionAncestorKeys.length === 0)
             throw new Errors_js_1.ParseError(this.toString(), `Can't generate a parent ID because this ID has no ancestors.`);
-        return new CollectionId(this.primaryTypeId, this.rulesPackageId, ...this.collectionAncestorKeys);
+        return new _b(this.primaryTypeId, this.rulesPackageId, ...this.collectionAncestorKeys);
     }
     /** @internal */
     _getUnsafe(tree) {
@@ -846,64 +862,75 @@ class CollectionId extends IdParser {
         return ancestorNodes.at(-1);
     }
     /** @internal */
-    static _recurseMatches(from, keys, matches = new Map(), depth = 0) {
-        // console.log(keys)
-        if (keys.length === 0)
-            return matches.set(from._id, from);
+    static _recurseMatches(from, currentPath, nextPath, matches = new Map(), forEach, depth = 0) {
+        // no further traversal needed
+        if (nextPath.length === 0) {
+            // from.type is fine here since collections can't be embedded.
+            const positionId = __classPrivateFieldGet(this, _b, "m", _CollectionId_getPositionId).call(this, currentPath, from);
+            if (typeof forEach === 'function')
+                forEach(positionId, from);
+            return matches.set(positionId, from);
+        }
         if (depth > CONST_js_1.default.COLLECTION_DEPTH_MAX) {
-            console.warn(`Exceeded max collection depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX}) @ <${from._id}>`);
+            console.warn(`Exceeded max collection depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX}) @ <${__classPrivateFieldGet(this, _b, "m", _CollectionId_getPositionId).call(this, currentPath, from)}>`);
             return matches;
         }
-        const [currentKey, ...tailKeys] = keys;
+        const [keyToMatch, ...tailKeys] = nextPath;
         const childCollections = from[CONST_js_1.default.CollectionsKey];
         if (childCollections == null)
             return matches;
-        const childMatches = IdParser._getMatchesFrom(childCollections, currentKey);
-        for (const child of childMatches.values()) {
-            if (TypeGuard_js_1.default.Globstar(currentKey)) {
+        const childMatches = IdParser._getMatchesFrom(childCollections, keyToMatch);
+        for (const [childKey, child] of childMatches) {
+            const currentChildPath = [...currentPath, childKey];
+            if (TypeGuard_js_1.default.Globstar(keyToMatch))
                 // recurse through children without consuming the globstar
-                for (const [matchId, match] of CollectionId._recurseMatches(child, keys, matches, depth + 1))
+                for (const [matchId, match] of _b._recurseMatches(child, currentChildPath, nextPath, matches, forEach, depth + 1))
                     matches.set(matchId, match);
-            }
             // regular key + * matches
-            for (const [matchId, match] of CollectionId._recurseMatches(child, tailKeys, matches, depth + 1))
+            for (const [matchId, match] of _b._recurseMatches(child, currentChildPath, tailKeys, matches, forEach, depth + 1))
                 matches.set(matchId, match);
         }
         return matches;
     }
     /** @internal */
-    _getMatchesUnsafe(tree = IdParser.tree) {
+    _getMatchesUnsafe(tree = IdParser.tree, forEach) {
         const pkgs = this._matchRulesPackages(tree);
         // defer creating this until we need it
         let matches;
-        const [rulesPackageId, currentKey, ...tailKeys] = this.primaryPathKeys;
-        for (const pkg of pkgs.values()) {
+        const [_pkgMatchKey, matchKey, ...tailKeys] = this.primaryPathKeys;
+        for (const [rulesPackageId, pkg] of pkgs) {
             const typeBranch = pkg[this.typeBranchKey];
             if (typeBranch == null)
                 continue;
-            const collectionMatches = IdParser._getMatchesFrom(typeBranch, currentKey);
-            for (const collection of collectionMatches.values())
+            const collectionMatches = IdParser._getMatchesFrom(typeBranch, matchKey);
+            for (const [collectionKey, collection] of collectionMatches) {
+                const currentCollectionPath = [rulesPackageId, collectionKey];
                 if (TypeGuard_js_1.default.Globstar(rulesPackageId)) {
                     // carry forward the rules package globstar if it's present
                     matches = new Map([
-                        ...CollectionId._recurseMatches(collection, [CONST_js_1.default.GlobstarString, currentKey, ...tailKeys], matches),
-                        ...CollectionId._recurseMatches(collection, [currentKey, ...tailKeys], matches)
+                        ..._b._recurseMatches(collection, currentCollectionPath, [CONST_js_1.default.GlobstarString, matchKey, ...tailKeys], matches, forEach),
+                        ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach)
                     ]);
                 }
-                else if (TypeGuard_js_1.default.Globstar(currentKey)) {
+                else if (TypeGuard_js_1.default.Globstar(matchKey)) {
                     // carry forward current key if it's a globstar
                     matches = new Map([
-                        ...CollectionId._recurseMatches(collection, [currentKey, ...tailKeys], matches),
-                        ...CollectionId._recurseMatches(collection, tailKeys, matches)
+                        ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach),
+                        ..._b._recurseMatches(collection, currentCollectionPath, tailKeys, matches, forEach)
                     ]);
                 }
                 else
-                    matches = CollectionId._recurseMatches(collection, tailKeys, matches);
+                    matches = _b._recurseMatches(collection, currentCollectionPath, tailKeys, matches, forEach);
+            }
         }
         return matches !== null && matches !== void 0 ? matches : new Map();
     }
 }
 exports.CollectionId = CollectionId;
+_b = CollectionId, _CollectionId_getPositionId = function _CollectionId_getPositionId(path, node) {
+    const pathStr = path.join(CONST_js_1.default.PathKeySep);
+    return [node.type, pathStr].join(CONST_js_1.default.PrefixSep);
+};
 // @ts-expect-error
 class EmbeddedId extends EmbeddingId {
     /**

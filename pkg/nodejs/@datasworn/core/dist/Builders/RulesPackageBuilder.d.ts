@@ -3,8 +3,15 @@ import type TypeNode from '../TypeNode.js';
 import { type Datasworn, type DataswornSource } from '../index.js';
 export type SchemaValidator<TTarget> = (data: unknown) => data is TTarget;
 export type Logger = Record<'warn' | 'info' | 'debug' | 'error', (message?: any, ...optionalParams: any[]) => any>;
+export type IdRefTracker = {
+    valid: Set<string>;
+    unreachable: Set<string>;
+    invalid: Set<string>;
+};
 /**
  * Merges, assigns IDs to, and validates multiple {@link DataswornSource.RulesPackage}s to create a complete {@link Datasworn.RulesPackage} object.
+ *
+ * Before creating an instance use {@link RulesPackageBuilder.init} to provide validation functions.
  * */
 export declare class RulesPackageBuilder<TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage, TTarget extends Datasworn.RulesPackage = Datasworn.RulesPackage> {
     #private;
@@ -13,14 +20,25 @@ export declare class RulesPackageBuilder<TSource extends DataswornSource.RulesPa
         readonly oracle_rollable: typeof import("../Validators/OracleRollable.js").validate;
         readonly oracle_collection: typeof import("../Validators/OracleCollection.js").validate;
     };
-    readonly schemaValidator: SchemaValidator<TTarget>;
-    readonly sourceSchemaValidator: SchemaValidator<TSource>;
+    static get schemaValidator(): SchemaValidator<Datasworn.RulesPackage>;
+    static get sourceSchemaValidator(): SchemaValidator<DataswornSource.RulesPackage>;
+    get packageType(): Datasworn.RulesPackage['type'] | undefined;
+    static init({ validator, sourceValidator }: {
+        validator: SchemaValidator<Datasworn.RulesPackage>;
+        sourceValidator: SchemaValidator<DataswornSource.RulesPackage>;
+    }): typeof RulesPackageBuilder;
+    static get isInitialized(): boolean;
     readonly logger: Logger;
     readonly files: Map<string, RulesPackagePart<TSource>>;
     readonly index: Map<string, unknown>;
     countType(typeId: TypeId.Any): number;
+    counter: Record<string, number>;
     mergeFiles(force?: boolean): this;
     toJSON(): TTarget;
+    static validateIdRef(id: string, idTracker: IdRefTracker, tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): boolean;
+    validateIdRefs(idTracker: IdRefTracker, tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): IdRefTracker;
+    idRefs: Set<string>;
+    /** Performs JSON schema validation on the built data. */
     validate(force?: boolean): this;
     build(force?: boolean): this;
     /** Top-level RulesPackage properties to omit from key sorting. */
@@ -36,7 +54,8 @@ export declare class RulesPackageBuilder<TSource extends DataswornSource.RulesPa
      * @param sourceValidator A function that validates the individual package file contents against the DataswornSource JSON schema.
      * @param logger The destination for logging build messages.
      */
-    constructor(id: string, validator: SchemaValidator<TTarget>, sourceValidator: SchemaValidator<TSource>, logger: Logger);
+    constructor(id: string, logger: Logger);
+    errors: Map<string, unknown>;
     addFiles(...files: (RulesPackagePartData<TSource> | RulesPackagePart<TSource>)[]): this;
 }
 interface RulesPackagePartData<TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage> {
@@ -46,14 +65,15 @@ interface RulesPackagePartData<TSource extends DataswornSource.RulesPackage = Da
 declare class RulesPackagePart<TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage> implements RulesPackagePartData<TSource> {
     #private;
     readonly logger: Logger;
-    readonly validator: SchemaValidator<TSource>;
+    static get sourceValidator(): SchemaValidator<DataswornSource.RulesPackage>;
     name: string;
     index: Map<string, TypeNode.Primary<TypeId.Primary>>;
+    get packageType(): "ruleset" | "expansion";
     get data(): TSource;
     set data(value: TSource);
     get isValidated(): boolean;
-    validate(): boolean;
-    constructor({ data, name }: RulesPackagePartData<TSource>, validator: SchemaValidator<TSource>, logger: Logger);
-    init(): void;
+    validateSource(): boolean;
+    constructor({ data, name }: RulesPackagePartData<TSource>, logger: Logger);
+    init(): true;
 }
 export {};

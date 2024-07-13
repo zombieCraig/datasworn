@@ -2,6 +2,7 @@ import CONST from '../IdElements/CONST.js'
 import type TypeId from '../IdElements/TypeId.js'
 import type TypeNode from '../TypeNode.js'
 import { dataswornKeyOrder, sortObjectKeys } from '../Utils/Sort.js'
+import { forEachIdRef } from '../Validators/Text.js'
 import Validators from '../Validators/index.js'
 import { IdParser, type Datasworn, type DataswornSource } from '../index.js'
 
@@ -10,9 +11,16 @@ export type Logger = Record<
 	'warn' | 'info' | 'debug' | 'error',
 	(message?: any, ...optionalParams: any[]) => any
 >
+export type IdRefTracker = {
+	valid: Set<string>
+	unreachable: Set<string>
+	invalid: Set<string>
+}
 
 /**
  * Merges, assigns IDs to, and validates multiple {@link DataswornSource.RulesPackage}s to create a complete {@link Datasworn.RulesPackage} object.
+ *
+ * Before creating an instance use {@link RulesPackageBuilder.init} to provide validation functions.
  * */
 export class RulesPackageBuilder<
 	TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage,
@@ -22,8 +30,41 @@ export class RulesPackageBuilder<
 
 	static readonly postSchemaValidators = Validators
 
-	readonly schemaValidator: SchemaValidator<TTarget>
-	readonly sourceSchemaValidator: SchemaValidator<TSource>
+	static get schemaValidator(): SchemaValidator<Datasworn.RulesPackage> {
+		return this.#schemaValidator
+	}
+	static get sourceSchemaValidator(): SchemaValidator<DataswornSource.RulesPackage> {
+		return this.#sourceSchemaValidator
+	}
+
+	get packageType(): Datasworn.RulesPackage['type'] | undefined {
+		if (this.files.size)
+			for (const [_filePath, file] of this.files) return file.packageType
+		return undefined
+	}
+
+	static #schemaValidator: SchemaValidator<Datasworn.RulesPackage>
+	static #sourceSchemaValidator: SchemaValidator<DataswornSource.RulesPackage>
+
+	static init({
+		validator,
+		sourceValidator
+	}: {
+		validator: SchemaValidator<Datasworn.RulesPackage>
+		sourceValidator: SchemaValidator<DataswornSource.RulesPackage>
+	}) {
+		this.#schemaValidator = validator
+		this.#sourceSchemaValidator = sourceValidator
+		return this
+	}
+
+	static get isInitialized() {
+		return (
+			typeof this.schemaValidator === 'function' &&
+			typeof this.sourceSchemaValidator === 'function'
+		)
+	}
+
 	readonly logger: Logger
 
 	readonly files = new Map<string, RulesPackagePart<TSource>>()
@@ -55,6 +96,8 @@ export class RulesPackageBuilder<
 		return ct
 	}
 
+	counter = {} as Record<string, number>
+
 	mergeFiles(force = false) {
 		if (!force && this.#isMergeComplete) return this
 
@@ -82,10 +125,47 @@ export class RulesPackageBuilder<
 		return this.#result
 	}
 
+	static validateIdRef(
+		id: string,
+		idTracker: IdRefTracker,
+		tree = IdParser.tree
+	) {
+		if (idTracker.valid.has(id)) return true
+		if (idTracker.unreachable.has(id) || idTracker.invalid.has(id)) return false
+
+		let parsedId: IdParser
+
+		try {
+			parsedId = IdParser.parse(id as any)
+		} catch (e) {
+			idTracker.invalid.add(id)
+			return false
+		}
+
+		const idHasMatches = parsedId.getMatches(tree, () => true).size > 0
+
+		if (idHasMatches) {
+			idTracker.valid.add(id)
+			return true
+		}
+		idTracker.unreachable.add(id)
+		return false
+	}
+
+	validateIdRefs(idTracker: IdRefTracker, tree = IdParser.tree) {
+		forEachIdRef(this.toJSON(), (id) => {
+			RulesPackageBuilder.validateIdRef(id, idTracker, tree)
+		})
+		return idTracker
+	}
+
+	idRefs = new Set<string>()
+
+	/** Performs JSON schema validation on the built data. */
 	validate(force = false) {
 		if (!force && this.#isValidated) return this
 
-		this.schemaValidator(this.#result)
+		RulesPackageBuilder.schemaValidator(this.#result)
 
 		for (const [id, typeNode] of this.index) {
 			if (typeNode == null) continue
@@ -111,6 +191,17 @@ export class RulesPackageBuilder<
 
 	build(force = false) {
 		try {
+			// refuse to build if one of the files isn't valid
+			if (this.errors.size > 0) {
+				const msg = Array.from(this.errors)
+					.map(
+						([file, error]) =>
+							`"${file}" failed DataswornSource schema validation: ${error}`
+					)
+					.join('\n')
+				throw new Error(msg)
+			}
+
 			this.#build(force)
 
 			this.validate(force)
@@ -119,13 +210,6 @@ export class RulesPackageBuilder<
 
 			return this
 		} catch (e) {
-			// fsExtra.writeJSONSync(
-			// 	`datasworn/${this.id}/${this.id}.error.json`,
-			// 	this.toJSON(),
-			// 	{
-			// 		spaces: '\t'
-			// 	}
-			// )
 			throw new Error(`Couldn't build "${this.id}". ${String(e)}`)
 		}
 	}
@@ -156,23 +240,35 @@ export class RulesPackageBuilder<
 	 * @param sourceValidator A function that validates the individual package file contents against the DataswornSource JSON schema.
 	 * @param logger The destination for logging build messages.
 	 */
-	constructor(
-		id: string,
-		validator: SchemaValidator<TTarget>,
-		sourceValidator: SchemaValidator<TSource>,
-		logger: Logger
-	) {
+	constructor(id: string, logger: Logger) {
+		if (!RulesPackageBuilder.isInitialized)
+			throw new Error(
+				`RulesPackageBuilder constructor is missing validator functions. Set them with the RulesPackageBuilder.init static method before creating an instance.`
+			)
 		this.id = id
-		this.schemaValidator = validator
-		this.sourceSchemaValidator = sourceValidator
 		this.logger = logger
 	}
+
+	errors = new Map<string, unknown>()
 
 	#addFile(file: RulesPackagePartData<TSource> | RulesPackagePart<TSource>) {
 		const fileToAdd =
 			file instanceof RulesPackagePart
 				? file
-				: new RulesPackagePart(file, this.sourceSchemaValidator, this.logger)
+				: new RulesPackagePart(file, this.logger)
+
+		if (this.packageType != null && this.packageType !== fileToAdd.packageType)
+			throw new Error(
+				`Expected a source file with the type "${this.packageType}", but got "${fileToAdd.packageType}"`
+			)
+
+		if (!fileToAdd.isValidated)
+			try {
+				fileToAdd.init()
+			} catch (e) {
+				this.errors.set(fileToAdd.name, e)
+			}
+
 		this.files.set(fileToAdd.name, fileToAdd)
 		return this
 	}
@@ -184,7 +280,9 @@ export class RulesPackageBuilder<
 			try {
 				void this.#addFile(file)
 			} catch (e) {
-				throw new Error(`Failed to add "${file.name}"! ${String(e)}`)
+				throw new Error(
+					`Failed to add "${file.name}" to ${this.packageType} "${this.id}"! ${String(e)}`
+				)
 			}
 
 		return this
@@ -245,13 +343,20 @@ class RulesPackagePart<
 > implements RulesPackagePartData<TSource>
 {
 	readonly logger: Logger
-	readonly validator: SchemaValidator<TSource>
+
+	static get sourceValidator() {
+		return RulesPackageBuilder.sourceSchemaValidator
+	}
 
 	name: string
 
 	index = new Map<string, TypeNode.Primary>()
 
 	#data: TSource
+
+	public get packageType() {
+		return this.data.type
+	}
 
 	public get data(): TSource {
 		return this.#data
@@ -268,30 +373,28 @@ class RulesPackagePart<
 		return this.#isValidated
 	}
 
-	validate() {
-		const result = this.validator(this.data)
+	validateSource(): boolean {
+		const result = RulesPackagePart.sourceValidator(this.data)
 		this.#isValidated = true
 		return result
 	}
 
-	constructor(
-		{ data, name }: RulesPackagePartData<TSource>,
-		validator: SchemaValidator<TSource>,
-		logger: Logger
-	) {
+	constructor({ data, name }: RulesPackagePartData<TSource>, logger: Logger) {
 		this.name = name
 		this.logger = logger
-		this.validator = validator
 		this.#data = data
-
-		this.init()
 	}
 
 	init() {
-		const isValid = this.validate()
+		const isValid = this.validateSource()
 
-		if (!isValid) throw new Error(`${this.name} doesn't match DataswornSource`)
+		if (!isValid)
+			throw new Error(
+				`File "${this.name}" doesn't match DataswornSource schema`
+			)
 
 		void IdParser.assignIdsInRulesPackage(this.data, this.index)
+
+		return isValid
 	}
 }

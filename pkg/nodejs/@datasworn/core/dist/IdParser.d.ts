@@ -75,9 +75,10 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
     /**
      * Get all Datasworn nodes that match this wildcard ID.
      * @remarks Non-wildcard IDs work here too; technically they're valid as wildcard IDs.
+     * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return only the matches it has made so far.
      * @returns A {@link Map}
      */
-    getMatches(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): Map<string, {
+    getMatches(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>, forEach?: (id: string, node: unknown) => boolean): Map<string, {
         _id: string;
     }>;
     /**
@@ -160,8 +161,10 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
     /** @internal */
     protected _matchRulesPackages(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): Map<string, Datasworn.RulesPackage>;
     /**
-     * @internal */
-    _getMatchesUnsafe(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): Map<string, {
+     * @param forEach Optional function to apply to each match. If it returns `true`, the matcher will exit early and return whatever results it currently has.
+     * @internal
+     */
+    _getMatchesUnsafe(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>, forEach?: (id: string, node: unknown) => boolean): Map<string, {
         _id: string;
     }>;
 }
@@ -232,7 +235,7 @@ declare class CollectableId<TTypeId extends TypeId.Collectable = TypeId.Collecta
     /** @internal */
     _getUnsafe(tree?: (typeof IdParser)['tree']): TypeNode.Collectable<TTypeId>;
     /** @internal */
-    _getMatchesUnsafe(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): Map<string, TypeNode.Collectable<TTypeId>>;
+    _getMatchesUnsafe(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>, forEach?: (id: string, node: unknown) => boolean): Map<string, TypeNode.Collectable<TTypeId>>;
 }
 interface CollectableId<TTypeId extends TypeId.Collectable = TypeId.Collectable, RulesPackage extends string = string, CollectableAncestorKeys extends PathKeys.CollectableAncestorKeys = PathKeys.CollectableAncestorKeys, Key extends string = string> extends RecursiveId<[
     TTypeId
@@ -265,6 +268,7 @@ declare class CollectionId<TTypeId extends TypeId.Collection = TypeId.Collection
 ], [
     Join<[RulesPackage, ...CollectionAncestorKeys, Key]>
 ]> {
+    #private;
     constructor(typeId: TTypeId, rulesPackage: RulesPackage, ...pathKeys: [...CollectionAncestorKeys, Key]);
     get isRecursive(): true;
     get recursionDepth(): CollectionAncestorKeys['length'];
@@ -309,9 +313,9 @@ declare class CollectionId<TTypeId extends TypeId.Collection = TypeId.Collection
     /** @internal */
     _getUnsafe(tree?: Record<string, Datasworn.RulesPackage> | Map<string, Datasworn.RulesPackage>): TypeNode.Collection<TTypeId>;
     /** @internal */
-    protected static _recurseMatches<T extends TypeNode.Collection>(from: T, keys: string[], matches?: Map<string, T>, depth?: number): Map<string, T>;
+    protected static _recurseMatches<T extends TypeNode.Collection>(from: T, currentPath: string[], nextPath: string[], matches?: Map<string, T>, forEach?: (id: string, node: unknown) => boolean, depth?: number): Map<string, T>;
     /** @internal */
-    _getMatchesUnsafe(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>): Map<string, TypeNode.Collection<TTypeId>>;
+    _getMatchesUnsafe(tree?: Map<string, Datasworn.RulesPackage> | Record<string, Datasworn.RulesPackage>, forEach?: (id: string, node: unknown) => boolean): Map<string, TypeNode.Collection<TTypeId>>;
 }
 interface CollectionId<TTypeId extends TypeId.Collection = TypeId.Collection, RulesPackage extends string = string, CollectionAncestorKeys extends PathKeys.CollectionAncestorKeys = PathKeys.CollectionAncestorKeys, Key extends string = string> extends RecursiveId<[
     TTypeId

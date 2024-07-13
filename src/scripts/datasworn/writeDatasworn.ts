@@ -1,178 +1,223 @@
 import path from 'node:path'
 import {
 	RulesPackageBuilder,
-	type SchemaValidator
+	type IdRefTracker
 } from '../../pkg-core/Builders/RulesPackageBuilder.js'
 import {
 	IdParser,
 	type Datasworn,
 	type DataswornSource
 } from '../../pkg-core/index.js'
-import { forEachIdRef } from '../../pkg-core/Validators/Text.js'
 import { type RulesPackageConfig } from '../../schema/tools/build/index.js'
 import { formatPath } from '../../utils.js'
-import {
-	DIR_HISTORY_CURRENT,
-	ROOT_OUTPUT,
-	SCHEMA_NAME,
-	SOURCE_SCHEMA_NAME
-} from '../const.js'
+import { DIR_HISTORY_CURRENT, ROOT_OUTPUT } from '../const.js'
 import * as PkgConfig from '../pkg/pkgConfig.js'
-import { loadSchema, loadSourceSchema } from '../schema/loadSchema.js'
+import {
+	loadDataswornSchema,
+	loadDataswornSourceSchema
+} from '../schema/loadSchema.js'
 import Log from '../utils/Log.js'
-import { readSourceData, writeJSON } from '../utils/readWrite.js'
+import {
+	readDataswornSourceData,
+	readJSON,
+	readYAML,
+	writeJSON
+} from '../utils/readWrite.js'
 import AJV from '../validation/ajv.js'
+import { idLike, needsIdValidation } from '../../pkg-core/Validators/Text.js'
 
+Log.info('📖 Reading schema...')
 // flush any old schema...
 AJV.removeSchema()
 // ...and load some fresh ones
-const loadSchemata = Promise.all([loadSourceSchema(), loadSchema()])
 
-const schemaValidator = <SchemaValidator<Datasworn.RulesPackage>>(
-	_validate.bind(undefined, SCHEMA_NAME)
-)
-
-const sourceSchemaValidator = <SchemaValidator<DataswornSource.RulesPackage>>(
-	_validate.bind(undefined, SOURCE_SCHEMA_NAME)
-)
+const validators = Promise.all([
+	loadDataswornSourceSchema(),
+	loadDataswornSchema()
+])
 
 await buildRulesPackages(PkgConfig)
 
 async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 	const profiler = Log.startTimer()
 
-	Log.info('📖 Reading schema...')
-
 	Log.info('⚙️  Building rules packages...')
 
-	const toBuild: Promise<RulesPackageBuilder>[] = []
+	const buildOps: Promise<RulesPackageBuilder>[] = []
 
 	// indexes all package contents by their ID, so we can validate package links after they're built
 	const index = new Map<string, unknown>()
+	const unvalidatedRefs = new Set<string>()
 
 	for (const k in pkgs) {
 		const pkg = pkgs[k]
-		const { type, id } = pkg
 
-		Log.info(`⚙️  Building ${type}: ${id}`)
-
-		toBuild.push(assemblePkgFiles(pkg, index))
+		buildOps.push(
+			assemblePkgFiles(
+				pkg,
+				index,
+				unvalidatedRefs,
+				getSourceFiles(pkg.paths.source)
+			)
+		)
 	}
 
-	const errors = []
+	const errors: (Error | string)[] = []
 
-	const toWrite: Promise<any>[] = []
+	const writeOps: Promise<any>[] = []
 
-	IdParser.tree = new Map(
-		(await Promise.all(toBuild)).map((pkg) => [pkg.id, pkg.build().toJSON()])
-	)
-	if (IdParser.tree == null) throw new Error('IdParser is null?')
+	const builders = new Map<string, RulesPackageBuilder>()
+	const tree = new Map<string, Datasworn.RulesPackage>()
 
-	// console.log(new Set(index.keys()))
+	for (const builder of await Promise.all(buildOps)) {
+		if (builder.errors.size) {
+			errors.push(`Unable t`)
+			continue
+		}
+		tree.set(builder.id, builder.build().toJSON())
+		builders.set(builder.id, builder)
+	}
 
-	// now that we have all IDs. available, we can validate the built packages
+	IdParser.tree = tree
 
-	const visitedIds = new Set<string>()
+	if (IdParser.tree == null)
+		throw new Error("IdParser doesn't have default tree assigned")
 
-	for (const [pkgId, pkg] of IdParser.tree)
+	// now that we have all IDs available, we can validate the built packages
+
+	const idTracker: IdRefTracker = {
+		// any static ID that's been indexed must be a valid node
+		valid: new Set(index.keys()),
+		unreachable: new Set<string>(),
+		invalid: new Set<string>()
+	}
+
+	for (const ref of unvalidatedRefs)
+		RulesPackageBuilder.validateIdRef(ref, idTracker, tree)
+
+	for (const [pkgId, builder] of builders)
 		try {
-			forEachIdRef(pkg, (id) => {
-				if (visitedIds.has(id)) return
+			// builder.validateIdRefs(idTracker, tree)
 
-				try {
-					const parsedId = IdParser.parse(id as any)
-					const matches = parsedId.getMatches(IdParser.tree)
-					if (matches.size === 0) throw new Error('No matches')
-					visitedIds.add(id)
-				} catch (e) {
-					errors.push(`Couldn't reach <${id}> ${String(e)}`)
-				}
-			})
+			const fileName = `${builder.id}.json`
 
-			const pathsToWriteTo = [
-				path.join(ROOT_OUTPUT, pkgId),
-				path.join(DIR_HISTORY_CURRENT, pkgId)
+			const writeDestinations = [
+				path.join(ROOT_OUTPUT, pkgId, fileName),
+				path.join(DIR_HISTORY_CURRENT, pkgId, fileName)
 			]
-			for (const dir of pathsToWriteTo) toWrite.push(_writePkgFiles(dir, pkg))
+
+			const json = builder.toJSON()
+
+			writeOps.push(
+				writeJSON(writeDestinations, json).then(() => {
+					Log.info(
+						[
+							`✏️  Wrote JSON for ${builder.packageType} "${builder.id}" to:`,
+							...writeDestinations.map(formatPath)
+						].join('\n  📝 ')
+					)
+				})
+			)
 		} catch (e) {
-			errors.push(e)
+			errors.push(e as Error | string)
 		}
 
-	if (errors.length > 0) throw new Error(errors.map(String).join('\n'))
+	// TODO: make this report specific files where the bad ID exists
+	// TODO: grab all ID refs when deserializing so the crawl operation only happens once
 
-	await Promise.all(toWrite)
+	for (const id of idTracker.invalid)
+		errors.push(`Invalid or unparseable ID reference: <${id}>`)
+	for (const id of idTracker.unreachable)
+		errors.push(`Couldn't reach referenced ID: ${id}`)
+
+	if (errors.length > 0)
+		throw new Error(errors.map((e) => e.toString()).join('\n'))
+
+	await Promise.all(writeOps)
 
 	profiler.done({
-		message: `Finished building ${toBuild.length} rules package(s) in ${Date.now() - profiler.start.valueOf()}ms`
+		message: `Finished building ${buildOps.length} rules package(s) in ${Date.now() - profiler.start.valueOf()}ms`
 	})
 }
 
 /** Loads files for a given Datasworn package configuration and assembles them with RulesPackageBuilder. */
 async function assemblePkgFiles(
-	{ id, paths }: RulesPackageConfig,
-	index: Map<string, unknown>
+	{ id, paths, type }: RulesPackageConfig,
+	masterIndex: Map<string, unknown>,
+	idRefTracker: Set<string>,
+	sourceFiles: AsyncIterableIterator<string>
 ) {
-	const destDir = path.join(ROOT_OUTPUT, id)
+	const [sourceValidator, validator] = await validators
 
-	const sourceFiles = getSourceFiles(paths.source)
-	const oldJsonFiles = getOldJsonFiles(destDir)
-	const oldErrorFiles = getOldErrorFiles(paths.source)
+	if (!RulesPackageBuilder.isInitialized)
+		RulesPackageBuilder.init({ sourceValidator, validator })
 
-	const srcFileMatches = []
-
-	// flush old error files; hold off on flushing old built files for now, as the build can fail
-
-	// const errorCleanup = oldErrorFiles.map(async (filePath) =>
-	// 	fs.unlink(filePath)
-	// )
-
-	// Log.info(
-	// 	`🔍 Found ${
-	// 		sourceFiles.length
-	// 	} source files for "${id}" in ${formatPath(paths.source)}`
-	// )
-
-	const builder = new RulesPackageBuilder(
-		id,
-		schemaValidator,
-		sourceSchemaValidator,
-		Log
-	)
+	const builder = new RulesPackageBuilder(id, Log)
 
 	const builderOps: Promise<unknown>[] = []
 
-	await loadSchemata
-
 	// begin loading and adding files
 	for await (const filePath of sourceFiles) {
-		Log.info(`📖 Reading ${formatPath(filePath)}`)
+		Log.verbose(`📖 Reading ${formatPath(filePath)}...`)
 
 		try {
-			builderOps.push(_loadBuilderFile(filePath, builder))
+			builderOps.push(_loadBuilderFile(filePath, builder, idRefTracker))
 		} catch (error) {
 			Log.error(error)
 		}
 	}
 
+	Log.info(`🔍 Found ${builderOps.length} files for ${type} "${id}".`)
+
 	await Promise.all(builderOps)
 
+	Log.info(`⚙️  Assembling ${type} "${id}"...`)
+
 	builder.build()
-	for (const [k, v] of builder.index) index.set(k, v)
+
+	for (const [k, v] of builder.index) masterIndex.set(k, v)
+
+	Log.info(
+		`✅ Assembled ${builder.index.size} identifiable nodes for ${builder.packageType} "${builder.id}" `
+	)
 
 	return builder
 }
 
-async function _loadBuilderFile(
-	filePath: string,
-	builder: RulesPackageBuilder
-) {
-	let data = await readSourceData(filePath)
-	const isYaml = ['.yaml', '.yml'].includes(path.extname(filePath))
+function trackIdRefs<T>(this: Set<string>, key: unknown, v: T): T {
+	if (needsIdValidation(key, v)) {
+		const ids = v.matchAll(idLike)
 
-	// yaml parsing creates anchors as references to the same object, but we need to edit them as unique instances.
-	if (isYaml)
-		// lazy way to deep clone dereferenced values
-		data = JSON.parse(JSON.stringify(data))
+		if (ids != null) for (const match of ids) this.add(match[0])
+	}
+
+	return v
+}
+
+async function _loadBuilderFile<T extends DataswornSource.RulesPackage>(
+	filePath: string,
+	builder: RulesPackageBuilder,
+	idRefTracker: Set<string>
+) {
+	const track = trackIdRefs.bind(idRefTracker)
+
+	let data
+
+	switch (path.extname(filePath)) {
+		case '.yaml':
+		case '.yml':
+			{
+				const yaml = await readYAML<T>(filePath)
+				// yaml parsing creates anchors as references to the same object. pretty cool, but we need to edit them as unique instances.
+				data = JSON.parse(JSON.stringify(yaml), track)
+			}
+			break
+		case '.json':
+			data = await readJSON<T>(filePath, track)
+			break
+		default:
+			throw new Error(`Unrecognized file extension in "${filePath}"`)
+	}
 
 	return builder.addFiles({
 		name: path.relative(process.cwd(), filePath),
@@ -180,23 +225,9 @@ async function _loadBuilderFile(
 	})
 }
 
-async function _writePkgFiles(destDir: string, data: Datasworn.RulesPackage) {
-	const outPath = path.join(destDir, `${data._id}.json`)
-
-	Log.info(`✏️  Writing to ${formatPath(outPath)}`)
-
-	try {
-		await writeJSON(outPath, data)
-	} catch (e) {
-		Log.error(`Failed to write ${formatPath(outPath)}:`, e)
-	}
-}
-
 function getSourceFiles(path: string) {
 	const glob = new Bun.Glob('**/*.{yaml,yml,json}')
 	const files = glob.scan({ cwd: path, absolute: true })
-	// if (files?.length === 0)
-	// 	throw new Error(`Could not find any source files with the glob "${glob}"`)
 
 	return files
 }
@@ -209,23 +240,4 @@ function getOldJsonFiles(path: string) {
 function getOldErrorFiles(path: string) {
 	const glob = new Bun.Glob('**/*.error.json')
 	return glob.scan({ cwd: path, absolute: true })
-}
-
-function _validate<T>(schemaId: string, data: unknown): data is T {
-	const isValid = AJV.validate(schemaId, data)
-
-	if (!isValid) {
-		const shortErrors = AJV.errors?.map(
-			({ instancePath, parentSchema, message }) => ({
-				parentSchema: parentSchema?.$id ?? parentSchema?.title,
-				instancePath,
-				message
-			})
-		)
-		throw Error(
-			`Failed schema validation. ${JSON.stringify(shortErrors, undefined, '\t')}`
-		)
-	}
-
-	return true
 }

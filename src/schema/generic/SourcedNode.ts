@@ -14,7 +14,7 @@ import { FlatIntersect, type TAssign } from '../utils/FlatIntersect.js'
 import { IdNode, type TIdNode } from './IdNode.js'
 import type { TAnyId } from '../common/Id.js'
 
-const SourcedNodeBase = Type.Object({
+export const SourcedNodeBase = Type.Object({
 	name: Type.Ref(Label, {
 		description: 'The primary name/label for this node.'
 	}),
