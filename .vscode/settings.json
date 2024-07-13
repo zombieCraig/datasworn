@@ -1,5 +1,5 @@
 {
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.defaultFormatter": "biomejs.biome",
 	"[yaml]": {
 		"editor.defaultFormatter": "redhat.vscode-yaml"
 	},
@@ -32,7 +32,7 @@
 	"editor.suggest.showDeprecated": false,
 	"eslint.lintTask.enable": true,
 	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"eslint.validate": ["javascript", "typescript"],
 	"javascript.preferences.importModuleSpecifier": "relative",
@@ -62,5 +62,6 @@
 	],
 	"eslint.useESLintClass": true,
 	"eslint.run": "onSave",
-	"editor.suggest.snippetsPreventQuickSuggestions": true
+  "editor.suggest.snippetsPreventQuickSuggestions": true,
+  "biome.rename": true
 }

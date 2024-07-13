@@ -29,6 +29,7 @@
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
 		"@types/bun": "latest",
 		"@types/fs-extra": "^11.0.4",
 		"@types/json-pointer": "^1.0.34",

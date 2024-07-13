@@ -1,23 +1,19 @@
 {
-	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"formatter": {
-		"include": [
-			"src/**/*.ts",
-			"pkg/nodejs/**/*.{d.ts,json}",
-			"src/migration/history/*/*.d.ts",
-			"src/migration/history/*/*.json",
-			"src/migration/history/*/*.schema.json",
-			"datasworn/**/*.json",
-			"source_data/**/*.json"
-		],
 		"ignore": [
 			"**/dist",
 			"**/docs",
 			"**/*.d.ts",
+			"**/*.json",
 			"**/*.html",
 			"**/*.md",
 			"**/.github",
 			"**/.vscode",
+			"json-typedef",
+			"markdown",
+			"pkg",
+			"roll20",
 			"src/data-legacy",
 			"src/extras"
 		]

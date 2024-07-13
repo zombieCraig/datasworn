@@ -1,4 +1,5 @@
-node_modules
+**/node_modules
+i18n
 .DS_Store
 analysis
 analysis_strings
@@ -9,24 +10,9 @@ src/templates
 .scratchpad
 temp
 
-src/adapter
-datasworn-tools
-
 
 # WIP locale data
 **/i18n/en
 
-# 3rd party content, currently only used for testing
-# @datasworn-community-content
-# starsmith
-# rsek
-
-# Preview content, currently only used for testing
-# sundered_isles
-# sundered-isles
-
-
-# ...but track all the source data, just in case
 !/source_data/**
-
 haxesworn
