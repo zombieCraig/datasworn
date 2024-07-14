@@ -124,7 +124,7 @@ function extractType(schema: TSchema): string {
 			return extractTupleType(schema)
 		case TypeGuard.IsArray(schema):
 			return extractArrayType(schema)
-		case schema[Kind] === 'object':
+		case schema[Kind] === 'Object':
 		case TypeGuard.IsObject(schema):
 			return extractObjectLiteralType(schema as any)
 		case TypeGuard.IsUnion(schema):
@@ -143,10 +143,12 @@ function extractType(schema: TSchema): string {
 		case TUnionEnum(schema):
 			return uniq(schema.enum.map((v) => JSON.stringify(v))).join(' | ')
 
-		default:
+		default: {
+			Log.info(schema)
 			throw new Error(
 				`missing transform for kind: ${JSON.stringify(schema[Kind])}`
 			)
+		}
 	}
 }
 

@@ -6,7 +6,7 @@ import type { UnionEnumFromRecord } from './UnionEnumFromRecord.js'
 
 export function ExtractLiteralFromEnum<
 	T extends ReturnType<typeof UnionEnumFromRecord>,
-	K extends Static<T>,
+	K extends Static<T>
 >(schema: T, key: K, options: SchemaOptions = {}) {
 	const description = schema[EnumDescription][key]
 	return Type.Literal<K>(key, {
@@ -17,6 +17,6 @@ export function ExtractLiteralFromEnum<
 		// 	}
 		// },
 		description,
-		...options,
+		...options
 	})
 }

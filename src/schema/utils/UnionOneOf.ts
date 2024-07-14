@@ -5,7 +5,7 @@ import {
 	TypeRegistry,
 	type SchemaOptions,
 	type Static,
-	type TSchema,
+	type TSchema
 } from '@sinclair/typebox'
 import { Value } from '@sinclair/typebox/value'
 import { Members } from '../Symbols.js'
@@ -37,7 +37,7 @@ export function UnionOneOf<T extends TSchema[]>(
 		...options,
 		[Kind]: 'UnionOneOf',
 		[Members]: oneOf, // to make JTD inference easier
-		oneOf,
+		oneOf
 	} as TUnionOneOf<T>
 }
 

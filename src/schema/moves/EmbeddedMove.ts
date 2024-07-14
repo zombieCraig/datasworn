@@ -14,11 +14,11 @@ export const {
 	action_roll: EmbeddedActionRollMove,
 	no_roll: EmbeddedNoRollMove,
 	progress_roll: EmbeddedProgressRollMove,
-	special_track: EmbeddedSpecialTrackMove,
+	special_track: EmbeddedSpecialTrackMove
 } = moveMapping
 
 export const EmbeddedMove = DiscriminatedUnion(moveMapping, 'roll_type', {
-	$id: 'EmbeddedMove',
+	$id: 'EmbeddedMove'
 })
 
 export type EmbeddedMove = Static<typeof EmbeddedMove>

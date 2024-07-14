@@ -5,12 +5,12 @@ import {
 	type TObject,
 	type TRef,
 	type TString,
-	type TUnion,
+	type TUnion
 } from '@sinclair/typebox'
 import {
 	EnhancesKey,
 	ContentsKey,
-	CollectionsKey,
+	CollectionsKey
 } from '../../scripts/const.js'
 import TypeId from '../../pkg-core/IdElements/TypeId.js'
 import * as Localize from '../common/Localize.js'
@@ -20,7 +20,7 @@ import { Dictionary, type TDictionary } from './Dictionary.js'
 import {
 	PrimarySubtypeNode,
 	PrimaryTypeNode,
-	type TPrimaryTypeNode,
+	type TPrimaryTypeNode
 } from './PrimaryTypeNode.js'
 import type { SetRequired } from 'type-fest'
 import { setSourceOptional } from '../Utils.js'
@@ -40,21 +40,21 @@ export function getCollectionNodeMetadata(
 		[EnhancesKey]: Type.Optional(
 			Type.Array(enhances, {
 				description:
-					"This node's content enhances all nodes that match these wildcards, rather than being a standalone item of its own.",
+					"This node's content enhances all nodes that match these wildcards, rather than being a standalone item of its own."
 			})
 		),
 		summary: Type.Optional(
 			Type.Ref(Localize.MarkdownString, {
 				description:
-					'A brief summary of this collection, no more than a few sentences in length. This is intended for use in application tooltips and similar sorts of hints. Longer text should use the "description" key instead.',
+					'A brief summary of this collection, no more than a few sentences in length. This is intended for use in application tooltips and similar sorts of hints. Longer text should use the "description" key instead.'
 			})
 		),
 		description: Type.Optional(
 			Type.Ref(Localize.MarkdownString, {
 				description:
-					"A longer description of this collection, which might include multiple paragraphs. If it's only a couple sentences, use the `summary` key instead.",
+					"A longer description of this collection, which might include multiple paragraphs. If it's only a couple sentences, use the `summary` key instead."
 			})
-		),
+		)
 	}
 	// @ts-expect-error
 	props[ContentsKey] = contentChild
@@ -66,7 +66,7 @@ export function getCollectionNodeMetadata(
 
 export function CollectionNode<
 	TBase extends TObject,
-	TType extends TypeId.Collection,
+	TType extends TypeId.Collection
 >(base: TBase, type: TType, options: ObjectOptions = {}) {
 	const collectableTypeId = TypeId.getCollectableOf(type)
 	const collectableSchemaRef = Type.Ref(pascalCase(collectableTypeId))
@@ -89,7 +89,7 @@ export function CollectionNode<
 	return PrimaryTypeNode(enhancedBase, type, {
 		...options,
 		$id: thisSchemaId,
-		[CollectionBrand]: 'Collection',
+		[CollectionBrand]: 'Collection'
 	}) as unknown as TCollectionNode<typeof enhancedBase, TType>
 }
 
@@ -98,12 +98,12 @@ type CollectionMeta = Static<TCollectionMeta>
 
 export type CollectionNode<
 	TBase extends object,
-	TType extends TypeId.Collection,
+	TType extends TypeId.Collection
 > = PrimaryTypeNode<TBase & CollectionMeta, TType>
 
 export type TCollectionNode<
 	TBase extends TObject,
-	TType extends TypeId.Collection,
+	TType extends TypeId.Collection
 > = TPrimaryTypeNode<TAssign<TCollectionMeta, TBase>, TType> & {
 	$id: string
 	[CollectionBrand]: 'Collection'
@@ -114,7 +114,7 @@ export function CollectionSubtypeNode<
 	TBase extends TObject,
 	TType extends TypeId.Collection,
 	TSubtypeKey extends string,
-	TSubtype extends string,
+	TSubtype extends string
 >(
 	base: TBase,
 	type: TType,

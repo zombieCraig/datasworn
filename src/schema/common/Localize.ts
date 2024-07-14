@@ -5,7 +5,7 @@ export const Label = Type.String({
 	$id: 'Label',
 	description:
 		'A localized, player-facing name or label, formatted as plain text. In some contexts it may be undesirable to render this text, but it should always be exposed to assistive technology (e.g. with `aria-label` in HTML).',
-	i18n: true,
+	i18n: true
 })
 export type Label = Static<typeof Label>
 
@@ -18,7 +18,7 @@ export const MarkdownString = Type.String({
 * \`{{table_columns>move:delve/delve/delve_the_depths}}\`: Render *all* direct OracleRollable children of the identified node. This can be an OracleCollectionId, or the ID of anything that can have EmbeddedOracleRollables (such as a Move or TruthOption).
 `,
 	format: 'markdown',
-	i18n: true,
+	i18n: true
 })
 export type MarkdownString = Static<typeof Label>
 
@@ -30,7 +30,7 @@ export const TemplateString = Type.String({
 The custom syntax \`{{some_row_key>some_oracle_table_id}}\` should be replaced by the \`some_row_key\` string of a rolled oracle table. This is usually the \`text\` key, for example \`{{text>oracle_rollable:starforged/core/action}}\`
 `,
 	format: 'markdown',
-	releaseStage: 'experimental',
+	releaseStage: 'experimental'
 })
 export type TemplateString = Static<typeof TemplateString>
 
@@ -48,7 +48,7 @@ export const PartOfSpeech = UnionEnumFromRecord(
 		adjective: 'An adjective.',
 		attributive_verb: 'A verb used as an adjective, to modify a noun.',
 		adjective_as_proper_noun: 'An adjective used as a proper noun.',
-		common_noun_as_proper_noun: 'An common noun used as a proper noun.',
+		common_noun_as_proper_noun: 'An common noun used as a proper noun.'
 	},
 	{ $id: 'PartOfSpeech', releaseStage: 'experimental' }
 )
@@ -58,9 +58,9 @@ export const I18nHint = Type.Object(
 	{
 		part_of_speech: Type.Optional(
 			Type.Ref(PartOfSpeech, {
-				description: 'The part of speech for this string.',
+				description: 'The part of speech for this string.'
 			})
-		),
+		)
 	},
 	{ $id: 'I18nHint', releaseStage: 'experimental' }
 )
@@ -75,15 +75,15 @@ export const I18nHints = Type.Object(
 			Type.Object({
 				text: Type.Optional(Type.Ref(I18nHint)),
 				text2: Type.Optional(Type.Ref(I18nHint)),
-				text3: Type.Optional(Type.Ref(I18nHint)),
+				text3: Type.Optional(Type.Ref(I18nHint))
 			})
-		),
+		)
 	},
 	{
 		$id: 'I18nHints',
 		description:
 			'Internationalization/localization hints for the text content of this object.',
-		releaseStage: 'experimental',
+		releaseStage: 'experimental'
 	}
 )
 export type I18nHints = Static<typeof I18nHints>

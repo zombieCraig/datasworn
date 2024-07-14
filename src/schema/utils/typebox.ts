@@ -15,7 +15,7 @@ import {
 	type TProperties,
 	type TRef,
 	type TSchema,
-	type TString,
+	type TString
 } from '@sinclair/typebox'
 import { isEmpty, isUndefined } from 'lodash-es'
 import { JsonTypeDef } from '../Symbols.js'
@@ -78,7 +78,7 @@ export function WithDefaults<T extends TObject>(
 
 export const LiteralZero = Type.Literal(0, {
 	default: 0,
-	[JsonTypeDef]: { schema: JtdType.Int8() },
+	[JsonTypeDef]: { schema: JtdType.Int8() }
 })
 // manually set to "integer" b/c Type.Literal defaults to "number"
 LiteralZero.type = 'integer'

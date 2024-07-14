@@ -14,7 +14,7 @@ export const ObjectType = Utils.UnionEnumFromRecord({
 	// collectables
 	oracle_rollable: '',
 	// ...subtypes
-	move: '',
+	move: ''
 	// ...subtypes
 
 	// delve_site_theme

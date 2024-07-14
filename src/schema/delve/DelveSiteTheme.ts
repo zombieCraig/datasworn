@@ -13,7 +13,7 @@ export const DelveSiteThemeFeature = EmbeddedType(
 
 	{
 		description:
-			'Represents a single Feature entry from a delve site Theme card.',
+			'Represents a single Feature entry from a delve site Theme card.'
 	}
 )
 export const DelveSiteThemeDanger = EmbeddedType(
@@ -23,7 +23,7 @@ export const DelveSiteThemeDanger = EmbeddedType(
 
 	{
 		description:
-			'Represents a single Danger entry from a delve site Theme card.',
+			'Represents a single Danger entry from a delve site Theme card.'
 	}
 )
 
@@ -41,13 +41,13 @@ export const DelveSiteTheme = setSourceDataSchema(
 						StaticRowPartial(5, 8),
 						StaticRowPartial(9, 12),
 						StaticRowPartial(13, 16),
-						StaticRowPartial(17, 20),
-					]),
+						StaticRowPartial(17, 20)
+					])
 				],
 				{
 					[JsonTypeDef]: {
-						schema: toJtdElements(DelveSiteThemeFeatures),
-					},
+						schema: toJtdElements(DelveSiteThemeFeatures)
+					}
 				}
 			),
 			dangers: Type.Intersect(
@@ -65,20 +65,20 @@ export const DelveSiteTheme = setSourceDataSchema(
 						StaticRowPartial(23, 24),
 						StaticRowPartial(25, 26),
 						StaticRowPartial(27, 28),
-						StaticRowPartial(29, 30),
-					]),
+						StaticRowPartial(29, 30)
+					])
 				],
 				{
 					[JsonTypeDef]: {
-						schema: toJtdElements(DelveSiteThemeDangers),
-					},
+						schema: toJtdElements(DelveSiteThemeDangers)
+					}
 				}
-			),
+			)
 		}),
 		'delve_site_theme',
 		{
 			description: 'A delve site theme card.',
-			$id: 'DelveSiteTheme',
+			$id: 'DelveSiteTheme'
 		}
 	),
 	(schema) => ({ ...schema, additionalProperties: true })

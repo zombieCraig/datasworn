@@ -16,7 +16,7 @@ export const {
 	column_text3: EmbeddedOracleColumnText3,
 	table_text: EmbeddedOracleTableText,
 	table_text2: EmbeddedOracleTableText2,
-	table_text3: EmbeddedOracleTableText3,
+	table_text3: EmbeddedOracleTableText3
 } = oracleRollableMapping
 
 export const EmbeddedOracleRollable = DiscriminatedUnion(

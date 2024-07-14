@@ -2,7 +2,7 @@ import {
 	CloneType,
 	Type,
 	type SchemaOptions,
-	type TSchema,
+	type TSchema
 } from '@sinclair/typebox'
 import { mapValues } from 'lodash-es'
 import { SourceData } from './SourceData.js'
@@ -28,7 +28,7 @@ export function RootObject<T extends TSchema, Options extends RootOptions>(
 		...options,
 		[DefsKey]: mapValues(options[DefsKey], (v, k) =>
 			CloneType(v, { title: k })
-		) as Defs,
+		) as Defs
 	}
 
 	return CloneType(base, rootOptions) as unknown as TRoot<T>
@@ -36,13 +36,13 @@ export function RootObject<T extends TSchema, Options extends RootOptions>(
 
 export function SourceRootObject<
 	T extends TSchema,
-	Options extends RootOptions,
+	Options extends RootOptions
 >(base: T, options: Options) {
 	return CloneType(base, {
 		...options,
 
 		[DefsKey]: mapValues(options[DefsKey], (v, k) =>
 			SourceData(CloneType(v, { title: k }))
-		) as Defs,
+		) as Defs
 	}) as unknown as TRoot
 }

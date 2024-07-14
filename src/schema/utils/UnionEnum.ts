@@ -8,7 +8,7 @@ import {
 	TypeRegistry,
 	type SchemaOptions,
 	type TEnum,
-	type TSchema,
+	type TSchema
 } from '@sinclair/typebox'
 import { isInteger, omit, set } from 'lodash-es'
 import { JsonTypeDef } from '../Symbols.js'
@@ -21,7 +21,7 @@ export interface TUnionEnum<
 		| string[]
 		| number[]
 		| readonly string[]
-		| readonly number[],
+		| readonly number[]
 > extends TSchema {
 	[Kind]: 'UnionEnum'
 	[EnumDescription]: Record<T[number], string>
@@ -31,7 +31,7 @@ export interface TUnionEnum<
 }
 
 export function UnionEnum<
-	T extends string[] | number[] | readonly string[] | readonly number[],
+	T extends string[] | number[] | readonly string[] | readonly number[]
 >(literals: [...T], options: SchemaOptions = {}) {
 	if (!TypeRegistry.Has('UnionEnum'))
 		TypeRegistry.Set('UnionEnum', UnionEnumCheck)
@@ -39,7 +39,7 @@ export function UnionEnum<
 	const result = {
 		...options,
 		[Kind]: 'UnionEnum',
-		enum: literals,
+		enum: literals
 	} as TUnionEnum<[...T]>
 
 	if (result.enum.every(isInteger))
@@ -71,14 +71,14 @@ export function ToEnum<T extends TUnionEnum>(schema: T) {
 		EnumDescription,
 		Description,
 		'static',
-		'enum',
+		'enum'
 	])
 
 	const result: TEnum = Type.Union(anyOf, {
 		...options,
 		description: schema[Description],
 
-		[Hint]: 'Enum',
+		[Hint]: 'Enum'
 	})
 
 	return result

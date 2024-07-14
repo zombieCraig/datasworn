@@ -3,7 +3,7 @@ import {
 	type TRef,
 	type TSchema,
 	Type,
-	CloneType,
+	CloneType
 } from '@sinclair/typebox'
 import {
 	forEach,
@@ -13,14 +13,14 @@ import {
 	mapValues,
 	omit,
 	omitBy,
-	set,
+	set
 } from 'lodash-es'
 import type { SetRequired, SnakeCase } from 'type-fest'
 import {
 	CollectableType,
 	NonCollectableType,
 	type Rules,
-	type TagRule,
+	type TagRule
 } from '../Rules.js'
 import * as Player from '../common/Player.js'
 import { UnionEnum } from './UnionEnum.js'
@@ -40,7 +40,7 @@ export function generateRulesetSchemas(rulesPackage: string, rules: Rules) {
 	return {
 		ConditionMeterKey,
 		StatKey,
-		...generateTagSchemas(rulesPackage, rules.tags),
+		...generateTagSchemas(rulesPackage, rules.tags)
 	}
 }
 
@@ -82,7 +82,7 @@ function generateTagSchema(
 		case 'rarity':
 			return tagRule.wildcard
 				? Type.Array(Type.Ref(pascalCase(tagRule.value_type) + 'WildcardId'), {
-						description,
+						description
 					})
 				: (Type.Ref(pascalCase(tagRule.value_type) + 'Id', options) as any)
 	}
@@ -97,7 +97,7 @@ function generateTagSchemas(
 	const allowedTagProperties = Object.fromEntries(
 		anyType.map((k: CollectableType | NonCollectableType) => [
 			k,
-			{} as Record<SnakeCase<string>, TRef>,
+			{} as Record<SnakeCase<string>, TRef>
 		])
 	)
 
@@ -122,7 +122,7 @@ function generateTagSchemas(
 			mapValues(allowedTagProperties, (v, k) =>
 				Type.Object(v, {
 					$id: `${pascalCase(rulesPackage)}${pascalCase(k)}Tags`,
-					additionalProperties: true,
+					additionalProperties: true
 				})
 			),
 			(v) => v.$id
@@ -136,7 +136,7 @@ function generateTagSchemas(
 				{ [rulesPackage]: Type.Optional(Type.Ref(v)) },
 				{
 					additionalProperties: true,
-					$id: k.replace(pascalCase(rulesPackage), ''),
+					$id: k.replace(pascalCase(rulesPackage), '')
 				}
 			)
 		),
@@ -148,7 +148,7 @@ function generateTagSchemas(
 	return {
 		...tagNamespacesSchema,
 		...tagSchemas,
-		...allowedTagSchemas,
+		...allowedTagSchemas
 	}
 }
 
@@ -160,13 +160,13 @@ console.log(
 			description: 'This oracle is the cursed version of another oracle.',
 			applies_to: ['oracle_rollable'],
 			value_type: 'oracle_rollable',
-			wildcard: true,
+			wildcard: true
 		},
 		cursed_by: {
 			description: 'This oracle has a cursed version.',
 			applies_to: ['oracle_rollable'],
 			value_type: 'oracle_rollable',
-			wildcard: false,
-		},
+			wildcard: false
+		}
 	})
 )

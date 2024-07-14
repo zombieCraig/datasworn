@@ -3,7 +3,7 @@ import {
 	Type,
 	type ObjectOptions,
 	type Static,
-	type TObject,
+	type TObject
 } from '@sinclair/typebox'
 import { Computed } from '../Utils.js'
 import { setDescriptions } from '../utils/typebox.js'
@@ -15,9 +15,9 @@ const IdNodeBase = Type.Object({
 	_comment: Type.Optional(
 		Type.String({
 			description:
-				'Implementation hints or other developer-facing comments on this node. These should be omitted when presenting the node for gameplay.',
+				'Implementation hints or other developer-facing comments on this node. These should be omitted when presenting the node for gameplay.'
 		})
-	),
+	)
 })
 
 export function IdNode<TBase extends TObject>(
@@ -29,12 +29,12 @@ export function IdNode<TBase extends TObject>(
 		[IdNodeBase, Type.Object({ _id: Computed(_id) }), base],
 		{
 			[Kind]: 'Object',
-			...options,
+			...options
 		}
 	)
 
 	return setDescriptions(enhancedBase, {
-		_id: 'The unique Datasworn ID for this node.',
+		_id: 'The unique Datasworn ID for this node.'
 	})
 }
 export type TIdNode<TBase extends TObject> = ReturnType<

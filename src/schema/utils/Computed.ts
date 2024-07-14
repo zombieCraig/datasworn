@@ -4,7 +4,7 @@ import {
 	type Static,
 	type TObject,
 	type TSchema,
-	ObjectOptions,
+	ObjectOptions
 } from '@sinclair/typebox'
 
 /** Symbol indicating that this property is computed at build time, and is therefore optional in DataswornSource */
@@ -12,7 +12,7 @@ export const ComputedPropertyBrand = Symbol('ComputedProperty')
 
 type ComputedOptions<
 	T extends TSchema,
-	ParentObject extends TObject,
+	ParentObject extends TObject
 > = SchemaOptions & {
 	[ComputedPropertyBrand]:
 		| 'ComputedProperty'
@@ -23,20 +23,20 @@ type ComputedOptions<
 // TODO: make it possible for this to supply a function that computes the property!
 export function Computed<
 	T extends TSchema,
-	ParentObject extends TObject = TObject,
+	ParentObject extends TObject = TObject
 >(
 	schema: T,
 	options: ComputedOptions<T, ParentObject> = {
-		[ComputedPropertyBrand]: 'ComputedProperty',
+		[ComputedPropertyBrand]: 'ComputedProperty'
 	}
 ) {
 	return CloneType(schema, {
-		...options,
+		...options
 	}) as TComputed<T, ParentObject>
 }
 export type TComputed<
 	T extends TSchema,
-	ParentObject extends TObject = TObject,
+	ParentObject extends TObject = TObject
 > = T & {
 	[ComputedPropertyBrand]:
 		| 'ComputedProperty'
@@ -69,7 +69,7 @@ export const GetSourceDataSchema = Symbol('GetSourceDataSchema')
 /** Provide an override value  */
 export function setSourceDataSchema<
 	T extends TSchema,
-	SourceSchema extends TSchema,
+	SourceSchema extends TSchema
 >(schema: T, sourceSchema: SourceSchema | ((schema: T) => SourceSchema)): T {
 	// @ts-expect-error
 	schema[GetSourceDataSchema] =
@@ -79,5 +79,5 @@ export function setSourceDataSchema<
 }
 export type THasSourceSchema<
 	T extends TSchema = TSchema,
-	SourceSchema extends TSchema = TSchema,
+	SourceSchema extends TSchema = TSchema
 > = T & { [GetSourceDataSchema]: (schema: T) => SourceSchema }

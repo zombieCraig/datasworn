@@ -44,23 +44,23 @@ const AnyPrimaryIdWildcard = AnyPrimary.map(getWildcardIdSchemaName)
 export const CollectionType = UnionEnum<typeof TypeId.Collection>(
 	TypeId.Collection,
 	{
-		$id: 'CollectionType',
+		$id: 'CollectionType'
 	}
 )
 export type CollectionType = Static<typeof CollectionType>
 
 export const CollectableType = UnionEnum(TypeId.Collectable, {
-	$id: 'CollectableType',
+	$id: 'CollectableType'
 })
 export type CollectableType = Static<typeof CollectableType>
 
 export const NonCollectableType = UnionEnum(TypeId.NonCollectable, {
-	$id: 'NonCollectableType',
+	$id: 'NonCollectableType'
 })
 export type NonCollectableType = Static<typeof NonCollectableType>
 
 export const EmbedOnlyType = UnionEnum(TypeId.EmbedOnly, {
-	$id: 'EmbedOnlyType',
+	$id: 'EmbedOnlyType'
 })
 export type EmbedOnlyType = Static<typeof EmbedOnlyType>
 
@@ -69,13 +69,13 @@ export const TaggableNodeType = Type.Union(
 		Type.Ref(CollectableType),
 		Type.Ref(NonCollectableType),
 		Type.Ref(CollectionType),
-		Type.Ref(EmbedOnlyType),
+		Type.Ref(EmbedOnlyType)
 	],
 	{
 		[JsonTypeDef]: {
-			schema: JtdType.Enum([...TypeId.Primary, ...TypeId.EmbedOnly]),
+			schema: JtdType.Enum([...TypeId.Primary, ...TypeId.EmbedOnly])
 		},
-		$id: 'TaggableNodeType',
+		$id: 'TaggableNodeType'
 	}
 )
 export type TaggableNodeType = Static<typeof TaggableNodeType>
@@ -87,9 +87,9 @@ export type TaggableNodeType = Static<typeof TaggableNodeType>
 const TagRuleBase = Type.Object({
 	applies_to: Nullable(Type.Array(Type.Ref(TaggableNodeType)), {
 		description:
-			'Types of object that can receive this tag, or `null` if any type of object accepts it.',
+			'Types of object that can receive this tag, or `null` if any type of object accepts it.'
 	}),
-	description: Type.Ref(MarkdownString),
+	description: Type.Ref(MarkdownString)
 })
 
 const typedTags = keyBy(
@@ -99,7 +99,7 @@ const typedTags = keyBy(
 				TagRuleBase,
 				Type.Object({
 					array: Type.Boolean({ default: false }),
-					value_type: Type.Literal(type),
+					value_type: Type.Literal(type)
 				})
 			)
 		),
@@ -110,9 +110,9 @@ const typedTags = keyBy(
 					wildcard: Type.Boolean({
 						default: false,
 						description:
-							'If `true`, this field accepts an array of wildcard ID strings. If `false`, this field accepts a single non-wildcard ID string.',
+							'If `true`, this field accepts an array of wildcard ID strings. If `false`, this field accepts a single non-wildcard ID string.'
 					}),
-					value_type: Type.Literal(type),
+					value_type: Type.Literal(type)
 				})
 			)
 		),
@@ -121,18 +121,18 @@ const typedTags = keyBy(
 			Type.Object({
 				array: Type.Boolean({ default: false }),
 				value_type: Type.Literal('enum'),
-				enum: Type.Array(Type.Ref(Id.DictKey)),
+				enum: Type.Array(Type.Ref(Id.DictKey))
 			})
-		),
+		)
 	].map((tag) => ({
 		...tag,
-		title: 'TagRule' + pascalCase(tag.properties.value_type.const),
+		title: 'TagRule' + pascalCase(tag.properties.value_type.const)
 	})),
 	(tag) => tag.properties.value_type.const
 )
 
 export const TagRule = DiscriminatedUnion(typedTags, 'value_type', {
-	$id: 'TagRule',
+	$id: 'TagRule'
 })
 export type TagRule = Static<typeof TagRule>
 
@@ -140,7 +140,7 @@ const TagValueNonId = [
 	Type.Boolean(),
 	Type.Integer(),
 	Type.Ref(Id.DictKey), // from enums
-	Type.Ref(DiceExpression),
+	Type.Ref(DiceExpression)
 ]
 
 export const Tag = Type.Union(
@@ -151,9 +151,9 @@ export const Tag = Type.Union(
 			Type.Union([
 				// Type.Ref(Id.DictKey), // from enums
 				// Type.Ref(Rolls.DiceExpression),
-				...AnyPrimaryIdWildcard.map((type) => Type.Ref(type)),
+				...AnyPrimaryIdWildcard.map((type) => Type.Ref(type))
 			])
-		),
+		)
 	],
 	{ $id: 'Tag', [JsonTypeDef]: { schema: JtdType.Any() } }
 )
@@ -162,16 +162,16 @@ export const TagsCore = canonicalTags(
 	{
 		supernatural: Type.Boolean({
 			description:
-				'This object is supernatural in nature, and is ideal for settings that feature supernatural or mythic powers.',
+				'This object is supernatural in nature, and is ideal for settings that feature supernatural or mythic powers.'
 		}),
 		technological: Type.Boolean({
 			description:
-				'This object is technological in nature, and is ideal for settings that feature remarkable technologies.',
+				'This object is technological in nature, and is ideal for settings that feature remarkable technologies.'
 		}),
 		requires_allies: Type.Boolean({
 			description:
-				'This object requires allies to function, and is intended for co-op play, or guided play with allies. It is not appropriate for solo play.',
-		}),
+				'This object requires allies to function, and is intended for co-op play, or guided play with allies. It is not appropriate for solo play.'
+		})
 	},
 	{ $id: 'TagsCore' }
 )
@@ -184,6 +184,6 @@ export const Tags = Type.Record(
 		$id: 'Tags',
 		key: Id.RulesetId.pattern,
 		description:
-			'A dictionary of tags, keyed by the RulesPackageId that the tags are from.',
+			'A dictionary of tags, keyed by the RulesPackageId that the tags are from.'
 	}
 )

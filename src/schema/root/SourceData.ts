@@ -9,14 +9,14 @@ import {
 	type TRecord,
 	type TSchema,
 	type TTuple,
-	type TUnion,
+	type TUnion
 } from '@sinclair/typebox'
 import { mapValues, omit } from 'lodash-es'
 import type { TNullable } from '../Utils.js'
 import {
 	ComputedPropertyBrand,
 	GetSourceDataSchema,
-	SourceOptionalBrand,
+	SourceOptionalBrand
 } from '../utils/Computed.js'
 import type { TDiscriminatedUnion } from '../utils/DiscriminatedUnion.js'
 import { SetOptional } from '../utils/SetOptional.js'
@@ -118,7 +118,7 @@ const transforms: SchemaTransforms = {
 
 		result.anyOf = result.anyOf.map((item) => SourceData(item)) as [
 			TSchema,
-			TNull,
+			TNull
 		]
 
 		return result
@@ -141,10 +141,10 @@ const transforms: SchemaTransforms = {
 
 		result.allOf = result.allOf.map((ifThen) => ({
 			...ifThen,
-			then: SourceData(ifThen.then),
+			then: SourceData(ifThen.then)
 		})) as any[]
 		// result.oneOf = result.oneOf.map((member) => SourceData(member)) as any
 
 		return result
-	},
+	}
 }

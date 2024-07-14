@@ -4,7 +4,7 @@ import {
 	Description,
 	EnumDescription,
 	UnionEnum,
-	type TUnionEnum,
+	type TUnionEnum
 } from './UnionEnum.js'
 
 export function UnionEnumFromRecord<K extends string>(
@@ -31,6 +31,6 @@ export function UnionEnumFromRecord<T extends string[] | number[]>(
 		[Description]: options.description,
 		[EnumDescription]: entries,
 		...options,
-		description,
+		description
 	})
 }

@@ -6,17 +6,17 @@ import { Assign } from '../utils/FlatIntersect.js'
 export const ConditionMeterRule = Assign(
 	Type.Object({
 		description: Type.Ref(Localize.MarkdownString, {
-			description: 'A description of this condition meter.',
+			description: 'A description of this condition meter.'
 		}),
 		shared: Type.Boolean({
 			default: false,
-			description: 'Is this condition meter shared by all players?',
-		}),
+			description: 'Is this condition meter shared by all players?'
+		})
 	}),
 	Inputs.Meter(Type.Literal(true)),
 	{
 		$id: 'ConditionMeterRule',
-		description: 'Describes a standard player character condition meter.',
+		description: 'Describes a standard player character condition meter.'
 	}
 )
 

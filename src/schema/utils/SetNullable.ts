@@ -2,14 +2,14 @@ import {
 	CloneType,
 	type ObjectOptions,
 	type Static,
-	type TObject,
+	type TObject
 } from '@sinclair/typebox'
 import { Nullable, type TNullable } from './Nullable.js'
 import type { ObjectProperties } from './ObjectProperties.js'
 
 export function SetNullable<
 	T extends TObject,
-	K extends Array<keyof Static<T>>,
+	K extends Array<keyof Static<T>>
 >(schema: T, keys: [...K], options: ObjectOptions = {}) {
 	// @ts-expect-error
 	const base = CloneType(schema, options) as TSetNullable<T, K>
@@ -25,7 +25,7 @@ export function SetNullable<
 
 export type TSetNullable<
 	T extends TObject,
-	K extends Array<keyof Static<T>>,
+	K extends Array<keyof Static<T>>
 > = TObject<
 	Omit<ObjectProperties<T>, K[number]> & {
 		[P in K[number]]: TNullable<ObjectProperties<T>[P]>

@@ -5,7 +5,7 @@ import {
 	type TSchema,
 	TypeGuard,
 	Type,
-	type ObjectOptions,
+	type ObjectOptions
 } from '@sinclair/typebox'
 import { omitBy } from 'lodash-es'
 import type { OptionalKeysOf, ConditionalExcept } from 'type-fest'

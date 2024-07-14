@@ -7,7 +7,7 @@ import {
 	type TObject,
 	type TOmit,
 	type TPartial,
-	type TPick,
+	type TPick
 } from '@sinclair/typebox'
 import { omit } from 'lodash-es'
 import type * as TypeFest from 'type-fest'
@@ -15,17 +15,17 @@ import type { TAssign } from './FlatIntersect.js'
 
 export type SetOptional<
 	BaseType,
-	Keys extends keyof BaseType,
+	Keys extends keyof BaseType
 > = TypeFest.SetOptional<BaseType, Keys>
 
 export type TSetOptional<
 	T extends TObject,
-	K extends (keyof Static<T>)[],
+	K extends (keyof Static<T>)[]
 > = TAssign<TOmit<T, K>, TPartial<TPick<T, K>>>
 /** Make the provided keys optional */
 export function SetOptional<
 	T extends TObject,
-	K extends Array<keyof Static<T>>,
+	K extends Array<keyof Static<T>>
 >(schema: T, optionalKeys: [...K], options: ObjectOptions = {}) {
 	const base = omit(CloneType(schema), ['$id']) as T
 
@@ -46,6 +46,6 @@ export function SetOptional<
 
 	return Type.Object(base.properties, {
 		...omit(base, ['properties', 'required']),
-		...options,
+		...options
 	})
 }

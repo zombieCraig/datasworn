@@ -8,7 +8,7 @@ const MetaKeys = [
 	'name',
 	'suggestions',
 	'canonical_name',
-	'color',
+	'color'
 ] as const
 type MetaKeys = (typeof MetaKeys)[number]
 /**

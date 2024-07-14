@@ -2,7 +2,7 @@ import {
 	Type,
 	type ObjectOptions,
 	type Static,
-	type TObject,
+	type TObject
 } from '@sinclair/typebox'
 import * as Utils from '../Utils.js'
 import Id from './Id.js'
@@ -21,7 +21,7 @@ const RollableValueType = Utils.UnionEnumFromRecord(
 		attached_asset_control:
 			'A reference to the value of an attached asset control. For example, a Module asset could use this to roll using the `integrity` control of an attached Vehicle.',
 		attached_asset_option:
-			'A reference to the value of an attached asset option.',
+			'A reference to the value of an attached asset option.'
 	},
 	{ $id: 'RollableValueType' }
 )
@@ -29,17 +29,17 @@ type RollableValueType = Static<typeof RollableValueType>
 
 function RollableValueBase<
 	Using extends RollableValueType,
-	Props extends TObject,
+	Props extends TObject
 >(using: Using, props: Props, options: ObjectOptions = {}) {
 	const constant = Utils.ExtractLiteralFromEnum(RollableValueType, using)
 	return Assign(
 		props,
 		Type.Object({
-			using: constant,
+			using: constant
 		}),
 		{
 			description: constant.description,
-			...options,
+			...options
 		}
 	)
 }
@@ -50,12 +50,12 @@ export const AssetControlValueRef = RollableValueBase(
 		assets: Utils.Nullable(Type.Array(Type.Ref(Id.AssetIdWildcard)), {
 			default: null,
 			description:
-				"Asset IDs (which may be wildcarded) that may provide the control field. For asset ability enhancements, `null` is used to represent the asset's own control fields.",
+				"Asset IDs (which may be wildcarded) that may provide the control field. For asset ability enhancements, `null` is used to represent the asset's own control fields."
 		}),
 		control: Type.Ref(Id.DictKey, {
 			description: 'The dictionary key of the asset control field.',
-			examples: ['health', 'integrity'],
-		}),
+			examples: ['health', 'integrity']
+		})
 	}),
 	{ $id: 'AssetControlValueRef' }
 )
@@ -78,11 +78,11 @@ export const AssetOptionValueRef = RollableValueBase(
 		assets: Utils.Nullable(Type.Array(Type.Ref(Id.AssetIdWildcard)), {
 			default: null,
 			description:
-				"Asset IDs (which may be wildcarded) that may provide the option field. For asset ability enhancements, `null` is used to represent the asset's own option fields.",
+				"Asset IDs (which may be wildcarded) that may provide the option field. For asset ability enhancements, `null` is used to represent the asset's own option fields."
 		}),
 		option: Type.Ref(Id.DictKey, {
-			description: 'The dictionary key of the asset option field.',
-		}),
+			description: 'The dictionary key of the asset option field.'
+		})
 	}),
 	{ $id: 'AssetOptionValueRef' }
 )
@@ -102,7 +102,7 @@ export type AttachedAssetOptionValueRef = Static<
 export const StatValueRef = RollableValueBase(
 	'stat',
 	Type.Object({
-		stat: Type.Ref(Player.StatKey),
+		stat: Type.Ref(Player.StatKey)
 	}),
 	{ $id: 'StatValueRef' }
 )
@@ -112,7 +112,7 @@ export type StatValueRef = Static<typeof StatValueRef>
 export const ConditionMeterValueRef = RollableValueBase(
 	'condition_meter',
 	Type.Object({
-		condition_meter: Type.Ref(Player.ConditionMeterKey),
+		condition_meter: Type.Ref(Player.ConditionMeterKey)
 	}),
 	{ $id: 'ConditionMeterValueRef' }
 )
@@ -122,7 +122,7 @@ export const CustomValue = RollableValueBase(
 	'custom',
 	Type.Object({
 		label: Type.Ref(Localize.Label),
-		value: Type.Integer(),
+		value: Type.Integer()
 	}),
 	{ $id: 'CustomValue' }
 )
@@ -136,13 +136,13 @@ export const RollableValue = Utils.DiscriminatedUnion(
 		asset_option: AssetOptionValueRef,
 		attached_asset_control: AttachedAssetControlValueRef,
 		attached_asset_option: AttachedAssetOptionValueRef,
-		custom: CustomValue,
+		custom: CustomValue
 	},
 	'using',
 	{
 		$id: 'RollableValue',
 		description:
-			'Provides a value like a stat, condition meter, or other number (usually for use in an action roll). The expected value is an integer, or null.',
+			'Provides a value like a stat, condition meter, or other number (usually for use in an action roll). The expected value is an integer, or null.'
 	}
 )
 

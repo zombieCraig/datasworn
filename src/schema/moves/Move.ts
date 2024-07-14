@@ -10,12 +10,12 @@ export const Move = Utils.DiscriminatedUnion(
 		action_roll: MoveActionRoll,
 		no_roll: MoveNoRoll,
 		progress_roll: MoveProgressRoll,
-		special_track: MoveSpecialTrack,
+		special_track: MoveSpecialTrack
 	},
 	moveDiscriminator,
 	{
 		$id: 'Move',
-		title: 'Move',
+		title: 'Move'
 	}
 )
 

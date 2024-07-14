@@ -13,7 +13,7 @@ export const DelveSiteDomainFeature = EmbeddedType(
 	'feature',
 	{
 		description:
-			'Represents a single Feature entry from a delve site Domain card.',
+			'Represents a single Feature entry from a delve site Domain card.'
 	}
 )
 export const DelveSiteDomainDanger = EmbeddedType(
@@ -22,7 +22,7 @@ export const DelveSiteDomainDanger = EmbeddedType(
 	'danger',
 	{
 		description:
-			'Represents a single Danger entry from a delve site Domain card.',
+			'Represents a single Danger entry from a delve site Domain card.'
 	}
 )
 
@@ -37,7 +37,7 @@ export const DelveSiteDomain = setSourceDataSchema(
 			name_oracle: Type.Optional(
 				Type.Ref(Id.OracleRollableId, {
 					description:
-						'An oracle table ID containing place name elements. For examples, see oracle ID `oracle_rollable:delve/site_name/place/barrow`, and its siblings in oracle collection ID `oracle_collection:delve/site_name/place`. These oracles are used by the site name oracle from Ironsworn: Delve (`oracle_rollable:delve/site_name/format`) to create random names for delve sites.',
+						'An oracle table ID containing place name elements. For examples, see oracle ID `oracle_rollable:delve/site_name/place/barrow`, and its siblings in oracle collection ID `oracle_collection:delve/site_name/place`. These oracles are used by the site name oracle from Ironsworn: Delve (`oracle_rollable:delve/site_name/format`) to create random names for delve sites.'
 				})
 			),
 			features: Type.Intersect(
@@ -87,13 +87,13 @@ export const DelveSiteDomain = setSourceDataSchema(
 							// 		oracles: ['delve/oracles/site_nature/domain']
 							// 	}
 							// }
-						),
-					]),
+						)
+					])
 				],
 				{
 					[JsonTypeDef]: {
-						schema: toJtdElements(DelveSiteDomainFeatures),
-					},
+						schema: toJtdElements(DelveSiteDomainFeatures)
+					}
 				}
 			),
 			dangers: Type.Intersect(
@@ -104,20 +104,20 @@ export const DelveSiteDomain = setSourceDataSchema(
 						StaticRowPartial(34, 36),
 						StaticRowPartial(37, 39),
 						StaticRowPartial(40, 42),
-						StaticRowPartial(43, 45),
-					]),
+						StaticRowPartial(43, 45)
+					])
 				],
 				{
 					[JsonTypeDef]: {
-						schema: toJtdElements(DelveSiteDomainDangers),
-					},
+						schema: toJtdElements(DelveSiteDomainDangers)
+					}
 				}
-			),
+			)
 		}),
 		'delve_site_domain',
 		{
 			$id: 'DelveSiteDomain',
-			description: 'A delve site Domain card.',
+			description: 'A delve site Domain card.'
 		}
 	),
 	(schema) => ({ ...schema, additionalProperties: true })

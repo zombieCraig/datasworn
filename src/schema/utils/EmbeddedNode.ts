@@ -7,7 +7,7 @@ import {
 	type TOmit,
 	type TRef,
 	type TString,
-	type TUnion,
+	type TUnion
 } from '@sinclair/typebox'
 import type { Writable } from 'type-fest'
 import {
@@ -15,7 +15,7 @@ import {
 	SourceInfoKey,
 	EnhancesKey,
 	ReplacesKey,
-	type TypeSep,
+	type TypeSep
 } from '../../scripts/const.js'
 import TypeId from '../../pkg-core/IdElements/TypeId.js'
 import { Computed } from './Computed.js'
@@ -34,7 +34,7 @@ type TTypeNode = TObject<{ type: TLiteral<string> }>
 export function EmbeddedPrimaryNode<
 	TBase extends TTypeNode,
 	TId extends TRef<TString | TUnion<TString[]>>,
-	TEmbedKeys extends EmbeddedDictionaryKeys[],
+	TEmbedKeys extends EmbeddedDictionaryKeys[]
 >(base: TBase, allowEmbeds: TEmbedKeys, options: ObjectOptions = {}) {
 	const typeName = `Embedded${pascalCase(base.properties.type.const)}`
 
@@ -45,12 +45,12 @@ export function EmbeddedPrimaryNode<
 			? EmbeddedDictionaryKeys
 			: EmbeddedDictionaryKeys.filter((k) => !allowEmbeds.includes(k))
 	) as [
-		...Exclude<(typeof EmbeddedDictionaryKeys)[number], TEmbedKeys[number]>[],
+		...Exclude<(typeof EmbeddedDictionaryKeys)[number], TEmbedKeys[number]>[]
 	]
 	const omittedKeys = [
 		...forbiddenEmbedChildren,
 		...ReplacedEmbedKeys,
-		...OmittedEmbedKeys,
+		...OmittedEmbedKeys
 	] as const
 
 	const { properties } = Type.Omit(base, omittedKeys)
@@ -63,14 +63,14 @@ export function EmbeddedPrimaryNode<
 
 export type TEmbeddedNodeTypeLiteral<
 	TBase extends TTypeNode,
-	TParentType extends string,
+	TParentType extends string
 > = TLiteral<`${TParentType}${TypeSep}${Static<TBase>['type']}`>
 
 export type TEmbeddedNode<
 	TBase extends TTypeNode,
 	TParentType extends string,
 	TId extends TRef<TString | TUnion<TString[]>>,
-	TEmbedKeys extends EmbeddedDictionaryKeys[],
+	TEmbedKeys extends EmbeddedDictionaryKeys[]
 > = TObject<
 	{
 		_id: TId
@@ -80,7 +80,7 @@ export type TEmbeddedNode<
 		[
 			...OmittedEmbedKeys,
 			...ReplacedEmbedKeys,
-			...Exclude<EmbeddedDictionaryKeys, TEmbedKeys[number]>[],
+			...Exclude<EmbeddedDictionaryKeys, TEmbedKeys[number]>[]
 		]
 	>['properties']
 >
