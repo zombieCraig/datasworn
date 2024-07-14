@@ -566,7 +566,7 @@ _a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new W
     const pathSegments = rightSide.split(CONST_js_1.default.TypeSep);
     return {
         typeIds,
-        pathSegments
+        pathSegments,
     };
 }, _IdParser_getClassForPrimaryTypeId = function _IdParser_getClassForPrimaryTypeId(typeId) {
     switch (true) {
@@ -698,7 +698,7 @@ class NonCollectableId extends EmbeddingId {
         const pathSegment = [rulesPackage, key].join(CONST_js_1.default.PathKeySep);
         super({
             typeIds: [typeId],
-            pathSegments: [pathSegment]
+            pathSegments: [pathSegment],
         });
     }
 }
@@ -714,7 +714,7 @@ class CollectableId extends EmbeddingId {
         const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.default.PathKeySep);
         super({
             typeIds: [typeId],
-            pathSegments: [pathSegment]
+            pathSegments: [pathSegment],
         });
     }
     get collectionAncestorKeys() {
@@ -779,7 +779,7 @@ class CollectionId extends IdParser {
         const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.default.PathKeySep);
         super({
             typeIds: [typeId],
-            pathSegments: [pathSegment]
+            pathSegments: [pathSegment],
         });
     }
     get isRecursive() {
@@ -925,14 +925,14 @@ class CollectionId extends IdParser {
                     // carry forward the rules package globstar if it's present
                     matches = new Map([
                         ..._b._recurseMatches(collection, currentCollectionPath, [CONST_js_1.default.GlobstarString, matchKey, ...tailKeys], matches, forEach),
-                        ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach)
+                        ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach),
                     ]);
                 }
                 else if (TypeGuard_js_1.default.Globstar(matchKey)) {
                     // carry forward current key if it's a globstar
                     matches = new Map([
                         ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach),
-                        ..._b._recurseMatches(collection, currentCollectionPath, tailKeys, matches, forEach)
+                        ..._b._recurseMatches(collection, currentCollectionPath, tailKeys, matches, forEach),
                     ]);
                 }
                 else
@@ -984,7 +984,7 @@ class EmbeddedId extends EmbeddingId {
     constructor(parent, typeId, key) {
         const options = {
             typeIds: [...parent.typeIds, typeId],
-            pathSegments: [...parent.pathSegments, key.toString()]
+            pathSegments: [...parent.pathSegments, key.toString()],
         };
         super(options);
         _EmbeddedId_parent.set(this, void 0);

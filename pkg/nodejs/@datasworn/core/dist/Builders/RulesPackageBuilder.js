@@ -39,7 +39,7 @@ class RulesPackageBuilder {
                 return file.packageType;
         return undefined;
     }
-    static init({ validator, sourceValidator }) {
+    static init({ validator, sourceValidator, }) {
         __classPrivateFieldSet(this, _a, validator, "f", _RulesPackageBuilder_schemaValidator);
         __classPrivateFieldSet(this, _a, sourceValidator, "f", _RulesPackageBuilder_sourceSchemaValidator);
         return this;
@@ -248,7 +248,7 @@ _RulesPackageBuilder_schemaValidator = { value: void 0 };
 _RulesPackageBuilder_sourceSchemaValidator = { value: void 0 };
 /** Top-level RulesPackage properties to omit from key sorting. */
 RulesPackageBuilder.topLevelKeysBlackList = [
-    'rules'
+    'rules',
 ];
 /** Separator character used for JSON pointers. */
 RulesPackageBuilder.pointerSep = '/';

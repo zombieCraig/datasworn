@@ -1,10 +1,10 @@
 import { Type, type Static, type TSchema, type Kind } from '@sinclair/typebox'
 import { UnionEnum } from '../schema/Utils.js'
-import type {
-	Simplify,
-	JsonTypeDef,
-	Inherits,
-	Namespace,
+import {
+	type Simplify,
+	type JsonTypeDef,
+	type Inherits,
+	type Namespace,
 } from '../schema/Symbols.js'
 import type { Metadata } from './json-typedef/typedef.js'
 import { DiceExpression } from '../schema/common/Rolls.js'

@@ -5,7 +5,7 @@
 import JsonPointer from 'json-pointer'
 import type { JsonSchema } from 'json-schema-library'
 import * as CONST from '../const.js'
-import { getPrettierOptions, writeJSON } from '../utils/readWrite.js'
+import { writeJSON } from '../utils/readWrite.js'
 import { sortSchemaKeys } from '../datasworn/sort.js'
 import Log from '../utils/Log.js'
 import AJV from '../validation/ajv.js'
@@ -62,8 +62,6 @@ const schemaOptions: SchemaOptions[] = [
 	},
 ]
 
-const prettierOptions = await getPrettierOptions(CONST.SCHEMA_PATH)
-
 const metadataKeys: string[] = []
 
 function replacer(k: string, v: unknown) {
@@ -106,14 +104,13 @@ for (const { rootSchema, name, paths, messages } of schemaOptions) {
 
 		writeOps.push(
 			writeJSON(paths, sortedSchema, {
-				prettierOptions,
 				replacer,
 			}).then(() => Log.info(messages.writeFinish)),
 		)
 	} catch (error) {
 		Log.error(error)
 
-		await writeJSON(paths, rootSchema, { prettierOptions, replacer })
+		await writeJSON(paths, rootSchema, { replacer })
 	}
 }
 

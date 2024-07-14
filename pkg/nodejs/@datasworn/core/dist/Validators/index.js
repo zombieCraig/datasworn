@@ -6,6 +6,6 @@ const Validators = {
     // asset,
     // move,
     oracle_rollable: OracleRollable_js_1.validate,
-    oracle_collection: OracleCollection_js_1.validate
+    oracle_collection: OracleCollection_js_1.validate,
 };
 exports.default = Validators;

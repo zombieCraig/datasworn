@@ -44,7 +44,7 @@ export type DropFirst<T extends unknown[]> = T extends [] | [unknown]
 export type TupleOfLength<Length extends number, T> = T[] & { length: Length }
 
 export type OmitItemsOfType<T extends any[], O> = T extends [
-	infer Head ,
+	infer Head extends any,
 	...infer Tail extends any[],
 ]
 	? [...(Head extends O ? [] : [Head]), ...OmitItemsOfType<Tail, O>]

@@ -28,20 +28,20 @@ const idPointerPattern = new RegExp(`^${exports.idLike}$`);
 const linkSymbolPattern = new RegExp([
     `(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
     `(?<id>${exports.idLike})`,
-    `(?=\\))` // lookahead for right paren
+    `(?=\\))`, // lookahead for right paren
 ].join(''), 'g');
 const macroSymbolPattern = new RegExp([
     `(?<=\\{\\{)`, // lookbehind for left curly braces
     `(?<directive>[a-z][a-z_]+>)`,
     `(?<id>${exports.idLike})`,
-    `(?=\\}\\})` // lookahead for right curly braces
+    `(?=\\}\\})`, // lookahead for right curly braces
 ].join(''), 'g');
 const plainTextKeys = new Set([
     'label',
     '_comment',
     'name',
     'title',
-    'category'
+    'category',
 ]);
 const urlKeys = new Set(['url', 'license', 'icon']);
 const nonTextKeys = new Set(['dice']);
@@ -50,7 +50,7 @@ const markdownKeys = new Set([
     'description',
     'summary',
     'quest_starter',
-    'your_truth'
+    'your_truth',
 ]);
 const idBlacklist = new Set([
     ' / ',
@@ -69,7 +69,7 @@ const idBlacklist = new Set([
     '"',
     '://',
     '.svg',
-    '.webp'
+    '.webp',
 ]);
 function isBareId(v) {
     if (typeof v !== 'string')

@@ -6,10 +6,10 @@ import { Label, MarkdownString } from './common/Localize.js'
 import { FlatIntersect } from './utils/FlatIntersect.js'
 
 import { AssetPropertiesEnhanceable } from './assets/common.js'
-import type { TAssetAbility } from './assets/Ability.js'
-import type {
-	TAssetControlField,
-	TAssetOptionField,
+import { type TAssetAbility } from './assets/Ability.js'
+import {
+	type TAssetControlField,
+	type TAssetOptionField,
 } from './assets/Fields.js'
 
 const AssetMixin = Type.Object({

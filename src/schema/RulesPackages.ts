@@ -6,12 +6,12 @@ import * as Localize from './common/Localize.js'
 
 import { mapValues } from 'lodash-es'
 import * as CONST from '../scripts/const.js'
-import type { TAssetCollection } from './Assets.js'
-import type { TAtlasCollection } from './Atlas.js'
-import type {
-	TDelveSite,
-	TDelveSiteDomain,
-	TDelveSiteTheme,
+import { type TAssetCollection } from './Assets.js'
+import { type TAtlasCollection } from './Atlas.js'
+import {
+	type TDelveSite,
+	type TDelveSiteDomain,
+	type TDelveSiteTheme,
 } from './DelveSites.js'
 import type { TNpcCollection } from './Npcs.js'
 import type { TRarity } from './Rarities.js'

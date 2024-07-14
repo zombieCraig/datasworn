@@ -1,19 +1,15 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"formatter": {
+		"include": ["src/**", "pkg/nodejs/**/*.{d.ts,json}", "datasworn/*/*.json"],
 		"ignore": [
 			"**/dist",
 			"**/docs",
 			"**/*.d.ts",
-			"**/*.json",
 			"**/*.html",
 			"**/*.md",
 			"**/.github",
 			"**/.vscode",
-			"json-typedef",
-			"markdown",
-			"pkg",
-			"roll20",
 			"src/data-legacy",
 			"src/extras"
 		]

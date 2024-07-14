@@ -30,18 +30,13 @@
 	"editor.formatOnPaste": false,
 	"editor.formatOnSave": true,
 	"editor.suggest.showDeprecated": false,
-	"eslint.lintTask.enable": true,
 	"[typescript]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"eslint.validate": ["javascript", "typescript"],
 	"javascript.preferences.importModuleSpecifier": "relative",
 	"javascript.preferences.importModuleSpecifierEnding": "js",
 	"javascript.updateImportsOnFileMove.enabled": "always",
 
-	"prettier.documentSelectors": ["*.ts", "*.json", "*.yaml"],
-	"prettier.enable": true,
-	"prettier.requireConfig": false,
 	"typescript.preferences.importModuleSpecifier": "relative",
 	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"typescript.preferences.preferTypeOnlyAutoImports": true,
@@ -49,19 +44,8 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"editor.formatOnSaveMode": "modificationsIfAvailable",
-	"eslint.codeActionsOnSave.mode": "problems",
 	"javascript.preferences.quoteStyle": "single",
 	"typescript.preferences.quoteStyle": "single",
-	"eslint.probe": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"html",
-		"markdown"
-	],
-	"eslint.useESLintClass": true,
-	"eslint.run": "onSave",
-  "editor.suggest.snippetsPreventQuickSuggestions": true,
-  "biome.rename": true
+	"editor.suggest.snippetsPreventQuickSuggestions": true,
+	"biome.rename": true
 }

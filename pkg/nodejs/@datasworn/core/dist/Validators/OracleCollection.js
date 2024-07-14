@@ -66,7 +66,7 @@ function rowHasSameRolls(a, b) {
 const textProperties = [
     'text',
     'text2',
-    'text3'
+    'text3',
 ];
 function rowHasSameText(a, b) {
     for (const k of textProperties) {

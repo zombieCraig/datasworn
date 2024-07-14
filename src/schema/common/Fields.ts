@@ -67,8 +67,8 @@ function InputField<T extends Base.TInput<TSchema>, V extends string>(
 export type TInputField<
 	T extends Base.TInput<TSchema>,
 	Discriminator extends string,
-> = // Generic.TIdentifiedNode<
-TObject<
+> = TObject<
+	// Generic.TIdentifiedNode<
 	T['properties'] & {
 		[DISCRIMINATOR]: TLiteral<Discriminator>
 		// _id:Id.TAnyId

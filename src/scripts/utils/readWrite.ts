@@ -1,11 +1,10 @@
-import type { BunFile } from 'bun'
-import { merge } from 'lodash-es'
+import { $, type BunFile } from 'bun'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import Prettier from 'prettier'
 import type { Simplify } from 'type-fest'
 import yaml from 'yaml'
 import type { DataswornSource } from '../../pkg-core/index.js'
+import Log from './Log.js'
 
 const space = '\t'
 
@@ -61,9 +60,7 @@ export async function copyFile(from: string | BunFile, to: string | BunFile) {
 	const fromFile = typeof from === 'string' ? Bun.file(from) : from
 	const toFile = typeof to === 'string' ? Bun.file(to) : to
 
-	const op = await Bun.write(toFile, fromFile)
-
-	// console.debug('wrote', op, 'bytes to', toFile.name, 'from', fromFile.name)
+	const op = await Bun.write(toFile, fromFile, { createPath: true })
 
 	return op
 }
@@ -93,25 +90,36 @@ export async function readJSON<T>(
 	return JSON.parse(await file.text(), reviver)
 }
 
+async function formatFiles(...files: (string | BunFile)[]) {
+	const filePaths = files.map((file) =>
+		typeof file === 'string' ? file : (file.name as string),
+	)
+	const include = filePaths.map($.escape).join(',')
+
+	// double the default value -- datasworn includes some very large json files
+	const maxSize = 1024 * 1024 * 2
+
+	return await $`bun biome format --write --files-max-size=${maxSize} --include=${include} ./`
+}
+
 type WriteJsonOptions = {
 	skipCopyAwait?: boolean
 	replacer?: (this: any, key: string, value: any) => any
-	prettierOptions?: Prettier.Options
 }
 export async function writeJSON(
 	filePath: string | BunFile,
-	jsonContent: any,
+	object: any,
 	options?: WriteJsonOptions,
 ): Promise<any>
 export async function writeJSON(
 	filePaths: (string | BunFile)[],
-	jsonContent: any,
+	object: any,
 	options?: WriteJsonOptions,
 ): Promise<any>
 export async function writeJSON(
 	filePath: string | BunFile | (string | BunFile)[],
-	jsonContent: any,
-	{ skipCopyAwait = false, replacer, prettierOptions }: WriteJsonOptions = {},
+	object: any,
+	{ skipCopyAwait = false, replacer }: WriteJsonOptions = {},
 ): Promise<any> {
 	const pathParams = Array.isArray(filePath) ? filePath : [filePath]
 
@@ -123,17 +131,15 @@ export async function writeJSON(
 			typeof destination === 'string' ? Bun.file(destination) : destination,
 	)
 
-	if (prettierOptions == null)
-		prettierOptions = await getPrettierOptions(writeDestination.name as string)
-
-	const json = await Prettier.format(
-		JSON.stringify(jsonContent, replacer, space),
-		prettierOptions,
-	)
+	const json = JSON.stringify(object, replacer, space)
 
 	// write to the first destination
-	await ensureDir(path.dirname(writeDestination.name as string))
-	await Bun.write(writeDestination, json)
+	await Bun.write(writeDestination, json, { createPath: true })
+
+	// biome is CLI only, but we can use Bun's shell to do this instead.
+	const formatter = (await formatFiles(writeDestination)).text()
+
+	Log.verbose(formatter)
 
 	// nothing left to do
 	if (copyDestinations.length === 0) return
@@ -147,19 +153,6 @@ export async function writeJSON(
 	else return await Promise.all(copyOps)
 }
 
-export async function getPrettierOptions(
-	filePath: string | BunFile,
-	parser = 'json',
-): Promise<Prettier.Options> {
-	const pathStr =
-		typeof filePath === 'string' ? filePath : (filePath.name as string)
-
-	const defaultConfig = (await Prettier.resolveConfig(pathStr)) ?? {}
-	const jsonOverrides: Prettier.Options = { filepath: pathStr, parser }
-	const prettierOptions = merge({}, defaultConfig, jsonOverrides)
-	return prettierOptions
-}
-
 type YAMLOptions = Simplify<
 	yaml.ParseOptions &
 		yaml.DocumentOptions &
@@ -167,28 +160,14 @@ type YAMLOptions = Simplify<
 		yaml.ToJSOptions
 >
 
-export async function writeCode(
-	filePath: string | BunFile,
-	content: string,
-	skipFormat = false,
-	parser = 'typescript',
-	{ prettierOptions }: { prettierOptions?: Prettier.Options } = {},
-) {
-	const pathStr =
-		typeof filePath === 'string' ? filePath : (filePath.name as string)
+export async function writeCode(filePath: string | BunFile, content: string) {
 	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
 
-	await ensureDir(path.dirname(pathStr))
+	await Bun.write(file, content, { createPath: true })
 
-	if (skipFormat) {
-		await Bun.write(file, content)
-	} else {
-		if (prettierOptions == null)
-			prettierOptions = await getPrettierOptions(file, parser)
+	const formatter = (await formatFiles(file)).text()
 
-		const data = await Prettier.format(content, prettierOptions)
-		await Bun.write(file, data)
-	}
+	Log.verbose(formatter)
 }
 export async function updateJSON<T>(
 	path: string | BunFile,

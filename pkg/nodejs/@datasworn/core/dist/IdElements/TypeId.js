@@ -17,14 +17,14 @@ var TypeId;
         'npc',
         'oracle_rollable',
         'asset',
-        'move'
+        'move',
     ];
     TypeId.Collection = [
         'atlas_collection',
         'npc_collection',
         'oracle_collection',
         'asset_collection',
-        'move_category'
+        'move_category',
     ];
     /** ID type elements for types that don't use collections at all. */
     TypeId.NonCollectable = [
@@ -32,19 +32,19 @@ var TypeId;
         'delve_site_domain',
         'delve_site_theme',
         'rarity',
-        'truth'
+        'truth',
     ];
     TypeId.Primary = [
         ...TypeId.Collectable,
         ...TypeId.Collection,
-        ...TypeId.NonCollectable
+        ...TypeId.NonCollectable,
     ];
     TypeId.CollectedByMap = {
         asset_collection: 'asset',
         move_category: 'move',
         atlas_collection: 'atlas_entry',
         npc_collection: 'npc',
-        oracle_collection: 'oracle_rollable'
+        oracle_collection: 'oracle_rollable',
     };
     function getCollectableOf(typeId) {
         return TypeId.CollectedByMap[typeId];
@@ -55,7 +55,7 @@ var TypeId;
         move: 'move_category',
         atlas_entry: 'atlas_collection',
         npc: 'npc_collection',
-        oracle_rollable: 'oracle_collection'
+        oracle_rollable: 'oracle_collection',
     };
     function getCollectionOf(typeId) {
         return TypeId.CollectionOfMap[typeId];
@@ -63,7 +63,7 @@ var TypeId;
     TypeId.getCollectionOf = getCollectionOf;
     TypeId.EmbeddablePrimary = [
         'oracle_rollable',
-        'move'
+        'move',
     ];
     TypeId.EmbedOnly = [
         'ability',
@@ -72,7 +72,7 @@ var TypeId;
         'feature',
         'danger',
         'denizen',
-        'variant'
+        'variant',
     ];
     TypeId.Embeddable = [
         'oracle_rollable',
@@ -83,7 +83,7 @@ var TypeId;
         'feature',
         'danger',
         'denizen',
-        'variant'
+        'variant',
     ];
     TypeId.EmbedTypeMap = {
         asset: ['ability'],
@@ -95,14 +95,14 @@ var TypeId;
         delve_site: ['denizen'],
         delve_site_domain: ['feature', 'danger'],
         delve_site_theme: ['feature', 'danger'],
-        npc: ['variant']
+        npc: ['variant'],
     };
     /** Types that can be an embed of an embed. */
     TypeId.EmbeddableInEmbeddedTypeMap = {
         ability: ['oracle_rollable', 'move'],
         move: [],
         option: ['oracle_rollable'],
-        oracle_rollable: ['row']
+        oracle_rollable: ['row'],
     };
     function canHaveEmbed(typeId, typeIsEmbedded = false) {
         return getEmbeddableTypes(typeId, typeIsEmbedded).length > 0;
@@ -160,7 +160,7 @@ var TypeId;
         feature: 'features',
         danger: 'dangers',
         denizen: 'denizens',
-        variant: 'variants'
+        variant: 'variants',
     };
     // TODO
     // is there a logic to this that i can formalize?
@@ -172,7 +172,7 @@ var TypeId;
         features: 'array',
         options: 'array',
         rows: 'array',
-        variants: 'dictionary'
+        variants: 'dictionary',
     };
     function getEmbeddedPropertyType(typeId) {
         if (TypeId.Primary.includes(typeId))
@@ -205,7 +205,7 @@ var TypeId;
         'feature',
         'danger',
         'denizen',
-        'variant'
+        'variant',
     ];
     // | EmbeddedTypePath | EmbedOfEmbedTypePaths
     /** The ancestor key of this type on the {@link Datasworn.RulesPackage} object. */
@@ -224,7 +224,7 @@ var TypeId;
         truth: 'truths',
         delve_site_domain: 'site_domains',
         delve_site_theme: 'site_themes',
-        rarity: 'rarities'
+        rarity: 'rarities',
     };
     function getBranchKey(typeId) {
         const result = TypeId.BranchKey[typeId];

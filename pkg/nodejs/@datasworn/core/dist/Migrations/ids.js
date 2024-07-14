@@ -13,7 +13,7 @@ const neverLegacyIdSubstrings = new Set([
     ')',
     '://',
     '.svg',
-    '.webp'
+    '.webp',
 ]);
 const alwaysMdKeys = new Set([
     'description',
@@ -23,7 +23,7 @@ const alwaysMdKeys = new Set([
     'text',
     'text2',
     'text3',
-    'requirement'
+    'requirement',
 ]);
 const neverMdOrIdKeys = new Set([
     'label',
@@ -37,7 +37,7 @@ const neverMdOrIdKeys = new Set([
     'field_type',
     'oracle_type',
     'field_type',
-    'choice_type'
+    'choice_type',
 ]);
 /**
  *

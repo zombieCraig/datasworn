@@ -14,7 +14,7 @@ exports.unsortableKeys = [
     CONST_js_1.default.ContentsKey,
     'options',
     CONST_js_1.default.CollectionsKey,
-    'choices'
+    'choices',
 ];
 exports.idKeys = [CONST_js_1.default.IdKey, '_key', '_index'];
 exports.relationshipKeys = [
@@ -27,7 +27,7 @@ exports.relationshipKeys = [
     'domain',
     'name_oracle',
     'npc',
-    'extra_card'
+    'extra_card',
 ];
 // TODO: this could be done programmatically by looking at the appropriate symbol key on DiscriminatedUnion schemas
 exports.discriminatorKeys = [
@@ -38,7 +38,7 @@ exports.discriminatorKeys = [
     'choice_type',
     'oracle_type',
     'value_type',
-    'using'
+    'using',
 ];
 exports.usageKeys = [
     'auto',
@@ -50,7 +50,7 @@ exports.usageKeys = [
     'ally',
     'player',
     'is_impact',
-    'disables_asset'
+    'disables_asset',
 ];
 exports.shortDescriptionKeys = [
     'result',
@@ -60,20 +60,20 @@ exports.shortDescriptionKeys = [
     'features',
     'dangers',
     'drives',
-    'tactics'
+    'tactics',
 ];
 exports.longDescriptionKeys = [
     'text',
     'text2',
     'text3',
     'description',
-    'your_character'
+    'your_character',
 ];
 exports.longArrayKeys = [
     'denizens',
     'enhance_moves',
     'rows',
-    'table'
+    'table',
 ];
 exports.numericKeys = ['min', 'max', 'value', 'rank'];
 exports.rulesKeys = [
@@ -96,7 +96,7 @@ exports.rulesKeys = [
     'recover',
     'suffer',
     'choices',
-    'xp_cost'
+    'xp_cost',
 ];
 exports.sourceMetadataKeys = [
     'email',
@@ -105,7 +105,7 @@ exports.sourceMetadataKeys = [
     'license',
     'page',
     'title',
-    'url'
+    'url',
 ];
 exports.dataswornKeyOrder = [
     ...exports.idKeys,
@@ -180,7 +180,7 @@ exports.dataswornKeyOrder = [
     'site_themes',
     'truths',
     '_source',
-    '_i18n'
+    '_i18n',
 ];
 function compareObjectKeys(a, b, keyOrder = [], unsortableKeys) {
     const [indexA, indexB] = [a, b].map((key) => {

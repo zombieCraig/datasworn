@@ -10,10 +10,15 @@
 			"type": "object",
 			"description": "Describes game rules compatible with the Ironsworn tabletop role-playing game by Shawn Tomkin.",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `type` property as a discriminator.",
-			"required": ["type"],
+			"required": [
+				"type"
+			],
 			"properties": {
 				"type": {
-					"enum": ["ruleset", "expansion"]
+					"enum": [
+						"ruleset",
+						"expansion"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -99,7 +104,9 @@
 				"url": {
 					"$ref": "#/definitions/WebUrl",
 					"description": "A URL where the source document is available.",
-					"examples": ["https://ironswornrpg.com"]
+					"examples": [
+						"https://ironswornrpg.com"
+					]
 				},
 				"rules": {
 					"$ref": "#/definitions/Rules"
@@ -276,7 +283,9 @@
 				"url": {
 					"$ref": "#/definitions/WebUrl",
 					"description": "A URL where the source document is available.",
-					"examples": ["https://ironswornrpg.com"]
+					"examples": [
+						"https://ironswornrpg.com"
+					]
 				},
 				"rules": {
 					"$ref": "#/definitions/RulesExpansion"
@@ -401,14 +410,20 @@
 			"title": "RulesetId",
 			"type": "string",
 			"description": "The ID of standalone Datasworn package that describes its own ruleset.",
-			"examples": ["classic", "starforged"],
+			"examples": [
+				"classic",
+				"starforged"
+			],
 			"pattern": "^[a-z][a-z0-9_]{3,}$"
 		},
 		"ExpansionId": {
 			"title": "ExpansionId",
 			"type": "string",
 			"description": "The ID of a Datasworn package that relies on an external package to provide its ruleset.",
-			"examples": ["delve", "sundered_isles"],
+			"examples": [
+				"delve",
+				"sundered_isles"
+			],
 			"pattern": "^[a-z][a-z0-9_]{3,}$"
 		},
 		"RulesPackageId": {
@@ -1157,11 +1172,15 @@
 					"url": "https://ironswornrpg.com"
 				}
 			],
-			"required": ["name"],
+			"required": [
+				"name"
+			],
 			"properties": {
 				"name": {
 					"type": "string",
-					"examples": ["Shawn Tomkin"]
+					"examples": [
+						"Shawn Tomkin"
+					]
 				},
 				"email": {
 					"title": "Email",
@@ -1216,7 +1235,13 @@
 			"title": "SourceInfo",
 			"type": "object",
 			"description": "Metadata describing the original source of this node",
-			"required": ["title", "authors", "date", "license", "url"],
+			"required": [
+				"title",
+				"authors",
+				"date",
+				"license",
+				"url"
+			],
 			"properties": {
 				"title": {
 					"$ref": "#/definitions/SourceTitle"
@@ -1243,7 +1268,9 @@
 				"url": {
 					"$ref": "#/definitions/WebUrl",
 					"description": "A URL where the source document is available.",
-					"examples": ["https://ironswornrpg.com"]
+					"examples": [
+						"https://ironswornrpg.com"
+					]
 				}
 			}
 		},
@@ -1370,7 +1397,13 @@
 		},
 		"CollectableType": {
 			"title": "CollectableType",
-			"enum": ["atlas_entry", "npc", "oracle_rollable", "asset", "move"]
+			"enum": [
+				"atlas_entry",
+				"npc",
+				"oracle_rollable",
+				"asset",
+				"move"
+			]
 		},
 		"CollectionType": {
 			"title": "CollectionType",
@@ -1446,7 +1479,11 @@
 			"title": "ImpactCategory",
 			"type": "object",
 			"description": "Describes a category of standard impacts/debilities.",
-			"required": ["label", "description", "contents"],
+			"required": [
+				"label",
+				"description",
+				"contents"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label",
@@ -1656,7 +1693,12 @@
 			"title": "SpecialTrackRule",
 			"type": "object",
 			"description": "Describes a special track like Bonds (classic Ironsworn), Failure (Delve), or Legacies (Starforged).",
-			"required": ["label", "optional", "shared", "description"],
+			"required": [
+				"label",
+				"optional",
+				"shared",
+				"description"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label",
@@ -1682,12 +1724,17 @@
 			"title": "StatRule",
 			"type": "object",
 			"description": "Describes a standard player character stat.",
-			"required": ["label", "description"],
+			"required": [
+				"label",
+				"description"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label",
 					"description": "A label for this stat.",
-					"examples": ["edge"]
+					"examples": [
+						"edge"
+					]
 				},
 				"description": {
 					"$ref": "#/definitions/MarkdownString",
@@ -1816,7 +1863,9 @@
 			"title": "TagRule",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `value_type` property as a discriminator.",
-			"required": ["value_type"],
+			"required": [
+				"value_type"
+			],
 			"properties": {
 				"value_type": {
 					"enum": [
@@ -1882,7 +1931,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "array", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"array",
+							"value_type"
+						],
 						"title": "TagRuleBoolean"
 					}
 				},
@@ -1925,7 +1979,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "array", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"array",
+							"value_type"
+						],
 						"title": "TagRuleInteger"
 					}
 				},
@@ -1969,7 +2028,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleAtlasEntry"
 					}
 				},
@@ -2013,7 +2077,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleNpc"
 					}
 				},
@@ -2057,7 +2126,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleOracleRollable"
 					}
 				},
@@ -2101,7 +2175,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleAsset"
 					}
 				},
@@ -2145,7 +2224,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleMove"
 					}
 				},
@@ -2189,7 +2273,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleAtlasCollection"
 					}
 				},
@@ -2233,7 +2322,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleNpcCollection"
 					}
 				},
@@ -2277,7 +2371,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleOracleCollection"
 					}
 				},
@@ -2321,7 +2420,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleAssetCollection"
 					}
 				},
@@ -2365,7 +2469,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleMoveCategory"
 					}
 				},
@@ -2409,7 +2518,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleDelveSite"
 					}
 				},
@@ -2453,7 +2567,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleDelveSiteDomain"
 					}
 				},
@@ -2497,7 +2616,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleDelveSiteTheme"
 					}
 				},
@@ -2541,7 +2665,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleRarity"
 					}
 				},
@@ -2585,7 +2714,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["applies_to", "description", "wildcard", "value_type"],
+						"required": [
+							"applies_to",
+							"description",
+							"wildcard",
+							"value_type"
+						],
 						"title": "TagRuleTruth"
 					}
 				},
@@ -2709,13 +2843,21 @@
 		"ChallengeRank": {
 			"title": "ChallengeRank",
 			"description": "Challenge rank, represented as an integer from 1 (troublesome) to 5 (epic).\n\n  - `1`: Troublesome\n  - `2`: Dangerous\n  - `3`: Formidable\n  - `4`: Extreme\n  - `5`: Epic",
-			"enum": [1, 2, 3, 4, 5]
+			"enum": [
+				1,
+				2,
+				3,
+				4,
+				5
+			]
 		},
 		"ProgressTrackTypeInfo": {
 			"title": "ProgressTrackTypeInfo",
 			"type": "object",
 			"description": "Describes the features of a type of progress track.",
-			"required": ["category"],
+			"required": [
+				"category"
+			],
 			"properties": {
 				"category": {
 					"$ref": "#/definitions/Label",
@@ -2759,7 +2901,11 @@
 			"title": "AssetControlValueRef",
 			"type": "object",
 			"description": "A reference to the value of an asset control.",
-			"required": ["using", "control", "assets"],
+			"required": [
+				"using",
+				"control",
+				"assets"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -2769,7 +2915,10 @@
 				"control": {
 					"$ref": "#/definitions/DictKey",
 					"description": "The dictionary key of the asset control field.",
-					"examples": ["health", "integrity"]
+					"examples": [
+						"health",
+						"integrity"
+					]
 				},
 				"assets": {
 					"description": "Asset IDs (which may be wildcarded) that may provide the control field. For asset ability enhancements, `null` is used to represent the asset's own control fields.",
@@ -2792,7 +2941,11 @@
 			"title": "AssetOptionValueRef",
 			"type": "object",
 			"description": "A reference to the value of an asset option.",
-			"required": ["using", "option", "assets"],
+			"required": [
+				"using",
+				"option",
+				"assets"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -2824,7 +2977,10 @@
 			"title": "AttachedAssetControlValueRef",
 			"type": "object",
 			"description": "A reference to the value of an attached asset control. For example, a Module asset could use this to roll using the `integrity` control of an attached Vehicle.",
-			"required": ["using", "control"],
+			"required": [
+				"using",
+				"control"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -2834,7 +2990,10 @@
 				"control": {
 					"$ref": "#/definitions/DictKey",
 					"description": "The dictionary key of the asset control field.",
-					"examples": ["health", "integrity"]
+					"examples": [
+						"health",
+						"integrity"
+					]
 				}
 			}
 		},
@@ -2842,7 +3001,10 @@
 			"title": "AttachedAssetOptionValueRef",
 			"type": "object",
 			"description": "A reference to the value of an attached asset option.",
-			"required": ["using", "option"],
+			"required": [
+				"using",
+				"option"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -2859,7 +3021,10 @@
 			"title": "ConditionMeterValueRef",
 			"type": "object",
 			"description": "A reference to the value of a standard player condition meter.",
-			"required": ["using", "condition_meter"],
+			"required": [
+				"using",
+				"condition_meter"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -2875,7 +3040,11 @@
 			"title": "CustomValue",
 			"type": "object",
 			"description": "An arbitrary static integer value with a label.",
-			"required": ["label", "using", "value"],
+			"required": [
+				"label",
+				"using",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -2895,7 +3064,9 @@
 			"type": "object",
 			"description": "Provides a value like a stat, condition meter, or other number (usually for use in an action roll). The expected value is an integer, or null.",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `using` property as a discriminator.",
-			"required": ["using"],
+			"required": [
+				"using"
+			],
 			"properties": {
 				"using": {
 					"enum": [
@@ -3008,7 +3179,10 @@
 			"title": "StatValueRef",
 			"type": "object",
 			"description": "A reference to the value of a standard player character stat.",
-			"required": ["using", "stat"],
+			"required": [
+				"using",
+				"stat"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -3141,7 +3315,14 @@
 		"NpcCollection": {
 			"title": "NpcCollection",
 			"type": "object",
-			"required": ["_id", "type", "name", "contents", "collections", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"contents",
+				"collections",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/NpcCollectionId",
@@ -3253,7 +3434,13 @@
 		"NpcVariant": {
 			"title": "NpcVariant",
 			"type": "object",
-			"required": ["_id", "name", "rank", "nature", "description"],
+			"required": [
+				"_id",
+				"name",
+				"rank",
+				"nature",
+				"description"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/NpcVariantId",
@@ -3285,18 +3472,27 @@
 			"title": "DiceExpression",
 			"type": "string",
 			"description": "A simple dice roll expression with an optional modifer.",
-			"examples": ["1d100", "1d6+2"],
+			"examples": [
+				"1d100",
+				"1d6+2"
+			],
 			"pattern": "([1-9][0-9]*)d([1-9][0-9]*)([+-]([1-9][0-9]*))?"
 		},
 		"OracleDuplicateBehavior": {
 			"title": "OracleDuplicateBehavior",
 			"description": "Special roll instructions to use when rolling multiple times on a single oracle.\n\n  - `reroll`: Duplicate results should be re-rolled.\n  - `keep`: Duplicates results should be kept.\n  - `make_it_worse`: Duplicate results should be kept, and they compound to make things worse.",
-			"enum": ["reroll", "keep", "make_it_worse"]
+			"enum": [
+				"reroll",
+				"keep",
+				"make_it_worse"
+			]
 		},
 		"OracleMatchBehavior": {
 			"title": "OracleMatchBehavior",
 			"type": "object",
-			"required": ["text"],
+			"required": [
+				"text"
+			],
 			"properties": {
 				"text": {
 					"$ref": "#/definitions/MarkdownString"
@@ -3306,7 +3502,13 @@
 		"OracleRoll": {
 			"title": "OracleRoll",
 			"type": "object",
-			"required": ["oracle", "dice", "auto", "duplicates", "number_of_rolls"],
+			"required": [
+				"oracle",
+				"dice",
+				"auto",
+				"duplicates",
+				"number_of_rolls"
+			],
 			"properties": {
 				"oracle": {
 					"description": "The ID of the oracle to be rolled. A `null` value indicates that it's a roll on the same table.",
@@ -3377,7 +3579,10 @@
 			"title": "DiceRange",
 			"type": "object",
 			"description": "Represents a range of dice roll results, bounded by `min` and `max` (inclusive).",
-			"required": ["min", "max"],
+			"required": [
+				"min",
+				"max"
+			],
 			"properties": {
 				"min": {
 					"type": "integer",
@@ -3394,7 +3599,9 @@
 			"type": "object",
 			"description": "This type is a placeholder and may see signficant changes in v0.2.0.",
 			"releaseStage": "experimental",
-			"required": ["text"],
+			"required": [
+				"text"
+			],
 			"properties": {
 				"text": {
 					"$ref": "#/definitions/MarkdownString"
@@ -3404,7 +3611,14 @@
 		"EmbeddedOracleColumnText": {
 			"title": "EmbeddedOracleColumnText",
 			"type": "object",
-			"required": ["_id", "type", "name", "oracle_type", "dice", "rows"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"oracle_type",
+				"dice",
+				"rows"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/EmbeddedOracleRollableId"
@@ -3451,7 +3665,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -3486,7 +3703,14 @@
 		"EmbeddedOracleColumnText2": {
 			"title": "EmbeddedOracleColumnText2",
 			"type": "object",
-			"required": ["_id", "type", "name", "oracle_type", "dice", "rows"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"oracle_type",
+				"dice",
+				"rows"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/EmbeddedOracleRollableId"
@@ -3533,7 +3757,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -3568,7 +3795,14 @@
 		"EmbeddedOracleColumnText3": {
 			"title": "EmbeddedOracleColumnText3",
 			"type": "object",
-			"required": ["_id", "type", "name", "oracle_type", "dice", "rows"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"oracle_type",
+				"dice",
+				"rows"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/EmbeddedOracleRollableId"
@@ -3615,7 +3849,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -3651,7 +3888,9 @@
 			"title": "EmbeddedOracleRollable",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `oracle_type` property as a discriminator.",
-			"required": ["oracle_type"],
+			"required": [
+				"oracle_type"
+			],
 			"properties": {
 				"oracle_type": {
 					"enum": [
@@ -3804,7 +4043,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -3823,7 +4065,10 @@
 						"roll": "Roll",
 						"text": "Result"
 					},
-					"required": ["roll", "text"],
+					"required": [
+						"roll",
+						"text"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -3911,7 +4156,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -3931,7 +4179,11 @@
 						"text": "Result",
 						"text2": "Details"
 					},
-					"required": ["roll", "text", "text2"],
+					"required": [
+						"roll",
+						"text",
+						"text2"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -4022,7 +4274,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -4037,7 +4292,12 @@
 				"column_labels": {
 					"title": "Text3ColumnLabels",
 					"type": "object",
-					"required": ["roll", "text", "text2", "text3"],
+					"required": [
+						"roll",
+						"text",
+						"text2",
+						"text3"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -4077,7 +4337,9 @@
 			"title": "OracleCollection",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `oracle_type` property as a discriminator.",
-			"required": ["oracle_type"],
+			"required": [
+				"oracle_type"
+			],
 			"properties": {
 				"oracle_type": {
 					"enum": [
@@ -4162,7 +4424,14 @@
 			"title": "OracleColumnText",
 			"type": "object",
 			"description": "Represents a single column in an OracleCollection.",
-			"required": ["_id", "type", "name", "oracle_type", "dice", "rows"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"oracle_type",
+				"dice",
+				"rows"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/OracleRollableId",
@@ -4217,7 +4486,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -4252,7 +4524,14 @@
 		"OracleColumnText2": {
 			"title": "OracleColumnText2",
 			"type": "object",
-			"required": ["_id", "type", "name", "oracle_type", "dice", "rows"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"oracle_type",
+				"dice",
+				"rows"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/OracleRollableId",
@@ -4307,7 +4586,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -4342,7 +4624,14 @@
 		"OracleColumnText3": {
 			"title": "OracleColumnText3",
 			"type": "object",
-			"required": ["_id", "type", "name", "oracle_type", "dice", "rows"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"oracle_type",
+				"dice",
+				"rows"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/OracleRollableId",
@@ -4397,7 +4686,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -4434,7 +4726,9 @@
 			"type": "object",
 			"description": "A collection of table rows from which random results may be rolled. This may represent a standalone table, or a column in a larger table.",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `oracle_type` property as a discriminator.",
-			"required": ["oracle_type"],
+			"required": [
+				"oracle_type"
+			],
 			"properties": {
 				"oracle_type": {
 					"enum": [
@@ -4547,7 +4841,11 @@
 			"title": "OracleRollableRowText",
 			"type": "object",
 			"description": "Represents a row in an oracle table, with a single text cell.",
-			"required": ["_id", "roll", "text"],
+			"required": [
+				"_id",
+				"roll",
+				"text"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AnyOracleRollableRowId"
@@ -4603,7 +4901,12 @@
 			"title": "OracleRollableRowText2",
 			"type": "object",
 			"description": "Represents a row in an oracle table that provides a secondary text field.",
-			"required": ["_id", "roll", "text", "text2"],
+			"required": [
+				"_id",
+				"roll",
+				"text",
+				"text2"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AnyOracleRollableRowId"
@@ -4670,7 +4973,13 @@
 			"title": "OracleRollableRowText3",
 			"type": "object",
 			"description": "Represents a row in an oracle table with 3 text cells.",
-			"required": ["_id", "roll", "text", "text2", "text3"],
+			"required": [
+				"_id",
+				"roll",
+				"text",
+				"text2",
+				"text3"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AnyOracleRollableRowId"
@@ -4748,10 +5057,16 @@
 			"title": "OracleRollableTable",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `oracle_type` property as a discriminator.",
-			"required": ["oracle_type"],
+			"required": [
+				"oracle_type"
+			],
 			"properties": {
 				"oracle_type": {
-					"enum": ["table_text", "table_text2", "table_text3"]
+					"enum": [
+						"table_text",
+						"table_text2",
+						"table_text3"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -4885,7 +5200,9 @@
 					"default": {
 						"roll": "Roll"
 					},
-					"required": ["roll"],
+					"required": [
+						"roll"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -4995,7 +5312,9 @@
 					"default": {
 						"text": "Result"
 					},
-					"required": ["text"],
+					"required": [
+						"text"
+					],
 					"properties": {
 						"text": {
 							"$ref": "#/definitions/Label"
@@ -5106,7 +5425,10 @@
 						"text": "Result",
 						"text2": "Details"
 					},
-					"required": ["text", "text2"],
+					"required": [
+						"text",
+						"text2"
+					],
 					"properties": {
 						"text": {
 							"$ref": "#/definitions/Label"
@@ -5217,7 +5539,11 @@
 					"title": "SharedText3Labels",
 					"type": "object",
 					"default": {},
-					"required": ["text", "text2", "text3"],
+					"required": [
+						"text",
+						"text2",
+						"text3"
+					],
 					"properties": {
 						"text": {
 							"$ref": "#/definitions/Label"
@@ -5314,7 +5640,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -5333,7 +5662,10 @@
 						"roll": "Roll",
 						"text": "Result"
 					},
-					"required": ["roll", "text"],
+					"required": [
+						"roll",
+						"text"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -5435,7 +5767,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -5455,7 +5790,11 @@
 						"text": "Result",
 						"text2": "Details"
 					},
-					"required": ["roll", "text", "text2"],
+					"required": [
+						"roll",
+						"text",
+						"text2"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -5560,7 +5899,10 @@
 				},
 				"recommended_rolls": {
 					"type": "object",
-					"required": ["min", "max"],
+					"required": [
+						"min",
+						"max"
+					],
 					"properties": {
 						"min": {
 							"type": "integer",
@@ -5575,7 +5917,12 @@
 				"column_labels": {
 					"title": "Text3ColumnLabels",
 					"type": "object",
-					"required": ["roll", "text", "text2", "text3"],
+					"required": [
+						"roll",
+						"text",
+						"text2",
+						"text3"
+					],
 					"properties": {
 						"roll": {
 							"$ref": "#/definitions/Label"
@@ -5817,10 +6164,17 @@
 			"title": "EmbeddedMove",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `roll_type` property as a discriminator.",
-			"required": ["roll_type"],
+			"required": [
+				"roll_type"
+			],
 			"properties": {
 				"roll_type": {
-					"enum": ["action_roll", "no_roll", "progress_roll", "special_track"]
+					"enum": [
+						"action_roll",
+						"no_roll",
+						"progress_roll",
+						"special_track"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -6126,10 +6480,17 @@
 			"title": "Move",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `roll_type` property as a discriminator.",
-			"required": ["roll_type"],
+			"required": [
+				"roll_type"
+			],
 			"properties": {
 				"roll_type": {
-					"enum": ["action_roll", "no_roll", "progress_roll", "special_track"]
+					"enum": [
+						"action_roll",
+						"no_roll",
+						"progress_roll",
+						"special_track"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -6296,7 +6657,10 @@
 			"title": "MoveActionRollEnhancement",
 			"type": "object",
 			"description": "An object that describes changes to a move. These changes should be applied recursively, altering only the specified properties; enhanced arrays should be concatencated with the original array value.",
-			"required": ["roll_type", "enhances"],
+			"required": [
+				"roll_type",
+				"enhances"
+			],
 			"properties": {
 				"roll_type": {
 					"type": "string",
@@ -6326,7 +6690,14 @@
 		"MoveCategory": {
 			"title": "MoveCategory",
 			"type": "object",
-			"required": ["_id", "type", "name", "contents", "collections", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"contents",
+				"collections",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/MoveCategoryId",
@@ -6421,10 +6792,17 @@
 			"title": "MoveEnhancement",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `roll_type` property as a discriminator.",
-			"required": ["roll_type"],
+			"required": [
+				"roll_type"
+			],
 			"properties": {
 				"roll_type": {
-					"enum": ["action_roll", "no_roll", "progress_roll", "special_track"]
+					"enum": [
+						"action_roll",
+						"no_roll",
+						"progress_roll",
+						"special_track"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -6593,7 +6971,10 @@
 			"title": "MoveNoRollEnhancement",
 			"type": "object",
 			"description": "An object that describes changes to a move. These changes should be applied recursively, altering only the specified properties; enhanced arrays should be concatencated with the original array value.",
-			"required": ["roll_type", "enhances"],
+			"required": [
+				"roll_type",
+				"enhances"
+			],
 			"properties": {
 				"roll_type": {
 					"type": "string",
@@ -6623,7 +7004,9 @@
 		"MoveOutcome": {
 			"title": "MoveOutcome",
 			"type": "object",
-			"required": ["text"],
+			"required": [
+				"text"
+			],
 			"properties": {
 				"text": {
 					"$ref": "#/definitions/MarkdownString",
@@ -6642,7 +7025,11 @@
 			"title": "MoveOutcomes",
 			"type": "object",
 			"description": "A standalone localized description for each move outcome (miss, weak hit, or strong hit). This is for for e.g. VTT implementations, where it's often useful to display only the rules text relevant to a roll result.\n\n  This often requires light editorialization to create text that can stand alone without reference to the rest of the move. For example, 'as above' (in reference to another move outcome) shouldn't be used here; instead, the relevant text should be repeated.",
-			"required": ["strong_hit", "weak_hit", "miss"],
+			"required": [
+				"strong_hit",
+				"weak_hit",
+				"miss"
+			],
 			"properties": {
 				"strong_hit": {
 					"$ref": "#/definitions/MoveOutcome"
@@ -6769,7 +7156,10 @@
 			"title": "MoveProgressRollEnhancement",
 			"type": "object",
 			"description": "An object that describes changes to a move. These changes should be applied recursively, altering only the specified properties; enhanced arrays should be concatencated with the original array value.",
-			"required": ["roll_type", "enhances"],
+			"required": [
+				"roll_type",
+				"enhances"
+			],
 			"properties": {
 				"roll_type": {
 					"type": "string",
@@ -6799,7 +7189,12 @@
 		"MoveRollType": {
 			"title": "MoveRollType",
 			"description": "  - `no_roll`: A move that makes no action rolls or progress rolls.\n  - `action_roll`: A move that makes an action roll.\n  - `progress_roll`: A progress move that rolls on a standard progress track type (defined by this move).\n  - `special_track`: A progress move that rolls on one or more special tracks, like Bonds (classic Ironsworn), Failure (Delve), or Legacies (Starforged).",
-			"enum": ["no_roll", "action_roll", "progress_roll", "special_track"]
+			"enum": [
+				"no_roll",
+				"action_roll",
+				"progress_roll",
+				"special_track"
+			]
 		},
 		"MoveSpecialTrack": {
 			"title": "MoveSpecialTrack",
@@ -6910,7 +7305,10 @@
 			"title": "MoveSpecialTrackEnhancement",
 			"type": "object",
 			"description": "An object that describes changes to a move. These changes should be applied recursively, altering only the specified properties; enhanced arrays should be concatencated with the original array value.",
-			"required": ["roll_type", "enhances"],
+			"required": [
+				"roll_type",
+				"enhances"
+			],
 			"properties": {
 				"roll_type": {
 					"type": "string",
@@ -6940,12 +7338,19 @@
 		"ProgressRollMethod": {
 			"title": "ProgressRollMethod",
 			"description": "  - `miss`: An automatic miss.\n  - `weak_hit`: An automatic weak hit.\n  - `strong_hit`: An automatic strong hit.\n  - `progress_roll`: Make a progress roll on a progress track associated with this move.",
-			"enum": ["miss", "weak_hit", "strong_hit", "progress_roll"]
+			"enum": [
+				"miss",
+				"weak_hit",
+				"strong_hit",
+				"progress_roll"
+			]
 		},
 		"ProgressRollOption": {
 			"title": "ProgressRollOption",
 			"type": "object",
-			"required": ["using"],
+			"required": [
+				"using"
+			],
 			"properties": {
 				"using": {
 					"type": "string",
@@ -6970,7 +7375,10 @@
 			"title": "TriggerActionRoll",
 			"type": "object",
 			"description": "Describes trigger conditions for a move that makes an action roll.",
-			"required": ["conditions", "text"],
+			"required": [
+				"conditions",
+				"text"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -6990,7 +7398,10 @@
 		"TriggerActionRollCondition": {
 			"title": "TriggerActionRollCondition",
 			"type": "object",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7014,7 +7425,10 @@
 		"TriggerActionRollConditionEnhancement": {
 			"title": "TriggerActionRollConditionEnhancement",
 			"type": "object",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7056,7 +7470,9 @@
 			"title": "TriggerActionRollEnhancement",
 			"type": "object",
 			"description": "Describes changes/additions made to the enhanced move's trigger conditions.",
-			"required": ["conditions"],
+			"required": [
+				"conditions"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -7071,7 +7487,10 @@
 			"title": "TriggerBy",
 			"type": "object",
 			"description": "Information on who can activate this trigger condition. Usually this is just the player, but some asset abilities can trigger from an ally's move.",
-			"required": ["ally", "player"],
+			"required": [
+				"ally",
+				"player"
+			],
 			"properties": {
 				"ally": {
 					"type": "boolean",
@@ -7089,7 +7508,10 @@
 			"title": "TriggerNoRoll",
 			"type": "object",
 			"description": "Describes trigger conditions for a move that makes no rolls.",
-			"required": ["conditions", "text"],
+			"required": [
+				"conditions",
+				"text"
+			],
 			"properties": {
 				"conditions": {
 					"description": "Specific conditions that qualify for this trigger.",
@@ -7117,7 +7539,10 @@
 		"TriggerNoRollCondition": {
 			"title": "TriggerNoRollCondition",
 			"type": "object",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7141,7 +7566,9 @@
 			"title": "TriggerNoRollEnhancement",
 			"type": "object",
 			"description": "Describes changes/additions made to the enhanced move's trigger conditions.",
-			"required": ["conditions"],
+			"required": [
+				"conditions"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -7155,7 +7582,10 @@
 		"TriggerProgressRoll": {
 			"title": "TriggerProgressRoll",
 			"type": "object",
-			"required": ["conditions", "text"],
+			"required": [
+				"conditions",
+				"text"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -7175,7 +7605,10 @@
 		"TriggerProgressRollCondition": {
 			"title": "TriggerProgressRollCondition",
 			"type": "object",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7200,7 +7633,10 @@
 		"TriggerProgressRollConditionEnhancement": {
 			"title": "TriggerProgressRollConditionEnhancement",
 			"type": "object",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7243,7 +7679,9 @@
 			"title": "TriggerProgressRollEnhancement",
 			"type": "object",
 			"description": "Describes changes/additions made to the enhanced move's trigger conditions.",
-			"required": ["conditions"],
+			"required": [
+				"conditions"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -7257,7 +7695,10 @@
 		"TriggerSpecialTrack": {
 			"title": "TriggerSpecialTrack",
 			"type": "object",
-			"required": ["conditions", "text"],
+			"required": [
+				"conditions",
+				"text"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -7277,7 +7718,10 @@
 		"TriggerSpecialTrackCondition": {
 			"title": "TriggerSpecialTrackCondition",
 			"type": "object",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7302,7 +7746,10 @@
 			"title": "TriggerSpecialTrackConditionEnhancement",
 			"type": "object",
 			"description": "A progress move that rolls on one or more special tracks, like Bonds (classic Ironsworn), Failure (Delve), or Legacy (Starforged).",
-			"required": ["method", "roll_options"],
+			"required": [
+				"method",
+				"roll_options"
+			],
 			"properties": {
 				"by": {
 					"$ref": "#/definitions/TriggerBy"
@@ -7343,7 +7790,9 @@
 		"TriggerSpecialTrackConditionOption": {
 			"title": "TriggerSpecialTrackConditionOption",
 			"type": "object",
-			"required": ["using"],
+			"required": [
+				"using"
+			],
 			"properties": {
 				"using": {
 					"$ref": "#/definitions/SpecialTrackType"
@@ -7354,7 +7803,9 @@
 			"title": "TriggerSpecialTrackEnhancement",
 			"type": "object",
 			"description": "Describes changes/additions made to the enhanced move's trigger conditions.",
-			"required": ["conditions"],
+			"required": [
+				"conditions"
+			],
 			"properties": {
 				"conditions": {
 					"type": "array",
@@ -7498,7 +7949,11 @@
 			"title": "AssetAbility",
 			"type": "object",
 			"description": "An asset ability: one of the purchasable features of an asset. Most assets have three.",
-			"required": ["_id", "enabled", "text"],
+			"required": [
+				"_id",
+				"enabled",
+				"text"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AssetAbilityId",
@@ -7588,10 +8043,17 @@
 			"title": "AssetAbilityControlField",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `field_type` property as a discriminator.",
-			"required": ["field_type"],
+			"required": [
+				"field_type"
+			],
 			"properties": {
 				"field_type": {
-					"enum": ["clock", "counter", "checkbox", "text"]
+					"enum": [
+						"clock",
+						"counter",
+						"checkbox",
+						"text"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -7654,10 +8116,14 @@
 			"title": "AssetAbilityOptionField",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `field_type` property as a discriminator.",
-			"required": ["field_type"],
+			"required": [
+				"field_type"
+			],
 			"properties": {
 				"field_type": {
-					"enum": ["text"]
+					"enum": [
+						"text"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -7681,7 +8147,10 @@
 			"title": "AssetAttachment",
 			"type": "object",
 			"description": "Describes which assets can be attached to this asset. Example: Starforged's Module assets, which can be equipped by Command Vehicle assets. See p. 55 of Starforged for more info.",
-			"required": ["max", "assets"],
+			"required": [
+				"max",
+				"assets"
+			],
 			"properties": {
 				"max": {
 					"description": "Null if there's no upper limit to the number of attached assets.",
@@ -7786,7 +8255,14 @@
 		"AssetCollection": {
 			"title": "AssetCollection",
 			"type": "object",
-			"required": ["_id", "type", "name", "contents", "collections", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"contents",
+				"collections",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AssetCollectionId",
@@ -7973,10 +8449,15 @@
 			"type": "object",
 			"description": "A checkbox control field, rendered as part of an asset condition meter.",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `field_type` property as a discriminator.",
-			"required": ["field_type"],
+			"required": [
+				"field_type"
+			],
 			"properties": {
 				"field_type": {
-					"enum": ["checkbox", "card_flip"]
+					"enum": [
+						"checkbox",
+						"card_flip"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -8013,7 +8494,10 @@
 			"title": "AssetConditionMeterEnhancement",
 			"type": "object",
 			"description": "Some assets provide a special condition meter of their own. The most common example is the health meters on companion assets. Asset condition meters may also include their own controls, such as the checkboxes that Starforged companion assets use to indicate they are \"out of action\".",
-			"required": ["field_type", "max"],
+			"required": [
+				"field_type",
+				"max"
+			],
 			"properties": {
 				"field_type": {
 					"type": "string",
@@ -8029,7 +8513,9 @@
 			"title": "AssetControlField",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `field_type` property as a discriminator.",
-			"required": ["field_type"],
+			"required": [
+				"field_type"
+			],
 			"properties": {
 				"field_type": {
 					"enum": [
@@ -8100,10 +8586,14 @@
 			"title": "AssetControlFieldEnhancement",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `field_type` property as a discriminator.",
-			"required": ["field_type"],
+			"required": [
+				"field_type"
+			],
 			"properties": {
 				"field_type": {
-					"enum": ["condition_meter"]
+					"enum": [
+						"condition_meter"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -8159,10 +8649,16 @@
 			"type": "object",
 			"description": "Options are asset input fields which are set once, usually when the character takes the asset. The most common example is the \"name\" field on companion assets. A more complex example is the choice of a god's stat for the Devotant asset.",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `field_type` property as a discriminator.",
-			"required": ["field_type"],
+			"required": [
+				"field_type"
+			],
 			"properties": {
 				"field_type": {
-					"enum": ["select_value", "select_enhancement", "text"]
+					"enum": [
+						"select_value",
+						"select_enhancement",
+						"text"
+					]
 				}
 			},
 			"additionalProperties": true,
@@ -8213,7 +8709,14 @@
 			"type": "object",
 			"description": "A clock with 4 or more segments.",
 			"remarks": "Semantics are similar to HTML `<input type=\"number\">`, but rendered as a clock (a circle with equally sized wedges).",
-			"required": ["label", "field_type", "rollable", "min", "max", "value"],
+			"required": [
+				"label",
+				"field_type",
+				"rollable",
+				"min",
+				"max",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8255,7 +8758,14 @@
 			"title": "ConditionMeterField",
 			"type": "object",
 			"description": "A meter with an integer value, bounded by a minimum and maximum.",
-			"required": ["label", "field_type", "rollable", "min", "max", "value"],
+			"required": [
+				"label",
+				"field_type",
+				"rollable",
+				"min",
+				"max",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8295,7 +8805,14 @@
 			"type": "object",
 			"description": "A basic counter representing a non-rollable integer value. They usually start at 0, and may or may not have a maximum.",
 			"remarks": "Semantics are similar to `<input type=\"number\" step=\"1\">`",
-			"required": ["label", "field_type", "rollable", "min", "max", "value"],
+			"required": [
+				"label",
+				"field_type",
+				"rollable",
+				"min",
+				"max",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8342,7 +8859,12 @@
 			"type": "object",
 			"description": "Select from player and/or asset enhancements. Use it to describe modal abilities. For examples, see Ironclad (classic Ironsworn) and Windbinder (Sundered Isles).",
 			"remarks": "Semantics are similar to the HTML `<select>` element",
-			"required": ["label", "field_type", "choices", "value"],
+			"required": [
+				"label",
+				"field_type",
+				"choices",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8359,10 +8881,15 @@
 						"^[a-z][a-z_]*$": {
 							"type": "object",
 							"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `choice_type` property as a discriminator.",
-							"required": ["choice_type"],
+							"required": [
+								"choice_type"
+							],
 							"properties": {
 								"choice_type": {
-									"enum": ["choice", "choice_group"]
+									"enum": [
+										"choice",
+										"choice_group"
+									]
 								}
 							},
 							"additionalProperties": true,
@@ -8422,7 +8949,10 @@
 			"type": "object",
 			"description": "Represents an option in a list of choices.",
 			"remarks": "Semantics are similar to the HTML `<option>` element.",
-			"required": ["label", "choice_type"],
+			"required": [
+				"label",
+				"choice_type"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8447,7 +8977,11 @@
 			"type": "object",
 			"description": "Represents a grouping of options in a list of choices.",
 			"remarks": "Semantics are similar to the HTML `<optgroup>` element.",
-			"required": ["name", "choice_type", "choices"],
+			"required": [
+				"name",
+				"choice_type",
+				"choices"
+			],
 			"properties": {
 				"name": {
 					"$ref": "#/definitions/Label",
@@ -8474,7 +9008,12 @@
 			"type": "object",
 			"description": "Represents a list of mutually exclusive choices.",
 			"remarks": "Semantics are similar to the HTML `<select>` element",
-			"required": ["label", "field_type", "choices", "value"],
+			"required": [
+				"label",
+				"field_type",
+				"choices",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8517,7 +9056,9 @@
 			"title": "SelectValueFieldChoice",
 			"type": "object",
 			"remarks": "Deserialize as a discriminated union/polymorphic object type, using the `using` property as a discriminator.",
-			"required": ["using"],
+			"required": [
+				"using"
+			],
 			"properties": {
 				"using": {
 					"enum": [
@@ -8563,7 +9104,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "stat", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"stat",
+							"using"
+						]
 					}
 				},
 				{
@@ -8596,7 +9142,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "condition_meter", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"condition_meter",
+							"using"
+						]
 					}
 				},
 				{
@@ -8637,7 +9188,10 @@
 							},
 							"control": {
 								"description": "The dictionary key of the asset control field.",
-								"examples": ["health", "integrity"],
+								"examples": [
+									"health",
+									"integrity"
+								],
 								"$ref": "#/definitions/DictKey"
 							},
 							"using": {
@@ -8646,7 +9200,13 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "assets", "control", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"assets",
+							"control",
+							"using"
+						]
 					}
 				},
 				{
@@ -8695,7 +9255,13 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "assets", "option", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"assets",
+							"option",
+							"using"
+						]
 					}
 				},
 				{
@@ -8721,7 +9287,10 @@
 							},
 							"control": {
 								"description": "The dictionary key of the asset control field.",
-								"examples": ["health", "integrity"],
+								"examples": [
+									"health",
+									"integrity"
+								],
 								"$ref": "#/definitions/DictKey"
 							},
 							"using": {
@@ -8730,7 +9299,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "control", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"control",
+							"using"
+						]
 					}
 				},
 				{
@@ -8764,7 +9338,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "option", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"option",
+							"using"
+						]
 					}
 				},
 				{
@@ -8797,7 +9376,12 @@
 								"type": "string"
 							}
 						},
-						"required": ["label", "choice_type", "value", "using"]
+						"required": [
+							"label",
+							"choice_type",
+							"value",
+							"using"
+						]
 					}
 				}
 			]
@@ -8807,7 +9391,11 @@
 			"type": "object",
 			"description": "Represents an input that accepts plain text.",
 			"remarks": "Semantics are similar to the HTML `<input type=\"text\">` element.",
-			"required": ["label", "field_type", "value"],
+			"required": [
+				"label",
+				"field_type",
+				"value"
+			],
 			"properties": {
 				"label": {
 					"$ref": "#/definitions/Label"
@@ -8838,7 +9426,14 @@
 			"title": "Truth",
 			"type": "object",
 			"description": "A setting truth category.",
-			"required": ["_id", "type", "name", "dice", "options", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"dice",
+				"options",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/TruthId",
@@ -8919,7 +9514,12 @@
 		"TruthOption": {
 			"title": "TruthOption",
 			"type": "object",
-			"required": ["_id", "roll", "description", "quest_starter"],
+			"required": [
+				"_id",
+				"roll",
+				"description",
+				"quest_starter"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/TruthOptionId",
@@ -8958,7 +9558,14 @@
 		"AtlasCollection": {
 			"title": "AtlasCollection",
 			"type": "object",
-			"required": ["_id", "type", "name", "contents", "collections", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"contents",
+				"collections",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AtlasCollectionId",
@@ -9053,7 +9660,14 @@
 			"title": "AtlasEntry",
 			"type": "object",
 			"description": "An atlas entry, like the Ironlands region entries found in classic Ironsworn.",
-			"required": ["_id", "type", "name", "features", "description", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"features",
+				"description",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/AtlasEntryId",
@@ -9130,19 +9744,36 @@
 			"$ref": "#/definitions/DictKey",
 			"title": "ConditionMeterKey",
 			"description": "A basic, rollable player character resource specified by the ruleset.",
-			"examples": ["health", "spirit", "supply"]
+			"examples": [
+				"health",
+				"spirit",
+				"supply"
+			]
 		},
 		"StatKey": {
 			"$ref": "#/definitions/DictKey",
 			"title": "StatKey",
 			"description": "A basic player character stat.",
-			"examples": ["edge", "heart", "iron", "shadow", "wits"]
+			"examples": [
+				"edge",
+				"heart",
+				"iron",
+				"shadow",
+				"wits"
+			]
 		},
 		"Rarity": {
 			"title": "Rarity",
 			"type": "object",
 			"description": "A rarity, as described in Ironsworn: Delve.",
-			"required": ["_id", "type", "name", "xp_cost", "asset", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"xp_cost",
+				"asset",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/RarityId",
@@ -9318,7 +9949,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9327,7 +9961,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9345,7 +9982,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9354,7 +9994,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9372,7 +10015,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9381,7 +10027,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9399,7 +10048,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9408,7 +10060,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9426,7 +10081,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9435,7 +10093,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9453,7 +10114,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9462,7 +10126,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9480,7 +10147,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9489,7 +10159,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9507,7 +10180,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9516,7 +10192,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9534,7 +10213,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9543,7 +10225,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9561,7 +10246,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9570,7 +10258,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9588,7 +10279,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9597,7 +10291,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9615,7 +10312,10 @@
 								{
 									"title": "DelveSiteDenizenStatic",
 									"type": "object",
-									"required": ["frequency", "roll"],
+									"required": [
+										"frequency",
+										"roll"
+									],
 									"properties": {
 										"frequency": {
 											"type": "string",
@@ -9624,7 +10324,10 @@
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9656,7 +10359,10 @@
 			"title": "DelveSiteDenizen",
 			"type": "object",
 			"description": "Represents an entry in a delve site denizen matrix. Denizen matrices are described in Ironsworn: Delve.",
-			"required": ["frequency", "roll"],
+			"required": [
+				"frequency",
+				"roll"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteDenizenId"
@@ -9679,13 +10385,26 @@
 		},
 		"DelveSiteDenizenFrequency": {
 			"title": "DelveSiteDenizenFrequency",
-			"enum": ["very_common", "common", "uncommon", "rare", "unforeseen"]
+			"enum": [
+				"very_common",
+				"common",
+				"uncommon",
+				"rare",
+				"unforeseen"
+			]
 		},
 		"DelveSiteDomain": {
 			"title": "DelveSiteDomain",
 			"type": "object",
 			"description": "A delve site Domain card.",
-			"required": ["_id", "type", "name", "features", "dangers", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"features",
+				"dangers",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteDomainId",
@@ -9742,12 +10461,17 @@
 							"items": [
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9764,12 +10488,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9786,12 +10515,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9808,12 +10542,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9830,12 +10569,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9852,12 +10596,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9874,12 +10623,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9896,12 +10650,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9918,12 +10677,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9940,12 +10704,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9962,12 +10731,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -9984,12 +10758,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10024,12 +10803,17 @@
 							"items": [
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10046,12 +10830,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10068,12 +10857,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10090,12 +10884,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10112,12 +10911,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10159,7 +10963,11 @@
 			"title": "DelveSiteDomainDanger",
 			"type": "object",
 			"description": "Represents a single Danger entry from a delve site Domain card.",
-			"required": ["_id", "roll", "text"],
+			"required": [
+				"_id",
+				"roll",
+				"text"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteDomainDangerId"
@@ -10215,7 +11023,11 @@
 			"title": "DelveSiteDomainFeature",
 			"type": "object",
 			"description": "Represents a single Feature entry from a delve site Domain card.",
-			"required": ["_id", "roll", "text"],
+			"required": [
+				"_id",
+				"roll",
+				"text"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteDomainFeatureId"
@@ -10271,7 +11083,14 @@
 			"title": "DelveSiteTheme",
 			"type": "object",
 			"description": "A delve site theme card.",
-			"required": ["_id", "type", "name", "features", "dangers", "_source"],
+			"required": [
+				"_id",
+				"type",
+				"name",
+				"features",
+				"dangers",
+				"_source"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteThemeId",
@@ -10324,12 +11143,17 @@
 							"items": [
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10346,12 +11170,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10368,12 +11197,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10390,12 +11224,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10412,12 +11251,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10452,12 +11296,17 @@
 							"items": [
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10474,12 +11323,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10496,12 +11350,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10518,12 +11377,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10540,12 +11404,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10562,12 +11431,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10584,12 +11458,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10606,12 +11485,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10628,12 +11512,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10650,12 +11539,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10672,12 +11566,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10694,12 +11593,17 @@
 								},
 								{
 									"type": "object",
-									"required": ["roll"],
+									"required": [
+										"roll"
+									],
 									"properties": {
 										"roll": {
 											"title": "DiceRangeStatic",
 											"type": "object",
-											"required": ["min", "max"],
+											"required": [
+												"min",
+												"max"
+											],
 											"properties": {
 												"min": {
 													"type": "number",
@@ -10741,7 +11645,11 @@
 			"title": "DelveSiteThemeDanger",
 			"type": "object",
 			"description": "Represents a single Danger entry from a delve site Theme card.",
-			"required": ["_id", "roll", "text"],
+			"required": [
+				"_id",
+				"roll",
+				"text"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteThemeDangerId"
@@ -10797,7 +11705,11 @@
 			"title": "DelveSiteThemeFeature",
 			"type": "object",
 			"description": "Represents a single Feature entry from a delve site Theme card.",
-			"required": ["_id", "roll", "text"],
+			"required": [
+				"_id",
+				"roll",
+				"text"
+			],
 			"properties": {
 				"_id": {
 					"$ref": "#/definitions/DelveSiteThemeFeatureId"
