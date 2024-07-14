@@ -10957,7 +10957,7 @@
 					},
 					"trigger": {
 						"text": "When you resolve to enter a perilous site in pursuit of an objective...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you resolve to enter a perilous site in pursuit of an objective__, choose the theme and domain which best represent its nature ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure), and give it a rank.\n\n  * Troublesome site: 3 progress per area.\n  * Dangerous site: 2 progress per area.\n  * Formidable site: 1 progress per area.\n  * Extreme site: 2 ticks per area.\n  * Epic site: 1 tick per area.\n\nIf you are returning to a previously explored site, roll both challenge dice, take the lowest value, and clear that number of progress boxes.\n\nThen, [Delve the Depths](datasworn:move:delve/delve/delve_the_depths) to explore this place.",
 					"outcomes": null,
@@ -11198,7 +11198,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you encounter a helpful situation or feature within a site...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"find_an_opportunity": {
@@ -11318,7 +11318,7 @@
 					},
 					"trigger": {
 						"text": "When you encounter a risky situation within a site...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"reveal_a_danger": {
@@ -11750,7 +11750,7 @@
 					},
 					"trigger": {
 						"text": "When you encounter a risky situation within a site...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you encounter a risky situation within a site__, envision the danger or roll on the following table.\n\n{{table>move.oracle_rollable:delve/delve/reveal_a_danger_alt.reveal_a_danger_alt}}",
 					"outcomes": null,
@@ -11796,7 +11796,7 @@
 					},
 					"trigger": {
 						"text": "When you make a move and score a miss...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you make a move and score a miss__, mark a tick on your failure track. If __you score a miss when making a progress move__, mark two ticks.",
 					"outcomes": null,
@@ -11931,7 +11931,7 @@
 					},
 					"trigger": {
 						"text": "When you give ground to a threat through inaction, failure, or delay...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you give ground to a threat through inaction, failure, or delay__, roll on the table below and envision how the change manifests in your world ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure).\n\n{{table>move.oracle_rollable:delve/threat/advance_a_threat.advance_a_threat}}\n\nOn a match, this development also exposes a surprising aspect of the threat’s plan or nature.\n\nIf __you mark the last box on the threat’s menace track__, the threat achieves its goal, or the final dire outcome occurs. You must [Forsake Your Vow](datasworn:move:classic/quest/forsake_your_vow).",
 					"outcomes": null,
@@ -11956,7 +11956,7 @@
 					},
 					"trigger": {
 						"text": "When you spend an extended time recovering in a safe place while a threat is active...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you spend an extended time recovering in a safe place while a threat is active__, do any of the following.\n\n  * Clear any marked conditions.\n  * Set your health, spirit, supply, and companion health to their maximum values.\n  * Set your momentum to its reset value.\n\nThen, for each active threat, [Advance a Threat](datasworn:move:delve/threat/advance_a_threat).",
 					"outcomes": null,
@@ -12004,7 +12004,7 @@
 					},
 					"trigger": {
 						"text": "When you make a move aided by an augmented asset...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you make a move aided by an augmented asset__, roll your rarity die in place of your action die.\n\nOn __any result__ with 6 showing on the rarity die, the power of the rarity manifests in a dramatic and obvious way. You score an automatic __strong hit__ and take +1 momentum.\n\nOn a __hit__ with 5 showing on the rarity die, the power of the rarity manifests in a subtle way. Take +1 momentum.\n\nOn a __miss__ with 1 showing on the rarity die, the rarity’s power fails or works against you.",
 					"outcomes": null,

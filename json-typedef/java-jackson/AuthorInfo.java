@@ -12,30 +12,32 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonSerialize
 public class AuthorInfo {
     @JsonProperty("name")
-    private String name;
+    private Label name;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("email")
-    private String email;
+    private Email email;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("url")
-    private String url;
+    private WebUrl url;
 
     public AuthorInfo() {
     }
 
     /**
      * Getter for name.<p>
+     * The name of the author.
      */
-    public String getName() {
+    public Label getName() {
         return name;
     }
 
     /**
      * Setter for name.<p>
+     * The name of the author.
      */
-    public void setName(String name) {
+    public void setName(Label name) {
         this.name = name;
     }
 
@@ -43,7 +45,7 @@ public class AuthorInfo {
      * Getter for email.<p>
      * An optional email contact for the author
      */
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
@@ -51,7 +53,7 @@ public class AuthorInfo {
      * Setter for email.<p>
      * An optional email contact for the author
      */
-    public void setEmail(String email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 
@@ -59,7 +61,7 @@ public class AuthorInfo {
      * Getter for url.<p>
      * An optional URL for the author's website.
      */
-    public String getUrl() {
+    public WebUrl getUrl() {
         return url;
     }
 
@@ -67,7 +69,7 @@ public class AuthorInfo {
      * Setter for url.<p>
      * An optional URL for the author's website.
      */
-    public void setUrl(String url) {
+    public void setUrl(WebUrl url) {
         this.url = url;
     }
 }

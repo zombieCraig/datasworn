@@ -16,7 +16,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _a, _IdParser_tree, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _b, _CollectionId_getPositionId, _EmbeddedId_parent;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IdParser = exports.EmbeddedId = exports.CollectionId = void 0;
-const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
+const CONST_js_1 = require("./IdElements/CONST.js");
 const TypeGuard_js_1 = __importDefault(require("./IdElements/TypeGuard.js"));
 const TypeId_js_1 = __importDefault(require("./IdElements/TypeId.js"));
 const Errors_js_1 = require("./Errors.js");
@@ -91,7 +91,7 @@ class IdParser {
         return this.pathSegments[0];
     }
     get primaryPathKeys() {
-        return this.primaryPath.split(CONST_js_1.default.PathKeySep);
+        return this.primaryPath.split(CONST_js_1.PathKeySep);
     }
     /** The ID of the {@link RulesPackage} that contains this ID, or a wildcard to represent any RulesPackage. */
     get rulesPackageId() {
@@ -99,15 +99,15 @@ class IdParser {
     }
     /** The dot-separated, fully-qualified type ID. For primary types, this is the same as {@link IdParser.typeId}  */
     get compositeTypeId() {
-        return this.typeIds.join(CONST_js_1.default.TypeSep);
+        return this.typeIds.join(CONST_js_1.TypeSep);
     }
     /** The dot-separated, fully-qualified path. For primary type IDs, this is the same as {@link IdParser.primaryPath}  */
     get compositePath() {
-        return this.pathSegments.join(CONST_js_1.default.TypeSep);
+        return this.pathSegments.join(CONST_js_1.TypeSep);
     }
     /** Does this ID contain any wildcard ("*") or globstar ("**") elements? */
     get isWildcard() {
-        return this.toString().includes(CONST_js_1.default.WildcardString);
+        return this.toString().includes(CONST_js_1.WildcardString);
     }
     /** Get an array of the types that are embeddable by this type. */
     getEmbeddableTypes() {
@@ -159,7 +159,7 @@ class IdParser {
      * @throws If `target` is a wildcard.
      */
     isMatch(target) {
-        const targetIsWildcard = target.toString().includes(CONST_js_1.default.WildcardString);
+        const targetIsWildcard = target.toString().includes(CONST_js_1.WildcardString);
         if (targetIsWildcard)
             throw new Error(`Expected a non-wildcard ID, got "${target.toString()}"`);
         // lazy evaluation for exact matches
@@ -193,7 +193,7 @@ class IdParser {
     }
     /** @internal */
     _getPrefixRegExpSource() {
-        const src = this.typeIds.join(`\\${CONST_js_1.default.TypeSep}`);
+        const src = this.typeIds.join(`\\${CONST_js_1.TypeSep}`);
         return src;
     }
     get pathRegExp() {
@@ -205,7 +205,7 @@ class IdParser {
         if (__classPrivateFieldGet(this, _IdParser_regExp, "f") == null)
             __classPrivateFieldSet(this, _IdParser_regExp, RegExp('^' +
                 this._getPrefixRegExpSource() +
-                CONST_js_1.default.PrefixSep +
+                CONST_js_1.PrefixSep +
                 this._getPathRegExpSource() +
                 '$'), "f");
         return __classPrivateFieldGet(this, _IdParser_regExp, "f");
@@ -218,7 +218,7 @@ class IdParser {
     /** @internal */
     _getPathRegExpSource() {
         let pathPattern = '';
-        const keySep = '\\' + CONST_js_1.default.PathKeySep;
+        const keySep = '\\' + CONST_js_1.PathKeySep;
         const { min, max } = _a._getPathKeyCount(this.primaryTypeId);
         /** The minimum number of path keys a single globstar ("**") may stand in for */
         const expansionMin = Math.max(0, min - (this.primaryPathKeys.length - 1));
@@ -260,7 +260,7 @@ class IdParser {
     assignIdsIn(node, recursive = true, index) {
         if (typeof node !== 'object' || node === null)
             throw new Error(`Expected a Datasworn node object, but got ${String(node)}`);
-        if (CONST_js_1.default.IdKey in node && typeof node._id === 'string')
+        if (CONST_js_1.IdKey in node && typeof node._id === 'string')
             _a.logger.warn(`Can't assign <${this.toString()}>, node already has <${node._id}>`);
         else {
             if (index instanceof Map && index.has(this.toString()))
@@ -284,7 +284,7 @@ class IdParser {
         const { typeIds, pathSegments } = __classPrivateFieldGet(this, _a, "m", _IdParser_parseOptions).call(this, id);
         const [primaryTypeId, ...embeddedTypeIds] = typeIds;
         const [primaryPath, ...embeddedPaths] = pathSegments;
-        const [rulesPackage, ...pathKeys] = primaryPath.split(CONST_js_1.default.PathKeySep);
+        const [rulesPackage, ...pathKeys] = primaryPath.split(CONST_js_1.PathKeySep);
         const Ctor = __classPrivateFieldGet(_a, _a, "m", _IdParser_getClassForPrimaryTypeId).call(_a, primaryTypeId);
         // @ts-expect-error
         const base = new Ctor(primaryTypeId, rulesPackage, ...pathKeys);
@@ -326,7 +326,7 @@ class IdParser {
                     }
                 }
                 catch (e) {
-                    const id = `${typeId}${CONST_js_1.default.PrefixSep}${rulesPackage._id}${CONST_js_1.default.PathKeySep}${dictKey}`;
+                    const id = `${typeId}${CONST_js_1.PrefixSep}${rulesPackage._id}${CONST_js_1.PathKeySep}${dictKey}`;
                     errorMessages.push(`Failed to create ID within <${id}>. ${String(e)}`);
                 }
             }
@@ -370,12 +370,12 @@ class IdParser {
             errors.push(`"${primaryTypeId}" isn't an embedding type, but received embedded paths: ${JSON.stringify(embeddedPaths)}`);
         }
         if (errors.length)
-            throw new Error(`Expected a valid ID path, but got ${pathSegments.join(CONST_js_1.default.TypeSep)}\n${errors.join('\n')}`);
+            throw new Error(`Expected a valid ID path, but got ${pathSegments.join(CONST_js_1.TypeSep)}\n${errors.join('\n')}`);
         return true;
     }
     static _validateEmbeddedPath(typeIds, path) {
         const embeddedTypeId = typeIds.at(-1);
-        const pathParts = path.split(CONST_js_1.default.PathKeySep);
+        const pathParts = path.split(CONST_js_1.PathKeySep);
         for (const part of pathParts)
             if (!(_a._validateDictKey(part) || _a._validateIndexKey(part)))
                 throw new Error(`Expected a DictKey, array index, or wildcard, but got ${JSON.stringify(part)}`);
@@ -390,17 +390,17 @@ class IdParser {
         switch (true) {
             case TypeGuard_js_1.default.CollectionType(typeId):
                 // has a rulespackage
-                min = CONST_js_1.default.COLLECTION_DEPTH_MIN + 1;
-                max = CONST_js_1.default.COLLECTION_DEPTH_MAX + 1;
+                min = CONST_js_1.COLLECTION_DEPTH_MIN + 1;
+                max = CONST_js_1.COLLECTION_DEPTH_MAX + 1;
                 break;
             case TypeGuard_js_1.default.CollectableType(typeId):
                 // has a rulespackage + its own key
-                min = CONST_js_1.default.COLLECTION_DEPTH_MIN + 2;
-                max = CONST_js_1.default.COLLECTION_DEPTH_MAX + 2;
+                min = CONST_js_1.COLLECTION_DEPTH_MIN + 2;
+                max = CONST_js_1.COLLECTION_DEPTH_MAX + 2;
                 break;
             case TypeGuard_js_1.default.NonCollectableType(typeId):
                 // has a rulespackage
-                min = max = CONST_js_1.default.COLLECTION_DEPTH_MIN + 1;
+                min = max = CONST_js_1.COLLECTION_DEPTH_MIN + 1;
                 break;
             default:
                 throw new Error(`Expected primary TypeId but got ${String(typeId)}`);
@@ -414,7 +414,7 @@ class IdParser {
         if (!TypeGuard_js_1.default.PrimaryType(typeId))
             throw new Error(`Expected a primary TypeId, but got ${JSON.stringify(typeId)}. Valid TypeIds are: ${JSON.stringify(TypeId_js_1.default.Primary)}`);
         const { min, max } = this._getPathKeyCount(typeId);
-        const [rulesPackageId, ...tail] = path.split(CONST_js_1.default.PathKeySep);
+        const [rulesPackageId, ...tail] = path.split(CONST_js_1.PathKeySep);
         const errors = [];
         let nonGlobstarCount = 0;
         let globstarCount = 0;
@@ -458,7 +458,7 @@ class IdParser {
     static _validateDictKey(key) {
         return TypeGuard_js_1.default.AnyWildcard(key) || TypeGuard_js_1.default.DictKey(key);
     }
-    static _getMatchesFrom(obj, matchKey = CONST_js_1.default.WildcardString) {
+    static _getMatchesFrom(obj, matchKey = CONST_js_1.WildcardString) {
         switch (true) {
             case Array.isArray(obj):
                 return __classPrivateFieldGet(this, _a, "m", _IdParser_getMatchesFromArray).call(this, obj, matchKey);
@@ -517,7 +517,7 @@ class IdParser {
         const pkgs = this._matchRulesPackages(tree);
         const results = new Map();
         const [_rulesPackageId, nextKey] = this.primaryPathKeys;
-        const joiner = this instanceof EmbeddedId ? CONST_js_1.default.TypeSep : CONST_js_1.default.PathKeySep;
+        const joiner = this instanceof EmbeddedId ? CONST_js_1.TypeSep : CONST_js_1.PathKeySep;
         for (const [pkgId, pkg] of pkgs) {
             // @ts-expect-error
             const typeBranch = pkg[this.typeBranchKey];
@@ -528,7 +528,7 @@ class IdParser {
                 const path = [pkgId, key].join(joiner);
                 // computing the ID for this *position*, not the value of the _id property;
                 // this is done so that a node that overrides this position's default node retains its own ID, but still matches as intended.
-                const positionId = [this.compositeTypeId, path].join(CONST_js_1.default.PrefixSep);
+                const positionId = [this.compositeTypeId, path].join(CONST_js_1.PrefixSep);
                 results.set(positionId, match);
                 if (typeof forEach === 'function' && forEach(positionId, match))
                     return results;
@@ -551,22 +551,22 @@ _a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new W
         const parentTypeIsEmbedded = i > 1;
         const embeddableTypes = TypeId_js_1.default.getEmbeddableTypes(parentTypeId, parentTypeIsEmbedded);
         if (!embeddableTypes.includes(embeddedTypeId)) {
-            const parentTypeIdComposite = typeIds.slice(0, i).join(CONST_js_1.default.TypeSep);
+            const parentTypeIdComposite = typeIds.slice(0, i).join(CONST_js_1.TypeSep);
             throw new Error(`Can't embed type "${embeddedTypeId}" in type "${parentTypeIdComposite}"`);
         }
     }
     return true;
 }, _IdParser_toString = function _IdParser_toString({ typeIds, pathSegments }) {
-    const leftSide = typeIds.join(CONST_js_1.default.TypeSep);
-    const rightSide = pathSegments.join(CONST_js_1.default.TypeSep);
-    return leftSide + CONST_js_1.default.PrefixSep + rightSide;
+    const leftSide = typeIds.join(CONST_js_1.TypeSep);
+    const rightSide = pathSegments.join(CONST_js_1.TypeSep);
+    return leftSide + CONST_js_1.PrefixSep + rightSide;
 }, _IdParser_parseOptions = function _IdParser_parseOptions(id) {
-    const [leftSide, rightSide] = id.split(CONST_js_1.default.PrefixSep);
-    const typeIds = leftSide.split(CONST_js_1.default.TypeSep);
-    const pathSegments = rightSide.split(CONST_js_1.default.TypeSep);
+    const [leftSide, rightSide] = id.split(CONST_js_1.PrefixSep);
+    const typeIds = leftSide.split(CONST_js_1.TypeSep);
+    const pathSegments = rightSide.split(CONST_js_1.TypeSep);
     return {
         typeIds,
-        pathSegments,
+        pathSegments
     };
 }, _IdParser_getClassForPrimaryTypeId = function _IdParser_getClassForPrimaryTypeId(typeId) {
     switch (true) {
@@ -582,7 +582,7 @@ _a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new W
         default:
             throw new Error(`Expected TypeId.AnyPrimary, but got ${JSON.stringify(typeId)}`);
     }
-}, _IdParser_getMatchesFromArray = function _IdParser_getMatchesFromArray(array, matchKey = CONST_js_1.default.WildcardString) {
+}, _IdParser_getMatchesFromArray = function _IdParser_getMatchesFromArray(array, matchKey = CONST_js_1.WildcardString) {
     if (!Array.isArray(array))
         throw new Error(`Expected an Array, but got ${String(array)}`);
     // special case: a wildcard matches everything, so return it as a new Map
@@ -596,7 +596,7 @@ _a = IdParser, _IdParser_pathSegments = new WeakMap(), _IdParser_typeIds = new W
     if (match != null)
         results.set(index, match);
     return results;
-}, _IdParser_getMatchesFromMap = function _IdParser_getMatchesFromMap(map, matchKey = CONST_js_1.default.WildcardString) {
+}, _IdParser_getMatchesFromMap = function _IdParser_getMatchesFromMap(map, matchKey = CONST_js_1.WildcardString) {
     if (!(map instanceof Map))
         throw new Error(`Expected a Map, but got ${String(map)}`);
     // special case: a wildcard matches everything, so return it as a new Map
@@ -695,10 +695,10 @@ class NonCollectableId extends EmbeddingId {
         return false;
     }
     constructor(typeId, rulesPackage, key) {
-        const pathSegment = [rulesPackage, key].join(CONST_js_1.default.PathKeySep);
+        const pathSegment = [rulesPackage, key].join(CONST_js_1.PathKeySep);
         super({
             typeIds: [typeId],
-            pathSegments: [pathSegment],
+            pathSegments: [pathSegment]
         });
     }
 }
@@ -710,10 +710,10 @@ class CollectableId extends EmbeddingId {
         return TypeId_js_1.default.getEmbeddableTypes(this.primaryTypeId, false);
     }
     constructor(typeId, rulesPackage, ...pathKeys) {
-        const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.default.PathKeySep);
+        const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.PathKeySep);
         super({
             typeIds: [typeId],
-            pathSegments: [pathSegment],
+            pathSegments: [pathSegment]
         });
     }
     get collectionAncestorKeys() {
@@ -755,14 +755,14 @@ class CollectableId extends EmbeddingId {
         // these aren't the targets, so they don't get forEach passed to them
         const parentMatches = parentId._getMatchesUnsafe(tree);
         for (const [parentId, parentMatch] of parentMatches) {
-            const contents = parentMatch[CONST_js_1.default.ContentsKey];
+            const contents = parentMatch[CONST_js_1.ContentsKey];
             if (contents == null)
                 continue;
             const collectables = IdParser._getMatchesFrom(contents, thisKey);
             for (const [currentKey, match] of collectables) {
-                const [_parentTypeId, parentPath] = parentId.split(CONST_js_1.default.PrefixSep);
-                const currentPath = parentPath + CONST_js_1.default.PathKeySep + currentKey;
-                const currentId = this.compositeTypeId + CONST_js_1.default.PrefixSep + currentPath;
+                const [_parentTypeId, parentPath] = parentId.split(CONST_js_1.PrefixSep);
+                const currentPath = parentPath + CONST_js_1.PathKeySep + currentKey;
+                const currentId = this.compositeTypeId + CONST_js_1.PrefixSep + currentPath;
                 matches || (matches = new Map());
                 matches.set(currentId, match);
                 if (typeof forEach === 'function' && forEach(currentId, match))
@@ -774,10 +774,10 @@ class CollectableId extends EmbeddingId {
 }
 class CollectionId extends IdParser {
     constructor(typeId, rulesPackage, ...pathKeys) {
-        const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.default.PathKeySep);
+        const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.PathKeySep);
         super({
             typeIds: [typeId],
-            pathSegments: [pathSegment],
+            pathSegments: [pathSegment]
         });
     }
     get isRecursive() {
@@ -808,7 +808,7 @@ class CollectionId extends IdParser {
     /**
      * Create an ID representing a Collection child of this CollectionId, using the provided key.
      * @throws If a child collection ID can't be created because the maximum recursion depth has been reached.
-     * @see {@link CONST.COLLECTION_DEPTH_MAX}
+     * @see {@link COLLECTION_DEPTH_MAX}
      * @example
      * ```typescript
      * const collection = IdParser.parse('oracle_collection:starforged/planet')
@@ -817,25 +817,25 @@ class CollectionId extends IdParser {
      * ```
      */
     createCollectionIdChild(key) {
-        if (this.recursionDepth >= CONST_js_1.default.COLLECTION_DEPTH_MAX)
-            throw new Errors_js_1.ParseError(this.toString(), `Cant't generate a child collection ID because this ID has reached the maximum recursion depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX})`);
+        if (this.recursionDepth >= CONST_js_1.COLLECTION_DEPTH_MAX)
+            throw new Errors_js_1.ParseError(this.toString(), `Cant't generate a child collection ID because this ID has reached the maximum recursion depth (${CONST_js_1.COLLECTION_DEPTH_MAX})`);
         return new _b(this.primaryTypeId, ...this.primaryPathKeys, key);
     }
     assignIdsIn(node, recursive = true, index) {
         // run this up front so the log ordering is more intuitive
         const base = super.assignIdsIn(node, recursive, index);
         if (recursive) {
-            if (CONST_js_1.default.ContentsKey in node && node[CONST_js_1.default.ContentsKey] != null)
-                for (const childKey in node[CONST_js_1.default.ContentsKey]) {
-                    const childNode = node[CONST_js_1.default.ContentsKey][childKey];
+            if (CONST_js_1.ContentsKey in node && node[CONST_js_1.ContentsKey] != null)
+                for (const childKey in node[CONST_js_1.ContentsKey]) {
+                    const childNode = node[CONST_js_1.ContentsKey][childKey];
                     if (childNode == null)
                         continue;
                     const childParser = this.createCollectableIdChild(childKey);
                     childParser.assignIdsIn(childNode, recursive, index);
                 }
-            if (CONST_js_1.default.CollectionsKey in node && node[CONST_js_1.default.CollectionsKey] != null)
-                for (const childKey in node[CONST_js_1.default.CollectionsKey]) {
-                    const childCollection = node[CONST_js_1.default.CollectionsKey][childKey];
+            if (CONST_js_1.CollectionsKey in node && node[CONST_js_1.CollectionsKey] != null)
+                for (const childKey in node[CONST_js_1.CollectionsKey]) {
+                    const childCollection = node[CONST_js_1.CollectionsKey][childKey];
                     if (childCollection == null)
                         continue;
                     const childParser = this.createCollectionIdChild(childKey);
@@ -866,9 +866,9 @@ class CollectionId extends IdParser {
         const ancestorNodes = [ancestorNode];
         for (const key of keys) {
             const currentNode = ancestorNodes.at(-1);
-            if (!(CONST_js_1.default.CollectionsKey in currentNode))
+            if (!(CONST_js_1.CollectionsKey in currentNode))
                 throw new Error(`Couldn't find collection <${key}> in <${currentNode._id}>`);
-            const nextNode = currentNode[CONST_js_1.default.CollectionsKey][key];
+            const nextNode = currentNode[CONST_js_1.CollectionsKey][key];
             if (nextNode == null)
                 throw new Error(`Expected collection <${key}> in <${currentNode._id}>, but got ${String(nextNode)}`);
             ancestorNodes.push(nextNode);
@@ -885,12 +885,12 @@ class CollectionId extends IdParser {
                 forEach(positionId, from);
             return matches.set(positionId, from);
         }
-        if (depth > CONST_js_1.default.COLLECTION_DEPTH_MAX) {
-            console.warn(`Exceeded max collection depth (${CONST_js_1.default.COLLECTION_DEPTH_MAX}) @ <${__classPrivateFieldGet(this, _b, "m", _CollectionId_getPositionId).call(this, currentPath, from)}>`);
+        if (depth > CONST_js_1.COLLECTION_DEPTH_MAX) {
+            console.warn(`Exceeded max collection depth (${CONST_js_1.COLLECTION_DEPTH_MAX}) @ <${__classPrivateFieldGet(this, _b, "m", _CollectionId_getPositionId).call(this, currentPath, from)}>`);
             return matches;
         }
         const [keyToMatch, ...tailKeys] = nextPath;
-        const childCollections = from[CONST_js_1.default.CollectionsKey];
+        const childCollections = from[CONST_js_1.CollectionsKey];
         if (childCollections == null)
             return matches;
         const childMatches = IdParser._getMatchesFrom(childCollections, keyToMatch);
@@ -922,15 +922,15 @@ class CollectionId extends IdParser {
                 if (TypeGuard_js_1.default.Globstar(rulesPackageId)) {
                     // carry forward the rules package globstar if it's present
                     matches = new Map([
-                        ..._b._recurseMatches(collection, currentCollectionPath, [CONST_js_1.default.GlobstarString, matchKey, ...tailKeys], matches, forEach),
-                        ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach),
+                        ..._b._recurseMatches(collection, currentCollectionPath, [CONST_js_1.GlobstarString, matchKey, ...tailKeys], matches, forEach),
+                        ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach)
                     ]);
                 }
                 else if (TypeGuard_js_1.default.Globstar(matchKey)) {
                     // carry forward current key if it's a globstar
                     matches = new Map([
                         ..._b._recurseMatches(collection, currentCollectionPath, [matchKey, ...tailKeys], matches, forEach),
-                        ..._b._recurseMatches(collection, currentCollectionPath, tailKeys, matches, forEach),
+                        ..._b._recurseMatches(collection, currentCollectionPath, tailKeys, matches, forEach)
                     ]);
                 }
                 else
@@ -942,8 +942,8 @@ class CollectionId extends IdParser {
 }
 exports.CollectionId = CollectionId;
 _b = CollectionId, _CollectionId_getPositionId = function _CollectionId_getPositionId(path, node) {
-    const pathStr = path.join(CONST_js_1.default.PathKeySep);
-    return [node.type, pathStr].join(CONST_js_1.default.PrefixSep);
+    const pathStr = path.join(CONST_js_1.PathKeySep);
+    return [node.type, pathStr].join(CONST_js_1.PrefixSep);
 };
 // @ts-expect-error
 class EmbeddedId extends EmbeddingId {
@@ -963,8 +963,8 @@ class EmbeddedId extends EmbeddingId {
         let basePath = __classPrivateFieldGet(this, _EmbeddedId_parent, "f")._getPathRegExpSource();
         const [_primaryPathSegment, ...secondaryPathSegments] = this.pathSegments;
         for (const segment of secondaryPathSegments) {
-            basePath += '\\' + CONST_js_1.default.TypeSep;
-            const keys = segment.split(CONST_js_1.default.PathKeySep);
+            basePath += '\\' + CONST_js_1.TypeSep;
+            const keys = segment.split(CONST_js_1.PathKeySep);
             for (const key of keys) {
                 switch (true) {
                     // FIXME: this doesn't account for globstars because these are always single-element path segments right now
@@ -982,7 +982,7 @@ class EmbeddedId extends EmbeddingId {
     constructor(parent, typeId, key) {
         const options = {
             typeIds: [...parent.typeIds, typeId],
-            pathSegments: [...parent.pathSegments, key.toString()],
+            pathSegments: [...parent.pathSegments, key.toString()]
         };
         super(options);
         _EmbeddedId_parent.set(this, void 0);

@@ -18,10 +18,7 @@ export function Nullable<T extends TSchema>(
 	schema: T,
 	options: SchemaOptions = {}
 ) {
-	const newSchema = Type.Union([schema, Type.Null()], {
-		default: null,
-		...options
-	}) as TNullable<T>
+	const newSchema = Type.Union([schema, Type.Null()], options) as TNullable<T>
 	newSchema[isNullable] = 'Nullable'
 
 	return newSchema

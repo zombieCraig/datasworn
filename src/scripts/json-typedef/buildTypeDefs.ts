@@ -1,9 +1,8 @@
-import path from 'path'
+import { kebabCase } from 'lodash-es'
+import path from 'node:path'
+import { ValueSeperatorType, getShellCmd } from '../../shellify.js'
 import { PKG_NAME, rootSchemaName } from '../const.js'
-import { shellify, type ShellCommandParams } from '../../shellify.js'
-import { merge } from 'lodash-es'
 import { JTD_JSON_PATH, JTD_TYPES_ROOT } from './const.js'
-import { emptyDir } from '../utils/readWrite.js'
 
 type JtdOptions = {
 	/** Namespace for C# + System.Text.Json generated types */
@@ -40,36 +39,35 @@ type JtdOptions = {
 	/** Output directory for TypeScript code generation */
 	typescriptOut?: string
 }
-const params: ShellCommandParams<'jtd-codegen', [string], JtdOptions> = {
-	command: 'jtd-codegen',
-	args: [JTD_JSON_PATH],
-	options: {
-		rootName: rootSchemaName,
-		logFormat: 'pretty',
-		csharpSystemTextNamespace: PKG_NAME,
-		csharpSystemTextOut: path.join(JTD_TYPES_ROOT, 'csharp-system-text'),
-		goOut: path.join(JTD_TYPES_ROOT, 'go'),
-		goPackage: PKG_NAME,
-		javaJacksonOut: path.join(JTD_TYPES_ROOT, 'java-jackson'),
-		javaJacksonPackage: PKG_NAME,
-		pythonOut: path.join(JTD_TYPES_ROOT, 'python'),
-		rubyModule: PKG_NAME,
-		rubyOut: path.join(JTD_TYPES_ROOT, 'ruby'),
-		rubySigModule: PKG_NAME,
-		rubySigOut: path.join(JTD_TYPES_ROOT, 'ruby-sig'),
-		rustOut: path.join(JTD_TYPES_ROOT, 'rust'),
-		// typescriptOut: path.join(JTD_TYPES_ROOT, 'typescript')
-	},
-	execOptions: {
-		env: merge(process.env, { RUST_BACKTRACE: 'full' }),
-	},
-}
 
-export async function buildTypeDefs() {
-	const paths = Object.entries(params.options)
-		.filter(([k, v]) => k.endsWith('Out'))
-		.map(([k, v]) => v)
-	// flush old files
-	await Promise.all(paths.map(emptyDir))
-	shellify(params)
+const command = 'jtd-codegen'
+
+const args = [JTD_JSON_PATH]
+
+export const cmdOptions = {
+	rootName: rootSchemaName,
+	logFormat: 'pretty',
+	csharpSystemTextNamespace: PKG_NAME,
+	csharpSystemTextOut: path.join(JTD_TYPES_ROOT, 'csharp-system-text'),
+	goOut: path.join(JTD_TYPES_ROOT, 'go'),
+	goPackage: PKG_NAME,
+	javaJacksonOut: path.join(JTD_TYPES_ROOT, 'java-jackson'),
+	javaJacksonPackage: PKG_NAME,
+	pythonOut: path.join(JTD_TYPES_ROOT, 'python'),
+	rubyModule: PKG_NAME,
+	rubyOut: path.join(JTD_TYPES_ROOT, 'ruby'),
+	rubySigModule: PKG_NAME,
+	rubySigOut: path.join(JTD_TYPES_ROOT, 'ruby-sig'),
+	rustOut: path.join(JTD_TYPES_ROOT, 'rust')
+	// typescriptOut: path.join(JTD_TYPES_ROOT, 'typescript')
+} satisfies JtdOptions
+
+export function getTypeDefBuildCommand() {
+	return getShellCmd({
+		command,
+		args,
+		cmdOptions,
+		optionCase: kebabCase,
+		separator: ValueSeperatorType.Space
+	})
 }

@@ -60,8 +60,6 @@ public class AssetControlFieldSelectEnhancement extends AssetControlField {
 
     /**
      * Getter for value.<p>
-     * The key of the currently selected choice from the `choices` property, or
-     * `null` if none is selected.
      */
     public DictKey getValue() {
         return value;
@@ -69,8 +67,6 @@ public class AssetControlFieldSelectEnhancement extends AssetControlField {
 
     /**
      * Setter for value.<p>
-     * The key of the currently selected choice from the `choices` property, or
-     * `null` if none is selected.
      */
     public void setValue(DictKey value) {
         this.value = value;

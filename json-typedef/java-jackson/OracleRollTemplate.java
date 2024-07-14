@@ -20,15 +20,15 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class OracleRollTemplate {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("text")
-    private TemplateString text;
+    private MarkdownTemplateString text;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("text2")
-    private TemplateString text2;
+    private MarkdownTemplateString text2;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("text3")
-    private TemplateString text3;
+    private MarkdownTemplateString text3;
 
     public OracleRollTemplate() {
     }
@@ -37,7 +37,7 @@ public class OracleRollTemplate {
      * Getter for text.<p>
      * A string template that may be used in place of OracleRollableRow#text.
      */
-    public TemplateString getText() {
+    public MarkdownTemplateString getText() {
         return text;
     }
 
@@ -45,7 +45,7 @@ public class OracleRollTemplate {
      * Setter for text.<p>
      * A string template that may be used in place of OracleRollableRow#text.
      */
-    public void setText(TemplateString text) {
+    public void setText(MarkdownTemplateString text) {
         this.text = text;
     }
 
@@ -53,7 +53,7 @@ public class OracleRollTemplate {
      * Getter for text2.<p>
      * A string template that may be used in place of OracleRollableRow#text2.
      */
-    public TemplateString getText2() {
+    public MarkdownTemplateString getText2() {
         return text2;
     }
 
@@ -61,7 +61,7 @@ public class OracleRollTemplate {
      * Setter for text2.<p>
      * A string template that may be used in place of OracleRollableRow#text2.
      */
-    public void setText2(TemplateString text2) {
+    public void setText2(MarkdownTemplateString text2) {
         this.text2 = text2;
     }
 
@@ -69,7 +69,7 @@ public class OracleRollTemplate {
      * Getter for text3.<p>
      * A string template that may be used in place of OracleRollableRow#text3.
      */
-    public TemplateString getText3() {
+    public MarkdownTemplateString getText3() {
         return text3;
     }
 
@@ -77,7 +77,7 @@ public class OracleRollTemplate {
      * Setter for text3.<p>
      * A string template that may be used in place of OracleRollableRow#text3.
      */
-    public void setText3(TemplateString text3) {
+    public void setText3(MarkdownTemplateString text3) {
         this.text3 = text3;
     }
 }

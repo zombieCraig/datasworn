@@ -20,17 +20,17 @@ public class SourceInfo {
     private OffsetDateTime date;
 
     @JsonProperty("license")
-    private License license;
+    private WebUrl license;
 
     @JsonProperty("title")
-    private String title;
+    private Label title;
 
     @JsonProperty("url")
     private WebUrl url;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("page")
-    private UnsignedShort page;
+    private PageNumber page;
 
     public SourceInfo() {
     }
@@ -72,14 +72,14 @@ public class SourceInfo {
     /**
      * Getter for license.<p>
      */
-    public License getLicense() {
+    public WebUrl getLicense() {
         return license;
     }
 
     /**
      * Setter for license.<p>
      */
-    public void setLicense(License license) {
+    public void setLicense(WebUrl license) {
         this.license = license;
     }
 
@@ -87,7 +87,7 @@ public class SourceInfo {
      * Getter for title.<p>
      * The title of the source document.
      */
-    public String getTitle() {
+    public Label getTitle() {
         return title;
     }
 
@@ -95,7 +95,7 @@ public class SourceInfo {
      * Setter for title.<p>
      * The title of the source document.
      */
-    public void setTitle(String title) {
+    public void setTitle(Label title) {
         this.title = title;
     }
 
@@ -119,7 +119,7 @@ public class SourceInfo {
      * Getter for page.<p>
      * The page number where this content is described in full.
      */
-    public UnsignedShort getPage() {
+    public PageNumber getPage() {
         return page;
     }
 
@@ -127,7 +127,7 @@ public class SourceInfo {
      * Setter for page.<p>
      * The page number where this content is described in full.
      */
-    public void setPage(UnsignedShort page) {
+    public void setPage(PageNumber page) {
         this.page = page;
     }
 }

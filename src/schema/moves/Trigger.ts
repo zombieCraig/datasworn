@@ -6,7 +6,8 @@ import {
 	type TArray,
 	type TNull,
 	type TSchema,
-	type TObject
+	type TObject,
+	CloneType
 } from '@sinclair/typebox'
 import * as Localize from '../common/Localize.js'
 import {
@@ -109,7 +110,7 @@ export function TriggerConditionEnhancement<T extends TTriggerCondition>(
 
 	const roll_options = rollOptionsAreNullable
 		? RollOptions
-		: Utils.Nullable(RollOptions)
+		: Utils.Nullable(RollOptions, { default: null })
 
 	const methodIsNullable = TypeGuard.IsNull(Method) ?? Utils.TNullable(Method)
 
@@ -117,7 +118,8 @@ export function TriggerConditionEnhancement<T extends TTriggerCondition>(
 		? Method
 		: Utils.Nullable(Method, {
 				description:
-					'A `null` value means this condition provides no roll mechanic of its own; it must be used with another trigger condition that provides a non-null `method`.'
+					'A `null` value means this condition provides no roll mechanic of its own; it must be used with another trigger condition that provides a non-null `method`.',
+				default: null
 			})
 
 	const nuProps = {

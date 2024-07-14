@@ -5,19 +5,15 @@ package Datasworn;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * A simple dice roll expression with an optional (positive or negative)
- * modifer.
- */
-public class DiceExpression {
+public class SemanticVersion {
     @JsonValue
     private String value;
 
-    public DiceExpression() {
+    public SemanticVersion() {
     }
 
     @JsonCreator
-    public DiceExpression(String value) {
+    public SemanticVersion(String value) {
         this.value = value;
     }
 

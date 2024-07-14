@@ -1,25 +1,22 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dataswornKeyOrder = exports.sourceMetadataKeys = exports.rulesKeys = exports.numericKeys = exports.longArrayKeys = exports.longDescriptionKeys = exports.shortDescriptionKeys = exports.usageKeys = exports.discriminatorKeys = exports.relationshipKeys = exports.idKeys = exports.unsortableKeys = void 0;
 exports.compareObjectKeys = compareObjectKeys;
 exports.sortDataswornKeys = sortDataswornKeys;
 exports.sortObjectKeys = sortObjectKeys;
-const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
+const CONST_js_1 = require("../IdElements/CONST.js");
 exports.unsortableKeys = [
     'columns',
     'controls',
-    CONST_js_1.default.ContentsKey,
+    CONST_js_1.ContentsKey,
     'options',
-    CONST_js_1.default.CollectionsKey,
+    CONST_js_1.CollectionsKey,
     'choices',
 ];
-exports.idKeys = [CONST_js_1.default.IdKey, '_key', '_index'];
+exports.idKeys = [CONST_js_1.IdKey, '_key', '_index'];
 exports.relationshipKeys = [
-    CONST_js_1.default.ReplacesKey,
-    CONST_js_1.default.EnhancesKey,
+    CONST_js_1.ReplacesKey,
+    CONST_js_1.EnhancesKey,
     'oracle',
     'asset',
     'region',
@@ -146,8 +143,8 @@ exports.dataswornKeyOrder = [
     'abilities',
     'template',
     'rolls',
-    CONST_js_1.default.ContentsKey,
-    CONST_js_1.default.CollectionsKey,
+    CONST_js_1.ContentsKey,
+    CONST_js_1.CollectionsKey,
     'outcomes',
     'quest_starter',
     'your_truth',

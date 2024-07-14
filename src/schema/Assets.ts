@@ -26,8 +26,7 @@ const AssetMixin = Type.Object({
 	}),
 	options: Dictionary(Type.Ref<TAssetOptionField>('AssetOptionField'), {
 		description:
-			"Options are input fields set when the player purchases the asset. They're likely to remain the same through the life of the asset. Typically, they are rendered at the top of the asset card.",
-		default: {}
+			"Options are input fields set when the player purchases the asset. They're likely to remain the same through the life of the asset. Typically, they are rendered at the top of the asset card."
 	}),
 	requirement: Type.Optional(
 		Type.Ref(MarkdownString, {

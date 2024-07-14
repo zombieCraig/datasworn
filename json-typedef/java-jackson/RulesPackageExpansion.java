@@ -31,7 +31,7 @@ public class RulesPackageExpansion extends RulesPackage {
     private OffsetDateTime date;
 
     @JsonProperty("license")
-    private License license;
+    private WebUrl license;
 
     @JsonProperty("moves")
     private Map<String, MoveCategory> moves;
@@ -43,7 +43,7 @@ public class RulesPackageExpansion extends RulesPackage {
     private RulesetId ruleset;
 
     @JsonProperty("title")
-    private String title;
+    private Label title;
 
     @JsonProperty("url")
     private WebUrl url;
@@ -170,14 +170,14 @@ public class RulesPackageExpansion extends RulesPackage {
     /**
      * Getter for license.<p>
      */
-    public License getLicense() {
+    public WebUrl getLicense() {
         return license;
     }
 
     /**
      * Setter for license.<p>
      */
-    public void setLicense(License license) {
+    public void setLicense(WebUrl license) {
         this.license = license;
     }
 
@@ -233,7 +233,7 @@ public class RulesPackageExpansion extends RulesPackage {
      * Getter for title.<p>
      * The title of the source document.
      */
-    public String getTitle() {
+    public Label getTitle() {
         return title;
     }
 
@@ -241,7 +241,7 @@ public class RulesPackageExpansion extends RulesPackage {
      * Setter for title.<p>
      * The title of the source document.
      */
-    public void setTitle(String title) {
+    public void setTitle(Label title) {
         this.title = title;
     }
 

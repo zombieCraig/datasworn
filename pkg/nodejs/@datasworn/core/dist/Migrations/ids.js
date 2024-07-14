@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateIdInString = updateIdInString;
 exports.updateIdsInMarkdown = updateIdsInMarkdown;
 exports.updateId = updateId;
-const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
+const CONST_js_1 = require("../IdElements/CONST.js");
 const neverLegacyIdSubstrings = new Set([
     ',',
     '. ',
@@ -84,7 +81,7 @@ function updateIdsInMarkdown(md, replacementMap, unreplacedIds) {
         const replacementId = updateId(id, replacementMap, unreplacedIds);
         if (id == null)
             return substring;
-        const newLinkText = `${CONST_js_1.default.MdLinkPrefix}${CONST_js_1.default.PrefixSep}${replacementId}`;
+        const newLinkText = `${CONST_js_1.MdLinkPrefix}${CONST_js_1.PrefixSep}${replacementId}`;
         return `[${linkText}](${newLinkText})`;
     });
     newStr = newStr.replaceAll(oldMarkdownMacroPattern, (substring, directive, id) => {

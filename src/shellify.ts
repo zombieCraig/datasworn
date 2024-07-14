@@ -1,53 +1,98 @@
 import { type ExecOptions, exec } from 'node:child_process'
-import { kebabCase } from 'lodash-es'
+import util from 'node:util'
+import { kebabCase, merge } from 'lodash-es'
 import type { CamelCase } from 'type-fest'
 import Log from './scripts/utils/Log.js'
+import { $ } from 'bun'
 
-export function shellify<T extends ShellCommandParams>(
-	{ command, args = [], options = {}, execOptions = {} }: T,
-	argCase = kebabCase
-) {
-	const substrings: string[] = [command, ...args.map((arg) => `"${arg}"`)]
+export enum ValueSeperatorType {
+	Equals = '=',
+	Space = ' '
+}
 
-	for (const k in options) {
-		const v = options[k]
-		let str = `--${argCase(k)}`
-		switch (typeof v) {
-			case 'string':
-				str += ` "${v.toString()}"`
-				break
+type ShellCommandOptionValues =
+	| boolean
+	| string
+	| number
+	| Exclude<object, null | Array<unknown>>
+export type ShellCommandOptions = Record<string, ShellCommandOptionValues>
+
+export function renderShellCommandOptions({
+	cmdOptions,
+	optionCase = kebabCase,
+	separator = ValueSeperatorType.Space
+}: Pick<ShellCommandParams, 'cmdOptions' | 'optionCase' | 'separator'>) {
+	const optionSubstrings: string[] = []
+
+	for (const key in cmdOptions) {
+		const value = cmdOptions[key]
+		let str = `--${optionCase(key)}`
+		switch (typeof value) {
 			case 'boolean':
+				if (separator === ValueSeperatorType.Equals) str += separator + value
+				break
+			case 'number':
+				str += separator + value
+				break
+			case 'string':
+				str += `${separator}${$.escape(value)}`
+				break
+			case 'object':
+				str += `${separator}'${JSON.stringify(value)}'`
 				break
 			default:
-				str += ` ${v.toString()}`
+				throw new Error(`Expected a command option value, got ${value}`)
 		}
 
-		substrings.push(str)
+		optionSubstrings.push(str)
 	}
 
-	const cmdString = substrings.join(' ')
+	return optionSubstrings
+}
 
-	// console.log(cmdString)
+export function getShellCmd<T extends ShellCommandParams>({
+	command,
+	args = [],
+	cmdOptions = {},
+	optionCase = kebabCase,
+	separator = ValueSeperatorType.Space
+}: T) {
+	const substrings: string[] = [
+		command,
+		...args.map($.escape),
+		...renderShellCommandOptions({ cmdOptions, optionCase, separator })
+	]
 
-	exec(cmdString, execOptions, (error, stdout, stderr) => {
-		if (error) return Log.error(`error: ${error.message}`)
+	return substrings.join(' ')
+}
 
-		if (stderr) return Log.error(`stderr: ${stderr}`)
+export function shellPromise(
+	cmdParams: ShellCommandParams | string,
+	options?: ExecOptions
+) {
+	const cmd = typeof cmdParams === 'string' ? cmdParams : getShellCmd(cmdParams)
 
-		return Log.info(stdout)
-	})
+	return util.promisify(exec)(cmd, options)
 }
 
 export type ShellCommandParams<
-	Command extends string = string,
-	Arguments extends string[] = string[],
-	Options extends Record<CamelCase<string>, any> = Record<
-		CamelCase<string>,
-		any
-	>,
-> = {
-	command: Command
-	args?: Arguments
-	options?: Options
-	execOptions?: ExecOptions
-}
+		Command extends string = string,
+		Arguments extends string[] = string[],
+		Options extends Record<CamelCase<string>, unknown> = Record<
+			CamelCase<string>,
+			unknown
+		>
+	> = {
+		command: Command
+		args?: Arguments
+		cmdOptions?: Options
+		/**
+		 * @default kebabCase
+		 */
+		optionCase?: (str: string) => string
+		/**
+		 * @default ValueSeperatorType.Space
+		 */
+		separator?: ValueSeperatorType
+	}
+

@@ -2,7 +2,7 @@
  * Type guards for individual elements of Datasworn IDs.
  * @module
  */
-import CONST from './CONST.js';
+import { WildcardString, GlobstarString } from './CONST.js';
 import type * as Id from '../StringId.js';
 import type { DictKey } from '../Datasworn.js';
 import TypeId from './TypeId.js';
@@ -10,9 +10,9 @@ declare namespace TypeGuard {
     function IndexKey(value: string): value is `${number}`;
     function DictKey(value: unknown): value is DictKey;
     function RulesPackageId(value: unknown): value is Id.RulesPackageId;
-    function Wildcard(value: unknown): value is CONST.WildcardString;
-    function Globstar(value: unknown): value is CONST.GlobstarString;
-    function AnyWildcard(value: unknown): value is CONST.WildcardString | CONST.GlobstarString;
+    function Wildcard(value: unknown): value is WildcardString;
+    function Globstar(value: unknown): value is GlobstarString;
+    function AnyWildcard(value: unknown): value is WildcardString | GlobstarString;
     function Recursive(value: unknown): value is TypeId.Collection | TypeId.Collectable;
     function CollectionType(value: unknown): value is TypeId.Collection;
     function NonCollectableType(value: unknown): value is TypeId.NonCollectable;

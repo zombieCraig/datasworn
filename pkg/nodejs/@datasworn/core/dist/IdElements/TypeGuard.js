@@ -8,7 +8,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Pattern_js_1 = __importDefault(require("./Pattern.js"));
-const CONST_js_1 = __importDefault(require("./CONST.js"));
+const CONST_js_1 = require("./CONST.js");
 const TypeId_js_1 = __importDefault(require("./TypeId.js"));
 var TypeGuard;
 (function (TypeGuard) {
@@ -26,11 +26,11 @@ var TypeGuard;
     }
     TypeGuard.RulesPackageId = RulesPackageId;
     function Wildcard(value) {
-        return value === CONST_js_1.default.WildcardString;
+        return value === CONST_js_1.WildcardString;
     }
     TypeGuard.Wildcard = Wildcard;
     function Globstar(value) {
-        return value === CONST_js_1.default.GlobstarString;
+        return value === CONST_js_1.GlobstarString;
     }
     TypeGuard.Globstar = Globstar;
     function AnyWildcard(value) {

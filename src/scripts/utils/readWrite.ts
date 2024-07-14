@@ -96,7 +96,7 @@ async function formatFile(file: string | BunFile) {
 
 	try {
 		const result =
-			await $`bun biome format --write --config-path=./biome.jsonc --files-max-size=${maxSize} ${typeof file === 'string' ? file : (file.name as string)}`.text()
+			await $`biome format --write --config-path=./biome.jsonc --files-max-size=${maxSize} ${typeof file === 'string' ? file : (file.name as string)}`.text()
 		return Log.verbose(result)
 	} catch {}
 
@@ -108,10 +108,10 @@ type WriteJsonOptions = {
 	replacer?: (this: any, key: string, value: any) => any
 }
 export async function writeJSON(
-	filePath: string | BunFile,
-	object: any,
-	options?: WriteJsonOptions
-): Promise<any>
+		filePath: string | BunFile,
+		object: any,
+		options?: WriteJsonOptions
+	): Promise<string>
 export async function writeJSON(
 	filePaths: (string | BunFile)[],
 	object: any,
@@ -122,34 +122,44 @@ export async function writeJSON(
 	object: any,
 	{ skipCopyAwait = false, replacer }: WriteJsonOptions = {}
 ): Promise<any> {
-	const pathParams = Array.isArray(filePath) ? filePath : [filePath]
 
-	// nothing to do
-	if (pathParams.length === 0) return
+  if (typeof object === 'string') throw new Error()
 
-	const [writeDestination, ...copyDestinations]: BunFile[] = pathParams.map(
-		(destination) =>
-			typeof destination === 'string' ? Bun.file(destination) : destination
-	)
+		const pathParams = Array.isArray(filePath) ? filePath : [filePath]
 
-	const json = JSON.stringify(object, replacer, space)
+		if (pathParams.length === 0)
+			// nothing to do
+			return
 
-	// write to the first destination
-	await Bun.write(writeDestination, json, { createPath: true })
+		const [writeDestination, ...copyDestinations]: BunFile[] = pathParams.map(
+			(destination) =>
+				typeof destination === 'string' ? Bun.file(destination) : destination
+		)
 
-	// biome is CLI only, but we can use Bun's shell to do this instead.
-	await formatFile(writeDestination)
+		const json = JSON.stringify(object, replacer, space)
 
-	// nothing left to do
-	if (copyDestinations.length === 0) return
+		// write to the first destination
+		await Bun.write(writeDestination, json, { createPath: true })
 
-	const copyOps: Promise<any>[] = []
+		// biome is CLI only, but we can use Bun's shell to do this instead.
+		await formatFile(writeDestination)
 
-	for (const copyDestionation of copyDestinations)
-		copyOps.push(copyFile(writeDestination, copyDestionation))
+		if (copyDestinations.length === 0)
+			// nothing left to do
+			return json
 
-	if (skipCopyAwait) return void Promise.all(copyOps)
-	else return await Promise.all(copyOps)
+		const copyOps: Promise<any>[] = []
+
+		for (const copyDestionation of copyDestinations)
+			copyOps.push(copyFile(writeDestination, copyDestionation))
+
+		if (skipCopyAwait) {
+			void Promise.all(copyOps)
+		} else {
+			await Promise.all(copyOps)
+		}
+
+		return json
 }
 
 type YAMLOptions = Simplify<

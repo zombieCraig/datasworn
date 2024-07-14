@@ -22,7 +22,7 @@ namespace Datasworn
         /// </summary>
         [JsonPropertyName("text")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public TemplateString? Text { get; set; }
+        public MarkdownTemplateString? Text { get; set; }
 
         /// <summary>
         /// A string template that may be used in place of
@@ -30,7 +30,7 @@ namespace Datasworn
         /// </summary>
         [JsonPropertyName("text2")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public TemplateString? Text2 { get; set; }
+        public MarkdownTemplateString? Text2 { get; set; }
 
         /// <summary>
         /// A string template that may be used in place of
@@ -38,6 +38,6 @@ namespace Datasworn
         /// </summary>
         [JsonPropertyName("text3")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public TemplateString? Text3 { get; set; }
+        public MarkdownTemplateString? Text3 { get; set; }
     }
 }

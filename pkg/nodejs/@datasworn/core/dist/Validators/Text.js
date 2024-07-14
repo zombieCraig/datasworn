@@ -12,7 +12,7 @@ exports.validateMacroIdPointers = validateMacroIdPointers;
 exports.validateMarkdownIdPointers = validateMarkdownIdPointers;
 exports.validateIdPointer = validateIdPointer;
 exports.forEachPrimitiveValue = forEachPrimitiveValue;
-const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
+const CONST_js_1 = require("../IdElements/CONST.js");
 const Pattern_js_1 = __importDefault(require("../IdElements/Pattern.js"));
 const typeIdPattern = '[a-z][a-z_](?:\\.[a-z][a-z_]){0,2}';
 const dictKeyOrIndexPattern = `[\\/\\.](?:[a-z_0-9\\]|\\*{1,2})+`;
@@ -26,7 +26,7 @@ const pathPattern = `${Pattern_js_1.default.RulesPackageElement.source}(?:${dict
 exports.idLike = /(?<typeId>[a-z\d_.]{3,}|\*{1,2}):(?<path>(?:[a-z_]+|\*{1,2})(?:\/(?:[a-z\d_.]+|\*{1,2})+)+|\*{2})/g;
 const idPointerPattern = new RegExp(`^${exports.idLike}$`);
 const linkSymbolPattern = new RegExp([
-    `(?<=\\[\\w.+?\\]\\(${CONST_js_1.default.MdLinkPrefix}${CONST_js_1.default.PrefixSep})`, // lookbehind for markdown text in square brackets, plus left paren
+    `(?<=\\[\\w.+?\\]\\(${CONST_js_1.MdLinkPrefix}${CONST_js_1.PrefixSep})`, // lookbehind for markdown text in square brackets, plus left paren
     `(?<id>${exports.idLike})`,
     `(?=\\))`, // lookahead for right paren
 ].join(''), 'g');
@@ -88,7 +88,7 @@ function needsIdValidation(k, v) {
     if (typeof v !== 'string')
         return false;
     switch (true) {
-        case k === CONST_js_1.default.IdKey:
+        case k === CONST_js_1.IdKey:
         case plainTextKeys.has(k):
         case urlKeys.has(k):
         case nonTextKeys.has(k):

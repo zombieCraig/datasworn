@@ -49,7 +49,7 @@ pub struct RulesPackageExpansion {
     pub date: DateTime<FixedOffset>,
 
     #[serde(rename = "license")]
-    pub license: License,
+    pub license: WebUrl,
 
     /// A dictionary object containing move categories, which contain moves.
     #[serde(rename = "moves")]
@@ -65,7 +65,7 @@ pub struct RulesPackageExpansion {
 
     /// The title of the source document.
     #[serde(rename = "title")]
-    pub title: String,
+    pub title: Label,
 
     /// A URL where the source document is available.
     #[serde(rename = "url")]
@@ -149,7 +149,7 @@ pub struct RulesPackageRuleset {
     pub date: DateTime<FixedOffset>,
 
     #[serde(rename = "license")]
-    pub license: License,
+    pub license: WebUrl,
 
     /// A dictionary object containing move categories, which contain moves.
     #[serde(rename = "moves")]
@@ -165,7 +165,7 @@ pub struct RulesPackageRuleset {
 
     /// The title of the source document.
     #[serde(rename = "title")]
-    pub title: String,
+    pub title: Label,
 
     /// A URL where the source document is available.
     #[serde(rename = "url")]
@@ -1085,8 +1085,6 @@ pub struct AssetControlFieldSelectEnhancement {
     #[serde(rename = "label")]
     pub label: Label,
 
-    /// The key of the currently selected choice from the `choices` property, or
-    /// `null` if none is selected.
     #[serde(rename = "value")]
     pub value: DictKey,
 
@@ -1240,8 +1238,6 @@ pub struct AssetOptionFieldSelectEnhancement {
     #[serde(rename = "label")]
     pub label: Label,
 
-    /// The key of the currently selected choice from the `choices` property, or
-    /// `null` if none is selected.
     #[serde(rename = "value")]
     pub value: DictKey,
 
@@ -1260,8 +1256,6 @@ pub struct AssetOptionFieldSelectValue {
     #[serde(rename = "label")]
     pub label: Label,
 
-    /// The key of the currently selected choice from the `choices` property, or
-    /// `null` if none is selected.
     #[serde(rename = "value")]
     pub value: DictKey,
 
@@ -1544,18 +1538,19 @@ pub struct AttachedAssetOptionValueRef {
 /// Information on the original creator of this material.
 #[derive(Serialize, Deserialize)]
 pub struct AuthorInfo {
+    /// The name of the author.
     #[serde(rename = "name")]
-    pub name: String,
+    pub name: Label,
 
     /// An optional email contact for the author
     #[serde(rename = "email")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub email: Option<Box<String>>,
+    pub email: Option<Box<Email>>,
 
     /// An optional URL for the author's website.
     #[serde(rename = "url")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub url: Option<Box<String>>,
+    pub url: Option<Box<WebUrl>>,
 }
 
 /// Challenge rank, represented as an integer from 1 (troublesome) to 5 (epic).
@@ -1782,9 +1777,6 @@ pub struct CustomValue {
     #[serde(rename = "value")]
     pub value: i16,
 }
-
-/// A date formatted YYYY-MM-DD.
-pub type Date = String;
 
 #[derive(Serialize, Deserialize)]
 pub enum DelveSiteType {
@@ -2316,7 +2308,8 @@ pub type DelveSiteThemeId = String;
 /// DelveSiteTheme objects.
 pub type DelveSiteThemeIdWildcard = String;
 
-/// A simple dice roll expression with an optional modifer.
+/// A simple dice roll expression with an optional (positive or negative)
+/// modifer.
 pub type DiceExpression = String;
 
 /// Represents a range of dice roll results, bounded by `min` and `max`
@@ -2334,6 +2327,9 @@ pub struct DiceRange {
 
 /// A `snake_case` key used in a Datasworn dictionary object.
 pub type DictKey = String;
+
+/// An email address.
+pub type Email = String;
 
 #[derive(Serialize, Deserialize)]
 pub enum EmbedOnlyType {
@@ -4138,7 +4134,7 @@ pub struct Expansion {
     pub date: DateTime<FixedOffset>,
 
     #[serde(rename = "license")]
-    pub license: License,
+    pub license: WebUrl,
 
     /// A dictionary object containing move categories, which contain moves.
     #[serde(rename = "moves")]
@@ -4154,7 +4150,7 @@ pub struct Expansion {
 
     /// The title of the source document.
     #[serde(rename = "title")]
-    pub title: String,
+    pub title: Label,
 
     #[serde(rename = "type")]
     pub type_: ExpansionType,
@@ -4303,12 +4299,6 @@ pub struct ImpactRule {
 /// exposed to assistive technology (e.g. with `aria-label` in HTML).
 pub type Label = String;
 
-/// An URL pointing to the location where this content's license can be found.
-/// 
-/// A `null` here indicates that the content provides __no__ license, and is not
-/// intended for redistribution.
-pub type License = WebUrl;
-
 /// Localized, player-facing text, formatted in Markdown. It is *not* formatted
 /// for use "out of the box"; it uses some custom syntax, intended to be
 /// replaced in whatever way is most appropriate for your implementation.
@@ -4324,6 +4314,14 @@ pub type License = WebUrl;
 /// can be an OracleCollectionId, or the ID of anything that can have
 /// EmbeddedOracleRollables (such as a Move or TruthOption).
 pub type MarkdownString = String;
+
+/// A rich text string in Markdown with replaced values from oracle roll
+/// results.
+/// 
+/// The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
+/// by the `some_row_key` string of a rolled oracle table. This is usually the
+/// `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
+pub type MarkdownTemplateString = String;
 
 #[derive(Serialize, Deserialize)]
 #[serde(tag = "roll_type")]
@@ -6559,17 +6557,17 @@ pub struct OracleRollTemplate {
     /// A string template that may be used in place of OracleRollableRow#text.
     #[serde(rename = "text")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub text: Option<Box<TemplateString>>,
+    pub text: Option<Box<MarkdownTemplateString>>,
 
     /// A string template that may be used in place of OracleRollableRow#text2.
     #[serde(rename = "text2")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub text2: Option<Box<TemplateString>>,
+    pub text2: Option<Box<MarkdownTemplateString>>,
 
     /// A string template that may be used in place of OracleRollableRow#text3.
     #[serde(rename = "text3")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub text3: Option<Box<TemplateString>>,
+    pub text3: Option<Box<MarkdownTemplateString>>,
 }
 
 /// A collection of table rows from which random results may be rolled. This may
@@ -8582,7 +8580,7 @@ pub struct OracleTablesCollection {
 }
 
 /// Represents a page number in a book.
-pub type PageNumber = i16;
+pub type PageNumber = u16;
 
 #[derive(Serialize, Deserialize)]
 pub enum PartOfSpeech {
@@ -8950,7 +8948,7 @@ pub struct Ruleset {
     pub date: DateTime<FixedOffset>,
 
     #[serde(rename = "license")]
-    pub license: License,
+    pub license: WebUrl,
 
     /// A dictionary object containing move categories, which contain moves.
     #[serde(rename = "moves")]
@@ -8966,7 +8964,7 @@ pub struct Ruleset {
 
     /// The title of the source document.
     #[serde(rename = "title")]
-    pub title: String,
+    pub title: Label,
 
     #[serde(rename = "type")]
     pub type_: RulesetType,
@@ -9077,8 +9075,6 @@ pub struct SelectEnhancementField {
     #[serde(rename = "label")]
     pub label: Label,
 
-    /// The key of the currently selected choice from the `choices` property, or
-    /// `null` if none is selected.
     #[serde(rename = "value")]
     pub value: DictKey,
 
@@ -9150,8 +9146,6 @@ pub struct SelectValueField {
     #[serde(rename = "label")]
     pub label: Label,
 
-    /// The key of the currently selected choice from the `choices` property, or
-    /// `null` if none is selected.
     #[serde(rename = "value")]
     pub value: DictKey,
 
@@ -9329,6 +9323,8 @@ pub struct SelectValueFieldChoiceStat {
     pub stat: StatKey,
 }
 
+pub type SemanticVersion = String;
+
 /// Metadata describing the original source of this node
 #[derive(Serialize, Deserialize)]
 pub struct SourceInfo {
@@ -9342,11 +9338,11 @@ pub struct SourceInfo {
     pub date: DateTime<FixedOffset>,
 
     #[serde(rename = "license")]
-    pub license: License,
+    pub license: WebUrl,
 
     /// The title of the source document.
     #[serde(rename = "title")]
-    pub title: String,
+    pub title: Label,
 
     /// A URL where the source document is available.
     #[serde(rename = "url")]
@@ -9355,11 +9351,8 @@ pub struct SourceInfo {
     /// The page number where this content is described in full.
     #[serde(rename = "page")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub page: Option<Box<u16>>,
+    pub page: Option<Box<PageNumber>>,
 }
-
-/// The title of the source document.
-pub type SourceTitle = String;
 
 #[derive(Serialize, Deserialize)]
 pub enum SpecialTrackRollMethod {
@@ -9864,14 +9857,6 @@ pub struct TagsCore {
     pub technological: Option<Box<bool>>,
 }
 
-/// A rich text string in Markdown with replaced values from oracle roll
-/// results.
-/// 
-/// The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
-/// by the `some_row_key` string of a rolled oracle table. This is usually the
-/// `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
-pub type TemplateString = String;
-
 #[derive(Serialize, Deserialize)]
 pub enum TextFieldFieldType {
     #[serde(rename = "text")]
@@ -9975,6 +9960,7 @@ pub struct TriggerBy {
 /// Describes trigger conditions for a move that makes no rolls.
 #[derive(Serialize, Deserialize)]
 pub struct TriggerNoRoll {
+    /// Specific conditions that qualify for this trigger.
     #[serde(rename = "conditions")]
     pub conditions: Vec<TriggerNoRollCondition>,
 

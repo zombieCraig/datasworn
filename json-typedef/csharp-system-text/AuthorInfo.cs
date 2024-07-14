@@ -9,21 +9,24 @@ namespace Datasworn
     /// </summary>
     public class AuthorInfo
     {
+        /// <summary>
+        /// The name of the author.
+        /// </summary>
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public Label Name { get; set; }
 
         /// <summary>
         /// An optional email contact for the author
         /// </summary>
         [JsonPropertyName("email")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Email { get; set; }
+        public Email? Email { get; set; }
 
         /// <summary>
         /// An optional URL for the author's website.
         /// </summary>
         [JsonPropertyName("url")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Url { get; set; }
+        public WebUrl? Url { get; set; }
     }
 }

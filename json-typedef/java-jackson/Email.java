@@ -6,18 +6,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * A simple dice roll expression with an optional (positive or negative)
- * modifer.
+ * An email address.
  */
-public class DiceExpression {
+public class Email {
     @JsonValue
     private String value;
 
-    public DiceExpression() {
+    public Email() {
     }
 
     @JsonCreator
-    public DiceExpression(String value) {
+    public Email(String value) {
         this.value = value;
     }
 

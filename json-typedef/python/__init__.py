@@ -70,7 +70,7 @@ class RulesPackageExpansion(RulesPackage):
     Required because it's used to determine whether the data needs updating.
     """
 
-    license: 'License'
+    license: 'WebURL'
     moves: 'Dict[str, MoveCategory]'
     """
     A dictionary object containing move categories, which contain moves.
@@ -83,7 +83,7 @@ class RulesPackageExpansion(RulesPackage):
     """
 
     ruleset: 'RulesetID'
-    title: 'str'
+    title: 'Label'
     """
     The title of the source document.
     """
@@ -143,11 +143,11 @@ class RulesPackageExpansion(RulesPackage):
             _from_json_data(List[AuthorInfo], data.get("authors")),
             _from_json_data(RulesPackageExpansionDataswornVersion, data.get("datasworn_version")),
             _from_json_data(datetime, data.get("date")),
-            _from_json_data(License, data.get("license")),
+            _from_json_data(WebURL, data.get("license")),
             _from_json_data(Dict[str, MoveCategory], data.get("moves")),
             _from_json_data(Dict[str, OracleTablesCollection], data.get("oracles")),
             _from_json_data(RulesetID, data.get("ruleset")),
-            _from_json_data(str, data.get("title")),
+            _from_json_data(Label, data.get("title")),
             _from_json_data(WebURL, data.get("url")),
             _from_json_data(Optional[Dict[str, AtlasCollection]], data.get("atlas")),
             _from_json_data(Optional[Dict[str, DelveSite]], data.get("delve_sites")),
@@ -234,7 +234,7 @@ class RulesPackageRuleset(RulesPackage):
     Required because it's used to determine whether the data needs updating.
     """
 
-    license: 'License'
+    license: 'WebURL'
     moves: 'Dict[str, MoveCategory]'
     """
     A dictionary object containing move categories, which contain moves.
@@ -247,7 +247,7 @@ class RulesPackageRuleset(RulesPackage):
     """
 
     rules: 'Rules'
-    title: 'str'
+    title: 'Label'
     """
     The title of the source document.
     """
@@ -306,11 +306,11 @@ class RulesPackageRuleset(RulesPackage):
             _from_json_data(List[AuthorInfo], data.get("authors")),
             _from_json_data(RulesPackageRulesetDataswornVersion, data.get("datasworn_version")),
             _from_json_data(datetime, data.get("date")),
-            _from_json_data(License, data.get("license")),
+            _from_json_data(WebURL, data.get("license")),
             _from_json_data(Dict[str, MoveCategory], data.get("moves")),
             _from_json_data(Dict[str, OracleTablesCollection], data.get("oracles")),
             _from_json_data(Rules, data.get("rules")),
-            _from_json_data(str, data.get("title")),
+            _from_json_data(Label, data.get("title")),
             _from_json_data(WebURL, data.get("url")),
             _from_json_data(Optional[Dict[str, AtlasCollection]], data.get("atlas")),
             _from_json_data(Optional[Dict[str, DelveSite]], data.get("delve_sites")),
@@ -2005,11 +2005,6 @@ class AssetControlFieldSelectEnhancement(AssetControlField):
     choices: 'Dict[str, AssetControlFieldSelectEnhancementChoice]'
     label: 'Label'
     value: 'DictKey'
-    """
-    The key of the currently selected choice from the `choices` property, or
-    `null` if none is selected.
-    """
-
     icon: 'Optional[SvgImageURL]'
     """
     An icon associated with this input.
@@ -2313,11 +2308,6 @@ class AssetOptionFieldSelectEnhancement(AssetOptionField):
     choices: 'Dict[str, AssetOptionFieldSelectEnhancementChoice]'
     label: 'Label'
     value: 'DictKey'
-    """
-    The key of the currently selected choice from the `choices` property, or
-    `null` if none is selected.
-    """
-
     icon: 'Optional[SvgImageURL]'
     """
     An icon associated with this input.
@@ -2352,11 +2342,6 @@ class AssetOptionFieldSelectValue(AssetOptionField):
     choices: 'Dict[str, SelectValueFieldChoice]'
     label: 'Label'
     value: 'DictKey'
-    """
-    The key of the currently selected choice from the `choices` property, or
-    `null` if none is selected.
-    """
-
     icon: 'Optional[SvgImageURL]'
     """
     An icon associated with this input.
@@ -2874,13 +2859,17 @@ class AuthorInfo:
     Information on the original creator of this material.
     """
 
-    name: 'str'
-    email: 'Optional[str]'
+    name: 'Label'
+    """
+    The name of the author.
+    """
+
+    email: 'Optional[Email]'
     """
     An optional email contact for the author
     """
 
-    url: 'Optional[str]'
+    url: 'Optional[WebURL]'
     """
     An optional URL for the author's website.
     """
@@ -2889,9 +2878,9 @@ class AuthorInfo:
     @classmethod
     def from_json_data(cls, data: Any) -> 'AuthorInfo':
         return cls(
-            _from_json_data(str, data.get("name")),
-            _from_json_data(Optional[str], data.get("email")),
-            _from_json_data(Optional[str], data.get("url")),
+            _from_json_data(Label, data.get("name")),
+            _from_json_data(Optional[Email], data.get("email")),
+            _from_json_data(Optional[WebURL], data.get("url")),
         )
 
     def to_json_data(self) -> Any:
@@ -3306,21 +3295,6 @@ class CustomValue:
         data["using"] = _to_json_data(self.using)
         data["value"] = _to_json_data(self.value)
         return data
-
-@dataclass
-class Date:
-    """
-    A date formatted YYYY-MM-DD.
-    """
-
-    value: 'str'
-
-    @classmethod
-    def from_json_data(cls, data: Any) -> 'Date':
-        return cls(_from_json_data(str, data))
-
-    def to_json_data(self) -> Any:
-        return _to_json_data(self.value)
 
 class DelveSiteType(Enum):
     DELVE_SITE = "delve_site"
@@ -4274,7 +4248,8 @@ class DelveSiteThemeIDWildcard:
 @dataclass
 class DiceExpression:
     """
-    A simple dice roll expression with an optional modifer.
+    A simple dice roll expression with an optional (positive or negative)
+    modifer.
     """
 
     value: 'str'
@@ -4327,6 +4302,21 @@ class DictKey:
 
     @classmethod
     def from_json_data(cls, data: Any) -> 'DictKey':
+        return cls(_from_json_data(str, data))
+
+    def to_json_data(self) -> Any:
+        return _to_json_data(self.value)
+
+@dataclass
+class Email:
+    """
+    An email address.
+    """
+
+    value: 'str'
+
+    @classmethod
+    def from_json_data(cls, data: Any) -> 'Email':
         return cls(_from_json_data(str, data))
 
     def to_json_data(self) -> Any:
@@ -7113,7 +7103,7 @@ class Expansion:
     Required because it's used to determine whether the data needs updating.
     """
 
-    license: 'License'
+    license: 'WebURL'
     moves: 'Dict[str, MoveCategory]'
     """
     A dictionary object containing move categories, which contain moves.
@@ -7126,7 +7116,7 @@ class Expansion:
     """
 
     ruleset: 'RulesetID'
-    title: 'str'
+    title: 'Label'
     """
     The title of the source document.
     """
@@ -7186,11 +7176,11 @@ class Expansion:
             _from_json_data(List[AuthorInfo], data.get("authors")),
             _from_json_data(ExpansionDataswornVersion, data.get("datasworn_version")),
             _from_json_data(datetime, data.get("date")),
-            _from_json_data(License, data.get("license")),
+            _from_json_data(WebURL, data.get("license")),
             _from_json_data(Dict[str, MoveCategory], data.get("moves")),
             _from_json_data(Dict[str, OracleTablesCollection], data.get("oracles")),
             _from_json_data(RulesetID, data.get("ruleset")),
-            _from_json_data(str, data.get("title")),
+            _from_json_data(Label, data.get("title")),
             _from_json_data(ExpansionType, data.get("type")),
             _from_json_data(WebURL, data.get("url")),
             _from_json_data(Optional[Dict[str, AtlasCollection]], data.get("atlas")),
@@ -7436,24 +7426,6 @@ class Label:
         return _to_json_data(self.value)
 
 @dataclass
-class License:
-    """
-    An URL pointing to the location where this content's license can be found.
-    
-    A `null` here indicates that the content provides __no__ license, and is not
-    intended for redistribution.
-    """
-
-    value: 'WebURL'
-
-    @classmethod
-    def from_json_data(cls, data: Any) -> 'License':
-        return cls(_from_json_data(WebURL, data))
-
-    def to_json_data(self) -> Any:
-        return _to_json_data(self.value)
-
-@dataclass
 class MarkdownString:
     """
     Localized, player-facing text, formatted in Markdown. It is *not* formatted
@@ -7476,6 +7448,26 @@ class MarkdownString:
 
     @classmethod
     def from_json_data(cls, data: Any) -> 'MarkdownString':
+        return cls(_from_json_data(str, data))
+
+    def to_json_data(self) -> Any:
+        return _to_json_data(self.value)
+
+@dataclass
+class MarkdownTemplateString:
+    """
+    A rich text string in Markdown with replaced values from oracle roll
+    results.
+    
+    The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
+    by the `some_row_key` string of a rolled oracle table. This is usually the
+    `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
+    """
+
+    value: 'str'
+
+    @classmethod
+    def from_json_data(cls, data: Any) -> 'MarkdownTemplateString':
         return cls(_from_json_data(str, data))
 
     def to_json_data(self) -> Any:
@@ -11116,17 +11108,17 @@ class OracleRollTemplate:
     `OracleRollableRow#text` from the target oracle rollable ID.
     """
 
-    text: 'Optional[TemplateString]'
+    text: 'Optional[MarkdownTemplateString]'
     """
     A string template that may be used in place of OracleRollableRow#text.
     """
 
-    text2: 'Optional[TemplateString]'
+    text2: 'Optional[MarkdownTemplateString]'
     """
     A string template that may be used in place of OracleRollableRow#text2.
     """
 
-    text3: 'Optional[TemplateString]'
+    text3: 'Optional[MarkdownTemplateString]'
     """
     A string template that may be used in place of OracleRollableRow#text3.
     """
@@ -11135,9 +11127,9 @@ class OracleRollTemplate:
     @classmethod
     def from_json_data(cls, data: Any) -> 'OracleRollTemplate':
         return cls(
-            _from_json_data(Optional[TemplateString], data.get("text")),
-            _from_json_data(Optional[TemplateString], data.get("text2")),
-            _from_json_data(Optional[TemplateString], data.get("text3")),
+            _from_json_data(Optional[MarkdownTemplateString], data.get("text")),
+            _from_json_data(Optional[MarkdownTemplateString], data.get("text2")),
+            _from_json_data(Optional[MarkdownTemplateString], data.get("text3")),
         )
 
     def to_json_data(self) -> Any:
@@ -15002,7 +14994,7 @@ class Ruleset:
     Required because it's used to determine whether the data needs updating.
     """
 
-    license: 'License'
+    license: 'WebURL'
     moves: 'Dict[str, MoveCategory]'
     """
     A dictionary object containing move categories, which contain moves.
@@ -15015,7 +15007,7 @@ class Ruleset:
     """
 
     rules: 'Rules'
-    title: 'str'
+    title: 'Label'
     """
     The title of the source document.
     """
@@ -15074,11 +15066,11 @@ class Ruleset:
             _from_json_data(List[AuthorInfo], data.get("authors")),
             _from_json_data(RulesetDataswornVersion, data.get("datasworn_version")),
             _from_json_data(datetime, data.get("date")),
-            _from_json_data(License, data.get("license")),
+            _from_json_data(WebURL, data.get("license")),
             _from_json_data(Dict[str, MoveCategory], data.get("moves")),
             _from_json_data(Dict[str, OracleTablesCollection], data.get("oracles")),
             _from_json_data(Rules, data.get("rules")),
-            _from_json_data(str, data.get("title")),
+            _from_json_data(Label, data.get("title")),
             _from_json_data(RulesetType, data.get("type")),
             _from_json_data(WebURL, data.get("url")),
             _from_json_data(Optional[Dict[str, AtlasCollection]], data.get("atlas")),
@@ -15230,11 +15222,6 @@ class SelectEnhancementField:
     field_type: 'SelectEnhancementFieldFieldType'
     label: 'Label'
     value: 'DictKey'
-    """
-    The key of the currently selected choice from the `choices` property, or
-    `null` if none is selected.
-    """
-
     icon: 'Optional[SvgImageURL]'
     """
     An icon associated with this input.
@@ -15357,11 +15344,6 @@ class SelectValueField:
     field_type: 'SelectValueFieldFieldType'
     label: 'Label'
     value: 'DictKey'
-    """
-    The key of the currently selected choice from the `choices` property, or
-    `null` if none is selected.
-    """
-
     icon: 'Optional[SvgImageURL]'
     """
     An icon associated with this input.
@@ -15677,6 +15659,17 @@ class SelectValueFieldChoiceStat(SelectValueFieldChoice):
         return data
 
 @dataclass
+class SemanticVersion:
+    value: 'str'
+
+    @classmethod
+    def from_json_data(cls, data: Any) -> 'SemanticVersion':
+        return cls(_from_json_data(str, data))
+
+    def to_json_data(self) -> Any:
+        return _to_json_data(self.value)
+
+@dataclass
 class SourceInfo:
     """
     Metadata describing the original source of this node
@@ -15693,8 +15686,8 @@ class SourceInfo:
     Required because it's used to determine whether the data needs updating.
     """
 
-    license: 'License'
-    title: 'str'
+    license: 'WebURL'
+    title: 'Label'
     """
     The title of the source document.
     """
@@ -15704,7 +15697,7 @@ class SourceInfo:
     A URL where the source document is available.
     """
 
-    page: 'Optional[int]'
+    page: 'Optional[PageNumber]'
     """
     The page number where this content is described in full.
     """
@@ -15715,10 +15708,10 @@ class SourceInfo:
         return cls(
             _from_json_data(List[AuthorInfo], data.get("authors")),
             _from_json_data(datetime, data.get("date")),
-            _from_json_data(License, data.get("license")),
-            _from_json_data(str, data.get("title")),
+            _from_json_data(WebURL, data.get("license")),
+            _from_json_data(Label, data.get("title")),
             _from_json_data(WebURL, data.get("url")),
-            _from_json_data(Optional[int], data.get("page")),
+            _from_json_data(Optional[PageNumber], data.get("page")),
         )
 
     def to_json_data(self) -> Any:
@@ -15731,21 +15724,6 @@ class SourceInfo:
         if self.page is not None:
              data["page"] = _to_json_data(self.page)
         return data
-
-@dataclass
-class SourceTitle:
-    """
-    The title of the source document.
-    """
-
-    value: 'str'
-
-    @classmethod
-    def from_json_data(cls, data: Any) -> 'SourceTitle':
-        return cls(_from_json_data(str, data))
-
-    def to_json_data(self) -> Any:
-        return _to_json_data(self.value)
 
 class SpecialTrackRollMethod(Enum):
     ALL = "all"
@@ -16569,26 +16547,6 @@ class TagsCore:
              data["technological"] = _to_json_data(self.technological)
         return data
 
-@dataclass
-class TemplateString:
-    """
-    A rich text string in Markdown with replaced values from oracle roll
-    results.
-    
-    The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
-    by the `some_row_key` string of a rolled oracle table. This is usually the
-    `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
-    """
-
-    value: 'str'
-
-    @classmethod
-    def from_json_data(cls, data: Any) -> 'TemplateString':
-        return cls(_from_json_data(str, data))
-
-    def to_json_data(self) -> Any:
-        return _to_json_data(self.value)
-
 class TextFieldFieldType(Enum):
     TEXT = "text"
     @classmethod
@@ -16793,6 +16751,10 @@ class TriggerNoRoll:
     """
 
     conditions: 'List[TriggerNoRollCondition]'
+    """
+    Specific conditions that qualify for this trigger.
+    """
+
     text: 'MarkdownString'
     """
     A markdown string containing the primary trigger text for this move.

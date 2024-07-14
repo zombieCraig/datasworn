@@ -21,6 +21,7 @@ import type { TUnionEnum } from '../utils/UnionEnum.js'
 import type { TUnionOneOf } from '../utils/UnionOneOf.js'
 import type { TDiscriminatedUnion } from '../utils/DiscriminatedUnion.js'
 import type { TNullable } from '../Utils.js'
+import { omitBy } from 'lodash-es'
 
 export const SchemaKind = [
 	'Array',

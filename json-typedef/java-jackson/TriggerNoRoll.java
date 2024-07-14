@@ -22,6 +22,7 @@ public class TriggerNoRoll {
 
     /**
      * Getter for conditions.<p>
+     * Specific conditions that qualify for this trigger.
      */
     public List<TriggerNoRollCondition> getConditions() {
         return conditions;
@@ -29,6 +30,7 @@ public class TriggerNoRoll {
 
     /**
      * Setter for conditions.<p>
+     * Specific conditions that qualify for this trigger.
      */
     public void setConditions(List<TriggerNoRollCondition> conditions) {
         this.conditions = conditions;

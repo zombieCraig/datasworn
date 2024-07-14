@@ -87,6 +87,7 @@ export const OracleTableSharedText = Generic.CollectionSubtypeNode(
 	}
 )
 
+
 export type TOracleTableSharedText = typeof OracleTableSharedText
 export type OracleTableSharedText = Static<TOracleTableSharedText>
 

@@ -61727,7 +61727,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you begin a significant session or chapter of play...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"begin_a_session": {
@@ -61847,7 +61847,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you identify situations or topics you don’t want to include, don’t want to envision in detail, or otherwise may need mindfulness when approaching...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you identify situations or topics you don’t want to include, don’t want to envision in detail, or otherwise may need mindfulness when approaching__, that content is now flagged.\n\nWhen you encounter content flagged as something to approach mindfully, pause to consider or discuss its role in your story. When you come across flagged content that you would rather adjust or omit, [Change Your Fate](datasworn:move:starforged/session/change_your_fate).",
 					"_source": {
@@ -61873,7 +61873,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you encounter flagged content, reject an oracle, resist a consequence, or otherwise need to shift your circumstances within the game for your comfort or enjoyment...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you encounter flagged content, reject an oracle, resist a consequence, or otherwise need to shift your circumstances within the game for your comfort or enjoyment__, pause and identify what needs to be changed. Choose as many options as appropriate.\n\n  * __Reframe:__ This didn’t happen the way you first thought. Envision the moment from another perspective in a way that diminishes or changes the content.\n  * __Refocus:__ This is not the most important thing happening right now. Envision how the spotlight shifts to change the focus.\n  * __Replace:__ This happens but with a small adjustment. Switch out an element and envision how this new detail changes the scenario.\n  * __Redirect:__ Adjust the trajectory to involve a helping hand. Envision how another person or party becomes involved.\n  * __Reshape:__ The situation changes completely. Envision what happened instead.",
 					"_source": {
@@ -61899,7 +61899,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you resolve a progress move or complete an intense scenario...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you resolve a progress move or complete an intense scenario__, take a few deep breaths and take some time to attend to the needs of your body. Reflect on what just happened and how it made you feel. Then, choose one.\n\n  * Move on: Continue the session. You or an ally may add +1 on the next move (not a progress move), bolstered by your reflection and past experiences.\n  * Stop for now: [End a Session](datasworn:move:starforged/session/end_a_session).",
 					"_source": {
@@ -61925,7 +61925,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you end a significant session or chapter of play...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you end a significant session or chapter of play__, reflect on the events of the game and identify any missed opportunities to mark progress.\n\n  * If you strengthened your ties to a connection, [Develop Your Relationship](datasworn:move:starforged/connection/develop_your_relationship).\n  * If you moved forward on a quest, [Reach a Milestone](datasworn:move:starforged/quest/reach_a_milestone).\n\nIf there is a quest, connection, or other situation you would like to give focus in your next session, make note of it and take +1 momentum.",
 					"_source": {
@@ -62262,7 +62262,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you act in direct support of an ally...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you act in direct support of an ally__, envision how you aid them. Then, [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Gain Ground](datasworn:move:starforged/combat/gain_ground) to take action. If you score a hit, they (instead of you) take the benefits of the move.\n\nIf you [Gain Ground](datasworn:move:starforged/combat/gain_ground) and score a strong hit, you are both in control. On a __weak hit__, your ally is in control but you are in a bad spot.",
 					"_source": {
@@ -62403,7 +62403,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you make headway in your quest...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you make headway in your quest__ by doing any of the following...\n\n  * overcoming a critical obstacle\n  * gaining meaningful insight\n  * completing a perilous expedition\n  * acquiring a crucial item or resource\n  * earning vital support\n  * defeating a notable foe\n\n...you may mark progress per the rank of the vow.",
 					"_source": {
@@ -62478,7 +62478,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you renounce your quest, betray your promise, or the goal is lost to you...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you renounce your quest, betray your promise, or the goal is lost to you__, clear the vow.\n\nThen, envision the impact of this failure and choose one or more as appropriate to the nature of the vow. Any allies who shared this vow may also envision a cost.\n\n  * You are demoralized or dispirited: [Endure Stress](datasworn:move:starforged/suffer/endure_stress).\n  * A connection loses faith: [Test Your Relationship](datasworn:move:starforged/connection/test_your_relationship) when you next interact.\n  * You must abandon a path or resource: Discard an asset.\n  * Someone else pays a price: Envision how a person, being, or community bears the cost of the failure.\n  * Someone else takes advantage: Envision how an enemy gains power.\n  * Your reputation suffers: Envision how this failure marks you.",
 					"_source": {
@@ -62872,7 +62872,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When your exploration of a waypoint uncovers something wondrous...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"make_a_discovery": {
@@ -63105,7 +63105,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When your exploration of a waypoint uncovers something dreadful...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"confront_chaos": {
@@ -63933,7 +63933,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you abandon or are deprived of an objective...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you abandon or are deprived of an objective__, envision the consequence of this failure, clear the objective, and [Pay the Price](datasworn:move:starforged/fate/pay_the_price).\n\nIf the fight continues, you may create a new objective and give it a rank to represent the changing situation. If any objectives remain, the fight continues and you are in a bad spot.",
 					"_source": {
@@ -64069,7 +64069,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you are delayed or disadvantaged...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you are delayed or disadvantaged__, suffer -1 momentum for a minor setback, -2 for a serious setback, or -3 for a major setback.\n\nWhen your momentum is at its minimum (-6) and you must suffer -momentum, choose one.\n\n  * Envision how the price is paid and apply the cost to a different suffer move.\n  * Envision how this undermines your progress on a vow, expedition, connection, or combat. Then, clear 1 unit of progress on that track per its rank: troublesome=3 boxes; dangerous=2 boxes; formidable=1 box; extreme=2 ticks; epic=1 tick.",
 					"_source": {
@@ -64342,7 +64342,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you lose or consume resources...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you lose or consume resources__, suffer -1 supply for a minor loss, -2 for a serious loss, or -3 for a major loss.\n\nIf your supply is exhausted (reduced to 0), mark __unprepared__. When you suffer a loss of resources while unprepared, envision how this causes you hardship and apply the cost to a different suffer move.",
 					"_source": {
@@ -65009,7 +65009,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you fill a box (four ticks) on any legacy track...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you fill a box (four ticks) on any legacy track__, take 2 experience. This experience may be spent when you [Advance](datasworn:move:starforged/legacy/advance).\n\nOnce you completely fill the tenth box on any legacy track, clear that track. You may start again marking progress on the cleared track, but earn experience at a reduced rate of 1 experience (instead of 2) for each filled progress box. If you make a progress roll against this track, resolve the outcome as if at 10 progress.",
 					"_source": {
@@ -65035,7 +65035,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you develop your abilities, improve your resources, gain a reward, or boost your influence...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you develop your abilities, improve your resources, gain a reward, or boost your influence__, you may spend 3 experience to add a new asset, or 2 experience to upgrade an asset. Choose from the following categories as appropriate to your focus and opportunities.\n\n  * Module: Upgrade your command vehicle\n  * Support Vehicle: Acquire or improve a secondary vehicle\n  * Path: Bolster your personal capabilities or follow a new calling\n  * Companion: Gain or improve a trusted helper\n  * Deed: Learn from your experiences or build a legacy",
 					"_source": {
@@ -65135,7 +65135,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you seek to resolve questions, reveal details, discover locations, determine how other characters respond, or trigger encounters or events...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"almost_certain": {
@@ -65302,7 +65302,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you suffer the outcome of an action...",
-						"conditions": null
+						"conditions": []
 					},
 					"suggestions": [
 						"oracle_rollable:starforged/misc/story_complication",
@@ -65539,7 +65539,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When you face an extended or complex challenge...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "__When you face an extended or complex challenge__, name your objective and choose a rank as appropriate to the situation.\n\n  * You have a clear advantage: Troublesome\n  * You are ready to act: Dangerous\n  * You are unprepared or outmatched: Formidable\n\nThen, activate a 4-segment tension clock and [Face Danger](datasworn:move:starforged/scene_challenge/face_danger) or [Secure an Advantage](datasworn:move:starforged/scene_challenge/secure_an_advantage) to take action.",
 					"_source": {

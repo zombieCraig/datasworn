@@ -79,7 +79,9 @@ export const TriggerNoRollCondition = TriggerCondition(
 export type TriggerNoRollCondition = Static<typeof TriggerNoRollCondition>
 
 export const TriggerNoRoll = Trigger(
-	Utils.Nullable(Type.Array(Type.Ref(TriggerNoRollCondition))),
+	Type.Array(Type.Ref(TriggerNoRollCondition), {
+		default: []
+	}),
 	{
 		$id: 'TriggerNoRoll',
 		title: 'TriggerNoRoll',

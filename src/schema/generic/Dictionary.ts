@@ -24,9 +24,9 @@ export function Dictionary<T extends TSchema>(
 		// Type.Transform(
 		Type.Record(key ?? Id.DictKey, schema, {
 			default: {},
-			...options,
 			remarks: 'Deserialize as a dictionary object.',
-			[DictionaryBrand]: 'Dictionary'
+			[DictionaryBrand]: 'Dictionary',
+			...options
 		}) as TDictionary<T>
 	// )
 	// .Decode((value) => new Map<string, Static<T>>(Object.entries(value)))

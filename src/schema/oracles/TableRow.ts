@@ -60,7 +60,7 @@ export const TableRowMixin = Assign(
 )
 
 export const TableRowNullableMixin = setDescriptions(
-	Utils.SetNullable(TableRowMixin, ['roll']),
+	Utils.SetNullable(TableRowMixin, ['roll'], { defaultToNull: true }),
 	{
 		roll: '`null` represents an unrollable row, included only for rendering purposes.'
 	}
@@ -93,7 +93,6 @@ export const OracleRollableRowText2 = Assign(
 	TableRowNullableMixin,
 	Type.Object({
 		text2: Utils.Nullable(Type.Ref(Localize.MarkdownString), {
-			default: undefined,
 			description:
 				'The secondary text for this row. Use `null` to represent a cell with a blank or empty vlue.'
 		})
@@ -110,12 +109,10 @@ export const OracleRollableRowText3 = Assign(
 	TableRowNullableMixin,
 	Type.Object({
 		text2: Utils.Nullable(Type.Ref(Localize.MarkdownString), {
-			default: undefined,
 			description:
-				'The secondary text for this row. Use `null` to represent a cell with a blank or empty vlue.'
+				'The secondary text for this row. Use `null` to represent a cell with a blank or empty value.'
 		}),
 		text3: Utils.Nullable(Type.Ref(Localize.MarkdownString), {
-			default: undefined,
 			description:
 				'The tertiary text for this row. Use `null` to represent a cell with a blank or empty vlue.'
 		})

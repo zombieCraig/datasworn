@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mergeExpansion = mergeExpansion;
-const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
+const CONST_js_1 = require("./IdElements/CONST.js");
 const index_js_1 = require("./index.js");
 const TypeId_js_1 = __importDefault(require("./IdElements/TypeId.js"));
 // const classic = fs.readJSONSync(
@@ -57,16 +57,16 @@ const TypeId_js_1 = __importDefault(require("./IdElements/TypeId.js"));
  * @experimental
  */
 function enhanceCollection(target, source) {
-    const err = new Error(`Expected source <${source._id}> "${CONST_js_1.default.EnhancesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST_js_1.default.EnhancesKey])}.`);
-    if (!(CONST_js_1.default.EnhancesKey in source))
+    const err = new Error(`Expected source <${source._id}> "${CONST_js_1.EnhancesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST_js_1.EnhancesKey])}.`);
+    if (!(CONST_js_1.EnhancesKey in source))
         throw err;
-    if (!Array.isArray(source[CONST_js_1.default.EnhancesKey]))
+    if (!Array.isArray(source[CONST_js_1.EnhancesKey]))
         throw err;
     const targetId = index_js_1.IdParser.parse(target._id);
-    if (!targetId.isMatchedBy(...source[CONST_js_1.default.EnhancesKey]))
+    if (!targetId.isMatchedBy(...source[CONST_js_1.EnhancesKey]))
         throw err;
-    target[CONST_js_1.default.ContentsKey] = applyDictionaryReplacements(target[CONST_js_1.default.ContentsKey], source[CONST_js_1.default.ContentsKey]);
-    target[CONST_js_1.default.CollectionsKey] = applyDictionaryEnhancements(target[CONST_js_1.default.CollectionsKey], source[CONST_js_1.default.CollectionsKey]);
+    target[CONST_js_1.ContentsKey] = applyDictionaryReplacements(target[CONST_js_1.ContentsKey], source[CONST_js_1.ContentsKey]);
+    target[CONST_js_1.CollectionsKey] = applyDictionaryEnhancements(target[CONST_js_1.CollectionsKey], source[CONST_js_1.CollectionsKey]);
     return target;
 }
 function applyDictionaryEnhancements(targetDictionary, sourceDictionary) {
@@ -81,7 +81,7 @@ function applyDictionaryEnhancements(targetDictionary, sourceDictionary) {
             targetMap.set(key, source);
             continue;
         }
-        if (!(CONST_js_1.default.EnhancesKey in source))
+        if (!(CONST_js_1.EnhancesKey in source))
             continue;
         const target = targetMap.get(key);
         targetMap.set(key, enhanceCollection(target, source));
@@ -101,16 +101,16 @@ function applyDictionaryReplacements(targetDictionary, sourceDictionary) {
             targetMap.set(key, source);
             continue;
         }
-        if (!(CONST_js_1.default.ReplacesKey in source))
+        if (!(CONST_js_1.ReplacesKey in source))
             continue;
         const target = targetMap.get(key);
-        const err = new Error(`Expected source <${source._id}> "${CONST_js_1.default.ReplacesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST_js_1.default.ReplacesKey])}`);
-        if (!(CONST_js_1.default.ReplacesKey in source))
+        const err = new Error(`Expected source <${source._id}> "${CONST_js_1.ReplacesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST_js_1.ReplacesKey])}`);
+        if (!(CONST_js_1.ReplacesKey in source))
             throw err;
-        if (!Array.isArray(source[CONST_js_1.default.ReplacesKey]))
+        if (!Array.isArray(source[CONST_js_1.ReplacesKey]))
             throw err;
         const targetValueId = index_js_1.IdParser.parse(target._id);
-        if (!targetValueId.isMatchedBy(...source[CONST_js_1.default.ReplacesKey]))
+        if (!targetValueId.isMatchedBy(...source[CONST_js_1.ReplacesKey]))
             throw err;
         targetMap.set(key, source);
     }
@@ -144,7 +144,7 @@ function mergeExpansion(ruleset, expansion, strict = true) {
             // @ts-expect-error
             ruleset[branchKey] = expansion[branchKey];
         else {
-            if (CONST_js_1.default.ReplacesKey in expansion[branchKey]) {
+            if (CONST_js_1.ReplacesKey in expansion[branchKey]) {
                 // @ts-expect-error
                 ruleset[branchKey] = applyDictionaryReplacements(ruleset[branchKey], expansion[branchKey]);
             }

@@ -40,8 +40,7 @@ export const Rules = Type.Object(
 			}
 		),
 		tags: Generic.Dictionary(Type.Ref(TagRule), {
-			releaseStage: 'experimental',
-			default: {}
+			releaseStage: 'experimental'
 		})
 	},
 	{

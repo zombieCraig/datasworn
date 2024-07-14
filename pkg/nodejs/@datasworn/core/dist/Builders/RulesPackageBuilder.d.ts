@@ -68,7 +68,7 @@ declare class RulesPackagePart<TSource extends DataswornSource.RulesPackage = Da
     static get sourceValidator(): SchemaValidator<DataswornSource.RulesPackage>;
     name: string;
     index: Map<string, TypeNode.Primary<TypeId.Primary>>;
-    get packageType(): "ruleset" | "expansion";
+    get packageType(): "expansion" | "ruleset";
     get data(): TSource;
     set data(value: TSource);
     get isValidated(): boolean;

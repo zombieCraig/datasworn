@@ -319,13 +319,11 @@ export type SelectChoicesGroup<Option extends SelectChoice<any>> = Static<
 	Choices<Option>
 
 const SelectBase = Input(
-	Utils.Nullable(
-		Type.Ref<typeof Id.DictKey>('DictKey', {
-			description:
-				'The key of the currently selected choice from the `choices` property, or `null` if none is selected.',
-			default: null
-		})
-	)
+	Utils.Nullable(Type.Ref<typeof Id.DictKey>('DictKey'), {
+		description:
+			'The key of the currently selected choice from the `choices` property, or `null` if none is selected.',
+		default: null
+	})
 )
 
 export function SelectWithGroups<Option extends TSelectChoice<TObject>>(

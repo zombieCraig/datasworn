@@ -22,8 +22,8 @@ export const MarkdownString = Type.String({
 })
 export type MarkdownString = Static<typeof Label>
 
-export const TemplateString = Type.String({
-	$id: 'TemplateString',
+export const MarkdownTemplateString = Type.String({
+	$id: 'MarkdownTemplateString',
 	i18n: true,
 	description: `A rich text string in Markdown with replaced values from oracle roll results.
 
@@ -32,7 +32,7 @@ The custom syntax \`{{some_row_key>some_oracle_table_id}}\` should be replaced b
 	format: 'markdown',
 	releaseStage: 'experimental'
 })
-export type TemplateString = Static<typeof TemplateString>
+export type MarkdownTemplateString = Static<typeof MarkdownTemplateString>
 
 export const PartOfSpeech = UnionEnumFromRecord(
 	{

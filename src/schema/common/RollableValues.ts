@@ -47,11 +47,14 @@ function RollableValueBase<
 export const AssetControlValueRef = RollableValueBase(
 	'asset_control',
 	Type.Object({
-		assets: Utils.Nullable(Type.Array(Type.Ref(Id.AssetIdWildcard)), {
-			default: null,
-			description:
-				"Asset IDs (which may be wildcarded) that may provide the control field. For asset ability enhancements, `null` is used to represent the asset's own control fields."
-		}),
+		assets: Utils.Nullable(
+			Type.Array(Type.Ref(Id.AssetIdWildcard), { default: null }),
+			{
+				default: null,
+				description:
+					"Asset IDs (which may be wildcarded) that may provide the control field. For asset ability enhancements, `null` is used to represent the asset's own control fields."
+			}
+		),
 		control: Type.Ref(Id.DictKey, {
 			description: 'The dictionary key of the asset control field.',
 			examples: ['health', 'integrity']

@@ -73,11 +73,11 @@ module Datasworn
       out.authors = Datasworn::from_json_data(Array[AuthorInfo], data["authors"])
       out.datasworn_version = Datasworn::from_json_data(RulesPackageExpansionDataswornVersion, data["datasworn_version"])
       out.date = Datasworn::from_json_data(DateTime, data["date"])
-      out.license = Datasworn::from_json_data(License, data["license"])
+      out.license = Datasworn::from_json_data(WebURL, data["license"])
       out.moves = Datasworn::from_json_data(Hash[String, MoveCategory], data["moves"])
       out.oracles = Datasworn::from_json_data(Hash[String, OracleTablesCollection], data["oracles"])
       out.ruleset = Datasworn::from_json_data(RulesetID, data["ruleset"])
-      out.title = Datasworn::from_json_data(String, data["title"])
+      out.title = Datasworn::from_json_data(Label, data["title"])
       out.url = Datasworn::from_json_data(WebURL, data["url"])
       out.atlas = Datasworn::from_json_data(Hash[String, AtlasCollection], data["atlas"])
       out.delve_sites = Datasworn::from_json_data(Hash[String, DelveSite], data["delve_sites"])
@@ -170,11 +170,11 @@ module Datasworn
       out.authors = Datasworn::from_json_data(Array[AuthorInfo], data["authors"])
       out.datasworn_version = Datasworn::from_json_data(RulesPackageRulesetDataswornVersion, data["datasworn_version"])
       out.date = Datasworn::from_json_data(DateTime, data["date"])
-      out.license = Datasworn::from_json_data(License, data["license"])
+      out.license = Datasworn::from_json_data(WebURL, data["license"])
       out.moves = Datasworn::from_json_data(Hash[String, MoveCategory], data["moves"])
       out.oracles = Datasworn::from_json_data(Hash[String, OracleTablesCollection], data["oracles"])
       out.rules = Datasworn::from_json_data(Rules, data["rules"])
-      out.title = Datasworn::from_json_data(String, data["title"])
+      out.title = Datasworn::from_json_data(Label, data["title"])
       out.url = Datasworn::from_json_data(WebURL, data["url"])
       out.atlas = Datasworn::from_json_data(Hash[String, AtlasCollection], data["atlas"])
       out.delve_sites = Datasworn::from_json_data(Hash[String, DelveSite], data["delve_sites"])
@@ -2349,6 +2349,7 @@ module Datasworn
 
   # Information on the original creator of this material.
   class AuthorInfo
+    # The name of the author.
     attr_accessor :name
 
     # An optional email contact for the author
@@ -2359,9 +2360,9 @@ module Datasworn
 
     def self.from_json_data(data)
       out = AuthorInfo.new
-      out.name = Datasworn::from_json_data(String, data["name"])
-      out.email = Datasworn::from_json_data(String, data["email"])
-      out.url = Datasworn::from_json_data(String, data["url"])
+      out.name = Datasworn::from_json_data(Label, data["name"])
+      out.email = Datasworn::from_json_data(Email, data["email"])
+      out.url = Datasworn::from_json_data(WebURL, data["url"])
       out
     end
 
@@ -2812,21 +2813,6 @@ module Datasworn
       data["using"] = Datasworn::to_json_data(using)
       data["value"] = Datasworn::to_json_data(value)
       data
-    end
-  end
-
-  # A date formatted YYYY-MM-DD.
-  class Date
-    attr_accessor :value
-
-    def self.from_json_data(data)
-      out = Date.new
-      out.value = Datasworn.from_json_data(String, data)
-      out
-    end
-
-    def to_json_data
-      Datasworn.to_json_data(value)
     end
   end
 
@@ -3671,7 +3657,8 @@ module Datasworn
     end
   end
 
-  # A simple dice roll expression with an optional modifer.
+  # A simple dice roll expression with an optional (positive or negative)
+  # modifer.
   class DiceExpression
     attr_accessor :value
 
@@ -3716,6 +3703,21 @@ module Datasworn
 
     def self.from_json_data(data)
       out = DictKey.new
+      out.value = Datasworn.from_json_data(String, data)
+      out
+    end
+
+    def to_json_data
+      Datasworn.to_json_data(value)
+    end
+  end
+
+  # An email address.
+  class Email
+    attr_accessor :value
+
+    def self.from_json_data(data)
+      out = Email.new
       out.value = Datasworn.from_json_data(String, data)
       out
     end
@@ -6339,11 +6341,11 @@ module Datasworn
       out.authors = Datasworn::from_json_data(Array[AuthorInfo], data["authors"])
       out.datasworn_version = Datasworn::from_json_data(ExpansionDataswornVersion, data["datasworn_version"])
       out.date = Datasworn::from_json_data(DateTime, data["date"])
-      out.license = Datasworn::from_json_data(License, data["license"])
+      out.license = Datasworn::from_json_data(WebURL, data["license"])
       out.moves = Datasworn::from_json_data(Hash[String, MoveCategory], data["moves"])
       out.oracles = Datasworn::from_json_data(Hash[String, OracleTablesCollection], data["oracles"])
       out.ruleset = Datasworn::from_json_data(RulesetID, data["ruleset"])
-      out.title = Datasworn::from_json_data(String, data["title"])
+      out.title = Datasworn::from_json_data(Label, data["title"])
       out.type = Datasworn::from_json_data(ExpansionType, data["type"])
       out.url = Datasworn::from_json_data(WebURL, data["url"])
       out.atlas = Datasworn::from_json_data(Hash[String, AtlasCollection], data["atlas"])
@@ -6550,24 +6552,6 @@ module Datasworn
     end
   end
 
-  # An URL pointing to the location where this content's license can be found.
-  # 
-  # A `null` here indicates that the content provides __no__ license, and is not
-  # intended for redistribution.
-  class License
-    attr_accessor :value
-
-    def self.from_json_data(data)
-      out = License.new
-      out.value = Datasworn.from_json_data(WebURL, data)
-      out
-    end
-
-    def to_json_data
-      Datasworn.to_json_data(value)
-    end
-  end
-
   # Localized, player-facing text, formatted in Markdown. It is *not* formatted
   # for use "out of the box"; it uses some custom syntax, intended to be
   # replaced in whatever way is most appropriate for your implementation.
@@ -6587,6 +6571,26 @@ module Datasworn
 
     def self.from_json_data(data)
       out = MarkdownString.new
+      out.value = Datasworn.from_json_data(String, data)
+      out
+    end
+
+    def to_json_data
+      Datasworn.to_json_data(value)
+    end
+  end
+
+  # A rich text string in Markdown with replaced values from oracle roll
+  # results.
+  # 
+  # The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
+  # by the `some_row_key` string of a rolled oracle table. This is usually the
+  # `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
+  class MarkdownTemplateString
+    attr_accessor :value
+
+    def self.from_json_data(data)
+      out = MarkdownTemplateString.new
       out.value = Datasworn.from_json_data(String, data)
       out
     end
@@ -9692,9 +9696,9 @@ module Datasworn
 
     def self.from_json_data(data)
       out = OracleRollTemplate.new
-      out.text = Datasworn::from_json_data(TemplateString, data["text"])
-      out.text2 = Datasworn::from_json_data(TemplateString, data["text2"])
-      out.text3 = Datasworn::from_json_data(TemplateString, data["text3"])
+      out.text = Datasworn::from_json_data(MarkdownTemplateString, data["text"])
+      out.text2 = Datasworn::from_json_data(MarkdownTemplateString, data["text2"])
+      out.text3 = Datasworn::from_json_data(MarkdownTemplateString, data["text3"])
       out
     end
 
@@ -13034,11 +13038,11 @@ module Datasworn
       out.authors = Datasworn::from_json_data(Array[AuthorInfo], data["authors"])
       out.datasworn_version = Datasworn::from_json_data(RulesetDataswornVersion, data["datasworn_version"])
       out.date = Datasworn::from_json_data(DateTime, data["date"])
-      out.license = Datasworn::from_json_data(License, data["license"])
+      out.license = Datasworn::from_json_data(WebURL, data["license"])
       out.moves = Datasworn::from_json_data(Hash[String, MoveCategory], data["moves"])
       out.oracles = Datasworn::from_json_data(Hash[String, OracleTablesCollection], data["oracles"])
       out.rules = Datasworn::from_json_data(Rules, data["rules"])
-      out.title = Datasworn::from_json_data(String, data["title"])
+      out.title = Datasworn::from_json_data(Label, data["title"])
       out.type = Datasworn::from_json_data(RulesetType, data["type"])
       out.url = Datasworn::from_json_data(WebURL, data["url"])
       out.atlas = Datasworn::from_json_data(Hash[String, AtlasCollection], data["atlas"])
@@ -13178,9 +13182,6 @@ module Datasworn
     attr_accessor :choices
     attr_accessor :field_type
     attr_accessor :label
-
-    # The key of the currently selected choice from the `choices` property, or
-    # `null` if none is selected.
     attr_accessor :value
 
     # An icon associated with this input.
@@ -13329,9 +13330,6 @@ module Datasworn
     attr_accessor :choices
     attr_accessor :field_type
     attr_accessor :label
-
-    # The key of the currently selected choice from the `choices` property, or
-    # `null` if none is selected.
     attr_accessor :value
 
     # An icon associated with this input.
@@ -13702,6 +13700,20 @@ module Datasworn
     end
   end
 
+  class SemanticVersion
+    attr_accessor :value
+
+    def self.from_json_data(data)
+      out = SemanticVersion.new
+      out.value = Datasworn.from_json_data(String, data)
+      out
+    end
+
+    def to_json_data
+      Datasworn.to_json_data(value)
+    end
+  end
+
   # Metadata describing the original source of this node
   class SourceInfo
     # Lists authors credited by the source material.
@@ -13725,10 +13737,10 @@ module Datasworn
       out = SourceInfo.new
       out.authors = Datasworn::from_json_data(Array[AuthorInfo], data["authors"])
       out.date = Datasworn::from_json_data(DateTime, data["date"])
-      out.license = Datasworn::from_json_data(License, data["license"])
-      out.title = Datasworn::from_json_data(String, data["title"])
+      out.license = Datasworn::from_json_data(WebURL, data["license"])
+      out.title = Datasworn::from_json_data(Label, data["title"])
       out.url = Datasworn::from_json_data(WebURL, data["url"])
-      out.page = Datasworn::from_json_data(Integer, data["page"])
+      out.page = Datasworn::from_json_data(PageNumber, data["page"])
       out
     end
 
@@ -13741,21 +13753,6 @@ module Datasworn
       data["url"] = Datasworn::to_json_data(url)
       data["page"] = Datasworn::to_json_data(page) unless page.nil?
       data
-    end
-  end
-
-  # The title of the source document.
-  class SourceTitle
-    attr_accessor :value
-
-    def self.from_json_data(data)
-      out = SourceTitle.new
-      out.value = Datasworn.from_json_data(String, data)
-      out
-    end
-
-    def to_json_data
-      Datasworn.to_json_data(value)
     end
   end
 
@@ -14542,26 +14539,6 @@ module Datasworn
     end
   end
 
-  # A rich text string in Markdown with replaced values from oracle roll
-  # results.
-  # 
-  # The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
-  # by the `some_row_key` string of a rolled oracle table. This is usually the
-  # `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
-  class TemplateString
-    attr_accessor :value
-
-    def self.from_json_data(data)
-      out = TemplateString.new
-      out.value = Datasworn.from_json_data(String, data)
-      out
-    end
-
-    def to_json_data
-      Datasworn.to_json_data(value)
-    end
-  end
-
   class TextFieldFieldType
     attr_accessor :value
 
@@ -14740,6 +14717,7 @@ module Datasworn
 
   # Describes trigger conditions for a move that makes no rolls.
   class TriggerNoRoll
+    # Specific conditions that qualify for this trigger.
     attr_accessor :conditions
 
     # A markdown string containing the primary trigger text for this move.

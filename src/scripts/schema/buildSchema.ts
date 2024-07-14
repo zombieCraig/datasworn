@@ -42,12 +42,12 @@ const schemaOptions: SchemaOptions[] = [
 		rootSchema: Schema.DataswornSchema,
 		paths: [
 			SCHEMA_PATH,
-			path.join(DIR_HISTORY_CURRENT, kebabCase(SCHEMA_NAME) + '.schema.json'),
+			path.join(DIR_HISTORY_CURRENT, `${kebabCase(SCHEMA_NAME)}.schema.json`)
 		],
 		messages: {
 			writeStart: '✏️  Writing schema for Datasworn',
-			writeFinish: '✅ Finished writing schema for Datasworn',
-		},
+			writeFinish: '✅ Finished writing schema for Datasworn'
+		}
 	},
 	{
 		name: SOURCE_SCHEMA_NAME,
@@ -57,14 +57,14 @@ const schemaOptions: SchemaOptions[] = [
 			SOURCE_SCHEMA_PATH,
 			path.join(
 				DIR_HISTORY_CURRENT,
-				kebabCase(SOURCE_SCHEMA_NAME) + '.schema.json'
-			),
+				`${kebabCase(SOURCE_SCHEMA_NAME)}.schema.json`
+			)
 		],
 		messages: {
 			writeStart: '✏️  Writing schema for DataswornSource',
-			writeFinish: '✅ Finished writing schema for DataswornSource',
-		},
-	},
+			writeFinish: '✅ Finished writing schema for DataswornSource'
+		}
+	}
 ]
 
 const metadataKeys: string[] = []
@@ -72,18 +72,23 @@ const metadataKeys: string[] = []
 function replacer(k: string, v: unknown) {
 	if (metadataKeys.includes(k)) return undefined
 
-	// omit $ids that aren't the root URI, they're redundant and only there for TypeBox
 	if (k === '$id' && typeof v === 'string' && !v.startsWith('http'))
+		// omit $ids that aren't the root URI, they're redundant and only there for TypeBox
 		return undefined
+	if (
+		k === '$ref' &&
+		typeof v === 'string' &&
+		!v.startsWith('http') &&
+		!v.startsWith(`#/${DefsKey}/`)
+	)
+		// adjust references for use with standard json validation
+		return `#/${DefsKey}/${v}`
 
-	// adjust references for use with standard json validation
-	return `#/${DefsKey}/` + v
-
-	return v
+  return v
 }
 
 /** Pending operations to write the schema to disk */
-const writeOps: Promise<any>[] = []
+const writeOps: Promise<unknown>[] = []
 
 for (const { rootSchema, name, paths, messages } of schemaOptions) {
 	AJV.addSchema(rootSchema as JsonSchema, name)

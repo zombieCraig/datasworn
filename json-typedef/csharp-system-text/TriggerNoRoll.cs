@@ -10,6 +10,9 @@ namespace Datasworn
     /// </summary>
     public class TriggerNoRoll
     {
+        /// <summary>
+        /// Specific conditions that qualify for this trigger.
+        /// </summary>
         [JsonPropertyName("conditions")]
         public IList<TriggerNoRollCondition> Conditions { get; set; }
 

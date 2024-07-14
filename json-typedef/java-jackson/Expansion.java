@@ -31,7 +31,7 @@ public class Expansion {
     private OffsetDateTime date;
 
     @JsonProperty("license")
-    private License license;
+    private WebUrl license;
 
     @JsonProperty("moves")
     private Map<String, MoveCategory> moves;
@@ -43,7 +43,7 @@ public class Expansion {
     private RulesetId ruleset;
 
     @JsonProperty("title")
-    private String title;
+    private Label title;
 
     @JsonProperty("type")
     private ExpansionType type;
@@ -173,14 +173,14 @@ public class Expansion {
     /**
      * Getter for license.<p>
      */
-    public License getLicense() {
+    public WebUrl getLicense() {
         return license;
     }
 
     /**
      * Setter for license.<p>
      */
-    public void setLicense(License license) {
+    public void setLicense(WebUrl license) {
         this.license = license;
     }
 
@@ -236,7 +236,7 @@ public class Expansion {
      * Getter for title.<p>
      * The title of the source document.
      */
-    public String getTitle() {
+    public Label getTitle() {
         return title;
     }
 
@@ -244,7 +244,7 @@ public class Expansion {
      * Setter for title.<p>
      * The title of the source document.
      */
-    public void setTitle(String title) {
+    public void setTitle(Label title) {
         this.title = title;
     }
 

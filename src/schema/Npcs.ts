@@ -57,7 +57,7 @@ export const Npc = Generic.CollectableNode(
 	FlatIntersect([
 		NpcMixin,
 		Type.Object({
-			variants: Generic.Dictionary(Type.Ref(NpcVariant), { default: {} })
+			variants: Generic.Dictionary(Type.Ref(NpcVariant))
 		})
 	]),
 	'npc',

@@ -144,9 +144,9 @@ function extractType(schema: TSchema): string {
 			return uniq(schema.enum.map((v) => JSON.stringify(v))).join(' | ')
 
 		default: {
-			Log.info(schema)
+			Log.info(JSON.stringify(schema))
 			throw new Error(
-				`missing transform for kind: ${JSON.stringify(schema[Kind])}`
+				`missing transform for kind of ${JSON.stringify(schema?.$id)}: ${JSON.stringify(schema[Kind])}`
 			)
 		}
 	}

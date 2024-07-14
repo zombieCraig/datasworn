@@ -7,7 +7,8 @@ using System.Text.Json.Serialization;
 namespace Datasworn
 {
     /// <summary>
-    /// A simple dice roll expression with an optional modifer.
+    /// A simple dice roll expression with an optional (positive or negative)
+    /// modifer.
     /// </summary>
     [JsonConverter(typeof(DiceExpressionJsonConverter))]
     public class DiceExpression

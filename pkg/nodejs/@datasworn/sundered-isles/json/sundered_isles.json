@@ -67382,7 +67382,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When your exploration of a waypoint uncovers something wondrous...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"make_a_discovery": {
@@ -67591,7 +67591,7 @@
 					"type": "move",
 					"trigger": {
 						"text": "When your exploration of a waypoint uncovers something dreadful...",
-						"conditions": null
+						"conditions": []
 					},
 					"oracles": {
 						"confront_chaos": {

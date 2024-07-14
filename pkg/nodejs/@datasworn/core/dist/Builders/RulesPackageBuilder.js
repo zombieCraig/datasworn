@@ -16,7 +16,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _RulesPackageBuilder_instances, _a, _RulesPackageBuilder_schemaValidator, _RulesPackageBuilder_sourceSchemaValidator, _RulesPackageBuilder_result, _RulesPackageBuilder_isSorted, _RulesPackageBuilder_isMergeComplete, _RulesPackageBuilder_isValidated, _RulesPackageBuilder_countTypes, _RulesPackageBuilder_build, _RulesPackageBuilder_sortKeys, _RulesPackageBuilder_addFile, _RulesPackageBuilder_isObject, _RulesPackageBuilder_merge, _RulesPackagePart_data, _RulesPackagePart_isValidated;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RulesPackageBuilder = void 0;
-const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
+const CONST_js_1 = require("../IdElements/CONST.js");
 const Sort_js_1 = require("../Utils/Sort.js");
 const Text_js_1 = require("../Validators/Text.js");
 const index_js_1 = __importDefault(require("../Validators/index.js"));
@@ -51,7 +51,7 @@ class RulesPackageBuilder {
     countType(typeId) {
         let ct = 0;
         for (const [k] of this.index)
-            if (k.includes(typeId + CONST_js_1.default.PrefixSep))
+            if (k.includes(typeId + CONST_js_1.PrefixSep))
                 ct++;
         return ct;
     }

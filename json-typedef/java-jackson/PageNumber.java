@@ -10,21 +10,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public class PageNumber {
     @JsonValue
-    private Short value;
+    private UnsignedShort value;
 
     public PageNumber() {
     }
 
     @JsonCreator
-    public PageNumber(Short value) {
+    public PageNumber(UnsignedShort value) {
         this.value = value;
     }
 
-    public Short getValue() {
+    public UnsignedShort getValue() {
         return value;
     }
 
-    public void setValue(Short value) {
+    public void setValue(UnsignedShort value) {
         this.value = value;
     }
 }

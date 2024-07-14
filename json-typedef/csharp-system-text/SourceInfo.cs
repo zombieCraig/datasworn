@@ -26,13 +26,13 @@ namespace Datasworn
         public DateTimeOffset Date { get; set; }
 
         [JsonPropertyName("license")]
-        public License License { get; set; }
+        public WebUrl License { get; set; }
 
         /// <summary>
         /// The title of the source document.
         /// </summary>
         [JsonPropertyName("title")]
-        public string Title { get; set; }
+        public Label Title { get; set; }
 
         /// <summary>
         /// A URL where the source document is available.
@@ -45,6 +45,6 @@ namespace Datasworn
         /// </summary>
         [JsonPropertyName("page")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public ushort? Page { get; set; }
+        public PageNumber? Page { get; set; }
     }
 }

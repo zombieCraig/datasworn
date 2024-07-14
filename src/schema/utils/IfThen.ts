@@ -4,6 +4,7 @@ import {
 	type Static,
 	type TSchema
 } from '@sinclair/typebox'
+import { omitBy } from 'lodash-es'
 
 export type TIfThenElse<
 	If extends TSchema,
@@ -35,11 +36,15 @@ export function IfThenElse<
 	},
 	options: SchemaOptions = {}
 ) {
-	return {
-		...options,
-		if: condition,
-		then: ifTrue,
-		else: ifFalse,
-		[Kind]: 'IfThenElse'
-	} as TIfThenElse<If, Then, Else>
+	return omitBy(
+		{
+			...options,
+			if: condition,
+			// biome-ignore lint/suspicious/noThenProperty: <explanation>
+			then: ifTrue,
+			else: ifFalse,
+			[Kind]: 'IfThenElse'
+		},
+		(v, k) => typeof v === 'undefined'
+	) as TIfThenElse<If, Then, Else>
 }

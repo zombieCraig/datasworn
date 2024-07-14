@@ -87,7 +87,8 @@ export type TaggableNodeType = Static<typeof TaggableNodeType>
 const TagRuleBase = Type.Object({
 	applies_to: Nullable(Type.Array(Type.Ref(TaggableNodeType)), {
 		description:
-			'Types of object that can receive this tag, or `null` if any type of object accepts it.'
+			'Types of object that can receive this tag, or `null` if any type of object accepts it.',
+		default: null
 	}),
 	description: Type.Ref(MarkdownString)
 })

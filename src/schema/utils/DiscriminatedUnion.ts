@@ -240,22 +240,20 @@ function Discriminated<
 	K extends keyof Static<T>,
 	V extends Static<T>[K] & string
 >(schema: T, discriminator: K, value: V, options: SchemaOptions = {}) {
-	return {
-		...IfThenElse(
+	return omit(
+		IfThenElse(
 			{
-				condition: {
-					...Type.Object(
+				condition: omit(
+					Type.Object(
 						{ [discriminator]: Type.Literal(value) }
 						// unset these to reduce schema clutter; they're redundant once the schema is composed
 					),
-					required: undefined,
-					type: undefined
-				},
+					['required', 'type']
+				) as TObject,
 				ifTrue: schema
 			},
 			options
 		),
-		required: undefined,
-		type: undefined
-	}
+		['required', 'type']
+	)
 }

@@ -2,10 +2,7 @@ import {
 	Type,
 	type ObjectOptions,
 	type Static,
-	type TObject,
-	type TRef,
-	type TString,
-	type TUnion
+	type TObject
 } from '@sinclair/typebox'
 import { Label } from '../common/Localize.js'
 import { SourceInfo, Suggestions } from '../common/Metadata.js'

@@ -78,7 +78,7 @@ type RulesPackageExpansion struct {
 	// Required because it's used to determine whether the data needs updating.
 	Date time.Time `json:"date"`
 
-	License License `json:"license"`
+	License WebURL `json:"license"`
 
 	// A dictionary object containing move categories, which contain moves.
 	Moves map[string]MoveCategory `json:"moves"`
@@ -90,7 +90,7 @@ type RulesPackageExpansion struct {
 	Ruleset RulesetID `json:"ruleset"`
 
 	// The title of the source document.
-	Title string `json:"title"`
+	Title Label `json:"title"`
 
 	// A URL where the source document is available.
 	URL WebURL `json:"url"`
@@ -148,7 +148,7 @@ type RulesPackageRuleset struct {
 	// Required because it's used to determine whether the data needs updating.
 	Date time.Time `json:"date"`
 
-	License License `json:"license"`
+	License WebURL `json:"license"`
 
 	// A dictionary object containing move categories, which contain moves.
 	Moves map[string]MoveCategory `json:"moves"`
@@ -160,7 +160,7 @@ type RulesPackageRuleset struct {
 	Rules Rules `json:"rules"`
 
 	// The title of the source document.
-	Title string `json:"title"`
+	Title Label `json:"title"`
 
 	// A URL where the source document is available.
 	URL WebURL `json:"url"`
@@ -1018,8 +1018,6 @@ type AssetControlFieldSelectEnhancement struct {
 
 	Label Label `json:"label"`
 
-	// The key of the currently selected choice from the `choices` property, or
-	// `null` if none is selected.
 	Value DictKey `json:"value"`
 
 	// An icon associated with this input.
@@ -1239,8 +1237,6 @@ type AssetOptionFieldSelectEnhancement struct {
 
 	Label Label `json:"label"`
 
-	// The key of the currently selected choice from the `choices` property, or
-	// `null` if none is selected.
 	Value DictKey `json:"value"`
 
 	// An icon associated with this input.
@@ -1253,8 +1249,6 @@ type AssetOptionFieldSelectValue struct {
 
 	Label Label `json:"label"`
 
-	// The key of the currently selected choice from the `choices` property, or
-	// `null` if none is selected.
 	Value DictKey `json:"value"`
 
 	// An icon associated with this input.
@@ -1458,13 +1452,14 @@ type AttachedAssetOptionValueRef struct {
 
 // Information on the original creator of this material.
 type AuthorInfo struct {
-	Name string `json:"name"`
+	// The name of the author.
+	Name Label `json:"name"`
 
 	// An optional email contact for the author
-	Email *string `json:"email,omitempty"`
+	Email *Email `json:"email,omitempty"`
 
 	// An optional URL for the author's website.
-	URL *string `json:"url,omitempty"`
+	URL *WebURL `json:"url,omitempty"`
 }
 
 // Challenge rank, represented as an integer from 1 (troublesome) to 5 (epic).
@@ -1641,9 +1636,6 @@ type CustomValue struct {
 
 	Value int16 `json:"value"`
 }
-
-// A date formatted YYYY-MM-DD.
-type Date = string
 
 type DelveSiteType string
 
@@ -2008,7 +2000,8 @@ type DelveSiteThemeID = string
 // DelveSiteTheme objects.
 type DelveSiteThemeIDWildcard = string
 
-// A simple dice roll expression with an optional modifer.
+// A simple dice roll expression with an optional (positive or negative)
+// modifer.
 type DiceExpression = string
 
 // Represents a range of dice roll results, bounded by `min` and `max`
@@ -2023,6 +2016,9 @@ type DiceRange struct {
 
 // A `snake_case` key used in a Datasworn dictionary object.
 type DictKey = string
+
+// An email address.
+type Email = string
 
 type EmbedOnlyType string
 
@@ -3354,7 +3350,7 @@ type Expansion struct {
 	// Required because it's used to determine whether the data needs updating.
 	Date time.Time `json:"date"`
 
-	License License `json:"license"`
+	License WebURL `json:"license"`
 
 	// A dictionary object containing move categories, which contain moves.
 	Moves map[string]MoveCategory `json:"moves"`
@@ -3366,7 +3362,7 @@ type Expansion struct {
 	Ruleset RulesetID `json:"ruleset"`
 
 	// The title of the source document.
-	Title string `json:"title"`
+	Title Label `json:"title"`
 
 	Type ExpansionType `json:"type"`
 
@@ -3465,12 +3461,6 @@ type ImpactRule struct {
 // exposed to assistive technology (e.g. with `aria-label` in HTML).
 type Label = string
 
-// An URL pointing to the location where this content's license can be found.
-// 
-// A `null` here indicates that the content provides __no__ license, and is not
-// intended for redistribution.
-type License = WebURL
-
 // Localized, player-facing text, formatted in Markdown. It is *not* formatted
 // for use "out of the box"; it uses some custom syntax, intended to be replaced
 // in whatever way is most appropriate for your implementation.
@@ -3486,6 +3476,13 @@ type License = WebURL
 // can be an OracleCollectionId, or the ID of anything that can have
 // EmbeddedOracleRollables (such as a Move or TruthOption).
 type MarkdownString = string
+
+// A rich text string in Markdown with replaced values from oracle roll results.
+// 
+// The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
+// by the `some_row_key` string of a rolled oracle table. This is usually the
+// `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
+type MarkdownTemplateString = string
 
 type Move struct {
 	RollType string
@@ -5198,13 +5195,13 @@ type OracleRoll struct {
 // from the target oracle rollable ID.
 type OracleRollTemplate struct {
 	// A string template that may be used in place of OracleRollableRow#text.
-	Text *TemplateString `json:"text,omitempty"`
+	Text *MarkdownTemplateString `json:"text,omitempty"`
 
 	// A string template that may be used in place of OracleRollableRow#text2.
-	Text2 *TemplateString `json:"text2,omitempty"`
+	Text2 *MarkdownTemplateString `json:"text2,omitempty"`
 
 	// A string template that may be used in place of OracleRollableRow#text3.
-	Text3 *TemplateString `json:"text3,omitempty"`
+	Text3 *MarkdownTemplateString `json:"text3,omitempty"`
 }
 
 // A collection of table rows from which random results may be rolled. This may
@@ -6666,7 +6663,7 @@ type OracleTablesCollection struct {
 }
 
 // Represents a page number in a book.
-type PageNumber = int16
+type PageNumber = uint16
 
 type PartOfSpeech string
 
@@ -6998,7 +6995,7 @@ type Ruleset struct {
 	// Required because it's used to determine whether the data needs updating.
 	Date time.Time `json:"date"`
 
-	License License `json:"license"`
+	License WebURL `json:"license"`
 
 	// A dictionary object containing move categories, which contain moves.
 	Moves map[string]MoveCategory `json:"moves"`
@@ -7010,7 +7007,7 @@ type Ruleset struct {
 	Rules Rules `json:"rules"`
 
 	// The title of the source document.
-	Title string `json:"title"`
+	Title Label `json:"title"`
 
 	Type RulesetType `json:"type"`
 
@@ -7123,8 +7120,6 @@ type SelectEnhancementField struct {
 
 	Label Label `json:"label"`
 
-	// The key of the currently selected choice from the `choices` property, or
-	// `null` if none is selected.
 	Value DictKey `json:"value"`
 
 	// An icon associated with this input.
@@ -7178,8 +7173,6 @@ type SelectValueField struct {
 
 	Label Label `json:"label"`
 
-	// The key of the currently selected choice from the `choices` property, or
-	// `null` if none is selected.
 	Value DictKey `json:"value"`
 
 	// An icon associated with this input.
@@ -7372,6 +7365,8 @@ type SelectValueFieldChoiceStat struct {
 	Stat StatKey `json:"stat"`
 }
 
+type SemanticVersion = string
+
 // Metadata describing the original source of this node
 type SourceInfo struct {
 	// Lists authors credited by the source material.
@@ -7381,20 +7376,17 @@ type SourceInfo struct {
 	// Required because it's used to determine whether the data needs updating.
 	Date time.Time `json:"date"`
 
-	License License `json:"license"`
+	License WebURL `json:"license"`
 
 	// The title of the source document.
-	Title string `json:"title"`
+	Title Label `json:"title"`
 
 	// A URL where the source document is available.
 	URL WebURL `json:"url"`
 
 	// The page number where this content is described in full.
-	Page *uint16 `json:"page,omitempty"`
+	Page *PageNumber `json:"page,omitempty"`
 }
-
-// The title of the source document.
-type SourceTitle = string
 
 type SpecialTrackRollMethod string
 
@@ -7862,13 +7854,6 @@ type TagsCore struct {
 	Technological *bool `json:"technological,omitempty"`
 }
 
-// A rich text string in Markdown with replaced values from oracle roll results.
-// 
-// The custom syntax `{{some_row_key>some_oracle_table_id}}` should be replaced
-// by the `some_row_key` string of a rolled oracle table. This is usually the
-// `text` key, for example `{{text>oracle_rollable:starforged/core/action}}`
-type TemplateString = string
-
 type TextFieldFieldType string
 
 const (
@@ -7941,6 +7926,7 @@ type TriggerBy struct {
 
 // Describes trigger conditions for a move that makes no rolls.
 type TriggerNoRoll struct {
+	// Specific conditions that qualify for this trigger.
 	Conditions []TriggerNoRollCondition `json:"conditions"`
 
 	// A markdown string containing the primary trigger text for this move.

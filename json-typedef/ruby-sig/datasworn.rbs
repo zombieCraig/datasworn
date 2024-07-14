@@ -24,11 +24,11 @@ module Datasworn
     attr_accessor authors: Array[AuthorInfo]
     attr_accessor datasworn_version: RulesPackageExpansionDataswornVersion
     attr_accessor date: DateTime
-    attr_accessor license: License
+    attr_accessor license: WebURL
     attr_accessor moves: Hash[String, MoveCategory]
     attr_accessor oracles: Hash[String, OracleTablesCollection]
     attr_accessor ruleset: RulesetID
-    attr_accessor title: String
+    attr_accessor title: Label
     attr_accessor url: WebURL
     attr_accessor atlas: Hash[String, AtlasCollection]?
     attr_accessor delve_sites: Hash[String, DelveSite]?
@@ -59,11 +59,11 @@ module Datasworn
     attr_accessor authors: Array[AuthorInfo]
     attr_accessor datasworn_version: RulesPackageRulesetDataswornVersion
     attr_accessor date: DateTime
-    attr_accessor license: License
+    attr_accessor license: WebURL
     attr_accessor moves: Hash[String, MoveCategory]
     attr_accessor oracles: Hash[String, OracleTablesCollection]
     attr_accessor rules: Rules
-    attr_accessor title: String
+    attr_accessor title: Label
     attr_accessor url: WebURL
     attr_accessor atlas: Hash[String, AtlasCollection]?
     attr_accessor delve_sites: Hash[String, DelveSite]?
@@ -846,9 +846,9 @@ module Datasworn
   end
 
   class AuthorInfo
-    attr_accessor name: String
-    attr_accessor email: String?
-    attr_accessor url: String?
+    attr_accessor name: Label
+    attr_accessor email: Email?
+    attr_accessor url: WebURL?
 
     def self.from_json_data: (untyped) -> AuthorInfo
     def to_json_data: () -> untyped
@@ -1012,13 +1012,6 @@ module Datasworn
     attr_accessor value: Integer
 
     def self.from_json_data: (untyped) -> CustomValue
-    def to_json_data: () -> untyped
-  end
-
-  class Date
-    attr_accessor value: String
-
-    def self.from_json_data: (untyped) -> Date
     def to_json_data: () -> untyped
   end
 
@@ -1334,6 +1327,13 @@ module Datasworn
     attr_accessor value: String
 
     def self.from_json_data: (untyped) -> DictKey
+    def to_json_data: () -> untyped
+  end
+
+  class Email
+    attr_accessor value: String
+
+    def self.from_json_data: (untyped) -> Email
     def to_json_data: () -> untyped
   end
 
@@ -2261,11 +2261,11 @@ module Datasworn
     attr_accessor authors: Array[AuthorInfo]
     attr_accessor datasworn_version: ExpansionDataswornVersion
     attr_accessor date: DateTime
-    attr_accessor license: License
+    attr_accessor license: WebURL
     attr_accessor moves: Hash[String, MoveCategory]
     attr_accessor oracles: Hash[String, OracleTablesCollection]
     attr_accessor ruleset: RulesetID
-    attr_accessor title: String
+    attr_accessor title: Label
     attr_accessor type: ExpansionType
     attr_accessor url: WebURL
     attr_accessor atlas: Hash[String, AtlasCollection]?
@@ -2342,17 +2342,17 @@ module Datasworn
     def to_json_data: () -> untyped
   end
 
-  class License
-    attr_accessor value: WebURL
-
-    def self.from_json_data: (untyped) -> License
-    def to_json_data: () -> untyped
-  end
-
   class MarkdownString
     attr_accessor value: String
 
     def self.from_json_data: (untyped) -> MarkdownString
+    def to_json_data: () -> untyped
+  end
+
+  class MarkdownTemplateString
+    attr_accessor value: String
+
+    def self.from_json_data: (untyped) -> MarkdownTemplateString
     def to_json_data: () -> untyped
   end
 
@@ -3417,9 +3417,9 @@ module Datasworn
   end
 
   class OracleRollTemplate
-    attr_accessor text: TemplateString?
-    attr_accessor text2: TemplateString?
-    attr_accessor text3: TemplateString?
+    attr_accessor text: MarkdownTemplateString?
+    attr_accessor text2: MarkdownTemplateString?
+    attr_accessor text3: MarkdownTemplateString?
 
     def self.from_json_data: (untyped) -> OracleRollTemplate
     def to_json_data: () -> untyped
@@ -4560,11 +4560,11 @@ module Datasworn
     attr_accessor authors: Array[AuthorInfo]
     attr_accessor datasworn_version: RulesetDataswornVersion
     attr_accessor date: DateTime
-    attr_accessor license: License
+    attr_accessor license: WebURL
     attr_accessor moves: Hash[String, MoveCategory]
     attr_accessor oracles: Hash[String, OracleTablesCollection]
     attr_accessor rules: Rules
-    attr_accessor title: String
+    attr_accessor title: Label
     attr_accessor type: RulesetType
     attr_accessor url: WebURL
     attr_accessor atlas: Hash[String, AtlasCollection]?
@@ -4823,22 +4823,22 @@ module Datasworn
     def to_json_data: () -> untyped
   end
 
-  class SourceInfo
-    attr_accessor authors: Array[AuthorInfo]
-    attr_accessor date: DateTime
-    attr_accessor license: License
-    attr_accessor title: String
-    attr_accessor url: WebURL
-    attr_accessor page: Integer?
+  class SemanticVersion
+    attr_accessor value: String
 
-    def self.from_json_data: (untyped) -> SourceInfo
+    def self.from_json_data: (untyped) -> SemanticVersion
     def to_json_data: () -> untyped
   end
 
-  class SourceTitle
-    attr_accessor value: String
+  class SourceInfo
+    attr_accessor authors: Array[AuthorInfo]
+    attr_accessor date: DateTime
+    attr_accessor license: WebURL
+    attr_accessor title: Label
+    attr_accessor url: WebURL
+    attr_accessor page: PageNumber?
 
-    def self.from_json_data: (untyped) -> SourceTitle
+    def self.from_json_data: (untyped) -> SourceInfo
     def to_json_data: () -> untyped
   end
 
@@ -5140,13 +5140,6 @@ module Datasworn
     attr_accessor technological: bool?
 
     def self.from_json_data: (untyped) -> TagsCore
-    def to_json_data: () -> untyped
-  end
-
-  class TemplateString
-    attr_accessor value: String
-
-    def self.from_json_data: (untyped) -> TemplateString
     def to_json_data: () -> untyped
   end
 

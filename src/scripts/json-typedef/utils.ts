@@ -1,6 +1,8 @@
 import {
 	Hint,
 	Kind,
+	KindGuard,
+	type TAny,
 	type TAnySchema,
 	type TArray,
 	type TBoolean,
@@ -16,7 +18,7 @@ import {
 	type TString,
 	type TThis,
 	Type,
-	TypeGuard,
+	TypeGuard
 } from '@sinclair/typebox'
 import type * as JTD from 'jtd'
 
@@ -123,19 +125,19 @@ export function toJtdEnum<
 /** Identifiers of all JTD schemas that are referenced */
 export const refTracker = new Set<string>()
 
-export function toJtdRef(schema: TRef | TThis) {
+export function toJtdRef(schema: TRef | TThis): JTD.SchemaFormRef {
 	const ref = schema.$ref.replace(`#/${DefsKey}/`, '')
 
 	refTracker.add(ref)
 
-	return { ref } as unknown as TSchema
+	return JtdType.Ref(ref)
 }
 
 /** Transforms a Typebox array schema into JTD elements */
 export function toJtdElements<U extends TSchema, T extends TArray<U>>(
 	schema: T
 ) {
-	const items = schema.items as TSchema
+	const { items } = schema
 	return JtdType.Array(toJtdForm(items))
 }
 
@@ -227,87 +229,84 @@ type TConvertible =
 	| TObject
 	| TNumber
 	| Utils.TUnionEnum
+	| TArray
+
 
 function toJtdForm(
 	schema: TConvertible | Utils.TNullable<TConvertible> | TOptional<TConvertible>
 ): JTD.Schema
 function toJtdForm(schema: TNull): null
 function toJtdForm(schema: TSchema): JTD.Schema | null {
-	// console.log(schema)
+	const metadata = extractMetadata(schema)
 
-	let result: TSchema | undefined = undefined
+	if (schema[JsonTypeDef]?.schema != null)
+		return merge(cloneDeep(schema[JsonTypeDef].schema), {
+			metadata
+		})
+
+	let result: JTD.Schema
 
 	switch (true) {
 		case schema[JsonTypeDef]?.skip:
+		case KindGuard.IsNull(schema):
 			return null
-		case schema[JsonTypeDef]?.schema != null ||
-			isEqual(schema[JsonTypeDef]?.schema, {}):
-			// @ts-expect-error
-			return merge(cloneDeep(schema[JsonTypeDef].schema), {
-				metadata: extractMetadata(schema),
-			})
-		case TypeGuard.IsAny(schema):
+		case Utils.TUnionEnum(schema):
+			result = toJtdEnum(schema)
+			break
+		case KindGuard.IsAny(schema):
 			result = JtdType.Any()
 			break
-		case TypeGuard.IsNull(schema):
-			return null
-		case TypeGuard.IsLiteralString(schema):
+		case KindGuard.IsLiteralString(schema):
 			result = toJtdSingleEnum(schema as TLiteral<string>)
 			break
-		case TypeGuard.IsString(schema):
+		case KindGuard.IsString(schema):
 			result = JtdType.String()
 			break
-		case TypeGuard.IsLiteralBoolean(schema):
-		case TypeGuard.IsBoolean(schema):
+		case KindGuard.IsLiteralBoolean(schema):
+		case KindGuard.IsBoolean(schema):
 			result = JtdType.Boolean()
 			break
-		case TypeGuard.IsLiteralNumber(schema):
-		case TypeGuard.IsInteger(schema):
+		case KindGuard.IsLiteralNumber(schema):
+		case KindGuard.IsInteger(schema):
 			result = JtdType.Int16()
 			break
-		case TypeGuard.IsNumber(schema):
+		case KindGuard.IsNumber(schema):
 			Log.warn(
 				'Received a number schema. Consider making it an integer instead.',
 				schema
 			)
 			result = JtdType.Float32()
 			break
-		case TypeGuard.IsThis(schema):
-		case TypeGuard.IsRef(schema):
+		case KindGuard.IsThis(schema):
+		case KindGuard.IsRef(schema):
 			result = toJtdRef(schema as TThis | TRef)
 			break
-		case TypeGuard.IsRecord(schema):
-			// case schema[Generic.DictionaryBrand] === 'Dictionary':
+		case KindGuard.IsRecord(schema):
+		case Generic.DictionaryBrand in schema:
 			result = toJtdValues(schema as TRecord)
 			break
-		case TypeGuard.IsArray(schema):
+		case KindGuard.IsArray(schema):
 			result = toJtdElements(schema as TArray)
 			break
-		case TypeGuard.IsObject(schema):
-		case schema[Kind] === 'Object':
+		case KindGuard.IsObject(schema):
 			result = toJtdProperties(schema as TObject)
 			break
 		case Utils.TDiscriminatedUnion(schema):
 			result = toJtdDiscriminator(schema as Utils.TDiscriminatedUnion)
 			break
-		case TypeGuard.IsUnion(schema) && schema[Hint] === 'Enum':
-			result = JtdType.Enum(schema.anyOf.map((item: TLiteral) => item.const))
-			result.metadata = {
-				enumDescription: Object.fromEntries(
-					schema.anyOf.map((item: TLiteral) => [item.const, item.description])
-				),
-			}
+		case KindGuard.IsUnion(schema) && schema[Hint] === 'Enum':
+			result = JtdType.Enum(
+				schema.anyOf.map((item: TLiteral) => item.const),
+				{
+					enumDescription: Object.fromEntries(
+						schema.anyOf.map((item: TLiteral) => [item.const, item.description])
+					)
+				}
+			)
 			break
-		case Utils.TUnionEnum(schema):
-			result = toJtdEnum(schema as any)
-			break
-	}
-
-	if (result == null) {
-		console.log(schema)
-		throw new Error(
-			`no transform available for typebox schema kind ${schema[Kind]}`
-		)
+		default:
+			console.log(schema)
+			throw new Error('No JTD transform available for JSON schema')
 	}
 
 	result = merge(result, { metadata: extractMetadata(schema) })
@@ -328,9 +327,12 @@ export function toJtdRoot<T extends TRoot>(schemaRoot: T) {
 	for (const k in schemaRoot[DefsKey]) {
 		if (k === rootSchemaName) continue
 		try {
+
 			defs[k] = toJtdForm(schemaRoot[DefsKey][k])
 		} catch (err) {
-			Log.error(`Couldn't convert ${schemaRoot[DefsKey][k].$id}`, err)
+      console.log(`${k}:`, schemaRoot[DefsKey][k])
+
+						throw new Error(`Couldn't convert ${k}. ${err?.message ?? err}`)
 		}
 	}
 	// HACK: not sure why this is getting omitted, there's a few places it could happen and i havent tracked it down yet
@@ -341,7 +343,7 @@ export function toJtdRoot<T extends TRoot>(schemaRoot: T) {
 
 	const base = toJtdForm(schemaRoot[DefsKey][rootSchemaName])
 
-	if (isUndefined(base))
+	if (typeof base === 'undefined')
 		throw new Error(
 			`Unable to infer JSON Typedef form for root schema "${rootSchemaName}".`
 		)
@@ -349,8 +351,8 @@ export function toJtdRoot<T extends TRoot>(schemaRoot: T) {
 	return {
 		...base,
 		definitions: omitBy(defs, (v, k) => {
-			if (isNull(v)) {
-				Log.info(`Skipping "${k}"`)
+			if (v === null) {
+				Log.info(`Skipping JTD for "${k}"`)
 				return true
 			}
 			// if (!refTracker.has(k)) {

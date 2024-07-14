@@ -129,8 +129,7 @@ const AssetConditionMeterMixin = Type.Object({
 		)
 	),
 	controls: Generic.Dictionary(Type.Ref(AssetConditionMeterControlField), {
-		description: 'Checkbox controls rendered as part of the condition meter.',
-		default: {}
+		description: 'Checkbox controls rendered as part of the condition meter.'
 	})
 })
 

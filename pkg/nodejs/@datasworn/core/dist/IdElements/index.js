@@ -34,5 +34,4 @@ Object.defineProperty(exports, "TypeGuard", { enumerable: true, get: function ()
 var Pattern_js_1 = require("./Pattern.js");
 Object.defineProperty(exports, "Pattern", { enumerable: true, get: function () { return __importDefault(Pattern_js_1).default; } });
 exports.PathKeys = __importStar(require("./PathKeys.js"));
-var CONST_js_1 = require("./CONST.js");
-Object.defineProperty(exports, "CONST", { enumerable: true, get: function () { return __importDefault(CONST_js_1).default; } });
+exports.CONST = __importStar(require("./CONST.js"));

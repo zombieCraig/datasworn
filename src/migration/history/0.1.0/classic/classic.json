@@ -23844,7 +23844,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "When you [Secure an Advantage](datasworn:move:classic/adventure/secure_an_advantage) in direct support of an ally...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you [Secure an Advantage](datasworn:move:classic/adventure/secure_an_advantage) in direct support of an ally__, and score a hit, they (instead of you) can take the benefits of the move. If you are in combat and score a strong hit, you and your ally have initiative.",
 					"outcomes": null,
@@ -24105,7 +24105,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "Once per fight, when you risk it all...",
-						"conditions": null
+						"conditions": []
 					},
 					"_source": {
 						"authors": [
@@ -24643,7 +24643,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "When your supply is exhausted (reduced to 0)...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __your supply is exhausted__ (reduced to 0), mark unprepared. If you suffer additional -supply while unprepared, you must exchange each additional -supply for any combination of -health, -spirit or -momentum as appropriate to the circumstances.",
 					"outcomes": null,
@@ -24669,7 +24669,7 @@
 					},
 					"trigger": {
 						"text": "When your momentum is at its minimum (-6), and you suffer additional -momentum...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __your momentum is at its minimum__ (-6), and you suffer additional -momentum, choose one.\n\n  * Exchange each additional -momentum for any combination of -health, -spirit, or -supply as appropriate to the circumstances.\n  * Envision an event or discovery ([Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) if unsure) which undermines your progress in a current quest, journey or fight. Then, for each additional _momentum, clear 1 unit of progress on that track per its rank (troublesome=clear 3 progress; dangerous=clear 2 progress; formidable=clear 1 progress; extreme=clear 2 ticks; epic=clear 1 tick).",
 					"outcomes": null,
@@ -24762,7 +24762,7 @@
 					},
 					"trigger": {
 						"text": "When you make significant progress in your quest by overcoming a critical obstacle, completing a perilous journey, solving a complex mystery, defeating a powerful threat, gaining vital support, or acquiring a crucial item...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you make significant progress in your quest by overcoming a critical obstacle, completing a perilous journey, solving a complex mystery, defeating a powerful threat, gaining vital support, or acquiring a crucial item__, you may mark progress.\n\n  * Troublesome quest: Mark 3 progress.\n  * Dangerous quest: Mark 2 progress.\n  * Formidable quest: Mark 1 progress.\n  * Extreme quest: Mark 2 ticks.\n  * Epic quest: Mark 1 tick.",
 					"outcomes": null,
@@ -24837,7 +24837,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "When you renounce your quest, betray your promise, or the goal is lost to you...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you renounce your quest, betray your promise, or the goal is lost to you__, clear the vow and [Endure Stress](datasworn:move:classic/suffer/endure_stress). You suffer _spirit equal to the rank of your quest (troublesome=1; dangerous=2; formidable=3; extreme=4; epic=5). If the vow was made to a person or community with whom you share a bond, Test Your Bond when you next meet.",
 					"outcomes": null,
@@ -24863,7 +24863,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "When you focus on your skills, receive training, find inspiration, earn a reward, or gain a companion...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you focus on your skills, receive training, find inspiration, earn a reward, or gain a companion__, you may spend 3 experience to add a new asset, or 2 experience to upgrade an asset.",
 					"outcomes": null,
@@ -24911,7 +24911,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "When you suffer the outcome of a move...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you suffer the outcome of a move__, choose one.\n\n  * Make the most obvious negative outcome happen.\n  * Envision two negative outcomes. Rate one as ‘likely’, and [Ask the Oracle](datasworn:move:classic/fate/ask_the_oracle) using the yes/no table. On a ‘yes’, make that outcome happen. Otherwise, make it the other.\n  * Roll on the following table. If you have difficulty interpreting the result to fit the current situation, roll again.\n\n{{table>move.oracle_rollable:classic/fate/pay_the_price.pay_the_price}}",
 					"oracles": {
@@ -25230,7 +25230,7 @@
 					"roll_type": "no_roll",
 					"trigger": {
 						"text": "When you seek to resolve questions, discover details in the world, determine how other characters respond, or trigger encounters or events...",
-						"conditions": null
+						"conditions": []
 					},
 					"text": "When __you seek to resolve questions, discover details in the world, determine how other characters respond, or trigger encounters or events__, you may...\n\n  * Draw a conclusion: Decide the answer based on the most interesting and obvious result.\n  * Ask a yes/no question: Decide the odds of a ‘yes’, and roll on the table below to check the answer.\n  * Pick two: Envision two options. Rate one as ‘likely’, and roll on the table below to see if it is true. If not, it is the other.\n  * Spark an idea: Brainstorm or use a random prompt.\n\nOdds           | The answer is ‘yes’ if you roll...\n---------------|-----------------------------------\nAlmost Certain | 11 or greater\nLikely         | 26 or greater\n50/50          | 51 or greater\nUnlikely       | 76 or greater\nSmall Chance   | 91 or greater\n\nOn a match, an extreme result or twist has occurred.",
 					"outcomes": null,

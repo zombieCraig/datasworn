@@ -42,7 +42,7 @@ namespace Datasworn
         public DateTimeOffset Date { get; set; }
 
         [JsonPropertyName("license")]
-        public License License { get; set; }
+        public WebUrl License { get; set; }
 
         /// <summary>
         /// A dictionary object containing move categories, which contain moves.
@@ -64,7 +64,7 @@ namespace Datasworn
         /// The title of the source document.
         /// </summary>
         [JsonPropertyName("title")]
-        public string Title { get; set; }
+        public Label Title { get; set; }
 
         [JsonPropertyName("type")]
         public RulesetType Type_ { get; set; }

@@ -35,7 +35,7 @@ export async function loadDataswornSchema() {
 async function loadSchemaFile(filePath: string, key: string) {
 	const v = await readJSON<JsonSchema>(filePath)
 
-	AJV.addSchema(v, key)
+  AJV.addSchema(v, key)
 
 	Log.info(`✅ Loaded ${key} schema from ${formatPath(filePath)}`)
 

@@ -56,11 +56,16 @@ export function getCollectionNodeMetadata(
 			})
 		)
 	}
-	// @ts-expect-error
-	props[ContentsKey] = contentChild
 
-	// @ts-expect-error
-	props[CollectionsKey] = collectionChild
+
+	if (contentChild != null)
+		// @ts-expect-error
+		props[ContentsKey] = contentChild
+
+	if (collectionChild != null)
+		// @ts-expect-error
+		props[CollectionsKey] = collectionChild
+
 	return Type.Object(props)
 }
 
@@ -80,8 +85,8 @@ export function CollectionNode<
 	const enhancedBase = Assign(
 		getCollectionNodeMetadata(
 			thisWildcardIdRef,
-			setSourceOptional(Dictionary(collectableSchemaRef, { default: {} })),
-			setSourceOptional(Dictionary(thisSchemaRef, { default: {} }))
+			setSourceOptional(Dictionary(collectableSchemaRef)),
+			setSourceOptional(Dictionary(thisSchemaRef))
 		),
 		base
 	)
@@ -134,6 +139,7 @@ export function CollectionSubtypeNode<
 		getCollectionNodeMetadata(thisIdWildcardRef, contents, collections),
 		base
 	)
+
 
 	return PrimarySubtypeNode(enhancedBase, type, subtypeKey, subtype, options)
 }

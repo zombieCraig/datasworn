@@ -15,19 +15,19 @@ namespace Datasworn
         /// <summary>
         /// The underlying data being wrapped.
         /// </summary>
-        public short Value { get; set; }
+        public ushort Value { get; set; }
     }
 
     public class PageNumberJsonConverter : JsonConverter<PageNumber>
     {
         public override PageNumber Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            return new PageNumber { Value = JsonSerializer.Deserialize<short>(ref reader, options) };
+            return new PageNumber { Value = JsonSerializer.Deserialize<ushort>(ref reader, options) };
         }
 
         public override void Write(Utf8JsonWriter writer, PageNumber value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize<short>(writer, value.Value, options);
+            JsonSerializer.Serialize<ushort>(writer, value.Value, options);
         }
     }
 }

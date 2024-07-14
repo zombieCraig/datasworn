@@ -6,8 +6,9 @@ import Id from './Id.js'
 export const DiceExpression = Type.String({
 	pattern: /([1-9][0-9]*)d([1-9][0-9]*)([+-]([1-9][0-9]*))?/.source,
 	$id: 'DiceExpression',
-	description: 'A simple dice roll expression with an optional modifer.',
-	examples: ['1d100', '1d6+2']
+	description:
+		'A simple dice roll expression with an optional (positive or negative) modifer.',
+	examples: ['1d100', '1d6+2', '2d10']
 }) as TString & { pattern: string; static: DiceExpression }
 
 export type DiceExpression =
@@ -67,7 +68,7 @@ export type TOracleRoll = typeof OracleRoll
 export const OracleRollTemplate = Type.Object(
 	{
 		text: Type.Optional(
-			Type.Ref(Localize.TemplateString, {
+			Type.Ref(Localize.MarkdownTemplateString, {
 				description:
 					'A string template that may be used in place of OracleRollableRow#text.',
 				examples: [
@@ -76,13 +77,13 @@ export const OracleRollTemplate = Type.Object(
 			})
 		),
 		text2: Type.Optional(
-			Type.Ref(Localize.TemplateString, {
+			Type.Ref(Localize.MarkdownTemplateString, {
 				description:
 					'A string template that may be used in place of OracleRollableRow#text2.'
 			})
 		),
 		text3: Type.Optional(
-			Type.Ref(Localize.TemplateString, {
+			Type.Ref(Localize.MarkdownTemplateString, {
 				description:
 					'A string template that may be used in place of OracleRollableRow#text3.'
 			})

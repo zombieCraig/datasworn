@@ -1,9 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const CONST_js_1 = __importDefault(require("./CONST.js"));
+const CONST_js_1 = require("./CONST.js");
 /**
  * Datasworn ID elements that represent specific types of Datasworn object. They appear in the second position, immediately after the {@link RulesPackageId} element.
  *
@@ -143,7 +140,7 @@ var TypeId;
         const isPrimary = path.length === 0;
         const thisPath = [...path, typeId];
         if (!isPrimary)
-            TypeId.EmbeddedTypePath.push(thisPath.join(CONST_js_1.default.TypeSep));
+            TypeId.EmbeddedTypePath.push(thisPath.join(CONST_js_1.TypeSep));
         if (typeId in TypeId.EmbedTypeMap) {
             for (const childTypeId of TypeId.EmbedTypeMap[typeId])
                 if (isPrimary ||
