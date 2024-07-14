@@ -1,4 +1,4 @@
-import { type JsonSchema } from 'json-schema-library'
+import type { JsonSchema } from 'json-schema-library'
 import type { SchemaValidator } from '../../pkg-core/Builders/RulesPackageBuilder.js'
 import type { Datasworn, DataswornSource } from '../../pkg-core/index.js'
 import { formatPath } from '../../utils.js'
@@ -35,7 +35,7 @@ async function loadSchemaFile(filePath: string, key: string) {
 	Log.info(`✅ Loaded ${key} schema from ${formatPath(filePath)}`)
 
 	return {
-		AJV
+		AJV,
 	}
 }
 
@@ -47,11 +47,11 @@ function _validate<T>(schemaId: string, data: unknown): data is T {
 			({ instancePath, parentSchema, message }) => ({
 				parentSchema: parentSchema?.$id ?? parentSchema?.title,
 				instancePath,
-				message
-			})
+				message,
+			}),
 		)
 		throw Error(
-			`Failed schema validation. ${JSON.stringify(shortErrors, undefined, '\t')}`
+			`Failed schema validation. ${JSON.stringify(shortErrors, undefined, '\t')}`,
 		)
 	}
 

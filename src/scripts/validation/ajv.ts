@@ -19,7 +19,7 @@ const AJV = new Ajv({
 	strictTypes: 'log',
 	useDefaults: 'empty',
 	validateFormats: true,
-	verbose: true
+	verbose: true,
 	// used for code generation
 	// code: { source: true, esm: true }
 })
@@ -28,7 +28,6 @@ for (const format in FORMATS) AJV.addFormat(format, FORMATS[format])
 
 for (const keyword in KEYWORDS)
 	AJV.addKeyword({ keyword, ...KEYWORDS[keyword] })
-
 
 addFormats(AJV)
 

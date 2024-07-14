@@ -1,15 +1,15 @@
 import path from 'node:path'
-import { type RulesPackageConfig } from '../../schema/tools/build/index.js'
+import type { RulesPackageConfig } from '../../schema/tools/build/index.js'
 import {
 	PKG_SCOPE_OFFICIAL,
 	PKG_SCOPE_COMMUNITY,
-	ROOT_SOURCE_DATA
+	ROOT_SOURCE_DATA,
 } from '../const.js'
 
 export const IronswornClassic: RulesPackageConfig = {
 	type: 'ruleset',
 	paths: {
-		source: path.join(ROOT_SOURCE_DATA, 'classic')
+		source: path.join(ROOT_SOURCE_DATA, 'classic'),
 	},
 	id: 'classic',
 	pkg: {
@@ -21,17 +21,17 @@ export const IronswornClassic: RulesPackageConfig = {
 			{
 				name: 'rsek',
 				email: 'r.sekouri@gmail.com',
-				url: 'https://github.com/rsek'
-			}
+				url: 'https://github.com/rsek',
+			},
 		],
-		description: 'Datasworn JSON data for the Ironsworn RPG.'
-	}
+		description: 'Datasworn JSON data for the Ironsworn RPG.',
+	},
 }
 
 export const IronswornClassicDelve: RulesPackageConfig = {
 	type: 'expansion',
 	paths: {
-		source: path.join(ROOT_SOURCE_DATA, 'delve')
+		source: path.join(ROOT_SOURCE_DATA, 'delve'),
 	},
 	id: 'delve',
 	pkg: {
@@ -44,10 +44,10 @@ export const IronswornClassicDelve: RulesPackageConfig = {
 			{
 				name: 'rsek',
 				email: 'r.sekouri@gmail.com',
-				url: 'https://github.com/rsek'
-			}
-		]
-	}
+				url: 'https://github.com/rsek',
+			},
+		],
+	},
 }
 
 export const Starforged: RulesPackageConfig = {
@@ -57,8 +57,8 @@ export const Starforged: RulesPackageConfig = {
 		source: path.join(ROOT_SOURCE_DATA, 'starforged'),
 		assets: [
 			path.join(ROOT_SOURCE_DATA, 'starforged', 'images'),
-			path.join(ROOT_SOURCE_DATA, 'starforged', 'icons')
-		]
+			path.join(ROOT_SOURCE_DATA, 'starforged', 'icons'),
+		],
 	},
 	pkg: {
 		name: 'starforged',
@@ -70,16 +70,16 @@ export const Starforged: RulesPackageConfig = {
 			{
 				name: 'rsek',
 				email: 'r.sekouri@gmail.com',
-				url: 'https://github.com/rsek'
-			}
-		]
-	}
+				url: 'https://github.com/rsek',
+			},
+		],
+	},
 }
 
 export const SunderedIsles: RulesPackageConfig = {
 	type: 'expansion',
 	paths: {
-		source: path.join(ROOT_SOURCE_DATA, 'sundered_isles')
+		source: path.join(ROOT_SOURCE_DATA, 'sundered_isles'),
 	},
 	id: 'sundered_isles',
 	pkg: {
@@ -93,16 +93,16 @@ export const SunderedIsles: RulesPackageConfig = {
 			'datasworn',
 			'TTRPG',
 			'starforged',
-			'sundered-isles'
+			'sundered-isles',
 		],
 		authors: [
 			{
 				name: 'rsek',
 				email: 'r.sekouri@gmail.com',
-				url: 'https://github.com/rsek'
-			}
-		]
-	}
+				url: 'https://github.com/rsek',
+			},
+		],
+	},
 }
 
 // // currently these just exist for testing purposes

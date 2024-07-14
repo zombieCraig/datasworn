@@ -7,7 +7,7 @@ export const EntityPrompt = Type.Object(
 		$id: 'EntityPrompt',
 		description:
 			'This type is a placeholder and may see signficant changes in v0.2.0.',
-		releaseStage: 'experimental'
-	}
+		releaseStage: 'experimental',
+	},
 )
 export type EntityPrompt = Static<typeof EntityPrompt>

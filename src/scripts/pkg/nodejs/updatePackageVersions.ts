@@ -7,20 +7,20 @@ import { updateJSON } from '../../utils/readWrite.js'
 
 export async function updatePackageVersions(
 	dir = PKG_DIR_NODE,
-	newVersion = VERSION
+	newVersion = VERSION,
 ) {
 	const pkgs = new Bun.Glob('**/package.json').scan({
 		cwd: dir,
-		absolute: true
+		absolute: true,
 	})
 	const readmes = new Bun.Glob('**/README.md').scan({
 		cwd: dir,
-		absolute: true
+		absolute: true,
 	})
 
 	const writeOps: Promise<unknown>[] = [
 		// the readme in the monorepo root
-		updateReadme('./README.md', newVersion)
+		updateReadme('./README.md', newVersion),
 	]
 
 	for await (const filePath of pkgs)
@@ -58,15 +58,15 @@ async function updatePackageVersion(filePath: string, newVersion = VERSION) {
 			Log.info(
 				`Updating from v${oldVersion} to v${newVersion} in ./${path.relative(
 					process.cwd(),
-					filePath
-				)}`
+					filePath,
+				)}`,
 			)
 			json.version = newVersion
 		}
 
 		const newDependencies = mapValues(
 			json.dependencies as Record<string, string>,
-			(value, key) => (key.startsWith('@datasworn/') ? newVersion : value)
+			(value, key) => (key.startsWith('@datasworn/') ? newVersion : value),
 		)
 
 		if (!isEqual(json.dependencies, newDependencies))

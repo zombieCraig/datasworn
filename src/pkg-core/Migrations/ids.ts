@@ -8,7 +8,7 @@ const neverLegacyIdSubstrings = new Set([
 	')',
 	'://',
 	'.svg',
-	'.webp'
+	'.webp',
 ])
 
 const alwaysMdKeys = new Set([
@@ -19,7 +19,7 @@ const alwaysMdKeys = new Set([
 	'text',
 	'text2',
 	'text3',
-	'requirement'
+	'requirement',
 ])
 
 const neverMdOrIdKeys = new Set([
@@ -34,7 +34,7 @@ const neverMdOrIdKeys = new Set([
 	'field_type',
 	'oracle_type',
 	'field_type',
-	'choice_type'
+	'choice_type',
 ])
 
 /**
@@ -58,7 +58,7 @@ export function updateIdInString(
 	k: unknown,
 	v: unknown,
 	replacementMap: Record<string, string | null>,
-	unreplacedIds?: Set<string>
+	unreplacedIds?: Set<string>,
 ) {
 	switch (true) {
 		case typeof v !== 'string':
@@ -80,7 +80,7 @@ export function updateIdInString(
 export function updateIdsInMarkdown(
 	md: string,
 	replacementMap: Record<string, string | null>,
-	unreplacedIds?: Set<string>
+	unreplacedIds?: Set<string>,
 ) {
 	let newStr = md
 
@@ -90,7 +90,7 @@ export function updateIdsInMarkdown(
 			const replacementId = updateId(id, replacementMap, unreplacedIds)
 			if (id == null) return substring
 			return `[${linkText}](${replacementId})`
-		}
+		},
 	)
 	newStr = newStr.replaceAll(
 		oldMarkdownMacroPattern,
@@ -98,7 +98,7 @@ export function updateIdsInMarkdown(
 			const replacementId = updateId(id, replacementMap, unreplacedIds)
 			if (id == null) return substring
 			return `{{${directive}>${replacementId}}}`
-		}
+		},
 	)
 
 	return newStr
@@ -107,7 +107,7 @@ export function updateIdsInMarkdown(
 export function updateId(
 	id: string,
 	replacementMap: Record<string, string | null>,
-	unreplacedIds?: Set<string>
+	unreplacedIds?: Set<string>,
 ): string | null {
 	const replacement = replacementMap[id]
 

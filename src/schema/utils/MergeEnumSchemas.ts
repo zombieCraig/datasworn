@@ -1,10 +1,10 @@
-import { type SchemaOptions, type Static } from '@sinclair/typebox'
+import type { SchemaOptions, Static } from '@sinclair/typebox'
 import { UnionEnumFromRecord } from './UnionEnumFromRecord.js'
 import { EnumDescription, type TUnionEnum } from './UnionEnum.js'
 
 export function MergeEnumSchemas<T extends Array<TUnionEnum<string[]>>>(
 	schemas: [...T],
-	options: SchemaOptions = {}
+	options: SchemaOptions = {},
 ) {
 	const entries = schemas
 		.map((item) => item[EnumDescription])

@@ -1,4 +1,4 @@
-import { type TransformableInfo } from 'logform'
+import type { TransformableInfo } from 'logform'
 import Winston from 'winston'
 import { PKG_NAME } from '../const.js'
 
@@ -12,14 +12,14 @@ const { combine, timestamp, label, printf, colorize } = Winston.format
 
 const logFormat = printf(
 	({ level, message, label, timestamp }: TransformableInfo) =>
-		`${timestamp as string} [${label as string}] ${level}: ${message as string}`
+		`${timestamp as string} [${label as string}] ${level}: ${message as string}`,
 )
 
 export default Winston.createLogger({
 	format: combine(
 		label({ label: PKG_NAME }),
 		timestamp({ format: 'hh:mm:ss.SSS' }),
-		logFormat
+		logFormat,
 		// colorize({
 		// 	level: true,
 		// 	colors: { warn: 'purple', info: 'blue', error: 'red' }
@@ -28,7 +28,7 @@ export default Winston.createLogger({
 	// levels: merge(cloneDeep(Winston.config.npm.levels), {
 	// 	colors
 	// }),
-	transports: [new Winston.transports.Console({})]
+	transports: [new Winston.transports.Console({})],
 })
 
 // Winston.addColors(colors as any)

@@ -5,7 +5,7 @@ import {
 	type TRef,
 	type TSchema,
 	type TString,
-	type TUnion
+	type TUnion,
 } from '@sinclair/typebox'
 import type TypeNode from '../pkg-core/TypeNode.js'
 import CONST from '../pkg-core/IdElements/CONST.js'
@@ -39,8 +39,10 @@ type DictPropKeyIn<O> = keyof O
 // type ArrayPropKeyIn<O> = PropKeysOfType<O, Array<any>>
 type ArrayPropKeyIn<O> = keyof O
 
-type EntryInProp<O, P extends DictPropKeyIn<O> | ArrayPropKeyIn<O>> =
-	O[P] extends Array<any> ? O[P][number] : O[P][keyof O[P]]
+type EntryInProp<
+	O,
+	P extends DictPropKeyIn<O> | ArrayPropKeyIn<O>,
+> = O[P] extends Array<any> ? O[P][number] : O[P][keyof O[P]]
 
 /**
  * Represents a single, slash-separated path element of a Datasworn ID.
@@ -61,7 +63,7 @@ abstract class PathSymbol<Origin, Key extends keyof Origin = keyof Origin> {
 namespace PathSymbol {
 	export class RulesPackage extends PathSymbol<null> {
 		static readonly WILDCARD = new RegExp(
-			`(?:${Pattern.RulesPackageElement.source}|\\${CONST.WildcardString}|\\${CONST.WildcardString}\\${CONST.WildcardString})`
+			`(?:${Pattern.RulesPackageElement.source}|\\${CONST.WildcardString}|\\${CONST.WildcardString}\\${CONST.WildcardString})`,
 		)
 
 		get pattern() {
@@ -84,11 +86,11 @@ namespace PathSymbol {
 
 	export class DictKey<
 		Origin,
-		Prop extends DictPropKeyIn<Origin>
+		Prop extends DictPropKeyIn<Origin>,
 	> extends PathSymbol<Origin, Prop> {
 		static readonly PATTERN = Pattern.DictKeyElement
 		static readonly WILDCARD = new RegExp(
-			`${DictKey.PATTERN.source}|\\${CONST.PathKeySep}\\${CONST.WildcardString}|\\${CONST.PathKeySep}\\${CONST.WildcardString}\\${CONST.WildcardString}`
+			`${DictKey.PATTERN.source}|\\${CONST.PathKeySep}\\${CONST.WildcardString}|\\${CONST.PathKeySep}\\${CONST.WildcardString}\\${CONST.WildcardString}`,
 		)
 
 		public get minReps(): number {
@@ -164,7 +166,7 @@ namespace PathSymbol {
 	export class RecursiveDictKeys<
 		Origin,
 		Prop extends DictPropKeyIn<Origin>,
-		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>
+		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>,
 	> extends DictKey<Origin, Prop> {
 		readonly recursiveProperty: RecursiveProp
 
@@ -185,19 +187,19 @@ namespace PathSymbol {
 			CloneProp extends DictPropKeyIn<Origin> = Prop,
 			CloneRecursiveProp extends DictPropKeyIn<
 				EntryInProp<Origin, Prop>
-			> = RecursiveProp
+			> = RecursiveProp,
 		>() {
 			// @ts-expect-error
 			return new RecursiveDictKeys<Origin, CloneProp, CloneRecursiveProp>(
 				this.inProperty,
-				this.recursiveProperty
+				this.recursiveProperty,
 			) as this
 		}
 	}
 
 	export class Index<
 		Origin,
-		Key extends ArrayPropKeyIn<Origin>
+		Key extends ArrayPropKeyIn<Origin>,
 	> extends PathSymbol<Origin, Key> {
 		clone() {
 			return new Index<Origin, Key>(this.inProperty) as this
@@ -205,7 +207,7 @@ namespace PathSymbol {
 
 		get wildcardPattern() {
 			return new RegExp(
-				`${Pattern.IndexElement.source}|\\${CONST.WildcardString}`
+				`${Pattern.IndexElement.source}|\\${CONST.WildcardString}`,
 			)
 		}
 
@@ -220,7 +222,7 @@ namespace PathSymbol {
  * @template CurrentNode The type of the current (last) node in an IdPattern. Used to provide typechecks for keys when chaining `add` methods.
  */
 class IdPattern<
-	CurrentNode = Datasworn.RulesPackage
+	CurrentNode = Datasworn.RulesPackage,
 > extends Array<PathFormat> {
 	static readonly TypeSep = '\\' + CONST.TypeSep
 
@@ -253,10 +255,10 @@ class IdPattern<
 	 */
 	getRightSide(
 		groups: RegexGroupType = 'named_capture_group',
-		wildcard = false
+		wildcard = false,
 	): RegExp {
 		const result = this.map((part) =>
-			part.toRegexSource(groups, wildcard)
+			part.toRegexSource(groups, wildcard),
 		).join(IdPattern.TypeSep)
 
 		return new RegExp(result)
@@ -271,8 +273,8 @@ class IdPattern<
 			...this.map((el, i, arr) =>
 				typeof primaryTypeId === 'string' && i === arr.length - 1
 					? el.clone(primaryTypeId)
-					: el.clone()
-			)
+					: el.clone(),
+			),
 		) as this
 	}
 
@@ -296,7 +298,7 @@ class IdPattern<
 	}
 
 	createEmbedded<T extends TypeId.Embeddable>(
-		typeId: T
+		typeId: T,
 	): IdPattern<Extract<TypeNode.Embedded, { type: typeof typeId }>> {
 		const withGroup = this.clone().addNewTypeGroup(typeId)
 
@@ -306,12 +308,12 @@ class IdPattern<
 
 			case 'dictionary':
 				return withGroup.addDictKey(
-					TypeId.getEmbeddedPropertyKey(typeId) as any
+					TypeId.getEmbeddedPropertyKey(typeId) as any,
 				)
 
 			default:
 				throw new Error(
-					`Expected an embeddable TypeId, but got ${String(typeId)}`
+					`Expected an embeddable TypeId, but got ${String(typeId)}`,
 				)
 		}
 	}
@@ -330,7 +332,7 @@ class IdPattern<
 		Prop extends DictPropKeyIn<CurrentNode>,
 		RecursiveProp extends DictPropKeyIn<
 			CurrentNode[Prop][keyof CurrentNode[Prop]]
-		>
+		>,
 	>(property: Prop, recursiveProperty: RecursiveProp) {
 		this.current.addRecursiveDictKeys(property, recursiveProperty)
 		return this as IdPattern<EntryInProp<CurrentNode, Prop>>
@@ -345,7 +347,7 @@ class IdPattern<
 	toRegex(
 		lineDelimiters = false,
 		groups: RegexGroupType = 'named_capture_group',
-		wildcard = false
+		wildcard = false,
 	) {
 		const base =
 			this.getLeftSide().source +
@@ -369,7 +371,7 @@ class IdPattern<
 			$id,
 			description,
 			pattern,
-			...options
+			...options,
 		})
 	}
 
@@ -388,7 +390,7 @@ class IdPattern<
 			$id,
 			description,
 			pattern,
-			...options
+			...options,
 		})
 	}
 
@@ -404,7 +406,7 @@ class IdPattern<
 
 	static createCollection<T extends TypeId.Collection>(
 		typeId: T,
-		typeRoot: TypeId.BranchKey<T>
+		typeRoot: TypeId.BranchKey<T>,
 	) {
 		return (
 			IdPattern.fromRoot(typeId)
@@ -417,7 +419,7 @@ class IdPattern<
 
 	static createCollectable<T extends TypeId.Collectable>(
 		typeId: T,
-		typeRoot: TypeId.BranchKey<T>
+		typeRoot: TypeId.BranchKey<T>,
 	) {
 		return (
 			IdPattern.fromRoot(typeId)
@@ -430,7 +432,7 @@ class IdPattern<
 
 	static createNonCollectable<T extends TypeId.NonCollectable>(
 		typeId: T,
-		typeRoot: TypeId.BranchKey<T>
+		typeRoot: TypeId.BranchKey<T>,
 	) {
 		return IdPattern.fromRoot(typeId).addDictKey(typeRoot) as IdPattern<
 			TypeNode.NonCollectable<T>
@@ -482,7 +484,7 @@ class PathFormat<Origin = Datasworn.RulesPackage> extends Array<
 					const toAppend = PathSymbol.DictKey.renderDictKeys(
 						min,
 						max,
-						wildcard
+						wildcard,
 					).source
 					if (
 						!toAppend.startsWith(`(?:${IdPattern.PathSep}`) &&
@@ -568,13 +570,13 @@ class PathFormat<Origin = Datasworn.RulesPackage> extends Array<
 
 	addRecursiveDictKeys<
 		Prop extends DictPropKeyIn<Origin>,
-		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>
+		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>,
 	>(property: Prop, recursiveProperty: RecursiveProp) {
 		this.push(
 			new PathSymbol.RecursiveDictKeys<Origin, Prop, RecursiveProp>(
 				property,
-				recursiveProperty
-			)
+				recursiveProperty,
+			),
 		)
 		return this as PathFormat<EntryInProp<Origin, Prop>>
 	}
@@ -602,7 +604,7 @@ for (const typeId of TypeId.Primary) {
 		case TypeGuard.NonCollectableType(typeId):
 			pattern = IdPattern.createNonCollectable(
 				typeId,
-				TypeId.getBranchKey(typeId)
+				TypeId.getBranchKey(typeId),
 			)
 			break
 		default:
@@ -638,14 +640,14 @@ function computeEmbeddedTypes(pattern: IdPattern) {
 type PrimaryNodePrefix<T extends TypeId.Primary = TypeId.Primary> =
 	`${PascalCase<T>}`
 type EmbeddedPrimaryNodePrefix<
-	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary
+	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary,
 > = `Embedded${PascalCase<T>}`
 type PrimaryNodeUnionPrefix<
-	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary
+	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary,
 > = `Any${PascalCase<T>}`
 type EmbedOnlyPrefix<
 	T extends TypeId.EmbedOnly = TypeId.EmbedOnly,
-	TParent extends TypeId.CanEmbedType<T> = TypeId.CanEmbedType<T>
+	TParent extends TypeId.CanEmbedType<T> = TypeId.CanEmbedType<T>,
 > = `${PascalCase<TParent>}${PascalCase<T>}`
 
 type IdSuffix = 'Id' | 'IdWildcard'
@@ -713,11 +715,11 @@ const anyIdWildcardSchemata: TRef<TString>[] = []
 
 for (const $id in permutations) {
 	const schemaIds = Array.from(permutations[$id]).map((id) =>
-		Type.Ref<TString>(id)
+		Type.Ref<TString>(id),
 	)
 	ids[$id as IdSchemaName] = Type.Union(schemaIds, {
 		$id,
-		[JsonTypeDef]: { schema: JtdType.String() }
+		[JsonTypeDef]: { schema: JtdType.String() },
 	})
 	if ($id.endsWith('IdWildcard')) anyIdWildcardSchemata.push(...schemaIds)
 	else anyIdSchemata.push(...schemaIds)
@@ -728,7 +730,10 @@ ids.AnyOracleRollableRowId = Type.Union(
 	Object.values(ids)
 		.filter((schema) => schema.$id?.endsWith('OracleRollableRowId'))
 		.map((schema) => Type.Ref(schema.$id as string)),
-	{ $id: 'AnyOracleRollableRowId', [JsonTypeDef]: { schema: JtdType.String() } }
+	{
+		$id: 'AnyOracleRollableRowId',
+		[JsonTypeDef]: { schema: JtdType.String() },
+	},
 )
 // @ts-expect-error
 
@@ -739,8 +744,8 @@ ids.AnyOracleRollableRowIdWildcard = Type.Union(
 		.map((schema) => Type.Ref(schema.$id as string)),
 	{
 		$id: 'AnyOracleRollableRowIdWildcard',
-		[JsonTypeDef]: { schema: JtdType.String() }
-	}
+		[JsonTypeDef]: { schema: JtdType.String() },
+	},
 )
 // @ts-expect-error
 
@@ -749,15 +754,15 @@ ids.AnyId = Type.Union(
 		.flat()
 		.filter(
 			(schema) =>
-				schema.type === 'string' && !schema.$id?.endsWith('IdWildcard')
+				schema.type === 'string' && !schema.$id?.endsWith('IdWildcard'),
 		)
 		.map((schema) => Type.Ref(schema)),
 	{
 		$id: 'AnyId',
 		description:
 			'Represents any kind of non-wildcard ID, including IDs of embedded objects.',
-		[JsonTypeDef]: { schema: JtdType.String() }
-	}
+		[JsonTypeDef]: { schema: JtdType.String() },
+	},
 )
 // @ts-expect-error
 
@@ -765,15 +770,16 @@ ids.AnyIdWildcard = Type.Union(
 	Object.values(ids)
 		.flat()
 		.filter(
-			(schema) => schema.type === 'string' && schema.$id?.endsWith('IdWildcard')
+			(schema) =>
+				schema.type === 'string' && schema.$id?.endsWith('IdWildcard'),
 		)
 		.map((schema) => Type.Ref(schema)),
 	{
 		$id: 'AnyIdWildcard',
 		description:
 			'Represents any kind of wildcard ID, including IDs of embedded objects.',
-		[JsonTypeDef]: { schema: JtdType.String() }
-	}
+		[JsonTypeDef]: { schema: JtdType.String() },
+	},
 )
 
 // generate union types from IDs that are marked Any*Id
@@ -790,7 +796,7 @@ for (const idName in ids) {
 	const $id = `Any${typeName}` as keyof typeof ids
 	ids[$id] = Type.Union([Type.Ref(typeName), Type.Ref(`Embedded${typeName}`)], {
 		$id,
-		[JsonTypeDef]: { skip: true }
+		[JsonTypeDef]: { skip: true },
 	})
 }
 

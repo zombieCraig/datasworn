@@ -1,5 +1,5 @@
 import { camelCase } from 'lodash-es'
-import { type PascalCase as PascalCaseNoDot } from 'type-fest'
+import type { PascalCase as PascalCaseNoDot } from 'type-fest'
 import type { Join, Split } from '../../pkg-core/Utils/String.js'
 
 export function capitalize<Str extends string = string>(str: Str) {

@@ -7,5 +7,5 @@ export const Cyclopedia = Type.Object({
 	summary: Type.Optional(Type.Ref(Localize.MarkdownString)),
 	description: Type.Ref(Localize.MarkdownString),
 	quest_starter: Type.Optional(Type.Ref(Localize.MarkdownString)),
-	your_truth: Type.Optional(Type.Ref(Localize.MarkdownString))
+	your_truth: Type.Optional(Type.Ref(Localize.MarkdownString)),
 })

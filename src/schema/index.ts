@@ -2,7 +2,6 @@
  * TypeBox JSON schema, with annotations so they can be converted to JSON TypeDef.
  */
 
-
 export * from './Generic.js'
 export * from './common/index.js'
 export * from './Rules.js'

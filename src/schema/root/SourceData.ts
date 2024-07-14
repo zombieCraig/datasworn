@@ -9,18 +9,18 @@ import {
 	type TRecord,
 	type TSchema,
 	type TTuple,
-	type TUnion
+	type TUnion,
 } from '@sinclair/typebox'
 import { mapValues, omit } from 'lodash-es'
-import { type TNullable } from '../Utils.js'
+import type { TNullable } from '../Utils.js'
 import {
 	ComputedPropertyBrand,
 	GetSourceDataSchema,
-	SourceOptionalBrand
+	SourceOptionalBrand,
 } from '../utils/Computed.js'
-import { type TDiscriminatedUnion } from '../utils/DiscriminatedUnion.js'
+import type { TDiscriminatedUnion } from '../utils/DiscriminatedUnion.js'
 import { SetOptional } from '../utils/SetOptional.js'
-import { type TUnionOneOf } from '../utils/UnionOneOf.js'
+import type { TUnionOneOf } from '../utils/UnionOneOf.js'
 import { keysWithDefaults } from '../utils/typebox.js'
 import { NiceSchema } from './NiceSchema.js'
 import { SchemaTransforms, type SchemaKind } from './SchemaTransform.js'
@@ -30,7 +30,7 @@ import { SchemaTransforms, type SchemaKind } from './SchemaTransform.js'
  */
 export function SourceData<T extends TSchema>(
 	schema: T,
-	options: SchemaOptions = {}
+	options: SchemaOptions = {},
 ) {
 	const schemaKind = schema[Kind] as SchemaKind
 
@@ -79,7 +79,7 @@ const transforms: SchemaTransforms = {
 		const nuOptions = omit(
 			CloneType(schema, options),
 			...Object.keys(base),
-			'required'
+			'required',
 		)
 
 		const result = CloneType(base, nuOptions) as T // defaults arent part of the type data, so it's close enough
@@ -91,7 +91,7 @@ const transforms: SchemaTransforms = {
 		const newSchema = CloneType(schema, options)
 
 		newSchema.patternProperties = mapValues(newSchema.patternProperties, (v) =>
-			SourceData(v)
+			SourceData(v),
 		)
 
 		return newSchema
@@ -118,14 +118,14 @@ const transforms: SchemaTransforms = {
 
 		result.anyOf = result.anyOf.map((item) => SourceData(item)) as [
 			TSchema,
-			TNull
+			TNull,
 		]
 
 		return result
 	},
 	UnionOneOf: <T extends TUnionOneOf<TSchema[]>>(
 		schema: T,
-		options: SchemaOptions
+		options: SchemaOptions,
 	) => {
 		const result = CloneType(schema, options)
 
@@ -135,16 +135,16 @@ const transforms: SchemaTransforms = {
 	},
 	DiscriminatedUnion: <T extends TDiscriminatedUnion<TObject[], string>>(
 		schema: T,
-		options: SchemaOptions
+		options: SchemaOptions,
 	) => {
 		const result = CloneType(schema, options)
 
 		result.allOf = result.allOf.map((ifThen) => ({
 			...ifThen,
-			then: SourceData(ifThen.then)
+			then: SourceData(ifThen.then),
 		})) as any[]
 		// result.oneOf = result.oneOf.map((member) => SourceData(member)) as any
 
 		return result
-	}
+	},
 }

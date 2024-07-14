@@ -6,14 +6,14 @@ import {
 	type TArray,
 	type TNull,
 	type TSchema,
-	type TObject
+	type TObject,
 } from '@sinclair/typebox'
 import * as Localize from '../common/Localize.js'
 import {
 	setDescriptions,
 	type TFuzzyNull,
 	type TFuzzyObject,
-	type TFuzzyRef
+	type TFuzzyRef,
 } from '../utils/typebox.js'
 import * as Utils from '../Utils.js'
 import { Assign } from '../utils/FlatIntersect.js'
@@ -22,20 +22,20 @@ export const TriggerBy = Type.Object(
 	{
 		player: Type.Boolean({
 			default: true,
-			description: 'Can this trigger be activated by the player who owns this?'
+			description: 'Can this trigger be activated by the player who owns this?',
 		}),
 		ally: Type.Boolean({
 			default: false,
 			description:
-				"Can this trigger be activated by one of the player's allies?"
-		})
+				"Can this trigger be activated by one of the player's allies?",
+		}),
 	},
 	{
 		$id: 'TriggerBy',
 		title: 'TriggerBy',
 		description:
-			"Information on who can activate this trigger condition. Usually this is just the player, but some asset abilities can trigger from an ally's move."
-	}
+			"Information on who can activate this trigger condition. Usually this is just the player, but some asset abilities can trigger from an ally's move.",
+	},
 )
 export type TriggerBy = Static<typeof TriggerBy>
 
@@ -43,28 +43,28 @@ const TriggerConditionBase = Type.Object({
 	text: Type.Optional(
 		Type.Ref(Localize.MarkdownString, {
 			description:
-				'A markdown string of any trigger text specific to this trigger condition.'
-		})
+				'A markdown string of any trigger text specific to this trigger condition.',
+		}),
 	),
-	by: Type.Optional(Type.Ref(TriggerBy))
+	by: Type.Optional(Type.Ref(TriggerBy)),
 })
 
 export function TriggerCondition<
 	Method extends TFuzzyNull<Utils.TUnionEnum<string[]>>,
-	RollOptions extends TFuzzyNull<TArray<TFuzzyObject<{ using: TSchema }>>>
+	RollOptions extends TFuzzyNull<TArray<TFuzzyObject<{ using: TSchema }>>>,
 >(method: Method, rollOptions: RollOptions, options: ObjectOptions = {}) {
 	const roll_options: RollOptions = {
 		description:
 			'The options available when rolling with this trigger condition.',
-		...rollOptions
+		...rollOptions,
 	}
 	return Assign(
 		TriggerConditionBase,
 		Type.Object({
 			method,
-			roll_options
+			roll_options,
 		}),
-		options
+		options,
 	)
 }
 export type TTriggerCondition<
@@ -73,19 +73,19 @@ export type TTriggerCondition<
 	>,
 	RollOptions extends TFuzzyNull<
 		TArray<TFuzzyObject<{ using: TSchema }>>
-	> = TFuzzyNull<TArray<TFuzzyObject<{ using: TSchema }>>>
+	> = TFuzzyNull<TArray<TFuzzyObject<{ using: TSchema }>>>,
 > = ReturnType<typeof TriggerCondition<Method, RollOptions>>
 
 export type TriggerCondition<
 	Method extends string | null = string | null,
 	RollOptions extends Array<{ using: any }> | null = Array<{
 		using: any
-	}> | null
+	}> | null,
 > = { roll_options: RollOptions; method: Method }
 
 export function TriggerConditionEnhancement<T extends TTriggerCondition>(
 	triggerCondition: T,
-	options: ObjectOptions
+	options: ObjectOptions,
 ) {
 	const RollOptions = Type.Index(triggerCondition, ['roll_options'])
 	type RollOptions = typeof RollOptions
@@ -117,13 +117,13 @@ export function TriggerConditionEnhancement<T extends TTriggerCondition>(
 		? Method
 		: Utils.Nullable(Method, {
 				description:
-					'A `null` value means this condition provides no roll mechanic of its own; it must be used with another trigger condition that provides a non-null `method`.'
-		  })
+					'A `null` value means this condition provides no roll mechanic of its own; it must be used with another trigger condition that provides a non-null `method`.',
+			})
 
 	const nuProps = {
 		...triggerCondition.properties,
 		roll_options,
-		method
+		method,
 	} as TNullableRollOptions
 
 	return Type.Object(nuProps, options)
@@ -134,54 +134,54 @@ const TriggerMixin = Type.Object({
 		description:
 			'A markdown string containing the primary trigger text for this move.\n\nSecondary trigger text (for specific stats or uses of an asset ability) may be described in individual trigger conditions.',
 		type: 'string',
-		pattern: /.*\.{3}/.source
-	})
+		pattern: /.*\.{3}/.source,
+	}),
 })
 
 export function Trigger<
-	T extends TFuzzyNull<TArray<TFuzzyRef<TTriggerCondition>>>
+	T extends TFuzzyNull<TArray<TFuzzyRef<TTriggerCondition>>>,
 >(conditions: T, options: ObjectOptions = {}) {
 	return Assign(
 		TriggerMixin,
 		setDescriptions(Type.Object({ conditions }), {
-			conditions: 'Specific conditions that qualify for this trigger.'
+			conditions: 'Specific conditions that qualify for this trigger.',
 		}),
-		options
+		options,
 	) as TTrigger<T>
 }
 export type TTrigger<
 	T extends TFuzzyNull<TArray<TFuzzyRef<TTriggerCondition>>> = TFuzzyNull<
 		TArray<TFuzzyRef<TTriggerCondition>>
-	>
+	>,
 > = TObject<(typeof TriggerMixin)['properties'] & { conditions: T }>
 
 export type Trigger<
-	T extends TriggerCondition[] | null = TriggerCondition[] | null
+	T extends TriggerCondition[] | null = TriggerCondition[] | null,
 > = Static<typeof TriggerMixin> & { conditions: T }
 
 export function TriggerEnhancement<
-	T extends TFuzzyNull<TArray<TFuzzyRef<TTriggerCondition>>>
+	T extends TFuzzyNull<TArray<TFuzzyRef<TTriggerCondition>>>,
 >(conditions: T, options: ObjectOptions) {
 	return Type.Object(
 		{
 			conditions: {
 				description: 'Trigger conditions added to the enhanced move.',
-				...conditions
-			} as T
+				...conditions,
+			} as T,
 		},
 		{
 			description:
 				"Describes changes/additions made to the enhanced move's trigger conditions.",
-			...options
-		}
+			...options,
+		},
 	)
 }
 
 export type TTriggerEnhancement<
 	T extends TFuzzyNull<TArray<TFuzzyRef<TTriggerCondition>>> = TFuzzyNull<
 		TArray<TFuzzyRef<TTriggerCondition>>
-	>
+	>,
 > = ReturnType<typeof TriggerEnhancement<T>>
 export type TriggerEnhancement<
-	T extends TriggerCondition[] | null = TriggerCondition[] | null
+	T extends TriggerCondition[] | null = TriggerCondition[] | null,
 > = { conditions: T }

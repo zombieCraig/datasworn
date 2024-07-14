@@ -11,7 +11,7 @@ const data = await readJSON(
 		if (key === '$ref' && typeof value === 'string')
 			usedSchemas.add(value.split('/').pop() as string)
 		return value
-	}
+	},
 )
 
 const unusedSchemas = new Set<string>()

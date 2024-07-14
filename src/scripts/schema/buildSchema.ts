@@ -3,7 +3,7 @@
  */
 
 import JsonPointer from 'json-pointer'
-import { type JsonSchema } from 'json-schema-library'
+import type { JsonSchema } from 'json-schema-library'
 import * as CONST from '../const.js'
 import { getPrettierOptions, writeJSON } from '../utils/readWrite.js'
 import { sortSchemaKeys } from '../datasworn/sort.js'
@@ -12,7 +12,7 @@ import AJV from '../validation/ajv.js'
 import * as Schema from '../../schema/index.js'
 
 import JSL from 'json-schema-library'
-import { type TRoot } from '../../schema/root/Root.js'
+import type { TRoot } from '../../schema/root/Root.js'
 import path from 'node:path'
 import { kebabCase } from 'lodash-es'
 
@@ -36,13 +36,13 @@ const schemaOptions: SchemaOptions[] = [
 			CONST.SCHEMA_PATH,
 			path.join(
 				CONST.DIR_HISTORY_CURRENT,
-				kebabCase(CONST.SCHEMA_NAME) + '.schema.json'
-			)
+				kebabCase(CONST.SCHEMA_NAME) + '.schema.json',
+			),
 		],
 		messages: {
 			writeStart: '✏️  Writing schema for Datasworn',
-			writeFinish: '✅ Finished writing schema for Datasworn'
-		}
+			writeFinish: '✅ Finished writing schema for Datasworn',
+		},
 	},
 	{
 		name: CONST.SOURCE_SCHEMA_NAME,
@@ -52,14 +52,14 @@ const schemaOptions: SchemaOptions[] = [
 			CONST.SOURCE_SCHEMA_PATH,
 			path.join(
 				CONST.DIR_HISTORY_CURRENT,
-				kebabCase(CONST.SOURCE_SCHEMA_NAME) + '.schema.json'
-			)
+				kebabCase(CONST.SOURCE_SCHEMA_NAME) + '.schema.json',
+			),
 		],
 		messages: {
 			writeStart: '✏️  Writing schema for DataswornSource',
-			writeFinish: '✅ Finished writing schema for DataswornSource'
-		}
-	}
+			writeFinish: '✅ Finished writing schema for DataswornSource',
+		},
+	},
 ]
 
 const prettierOptions = await getPrettierOptions(CONST.SCHEMA_PATH)
@@ -107,8 +107,8 @@ for (const { rootSchema, name, paths, messages } of schemaOptions) {
 		writeOps.push(
 			writeJSON(paths, sortedSchema, {
 				prettierOptions,
-				replacer
-			}).then(() => Log.info(messages.writeFinish))
+				replacer,
+			}).then(() => Log.info(messages.writeFinish)),
 		)
 	} catch (error) {
 		Log.error(error)
@@ -118,4 +118,3 @@ for (const { rootSchema, name, paths, messages } of schemaOptions) {
 }
 
 await Promise.all(writeOps)
-

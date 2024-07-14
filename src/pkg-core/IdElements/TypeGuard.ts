@@ -33,13 +33,13 @@ namespace TypeGuard {
 	}
 
 	export function AnyWildcard(
-		value: unknown
+		value: unknown,
 	): value is CONST.WildcardString | CONST.GlobstarString {
 		return Wildcard(value) || Globstar(value)
 	}
 
 	export function Recursive(
-		value: unknown
+		value: unknown,
 	): value is TypeId.Collection | TypeId.Collectable {
 		return CollectionType(value) || CollectableType(value)
 	}
@@ -49,7 +49,7 @@ namespace TypeGuard {
 	}
 
 	export function NonCollectableType(
-		value: unknown
+		value: unknown,
 	): value is TypeId.NonCollectable {
 		return TypeId.NonCollectable.includes(value as TypeId.NonCollectable)
 	}
@@ -63,13 +63,13 @@ namespace TypeGuard {
 	}
 
 	export function EmbeddablePrimaryType(
-		value: unknown
+		value: unknown,
 	): value is TypeId.EmbeddablePrimary {
 		return TypeId.EmbeddablePrimary.includes(value as TypeId.EmbeddablePrimary)
 	}
 
 	export function PrimaryType(
-		value: unknown
+		value: unknown,
 	): value is TypeId.NonCollectable | TypeId.Collectable | TypeId.Collection {
 		return (
 			NonCollectableType(value) ||

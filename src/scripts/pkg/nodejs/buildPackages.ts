@@ -9,9 +9,9 @@ const profiler = Log.startTimer()
 
 await Promise.all([
 	buildCorePackage(),
-	...Object.values(config).map(async (pkg) => buildContentPackage(pkg))
+	...Object.values(config).map(async (pkg) => buildContentPackage(pkg)),
 ])
 
 profiler.done({
-	message: `Finished in ${Date.now() - profiler.start.valueOf()}ms`
+	message: `Finished in ${Date.now() - profiler.start.valueOf()}ms`,
 })

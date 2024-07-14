@@ -3,7 +3,7 @@ import {
 	type ObjectOptions,
 	type TRecord,
 	type TSchema,
-	type TString
+	type TString,
 } from '@sinclair/typebox'
 
 import Id from '../common/Id.js'
@@ -18,7 +18,7 @@ export const DictionaryBrand = Symbol('Dictionary')
  */
 export function Dictionary<T extends TSchema>(
 	schema: T,
-	{ key, ...options }: { key?: TString } & ObjectOptions = { key: Id.DictKey }
+	{ key, ...options }: { key?: TString } & ObjectOptions = { key: Id.DictKey },
 ) {
 	const dict =
 		// Type.Transform(
@@ -26,7 +26,7 @@ export function Dictionary<T extends TSchema>(
 			default: {},
 			...options,
 			remarks: 'Deserialize as a dictionary object.',
-			[DictionaryBrand]: 'Dictionary'
+			[DictionaryBrand]: 'Dictionary',
 		}) as TDictionary<T>
 	// )
 	// .Decode((value) => new Map<string, Static<T>>(Object.entries(value)))

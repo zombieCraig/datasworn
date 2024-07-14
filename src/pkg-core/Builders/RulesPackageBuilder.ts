@@ -24,7 +24,7 @@ export type IdRefTracker = {
  * */
 export class RulesPackageBuilder<
 	TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage,
-	TTarget extends Datasworn.RulesPackage = Datasworn.RulesPackage
+	TTarget extends Datasworn.RulesPackage = Datasworn.RulesPackage,
 > {
 	id: string
 
@@ -48,7 +48,7 @@ export class RulesPackageBuilder<
 
 	static init({
 		validator,
-		sourceValidator
+		sourceValidator,
 	}: {
 		validator: SchemaValidator<Datasworn.RulesPackage>
 		sourceValidator: SchemaValidator<DataswornSource.RulesPackage>
@@ -128,7 +128,7 @@ export class RulesPackageBuilder<
 	static validateIdRef(
 		id: string,
 		idTracker: IdRefTracker,
-		tree = IdParser.tree
+		tree = IdParser.tree,
 	) {
 		if (idTracker.valid.has(id)) return true
 		if (idTracker.unreachable.has(id) || idTracker.invalid.has(id)) return false
@@ -179,7 +179,7 @@ export class RulesPackageBuilder<
 				typeValidation(typeNode)
 			} catch (e) {
 				throw new Error(
-					`<${id}> ${String(e)}\n\n${JSON.stringify(typeNode, undefined, '\t')}`
+					`<${id}> ${String(e)}\n\n${JSON.stringify(typeNode, undefined, '\t')}`,
 				)
 			}
 		}
@@ -196,7 +196,7 @@ export class RulesPackageBuilder<
 				const msg = Array.from(this.errors)
 					.map(
 						([file, error]) =>
-							`"${file}" failed DataswornSource schema validation: ${error}`
+							`"${file}" failed DataswornSource schema validation: ${error}`,
 					)
 					.join('\n')
 				throw new Error(msg)
@@ -224,7 +224,7 @@ export class RulesPackageBuilder<
 
 	/** Top-level RulesPackage properties to omit from key sorting. */
 	static readonly topLevelKeysBlackList = [
-		'rules'
+		'rules',
 	] as const satisfies (keyof Datasworn.RulesPackage)[]
 
 	/** Separator character used for JSON pointers. */
@@ -243,7 +243,7 @@ export class RulesPackageBuilder<
 	constructor(id: string, logger: Logger) {
 		if (!RulesPackageBuilder.isInitialized)
 			throw new Error(
-				`RulesPackageBuilder constructor is missing validator functions. Set them with the RulesPackageBuilder.init static method before creating an instance.`
+				`RulesPackageBuilder constructor is missing validator functions. Set them with the RulesPackageBuilder.init static method before creating an instance.`,
 			)
 		this.id = id
 		this.logger = logger
@@ -259,7 +259,7 @@ export class RulesPackageBuilder<
 
 		if (this.packageType != null && this.packageType !== fileToAdd.packageType)
 			throw new Error(
-				`Expected a source file with the type "${this.packageType}", but got "${fileToAdd.packageType}"`
+				`Expected a source file with the type "${this.packageType}", but got "${fileToAdd.packageType}"`,
 			)
 
 		if (!fileToAdd.isValidated)
@@ -281,7 +281,7 @@ export class RulesPackageBuilder<
 				void this.#addFile(file)
 			} catch (e) {
 				throw new Error(
-					`Failed to add "${file.name}" to ${this.packageType} "${this.id}"! ${String(e)}`
+					`Failed to add "${file.name}" to ${this.packageType} "${this.id}"! ${String(e)}`,
 				)
 			}
 
@@ -298,7 +298,7 @@ export class RulesPackageBuilder<
 			// nothing left to add, so index it
 			if (RulesPackageBuilder.#isObject(target) && '_id' in target) {
 				const isRulesPackage = ['ruleset', 'expansion'].includes(
-					(target as DataswornSource.RulesPackage).type
+					(target as DataswornSource.RulesPackage).type,
 				)
 				// if ((target._id as string).startsWith('asset.ability'))
 				// 	console.log(target._id)
@@ -332,14 +332,14 @@ export class RulesPackageBuilder<
 }
 
 interface RulesPackagePartData<
-	TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage
+	TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage,
 > {
 	name: string
 	data: TSource
 }
 
 class RulesPackagePart<
-	TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage
+	TSource extends DataswornSource.RulesPackage = DataswornSource.RulesPackage,
 > implements RulesPackagePartData<TSource>
 {
 	readonly logger: Logger
@@ -390,7 +390,7 @@ class RulesPackagePart<
 
 		if (!isValid)
 			throw new Error(
-				`File "${this.name}" doesn't match DataswornSource schema`
+				`File "${this.name}" doesn't match DataswornSource schema`,
 			)
 
 		void IdParser.assignIdsInRulesPackage(this.data, this.index)

@@ -32,7 +32,7 @@ for await (const filePath of files.scan({ cwd: './datasworn', absolute: true }))
 				// console.log(rulesPackage)
 
 				tree.set(rulesPackage._id, rulesPackage)
-			})
+			}),
 	)
 
 await Promise.all(readOps)

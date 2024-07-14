@@ -2,13 +2,13 @@ import {
 	Kind,
 	type SchemaOptions,
 	type Static,
-	type TSchema
+	type TSchema,
 } from '@sinclair/typebox'
 
 export type TIfThenElse<
 	If extends TSchema,
 	Then extends TSchema,
-	Else extends TSchema | never = never
+	Else extends TSchema | never = never,
 > = {
 	[Kind]: 'IfThenElse'
 	if: If
@@ -22,24 +22,24 @@ export type TIfThenElse<
 export function IfThenElse<
 	If extends TSchema,
 	Then extends TSchema,
-	Else extends TSchema | never = never
+	Else extends TSchema | never = never,
 >(
 	{
 		condition,
 		ifTrue,
-		ifFalse
+		ifFalse,
 	}: {
 		condition: If
 		ifTrue: Then
 		ifFalse?: Else
 	},
-	options: SchemaOptions = {}
+	options: SchemaOptions = {},
 ) {
 	return {
 		...options,
 		if: condition,
 		then: ifTrue,
 		else: ifFalse,
-		[Kind]: 'IfThenElse'
+		[Kind]: 'IfThenElse',
 	} as TIfThenElse<If, Then, Else>
 }

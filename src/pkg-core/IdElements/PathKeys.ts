@@ -1,7 +1,7 @@
 import type { DictKey } from '../Datasworn.js'
 import type { TupleOfLength } from '../Utils/Array.js'
-import { type CONST } from './index.js'
-import { type Range } from '../Utils/Number.js'
+import type { CONST } from './index.js'
+import type { Range } from '../Utils/Number.js'
 
 export type CollectionAncestorKeys =
 	| TupleOfLength<CollectionAncestorsLength, DictKey>
@@ -11,7 +11,7 @@ export type CollectableAncestorKeys = CollectionPathKeys
 export type CollectablePathKeys = [...CollectableAncestorKeys, DictKey]
 
 export type CollectionAncestorKeysOfCollection<
-	T extends CollectionAncestorKeys
+	T extends CollectionAncestorKeys,
 > = T extends [string] | []
 	? []
 	: T extends [...infer U extends CollectionAncestorKeys, string]

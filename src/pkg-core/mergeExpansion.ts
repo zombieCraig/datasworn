@@ -2,7 +2,7 @@ import CONST from './IdElements/CONST.js'
 import type TypeNode from './TypeNode.js'
 import { IdParser } from './index.js'
 // import fs from 'fs-extra'
-import { type Datasworn } from './index.js'
+import type { Datasworn } from './index.js'
 import TypeId from './IdElements/TypeId.js'
 
 // const classic = fs.readJSONSync(
@@ -75,10 +75,10 @@ import TypeId from './IdElements/TypeId.js'
  */
 function enhanceCollection<T extends TypeNode.Collection>(
 	target: T,
-	source: T
+	source: T,
 ): T {
 	const err = new Error(
-		`Expected source <${source._id}> "${CONST.EnhancesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST.EnhancesKey])}.`
+		`Expected source <${source._id}> "${CONST.EnhancesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST.EnhancesKey])}.`,
 	)
 	if (!(CONST.EnhancesKey in source)) throw err
 	if (!Array.isArray(source[CONST.EnhancesKey])) throw err
@@ -88,12 +88,12 @@ function enhanceCollection<T extends TypeNode.Collection>(
 	if (!targetId.isMatchedBy(...source[CONST.EnhancesKey])) throw err
 	target[CONST.ContentsKey] = applyDictionaryReplacements(
 		target[CONST.ContentsKey],
-		source[CONST.ContentsKey]
+		source[CONST.ContentsKey],
 	)
 
 	target[CONST.CollectionsKey] = applyDictionaryEnhancements(
 		target[CONST.CollectionsKey],
-		source[CONST.CollectionsKey]
+		source[CONST.CollectionsKey],
 	)
 
 	return target
@@ -102,7 +102,7 @@ function enhanceCollection<T extends TypeNode.Collection>(
 function applyDictionaryEnhancements<
 	T extends TypeNode.Collection,
 	TTarget extends Map<string, T> | Record<string, T>,
-	TSource extends Map<string, T> | Record<string, T>
+	TSource extends Map<string, T> | Record<string, T>,
 >(targetDictionary: TTarget, sourceDictionary: TSource) {
 	const targetMap: Map<string, T> =
 		targetDictionary instanceof Map
@@ -138,7 +138,7 @@ function applyDictionaryReplacements<
 		| TypeNode.NonCollectable
 		| TypeNode.Collection,
 	TTarget extends Map<string, T> | Record<string, T>,
-	TSource extends Map<string, T> | Record<string, T>
+	TSource extends Map<string, T> | Record<string, T>,
 >(targetDictionary: TTarget, sourceDictionary: TSource) {
 	const targetMap: Map<string, T> =
 		targetDictionary instanceof Map
@@ -160,7 +160,7 @@ function applyDictionaryReplacements<
 		const target = targetMap.get(key) as T
 
 		const err = new Error(
-			`Expected source <${source._id}> "${CONST.ReplacesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST.ReplacesKey])}`
+			`Expected source <${source._id}> "${CONST.ReplacesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST.ReplacesKey])}`,
 		)
 		if (!(CONST.ReplacesKey in source)) throw err
 		if (!Array.isArray(source[CONST.ReplacesKey])) throw err
@@ -181,11 +181,11 @@ function applyDictionaryReplacements<
 export function mergeExpansion(
 	ruleset: Datasworn.Ruleset,
 	expansion: Datasworn.Expansion,
-	strict = true
+	strict = true,
 ) {
 	if (strict && ruleset._id !== expansion.ruleset)
 		throw new Error(
-			`Can only merge to the expansion's matching ruleset "${expansion.ruleset}" in strict mode, but got ruleset "${ruleset._id}".`
+			`Can only merge to the expansion's matching ruleset "${expansion.ruleset}" in strict mode, but got ruleset "${ruleset._id}".`,
 		)
 
 	// apply noncollectable merges
@@ -218,13 +218,13 @@ export function mergeExpansion(
 				// @ts-expect-error
 				ruleset[branchKey] = applyDictionaryReplacements(
 					ruleset[branchKey],
-					expansion[branchKey]
+					expansion[branchKey],
 				)
 			} else {
 				// @ts-expect-error
 				ruleset[branchKey] = applyDictionaryEnhancements(
 					ruleset[branchKey],
-					expansion[branchKey]
+					expansion[branchKey],
 				)
 			}
 		}

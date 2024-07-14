@@ -1,8 +1,8 @@
 // TODO
 
-import JsonSchema from 'json-schema-library'
+import type JsonSchema from 'json-schema-library'
 
-import { type Datasworn } from '../../types/Datasworn.js'
+import type { Datasworn } from '../../types/Datasworn.js'
 
 import JSONPointer from 'jsonpointer'
 
@@ -17,7 +17,7 @@ function getParentPointer(pointer: string) {
 function synthesizeId(
 	pointer: string,
 	source: Datasworn,
-	parts: string[] = []
+	parts: string[] = [],
 ) {
 	const parentPointer = getParentPointer(pointer)
 	const key = pointer.split(sep).pop()
@@ -37,7 +37,7 @@ function synthesizeId(
 
 export function extractLocaleStrings(
 	source: Datasworn,
-	validator: JsonSchema.Draft07
+	validator: JsonSchema.Draft07,
 ) {
 	const strings = new Map<string, string>()
 
@@ -56,7 +56,7 @@ export function extractLocaleStrings(
 		if (groupedStrings.has(keyLocaleString))
 			groupedStrings.set(keyLocaleString, [
 				...(groupedStrings.get(keyLocaleString) as string[]),
-				pointer
+				pointer,
 			])
 		else groupedStrings.set(keyLocaleString, [pointer])
 	}

@@ -1,27 +1,27 @@
 import path from 'node:path'
 import {
 	RulesPackageBuilder,
-	type IdRefTracker
+	type IdRefTracker,
 } from '../../pkg-core/Builders/RulesPackageBuilder.js'
 import {
 	IdParser,
 	type Datasworn,
-	type DataswornSource
+	type DataswornSource,
 } from '../../pkg-core/index.js'
-import { type RulesPackageConfig } from '../../schema/tools/build/index.js'
+import type { RulesPackageConfig } from '../../schema/tools/build/index.js'
 import { formatPath } from '../../utils.js'
 import { DIR_HISTORY_CURRENT, ROOT_OUTPUT } from '../const.js'
 import * as PkgConfig from '../pkg/pkgConfig.js'
 import {
 	loadDataswornSchema,
-	loadDataswornSourceSchema
+	loadDataswornSourceSchema,
 } from '../schema/loadSchema.js'
 import Log from '../utils/Log.js'
 import {
 	readDataswornSourceData,
 	readJSON,
 	readYAML,
-	writeJSON
+	writeJSON,
 } from '../utils/readWrite.js'
 import AJV from '../validation/ajv.js'
 import { idLike, needsIdValidation } from '../../pkg-core/Validators/Text.js'
@@ -33,7 +33,7 @@ AJV.removeSchema()
 
 const validators = Promise.all([
 	loadDataswornSourceSchema(),
-	loadDataswornSchema()
+	loadDataswornSchema(),
 ])
 
 await buildRulesPackages(PkgConfig)
@@ -57,8 +57,8 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 				pkg,
 				index,
 				unvalidatedRefs,
-				getSourceFiles(pkg.paths.source)
-			)
+				getSourceFiles(pkg.paths.source),
+			),
 		)
 	}
 
@@ -89,7 +89,7 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 		// any static ID that's been indexed must be a valid node
 		valid: new Set(index.keys()),
 		unreachable: new Set<string>(),
-		invalid: new Set<string>()
+		invalid: new Set<string>(),
 	}
 
 	for (const ref of unvalidatedRefs)
@@ -103,7 +103,7 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 
 			const writeDestinations = [
 				path.join(ROOT_OUTPUT, pkgId, fileName),
-				path.join(DIR_HISTORY_CURRENT, pkgId, fileName)
+				path.join(DIR_HISTORY_CURRENT, pkgId, fileName),
 			]
 
 			const json = builder.toJSON()
@@ -113,10 +113,10 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 					Log.info(
 						[
 							`✏️  Wrote JSON for ${builder.packageType} "${builder.id}" to:`,
-							...writeDestinations.map(formatPath)
-						].join('\n  📝 ')
+							...writeDestinations.map(formatPath),
+						].join('\n  📝 '),
 					)
-				})
+				}),
 			)
 		} catch (e) {
 			errors.push(e as Error | string)
@@ -133,14 +133,14 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 	if (errors.length > 0)
 		throw new Error(
 			['Found invalid ID references:', ...errors.map((e) => e.toString())].join(
-				'\n\t'
-			)
+				'\n\t',
+			),
 		)
 
 	await Promise.all(writeOps)
 
 	profiler.done({
-		message: `Finished building ${buildOps.length} rules package(s) in ${Date.now() - profiler.start.valueOf()}ms`
+		message: `Finished building ${buildOps.length} rules package(s) in ${Date.now() - profiler.start.valueOf()}ms`,
 	})
 }
 
@@ -149,7 +149,7 @@ async function assemblePkgFiles(
 	{ id, paths, type }: RulesPackageConfig,
 	masterIndex: Map<string, unknown>,
 	idRefTracker: Set<string>,
-	sourceFiles: AsyncIterableIterator<string>
+	sourceFiles: AsyncIterableIterator<string>,
 ) {
 	const [sourceValidator, validator] = await validators
 
@@ -182,7 +182,7 @@ async function assemblePkgFiles(
 	for (const [k, v] of builder.index) masterIndex.set(k, v)
 
 	Log.info(
-		`✅ Assembled ${builder.index.size} identifiable nodes for ${builder.packageType} "${builder.id}" `
+		`✅ Assembled ${builder.index.size} identifiable nodes for ${builder.packageType} "${builder.id}" `,
 	)
 
 	return builder
@@ -201,7 +201,7 @@ function trackIdRefs<T>(this: Set<string>, key: unknown, v: T): T {
 async function _loadBuilderFile<T extends DataswornSource.RulesPackage>(
 	filePath: string,
 	builder: RulesPackageBuilder,
-	idRefTracker: Set<string>
+	idRefTracker: Set<string>,
 ) {
 	const track = trackIdRefs.bind(idRefTracker)
 
@@ -225,7 +225,7 @@ async function _loadBuilderFile<T extends DataswornSource.RulesPackage>(
 
 	return builder.addFiles({
 		name: path.relative(process.cwd(), filePath),
-		data
+		data,
 	})
 }
 

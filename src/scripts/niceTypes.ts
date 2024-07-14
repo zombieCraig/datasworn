@@ -5,9 +5,9 @@ import {
 	TDiscriminatedUnion,
 	TUnionEnum,
 	ToEnum,
-	ToUnion
+	ToUnion,
 } from '../schema/Utils.js'
-import { TSchema, Type, CloneType, TypeGuard } from '@sinclair/typebox'
+import { type TSchema, Type, CloneType, TypeGuard } from '@sinclair/typebox'
 import Log from './utils/Log.js'
 // import { CompilerOptions, ScriptTarget } from 'typescript'
 // import { shellify } from '../shellify.js'
@@ -38,7 +38,7 @@ export function simplifyRecursive(schema: TSchema, allowNumberEnums = false) {
 			// this is used on DelveSite, DelveSiteDomain, and DelveSiteTheme to describe table rows with static numbers. allOf[0] is an unbounded array, while allOf[1] is a tuple.
 			return simplifyRecursive({
 				...pick(base, 'description', 'title'),
-				...base.allOf[0]
+				...base.allOf[0],
 			})
 		}
 		case TypeGuard.IsRecord(base): {
@@ -48,8 +48,8 @@ export function simplifyRecursive(schema: TSchema, allowNumberEnums = false) {
 				type: 'object',
 
 				patternProperties: {
-					'.*': Object.values(base.patternProperties)[0]
-				}
+					'.*': Object.values(base.patternProperties)[0],
+				},
 			}
 		}
 		case TypeGuard.IsUnion(base): {
@@ -98,7 +98,6 @@ export function simplifyRecursive(schema: TSchema, allowNumberEnums = false) {
 // const data = JSON.stringify( result, replacer, '\t'
 // )
 
-
 // await fs.writeFile('simpleschema.json',data)
 // const exports: Codegen.TypeBoxModel['exports'] = new Map(
 // 	Object.entries(adjustedDefs)
@@ -120,4 +119,3 @@ export function simplifyRecursive(schema: TSchema, allowNumberEnums = false) {
 // }
 
 // `
-

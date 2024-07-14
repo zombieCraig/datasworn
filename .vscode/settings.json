@@ -5,8 +5,6 @@
 	},
 	"json.format.enable": false,
 	"json.schemas": [
-
-
 		{
 			"url": "./datasworn/datasworn.schema.json",
 			"fileMatch": [

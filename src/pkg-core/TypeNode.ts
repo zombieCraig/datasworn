@@ -8,19 +8,19 @@ namespace TypeNode {
 	export type Collectable<T extends TypeId.Collectable = TypeId.Collectable> =
 		CollectableTypeMap[T]
 	export type NonCollectable<
-		T extends TypeId.NonCollectable = TypeId.NonCollectable
+		T extends TypeId.NonCollectable = TypeId.NonCollectable,
 	> = NonCollectableTypeMap[T]
 	export type EmbedOnly<T extends TypeId.EmbedOnly = TypeId.EmbedOnly> =
 		EmbedOnlyTypeMap[T]
 
 	export type CollectionSource<
-		T extends TypeId.Collection = TypeId.Collection
+		T extends TypeId.Collection = TypeId.Collection,
 	> = CollectionSourceTypeMap[T]
 	export type CollectableSource<
-		T extends TypeId.Collectable = TypeId.Collectable
+		T extends TypeId.Collectable = TypeId.Collectable,
 	> = CollectableSourceTypeMap[T]
 	export type NonCollectableSource<
-		T extends TypeId.NonCollectable = TypeId.NonCollectable
+		T extends TypeId.NonCollectable = TypeId.NonCollectable,
 	> = NonCollectableSourceTypeMap[T]
 	export type EmbedOnlySource<T extends TypeId.EmbedOnly = TypeId.EmbedOnly> =
 		EmbedOnlySourceTypeMap[T]
@@ -131,7 +131,7 @@ namespace TypeNode {
 				: never
 
 	export type BySourceType<
-		T extends keyof PrimarySourceTypeMap | keyof EmbedOnlySourceTypeMap
+		T extends keyof PrimarySourceTypeMap | keyof EmbedOnlySourceTypeMap,
 	> = T extends keyof PrimarySourceTypeMap
 		? T extends keyof EmbedOnlySourceTypeMap
 			? PrimarySourceTypeMap[T] | EmbedOnlySourceTypeMap[T]
@@ -146,7 +146,7 @@ namespace TypeNode {
 
 	/** Any Datasworn embedded node type. */
 	export type Embedded<
-		T extends keyof EmbeddableTypeMap = keyof EmbeddableTypeMap
+		T extends keyof EmbeddableTypeMap = keyof EmbeddableTypeMap,
 	> = EmbeddableTypeMap[T]
 
 	/** Any primary or embedded Datasworn node type. */

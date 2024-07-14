@@ -3,7 +3,7 @@ import {
 	Type,
 	type TNull,
 	type TSchema,
-	type TUnion
+	type TUnion,
 } from '@sinclair/typebox'
 
 export const isNullable = Symbol('isNullable')
@@ -16,11 +16,11 @@ export type TNullable<T extends TSchema = TSchema> = TUnion<[T, TNull]> & {
 
 export function Nullable<T extends TSchema>(
 	schema: T,
-	options: SchemaOptions = {}
+	options: SchemaOptions = {},
 ) {
 	const newSchema = Type.Union([schema, Type.Null()], {
 		default: null,
-		...options
+		...options,
 	}) as TNullable<T>
 	newSchema[isNullable] = 'Nullable'
 

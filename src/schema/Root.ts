@@ -14,16 +14,16 @@ import {
 	Move,
 	Npc,
 	OracleRollable,
-	Rarity
+	Rarity,
 } from './index.js'
 import * as Utils from './Utils.js'
 
 const RootObjectMixin = Type.Object(
 	{
 		datasworn_version: Version,
-		ruleset: Type.Ref(RulesetId)
+		ruleset: Type.Ref(RulesetId),
 	},
-	{ additionalProperties: true }
+	{ additionalProperties: true },
 )
 
 const StandaloneNode = Type.Intersect([
@@ -37,18 +37,18 @@ const StandaloneNode = Type.Intersect([
 			delve_site: DelveSite,
 			delve_site_theme: DelveSiteTheme,
 			delve_site_domain: DelveSiteDomain,
-			rarity: Rarity
+			rarity: Rarity,
 		},
-		'type'
+		'type',
 	),
-	RootObjectMixin
+	RootObjectMixin,
 ])
 
 // this isn't friendly to JTD, but currently the source schema isn't processed for JTD anyways
 const SourceRoot = Type.Union([Type.Ref(RulesPackage), StandaloneNode], {
 	$id: 'SourceRoot',
 	description:
-		'The root object for a Datasworn source file, whose schema is discriminated by the `type` property. Unlike the JSON schema for distribution, this may be a standalone object (Asset, Npc, Move, OracleRollable, DelveSite, DelveSiteTheme, DelveSiteDomain, or Rarity), but it still must specify its `ruleset` and `datasworn_version`.'
+		'The root object for a Datasworn source file, whose schema is discriminated by the `type` property. Unlike the JSON schema for distribution, this may be a standalone object (Asset, Npc, Move, OracleRollable, DelveSite, DelveSiteTheme, DelveSiteDomain, or Rarity), but it still must specify its `ruleset` and `datasworn_version`.',
 })
 
 export const DataswornSchema = RootObject(Type.Ref(RulesPackage), {
@@ -57,7 +57,7 @@ export const DataswornSchema = RootObject(Type.Ref(RulesPackage), {
 	title: `Datasworn v${CONST.VERSION}`,
 	description:
 		'Describes game rules compatible with the Ironsworn tabletop role-playing game by Shawn Tomkin.',
-	[CONST.DefsKey]: Defs
+	[CONST.DefsKey]: Defs,
 })
 
 export const DataswornSourceSchema = SourceRootObject(Type.Ref(SourceRoot), {
@@ -67,7 +67,7 @@ export const DataswornSourceSchema = SourceRootObject(Type.Ref(SourceRoot), {
 	description:
 		'Source data schema for Datasworn, which describes game rules compatible with the Ironsworn tabletop roleplaying game by Shawn Tomkin.\n\nThe source data omits IDs, and makes properties that provide a default value optional; these values are inserted during validation/processing to produce the JSON for distribution.',
 	// additionalProperties: true,
-	[CONST.DefsKey]: { SourceRoot, ...Defs }
+	[CONST.DefsKey]: { SourceRoot, ...Defs },
 })
 
 export type DataswornSchema = Static<typeof DataswornSchema>

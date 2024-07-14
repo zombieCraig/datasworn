@@ -4,7 +4,7 @@ import {
 	TypeGuard,
 	type TObject,
 	type TSchema,
-	type TTuple
+	type TTuple,
 } from '@sinclair/typebox'
 import {
 	isEqual,
@@ -14,12 +14,12 @@ import {
 	mapValues,
 	pick,
 	repeat,
-	uniq
+	uniq,
 } from 'lodash-es'
 import {
 	TDiscriminatedUnion,
 	TNullable,
-	TUnionEnum
+	TUnionEnum,
 } from '../../schema/Utils.js'
 import Log from '../utils/Log.js'
 
@@ -32,7 +32,7 @@ const extractableKeywords: string[] = [
 	'minimum',
 	'maximum',
 	'i18n',
-	'deprecated'
+	'deprecated',
 ]
 
 // keywords where a string value is expected, and the string value is the keyword
@@ -50,7 +50,7 @@ function extractKeywords(schema: TSchema) {
 			...schema.examples
 				.filter(
 					(example: unknown) =>
-						typeof example !== 'string' || !example.includes('*')
+						typeof example !== 'string' || !example.includes('*'),
 				)
 				.map((example: unknown) => {
 					let tagContent = renderJsValue(example)
@@ -60,7 +60,7 @@ function extractKeywords(schema: TSchema) {
 					// console.log(tagContent)
 
 					return tag('example', tagContent)
-				})
+				}),
 		)
 	if (!isUndefined(schema.default)) {
 		if (!isEqual(schema.default, schema.const)) {
@@ -74,15 +74,15 @@ function extractKeywords(schema: TSchema) {
 	jsDoc.push(
 		...toTags(
 			mapValues(pick(schema, ...extractableKeywords), (v, k) =>
-				v === true ? undefined : v
-			)
-		)
+				v === true ? undefined : v,
+			),
+		),
 	)
 
 	jsDoc.push(
 		...Object.values(pick(schema, ...extractableKeywordValues)).map((k) =>
-			tag(k as string)
-		)
+			tag(k as string),
+		),
 	)
 
 	return jsDoc
@@ -96,7 +96,7 @@ function renderJsDoc(lines: string[]) {
 			.join('\n')
 			.split('\n')
 			.map((line) => ' * ' + line),
-		' */'
+		' */',
 	].join('\n')
 }
 
@@ -137,7 +137,7 @@ function extractType(schema: TSchema): string {
 		}
 		case TDiscriminatedUnion(schema):
 			return uniq(schema.allOf.map((item) => extractType(item.then))).join(
-				' | '
+				' | ',
 			)
 		case TUnionEnum(schema):
 			return uniq(schema.enum.map((v) => JSON.stringify(v))).join(' | ')
@@ -158,7 +158,7 @@ function extractArrayType(schema: TArray<TSchema>): string {
 function parseType(schema: TSchema): ParsedType {
 	return {
 		type: extractType(schema),
-		jsDoc: extractKeywords(schema)
+		jsDoc: extractKeywords(schema),
 	}
 }
 
@@ -208,7 +208,7 @@ function renderInterface(identifier: string, schema: TObject) {
 
 function extractObjectLiteralType(schema: TObject): string {
 	const properties = Object.entries(schema.properties).map((entry) =>
-		renderProperty(...entry)
+		renderProperty(...entry),
 	)
 	const typeLines = [`{`, indent(properties.join('\n')), `}`]
 
@@ -258,8 +258,8 @@ function renderJsValue(value: unknown): string {
 					? `{}`
 					: `{\n${indent(
 							map(value as any, (v, k) => `${k}: ${renderJsValue(v)}`).join(
-								',\n'
-							)
+								',\n',
+							),
 						)}\n}`
 			break
 		case typeof value === 'string':

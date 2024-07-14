@@ -1,4 +1,4 @@
-import { type KeywordDefinition } from 'ajv'
+import type { KeywordDefinition } from 'ajv'
 import { Keywords } from '../augmentations.js'
 
 const rollableTableLike = {
@@ -9,28 +9,28 @@ const rollableTableLike = {
 		type: 'object',
 		properties: {
 			min: {
-				anyOf: [{ type: 'integer' }, { type: 'null' }]
+				anyOf: [{ type: 'integer' }, { type: 'null' }],
 			},
 			max: {
-				anyOf: [{ type: 'integer' }, { type: 'null' }]
-			}
-		}
-	}
+				anyOf: [{ type: 'integer' }, { type: 'null' }],
+			},
+		},
+	},
 }
 
 export const KEYWORDS: Record<string, Omit<KeywordDefinition, 'keyword'>> = {
 	releaseStage: {
-		metaSchema: Keywords.releaseStage
+		metaSchema: Keywords.releaseStage,
 	},
 	i18n: {
 		type: 'string',
-		metaSchema: Keywords.i18n
+		metaSchema: Keywords.i18n,
 	},
 	remarks: {
-		metaSchema: Keywords.remarks
+		metaSchema: Keywords.remarks,
 	},
 	rollable: {
 		...rollableTableLike,
-		metaSchema: Keywords.rollable
-	}
+		metaSchema: Keywords.rollable,
+	},
 }

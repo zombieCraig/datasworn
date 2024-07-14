@@ -3,7 +3,7 @@ import {
 	Type,
 	type ObjectOptions,
 	type TObject,
-	type TString
+	type TString,
 } from '@sinclair/typebox'
 import type TypeId from '../../pkg-core/IdElements/TypeId.js'
 import { pascalCase } from '../utils/string.js'
@@ -12,19 +12,19 @@ import { Computed } from '../Utils.js'
 export function EmbeddedType<
 	TBase extends TObject,
 	T extends TypeId.Embedding,
-	T2 extends TypeId.EmbeddableIn<T>
+	T2 extends TypeId.EmbeddableIn<T>,
 >(
 	base: TBase,
 	parentTypeId: T,
 	embeddedTypeId: T2,
-	options: ObjectOptions = {}
+	options: ObjectOptions = {},
 ) {
 	const schemaName = pascalCase(parentTypeId) + pascalCase(embeddedTypeId)
 	const idSchemaName = schemaName + 'Id'
 
 	const schema = CloneType(base, {
 		$id: schemaName,
-		...options
+		...options,
 	})
 	schema.properties._id = Computed(Type.Ref<TString>(idSchemaName))
 

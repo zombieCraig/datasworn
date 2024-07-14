@@ -4,12 +4,12 @@ import type TypeNode from '../TypeNode.js'
 
 export function validate<
 	T extends TypeNode.Collection,
-	TChild extends TypeNode.CollectableOf<T>
+	TChild extends TypeNode.CollectableOf<T>,
 >(
 	obj: T,
 
 	collectionValidator: (childCollection: T) => boolean,
-	collectableValidator: (child: TChild) => boolean
+	collectableValidator: (child: TChild) => boolean,
 ) {
 	collectionValidator(obj)
 

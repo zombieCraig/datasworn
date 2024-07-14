@@ -1,4 +1,4 @@
-import { JSONSchema7 } from 'json-schema'
+import type { JSONSchema7 } from 'json-schema'
 import { ROOT_OUTPUT, SCHEMA_PATH } from '../const.js'
 import * as pkgs from '../pkg/pkgConfig.js'
 import fs from 'fs-extra'
@@ -6,7 +6,7 @@ import JsonSchema from 'json-schema-library'
 import { loadDataswornNamespace } from '../datasworn/loadDatasworn.js'
 import { extractLocaleStrings } from './extractLocaleStrings.js'
 import path from 'node:path'
-import { Datasworn } from '../../types/Datasworn.js'
+import type { Datasworn } from '../../types/Datasworn.js'
 import CONST from '../../pkg-core/IdElements/CONST.js'
 
 const DEFAULT_LOCALE = 'en'
@@ -24,7 +24,7 @@ for (const pkg of Object.values(pkgs)) {
 	for (const collection of collections) {
 		const omitKeys: (keyof Datasworn)[] = ['_source', CONST.IdKey]
 		const [type] = Object.keys(collection).filter(
-			(k) => !omitKeys.includes(k as any)
+			(k) => !omitKeys.includes(k as any),
 		)
 		if (type == null) continue
 

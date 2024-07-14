@@ -1,11 +1,11 @@
 import { type ExecOptions, exec } from 'child_process'
 import { kebabCase } from 'lodash-es'
-import { type CamelCase } from 'type-fest'
+import type { CamelCase } from 'type-fest'
 import Log from './scripts/utils/Log.js'
 
 export function shellify<T extends ShellCommandParams>(
 	{ command, args = [], options = {}, execOptions = {} }: T,
-	argCase = kebabCase
+	argCase = kebabCase,
 ) {
 	const substrings: string[] = [command, ...args.map((arg) => `"${arg}"`)]
 
@@ -44,7 +44,7 @@ export type ShellCommandParams<
 	Options extends Record<CamelCase<string>, any> = Record<
 		CamelCase<string>,
 		any
-	>
+	>,
 > = {
 	command: Command
 	args?: Arguments

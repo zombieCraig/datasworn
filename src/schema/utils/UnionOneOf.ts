@@ -5,7 +5,7 @@ import {
 	TypeRegistry,
 	type SchemaOptions,
 	type Static,
-	type TSchema
+	type TSchema,
 } from '@sinclair/typebox'
 import { Value } from '@sinclair/typebox/value'
 import { Members } from '../Symbols.js'
@@ -20,14 +20,14 @@ export interface TUnionOneOf<T extends TSchema[]> extends TSchema {
 /** `[Experimental]` Creates a Union type with a `oneOf` schema representation */
 export function UnionOneOf<T extends TSchema[]>(
 	oneOf: [...T],
-	options: SchemaOptions = {}
+	options: SchemaOptions = {},
 ) {
 	function UnionOneOfCheck(schema: TUnionOneOf<TSchema[]>, value: unknown) {
 		return (
 			schema.oneOf.reduce(
 				(acc: number, schema: any) =>
 					Value.Check(schema, value) ? acc + 1 : acc,
-				0
+				0,
 			) === 1
 		)
 	}
@@ -37,7 +37,7 @@ export function UnionOneOf<T extends TSchema[]>(
 		...options,
 		[Kind]: 'UnionOneOf',
 		[Members]: oneOf, // to make JTD inference easier
-		oneOf
+		oneOf,
 	} as TUnionOneOf<T>
 }
 

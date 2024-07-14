@@ -21,9 +21,9 @@ const linkSymbolPattern = new RegExp(
 	[
 		`(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
 		`(?<id>${idLike})`,
-		`(?=\\))` // lookahead for right paren
+		`(?=\\))`, // lookahead for right paren
 	].join(''),
-	'g'
+	'g',
 )
 
 const macroSymbolPattern = new RegExp(
@@ -31,9 +31,9 @@ const macroSymbolPattern = new RegExp(
 		`(?<=\\{\\{)`, // lookbehind for left curly braces
 		`(?<directive>[a-z][a-z_]+>)`,
 		`(?<id>${idLike})`,
-		`(?=\\}\\})` // lookahead for right curly braces
+		`(?=\\}\\})`, // lookahead for right curly braces
 	].join(''),
-	'g'
+	'g',
 )
 
 const plainTextKeys = new Set([
@@ -41,7 +41,7 @@ const plainTextKeys = new Set([
 	'_comment',
 	'name',
 	'title',
-	'category'
+	'category',
 ])
 const urlKeys = new Set(['url', 'license', 'icon'])
 
@@ -52,7 +52,7 @@ const markdownKeys = new Set([
 	'description',
 	'summary',
 	'quest_starter',
-	'your_truth'
+	'your_truth',
 ])
 
 const idBlacklist = new Set([
@@ -72,7 +72,7 @@ const idBlacklist = new Set([
 	'"',
 	'://',
 	'.svg',
-	'.webp'
+	'.webp',
 ])
 function isBareId(v: string) {
 	if (typeof v !== 'string') return false
@@ -124,7 +124,7 @@ export function forEachIdRef(data: unknown, forEach: (id: string) => void) {
 
 export function validateIdsInStrings(
 	data: unknown,
-	index: Map<string, unknown>
+	index: Map<string, unknown>,
 ) {
 	const errors: unknown[] = []
 
@@ -170,7 +170,7 @@ export function validateIdsInStrings(
 
 export function validateMacroIdPointers(
 	text: string,
-	validIds: Map<string, unknown>
+	validIds: Map<string, unknown>,
 ) {
 	const macros = text.matchAll(macroSymbolPattern)
 
@@ -187,7 +187,7 @@ export function validateMacroIdPointers(
 
 			default:
 				errors.push(
-					`Unknown Datasworn macro directive "${String(directive)}": ${macro[0]}`
+					`Unknown Datasworn macro directive "${String(directive)}": ${macro[0]}`,
 				)
 		}
 	}
@@ -200,7 +200,7 @@ export function validateMacroIdPointers(
 
 export function validateMarkdownIdPointers(
 	text: string,
-	validIds: Map<string, unknown>
+	validIds: Map<string, unknown>,
 ) {
 	const links = text.matchAll(linkSymbolPattern)
 
@@ -240,7 +240,7 @@ export function validateIdPointer(id: string, index: Map<string, unknown>) {
 export function forEachPrimitiveValue<T = unknown>(
 	value: T,
 	key: string | number | undefined,
-	fn: (v: boolean | number | string | null, k: unknown) => void
+	fn: (v: boolean | number | string | null, k: unknown) => void,
 ): void {
 	switch (typeof value) {
 		case 'undefined':

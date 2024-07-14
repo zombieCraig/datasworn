@@ -5,10 +5,10 @@ import Assert from './validators.js'
 
 function sortDictionary<
 	T,
-	D extends Generic.Dictionary<T> = Generic.Dictionary<T>
+	D extends Generic.Dictionary<T> = Generic.Dictionary<T>,
 >(dictionary: D, sortFn: (a: T, B: T) => number) {
 	const entries = Object.entries(dictionary).sort(([_keyA, a], [_keyB, b]) =>
-		sortFn(a, b)
+		sortFn(a, b),
 	)
 
 	return Object.fromEntries(entries) as D
@@ -16,7 +16,7 @@ function sortDictionary<
 
 export function isCollection<
 	T extends
-		Generic.Collection<Generic.SourcedNode> = Generic.Collection<Generic.SourcedNode>
+		Generic.Collection<Generic.SourcedNode> = Generic.Collection<Generic.SourcedNode>,
 >(obj: unknown): obj is T {
 	return (
 		Assert.SourcedNode.Check(obj) && ('contents' in obj || 'collections' in obj)
@@ -25,7 +25,7 @@ export function isCollection<
 
 export function sortTopLevelCollection<
 	T extends Generic.SourcedNode,
-	D extends Generic.Dictionary<T> = Generic.Dictionary<T>
+	D extends Generic.Dictionary<T> = Generic.Dictionary<T>,
 >(dictionary: D) {
 	const result = sortDictionary<T>(dictionary, (a, b) => {
 		// sort descendant collections since we're already iterating over them
@@ -44,7 +44,7 @@ export function sortTopLevelCollection<
 export function sortCollection<
 	T extends
 		| Generic.Collection<Generic.SourcedNode>
-		| Generic.Collection<Generic.Collection<Generic.SourcedNode>>
+		| Generic.Collection<Generic.Collection<Generic.SourcedNode>>,
 >(collection: T) {
 	const hasContents = Object.keys(collection.contents).length > 0
 
@@ -68,18 +68,17 @@ export function sortCollection<
 			Generic.Collection<Generic.SourcedNode>
 		>
 		const { collections } = recursiveCollection
-
-		;;(
+		;(
 			result as Generic.Collection<Generic.Collection<Generic.SourcedNode>>
 		).collections = sortDictionary(
 			collections as Generic.Dictionary<any>,
 			(
 				a: Generic.Collection<Generic.Collection<Generic.SourcedNode>>,
-				b: Generic.Collection<Generic.Collection<Generic.SourcedNode>>
+				b: Generic.Collection<Generic.Collection<Generic.SourcedNode>>,
 			) => {
 				if (isCollection(a)) a = sortCollection(a)
 				return compareCollection(a, b)
-			}
+			},
 		)
 	}
 
@@ -111,10 +110,10 @@ function compareCollection(a: Generic.Collection, b: Generic.Collection) {
 
 	// get page numbers of collection children
 	const pagesA = compact(
-		Object.values(a.contents).map((v) => v._source?.page)
+		Object.values(a.contents).map((v) => v._source?.page),
 	) as number[]
 	const pagesB = compact(
-		Object.values(b.contents).map((v) => v._source?.page)
+		Object.values(b.contents).map((v) => v._source?.page),
 	) as number[]
 
 	if (pagesA.length === 0 || pagesB.length === 0) return 0

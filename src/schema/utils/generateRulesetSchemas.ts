@@ -3,7 +3,7 @@ import {
 	type TRef,
 	type TSchema,
 	Type,
-	CloneType
+	CloneType,
 } from '@sinclair/typebox'
 import {
 	forEach,
@@ -13,14 +13,14 @@ import {
 	mapValues,
 	omit,
 	omitBy,
-	set
+	set,
 } from 'lodash-es'
-import { type SetRequired, type SnakeCase } from 'type-fest'
+import type { SetRequired, SnakeCase } from 'type-fest'
 import {
 	CollectableType,
 	NonCollectableType,
 	type Rules,
-	type TagRule
+	type TagRule,
 } from '../Rules.js'
 import * as Player from '../common/Player.js'
 import { UnionEnum } from './UnionEnum.js'
@@ -29,25 +29,25 @@ import { pascalCase } from './string.js'
 export function generateRulesetSchemas(rulesPackage: string, rules: Rules) {
 	const ConditionMeterKey = UnionEnum(
 		Object.keys(rules.condition_meters),
-		omit(CloneType(Player.ConditionMeterKey), 'examples', 'type')
+		omit(CloneType(Player.ConditionMeterKey), 'examples', 'type'),
 	)
 
 	const StatKey = UnionEnum(
 		Object.keys(rules.stats),
-		omit(CloneType(Player.StatKey), 'examples', 'type')
+		omit(CloneType(Player.StatKey), 'examples', 'type'),
 	)
 
 	return {
 		ConditionMeterKey,
 		StatKey,
-		...generateTagSchemas(rulesPackage, rules.tags)
+		...generateTagSchemas(rulesPackage, rules.tags),
 	}
 }
 
 function generateTagSchema(
 	rulesPackage: string,
 	tagKey: string,
-	tagRule: TagRule
+	tagRule: TagRule,
 ): SetRequired<TSchema, '$id' | 'description'> {
 	const $id = pascalCase(rulesPackage) + pascalCase(tagKey) + 'Tag'
 	const { description } = tagRule
@@ -82,8 +82,8 @@ function generateTagSchema(
 		case 'rarity':
 			return tagRule.wildcard
 				? Type.Array(Type.Ref(pascalCase(tagRule.value_type) + 'WildcardId'), {
-						description
-				  })
+						description,
+					})
 				: (Type.Ref(pascalCase(tagRule.value_type) + 'Id', options) as any)
 	}
 }
@@ -92,13 +92,13 @@ const anyType = [...CollectableType.enum, ...NonCollectableType.enum]
 
 function generateTagSchemas(
 	rulesPackage: SnakeCase<string>,
-	tags: Record<SnakeCase<string>, TagRule>
+	tags: Record<SnakeCase<string>, TagRule>,
 ) {
 	const allowedTagProperties = Object.fromEntries(
 		anyType.map((k: CollectableType | NonCollectableType) => [
 			k,
-			{} as Record<SnakeCase<string>, TRef>
-		])
+			{} as Record<SnakeCase<string>, TRef>,
+		]),
 	)
 
 	const tagSchemas: Record<string, TSchema> = {}
@@ -112,8 +112,8 @@ function generateTagSchemas(
 			set(
 				allowedTagProperties,
 				[objectType, tagKey].join('.'),
-				Type.Optional(Type.Ref(schema))
-			)
+				Type.Optional(Type.Ref(schema)),
+			),
 		)
 	})
 
@@ -122,12 +122,12 @@ function generateTagSchemas(
 			mapValues(allowedTagProperties, (v, k) =>
 				Type.Object(v, {
 					$id: `${pascalCase(rulesPackage)}${pascalCase(k)}Tags`,
-					additionalProperties: true
-				})
+					additionalProperties: true,
+				}),
 			),
-			(v) => v.$id
+			(v) => v.$id,
 		),
-		(v) => isEmpty(v.properties)
+		(v) => isEmpty(v.properties),
 	)
 
 	const tagNamespacesSchema = keyBy(
@@ -136,11 +136,11 @@ function generateTagSchemas(
 				{ [rulesPackage]: Type.Optional(Type.Ref(v)) },
 				{
 					additionalProperties: true,
-					$id: k.replace(pascalCase(rulesPackage), '')
-				}
-			)
+					$id: k.replace(pascalCase(rulesPackage), ''),
+				},
+			),
 		),
-		(v) => v.$id
+		(v) => v.$id,
 	)
 
 	console.log(tagNamespacesSchema)
@@ -148,7 +148,7 @@ function generateTagSchemas(
 	return {
 		...tagNamespacesSchema,
 		...tagSchemas,
-		...allowedTagSchemas
+		...allowedTagSchemas,
 	}
 }
 
@@ -160,13 +160,13 @@ console.log(
 			description: 'This oracle is the cursed version of another oracle.',
 			applies_to: ['oracle_rollable'],
 			value_type: 'oracle_rollable',
-			wildcard: true
+			wildcard: true,
 		},
 		cursed_by: {
 			description: 'This oracle has a cursed version.',
 			applies_to: ['oracle_rollable'],
 			value_type: 'oracle_rollable',
-			wildcard: false
-		}
-	})
+			wildcard: false,
+		},
+	}),
 )

@@ -3,7 +3,7 @@ import { idReplacers } from '../pkg-core/Migrations/migrations.js'
 
 const orderReplacers = (
 	[{ source: patternA }, replacementA]: [RegExp, string | null],
-	[{ source: patternB }, replacementB]: [RegExp, string | null]
+	[{ source: patternB }, replacementB]: [RegExp, string | null],
 ): number => {
 	const initialWildcard = '(\\*'
 	const anyPipe = '|'
@@ -44,7 +44,7 @@ const orderReplacers = (
 }
 export const replacementMap = new Map(
 	Object.entries(idReplacers).flatMap(([k, v]) =>
-		v.map((e) => [e.old, e.new] as [RegExp, string | null])
-	)
+		v.map((e) => [e.old, e.new] as [RegExp, string | null]),
+	),
 	// .sort(orderReplacers)
 )

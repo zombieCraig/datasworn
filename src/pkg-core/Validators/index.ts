@@ -10,7 +10,7 @@ const Validators = {
 	// asset,
 	// move,
 	oracle_rollable,
-	oracle_collection
+	oracle_collection,
 } as const satisfies Partial<{
 	[K in TypeId.Primary]: (obj: TypeNode.ByType<K>) => boolean
 }>

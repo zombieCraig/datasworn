@@ -1,5 +1,5 @@
 declare module 'nanomatch' {
-	import FragmentCache from 'fragment-cache'
+	import type FragmentCache from 'fragment-cache'
 
 	type AST = object
 	interface Options {

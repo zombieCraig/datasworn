@@ -1,9 +1,9 @@
-import { type BunFile } from 'bun'
+import type { BunFile } from 'bun'
 import { merge } from 'lodash-es'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import Prettier from 'prettier'
-import { type Simplify } from 'type-fest'
+import type { Simplify } from 'type-fest'
 import yaml from 'yaml'
 import type { DataswornSource } from '../../pkg-core/index.js'
 
@@ -14,10 +14,10 @@ const space = '\t'
  * @return The deserialized object.
  */
 export async function readDataswornSourceData<
-	T extends DataswornSource.RulesPackage
+	T extends DataswornSource.RulesPackage,
 >(
 	filePath: string | BunFile,
-	reviver?: (key: unknown, value: unknown) => unknown
+	reviver?: (key: unknown, value: unknown) => unknown,
 ): Promise<T> {
 	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
 
@@ -40,8 +40,8 @@ export async function readYAML<T>(
 		schema: 'core',
 		merge: true,
 		maxAliasCount: 1000,
-		logLevel: 'debug'
-	}
+		logLevel: 'debug',
+	},
 ): Promise<T> {
 	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
 
@@ -79,12 +79,12 @@ export async function emptyDir(dirPath: string) {
 
 export async function readJSON<T>(
 	filePath: string | BunFile,
-	reviver?: (this: any, key: string, value: any) => any
+	reviver?: (this: any, key: string, value: any) => any,
 ): Promise<T> {
 	const file =
 		typeof filePath === 'string'
 			? Bun.file(filePath.toString(), {
-					type: 'application/json'
+					type: 'application/json',
 				})
 			: filePath
 
@@ -101,17 +101,17 @@ type WriteJsonOptions = {
 export async function writeJSON(
 	filePath: string | BunFile,
 	jsonContent: any,
-	options?: WriteJsonOptions
+	options?: WriteJsonOptions,
 ): Promise<any>
 export async function writeJSON(
 	filePaths: (string | BunFile)[],
 	jsonContent: any,
-	options?: WriteJsonOptions
+	options?: WriteJsonOptions,
 ): Promise<any>
 export async function writeJSON(
 	filePath: string | BunFile | (string | BunFile)[],
 	jsonContent: any,
-	{ skipCopyAwait = false, replacer, prettierOptions }: WriteJsonOptions = {}
+	{ skipCopyAwait = false, replacer, prettierOptions }: WriteJsonOptions = {},
 ): Promise<any> {
 	const pathParams = Array.isArray(filePath) ? filePath : [filePath]
 
@@ -120,7 +120,7 @@ export async function writeJSON(
 
 	const [writeDestination, ...copyDestinations]: BunFile[] = pathParams.map(
 		(destination) =>
-			typeof destination === 'string' ? Bun.file(destination) : destination
+			typeof destination === 'string' ? Bun.file(destination) : destination,
 	)
 
 	if (prettierOptions == null)
@@ -128,7 +128,7 @@ export async function writeJSON(
 
 	const json = await Prettier.format(
 		JSON.stringify(jsonContent, replacer, space),
-		prettierOptions
+		prettierOptions,
 	)
 
 	// write to the first destination
@@ -149,7 +149,7 @@ export async function writeJSON(
 
 export async function getPrettierOptions(
 	filePath: string | BunFile,
-	parser: string = 'json'
+	parser = 'json',
 ): Promise<Prettier.Options> {
 	const pathStr =
 		typeof filePath === 'string' ? filePath : (filePath.name as string)
@@ -172,7 +172,7 @@ export async function writeCode(
 	content: string,
 	skipFormat = false,
 	parser = 'typescript',
-	{ prettierOptions }: { prettierOptions?: Prettier.Options } = {}
+	{ prettierOptions }: { prettierOptions?: Prettier.Options } = {},
 ) {
 	const pathStr =
 		typeof filePath === 'string' ? filePath : (filePath.name as string)
@@ -192,7 +192,7 @@ export async function writeCode(
 }
 export async function updateJSON<T>(
 	path: string | BunFile,
-	update: Partial<T> | ((data: T) => T)
+	update: Partial<T> | ((data: T) => T),
 ) {
 	let json = (await readJSON(path)) as T
 

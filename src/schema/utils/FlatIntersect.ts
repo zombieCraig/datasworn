@@ -3,7 +3,7 @@ import {
 	type ObjectOptions,
 	type TObject,
 	CloneType,
-	Kind
+	Kind,
 } from '@sinclair/typebox'
 import { isEqual } from 'lodash-es'
 
@@ -19,7 +19,7 @@ export type Assign<TTarget, TSource> = Omit<TTarget, keyof TSource> & TSource
 // }
 
 export type FlatIntersect<T extends [...object[]]> = T extends [
-	infer U extends object
+	infer U extends object,
 ]
 	? U
 	: T extends [infer TTarget extends object, infer TSource extends object]
@@ -27,8 +27,8 @@ export type FlatIntersect<T extends [...object[]]> = T extends [
 		: T extends [
 					infer TTarget extends object,
 					infer TSource extends object,
-					...infer Tail extends object[]
-			  ]
+					...infer Tail extends object[],
+				]
 			? FlatIntersect<[Assign<TTarget, TSource>, ...Tail]>
 			: never
 
@@ -42,7 +42,7 @@ export type TAssign<TBase extends TObject, TOverride extends TObject> = TObject<
 >
 
 export type TFlatIntersect<T extends [...TObject[]]> = T extends [
-	infer U extends TObject
+	infer U extends TObject,
 ]
 	? U
 	: T extends [infer TBase extends TObject, infer TOverride extends TObject]
@@ -50,15 +50,15 @@ export type TFlatIntersect<T extends [...TObject[]]> = T extends [
 		: T extends [
 					infer TBase extends TObject,
 					infer TOverride extends TObject,
-					...infer Tail extends [...TObject[]]
-			  ]
+					...infer Tail extends [...TObject[]],
+				]
 			? TFlatIntersect<[TAssign<TBase, TOverride>, ...Tail]>
 			: never
 
 export function Assign<TTarget extends TObject, TSource extends TObject>(
 	target: TTarget,
 	source: TSource,
-	options: ObjectOptions = {}
+	options: ObjectOptions = {},
 ) {
 	const mergedProps = CloneType(target).properties as Assign<
 		TTarget['properties'],
@@ -81,17 +81,17 @@ export function Assign<TTarget extends TObject, TSource extends TObject>(
 
 	return Type.Object(mergedProps, {
 		[Kind]: 'Object',
-		...options
+		...options,
 	}) as TAssign<TTarget, TSource>
 }
 
 export function FlatIntersect<T extends TObject[]>(
 	schemas: [...T],
-	options: ObjectOptions = {}
+	options: ObjectOptions = {},
 ) {
 	if (schemas.length === 0)
 		throw new Error(
-			`FlatIntersect expected an array of schemas, but the array is empty`
+			`FlatIntersect expected an array of schemas, but the array is empty`,
 		)
 
 	const [target, ...sources] = schemas
@@ -102,6 +102,6 @@ export function FlatIntersect<T extends TObject[]>(
 
 	return CloneType(result, {
 		[Kind]: 'Object',
-		...options
+		...options,
 	}) as TFlatIntersect<T>
 }

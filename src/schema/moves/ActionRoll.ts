@@ -3,7 +3,7 @@ import {
 	Trigger,
 	TriggerCondition,
 	TriggerConditionEnhancement,
-	TriggerEnhancement
+	TriggerEnhancement,
 } from './Trigger.js'
 import { ActionRollMethod, type MoveOutcomes } from './common.js'
 import { Move, MoveEnhancement } from './utils.js'
@@ -13,7 +13,7 @@ import { RollableValue } from '../common/RollableValues.js'
 export const TriggerActionRollCondition = TriggerCondition(
 	Type.Ref(ActionRollMethod),
 	Type.Array(Type.Ref(RollableValue)),
-	{ $id: 'TriggerActionRollCondition', title: 'TriggerActionRollCondition' }
+	{ $id: 'TriggerActionRollCondition', title: 'TriggerActionRollCondition' },
 )
 export type TriggerActionRollCondition = Static<
 	typeof TriggerActionRollCondition
@@ -25,8 +25,8 @@ export const TriggerActionRoll = Trigger(
 		$id: 'TriggerActionRoll',
 		title: 'TriggerActionRoll',
 		description:
-			'Describes trigger conditions for a move that makes an action roll.'
-	}
+			'Describes trigger conditions for a move that makes an action roll.',
+	},
 )
 export type TriggerActionRoll = Static<typeof TriggerActionRoll>
 
@@ -37,8 +37,8 @@ export const MoveActionRoll = Move(
 	{
 		title: 'Move (action roll)',
 		description: 'A move that makes an action roll.',
-		$id: 'MoveActionRoll'
-	}
+		$id: 'MoveActionRoll',
+	},
 )
 
 export type MoveActionRoll = Move<
@@ -50,7 +50,7 @@ export type MoveActionRoll = Move<
 export const TriggerActionRollConditionEnhancement =
 	TriggerConditionEnhancement(TriggerActionRollCondition, {
 		$id: 'TriggerActionRollConditionEnhancement',
-		title: 'TriggerActionRollConditionEnhancement'
+		title: 'TriggerActionRollConditionEnhancement',
 	})
 
 export type TriggerActionRollConditionEnhancement = Static<
@@ -61,8 +61,8 @@ export const TriggerActionRollEnhancement = TriggerEnhancement(
 	Type.Array(Type.Ref(TriggerActionRollConditionEnhancement)),
 	{
 		$id: 'TriggerActionRollEnhancement',
-		title: 'TriggerActionRollEnhancement'
-	}
+		title: 'TriggerActionRollEnhancement',
+	},
 )
 export type TriggerActionRollEnhancement = Static<
 	typeof TriggerActionRollEnhancement
@@ -73,7 +73,7 @@ export type TriggerActionRollEnhancement = Static<
 export const TriggerNoRollCondition = TriggerCondition(
 	Type.Null({ default: null }),
 	Type.Null({ default: null }),
-	{ $id: 'TriggerNoRollCondition', title: 'TriggerNoRollCondition' }
+	{ $id: 'TriggerNoRollCondition', title: 'TriggerNoRollCondition' },
 )
 
 export type TriggerNoRollCondition = Static<typeof TriggerNoRollCondition>
@@ -83,8 +83,8 @@ export const TriggerNoRoll = Trigger(
 	{
 		$id: 'TriggerNoRoll',
 		title: 'TriggerNoRoll',
-		description: 'Describes trigger conditions for a move that makes no rolls.'
-	}
+		description: 'Describes trigger conditions for a move that makes no rolls.',
+	},
 )
 
 export type TriggerNoRoll = Static<typeof TriggerNoRoll>
@@ -95,8 +95,8 @@ export const MoveNoRoll = Move(
 	Type.Null({ default: null }),
 	{
 		$id: 'MoveNoRoll',
-		description: 'A move that makes no progress rolls or action rolls.'
-	}
+		description: 'A move that makes no progress rolls or action rolls.',
+	},
 )
 
 export type MoveNoRoll = Static<typeof MoveNoRoll>
@@ -106,8 +106,8 @@ export const TriggerNoRollEnhancement = TriggerEnhancement(
 	Type.Array(Type.Ref(TriggerNoRollCondition)),
 	{
 		$id: 'TriggerNoRollEnhancement',
-		title: 'TriggerNoRollEnhancement'
-	}
+		title: 'TriggerNoRollEnhancement',
+	},
 )
 export type TriggerNoRollEnhancement = Static<typeof TriggerNoRollEnhancement>
 
@@ -115,8 +115,8 @@ export const MoveNoRollEnhancement = MoveEnhancement(
 	'no_roll',
 	Type.Ref(TriggerNoRollEnhancement),
 	{
-		$id: 'MoveNoRollEnhancement'
-	}
+		$id: 'MoveNoRollEnhancement',
+	},
 )
 export type MoveNoRollEnhancement = MoveEnhancement<
 	'no_roll',
@@ -127,8 +127,8 @@ export const MoveActionRollEnhancement = MoveEnhancement(
 	'action_roll',
 	Type.Ref(TriggerActionRollEnhancement),
 	{
-		$id: 'MoveActionRollEnhancement'
-	}
+		$id: 'MoveActionRollEnhancement',
+	},
 )
 export type MoveActionRollEnhancement = MoveEnhancement<
 	'action_roll',

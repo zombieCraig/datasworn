@@ -7,7 +7,7 @@ export const unsortableKeys = [
 	CONST.ContentsKey,
 	'options',
 	CONST.CollectionsKey,
-	'choices'
+	'choices',
 ] as const
 export const idKeys = [CONST.IdKey, '_key', '_index'] as const
 
@@ -21,7 +21,7 @@ export const relationshipKeys = [
 	'domain',
 	'name_oracle',
 	'npc',
-	'extra_card'
+	'extra_card',
 ] as const
 
 // TODO: this could be done programmatically by looking at the appropriate symbol key on DiscriminatedUnion schemas
@@ -33,7 +33,7 @@ export const discriminatorKeys = [
 	'choice_type',
 	'oracle_type',
 	'value_type',
-	'using'
+	'using',
 ] as const
 
 export const usageKeys = [
@@ -46,7 +46,7 @@ export const usageKeys = [
 	'ally',
 	'player',
 	'is_impact',
-	'disables_asset'
+	'disables_asset',
 ] as const
 
 export const shortDescriptionKeys = [
@@ -57,20 +57,20 @@ export const shortDescriptionKeys = [
 	'features',
 	'dangers',
 	'drives',
-	'tactics'
+	'tactics',
 ] as const
 export const longDescriptionKeys = [
 	'text',
 	'text2',
 	'text3',
 	'description',
-	'your_character'
+	'your_character',
 ] as const
 export const longArrayKeys = [
 	'denizens',
 	'enhance_moves',
 	'rows',
-	'table'
+	'table',
 ] as const
 export const numericKeys = ['min', 'max', 'value', 'rank'] as const
 export const rulesKeys = [
@@ -95,7 +95,7 @@ export const rulesKeys = [
 	'recover',
 	'suffer',
 	'choices',
-	'xp_cost'
+	'xp_cost',
 ] as const
 export const sourceMetadataKeys = [
 	'email',
@@ -104,7 +104,7 @@ export const sourceMetadataKeys = [
 	'license',
 	'page',
 	'title',
-	'url'
+	'url',
 ] as const satisfies (
 	| keyof Datasworn.SourceInfo
 	| keyof Omit<Datasworn.AuthorInfo, 'name'>
@@ -186,14 +186,14 @@ export const dataswornKeyOrder = [
 	'site_themes',
 	'truths',
 	'_source',
-	'_i18n'
+	'_i18n',
 ] as const
 
 export function compareObjectKeys(
 	a: string,
 	b: string,
 	keyOrder: Readonly<string[]> = [],
-	unsortableKeys?: Set<string>
+	unsortableKeys?: Set<string>,
 ) {
 	const [indexA, indexB] = [a, b].map((key) => {
 		const index = keyOrder.indexOf(key)
@@ -215,18 +215,18 @@ export function compareObjectKeys(
 }
 export function sortDataswornKeys<T extends object>(
 	object: T,
-	sortOrder = dataswornKeyOrder
+	sortOrder = dataswornKeyOrder,
 ) {
 	return sortObjectKeys(object, sortOrder)
 }
 
 export function sortObjectKeys<T extends object>(
 	object: T,
-	keyOrder: Readonly<string[]> = []
+	keyOrder: Readonly<string[]> = [],
 ) {
 	if (Array.isArray(object)) return object
 	const entries = Object.entries(object).sort(([a], [b]) =>
-		compareObjectKeys(a, b, keyOrder)
+		compareObjectKeys(a, b, keyOrder),
 	)
 	return Object.fromEntries(entries) as T
 }

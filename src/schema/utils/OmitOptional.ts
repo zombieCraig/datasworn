@@ -5,10 +5,10 @@ import {
 	type TSchema,
 	TypeGuard,
 	Type,
-	type ObjectOptions
+	type ObjectOptions,
 } from '@sinclair/typebox'
 import { omitBy } from 'lodash-es'
-import { type OptionalKeysOf, type ConditionalExcept } from 'type-fest'
+import type { OptionalKeysOf, ConditionalExcept } from 'type-fest'
 
 export type OmitOptional<T extends object> = Omit<T, OptionalKeysOf<T>>
 
@@ -17,7 +17,7 @@ export type TOmitOptional<T extends TObject> = TObject<
 >
 export function OmitOptional<T extends TObject>(
 	schema: T,
-	options: ObjectOptions = {}
+	options: ObjectOptions = {},
 ) {
 	const base = CloneType(schema)
 

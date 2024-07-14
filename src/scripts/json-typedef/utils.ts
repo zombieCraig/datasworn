@@ -1,28 +1,28 @@
 import {
 	Hint,
 	Kind,
-	TAnySchema,
-	TArray,
-	TBoolean,
-	TInteger,
-	TLiteral,
-	TNull,
-	TNumber,
-	TObject,
-	TOptional,
-	TRecord,
-	TRef,
-	TSchema,
-	TString,
-	TThis,
+	type TAnySchema,
+	type TArray,
+	type TBoolean,
+	type TInteger,
+	type TLiteral,
+	type TNull,
+	type TNumber,
+	type TObject,
+	type TOptional,
+	type TRecord,
+	type TRef,
+	type TSchema,
+	type TString,
+	type TThis,
 	Type,
-	TypeGuard
+	TypeGuard,
 } from '@sinclair/typebox'
-import * as JTD from 'jtd'
+import type * as JTD from 'jtd'
 
-import JtdType, { Metadata, type TFields, type TStruct } from './typedef.js'
+import JtdType, { type Metadata, type TFields, type TStruct } from './typedef.js'
 
-import { JTDSchemaType, SomeJTDSchemaType } from 'ajv/dist/core.js'
+import { type JTDSchemaType, SomeJTDSchemaType } from 'ajv/dist/core.js'
 import {
 	cloneDeep,
 	isInteger,
@@ -37,17 +37,17 @@ import {
 	pickBy,
 	isEqual,
 	set,
-	isNull
+	isNull,
 } from 'lodash-es'
 import * as Generic from '../../schema/Generic.js'
 import * as Utils from '../../schema/Utils.js'
-import { TRoot } from '../../schema/root/Root.js'
+import type { TRoot } from '../../schema/root/Root.js'
 import Log from '../utils/Log.js'
 import {
 	Discriminator,
 	JsonTypeDef,
 	Mapping,
-	Members
+	Members,
 } from '../../schema/Symbols.js'
 import * as Assets from '../../schema/Assets.js'
 import { DefsKey, rootSchemaName } from '../const.js'
@@ -70,7 +70,7 @@ export function extractMetadata<T extends TAnySchema>(jsonSchema: T) {
 		// array
 		'uniqueItems',
 		'minItems',
-		'maxItems'
+		'maxItems',
 	]
 
 	let metadata = pick(cloneDeep(jsonSchema), ...metadataKeys) as Metadata
@@ -94,11 +94,12 @@ export function extractMetadata<T extends TAnySchema>(jsonSchema: T) {
 
 export function setIdRef<T extends { _id: string }, R extends string>(
 	schema: JTDSchemaType<T>,
-	ref: R
+	ref: R,
 ) {
 	type NewRef = { [P in R]: string }
-	type RefRecord =
-		typeof schema extends JTDSchemaType<T, infer U> ? U & NewRef : NewRef
+	type RefRecord = typeof schema extends JTDSchemaType<T, infer U>
+		? U & NewRef
+		: NewRef
 	return set(schema, 'properties._id.ref', ref) as unknown as JTDSchemaType<
 		T & { _id: R },
 		RefRecord
@@ -107,7 +108,7 @@ export function setIdRef<T extends { _id: string }, R extends string>(
 
 export function toJtdEnum<
 	U extends string[] | number[],
-	T extends Utils.TUnionEnum<U>
+	T extends Utils.TUnionEnum<U>,
 >(schema: T) {
 	if (schema.enum.every(isString)) return JtdType.Enum(schema.enum)
 	if (schema.enum.every(isInteger)) return JtdType.Uint8()
@@ -128,7 +129,7 @@ export function toJtdRef(schema: TRef | TThis) {
 
 /** Transforms a Typebox array schema into JTD elements */
 export function toJtdElements<U extends TSchema, T extends TArray<U>>(
-	schema: T
+	schema: T,
 ) {
 	const items = schema.items as TSchema
 	return JtdType.Array(toJtdForm(items))
@@ -147,7 +148,7 @@ export function toJtdProperties<T extends TObject>(schema: T) {
 
 			return base
 		}),
-		isUndefined
+		isUndefined,
 	)
 
 	const result = JtdType.Struct(fields)
@@ -157,14 +158,14 @@ export function toJtdProperties<T extends TObject>(schema: T) {
 
 /** Transform a Typebox record schema into JTD values */
 export function toJtdValues<T extends TRecord<TString, U>, U extends TSchema>(
-	schema: T
+	schema: T,
 ) {
 	const [propertyPattern, value] = Object.entries(schema.patternProperties)[0]
 	const unwrap = toJtdForm(value as unknown as TConvertible)
 
 	if (!unwrap)
 		throw new Error(
-			`Couldn't unwrap Record value schema: ${JSON.stringify(schema)}`
+			`Couldn't unwrap Record value schema: ${JSON.stringify(schema)}`,
 		)
 
 	return JtdType.Record(unwrap, { propertyPattern })
@@ -181,7 +182,7 @@ export function toJtdSingleEnum(schema: TLiteral<string>) {
 
 export function toJtdDiscriminator<
 	M extends Utils.TDiscriminatorMap<Utils.TDiscriminableish<TObject>>,
-	D extends Utils.TDiscriminableKeyFor<M>
+	D extends Utils.TDiscriminableKeyFor<M>,
 >(schema: Utils.TDiscriminatedUnion<M, D>) {
 	const discriminator = schema[Discriminator]
 
@@ -196,7 +197,7 @@ export function toJtdDiscriminator<
 			const subschema = oldMapping[k]
 			jtdMapping[k] = {
 				...omit(toJtdProperties(subschema), `properties.${discriminator}`),
-				metadata: extractMetadata(subschema)
+				metadata: extractMetadata(subschema),
 			}
 		}
 
@@ -224,7 +225,10 @@ type TConvertible =
 	| Utils.TUnionEnum
 
 function toJtdForm(
-	schema: TConvertible | Utils.TNullable<TConvertible> | TOptional<TConvertible>
+	schema:
+		| TConvertible
+		| Utils.TNullable<TConvertible>
+		| TOptional<TConvertible>,
 ): JTD.Schema
 function toJtdForm(schema: TNull): null
 function toJtdForm(schema: TSchema): JTD.Schema | null {
@@ -239,7 +243,7 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 			isEqual(schema[JsonTypeDef]?.schema, {}):
 			// @ts-expect-error
 			return merge(cloneDeep(schema[JsonTypeDef].schema), {
-				metadata: extractMetadata(schema)
+				metadata: extractMetadata(schema),
 			})
 		case TypeGuard.IsAny(schema):
 			result = JtdType.Any()
@@ -263,7 +267,7 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 		case TypeGuard.IsNumber(schema):
 			Log.warn(
 				'Received a number schema. Consider making it an integer instead.',
-				schema
+				schema,
 			)
 			result = JtdType.Float32()
 			break
@@ -289,8 +293,8 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 			result = JtdType.Enum(schema.anyOf.map((item: TLiteral) => item.const))
 			result.metadata = {
 				enumDescription: Object.fromEntries(
-					schema.anyOf.map((item: TLiteral) => [item.const, item.description])
-				)
+					schema.anyOf.map((item: TLiteral) => [item.const, item.description]),
+				),
 			}
 			break
 		case Utils.TUnionEnum(schema):
@@ -301,7 +305,7 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 	if (result == null) {
 		console.log(schema)
 		throw new Error(
-			`no transform available for typebox schema kind ${schema[Kind]}`
+			`no transform available for typebox schema kind ${schema[Kind]}`,
 		)
 	}
 
@@ -338,7 +342,7 @@ export function toJtdRoot<T extends TRoot>(schemaRoot: T) {
 
 	if (isUndefined(base))
 		throw new Error(
-			`Unable to infer JSON Typedef form for root schema "${rootSchemaName}".`
+			`Unable to infer JSON Typedef form for root schema "${rootSchemaName}".`,
 		)
 
 	return {
@@ -354,7 +358,7 @@ export function toJtdRoot<T extends TRoot>(schemaRoot: T) {
 			// }
 
 			return false
-		})
+		}),
 	}
 }
 

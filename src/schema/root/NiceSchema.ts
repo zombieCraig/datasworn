@@ -4,7 +4,6 @@ import { type TSchema, TypeGuard } from '@sinclair/typebox'
 export function NiceSchema(schema: TSchema) {
 	if (TypeGuard.IsObject(schema)) schema.additionalProperties ||= false
 
-
 	// if (!schema.title && !('$ref' in schema)) {
 	// 	console.log(schema)
 	// 	throw new Error(

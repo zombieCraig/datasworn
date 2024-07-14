@@ -18,11 +18,7 @@
 		"type": "git",
 		"url": "git+https://github.com/rsek/datasworn.git"
 	},
-	"keywords": [
-		"ironsworn",
-		"starforged",
-		"TTRPG"
-	],
+	"keywords": ["ironsworn", "starforged", "TTRPG"],
 	"author": {
 		"name": "rsek",
 		"email": "r.sekouri@gmail.com",

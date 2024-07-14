@@ -1,11 +1,11 @@
 import path from 'node:path'
 import { copyDir, updateJSON } from 'scripts/utils/readWrite.js'
-import { type RulesPackageConfig } from '../../../schema/tools/build/index.js'
+import type { RulesPackageConfig } from '../../../schema/tools/build/index.js'
 import {
 	PKG_DIR_NODE,
 	PKG_SCOPE_OFFICIAL,
 	ROOT_OUTPUT,
-	VERSION
+	VERSION,
 } from '../../const.js'
 import Log from '../../utils/Log.js'
 import { emptyDir } from '../../utils/readWrite.js'
@@ -14,7 +14,7 @@ import { emptyDir } from '../../utils/readWrite.js'
 export async function buildContentPackage({
 	id,
 	pkg,
-	paths
+	paths,
 }: RulesPackageConfig) {
 	const { name, scope, ...packageUpdate } = pkg
 
@@ -48,8 +48,8 @@ export async function buildContentPackage({
 							dependencies[depId] = VERSION
 
 				return packageDotJson
-			}
-		)
+			},
+		),
 	)
 
 	/** Destination path for the JSON content directory */
@@ -59,7 +59,7 @@ export async function buildContentPackage({
 
 	jsonOps.push(
 		// empty JSON destination directory
-		emptyDir(pkgJsonDest).then(() => copyDir(jsonSrc, pkgJsonDest))
+		emptyDir(pkgJsonDest).then(() => copyDir(jsonSrc, pkgJsonDest)),
 	)
 
 	/** async operations on package image assets */

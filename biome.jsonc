@@ -1,0 +1,58 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"formatter": {
+		"include": [
+			"src/**/*.ts",
+			"pkg/nodejs/**/*.{d.ts,json}",
+			"src/migration/history/*/*.d.ts",
+			"src/migration/history/*/*.json",
+			"src/migration/history/*/*.schema.json",
+			"datasworn/**/*.json",
+			"source_data/**/*.json"
+		],
+		"ignore": [
+			"**/dist",
+			"**/docs",
+			"**/*.d.ts",
+			"**/*.html",
+			"**/*.md",
+			"**/.github",
+			"**/.vscode",
+			"src/data-legacy",
+			"src/extras"
+		]
+	},
+	"organizeImports": { "enabled": true },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedVariables": "warn"
+			},
+			"style": {
+				"noNamespace": "off",
+				"useConsistentArrayType": "off",
+				"useImportType": "error",
+				"useNamingConvention": {
+					"level": "off",
+					"options": { "strictCase": false }
+				}
+			},
+			"suspicious": { "noEmptyInterface": "off", "noRedeclare": "off" }
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"semicolons": "asNeeded",
+			// TODO: migrate to double quotes when there aren't any branches to worry about
+			"jsxQuoteStyle": "single",
+			"quoteStyle": "single"
+		}
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	}
+}

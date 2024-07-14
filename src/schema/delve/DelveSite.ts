@@ -12,7 +12,7 @@ import { EmbeddedType } from './common.js'
 
 export const DelveSiteDenizenFrequency = Utils.UnionEnum(
 	['very_common', 'common', 'uncommon', 'rare', 'unforeseen'],
-	{ $id: 'DelveSiteDenizenFrequency' }
+	{ $id: 'DelveSiteDenizenFrequency' },
 )
 export type DelveSiteDenizenFrequency = Static<typeof DelveSiteDenizenFrequency>
 
@@ -21,37 +21,37 @@ export const DelveSiteDenizen = EmbeddedType(
 		name: Type.Optional(
 			Type.Ref(Localize.Label, {
 				description:
-					"A name for the denizen, if it's different than the `name` property of the NPC."
-			})
+					"A name for the denizen, if it's different than the `name` property of the NPC.",
+			}),
 		),
 		npc: Type.Optional(
 			Type.Ref(Id.NpcId, {
-				description: 'The ID of the relevant NPC entry, if one is specified.'
-			})
+				description: 'The ID of the relevant NPC entry, if one is specified.',
+			}),
 		),
 		frequency: Type.Ref(DelveSiteDenizenFrequency),
-		roll: Type.Ref(DiceRange)
+		roll: Type.Ref(DiceRange),
 	}),
 	'delve_site',
 	'denizen',
 	{
 		description:
-			'Represents an entry in a delve site denizen matrix. Denizen matrices are described in Ironsworn: Delve.'
-	}
+			'Represents an entry in a delve site denizen matrix. Denizen matrices are described in Ironsworn: Delve.',
+	},
 )
 
 export type DelveSiteDenizen = Static<typeof DelveSiteDenizen>
 function StaticDenizenRowStub<
 	Min extends number,
 	Max extends number,
-	Frequency extends DelveSiteDenizenFrequency
+	Frequency extends DelveSiteDenizenFrequency,
 >(min: Min, max: Max, frequency: Frequency) {
 	return Type.Object(
 		{
 			frequency: Type.Literal(frequency),
-			roll: StaticDiceRange(min, max)
+			roll: StaticDiceRange(min, max),
 		},
-		{ additionalProperties: true, title: 'DelveSiteDenizenStatic' }
+		{ additionalProperties: true, title: 'DelveSiteDenizenStatic' },
 	)
 }
 const DelveSiteDenizens = Type.Array(Type.Ref(DelveSiteDenizen))
@@ -62,14 +62,14 @@ export const DelveSite = NonCollectableNode(
 		region: Type.Optional(
 			Type.Ref(Id.AtlasEntryId, {
 				description:
-					'The ID of an atlas entry representing the region in which this delve site is located.'
-			})
+					'The ID of an atlas entry representing the region in which this delve site is located.',
+			}),
 		),
 		theme: Type.Ref(Id.DelveSiteThemeId, {
-			description: "The ID of the site's DelveSiteTheme card."
+			description: "The ID of the site's DelveSiteTheme card.",
 		}),
 		domain: Type.Ref(Id.DelveSiteDomainId, {
-			description: "The ID of the site's DelveSiteDomain card."
+			description: "The ID of the site's DelveSiteDomain card.",
 		}),
 		extra_card: Type.Optional(
 			Type.Union(
@@ -77,9 +77,9 @@ export const DelveSite = NonCollectableNode(
 				{
 					description:
 						'An additional theme or domain card ID, for use with optional rules in Ironsworn: Delve.',
-					[JsonTypeDef]: { schema: JtdType.String() }
-				}
-			)
+					[JsonTypeDef]: { schema: JtdType.String() },
+				},
+			),
 		),
 		description: Type.Ref(Localize.MarkdownString),
 		denizens: Type.Intersect(
@@ -97,24 +97,24 @@ export const DelveSite = NonCollectableNode(
 					StaticDenizenRowStub(94, 95, 'rare'),
 					StaticDenizenRowStub(96, 97, 'rare'),
 					StaticDenizenRowStub(98, 99, 'rare'),
-					StaticDenizenRowStub(100, 100, 'unforeseen')
-				])
+					StaticDenizenRowStub(100, 100, 'unforeseen'),
+				]),
 			],
 			{
 				[JsonTypeDef]: {
-					schema: toJtdElements(DelveSiteDenizens)
+					schema: toJtdElements(DelveSiteDenizens),
 				},
 				rollable: '1d100',
 				description:
-					"Represents the delve site's denizen matrix as an array of objects."
-			}
-		)
+					"Represents the delve site's denizen matrix as an array of objects.",
+			},
+		),
 	}),
 	'delve_site',
 	{
 		$id: 'DelveSite',
-		description: 'A delve site with a theme, domain, and denizens.'
-	}
+		description: 'A delve site with a theme, domain, and denizens.',
+	},
 )
 
 export type DelveSite = Static<typeof DelveSite>

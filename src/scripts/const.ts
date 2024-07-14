@@ -2,8 +2,8 @@ import path from 'node:path'
 
 const toolsPkg = JSON.parse(
 	await Bun.file(path.join(process.cwd(), 'package.json'), {
-		type: 'application/json'
-	}).text()
+		type: 'application/json',
+	}).text(),
 ) as {
 	version: `${number}.${number}.${number}`
 }
@@ -37,21 +37,21 @@ export const ROOT_TYPES_OUT = path.join(src, 'types')
 export const SCHEMA_PATH = path.join(ROOT_OUTPUT, 'datasworn.schema.json')
 export const SOURCE_SCHEMA_PATH = path.join(
 	ROOT_OUTPUT,
-	'datasworn-source.schema.json'
+	'datasworn-source.schema.json',
 )
 export const SOURCEDATA_SCHEMA_PATH = path.join(
 	ROOT_SOURCE_DATA,
-	'datasworn-source.schema.json'
+	'datasworn-source.schema.json',
 )
 
 export const SCHEMA_DELVE_OUT = path.join(
 	ROOT_OUTPUT,
-	'datasworn-delve.schema.json'
+	'datasworn-delve.schema.json',
 )
 
 export const SCHEMA_DELVE_IN = path.join(
 	ROOT_OUTPUT,
-	'datasworn-delve-source.schema.json'
+	'datasworn-delve-source.schema.json',
 )
 
 export const SCHEMA_ID = 'https://ironswornrpg.com/datasworn.schema.json'

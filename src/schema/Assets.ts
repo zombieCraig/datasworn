@@ -6,10 +6,10 @@ import { Label, MarkdownString } from './common/Localize.js'
 import { FlatIntersect } from './utils/FlatIntersect.js'
 
 import { AssetPropertiesEnhanceable } from './assets/common.js'
-import { type TAssetAbility } from './assets/Ability.js'
-import {
-	type TAssetControlField,
-	type TAssetOptionField
+import type { TAssetAbility } from './assets/Ability.js'
+import type {
+	TAssetControlField,
+	TAssetOptionField,
 } from './assets/Fields.js'
 
 const AssetMixin = Type.Object({
@@ -24,34 +24,35 @@ const AssetMixin = Type.Object({
 			'Module',
 			'Path',
 			'Ritual',
-			'Support Vehicle'
-		]
+			'Support Vehicle',
+		],
 	}),
 	options: Dictionary(Type.Ref<TAssetOptionField>('AssetOptionField'), {
 		description:
 			"Options are input fields set when the player purchases the asset. They're likely to remain the same through the life of the asset. Typically, they are rendered at the top of the asset card.",
-		default: {}
+		default: {},
 	}),
 	requirement: Type.Optional(
 		Type.Ref(MarkdownString, {
-			description: 'Describes prerequisites for purchasing or using this asset.'
-		})
+			description:
+				'Describes prerequisites for purchasing or using this asset.',
+		}),
 	),
 	abilities: Type.Array(
 		Type.Ref<TAssetAbility>('AssetAbility', {
-			description: 'Abilities provided by this asset. Most assets have 3.'
-		})
-	)
+			description: 'Abilities provided by this asset. Most assets have 3.',
+		}),
+	),
 })
 
 export const Asset = CollectableNode(
 	FlatIntersect([
 		AssetMixin,
 		AssetPropertiesEnhanceable(
-			Type.Ref<TAssetControlField>('AssetControlField')
-		)
+			Type.Ref<TAssetControlField>('AssetControlField'),
+		),
 	]),
-	'asset'
+	'asset',
 )
 
 export type TAsset = typeof Asset
@@ -60,9 +61,13 @@ export type TAsset = typeof Asset
 // 		Static<ReturnType<typeof AssetPropertiesEnhanceable<TAssetControlField>>>
 // >
 
-export const AssetCollection = CollectionNode(Type.Object({}), 'asset_collection', {
-	$id: 'AssetCollection'
-})
+export const AssetCollection = CollectionNode(
+	Type.Object({}),
+	'asset_collection',
+	{
+		$id: 'AssetCollection',
+	},
+)
 export type TAssetCollection = typeof AssetCollection
 // export type AssetCollection = Collection<Asset>
 

@@ -3,7 +3,7 @@ export {
 	OracleRollableRowText,
 	OracleRollableRowText2,
 	OracleRollableRowText3,
-	OracleRollableRow
+	OracleRollableRow,
 } from './oracles/TableRow.js'
 
 // primary type
@@ -14,7 +14,7 @@ export {
 	OracleTableSharedText2,
 	OracleTableSharedText3,
 	OracleTablesCollection,
-	OracleCollection
+	OracleCollection,
 } from './oracles/OracleCollection.js'
 
 // derived type

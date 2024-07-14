@@ -20,7 +20,7 @@ const idBlacklist = new Set([
 	')',
 	'://',
 	'.svg',
-	'.webp'
+	'.webp',
 ])
 const stringKeyBlacklist = new Set([
 	'label',
@@ -33,7 +33,7 @@ const stringKeyBlacklist = new Set([
 	'result',
 	'url',
 	'license',
-	'icon'
+	'icon',
 ])
 
 function mightBeId(value: unknown) {
@@ -48,7 +48,7 @@ function mightBeId(value: unknown) {
 
 export async function forEachIdInVersion(
 	version: string,
-	forEach: (id: string) => void
+	forEach: (id: string) => void,
 ) {
 	const dir = path.join(ROOT_HISTORY, version)
 	const glob = `*/*.json`
@@ -64,7 +64,7 @@ export async function forEachIdInVersion(
 					forEach(v as string)
 
 				return v
-			})
+			}),
 		)
 
 	await Promise.all(readOps)
@@ -88,7 +88,7 @@ function getWildcardRegex(wildcardId: string) {
 			// lazy way to trawl IDs that are already known to be valid. don't use for production.
 			return new RegExp(
 				`^${typePattern}${CONST.PrefixSep}${Pattern.RulesPackageElement.source}(?:/[a-z\\d_
-        \\.]+)+$`
+        \\.]+)+$`,
 			)
 		case CONST.WildcardString:
 			pathPattern += Pattern.RulesPackageElement.source
@@ -132,7 +132,7 @@ function getWildcardRegex(wildcardId: string) {
 export async function generateIdMap(
 	fromVersion: string,
 	toVersion: string,
-	replacers: Map<RegExp, string | null>
+	replacers: Map<RegExp, string | null>,
 ) {
 	const currentIds = new Set<string>()
 	const mappedIds = new Map<string, string | null>()
@@ -156,13 +156,13 @@ export async function generateIdMap(
 			}
 
 			return unmappedIds.add(id)
-		})
+		}),
 	])
 
 	if (unmappedIds.size > 0) {
 		console.log(unmappedIds)
 		throw new Error(
-			`${unmappedIds.size} IDs from ${fromVersion} don't have a valid replacer. Change the regular expressions so that they can be matched to their equivalent in ${toVersion}, or explicitly assign them a null replacement (if no similarly-typed analogue exists).`
+			`${unmappedIds.size} IDs from ${fromVersion} don't have a valid replacer. Change the regular expressions so that they can be matched to their equivalent in ${toVersion}, or explicitly assign them a null replacement (if no similarly-typed analogue exists).`,
 		)
 	}
 
@@ -190,7 +190,7 @@ export async function generateIdMap(
 	if (badIds.size > 0) {
 		console.log(badIds)
 		throw new Error(
-			`Got ${goodIds.size + badIds.size} replacement IDs, but ${badIds.size} have targets that don't exist.`
+			`Got ${goodIds.size + badIds.size} replacement IDs, but ${badIds.size} have targets that don't exist.`,
 		)
 	}
 
@@ -198,7 +198,7 @@ export async function generateIdMap(
 }
 
 const data = Object.fromEntries(
-	await generateIdMap(oldVersion, VERSION, replacementMap)
+	await generateIdMap(oldVersion, VERSION, replacementMap),
 )
 
 // console.log(data)
