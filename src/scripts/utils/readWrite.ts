@@ -97,7 +97,7 @@ async function formatFile(file: string | BunFile) {
 
 	try {
 		const result =
-			await $`bun biome format --write --files-max-size=${maxSize} ${typeof file === 'string' ? file : (file.name as string)}`.text()
+			await $`bun biome format --write --config-path=./biome.jsonc --files-max-size=${maxSize} ${typeof file === 'string' ? file : (file.name as string)}`.text()
 		return Log.verbose(result)
 	} catch {}
 
