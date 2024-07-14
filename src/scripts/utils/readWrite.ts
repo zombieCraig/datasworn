@@ -90,17 +90,20 @@ export async function readJSON<T>(
 	return JSON.parse(await file.text(), reviver)
 }
 
-async function formatFiles(...files: (string | BunFile)[]) {
-	const filePaths = files.map((file) =>
-		typeof file === 'string' ? file : (file.name as string),
-	)
-	const include = filePaths.map($.escape).join(',')
 
+async function formatFile(file: string | BunFile) {
 	// double the default value -- datasworn includes some very large json files
 	const maxSize = 1024 * 1024 * 2
 
-	return await $`bun biome format --write --files-max-size=${maxSize} --include=${include} ./`
+	try {
+		const result =
+			await $`bun biome format --write --files-max-size=${maxSize} ${typeof file === 'string' ? file : (file.name as string)}`.text()
+		return Log.verbose(result)
+	} catch {}
+
+	return
 }
+
 
 type WriteJsonOptions = {
 	skipCopyAwait?: boolean
@@ -137,9 +140,7 @@ export async function writeJSON(
 	await Bun.write(writeDestination, json, { createPath: true })
 
 	// biome is CLI only, but we can use Bun's shell to do this instead.
-	const formatter = (await formatFiles(writeDestination)).text()
-
-	Log.verbose(formatter)
+	await formatFile(writeDestination)
 
 	// nothing left to do
 	if (copyDestinations.length === 0) return
@@ -165,9 +166,7 @@ export async function writeCode(filePath: string | BunFile, content: string) {
 
 	await Bun.write(file, content, { createPath: true })
 
-	const formatter = (await formatFiles(file)).text()
-
-	Log.verbose(formatter)
+	await formatFile(filePath)
 }
 export async function updateJSON<T>(
 	path: string | BunFile,
