@@ -90,7 +90,6 @@ export async function readJSON<T>(
 	return JSON.parse(await file.text(), reviver)
 }
 
-
 async function formatFile(file: string | BunFile) {
 	// double the default value -- datasworn includes some very large json files
 	const maxSize = 1024 * 1024 * 2
@@ -103,7 +102,6 @@ async function formatFile(file: string | BunFile) {
 
 	return
 }
-
 
 type WriteJsonOptions = {
 	skipCopyAwait?: boolean

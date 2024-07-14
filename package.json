@@ -1,63 +1,59 @@
 {
-  "name": "@datasworn/tools",
-  "version": "0.1.0",
-  "description": "Internal tools used to develop Datasworn packages.",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "check": "tsc --project tsconfig.json --noEmit",
-    "build:schema": "bun ./src/scripts/schema/buildSchema.ts",
-    "build:jtd": "bun ./src/scripts/json-typedef/index.ts",
-    "build:dts": "bun ./src/scripts/codegen/writeTypescriptTypes.ts",
-    "build:json": "bun ./src/scripts/datasworn/writeDatasworn.ts",
-    "build:pkg": "bun ./src/scripts/pkg/nodejs/buildPackages.ts && tsc --project ./src/pkg-core/tsconfig.json",
-    "build": "bun ./src/scripts/pkg/nodejs/updatePackageVersions.ts && bun run build:schema && bun run build:jtd && bun run build:dts && bun run build:json && bun run build:pkg",
-    "pkg:node": "bun ./src/scripts/pkg/nodejs/publishPackages.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rsek/datasworn.git"
-  },
-  "keywords": [
-    "ironsworn",
-    "starforged",
-    "TTRPG"
-  ],
-  "author": {
-    "name": "rsek",
-    "email": "r.sekouri@gmail.com",
-    "url": "https://github.com/rsek"
-  },
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/rsek/datasworn/issues"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/bun": "latest",
-    "@types/fs-extra": "^11.0.4",
-    "@types/json-pointer": "^1.0.34",
-    "@types/json-schema": "^7.0.15",
-    "@types/lodash-es": "^4.17.12",
-    "esbuild": "0.23.0",
-    "json-schema": "^0.4.0",
-    "tsconfig-paths": "^4.2.0",
-    "type-fest": "^4.21.0",
-    "typescript": "^5.5.3"
-  },
-  "dependencies": {
-    "@sinclair/typebox": "^0.32.34",
-    "@sinclair/typebox-codegen": "^0.10.3",
-    "@swc/core": "^1.6.13",
-    "ajv": "^8.16.0",
-    "ajv-formats": "^3.0.1",
-    "json-pointer": "^0.6.2",
-    "json-schema-library": "^9.3.5",
-    "jtd": "^0.1.1",
-    "lodash-es": "^4.17.21",
-    "remark": "^15.0.1",
-    "semver": "^7.6.2",
-    "winston": "^3.13.1",
-    "yaml": "^2.4.5"
-  }
+	"name": "@datasworn/tools",
+	"version": "0.1.0",
+	"description": "Internal tools used to develop Datasworn packages.",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"check": "tsc --project tsconfig.json --noEmit",
+		"build:schema": "bun ./src/scripts/schema/buildSchema.ts",
+		"build:jtd": "bun ./src/scripts/json-typedef/index.ts",
+		"build:dts": "bun ./src/scripts/codegen/writeTypescriptTypes.ts",
+		"build:json": "bun ./src/scripts/datasworn/writeDatasworn.ts",
+		"build:pkg": "bun ./src/scripts/pkg/nodejs/buildPackages.ts && tsc --project ./src/pkg-core/tsconfig.json",
+		"build": "bun ./src/scripts/pkg/nodejs/updatePackageVersions.ts && bun run build:schema && bun run build:jtd && bun run build:dts && bun run build:json && bun run build:pkg",
+		"pkg:node": "bun ./src/scripts/pkg/nodejs/publishPackages.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rsek/datasworn.git"
+	},
+	"keywords": ["ironsworn", "starforged", "TTRPG"],
+	"author": {
+		"name": "rsek",
+		"email": "r.sekouri@gmail.com",
+		"url": "https://github.com/rsek"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"bugs": {
+		"url": "https://github.com/rsek/datasworn/issues"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/bun": "latest",
+		"@types/fs-extra": "^11.0.4",
+		"@types/json-pointer": "^1.0.34",
+		"@types/json-schema": "^7.0.15",
+		"@types/lodash-es": "^4.17.12",
+		"esbuild": "0.23.0",
+		"json-schema": "^0.4.0",
+		"tsconfig-paths": "^4.2.0",
+		"type-fest": "^4.21.0",
+		"typescript": "^5.5.3"
+	},
+	"dependencies": {
+		"@sinclair/typebox": "^0.32.34",
+		"@sinclair/typebox-codegen": "^0.10.3",
+		"@swc/core": "^1.6.13",
+		"ajv": "^8.16.0",
+		"ajv-formats": "^3.0.1",
+		"json-pointer": "^0.6.2",
+		"json-schema-library": "^9.3.5",
+		"jtd": "^0.1.1",
+		"lodash-es": "^4.17.21",
+		"remark": "^15.0.1",
+		"semver": "^7.6.2",
+		"winston": "^3.13.1",
+		"yaml": "^2.4.5"
+	}
 }

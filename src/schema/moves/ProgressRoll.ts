@@ -6,10 +6,10 @@ import {
 	TriggerConditionEnhancement,
 	TriggerEnhancement,
 } from './Trigger.js'
-import {
-	type MoveOutcomes,
-	type ProgressRollMethod,
-	type SpecialTrackRollMethod,
+import type {
+	MoveOutcomes,
+	ProgressRollMethod,
+	SpecialTrackRollMethod,
 } from './common.js'
 import { Move, MoveEnhancement } from './utils.js'
 import { Assign } from '../utils/FlatIntersect.js'

@@ -15,10 +15,10 @@ import * as Generic from '../Generic.js'
 import Id from '../common/Id.js'
 import { EmbeddedOracleRollable } from '../oracles/EmbeddedOracleRollable.js'
 import { FlatIntersect } from '../utils/FlatIntersect.js'
-import {
-	type TTrigger,
-	type TTriggerEnhancement,
-	type Trigger,
+import type {
+	TTrigger,
+	TTriggerEnhancement,
+	Trigger,
 } from './Trigger.js'
 import {
 	MoveRollType,
