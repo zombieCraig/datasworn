@@ -1,4 +1,4 @@
-import { type RulesPackage } from './Datasworn.js';
+import type { RulesPackage } from './Datasworn.js';
 /** The Datasworn data tree. This is the root object that contains all RulesPackage objects, keyed by their IDs. */
 export declare class DataswornTree extends Map<string, RulesPackage> {
     constructor(...rulesPackages: RulesPackage[]);

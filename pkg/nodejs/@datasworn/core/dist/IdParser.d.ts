@@ -2,7 +2,7 @@ import CONST from './IdElements/CONST.js';
 import TypeId from './IdElements/TypeId.js';
 import type * as StringId from './StringId.js';
 import type { ExtractTypeId } from './Utils/Id.js';
-import { type Datasworn, type DataswornSource } from './index.js';
+import type { Datasworn, DataswornSource } from './index.js';
 import type { CollectableAncestorKeys, CollectionAncestorKeys } from './IdElements/PathKeys.js';
 import { type PathKeys } from './IdElements/index.js';
 import type { Tree } from './Tree.js';
@@ -375,4 +375,4 @@ interface EmbeddedId<ParentId extends EmbeddingId = EmbeddingId, TTypeId extends
     get isRecursive(): ParentId['isRecursive'];
     get compositeTypeId(): `${ParentId['compositeTypeId']}${CONST.TypeSep}${TTypeId}`;
 }
-export { CollectableId, CollectionId, EmbeddedId, IdParser, NonCollectableId };
+export { type CollectableId, CollectionId, EmbeddedId, IdParser, type NonCollectableId };

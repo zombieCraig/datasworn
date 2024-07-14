@@ -1,8 +1,8 @@
 import type { DictKey, ExpansionId, RulesetId } from './Datasworn.js';
-import { type CONST, type TypeId } from './IdElements/index.js';
+import type { CONST, TypeId } from './IdElements/index.js';
 import type * as PathKeys from './IdElements/PathKeys.js';
 import type { TupleOfLength } from './Utils/Array.js';
-import { type Join, type Split } from './Utils/String.js';
+import type { Join, Split } from './Utils/String.js';
 export type RulesPackageId = RulesetId | ExpansionId;
 export type TypeIdParts = string[];
 export type IdSegments<T extends number> = TupleOfLength<T, string>;

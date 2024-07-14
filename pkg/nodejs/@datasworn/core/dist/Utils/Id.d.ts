@@ -1,7 +1,7 @@
 import type TypeId from '../IdElements/TypeId.js';
-import { type Primary, type RulesPackageId, type NonCollectable, type Collectable, type Collection } from '../StringId.js';
-import { type CollectionAncestorKeys, type CollectionPathKeys, type CollectableAncestorKeys } from '../IdElements/PathKeys.js';
-import { type Split } from './String.js';
+import type { Primary, RulesPackageId, NonCollectable, Collectable, Collection } from '../StringId.js';
+import type { CollectionAncestorKeys, CollectionPathKeys, CollectableAncestorKeys } from '../IdElements/PathKeys.js';
+import type { Split } from './String.js';
 import type CONST from '../IdElements/CONST.js';
 import type { PathKeys } from '../IdElements/index.js';
 export type AnyCollectionKeys = CollectionAncestorKeys | CollectionPathKeys;

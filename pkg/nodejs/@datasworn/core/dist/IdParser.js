@@ -15,7 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a, _IdParser_tree, _IdParser_pathSegments, _IdParser_typeIds, _IdParser_pathRegExp, _IdParser_regExp, _IdParser_validateTypeIds, _IdParser_toString, _IdParser_parseOptions, _IdParser_getClassForPrimaryTypeId, _IdParser_getMatchesFromArray, _IdParser_getMatchesFromMap, _IdParser_getMatchesFromRecord, _EmbeddingId_instances, _EmbeddingId_assignEmbeddedIdsInMap, _EmbeddingId_assignEmbeddedIdsInRecord, _EmbeddingId_assignEmbeddedIdsInArray, _b, _CollectionId_getPositionId, _EmbeddedId_parent;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NonCollectableId = exports.IdParser = exports.EmbeddedId = exports.CollectionId = exports.CollectableId = void 0;
+exports.IdParser = exports.EmbeddedId = exports.CollectionId = void 0;
 const CONST_js_1 = __importDefault(require("./IdElements/CONST.js"));
 const TypeGuard_js_1 = __importDefault(require("./IdElements/TypeGuard.js"));
 const TypeId_js_1 = __importDefault(require("./IdElements/TypeId.js"));
@@ -702,7 +702,6 @@ class NonCollectableId extends EmbeddingId {
         });
     }
 }
-exports.NonCollectableId = NonCollectableId;
 class CollectableId extends EmbeddingId {
     get isRecursive() {
         return true;
@@ -773,7 +772,6 @@ class CollectableId extends EmbeddingId {
         return matches !== null && matches !== void 0 ? matches : new Map();
     }
 }
-exports.CollectableId = CollectableId;
 class CollectionId extends IdParser {
     constructor(typeId, rulesPackage, ...pathKeys) {
         const pathSegment = [rulesPackage, ...pathKeys].join(CONST_js_1.default.PathKeySep);
