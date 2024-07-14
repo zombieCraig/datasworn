@@ -8,7 +8,7 @@ function sortDictionary<
 	D extends Generic.Dictionary<T> = Generic.Dictionary<T>,
 >(dictionary: D, sortFn: (a: T, B: T) => number) {
 	const entries = Object.entries(dictionary).sort(([_keyA, a], [_keyB, b]) =>
-		sortFn(a, b),
+		sortFn(a, b)
 	)
 
 	return Object.fromEntries(entries) as D
@@ -74,11 +74,11 @@ export function sortCollection<
 			collections as Generic.Dictionary<any>,
 			(
 				a: Generic.Collection<Generic.Collection<Generic.SourcedNode>>,
-				b: Generic.Collection<Generic.Collection<Generic.SourcedNode>>,
+				b: Generic.Collection<Generic.Collection<Generic.SourcedNode>>
 			) => {
 				if (isCollection(a)) a = sortCollection(a)
 				return compareCollection(a, b)
-			},
+			}
 		)
 	}
 
@@ -110,10 +110,10 @@ function compareCollection(a: Generic.Collection, b: Generic.Collection) {
 
 	// get page numbers of collection children
 	const pagesA = compact(
-		Object.values(a.contents).map((v) => v._source?.page),
+		Object.values(a.contents).map((v) => v._source?.page)
 	) as number[]
 	const pagesB = compact(
-		Object.values(b.contents).map((v) => v._source?.page),
+		Object.values(b.contents).map((v) => v._source?.page)
 	) as number[]
 
 	if (pagesA.length === 0 || pagesB.length === 0) return 0

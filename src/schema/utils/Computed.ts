@@ -28,7 +28,7 @@ export function Computed<
 	schema: T,
 	options: ComputedOptions<T, ParentObject> = {
 		[ComputedPropertyBrand]: 'ComputedProperty',
-	},
+	}
 ) {
 	return CloneType(schema, {
 		...options,
@@ -46,7 +46,7 @@ export type TComputed<
 type ComputedPropertyFn<T extends TSchema, ParentObject extends TObject> = (
 	object: Static<ParentObject>,
 	property: string,
-	pointer: string,
+	pointer: string
 ) => Static<T>
 
 /** Symbol indicating that this property is optional in DataswornSource */

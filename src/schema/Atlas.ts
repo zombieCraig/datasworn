@@ -12,7 +12,7 @@ export type AtlasEntry = Static<typeof AtlasEntry>
 
 export const AtlasCollection = Generic.CollectionNode(
 	Type.Object({}),
-	'atlas_collection',
+	'atlas_collection'
 )
 
 export type TAtlasCollection = typeof AtlasCollection

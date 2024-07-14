@@ -7,10 +7,7 @@ import { FlatIntersect } from './utils/FlatIntersect.js'
 
 import { AssetPropertiesEnhanceable } from './assets/common.js'
 import type { TAssetAbility } from './assets/Ability.js'
-import type {
-	TAssetControlField,
-	TAssetOptionField,
-} from './assets/Fields.js'
+import type { TAssetControlField, TAssetOptionField } from './assets/Fields.js'
 
 const AssetMixin = Type.Object({
 	category: Type.Ref(Label, {
@@ -36,12 +33,12 @@ const AssetMixin = Type.Object({
 		Type.Ref(MarkdownString, {
 			description:
 				'Describes prerequisites for purchasing or using this asset.',
-		}),
+		})
 	),
 	abilities: Type.Array(
 		Type.Ref<TAssetAbility>('AssetAbility', {
 			description: 'Abilities provided by this asset. Most assets have 3.',
-		}),
+		})
 	),
 })
 
@@ -49,10 +46,10 @@ export const Asset = CollectableNode(
 	FlatIntersect([
 		AssetMixin,
 		AssetPropertiesEnhanceable(
-			Type.Ref<TAssetControlField>('AssetControlField'),
+			Type.Ref<TAssetControlField>('AssetControlField')
 		),
 	]),
-	'asset',
+	'asset'
 )
 
 export type TAsset = typeof Asset
@@ -66,7 +63,7 @@ export const AssetCollection = CollectionNode(
 	'asset_collection',
 	{
 		$id: 'AssetCollection',
-	},
+	}
 )
 export type TAssetCollection = typeof AssetCollection
 // export type AssetCollection = Collection<Asset>

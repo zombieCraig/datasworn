@@ -1,8 +1,8 @@
-import CONST from '../pkg-core/IdElements/CONST.js'
+import { IdKey, PathKeySep } from '../scripts/const.js'
 import type { Datasworn } from '../pkg-core/index.js'
 
 const tree = new Map<string, Datasworn.RulesPackage>()
-const index = new Map<string, { [CONST.IdKey]: string }>()
+const index = new Map<string, { [IdKey]: string }>()
 
 const files = new Bun.Glob('*/*.json')
 
@@ -21,9 +21,9 @@ for await (const filePath of files.scan({ cwd: './datasworn', absolute: true }))
 					)
 						return value
 
-					if (CONST.IdKey in value) {
-						const id = value[CONST.IdKey] as string
-						if (id.includes(CONST.PathKeySep)) index.set(id, value)
+					if (IdKey in value) {
+						const id = value[IdKey] as string
+						if (id.includes(PathKeySep)) index.set(id, value)
 					}
 
 					return value
@@ -32,7 +32,7 @@ for await (const filePath of files.scan({ cwd: './datasworn', absolute: true }))
 				// console.log(rulesPackage)
 
 				tree.set(rulesPackage._id, rulesPackage)
-			}),
+			})
 	)
 
 await Promise.all(readOps)

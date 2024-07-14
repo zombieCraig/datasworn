@@ -30,7 +30,7 @@ import { SchemaTransforms, type SchemaKind } from './SchemaTransform.js'
  */
 export function SourceData<T extends TSchema>(
 	schema: T,
-	options: SchemaOptions = {},
+	options: SchemaOptions = {}
 ) {
 	const schemaKind = schema[Kind] as SchemaKind
 
@@ -79,7 +79,7 @@ const transforms: SchemaTransforms = {
 		const nuOptions = omit(
 			CloneType(schema, options),
 			...Object.keys(base),
-			'required',
+			'required'
 		)
 
 		const result = CloneType(base, nuOptions) as T // defaults arent part of the type data, so it's close enough
@@ -91,7 +91,7 @@ const transforms: SchemaTransforms = {
 		const newSchema = CloneType(schema, options)
 
 		newSchema.patternProperties = mapValues(newSchema.patternProperties, (v) =>
-			SourceData(v),
+			SourceData(v)
 		)
 
 		return newSchema
@@ -125,7 +125,7 @@ const transforms: SchemaTransforms = {
 	},
 	UnionOneOf: <T extends TUnionOneOf<TSchema[]>>(
 		schema: T,
-		options: SchemaOptions,
+		options: SchemaOptions
 	) => {
 		const result = CloneType(schema, options)
 
@@ -135,7 +135,7 @@ const transforms: SchemaTransforms = {
 	},
 	DiscriminatedUnion: <T extends TDiscriminatedUnion<TObject[], string>>(
 		schema: T,
-		options: SchemaOptions,
+		options: SchemaOptions
 	) => {
 		const result = CloneType(schema, options)
 

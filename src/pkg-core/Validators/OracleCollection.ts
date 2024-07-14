@@ -14,7 +14,7 @@ export function validate<T extends Datasworn.OracleCollection>(collection: T) {
 			} catch (e) {
 				// console.table(renderMultiTable(collection.contents, ['roll']))
 				throw new Error(
-					`${oracle_type} child OracleRollables must have the same roll ranges in their rows, in the same order. The following rows array indices don't match:\n${e.toString()}`,
+					`${oracle_type} child OracleRollables must have the same roll ranges in their rows, in the same order. The following rows array indices don't match:\n${e.toString()}`
 				)
 			}
 			break
@@ -26,7 +26,7 @@ export function validate<T extends Datasworn.OracleCollection>(collection: T) {
 			} catch (e) {
 				// console.table(renderMultiTable(collection.contents, ['text']))
 				throw new Error(
-					`${oracle_type} child OracleRollables must have the same text content in their rows, in the same order. The following rows array indices don't match:\n${e.toString()}`,
+					`${oracle_type} child OracleRollables must have the same text content in their rows, in the same order. The following rows array indices don't match:\n${e.toString()}`
 				)
 			}
 			break
@@ -47,9 +47,9 @@ export function validate<T extends Datasworn.OracleCollection>(collection: T) {
 function oracleRowsEqualBy(
 	equalityFn: (
 		a: Datasworn.OracleRollableRow,
-		b: Datasworn.OracleRollableRow,
+		b: Datasworn.OracleRollableRow
 	) => boolean,
-	oracleRollables: Record<string, Datasworn.OracleRollable>,
+	oracleRollables: Record<string, Datasworn.OracleRollable>
 ) {
 	const [[primaryKey, primary], ...secondaries] =
 		Object.entries(oracleRollables)
@@ -79,11 +79,11 @@ function oracleRowsEqualBy(
 
 function rowHasSameRolls(
 	a: Datasworn.OracleRollableRow,
-	b: Datasworn.OracleRollableRow,
+	b: Datasworn.OracleRollableRow
 ) {
 	if (a.roll.min === b.roll.min && a.roll.max === b.roll.max) return true
 	throw new Error(
-		`Expected roll range of ${JSON.stringify(a.roll)} but got ${JSON.stringify(b.roll)}`,
+		`Expected roll range of ${JSON.stringify(a.roll)} but got ${JSON.stringify(b.roll)}`
 	)
 }
 const textProperties = [
@@ -94,7 +94,7 @@ const textProperties = [
 
 function rowHasSameText(
 	a: Datasworn.OracleRollableRow,
-	b: Datasworn.OracleRollableRow,
+	b: Datasworn.OracleRollableRow
 ) {
 	for (const k of textProperties) {
 		// neither has key -- skip it
@@ -102,7 +102,7 @@ function rowHasSameText(
 
 		if (a[k] !== b[k])
 			throw new Error(
-				`expected "${k}" to be ${JSON.stringify(a[k])}, but got ${JSON.stringify(b[k])}`,
+				`expected "${k}" to be ${JSON.stringify(a[k])}, but got ${JSON.stringify(b[k])}`
 			)
 	}
 
@@ -134,7 +134,7 @@ function renderMultiTable<
 					case 'string':
 						content += contentValue.replaceAll(
 							/\[([A-z -]+)\]\([a-z_]+:.+?\)/g,
-							'[$1]',
+							'[$1]'
 						)
 						break
 					default:

@@ -16,7 +16,7 @@ export const ChallengeRank = UnionEnumFromRecord(
 		$id: 'ChallengeRank',
 		description:
 			'Challenge rank, represented as an integer from 1 (troublesome) to 5 (epic).',
-	},
+	}
 )
 export type ChallengeRank = Static<typeof ChallengeRank>
 
@@ -59,6 +59,6 @@ export const ProgressTrackTypeInfo = Type.Object(
 	{
 		$id: 'ProgressTrackTypeInfo',
 		description: 'Describes the features of a type of progress track.',
-	},
+	}
 )
 export type ProgressTrackTypeInfo = Static<typeof ProgressTrackTypeInfo>

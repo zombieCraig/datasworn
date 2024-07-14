@@ -8,7 +8,16 @@ import {
 	type TUnion,
 } from '@sinclair/typebox'
 import type TypeNode from '../pkg-core/TypeNode.js'
-import CONST from '../pkg-core/IdElements/CONST.js'
+import {
+	WildcardString,
+	PathKeySep,
+	COLLECTION_DEPTH_MIN,
+	COLLECTION_DEPTH_MAX,
+	TypeSep,
+	PrefixSep,
+	CollectionsKey,
+	ContentsKey,
+} from '../scripts/const.js'
 import TypeId from '../pkg-core/IdElements/TypeId.js'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
 import type { Datasworn } from '../pkg-core/index.js'
@@ -63,7 +72,7 @@ abstract class PathSymbol<Origin, Key extends keyof Origin = keyof Origin> {
 namespace PathSymbol {
 	export class RulesPackage extends PathSymbol<null> {
 		static readonly WILDCARD = new RegExp(
-			`(?:${Pattern.RulesPackageElement.source}|\\${CONST.WildcardString}|\\${CONST.WildcardString}\\${CONST.WildcardString})`,
+			`(?:${Pattern.RulesPackageElement.source}|\\${WildcardString}|\\${WildcardString}\\${WildcardString})`
 		)
 
 		get pattern() {
@@ -90,15 +99,15 @@ namespace PathSymbol {
 	> extends PathSymbol<Origin, Prop> {
 		static readonly PATTERN = Pattern.DictKeyElement
 		static readonly WILDCARD = new RegExp(
-			`${DictKey.PATTERN.source}|\\${CONST.PathKeySep}\\${CONST.WildcardString}|\\${CONST.PathKeySep}\\${CONST.WildcardString}\\${CONST.WildcardString}`,
+			`${DictKey.PATTERN.source}|\\${PathKeySep}\\${WildcardString}|\\${PathKeySep}\\${WildcardString}\\${WildcardString}`
 		)
 
 		public get minReps(): number {
-			return CONST.COLLECTION_DEPTH_MIN
+			return COLLECTION_DEPTH_MIN
 		}
 
 		public get maxReps(): number {
-			return CONST.COLLECTION_DEPTH_MIN
+			return COLLECTION_DEPTH_MIN
 		}
 
 		get pattern() {
@@ -149,7 +158,7 @@ namespace PathSymbol {
 				for (let i = 0; i < variantsToGenerate; i++)
 					variantParts.push(DictKey.stringTemplateLiteral)
 
-				variants.push(variantParts.join(CONST.PathKeySep))
+				variants.push(variantParts.join(PathKeySep))
 
 				variantsToGenerate--
 			}
@@ -171,11 +180,11 @@ namespace PathSymbol {
 		readonly recursiveProperty: RecursiveProp
 
 		override get minReps() {
-			return CONST.COLLECTION_DEPTH_MIN
+			return COLLECTION_DEPTH_MIN
 		}
 
 		override get maxReps() {
-			return CONST.COLLECTION_DEPTH_MAX
+			return COLLECTION_DEPTH_MAX
 		}
 
 		constructor(inProperty: Prop, recursiveProperty: RecursiveProp) {
@@ -192,7 +201,7 @@ namespace PathSymbol {
 			// @ts-expect-error
 			return new RecursiveDictKeys<Origin, CloneProp, CloneRecursiveProp>(
 				this.inProperty,
-				this.recursiveProperty,
+				this.recursiveProperty
 			) as this
 		}
 	}
@@ -206,9 +215,7 @@ namespace PathSymbol {
 		}
 
 		get wildcardPattern() {
-			return new RegExp(
-				`${Pattern.IndexElement.source}|\\${CONST.WildcardString}`,
-			)
+			return new RegExp(`${Pattern.IndexElement.source}|\\${WildcardString}`)
 		}
 
 		override get pattern() {
@@ -224,13 +231,13 @@ namespace PathSymbol {
 class IdPattern<
 	CurrentNode = Datasworn.RulesPackage,
 > extends Array<PathFormat> {
-	static readonly TypeSep = '\\' + CONST.TypeSep
+	static readonly TypeSep = '\\' + TypeSep
 
-	static readonly PrefixSep = CONST.PrefixSep
+	static readonly PrefixSep = PrefixSep
 
-	static readonly PathSep = '\\' + CONST.PathKeySep
+	static readonly PathSep = '\\' + PathKeySep
 
-	static readonly WILDCARD = '\\' + CONST.WildcardString
+	static readonly WILDCARD = '\\' + WildcardString
 	static readonly GLOBSTAR = IdPattern.WILDCARD + IdPattern.WILDCARD
 
 	/**
@@ -244,7 +251,7 @@ class IdPattern<
 	}
 
 	get fullTypeId() {
-		return this.map(({ typeId }) => typeId).join(CONST.TypeSep)
+		return this.map(({ typeId }) => typeId).join(TypeSep)
 	}
 
 	/**
@@ -255,10 +262,10 @@ class IdPattern<
 	 */
 	getRightSide(
 		groups: RegexGroupType = 'named_capture_group',
-		wildcard = false,
+		wildcard = false
 	): RegExp {
 		const result = this.map((part) =>
-			part.toRegexSource(groups, wildcard),
+			part.toRegexSource(groups, wildcard)
 		).join(IdPattern.TypeSep)
 
 		return new RegExp(result)
@@ -273,8 +280,8 @@ class IdPattern<
 			...this.map((el, i, arr) =>
 				typeof primaryTypeId === 'string' && i === arr.length - 1
 					? el.clone(primaryTypeId)
-					: el.clone(),
-			),
+					: el.clone()
+			)
 		) as this
 	}
 
@@ -298,7 +305,7 @@ class IdPattern<
 	}
 
 	createEmbedded<T extends TypeId.Embeddable>(
-		typeId: T,
+		typeId: T
 	): IdPattern<Extract<TypeNode.Embedded, { type: typeof typeId }>> {
 		const withGroup = this.clone().addNewTypeGroup(typeId)
 
@@ -308,12 +315,12 @@ class IdPattern<
 
 			case 'dictionary':
 				return withGroup.addDictKey(
-					TypeId.getEmbeddedPropertyKey(typeId) as any,
+					TypeId.getEmbeddedPropertyKey(typeId) as any
 				)
 
 			default:
 				throw new Error(
-					`Expected an embeddable TypeId, but got ${String(typeId)}`,
+					`Expected an embeddable TypeId, but got ${String(typeId)}`
 				)
 		}
 	}
@@ -347,7 +354,7 @@ class IdPattern<
 	toRegex(
 		lineDelimiters = false,
 		groups: RegexGroupType = 'named_capture_group',
-		wildcard = false,
+		wildcard = false
 	) {
 		const base =
 			this.getLeftSide().source +
@@ -358,10 +365,7 @@ class IdPattern<
 	}
 
 	toWildcardSchema(options: StringOptions = {}) {
-		const typeName = this.fullTypeId
-			.split(CONST.TypeSep)
-			.map(pascalCase)
-			.join('')
+		const typeName = this.fullTypeId.split(TypeSep).map(pascalCase).join('')
 		const $id = typeName + 'IdWildcard'
 		const description = `A wildcarded ${typeName}Id that can be used to match multiple ${typeName} objects.`
 		// named capture groups aren't universally available, so JSON schema docs recommend against using them
@@ -376,10 +380,7 @@ class IdPattern<
 	}
 
 	toSchema(options: StringOptions = {}) {
-		const typeName = this.fullTypeId
-			.split(CONST.TypeSep)
-			.map(pascalCase)
-			.join('')
+		const typeName = this.fullTypeId.split(TypeSep).map(pascalCase).join('')
 		const indefiniteArticle = typeName.match(/^[aeiou]/i) ? 'an' : 'a'
 		const $id = typeName + 'Id'
 		const description = `A unique ID representing ${indefiniteArticle} ${typeName} object.`
@@ -406,12 +407,12 @@ class IdPattern<
 
 	static createCollection<T extends TypeId.Collection>(
 		typeId: T,
-		typeRoot: TypeId.BranchKey<T>,
+		typeRoot: TypeId.BranchKey<T>
 	) {
 		return (
 			IdPattern.fromRoot(typeId)
 				// @ts-expect-error this happens because not all union members of OracleCollection have the 'collections' property
-				.addRecursiveDictKeys(typeRoot, CONST.CollectionsKey) as IdPattern<
+				.addRecursiveDictKeys(typeRoot, CollectionsKey) as IdPattern<
 				TypeNode.Collection<T>
 			>
 		)
@@ -419,20 +420,20 @@ class IdPattern<
 
 	static createCollectable<T extends TypeId.Collectable>(
 		typeId: T,
-		typeRoot: TypeId.BranchKey<T>,
+		typeRoot: TypeId.BranchKey<T>
 	) {
 		return (
 			IdPattern.fromRoot(typeId)
 				// @ts-expect-error
-				.addRecursiveDictKeys(typeRoot, CONST.CollectionsKey)
+				.addRecursiveDictKeys(typeRoot, CollectionsKey)
 				// @ts-expect-error
-				.addDictKey(CONST.ContentsKey) as IdPattern<TypeNode.Collectable<T>>
+				.addDictKey(ContentsKey) as IdPattern<TypeNode.Collectable<T>>
 		)
 	}
 
 	static createNonCollectable<T extends TypeId.NonCollectable>(
 		typeId: T,
-		typeRoot: TypeId.BranchKey<T>,
+		typeRoot: TypeId.BranchKey<T>
 	) {
 		return IdPattern.fromRoot(typeId).addDictKey(typeRoot) as IdPattern<
 			TypeNode.NonCollectable<T>
@@ -484,7 +485,7 @@ class PathFormat<Origin = Datasworn.RulesPackage> extends Array<
 					const toAppend = PathSymbol.DictKey.renderDictKeys(
 						min,
 						max,
-						wildcard,
+						wildcard
 					).source
 					if (
 						!toAppend.startsWith(`(?:${IdPattern.PathSep}`) &&
@@ -575,8 +576,8 @@ class PathFormat<Origin = Datasworn.RulesPackage> extends Array<
 		this.push(
 			new PathSymbol.RecursiveDictKeys<Origin, Prop, RecursiveProp>(
 				property,
-				recursiveProperty,
-			),
+				recursiveProperty
+			)
 		)
 		return this as PathFormat<EntryInProp<Origin, Prop>>
 	}
@@ -604,7 +605,7 @@ for (const typeId of TypeId.Primary) {
 		case TypeGuard.NonCollectableType(typeId):
 			pattern = IdPattern.createNonCollectable(
 				typeId,
-				TypeId.getBranchKey(typeId),
+				TypeId.getBranchKey(typeId)
 			)
 			break
 		default:
@@ -673,7 +674,7 @@ function permutate(typeId: TypeId.Any, parentTypeComposite: string) {
 		const typeSchema = pascalCase(typeId) + 'Id'
 
 		const parentTypePrefix = parentTypeComposite
-			.split(CONST.TypeSep)
+			.split(TypeSep)
 			.map(pascalCase)
 			.join('')
 
@@ -700,7 +701,7 @@ function permutate(typeId: TypeId.Any, parentTypeComposite: string) {
 	const embeddedTypes = TypeId.getEmbeddableTypes(typeId, true)
 
 	for (const embeddedTypeId of embeddedTypes)
-		permutate(embeddedTypeId, `${parentTypeComposite}${CONST.TypeSep}${typeId}`)
+		permutate(embeddedTypeId, `${parentTypeComposite}${TypeSep}${typeId}`)
 }
 
 for (const primaryTypeId in TypeId.EmbedTypeMap) {
@@ -715,7 +716,7 @@ const anyIdWildcardSchemata: TRef<TString>[] = []
 
 for (const $id in permutations) {
 	const schemaIds = Array.from(permutations[$id]).map((id) =>
-		Type.Ref<TString>(id),
+		Type.Ref<TString>(id)
 	)
 	ids[$id as IdSchemaName] = Type.Union(schemaIds, {
 		$id,
@@ -733,7 +734,7 @@ ids.AnyOracleRollableRowId = Type.Union(
 	{
 		$id: 'AnyOracleRollableRowId',
 		[JsonTypeDef]: { schema: JtdType.String() },
-	},
+	}
 )
 // @ts-expect-error
 
@@ -745,7 +746,7 @@ ids.AnyOracleRollableRowIdWildcard = Type.Union(
 	{
 		$id: 'AnyOracleRollableRowIdWildcard',
 		[JsonTypeDef]: { schema: JtdType.String() },
-	},
+	}
 )
 // @ts-expect-error
 
@@ -754,7 +755,7 @@ ids.AnyId = Type.Union(
 		.flat()
 		.filter(
 			(schema) =>
-				schema.type === 'string' && !schema.$id?.endsWith('IdWildcard'),
+				schema.type === 'string' && !schema.$id?.endsWith('IdWildcard')
 		)
 		.map((schema) => Type.Ref(schema)),
 	{
@@ -762,7 +763,7 @@ ids.AnyId = Type.Union(
 		description:
 			'Represents any kind of non-wildcard ID, including IDs of embedded objects.',
 		[JsonTypeDef]: { schema: JtdType.String() },
-	},
+	}
 )
 // @ts-expect-error
 
@@ -770,8 +771,7 @@ ids.AnyIdWildcard = Type.Union(
 	Object.values(ids)
 		.flat()
 		.filter(
-			(schema) =>
-				schema.type === 'string' && schema.$id?.endsWith('IdWildcard'),
+			(schema) => schema.type === 'string' && schema.$id?.endsWith('IdWildcard')
 		)
 		.map((schema) => Type.Ref(schema)),
 	{
@@ -779,7 +779,7 @@ ids.AnyIdWildcard = Type.Union(
 		description:
 			'Represents any kind of wildcard ID, including IDs of embedded objects.',
 		[JsonTypeDef]: { schema: JtdType.String() },
-	},
+	}
 )
 
 // generate union types from IDs that are marked Any*Id

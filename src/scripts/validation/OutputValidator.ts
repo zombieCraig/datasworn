@@ -7,7 +7,7 @@ const { $schema, $id, [DefsKey]: defs, ...root } = DataswornSchema
 
 const OutputValidator = TypeCompiler.Compile(
 	root as TSchema,
-	Object.values(defs),
+	Object.values(defs)
 )
 
 export default OutputValidator

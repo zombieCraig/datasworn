@@ -1,5 +1,4 @@
 import { Type, type Static } from '@sinclair/typebox'
-import * as CONST from '../scripts/const.js'
 
 import Defs from './Defs.js'
 import { RootObject, SourceRootObject } from './root/Root.js'
@@ -17,13 +16,14 @@ import {
 	Rarity,
 } from './index.js'
 import * as Utils from './Utils.js'
+import * as CONST from '../scripts/const.js'
 
 const RootObjectMixin = Type.Object(
 	{
 		datasworn_version: Version,
 		ruleset: Type.Ref(RulesetId),
 	},
-	{ additionalProperties: true },
+	{ additionalProperties: true }
 )
 
 const StandaloneNode = Type.Intersect([
@@ -39,7 +39,7 @@ const StandaloneNode = Type.Intersect([
 			delve_site_domain: DelveSiteDomain,
 			rarity: Rarity,
 		},
-		'type',
+		'type'
 	),
 	RootObjectMixin,
 ])

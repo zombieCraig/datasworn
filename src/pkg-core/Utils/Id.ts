@@ -12,8 +12,7 @@ import type {
 	CollectableAncestorKeys,
 } from '../IdElements/PathKeys.js'
 import type { Split } from './String.js'
-import type CONST from '../IdElements/CONST.js'
-import type { PathKeys } from '../IdElements/index.js'
+import type { CONST, PathKeys } from '../IdElements/index.js'
 
 export type AnyCollectionKeys = CollectionAncestorKeys | CollectionPathKeys
 

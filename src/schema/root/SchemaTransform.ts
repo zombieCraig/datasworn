@@ -79,5 +79,5 @@ export const SchemaTransforms = Object.fromEntries(
 		kind,
 		(schema: SchemaKindMap[typeof kind], options: SchemaOptions) =>
 			CloneType(schema, options),
-	]),
+	])
 ) as SchemaTransforms

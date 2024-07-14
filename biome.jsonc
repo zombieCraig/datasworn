@@ -69,7 +69,8 @@
 			"semicolons": "asNeeded",
 			// TODO: migrate to double quotes when there aren't any branches to worry about
 			"jsxQuoteStyle": "single",
-			"quoteStyle": "single"
+			"quoteStyle": "single",
+			"trailingCommas": "es5"
 		}
 	},
 	"vcs": {

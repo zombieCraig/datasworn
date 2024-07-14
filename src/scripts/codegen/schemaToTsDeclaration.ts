@@ -50,7 +50,7 @@ function extractKeywords(schema: TSchema) {
 			...schema.examples
 				.filter(
 					(example: unknown) =>
-						typeof example !== 'string' || !example.includes('*'),
+						typeof example !== 'string' || !example.includes('*')
 				)
 				.map((example: unknown) => {
 					let tagContent = renderJsValue(example)
@@ -60,7 +60,7 @@ function extractKeywords(schema: TSchema) {
 					// console.log(tagContent)
 
 					return tag('example', tagContent)
-				}),
+				})
 		)
 	if (!isUndefined(schema.default)) {
 		if (!isEqual(schema.default, schema.const)) {
@@ -74,15 +74,15 @@ function extractKeywords(schema: TSchema) {
 	jsDoc.push(
 		...toTags(
 			mapValues(pick(schema, ...extractableKeywords), (v, k) =>
-				v === true ? undefined : v,
-			),
-		),
+				v === true ? undefined : v
+			)
+		)
 	)
 
 	jsDoc.push(
 		...Object.values(pick(schema, ...extractableKeywordValues)).map((k) =>
-			tag(k as string),
-		),
+			tag(k as string)
+		)
 	)
 
 	return jsDoc
@@ -124,8 +124,9 @@ function extractType(schema: TSchema): string {
 			return extractTupleType(schema)
 		case TypeGuard.IsArray(schema):
 			return extractArrayType(schema)
+		case schema[Kind] === 'object':
 		case TypeGuard.IsObject(schema):
-			return extractObjectLiteralType(schema)
+			return extractObjectLiteralType(schema as any)
 		case TypeGuard.IsUnion(schema):
 		case TNullable(schema):
 			return uniq(schema.anyOf.map(extractType)).join(' | ')
@@ -137,13 +138,15 @@ function extractType(schema: TSchema): string {
 		}
 		case TDiscriminatedUnion(schema):
 			return uniq(schema.allOf.map((item) => extractType(item.then))).join(
-				' | ',
+				' | '
 			)
 		case TUnionEnum(schema):
 			return uniq(schema.enum.map((v) => JSON.stringify(v))).join(' | ')
 
 		default:
-			throw new Error(`missing transform for kind: ${schema[Kind]}`)
+			throw new Error(
+				`missing transform for kind: ${JSON.stringify(schema[Kind])}`
+			)
 	}
 }
 
@@ -208,7 +211,7 @@ function renderInterface(identifier: string, schema: TObject) {
 
 function extractObjectLiteralType(schema: TObject): string {
 	const properties = Object.entries(schema.properties).map((entry) =>
-		renderProperty(...entry),
+		renderProperty(...entry)
 	)
 	const typeLines = [`{`, indent(properties.join('\n')), `}`]
 
@@ -258,8 +261,8 @@ function renderJsValue(value: unknown): string {
 					? `{}`
 					: `{\n${indent(
 							map(value as any, (v, k) => `${k}: ${renderJsValue(v)}`).join(
-								',\n',
-							),
+								',\n'
+							)
 						)}\n}`
 			break
 		case typeof value === 'string':

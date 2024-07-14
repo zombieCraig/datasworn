@@ -26,7 +26,7 @@ export const DISCRIMINATOR = 'field_type' as const
 function InputField<T extends Base.TInput<TSchema>, V extends string>(
 	base: T,
 	type: V,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const { description, remarks } = base
 
@@ -35,7 +35,7 @@ function InputField<T extends Base.TInput<TSchema>, V extends string>(
 		icon: Type.Optional(
 			Type.Ref(Metadata.SvgImageUrl, {
 				description: 'An icon associated with this input.',
-			}),
+			})
 		),
 	})
 
@@ -88,7 +88,7 @@ export type InputField<T extends Base.Input<any>, V extends string> = Assign<
 >
 
 export function isEnhanceable(
-	field: TInputField<Base.TInput<TSchema>, string>,
+	field: TInputField<Base.TInput<TSchema>, string>
 ) {
 	return !!field[EnhanceableProperties].length
 }
@@ -129,7 +129,7 @@ export const ConditionMeterField = InputField(
 	{
 		[EnhanceableProperties]: ['max'],
 		$id: 'ConditionMeterField',
-	},
+	}
 )
 export type TConditionMeterField = typeof ConditionMeterField
 export type ConditionMeterField = Static<TConditionMeterField>
@@ -142,7 +142,7 @@ function SelectField<
 		Base.Select(choiceSchema),
 		type,
 		// id,
-		options,
+		options
 	)
 }
 
@@ -154,20 +154,20 @@ function SelectFieldWithGroups<
 	choiceGroupSchema: Base.TSelectChoicesGroup<TRef<Choice>>,
 	type: Discriminator,
 	// _id:Id.TAnyId,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	return InputField(
 		Base.SelectWithGroups(choiceSchema, choiceGroupSchema),
 		type,
 		// id,
-		options,
+		options
 	)
 }
 
 export const SelectValueFieldChoice = Utils.DiscriminatedUnion(
 	mapValues(RollableValue[Mapping], (v) => Base.SelectOption(v)),
 	'using',
-	{ $id: 'SelectValueFieldChoice' },
+	{ $id: 'SelectValueFieldChoice' }
 )
 
 export type SelectValueFieldChoice = {
@@ -196,7 +196,7 @@ export const SelectValueField = SelectField(
 	// id,
 	{
 		$id: 'SelectValueField',
-	},
+	}
 )
 export type TSelectValueField = typeof SelectValueField
 export type SelectValueField = Static<TSelectValueField>
@@ -208,15 +208,15 @@ export const SelectEnhancementFieldChoice = Base.SelectOption(
 			// TODO
 			// enhance_player: Type.Object({}, { description: 'NYI' }),
 			enhance_moves: Type.Array(Type.Ref<TMoveEnhancement>('MoveEnhancement')),
-		}),
+		})
 	),
-	{ $id: 'SelectEnhancementFieldChoice' },
+	{ $id: 'SelectEnhancementFieldChoice' }
 )
 export const SelectEnhancementFieldChoiceGroup = Base.SelectChoicesGroup(
 	Type.Ref(SelectEnhancementFieldChoice),
 	{
 		$id: 'SelectEnhancementFieldChoiceGroup',
-	},
+	}
 )
 
 // export function SelectEnhancementField(
@@ -244,7 +244,7 @@ export const SelectEnhancementField = SelectFieldWithGroups(
 		description:
 			'Select from player and/or asset enhancements. Use it to describe modal abilities. For examples, see Ironclad (classic Ironsworn) and Windbinder (Sundered Isles).',
 		$id: 'SelectEnhancementField',
-	},
+	}
 )
 export type TSelectEnhancementField = typeof SelectEnhancementField
 export type SelectEnhancementField = Static<TSelectEnhancementField>
@@ -271,7 +271,7 @@ export type SelectEnhancementField = Static<TSelectEnhancementField>
 
 export const CardFlipField = InputField(
 	Base.Input(
-		Type.Boolean({ description: 'Is the card flipped over?', default: false }),
+		Type.Boolean({ description: 'Is the card flipped over?', default: false })
 	),
 	'card_flip',
 	// id,
@@ -279,7 +279,7 @@ export const CardFlipField = InputField(
 		title: 'CardFlipField',
 		description: `When its value is set to \`true\` it means that the card is flipped over. Some assets use this to represent a 'broken' state (e.g. Starforged Module assets).`,
 		// ...options
-	},
+	}
 )
 
 export type TCardFlipField = typeof CardFlipField

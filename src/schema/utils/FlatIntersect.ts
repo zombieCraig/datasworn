@@ -58,7 +58,7 @@ export type TFlatIntersect<T extends [...TObject[]]> = T extends [
 export function Assign<TTarget extends TObject, TSource extends TObject>(
 	target: TTarget,
 	source: TSource,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const mergedProps = CloneType(target).properties as Assign<
 		TTarget['properties'],
@@ -87,11 +87,11 @@ export function Assign<TTarget extends TObject, TSource extends TObject>(
 
 export function FlatIntersect<T extends TObject[]>(
 	schemas: [...T],
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	if (schemas.length === 0)
 		throw new Error(
-			`FlatIntersect expected an array of schemas, but the array is empty`,
+			`FlatIntersect expected an array of schemas, but the array is empty`
 		)
 
 	const [target, ...sources] = schemas

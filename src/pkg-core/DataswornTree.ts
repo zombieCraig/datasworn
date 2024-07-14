@@ -17,11 +17,11 @@ export class DataswornTree extends Map<string, RulesPackage> {
 	override set(key: string, value: RulesPackage) {
 		if (value._id !== key)
 			throw new Error(
-				`Expected a Datasworn RulesPackage object with ID "${key}", but the RulesPackage ID is ${value._id}`,
+				`Expected a Datasworn RulesPackage object with ID "${key}", but the RulesPackage ID is ${value._id}`
 			)
 		if (value.type !== 'ruleset' && value.type !== 'expansion')
 			throw new Error(
-				`Expected a RulesPackage object with a type property value of "ruleset" or "expansion", but got ${String((value as any)?.type)}`,
+				`Expected a RulesPackage object with a type property value of "ruleset" or "expansion", but got ${String((value as any)?.type)}`
 			)
 
 		return super.set(key, value)

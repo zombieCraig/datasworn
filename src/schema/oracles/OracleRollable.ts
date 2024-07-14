@@ -27,7 +27,7 @@ const RollableMeta = Type.Object({
 		Type.Object({
 			min: Type.Integer({ default: 1 }),
 			max: Type.Integer({ default: 1 }),
-		}),
+		})
 	),
 	dice: Type.Ref(Rolls.DiceExpression, {
 		default: '1d100',
@@ -37,7 +37,7 @@ const RollableMeta = Type.Object({
 		Type.Ref(Rolls.OracleMatchBehavior, {
 			description:
 				'Most oracle tables are insensitive to matches, but a few define special match behavior.',
-		}),
+		})
 	),
 })
 
@@ -46,7 +46,7 @@ const subtypeKey = 'oracle_type' as const
 function OracleRollableBase<TBase extends TObject, TSubtype extends string>(
 	base: TBase,
 	row: TRef,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const enhancedBase = FlatIntersect(
 		[
@@ -60,7 +60,7 @@ function OracleRollableBase<TBase extends TObject, TSubtype extends string>(
 			}),
 			base,
 		],
-		options,
+		options
 	)
 
 	return enhancedBase
@@ -69,24 +69,24 @@ function RollableTable<TRow extends TObject, TSubtype extends string>(
 	subtype: TSubtype,
 	row: TRef<TRow>,
 	column_labels: TObject | undefined,
-	options: SetRequired<ObjectOptions, '$id'>,
+	options: SetRequired<ObjectOptions, '$id'>
 ) {
 	return CollectableSubtypeNode(
 		OracleRollableBase(
 			Type.Object({ column_labels: column_labels ?? undefined }),
-			row,
+			row
 		),
 		'oracle_rollable',
 		subtypeKey,
 		subtype,
-		options,
+		options
 	)
 }
 
 function RollableColumn<TRow extends TObject, TSubtype extends string>(
 	subtype: TSubtype,
 	row: TRef<TRow>,
-	options: SetRequired<ObjectOptions, '$id'>,
+	options: SetRequired<ObjectOptions, '$id'>
 ) {
 	return Type.Omit(
 		CollectableSubtypeNode(
@@ -94,10 +94,10 @@ function RollableColumn<TRow extends TObject, TSubtype extends string>(
 			'oracle_rollable',
 			subtypeKey,
 			subtype,
-			options,
+			options
 		),
 		['_source'],
-		options,
+		options
 	)
 }
 
@@ -109,7 +109,7 @@ export const OracleTableText = RollableTable(
 		$id: 'OracleTableText',
 		description:
 			'Represents a basic rollable oracle table with one roll column and one text result column.',
-	},
+	}
 )
 export type TOracleTableText = typeof OracleTableText
 export type OracleTableText = Static<typeof OracleTableText>
@@ -122,7 +122,7 @@ export const OracleTableText2 = RollableTable(
 		$id: 'OracleTableText2',
 		description:
 			'A rollable oracle table with one roll column and two text columns.',
-	},
+	}
 )
 export type TOracleTableText2 = typeof OracleTableText2
 export type OracleTableText2 = Static<typeof OracleTableText2>
@@ -135,7 +135,7 @@ export const OracleTableText3 = RollableTable(
 		$id: 'OracleTableText3',
 		description:
 			'A rollable oracle table with one roll column and 3 text columns.',
-	},
+	}
 )
 export type TOracleTableText3 = typeof OracleTableText3
 export type OracleTableText3 = Static<typeof OracleTableText2>
@@ -146,7 +146,7 @@ export const OracleColumnText = RollableColumn(
 	{
 		$id: 'OracleColumnText',
 		description: 'Represents a single column in an OracleCollection.',
-	},
+	}
 )
 export type TOracleColumnText = typeof OracleColumnText
 export type OracleColumnText = Static<typeof OracleColumnText>
@@ -156,7 +156,7 @@ export const OracleColumnText2 = RollableColumn(
 	Type.Ref(OracleRollableRowText2),
 	{
 		$id: 'OracleColumnText2',
-	},
+	}
 )
 
 export type TOracleColumnText2 = typeof OracleColumnText2
@@ -167,7 +167,7 @@ export const OracleColumnText3 = RollableColumn(
 	Type.Ref(OracleRollableRowText3),
 	{
 		$id: 'OracleColumnText3',
-	},
+	}
 )
 
 export type TOracleColumnText3 = typeof OracleColumnText3
@@ -187,7 +187,7 @@ export const OracleRollable = Utils.DiscriminatedUnion(
 		$id: 'OracleRollable',
 		description:
 			'A collection of table rows from which random results may be rolled. This may represent a standalone table, or a column in a larger table.',
-	},
+	}
 )
 
 export type OracleRollable = Static<typeof OracleRollable>
@@ -202,7 +202,7 @@ export const OracleRollableTable = Utils.DiscriminatedUnion(
 	'oracle_type',
 	{
 		$id: 'OracleRollableTable',
-	},
+	}
 )
 
 export type OracleRollableTable = Static<typeof OracleRollableTable>

@@ -36,7 +36,7 @@ export const DiceRange = Type.Object(
 	{
 		$id: 'DiceRange',
 		...diceRangeOptions,
-	},
+	}
 )
 export type DiceRange = Static<typeof DiceRange>
 
@@ -49,6 +49,6 @@ export function StaticDiceRange(min: number, max: number) {
 		{
 			title: 'DiceRangeStatic',
 			...omit(diceRangeOptions, ['description']),
-		},
+		}
 	)
 }

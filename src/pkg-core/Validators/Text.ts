@@ -1,4 +1,4 @@
-import CONST from '../IdElements/CONST.js'
+import { MdLinkPrefix, PrefixSep, IdKey } from '../IdElements/CONST.js'
 import Pattern from '../IdElements/Pattern.js'
 
 const typeIdPattern = '[a-z][a-z_](?:\\.[a-z][a-z_]){0,2}'
@@ -19,11 +19,11 @@ const idPointerPattern = new RegExp(`^${idLike}$`)
 
 const linkSymbolPattern = new RegExp(
 	[
-		`(?<=\\[\\w.+?\\]\\(${CONST.MdLinkPrefix}${CONST.PrefixSep})`, // lookbehind for markdown text in square brackets, plus left paren
+		`(?<=\\[\\w.+?\\]\\(${MdLinkPrefix}${PrefixSep})`, // lookbehind for markdown text in square brackets, plus left paren
 		`(?<id>${idLike})`,
 		`(?=\\))`, // lookahead for right paren
 	].join(''),
-	'g',
+	'g'
 )
 
 const macroSymbolPattern = new RegExp(
@@ -33,7 +33,7 @@ const macroSymbolPattern = new RegExp(
 		`(?<id>${idLike})`,
 		`(?=\\}\\})`, // lookahead for right curly braces
 	].join(''),
-	'g',
+	'g'
 )
 
 const plainTextKeys = new Set([
@@ -89,7 +89,7 @@ export function needsIdValidation(k: unknown, v: unknown): v is string {
 	if (typeof v !== 'string') return false
 
 	switch (true) {
-		case k === CONST.IdKey:
+		case k === IdKey:
 		case plainTextKeys.has(k as string):
 		case urlKeys.has(k as string):
 		case nonTextKeys.has(k as string):
@@ -124,7 +124,7 @@ export function forEachIdRef(data: unknown, forEach: (id: string) => void) {
 
 export function validateIdsInStrings(
 	data: unknown,
-	index: Map<string, unknown>,
+	index: Map<string, unknown>
 ) {
 	const errors: unknown[] = []
 
@@ -170,7 +170,7 @@ export function validateIdsInStrings(
 
 export function validateMacroIdPointers(
 	text: string,
-	validIds: Map<string, unknown>,
+	validIds: Map<string, unknown>
 ) {
 	const macros = text.matchAll(macroSymbolPattern)
 
@@ -187,7 +187,7 @@ export function validateMacroIdPointers(
 
 			default:
 				errors.push(
-					`Unknown Datasworn macro directive "${String(directive)}": ${macro[0]}`,
+					`Unknown Datasworn macro directive "${String(directive)}": ${macro[0]}`
 				)
 		}
 	}
@@ -200,7 +200,7 @@ export function validateMacroIdPointers(
 
 export function validateMarkdownIdPointers(
 	text: string,
-	validIds: Map<string, unknown>,
+	validIds: Map<string, unknown>
 ) {
 	const links = text.matchAll(linkSymbolPattern)
 
@@ -240,7 +240,7 @@ export function validateIdPointer(id: string, index: Map<string, unknown>) {
 export function forEachPrimitiveValue<T = unknown>(
 	value: T,
 	key: string | number | undefined,
-	fn: (v: boolean | number | string | null, k: unknown) => void,
+	fn: (v: boolean | number | string | null, k: unknown) => void
 ): void {
 	switch (typeof value) {
 		case 'undefined':

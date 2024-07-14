@@ -16,7 +16,7 @@ export const AssetAbility = Generic.IdNode(
 			Type.Ref(Localize.Label, {
 				description:
 					'A handful of asset abilities have a label/name, for instance classic Ironsworn companion assets. Most canonical assets omit this property.',
-			}),
+			})
 		),
 		text: Type.Ref(Localize.MarkdownString, {
 			description: 'The complete rules text of this asset ability.',
@@ -31,8 +31,8 @@ export const AssetAbility = Generic.IdNode(
 				{
 					title: 'AssetAbilityMoves',
 					description: 'Unique moves added by this asset ability.',
-				},
-			),
+				}
+			)
 		),
 		oracles: Type.Optional(
 			Generic.Dictionary(
@@ -41,32 +41,32 @@ export const AssetAbility = Generic.IdNode(
 				}),
 				{
 					title: 'AssetAbilityOracles',
-				},
-			),
+				}
+			)
 		),
 		options: Type.Optional(
 			Generic.Dictionary(Type.Ref(AssetAbilityOptionField), {
 				description:
 					'Fields that are expected to be set once and remain the same through the life of the asset.',
-			}),
+			})
 		),
 		controls: Type.Optional(
 			Generic.Dictionary(Type.Ref(AssetAbilityControlField), {
 				description:
 					'Fields whose values are expected to change over the life of the asset.',
-			}),
+			})
 		),
 		enhance_asset: Type.Optional(
 			Type.Ref(AssetEnhancement, {
 				description: 'Changes made to the asset, when this ability is enabled.',
-			}),
+			})
 		),
 		enhance_moves: Type.Optional(
 			Type.Array(Type.Ref(MoveEnhancement), {
 				description:
 					'Describes changes made to various moves by this asset ability. Usually these require specific trigger conditions.',
 				// releaseStage: 'experimental'
-			}),
+			})
 		),
 		tags: Type.Optional(Type.Ref<typeof Tags>('Tags')),
 	}),
@@ -75,7 +75,7 @@ export const AssetAbility = Generic.IdNode(
 		$id: 'AssetAbility',
 		description:
 			'An asset ability: one of the purchasable features of an asset. Most assets have three.',
-	},
+	}
 )
 export type AssetAbility = Static<typeof AssetAbility>
 export type TAssetAbility = typeof AssetAbility

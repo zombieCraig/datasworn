@@ -35,7 +35,7 @@ export const MoveRollType = UnionEnumFromRecord(
 		special_track:
 			'A progress move that rolls on one or more special tracks, like Bonds (classic Ironsworn), Failure (Delve), or Legacies (Starforged).',
 	},
-	{ $id: 'MoveRollType' },
+	{ $id: 'MoveRollType' }
 )
 
 export type MoveRollType = Static<typeof MoveRollType>
@@ -49,7 +49,7 @@ const MoveOutcomeType = UnionEnumFromRecord(
 	},
 	{
 		$id: 'MoveOutcomeType',
-	},
+	}
 )
 type MoveOutcomeType = Static<typeof MoveOutcomeType>
 
@@ -71,7 +71,7 @@ export const ActionRollMethod = UnionEnumFromRecord(
 		...rollMethodForceOutcome,
 		...rollMethodOutcomeCommon,
 	},
-	{ $id: 'ActionRollMethod' },
+	{ $id: 'ActionRollMethod' }
 )
 export type ActionRollMethod = Static<typeof ActionRollMethod>
 
@@ -80,7 +80,7 @@ export const SpecialTrackRollMethod = UnionEnumFromRecord(
 		...rollMethodForceOutcome,
 		...rollMethodOutcomeCommon,
 	},
-	{ $id: 'SpecialTrackRollMethod' },
+	{ $id: 'SpecialTrackRollMethod' }
 )
 
 export type SpecialTrackRollMethod = Static<typeof SpecialTrackRollMethod>
@@ -91,7 +91,7 @@ export const ProgressRollMethod = UnionEnumFromRecord(
 		progress_roll:
 			'Make a progress roll on a progress track associated with this move.',
 	},
-	{ $id: 'ProgressRollMethod' },
+	{ $id: 'ProgressRollMethod' }
 )
 export type ProgressRollMethod = Static<typeof ProgressRollMethod>
 
@@ -102,11 +102,11 @@ export const MoveOutcome = Type.Object(
 			type: 'string',
 		}),
 		oracle_rolls: Type.Optional(
-			Type.Array(Type.Ref<TOracleRoll>('OracleRoll')),
+			Type.Array(Type.Ref<TOracleRoll>('OracleRoll'))
 		),
 		// count_as: Type.Optional(Type.Ref(MoveOutcomeType))
 	},
-	{ $id: 'MoveOutcome' },
+	{ $id: 'MoveOutcome' }
 )
 export type MoveOutcome = Static<typeof MoveOutcome>
 
@@ -129,7 +129,7 @@ export const MoveOutcomes = Type.Object(
 		description: `A standalone localized description for each move outcome (miss, weak hit, or strong hit). This is for for e.g. VTT implementations, where it's often useful to display only the rules text relevant to a roll result.
 
   This often requires light editorialization to create text that can stand alone without reference to the rest of the move. For example, 'as above' (in reference to another move outcome) shouldn't be used here; instead, the relevant text should be repeated.`,
-	},
+	}
 )
 export type MoveOutcomes = Static<typeof MoveOutcomes>
 export type TMoveOutcomes = typeof MoveOutcomes

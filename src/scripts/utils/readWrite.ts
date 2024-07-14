@@ -16,7 +16,7 @@ export async function readDataswornSourceData<
 	T extends DataswornSource.RulesPackage,
 >(
 	filePath: string | BunFile,
-	reviver?: (key: unknown, value: unknown) => unknown,
+	reviver?: (key: unknown, value: unknown) => unknown
 ): Promise<T> {
 	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
 
@@ -40,7 +40,7 @@ export async function readYAML<T>(
 		merge: true,
 		maxAliasCount: 1000,
 		logLevel: 'debug',
-	},
+	}
 ): Promise<T> {
 	const file = typeof filePath === 'string' ? Bun.file(filePath) : filePath
 
@@ -76,7 +76,7 @@ export async function emptyDir(dirPath: string) {
 
 export async function readJSON<T>(
 	filePath: string | BunFile,
-	reviver?: (this: any, key: string, value: any) => any,
+	reviver?: (this: any, key: string, value: any) => any
 ): Promise<T> {
 	const file =
 		typeof filePath === 'string'
@@ -110,17 +110,17 @@ type WriteJsonOptions = {
 export async function writeJSON(
 	filePath: string | BunFile,
 	object: any,
-	options?: WriteJsonOptions,
+	options?: WriteJsonOptions
 ): Promise<any>
 export async function writeJSON(
 	filePaths: (string | BunFile)[],
 	object: any,
-	options?: WriteJsonOptions,
+	options?: WriteJsonOptions
 ): Promise<any>
 export async function writeJSON(
 	filePath: string | BunFile | (string | BunFile)[],
 	object: any,
-	{ skipCopyAwait = false, replacer }: WriteJsonOptions = {},
+	{ skipCopyAwait = false, replacer }: WriteJsonOptions = {}
 ): Promise<any> {
 	const pathParams = Array.isArray(filePath) ? filePath : [filePath]
 
@@ -129,7 +129,7 @@ export async function writeJSON(
 
 	const [writeDestination, ...copyDestinations]: BunFile[] = pathParams.map(
 		(destination) =>
-			typeof destination === 'string' ? Bun.file(destination) : destination,
+			typeof destination === 'string' ? Bun.file(destination) : destination
 	)
 
 	const json = JSON.stringify(object, replacer, space)
@@ -168,7 +168,7 @@ export async function writeCode(filePath: string | BunFile, content: string) {
 }
 export async function updateJSON<T>(
 	path: string | BunFile,
-	update: Partial<T> | ((data: T) => T),
+	update: Partial<T> | ((data: T) => T)
 ) {
 	let json = (await readJSON(path)) as T
 

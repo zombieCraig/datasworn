@@ -17,7 +17,7 @@ export const ConditionMeterRule = Assign(
 	{
 		$id: 'ConditionMeterRule',
 		description: 'Describes a standard player character condition meter.',
-	},
+	}
 )
 
 export type ConditionMeterRule = Static<typeof ConditionMeterRule>

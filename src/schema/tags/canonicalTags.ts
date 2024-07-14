@@ -9,7 +9,7 @@ import type { Tag } from '../Rules.js'
 
 export function canonicalTags<Props extends TProperties>(
 	tags: Props,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	return Type.Partial(Type.Object(tags), {
 		...options,

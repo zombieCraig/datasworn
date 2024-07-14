@@ -30,7 +30,7 @@ const TableRowBase = Type.Object({
 	oracle_rolls: Type.Optional(
 		Type.Array(Type.Ref(Rolls.OracleRoll), {
 			description: 'Further oracle rolls prompted by this table row.',
-		}),
+		})
 	),
 	suggestions: Type.Optional(Type.Ref(Metadata.Suggestions)),
 	embed_table: Type.Optional(
@@ -38,15 +38,15 @@ const TableRowBase = Type.Object({
 			releaseStage: 'experimental',
 			description:
 				'Hints that the identified table should be rendered inside this table row.',
-		}),
+		})
 	),
 	template: Type.Optional(
-		Type.Ref(Rolls.OracleRollTemplate, { releaseStage: 'experimental' }),
+		Type.Ref(Rolls.OracleRollTemplate, { releaseStage: 'experimental' })
 	),
 	_i18n: Type.Optional(
 		Type.Ref(Localize.I18nHints, {
 			releaseStage: 'experimental',
-		}),
+		})
 	),
 })
 
@@ -56,14 +56,14 @@ export const TableRowMixin = Assign(
 		roll: Type.Ref(DiceRange),
 		tags: Type.Optional(Type.Ref<typeof Tags>('Tags')),
 		_id: Utils.Computed(Type.Ref('AnyOracleRollableRowId')),
-	}),
+	})
 )
 
 export const TableRowNullableMixin = setDescriptions(
 	Utils.SetNullable(TableRowMixin, ['roll']),
 	{
 		roll: '`null` represents an unrollable row, included only for rendering purposes.',
-	},
+	}
 )
 
 export type TTableRow<Roll extends TSchema = TSchema> = TObject<
@@ -78,7 +78,7 @@ type TableRow<
 export function StaticRowPartial(min: number, max: number) {
 	return Type.Object(
 		{ roll: StaticDiceRange(min, max) },
-		{ additionalProperties: true },
+		{ additionalProperties: true }
 	)
 }
 
@@ -102,7 +102,7 @@ export const OracleRollableRowText2 = Assign(
 		$id: 'OracleRollableRowText2',
 		description:
 			'Represents a row in an oracle table that provides a secondary text field.',
-	},
+	}
 )
 export type OracleRollableRowText2 = Static<typeof OracleRollableRowText2>
 
@@ -123,7 +123,7 @@ export const OracleRollableRowText3 = Assign(
 	{
 		$id: 'OracleRollableRowText3',
 		description: 'Represents a row in an oracle table with 3 text cells.',
-	},
+	}
 )
 export type OracleRollableRowText3 = Static<typeof OracleRollableRowText3>
 
@@ -143,7 +143,7 @@ export const OracleRollableRow = Type.Union(
 		Type.Ref(OracleRollableRowText2),
 		Type.Ref(OracleRollableRowText3),
 	],
-	{ $id: 'OracleRollableRow', [JsonTypeDef]: { skip: true } },
+	{ $id: 'OracleRollableRow', [JsonTypeDef]: { skip: true } }
 )
 
 export type OracleRollableRow = Static<typeof OracleRollableRow>

@@ -4,7 +4,7 @@ import { EnumDescription, type TUnionEnum } from './UnionEnum.js'
 
 export function MergeEnumSchemas<T extends Array<TUnionEnum<string[]>>>(
 	schemas: [...T],
-	options: SchemaOptions = {},
+	options: SchemaOptions = {}
 ) {
 	const entries = schemas
 		.map((item) => item[EnumDescription])

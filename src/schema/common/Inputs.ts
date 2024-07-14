@@ -31,7 +31,7 @@ import { Assign } from '../utils/FlatIntersect.js'
  */
 export function Input<Value extends TSchema>(
 	value: Value,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	return Type.Object(
 		{
@@ -41,7 +41,7 @@ export function Input<Value extends TSchema>(
 				...value,
 			} as Value,
 		},
-		options,
+		options
 	) satisfies TInput<Value>
 }
 export type TInput<Value extends TSchema> = TObject<{
@@ -69,7 +69,7 @@ export function Range<
 			min: 'The (inclusive) minimum value.',
 			max: 'The (inclusive) maximum value.',
 		},
-		false,
+		false
 	)
 }
 export type TRange<
@@ -90,16 +90,16 @@ function IntegerInput<
 	Rollable extends TLiteral<boolean>,
 >(
 	{ min, max, rollable }: { min: Min; max: Max; rollable: Rollable },
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const mixin = Assign(
 		Input(
-			Type.Integer({ default: 0, [JsonTypeDef]: { schema: JtdType.Int8() } }),
+			Type.Integer({ default: 0, [JsonTypeDef]: { schema: JtdType.Int8() } })
 		),
 		Range({
 			min: { [JsonTypeDef]: { schema: JtdType.Int8() }, ...min },
 			max: { [JsonTypeDef]: { schema: JtdType.Int8() }, ...max },
-		}),
+		})
 	)
 
 	return Assign(
@@ -112,7 +112,7 @@ function IntegerInput<
 			},
 		}),
 
-		options,
+		options
 	) as unknown as TIntegerInput<Min, Max, Rollable>
 }
 export type TIntegerInput<
@@ -148,7 +148,7 @@ export const Counter: TIntegerInput<
 		description:
 			'A basic counter representing a non-rollable integer value. They usually start at 0, and may or may not have a maximum.',
 		remarks: 'Semantics are similar to `<input type="number" step="1">`',
-	},
+	}
 ) satisfies TInput<TInteger>
 
 export type TCounter = typeof Counter
@@ -177,7 +177,7 @@ export const Clock = IntegerInput(
 		description: 'A clock with 4 or more segments.',
 		remarks:
 			'Semantics are similar to HTML `<input type="number">`, but rendered as a clock (a circle with equally sized wedges).',
-	},
+	}
 )
 export type TClock = typeof Clock
 export type Clock = Static<typeof Clock>
@@ -188,7 +188,7 @@ export type Clock = Static<typeof Clock>
  */
 export function Meter<Rollable extends TLiteral<boolean>>(
 	rollable: Rollable,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	return setDescriptions(
 		IntegerInput(
@@ -208,11 +208,11 @@ export function Meter<Rollable extends TLiteral<boolean>>(
 				description:
 					'A meter with an integer value, bounded by a minimum and maximum.',
 				...options,
-			},
+			}
 		),
 		{
 			value: 'The current value of this meter.',
-		},
+		}
 	)
 }
 
@@ -231,7 +231,7 @@ export const Checkbox = Input(
 	{
 		description: 'Represents a checkbox.',
 		remarks: 'Semantics are similar to the `<input type="checkbox">` element.',
-	},
+	}
 )
 export type Checkbox = Static<typeof Checkbox>
 export type TCheckbox = typeof Checkbox
@@ -244,7 +244,7 @@ export const TextInput = Input(
 	{
 		description: 'Represents an input that accepts plain text.',
 		remarks: 'Semantics are similar to the HTML `<input type="text">` element.',
-	},
+	}
 )
 export type TextInput = Static<typeof TextInput>
 export type TTextInput = typeof TextInput
@@ -260,7 +260,7 @@ const SelectOptionBase = Type.Object({
 
 export function SelectOption<T extends TObject>(
 	schema: T,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	return Assign(SelectOptionBase, schema, {
 		description: 'Represents an option in a list of choices.',
@@ -275,13 +275,13 @@ export type SelectChoice<T extends object> = T & Static<typeof SelectOptionBase>
 
 function Choices<T extends TSchema>(
 	choiceSchema: T,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	return Type.Object(
 		{
 			choices: Generic.Dictionary(choiceSchema),
 		},
-		options,
+		options
 	)
 }
 export type TChoices<T extends TSchema> = ReturnType<typeof Choices<T>>
@@ -324,14 +324,14 @@ const SelectBase = Input(
 			description:
 				'The key of the currently selected choice from the `choices` property, or `null` if none is selected.',
 			default: null,
-		}),
-	),
+		})
+	)
 )
 
 export function SelectWithGroups<Option extends TSelectChoice<TObject>>(
 	choiceSchema: Option,
 	choicesGroupSchema: TSelectChoicesGroup<TRef<Option> | Option>,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const mixin = Choices(
 		Utils.DiscriminatedUnion(
@@ -339,8 +339,8 @@ export function SelectWithGroups<Option extends TSelectChoice<TObject>>(
 				choice: choiceSchema,
 				choice_group: choicesGroupSchema,
 			},
-			'choice_type',
-		),
+			'choice_type'
+		)
 	)
 	return Assign(SelectBase, mixin, {
 		description: 'Represents a list of mutually exclusive choices.',

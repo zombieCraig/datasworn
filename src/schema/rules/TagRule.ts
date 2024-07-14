@@ -45,7 +45,7 @@ export const CollectionType = UnionEnum<typeof TypeId.Collection>(
 	TypeId.Collection,
 	{
 		$id: 'CollectionType',
-	},
+	}
 )
 export type CollectionType = Static<typeof CollectionType>
 
@@ -76,7 +76,7 @@ export const TaggableNodeType = Type.Union(
 			schema: JtdType.Enum([...TypeId.Primary, ...TypeId.EmbedOnly]),
 		},
 		$id: 'TaggableNodeType',
-	},
+	}
 )
 export type TaggableNodeType = Static<typeof TaggableNodeType>
 
@@ -100,8 +100,8 @@ const typedTags = keyBy(
 				Type.Object({
 					array: Type.Boolean({ default: false }),
 					value_type: Type.Literal(type),
-				}),
-			),
+				})
+			)
 		),
 		...TypeId.Primary.map((type) =>
 			Assign(
@@ -113,8 +113,8 @@ const typedTags = keyBy(
 							'If `true`, this field accepts an array of wildcard ID strings. If `false`, this field accepts a single non-wildcard ID string.',
 					}),
 					value_type: Type.Literal(type),
-				}),
-			),
+				})
+			)
 		),
 		Assign(
 			TagRuleBase,
@@ -122,13 +122,13 @@ const typedTags = keyBy(
 				array: Type.Boolean({ default: false }),
 				value_type: Type.Literal('enum'),
 				enum: Type.Array(Type.Ref(Id.DictKey)),
-			}),
+			})
 		),
 	].map((tag) => ({
 		...tag,
 		title: 'TagRule' + pascalCase(tag.properties.value_type.const),
 	})),
-	(tag) => tag.properties.value_type.const,
+	(tag) => tag.properties.value_type.const
 )
 
 export const TagRule = DiscriminatedUnion(typedTags, 'value_type', {
@@ -152,10 +152,10 @@ export const Tag = Type.Union(
 				// Type.Ref(Id.DictKey), // from enums
 				// Type.Ref(Rolls.DiceExpression),
 				...AnyPrimaryIdWildcard.map((type) => Type.Ref(type)),
-			]),
+			])
 		),
 	],
-	{ $id: 'Tag', [JsonTypeDef]: { schema: JtdType.Any() } },
+	{ $id: 'Tag', [JsonTypeDef]: { schema: JtdType.Any() } }
 )
 
 export const TagsCore = canonicalTags(
@@ -173,7 +173,7 @@ export const TagsCore = canonicalTags(
 				'This object requires allies to function, and is intended for co-op play, or guided play with allies. It is not appropriate for solo play.',
 		}),
 	},
-	{ $id: 'TagsCore' },
+	{ $id: 'TagsCore' }
 )
 
 export const Tags = Type.Record(
@@ -185,5 +185,5 @@ export const Tags = Type.Record(
 		key: Id.RulesetId.pattern,
 		description:
 			'A dictionary of tags, keyed by the RulesPackageId that the tags are from.',
-	},
+	}
 )

@@ -17,7 +17,7 @@ export function EmbeddedType<
 	base: TBase,
 	parentTypeId: T,
 	embeddedTypeId: T2,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const schemaName = pascalCase(parentTypeId) + pascalCase(embeddedTypeId)
 	const idSchemaName = schemaName + 'Id'

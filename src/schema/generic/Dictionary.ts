@@ -18,7 +18,7 @@ export const DictionaryBrand = Symbol('Dictionary')
  */
 export function Dictionary<T extends TSchema>(
 	schema: T,
-	{ key, ...options }: { key?: TString } & ObjectOptions = { key: Id.DictKey },
+	{ key, ...options }: { key?: TString } & ObjectOptions = { key: Id.DictKey }
 ) {
 	const dict =
 		// Type.Transform(

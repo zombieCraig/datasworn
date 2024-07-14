@@ -50,7 +50,7 @@ export const PartOfSpeech = UnionEnumFromRecord(
 		adjective_as_proper_noun: 'An adjective used as a proper noun.',
 		common_noun_as_proper_noun: 'An common noun used as a proper noun.',
 	},
-	{ $id: 'PartOfSpeech', releaseStage: 'experimental' },
+	{ $id: 'PartOfSpeech', releaseStage: 'experimental' }
 )
 export type PartOfSpeech = Static<typeof PartOfSpeech>
 
@@ -59,10 +59,10 @@ export const I18nHint = Type.Object(
 		part_of_speech: Type.Optional(
 			Type.Ref(PartOfSpeech, {
 				description: 'The part of speech for this string.',
-			}),
+			})
 		),
 	},
-	{ $id: 'I18nHint', releaseStage: 'experimental' },
+	{ $id: 'I18nHint', releaseStage: 'experimental' }
 )
 export type I18nHint = Static<typeof I18nHint>
 
@@ -76,7 +76,7 @@ export const I18nHints = Type.Object(
 				text: Type.Optional(Type.Ref(I18nHint)),
 				text2: Type.Optional(Type.Ref(I18nHint)),
 				text3: Type.Optional(Type.Ref(I18nHint)),
-			}),
+			})
 		),
 	},
 	{
@@ -84,6 +84,6 @@ export const I18nHints = Type.Object(
 		description:
 			'Internationalization/localization hints for the text content of this object.',
 		releaseStage: 'experimental',
-	},
+	}
 )
 export type I18nHints = Static<typeof I18nHints>

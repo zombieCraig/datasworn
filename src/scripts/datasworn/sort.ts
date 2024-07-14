@@ -71,7 +71,7 @@ export function sortSchemaKeys<T extends JSONSchema>(schema: T) {
 		sortedSchema.properties = sortDataswornKeys(sortedSchema.properties)
 	if (Array.isArray(sortedSchema.required)) {
 		sortedSchema.required = sortedSchema.required.sort((a, b) =>
-			compareObjectKeys(a, b, dataswornKeyOrder),
+			compareObjectKeys(a, b, dataswornKeyOrder)
 		)
 	}
 

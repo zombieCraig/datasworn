@@ -34,7 +34,7 @@ export const RulesPackageId = Type.Union(
 	{
 		$id: 'RulesPackageId',
 		[JsonTypeDef]: { schema: JtdType.String() },
-	},
+	}
 )
 
 export const DictKey = Type.String({

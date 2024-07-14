@@ -12,14 +12,14 @@ const { combine, timestamp, label, printf, colorize } = Winston.format
 
 const logFormat = printf(
 	({ level, message, label, timestamp }: TransformableInfo) =>
-		`${timestamp as string} [${label as string}] ${level}: ${message as string}`,
+		`${timestamp as string} [${label as string}] ${level}: ${message as string}`
 )
 
 export default Winston.createLogger({
 	format: combine(
 		label({ label: PKG_NAME }),
 		timestamp({ format: 'hh:mm:ss.SSS' }),
-		logFormat,
+		logFormat
 		// colorize({
 		// 	level: true,
 		// 	colors: { warn: 'purple', info: 'blue', error: 'red' }

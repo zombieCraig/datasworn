@@ -63,7 +63,7 @@ export function CollectableSubtypeNode<
 	type: TType,
 	subtypeKey: TSubtypeKey,
 	subtype: TSubtype,
-	options: SetRequired<ObjectOptions, '$id'>,
+	options: SetRequired<ObjectOptions, '$id'>
 ) {
 	const enhancedBase = PrimarySubtypeNode(base, type, subtypeKey, subtype, {
 		...options,

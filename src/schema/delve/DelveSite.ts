@@ -12,7 +12,7 @@ import { EmbeddedType } from './common.js'
 
 export const DelveSiteDenizenFrequency = Utils.UnionEnum(
 	['very_common', 'common', 'uncommon', 'rare', 'unforeseen'],
-	{ $id: 'DelveSiteDenizenFrequency' },
+	{ $id: 'DelveSiteDenizenFrequency' }
 )
 export type DelveSiteDenizenFrequency = Static<typeof DelveSiteDenizenFrequency>
 
@@ -22,12 +22,12 @@ export const DelveSiteDenizen = EmbeddedType(
 			Type.Ref(Localize.Label, {
 				description:
 					"A name for the denizen, if it's different than the `name` property of the NPC.",
-			}),
+			})
 		),
 		npc: Type.Optional(
 			Type.Ref(Id.NpcId, {
 				description: 'The ID of the relevant NPC entry, if one is specified.',
-			}),
+			})
 		),
 		frequency: Type.Ref(DelveSiteDenizenFrequency),
 		roll: Type.Ref(DiceRange),
@@ -37,7 +37,7 @@ export const DelveSiteDenizen = EmbeddedType(
 	{
 		description:
 			'Represents an entry in a delve site denizen matrix. Denizen matrices are described in Ironsworn: Delve.',
-	},
+	}
 )
 
 export type DelveSiteDenizen = Static<typeof DelveSiteDenizen>
@@ -51,7 +51,7 @@ function StaticDenizenRowStub<
 			frequency: Type.Literal(frequency),
 			roll: StaticDiceRange(min, max),
 		},
-		{ additionalProperties: true, title: 'DelveSiteDenizenStatic' },
+		{ additionalProperties: true, title: 'DelveSiteDenizenStatic' }
 	)
 }
 const DelveSiteDenizens = Type.Array(Type.Ref(DelveSiteDenizen))
@@ -63,7 +63,7 @@ export const DelveSite = NonCollectableNode(
 			Type.Ref(Id.AtlasEntryId, {
 				description:
 					'The ID of an atlas entry representing the region in which this delve site is located.',
-			}),
+			})
 		),
 		theme: Type.Ref(Id.DelveSiteThemeId, {
 			description: "The ID of the site's DelveSiteTheme card.",
@@ -78,8 +78,8 @@ export const DelveSite = NonCollectableNode(
 					description:
 						'An additional theme or domain card ID, for use with optional rules in Ironsworn: Delve.',
 					[JsonTypeDef]: { schema: JtdType.String() },
-				},
-			),
+				}
+			)
 		),
 		description: Type.Ref(Localize.MarkdownString),
 		denizens: Type.Intersect(
@@ -107,14 +107,14 @@ export const DelveSite = NonCollectableNode(
 				rollable: '1d100',
 				description:
 					"Represents the delve site's denizen matrix as an array of objects.",
-			},
+			}
 		),
 	}),
 	'delve_site',
 	{
 		$id: 'DelveSite',
 		description: 'A delve site with a theme, domain, and denizens.',
-	},
+	}
 )
 
 export type DelveSite = Static<typeof DelveSite>

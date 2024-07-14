@@ -1,10 +1,17 @@
-import { ROOT_HISTORY, VERSION } from '../scripts/const.js'
 import { replacementMap } from './replacementMap.js'
 import { readJSON, writeJSON } from '../scripts/utils/readWrite.js'
 import path from 'node:path'
-import CONST from '../pkg-core/IdElements/CONST.js'
+import {
+	WildcardString,
+	PrefixSep,
+	TypeSep,
+	PathKeySep,
+	GlobstarString,
+	VERSION,
+} from '../scripts/const.js'
 import { escapeRegExp } from 'lodash-es'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
+import { ROOT_HISTORY } from '../scripts/const.js'
 
 const oldVersion = '0.0.10'
 
@@ -48,7 +55,7 @@ function mightBeId(value: unknown) {
 
 export async function forEachIdInVersion(
 	version: string,
-	forEach: (id: string) => void,
+	forEach: (id: string) => void
 ) {
 	const dir = path.join(ROOT_HISTORY, version)
 	const glob = `*/*.json`
@@ -64,7 +71,7 @@ export async function forEachIdInVersion(
 					forEach(v as string)
 
 				return v
-			}),
+			})
 		)
 
 	await Promise.all(readOps)
@@ -72,25 +79,24 @@ export async function forEachIdInVersion(
 
 function getWildcardRegex(wildcardId: string) {
 	// without any wildcards, there's not much to worry about. just escape it for use in the regex.
-	if (!wildcardId.includes(CONST.WildcardString))
-		return new RegExp(`^${escapeRegExp(wildcardId)}$`)
+	return new RegExp(`^${escapeRegExp(wildcardId)}$`)
 
-	const [fullTypeId, fullPath] = wildcardId.split(CONST.PrefixSep)
-	const [primaryPath, ...embeddedKeys] = fullPath.split(CONST.TypeSep)
-	const [rulesPackage, ...primaryPathKeys] = wildcardId.split(CONST.PathKeySep)
+	const [fullTypeId, fullPath] = wildcardId.split(PrefixSep)
+	const [primaryPath, ...embeddedKeys] = fullPath.split(TypeSep)
+	const [rulesPackage, ...primaryPathKeys] = wildcardId.split(PathKeySep)
 
-	const typePattern = fullTypeId.replaceAll(CONST.TypeSep, '\\' + CONST.TypeSep)
+	const typePattern = fullTypeId.replaceAll(TypeSep, '\\' + TypeSep)
 	let pathPattern = ''
 
 	switch (rulesPackage) {
-		case CONST.GlobstarString:
+		case GlobstarString:
 			// exit early, since this can match anything of its type.
 			// lazy way to trawl IDs that are already known to be valid. don't use for production.
 			return new RegExp(
-				`^${typePattern}${CONST.PrefixSep}${Pattern.RulesPackageElement.source}(?:/[a-z\\d_
-        \\.]+)+$`,
+				`^${typePattern}${PrefixSep}${Pattern.RulesPackageElement.source}(?:/[a-z\\d_
+        \\.]+)+$`
 			)
-		case CONST.WildcardString:
+		case WildcardString:
 			pathPattern += Pattern.RulesPackageElement.source
 			break
 		default:
@@ -100,10 +106,10 @@ function getWildcardRegex(wildcardId: string) {
 
 	for (const pathKey of primaryPathKeys) {
 		switch (pathKey) {
-			case CONST.GlobstarString:
+			case GlobstarString:
 				pathPattern += `(/${Pattern.DictKeyElement.source})*`
 				break
-			case CONST.WildcardString:
+			case WildcardString:
 				pathPattern += '/' + Pattern.DictKeyElement.source
 				break
 			default:
@@ -113,9 +119,9 @@ function getWildcardRegex(wildcardId: string) {
 	}
 
 	for (const embeddedKey of embeddedKeys) {
-		pathPattern += '\\' + CONST.TypeSep
+		pathPattern += '\\' + TypeSep
 		switch (embeddedKey) {
-			case CONST.WildcardString:
+			case WildcardString:
 				pathPattern += `${Pattern.DictKeyElement.source}|\\d+`
 				break
 			default:
@@ -124,7 +130,7 @@ function getWildcardRegex(wildcardId: string) {
 		}
 	}
 
-	return new RegExp(`^${typePattern}${CONST.PrefixSep}${pathPattern}$`)
+	return new RegExp(`^${typePattern}${PrefixSep}${pathPattern}$`)
 }
 
 // console.log(getWildcardRegex('oracle_rollable:starforged/core/action'))
@@ -132,7 +138,7 @@ function getWildcardRegex(wildcardId: string) {
 export async function generateIdMap(
 	fromVersion: string,
 	toVersion: string,
-	replacers: Map<RegExp, string | null>,
+	replacers: Map<RegExp, string | null>
 ) {
 	const currentIds = new Set<string>()
 	const mappedIds = new Map<string, string | null>()
@@ -162,7 +168,7 @@ export async function generateIdMap(
 	if (unmappedIds.size > 0) {
 		console.log(unmappedIds)
 		throw new Error(
-			`${unmappedIds.size} IDs from ${fromVersion} don't have a valid replacer. Change the regular expressions so that they can be matched to their equivalent in ${toVersion}, or explicitly assign them a null replacement (if no similarly-typed analogue exists).`,
+			`${unmappedIds.size} IDs from ${fromVersion} don't have a valid replacer. Change the regular expressions so that they can be matched to their equivalent in ${toVersion}, or explicitly assign them a null replacement (if no similarly-typed analogue exists).`
 		)
 	}
 
@@ -190,7 +196,7 @@ export async function generateIdMap(
 	if (badIds.size > 0) {
 		console.log(badIds)
 		throw new Error(
-			`Got ${goodIds.size + badIds.size} replacement IDs, but ${badIds.size} have targets that don't exist.`,
+			`Got ${goodIds.size + badIds.size} replacement IDs, but ${badIds.size} have targets that don't exist.`
 		)
 	}
 
@@ -198,7 +204,7 @@ export async function generateIdMap(
 }
 
 const data = Object.fromEntries(
-	await generateIdMap(oldVersion, VERSION, replacementMap),
+	await generateIdMap(oldVersion, VERSION, replacementMap)
 )
 
 // console.log(data)

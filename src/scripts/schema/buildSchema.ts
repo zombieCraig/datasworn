@@ -4,7 +4,15 @@
 
 import JsonPointer from 'json-pointer'
 import type { JsonSchema } from 'json-schema-library'
-import * as CONST from '../const.js'
+import {
+	SCHEMA_NAME,
+	SCHEMA_PATH,
+	DIR_HISTORY_CURRENT,
+	SOURCE_SCHEMA_NAME,
+	SOURCEDATA_SCHEMA_PATH,
+	SOURCE_SCHEMA_PATH,
+	DefsKey,
+} from '../const.js'
 import { writeJSON } from '../utils/readWrite.js'
 import { sortSchemaKeys } from '../datasworn/sort.js'
 import Log from '../utils/Log.js'
@@ -30,14 +38,11 @@ interface SchemaOptions {
 
 const schemaOptions: SchemaOptions[] = [
 	{
-		name: CONST.SCHEMA_NAME,
+		name: SCHEMA_NAME,
 		rootSchema: Schema.DataswornSchema,
 		paths: [
-			CONST.SCHEMA_PATH,
-			path.join(
-				CONST.DIR_HISTORY_CURRENT,
-				kebabCase(CONST.SCHEMA_NAME) + '.schema.json',
-			),
+			SCHEMA_PATH,
+			path.join(DIR_HISTORY_CURRENT, kebabCase(SCHEMA_NAME) + '.schema.json'),
 		],
 		messages: {
 			writeStart: '✏️  Writing schema for Datasworn',
@@ -45,14 +50,14 @@ const schemaOptions: SchemaOptions[] = [
 		},
 	},
 	{
-		name: CONST.SOURCE_SCHEMA_NAME,
+		name: SOURCE_SCHEMA_NAME,
 		rootSchema: Schema.DataswornSourceSchema,
 		paths: [
-			CONST.SOURCEDATA_SCHEMA_PATH,
-			CONST.SOURCE_SCHEMA_PATH,
+			SOURCEDATA_SCHEMA_PATH,
+			SOURCE_SCHEMA_PATH,
 			path.join(
-				CONST.DIR_HISTORY_CURRENT,
-				kebabCase(CONST.SOURCE_SCHEMA_NAME) + '.schema.json',
+				DIR_HISTORY_CURRENT,
+				kebabCase(SOURCE_SCHEMA_NAME) + '.schema.json'
 			),
 		],
 		messages: {
@@ -72,13 +77,7 @@ function replacer(k: string, v: unknown) {
 		return undefined
 
 	// adjust references for use with standard json validation
-	if (
-		k === '$ref' &&
-		typeof v === 'string' &&
-		!v.startsWith('http') &&
-		!v.startsWith(`#/${CONST.DefsKey}/`)
-	)
-		return `#/${CONST.DefsKey}/` + v
+	return `#/${DefsKey}/` + v
 
 	return v
 }
@@ -105,7 +104,7 @@ for (const { rootSchema, name, paths, messages } of schemaOptions) {
 		writeOps.push(
 			writeJSON(paths, sortedSchema, {
 				replacer,
-			}).then(() => Log.info(messages.writeFinish)),
+			}).then(() => Log.info(messages.writeFinish))
 		)
 	} catch (error) {
 		Log.error(error)

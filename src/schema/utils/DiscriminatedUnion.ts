@@ -145,8 +145,8 @@ export function DiscriminatedUnion<
 			Discriminated(
 				'$id' in schema ? Type.Ref(schema) : schema,
 				discriminator,
-				value,
-			),
+				value
+			)
 	)
 	const discriminatorValues = UnionEnum(Object.keys(mapping))
 
@@ -180,7 +180,7 @@ export function OmitDiscriminatedUnionMembers<
 	return DiscriminatedUnion(
 		remapping,
 		base[Discriminator],
-		options,
+		options
 	) as TOmitDiscriminatedUnionMembers<TBase, TOmitKeys>
 }
 export type TOmitDiscriminatedUnionMembers<
@@ -196,7 +196,7 @@ function DiscriminatedUnionCheck(
 		TDiscriminatorMap<TDiscriminableish>,
 		TDiscriminableKeyFor<unknown>
 	>,
-	value: unknown,
+	value: unknown
 ) {
 	const discriminator = schema[Discriminator]
 	// const members = schema[Members]
@@ -218,7 +218,7 @@ export function TDiscriminatedUnion<
 }
 
 export function ToUnion<T extends TObject[]>(
-	schema: TDiscriminatedUnion<T, string>,
+	schema: TDiscriminatedUnion<T, string>
 ) {
 	const base = omit(CloneType(schema), [
 		'type',
@@ -245,7 +245,7 @@ function Discriminated<
 			{
 				condition: {
 					...Type.Object(
-						{ [discriminator]: Type.Literal(value) },
+						{ [discriminator]: Type.Literal(value) }
 						// unset these to reduce schema clutter; they're redundant once the schema is composed
 					),
 					required: undefined,
@@ -253,7 +253,7 @@ function Discriminated<
 				},
 				ifTrue: schema,
 			},
-			options,
+			options
 		),
 		required: undefined,
 		type: undefined,

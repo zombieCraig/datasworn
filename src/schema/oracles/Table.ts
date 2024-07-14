@@ -17,25 +17,25 @@ export const TableMeta = Type.Object({
 		Type.Object({
 			min: Type.Integer({ default: 1 }),
 			max: Type.Integer({ default: 1 }),
-		}),
+		})
 	),
 
 	summary: Type.Optional(
 		Type.Ref(MarkdownString, {
 			description:
 				'A brief summary of the oracle table\'s intended usage, no more than a few sentences in length. This is intended for use in application tooltips and similar sorts of hints. Longer text should use the "description" key instead.',
-		}),
+		})
 	),
 	description: Type.Optional(
 		Type.Ref(MarkdownString, {
 			description:
 				"A longer description of the oracle table's intended usage, which might include multiple paragraphs. If it's only a couple sentences, use the `summary` key instead.",
-		}),
+		})
 	),
 })
 
 export function TableMixin<OracleRow extends TObject>(
-	column_labels: ReturnType<typeof ColumnLabels>,
+	column_labels: ReturnType<typeof ColumnLabels>
 ) {
 	return FlatIntersect([
 		TableMeta,

@@ -19,7 +19,7 @@ const json = JSON.stringify(
 		if (isEmpty(v) && k !== 'properties') return undefined
 		return v
 	},
-	'\t',
+	'\t'
 )
 const filePath = JTD_JSON_PATH
 

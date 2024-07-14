@@ -15,11 +15,7 @@ import * as Generic from '../Generic.js'
 import Id from '../common/Id.js'
 import { EmbeddedOracleRollable } from '../oracles/EmbeddedOracleRollable.js'
 import { FlatIntersect } from '../utils/FlatIntersect.js'
-import type {
-	TTrigger,
-	TTriggerEnhancement,
-	Trigger,
-} from './Trigger.js'
+import type { TTrigger, TTriggerEnhancement, Trigger } from './Trigger.js'
 import {
 	MoveRollType,
 	type MoveOutcomes,
@@ -34,7 +30,7 @@ const MoveBase = Type.Object({
 		Type.Array(Type.Ref(Id.MoveIdWildcard), {
 			description:
 				'Indicates that this move replaces the identified moves. References to the replaced moves can be considered equivalent to this move.',
-		}),
+		})
 	),
 	text: Type.Ref(Localize.MarkdownString, {
 		description: 'The complete rules text of the move.',
@@ -42,8 +38,8 @@ const MoveBase = Type.Object({
 	oracles: Type.Optional(
 		Generic.Dictionary(
 			Type.Ref(EmbeddedOracleRollable, { title: 'MoveOracleRollable' }),
-			{ title: 'MoveOracles' },
-		),
+			{ title: 'MoveOracles' }
+		)
 	),
 })
 
@@ -55,7 +51,7 @@ export function Move<
 	rollType: RollType,
 	trigger: Trigger,
 	outcomes: Outcomes,
-	options: SetRequired<ObjectOptions, '$id'>,
+	options: SetRequired<ObjectOptions, '$id'>
 ) {
 	let allow_momentum_burn: TLiteral<boolean> | TBoolean
 
@@ -91,7 +87,7 @@ export function Move<
 		'move',
 		moveDiscriminator,
 		rollType,
-		options,
+		options
 	)
 }
 export type TMove<

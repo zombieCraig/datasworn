@@ -43,20 +43,20 @@ export const AuthorInfo = Type.Object(
 				title: 'Email',
 				format: 'email',
 				description: 'An optional email contact for the author',
-			}),
+			})
 		),
 		url: Type.Optional(
 			Type.String({
 				format: 'uri',
 				description: "An optional URL for the author's website.",
-			}),
+			})
 		),
 	},
 	{
 		examples: [{ name: 'Shawn Tomkin', url: 'https://ironswornrpg.com' }],
 		$id: 'AuthorInfo',
 		description: 'Information on the original creator of this material.',
-	},
+	}
 )
 export const SourceTitle = Type.String({
 	description: 'The title of the source document.',
@@ -118,7 +118,7 @@ export const SourceInfo = Type.Object(
 				[JsonTypeDef]: {
 					schema: Type.Optional(JtdType.Uint16()),
 				},
-			}),
+			})
 		),
 		authors: Type.Array(Type.Ref(AuthorInfo), {
 			minItems: 1,
@@ -138,7 +138,7 @@ export const SourceInfo = Type.Object(
 	{
 		description: 'Metadata describing the original source of this node',
 		$id: 'SourceInfo',
-	},
+	}
 )
 
 export type SourceInfo = Static<typeof SourceInfo>

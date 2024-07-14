@@ -492,7 +492,7 @@ export namespace ValueCheck {
 		return (
 			IsObject(value) &&
 			globalThis.Object.getOwnPropertyNames(value).every((key) =>
-				Visit(schema.values, value[key]),
+				Visit(schema.values, value[key])
 			)
 		)
 	}
@@ -502,7 +502,7 @@ export namespace ValueCheck {
 	function Struct(
 		schema: TStruct,
 		value: unknown,
-		descriminator?: string,
+		descriminator?: string
 	): boolean {
 		if (!IsObject(value)) return false
 		const optionalKeys =
@@ -591,7 +591,7 @@ export namespace ValueCheck {
 	}
 	export function Check<T extends Types.TSchema>(
 		schema: T,
-		value: unknown,
+		value: unknown
 	): value is Types.Static<T> {
 		return Visit(schema, value)
 	}
@@ -622,13 +622,13 @@ export namespace TypeGuard {
 	// Types
 	// ------------------------------------------------------------------------
 	export function TNullable(
-		schema: unknown,
+		schema: unknown
 	): schema is TNullable<Types.TSchema> {
 		return IsObject(schema) && 'nullable' in schema && schema.nullable === true
 	}
 
 	export function TNonNullable(
-		schema: unknown,
+		schema: unknown
 	): schema is TNonNullable<Types.TSchema> {
 		return IsObject(schema) && !TNullable(schema)
 	}
@@ -658,7 +658,7 @@ export namespace TypeGuard {
 		)
 			return false
 		return globalThis.Object.getOwnPropertyNames(schema['mapping']).every(
-			(key) => TNonNullable(TStruct((schema['mapping'] as any)[key])),
+			(key) => TNonNullable(TStruct((schema['mapping'] as any)[key]))
 		)
 	}
 	export function TEnum(schema: unknown): schema is TEnum {
@@ -758,13 +758,13 @@ export namespace TypeGuard {
 			optionalProperties === undefined ||
 			(IsObject(optionalProperties) &&
 				globalThis.Object.getOwnPropertyNames(optionalProperties).every((key) =>
-					TSchema(optionalProperties[key]),
+					TSchema(optionalProperties[key])
 				))
 		const requiredCheck =
 			requiredProperties === undefined ||
 			(IsObject(requiredProperties) &&
 				globalThis.Object.getOwnPropertyNames(requiredProperties).every((key) =>
-					TSchema(requiredProperties[key]),
+					TSchema(requiredProperties[key])
 				))
 		return optionalCheck && requiredCheck
 	}
@@ -819,49 +819,49 @@ export namespace TypeGuard {
 // TypeRegistry
 // --------------------------------------------------------------------------
 Types.TypeRegistry.Set<TArray>('TypeDef:Array', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TBoolean>('TypeDef:Boolean', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TUnion>('TypeDef:Union', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TInt8>('TypeDef:Int8', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TInt16>('TypeDef:Int16', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TInt32>('TypeDef:Int32', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TUint8>('TypeDef:Uint8', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TUint16>('TypeDef:Uint16', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TUint32>('TypeDef:Uint32', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TRecord>('TypeDef:Record', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TString>('TypeDef:String', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TStruct>('TypeDef:Struct', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TTimestamp>('TypeDef:Timestamp', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TRef>('TypeDef:Ref', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 Types.TypeRegistry.Set<TAny>('TypeDef:Any', (schema, value) =>
-	ValueCheck.Check(schema, value),
+	ValueCheck.Check(schema, value)
 )
 
 // --------------------------------------------------------------------------
@@ -947,7 +947,7 @@ export class TypeDefBuilder {
 	/** [Standard] Creates a Array type */
 	public Array<T extends Types.TSchema>(
 		elements: T,
-		metadata: Metadata = {},
+		metadata: Metadata = {}
 	): TArray<T> {
 		return this.Create({ [Types.Kind]: 'TypeDef:Array', elements }, metadata)
 	}
@@ -955,31 +955,31 @@ export class TypeDefBuilder {
 	public Boolean(metadata: Metadata = {}): TBoolean {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Boolean', type: 'boolean' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Enum type */
 	public Enum<T extends string[]>(
 		values: [...T],
-		metadata: EnumMetadata = {},
+		metadata: EnumMetadata = {}
 	): TEnum<T> {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Enum', enum: Array.from(new Set(values)) },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Float32 type */
 	public Float32(metadata: Metadata = {}): TFloat32 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Float32', type: 'float32' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Float64 type */
 	public Float64(metadata: Metadata = {}): TFloat64 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Float64', type: 'float64' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Int8 type */
@@ -990,41 +990,41 @@ export class TypeDefBuilder {
 	public Int16(metadata: Metadata = {}): TInt16 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Int16', type: 'int16' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Int32 type */
 	public Int32(metadata: Metadata = {}): TInt32 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Int32', type: 'int32' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Uint8 type */
 	public Uint8(metadata: Metadata = {}): TUint8 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Uint8', type: 'uint8' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Uint16 type */
 	public Uint16(metadata: Metadata = {}): TUint16 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Uint16', type: 'uint16' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Uint32 type */
 	public Uint32(metadata: Metadata = {}): TUint32 {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Uint32', type: 'uint32' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Record type */
 	public Record<T extends Types.TSchema>(
 		values: T,
-		metadata: Metadata = {},
+		metadata: Metadata = {}
 	): TRecord<T> {
 		return this.Create({ [Types.Kind]: 'TypeDef:Record', values }, metadata)
 	}
@@ -1032,29 +1032,29 @@ export class TypeDefBuilder {
 	public String(metadata: Metadata = {}): TString {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:String', type: 'string' },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Struct type */
 	public Struct<T extends TFields>(
 		fields: T,
-		metadata: StructMetadata = {},
+		metadata: StructMetadata = {}
 	): TStruct<T> {
 		const optionalProperties = globalThis.Object.getOwnPropertyNames(
-			fields,
+			fields
 		).reduce(
 			(acc, key) =>
 				Types.TypeGuard.IsOptional(fields[key])
 					? { ...acc, [key]: fields[key] }
 					: { ...acc },
-			{} as TFields,
+			{} as TFields
 		)
 		const properties = globalThis.Object.getOwnPropertyNames(fields).reduce(
 			(acc, key) =>
 				Types.TypeGuard.IsOptional(fields[key])
 					? { ...acc }
 					: { ...acc, [key]: fields[key] },
-			{} as TFields,
+			{} as TFields
 		)
 		const optionalObject =
 			globalThis.Object.getOwnPropertyNames(optionalProperties).length > 0
@@ -1066,7 +1066,7 @@ export class TypeDefBuilder {
 				: { properties: properties }
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Struct', ...requiredObject, ...optionalObject },
-			metadata,
+			metadata
 		)
 	}
 	/** [Standard] Creates a Union type */
@@ -1090,16 +1090,16 @@ export class TypeDefBuilder {
 	// }
 	public Union<T extends Record<string, TStruct<TFields>>, D extends string>(
 		mapping: T,
-		discriminator: D,
+		discriminator: D
 	): TUnion<T[keyof T][], D> {
 		if (Object.values(mapping).length === 0)
 			throw new Error(
-				'TypeDefBuilder: Union types must contain at least one struct',
+				'TypeDefBuilder: Union types must contain at least one struct'
 			)
 
 		const result = this.Create(
 			{ [Types.Kind]: 'TypeDef:Union', discriminator, mapping },
-			{},
+			{}
 		)
 
 		// console.log(JSON.stringify(result, undefined, '\t'))
@@ -1110,20 +1110,20 @@ export class TypeDefBuilder {
 	public Timestamp(metadata: Metadata = {}): TTimestamp {
 		return this.Create(
 			{ [Types.Kind]: 'TypeDef:Timestamp', type: 'timestamp' },
-			metadata,
+			metadata
 		)
 	}
 
 	public Ref<T extends Types.TSchema = Types.TSchema>(
 		ref: string,
-		metadata: Metadata = {},
+		metadata: Metadata = {}
 	): TRef<T> {
 		return this.Create(
 			{
 				[Types.Kind]: 'TypeDef:Ref',
 				ref,
 			},
-			metadata,
+			metadata
 		)
 	}
 }

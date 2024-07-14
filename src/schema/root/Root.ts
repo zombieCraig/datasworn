@@ -22,12 +22,12 @@ export type TRoot<T extends TSchema = TSchema> = T & RootOptions
 
 export function RootObject<T extends TSchema, Options extends RootOptions>(
 	base: T,
-	options: Options,
+	options: Options
 ) {
 	const rootOptions = {
 		...options,
 		[DefsKey]: mapValues(options[DefsKey], (v, k) =>
-			CloneType(v, { title: k }),
+			CloneType(v, { title: k })
 		) as Defs,
 	}
 
@@ -42,7 +42,7 @@ export function SourceRootObject<
 		...options,
 
 		[DefsKey]: mapValues(options[DefsKey], (v, k) =>
-			SourceData(CloneType(v, { title: k })),
+			SourceData(CloneType(v, { title: k }))
 		) as Defs,
 	}) as unknown as TRoot
 }

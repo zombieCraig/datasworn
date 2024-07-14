@@ -48,8 +48,8 @@ export async function buildContentPackage({
 							dependencies[depId] = VERSION
 
 				return packageDotJson
-			},
-		),
+			}
+		)
 	)
 
 	/** Destination path for the JSON content directory */
@@ -59,7 +59,7 @@ export async function buildContentPackage({
 
 	jsonOps.push(
 		// empty JSON destination directory
-		emptyDir(pkgJsonDest).then(() => copyDir(jsonSrc, pkgJsonDest)),
+		emptyDir(pkgJsonDest).then(() => copyDir(jsonSrc, pkgJsonDest))
 	)
 
 	/** async operations on package image assets */

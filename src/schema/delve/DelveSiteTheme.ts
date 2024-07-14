@@ -14,7 +14,7 @@ export const DelveSiteThemeFeature = EmbeddedType(
 	{
 		description:
 			'Represents a single Feature entry from a delve site Theme card.',
-	},
+	}
 )
 export const DelveSiteThemeDanger = EmbeddedType(
 	OracleRollableRowText,
@@ -24,7 +24,7 @@ export const DelveSiteThemeDanger = EmbeddedType(
 	{
 		description:
 			'Represents a single Danger entry from a delve site Theme card.',
-	},
+	}
 )
 
 const DelveSiteThemeFeatures = Type.Array(Type.Ref(DelveSiteThemeFeature))
@@ -48,7 +48,7 @@ export const DelveSiteTheme = setSourceDataSchema(
 					[JsonTypeDef]: {
 						schema: toJtdElements(DelveSiteThemeFeatures),
 					},
-				},
+				}
 			),
 			dangers: Type.Intersect(
 				[
@@ -72,16 +72,16 @@ export const DelveSiteTheme = setSourceDataSchema(
 					[JsonTypeDef]: {
 						schema: toJtdElements(DelveSiteThemeDangers),
 					},
-				},
+				}
 			),
 		}),
 		'delve_site_theme',
 		{
 			description: 'A delve site theme card.',
 			$id: 'DelveSiteTheme',
-		},
+		}
 	),
-	(schema) => ({ ...schema, additionalProperties: true }),
+	(schema) => ({ ...schema, additionalProperties: true })
 )
 export type DelveSiteTheme = Static<typeof DelveSiteTheme>
 export type TDelveSiteTheme = typeof DelveSiteTheme

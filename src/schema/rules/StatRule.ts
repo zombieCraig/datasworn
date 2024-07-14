@@ -18,6 +18,6 @@ export const StatRule = Type.Object(
 	{
 		$id: 'StatRule',
 		description: 'Describes a standard player character stat.',
-	},
+	}
 )
 export type StatRule = Static<typeof StatRule>

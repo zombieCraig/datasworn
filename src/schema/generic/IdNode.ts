@@ -16,21 +16,21 @@ const IdNodeBase = Type.Object({
 		Type.String({
 			description:
 				'Implementation hints or other developer-facing comments on this node. These should be omitted when presenting the node for gameplay.',
-		}),
+		})
 	),
 })
 
 export function IdNode<TBase extends TObject>(
 	base: TBase,
 	_id: TAnyId,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const enhancedBase = FlatIntersect(
 		[IdNodeBase, Type.Object({ _id: Computed(_id) }), base],
 		{
 			[Kind]: 'Object',
 			...options,
-		},
+		}
 	)
 
 	return setDescriptions(enhancedBase, {

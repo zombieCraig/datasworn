@@ -51,7 +51,7 @@ export function keysWithDefaults<T extends TObject>(schema: T) {
 
 export function NoDefaults<T extends TObject>(
 	schema: T,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const newSchema = CloneType(schema, options)
 	for (const key in newSchema.properties)
@@ -63,7 +63,7 @@ export function NoDefaults<T extends TObject>(
 export function WithDefaults<T extends TObject>(
 	schema: T,
 	defaults: Partial<Static<T>>,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const newSchema = CloneType(schema, options)
 
@@ -109,7 +109,7 @@ export type TFuzzySchemaOf<T> =
 export function setDescriptions<T extends TObject>(
 	schema: T,
 	descriptions: { [P in keyof Static<TObject>]?: string | undefined },
-	override = true,
+	override = true
 ) {
 	for (const property in descriptions) {
 		const description = descriptions[property]

@@ -57,14 +57,14 @@ export function TUnionEnum(schema: any): schema is TUnionEnum {
 
 function UnionEnumCheck(
 	schema: TUnionEnum<(string | number)[]>,
-	value: unknown,
+	value: unknown
 ) {
 	return schema.enum.includes(value as string | number)
 }
 
 export function ToEnum<T extends TUnionEnum>(schema: T) {
 	const anyOf = schema.enum.map((value) =>
-		Type.Literal(value, { description: schema[EnumDescription]?.[value] }),
+		Type.Literal(value, { description: schema[EnumDescription]?.[value] })
 	)
 	const options = omit(CloneType(schema), [
 		Kind,

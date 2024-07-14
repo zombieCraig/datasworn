@@ -1,6 +1,6 @@
 export function arrayIs<T1 extends Array<any>, T2 extends Array<any>>(
 	a: T1,
-	b: T2,
+	b: T2
 ): a is T1 & T2 {
 	if (a.length !== b.length) return false
 
@@ -44,7 +44,7 @@ export type DropFirst<T extends unknown[]> = T extends [] | [unknown]
 export type TupleOfLength<Length extends number, T> = T[] & { length: Length }
 
 export type OmitItemsOfType<T extends any[], O> = T extends [
-	infer Head ,
+	infer Head,
 	...infer Tail extends any[],
 ]
 	? [...(Head extends O ? [] : [Head]), ...OmitItemsOfType<Tail, O>]

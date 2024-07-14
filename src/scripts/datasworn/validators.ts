@@ -14,17 +14,17 @@ namespace Assert {
 		Generic.SourcedNodeBase,
 		{
 			additionalProperties: true,
-		},
+		}
 	)
 
 	export const SourcedNodeDictionary = TypeCompiler.Compile(
 		Dictionary(sourcedNodeValidatorSchema),
-		commonRefs,
+		commonRefs
 	)
 
 	export const SourcedNode = TypeCompiler.Compile(
 		sourcedNodeValidatorSchema,
-		commonRefs,
+		commonRefs
 	)
 }
 

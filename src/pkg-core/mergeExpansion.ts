@@ -1,4 +1,9 @@
-import CONST from './IdElements/CONST.js'
+import {
+	EnhancesKey,
+	ContentsKey,
+	CollectionsKey,
+	ReplacesKey,
+} from './IdElements/CONST.js'
 import type TypeNode from './TypeNode.js'
 import { IdParser } from './index.js'
 // import fs from 'fs-extra'
@@ -75,25 +80,25 @@ import TypeId from './IdElements/TypeId.js'
  */
 function enhanceCollection<T extends TypeNode.Collection>(
 	target: T,
-	source: T,
+	source: T
 ): T {
 	const err = new Error(
-		`Expected source <${source._id}> "${CONST.EnhancesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST.EnhancesKey])}.`,
+		`Expected source <${source._id}> "${EnhancesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[EnhancesKey])}.`
 	)
-	if (!(CONST.EnhancesKey in source)) throw err
-	if (!Array.isArray(source[CONST.EnhancesKey])) throw err
+	if (!(EnhancesKey in source)) throw err
+	if (!Array.isArray(source[EnhancesKey])) throw err
 
 	const targetId = IdParser.parse(target._id)
 
-	if (!targetId.isMatchedBy(...source[CONST.EnhancesKey])) throw err
-	target[CONST.ContentsKey] = applyDictionaryReplacements(
-		target[CONST.ContentsKey],
-		source[CONST.ContentsKey],
+	if (!targetId.isMatchedBy(...source[EnhancesKey])) throw err
+	target[ContentsKey] = applyDictionaryReplacements(
+		target[ContentsKey],
+		source[ContentsKey]
 	)
 
-	target[CONST.CollectionsKey] = applyDictionaryEnhancements(
-		target[CONST.CollectionsKey],
-		source[CONST.CollectionsKey],
+	target[CollectionsKey] = applyDictionaryEnhancements(
+		target[CollectionsKey],
+		source[CollectionsKey]
 	)
 
 	return target
@@ -119,7 +124,7 @@ function applyDictionaryEnhancements<
 			continue
 		}
 
-		if (!(CONST.EnhancesKey in source)) continue
+		if (!(EnhancesKey in source)) continue
 
 		const target = targetMap.get(key) as T
 
@@ -155,19 +160,19 @@ function applyDictionaryReplacements<
 			continue
 		}
 
-		if (!(CONST.ReplacesKey in source)) continue
+		if (!(ReplacesKey in source)) continue
 
 		const target = targetMap.get(key) as T
 
 		const err = new Error(
-			`Expected source <${source._id}> "${CONST.ReplacesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[CONST.ReplacesKey])}`,
+			`Expected source <${source._id}> "${ReplacesKey}" property to include a wildcard matching target <${target._id}>, but got ${JSON.stringify(source[ReplacesKey])}`
 		)
-		if (!(CONST.ReplacesKey in source)) throw err
-		if (!Array.isArray(source[CONST.ReplacesKey])) throw err
+		if (!(ReplacesKey in source)) throw err
+		if (!Array.isArray(source[ReplacesKey])) throw err
 
 		const targetValueId = IdParser.parse(target._id)
 
-		if (!targetValueId.isMatchedBy(...source[CONST.ReplacesKey])) throw err
+		if (!targetValueId.isMatchedBy(...source[ReplacesKey])) throw err
 
 		targetMap.set(key, source)
 	}
@@ -181,11 +186,11 @@ function applyDictionaryReplacements<
 export function mergeExpansion(
 	ruleset: Datasworn.Ruleset,
 	expansion: Datasworn.Expansion,
-	strict = true,
+	strict = true
 ) {
 	if (strict && ruleset._id !== expansion.ruleset)
 		throw new Error(
-			`Can only merge to the expansion's matching ruleset "${expansion.ruleset}" in strict mode, but got ruleset "${ruleset._id}".`,
+			`Can only merge to the expansion's matching ruleset "${expansion.ruleset}" in strict mode, but got ruleset "${ruleset._id}".`
 		)
 
 	// apply noncollectable merges
@@ -214,17 +219,17 @@ export function mergeExpansion(
 			// @ts-expect-error
 			ruleset[branchKey] = expansion[branchKey]
 		else {
-			if (CONST.ReplacesKey in expansion[branchKey]) {
+			if (ReplacesKey in expansion[branchKey]) {
 				// @ts-expect-error
 				ruleset[branchKey] = applyDictionaryReplacements(
 					ruleset[branchKey],
-					expansion[branchKey],
+					expansion[branchKey]
 				)
 			} else {
 				// @ts-expect-error
 				ruleset[branchKey] = applyDictionaryEnhancements(
 					ruleset[branchKey],
-					expansion[branchKey],
+					expansion[branchKey]
 				)
 			}
 		}

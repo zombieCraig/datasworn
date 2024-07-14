@@ -28,7 +28,7 @@ export const ImpactRule = Type.Object(
 	{
 		$id: 'ImpactRule',
 		description: 'Describes a standard impact/debility.',
-	},
+	}
 )
 export type ImpactRule = Static<typeof ImpactRule>
 
@@ -47,6 +47,6 @@ export const ImpactCategory = Type.Object(
 	{
 		$id: 'ImpactCategory',
 		description: 'Describes a category of standard impacts/debilities.',
-	},
+	}
 )
 export type ImpactCategory = Static<typeof ImpactCategory>

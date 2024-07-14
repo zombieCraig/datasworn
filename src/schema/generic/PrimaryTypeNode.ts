@@ -25,24 +25,24 @@ const PrimaryNodeBase = Type.Object({
 	replaces: Type.Optional(
 		Type.Array(Type.String() as TString | TRef<TString>, {
 			description: replacesDescription,
-		}),
+		})
 	),
 	color: Type.Optional(
 		Type.Ref(CssColor, {
 			description: 'A thematic color associated with this node.',
-		}),
+		})
 	),
 	images: Type.Optional(
 		Type.Array(
 			Type.Ref(WebpImageUrl, {
 				description: 'Extra images associated with this node.',
-			}),
-		),
+			})
+		)
 	),
 	icon: Type.Optional(
 		Type.Ref(SvgImageUrl, {
 			description: 'An SVG icon associated with this collection.',
-		}),
+		})
 	),
 })
 
@@ -58,9 +58,9 @@ export function PrimaryTypeNode<
 		PrimaryNodeBase,
 		Type.Object({
 			replaces: Type.Optional(
-				Type.Array(replaces, { description: replacesDescription }),
+				Type.Array(replaces, { description: replacesDescription })
 			),
-		}),
+		})
 	)
 
 	const enhancedBase = Discriminable(Assign(mixin, base), 'type', type)
@@ -93,7 +93,7 @@ export function PrimarySubtypeNode<
 	type: TType,
 	subtypeKey: TSubtypeKey,
 	subtype: TSubtype,
-	options: SetRequired<ObjectOptions, '$id'>,
+	options: SetRequired<ObjectOptions, '$id'>
 ) {
 	const superType = PrimaryTypeNode(base, type)
 
@@ -101,7 +101,7 @@ export function PrimarySubtypeNode<
 		superType,
 		subtypeKey,
 		subtype,
-		options,
+		options
 	) as TPrimarySubtypeNode<TBase, TType, TSubtypeKey, TSubtype>
 }
 export type TPrimarySubtypeNode<

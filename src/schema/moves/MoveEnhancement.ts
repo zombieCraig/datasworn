@@ -19,7 +19,7 @@ export const MoveEnhancement = Utils.DiscriminatedUnion(
 	moveDiscriminator,
 	{
 		$id: 'MoveEnhancement',
-	},
+	}
 )
 export type TMoveEnhancement = typeof MoveEnhancement
 export type MoveEnhancement =

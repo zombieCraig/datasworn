@@ -29,7 +29,7 @@ const OracleCollectionType = Utils.UnionEnumFromRecord(
 	},
 	{
 		$id: 'OracleCollectionType',
-	},
+	}
 )
 type OracleCollectionType = Static<typeof OracleCollectionType>
 
@@ -46,7 +46,7 @@ export const OracleTablesCollection = Generic.CollectionSubtypeNode(
 		$id: 'OracleTablesCollection',
 		description:
 			'An OracleCollection that represents a category or grouping of tables, which may themselves be `OracleTablesCollection`s.',
-	},
+	}
 )
 
 export type TOracleTablesCollection = typeof OracleTablesCollection
@@ -65,7 +65,7 @@ export const OracleTableSharedRolls = Generic.CollectionSubtypeNode(
 		$id: 'OracleTableSharedRolls',
 		description:
 			'An OracleCollection representing a single table with one roll column and multiple text columns.',
-	},
+	}
 )
 
 export type TOracleTableSharedRolls = typeof OracleTableSharedRolls
@@ -84,7 +84,7 @@ export const OracleTableSharedText = Generic.CollectionSubtypeNode(
 		$id: 'OracleTableSharedText',
 		description:
 			'An OracleCollection representing a single table with multiple roll columns and one text column.',
-	},
+	}
 )
 
 export type TOracleTableSharedText = typeof OracleTableSharedText
@@ -103,7 +103,7 @@ export const OracleTableSharedText2 = Generic.CollectionSubtypeNode(
 		$id: 'OracleTableSharedText2',
 		description:
 			'An OracleCollection representing a single table with multiple roll columns, and 2 shared text columns.',
-	},
+	}
 )
 export type TOracleTableSharedText2 = typeof OracleTableSharedText2
 export type OracleTableSharedText2 = Static<TOracleTableSharedText2>
@@ -121,7 +121,7 @@ export const OracleTableSharedText3 = Generic.CollectionSubtypeNode(
 		$id: 'OracleTableSharedText3',
 		description:
 			'An OracleCollection representing a single table with multiple roll columns, and 3 shared text columns.',
-	},
+	}
 )
 export type TOracleTableSharedText3 = typeof OracleTableSharedText3
 export type OracleTableSharedText3 = Static<TOracleTableSharedText3>
@@ -135,7 +135,7 @@ export const OracleCollection = Utils.DiscriminatedUnion(
 		table_shared_text3: OracleTableSharedText3,
 	},
 	subtypeKey,
-	{ $id: 'OracleCollection' },
+	{ $id: 'OracleCollection' }
 )
 
 export type TOracleCollection = typeof OracleCollection

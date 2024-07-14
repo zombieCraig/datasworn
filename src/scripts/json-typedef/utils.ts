@@ -20,7 +20,11 @@ import {
 } from '@sinclair/typebox'
 import type * as JTD from 'jtd'
 
-import JtdType, { type Metadata, type TFields, type TStruct } from './typedef.js'
+import JtdType, {
+	type Metadata,
+	type TFields,
+	type TStruct,
+} from './typedef.js'
 
 import { type JTDSchemaType, SomeJTDSchemaType } from 'ajv/dist/core.js'
 import {
@@ -94,7 +98,7 @@ export function extractMetadata<T extends TAnySchema>(jsonSchema: T) {
 
 export function setIdRef<T extends { _id: string }, R extends string>(
 	schema: JTDSchemaType<T>,
-	ref: R,
+	ref: R
 ) {
 	type NewRef = { [P in R]: string }
 	type RefRecord = typeof schema extends JTDSchemaType<T, infer U>
@@ -129,7 +133,7 @@ export function toJtdRef(schema: TRef | TThis) {
 
 /** Transforms a Typebox array schema into JTD elements */
 export function toJtdElements<U extends TSchema, T extends TArray<U>>(
-	schema: T,
+	schema: T
 ) {
 	const items = schema.items as TSchema
 	return JtdType.Array(toJtdForm(items))
@@ -148,7 +152,7 @@ export function toJtdProperties<T extends TObject>(schema: T) {
 
 			return base
 		}),
-		isUndefined,
+		isUndefined
 	)
 
 	const result = JtdType.Struct(fields)
@@ -158,14 +162,14 @@ export function toJtdProperties<T extends TObject>(schema: T) {
 
 /** Transform a Typebox record schema into JTD values */
 export function toJtdValues<T extends TRecord<TString, U>, U extends TSchema>(
-	schema: T,
+	schema: T
 ) {
 	const [propertyPattern, value] = Object.entries(schema.patternProperties)[0]
 	const unwrap = toJtdForm(value as unknown as TConvertible)
 
 	if (!unwrap)
 		throw new Error(
-			`Couldn't unwrap Record value schema: ${JSON.stringify(schema)}`,
+			`Couldn't unwrap Record value schema: ${JSON.stringify(schema)}`
 		)
 
 	return JtdType.Record(unwrap, { propertyPattern })
@@ -225,10 +229,7 @@ type TConvertible =
 	| Utils.TUnionEnum
 
 function toJtdForm(
-	schema:
-		| TConvertible
-		| Utils.TNullable<TConvertible>
-		| TOptional<TConvertible>,
+	schema: TConvertible | Utils.TNullable<TConvertible> | TOptional<TConvertible>
 ): JTD.Schema
 function toJtdForm(schema: TNull): null
 function toJtdForm(schema: TSchema): JTD.Schema | null {
@@ -267,7 +268,7 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 		case TypeGuard.IsNumber(schema):
 			Log.warn(
 				'Received a number schema. Consider making it an integer instead.',
-				schema,
+				schema
 			)
 			result = JtdType.Float32()
 			break
@@ -293,7 +294,7 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 			result = JtdType.Enum(schema.anyOf.map((item: TLiteral) => item.const))
 			result.metadata = {
 				enumDescription: Object.fromEntries(
-					schema.anyOf.map((item: TLiteral) => [item.const, item.description]),
+					schema.anyOf.map((item: TLiteral) => [item.const, item.description])
 				),
 			}
 			break
@@ -305,7 +306,7 @@ function toJtdForm(schema: TSchema): JTD.Schema | null {
 	if (result == null) {
 		console.log(schema)
 		throw new Error(
-			`no transform available for typebox schema kind ${schema[Kind]}`,
+			`no transform available for typebox schema kind ${schema[Kind]}`
 		)
 	}
 
@@ -342,7 +343,7 @@ export function toJtdRoot<T extends TRoot>(schemaRoot: T) {
 
 	if (isUndefined(base))
 		throw new Error(
-			`Unable to infer JSON Typedef form for root schema "${rootSchemaName}".`,
+			`Unable to infer JSON Typedef form for root schema "${rootSchemaName}".`
 		)
 
 	return {

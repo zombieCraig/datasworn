@@ -7,7 +7,11 @@ import {
 	type TString,
 	type TUnion,
 } from '@sinclair/typebox'
-import CONST from '../../pkg-core/IdElements/CONST.js'
+import {
+	EnhancesKey,
+	ContentsKey,
+	CollectionsKey,
+} from '../../scripts/const.js'
 import TypeId from '../../pkg-core/IdElements/TypeId.js'
 import * as Localize from '../common/Localize.js'
 import { Assign, FlatIntersect, type TAssign } from '../utils/FlatIntersect.js'
@@ -30,33 +34,33 @@ type TCollectionDictionary =
 export function getCollectionNodeMetadata(
 	enhances: TRef<TString>,
 	contentChild?: TCollectionDictionary,
-	collectionChild?: TCollectionDictionary,
+	collectionChild?: TCollectionDictionary
 ) {
 	const props = {
-		[CONST.EnhancesKey]: Type.Optional(
+		[EnhancesKey]: Type.Optional(
 			Type.Array(enhances, {
 				description:
 					"This node's content enhances all nodes that match these wildcards, rather than being a standalone item of its own.",
-			}),
+			})
 		),
 		summary: Type.Optional(
 			Type.Ref(Localize.MarkdownString, {
 				description:
 					'A brief summary of this collection, no more than a few sentences in length. This is intended for use in application tooltips and similar sorts of hints. Longer text should use the "description" key instead.',
-			}),
+			})
 		),
 		description: Type.Optional(
 			Type.Ref(Localize.MarkdownString, {
 				description:
 					"A longer description of this collection, which might include multiple paragraphs. If it's only a couple sentences, use the `summary` key instead.",
-			}),
+			})
 		),
 	}
 	// @ts-expect-error
-	if (contentChild != null) props[CONST.ContentsKey] = contentChild
+	props[ContentsKey] = contentChild
 
 	// @ts-expect-error
-	if (collectionChild != null) props[CONST.CollectionsKey] = collectionChild
+	props[CollectionsKey] = collectionChild
 	return Type.Object(props)
 }
 
@@ -77,9 +81,9 @@ export function CollectionNode<
 		getCollectionNodeMetadata(
 			thisWildcardIdRef,
 			setSourceOptional(Dictionary(collectableSchemaRef, { default: {} })),
-			setSourceOptional(Dictionary(thisSchemaRef, { default: {} })),
+			setSourceOptional(Dictionary(thisSchemaRef, { default: {} }))
 		),
-		base,
+		base
 	)
 
 	return PrimaryTypeNode(enhancedBase, type, {
@@ -118,7 +122,7 @@ export function CollectionSubtypeNode<
 	subtype: TSubtype,
 	contents: TCollectionDictionary | undefined,
 	collections: TCollectionDictionary | undefined,
-	options: SetRequired<ObjectOptions, '$id'>,
+	options: SetRequired<ObjectOptions, '$id'>
 ) {
 	const baseSchemaName = pascalCase(type)
 	const thisSchemaName = baseSchemaName + pascalCase(subtype)
@@ -128,7 +132,7 @@ export function CollectionSubtypeNode<
 
 	const enhancedBase = Assign(
 		getCollectionNodeMetadata(thisIdWildcardRef, contents, collections),
-		base,
+		base
 	)
 
 	return PrimarySubtypeNode(enhancedBase, type, subtypeKey, subtype, options)

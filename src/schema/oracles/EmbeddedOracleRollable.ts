@@ -7,7 +7,7 @@ import { mapValues } from 'lodash-es'
 import { pascalCase } from '../utils/string.js'
 
 const oracleRollableMapping = mapValues(OracleRollable[Mapping], (schema, k) =>
-	EmbeddedPrimaryNode(schema, [], { $id: `EmbeddedOracle${pascalCase(k)}` }),
+	EmbeddedPrimaryNode(schema, [], { $id: `EmbeddedOracle${pascalCase(k)}` })
 )
 
 export const {
@@ -22,7 +22,7 @@ export const {
 export const EmbeddedOracleRollable = DiscriminatedUnion(
 	oracleRollableMapping,
 	'oracle_type',
-	{ $id: 'EmbeddedOracleRollable' },
+	{ $id: 'EmbeddedOracleRollable' }
 )
 
 export type EmbeddedOracleRollable = Static<typeof EmbeddedOracleRollable>

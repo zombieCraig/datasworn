@@ -1,12 +1,5 @@
 import path from 'node:path'
-
-const toolsPkg = JSON.parse(
-	await Bun.file(path.join(process.cwd(), 'package.json'), {
-		type: 'application/json',
-	}).text(),
-) as {
-	version: `${number}.${number}.${number}`
-}
+import { VERSION } from '../scripts/const.js'
 
 const src = path.join(process.cwd(), 'src')
 
@@ -14,8 +7,6 @@ export const PKG_NAME = 'Datasworn'
 
 export const SCHEMA_NAME = 'Datasworn'
 export const SOURCE_SCHEMA_NAME = 'DataswornSource'
-
-export const VERSION = toolsPkg.version
 
 export const PKG_SCOPE_OFFICIAL = '@datasworn'
 export const PKG_SCOPE_COMMUNITY = '@datasworn-community-content'
@@ -37,21 +28,21 @@ export const ROOT_TYPES_OUT = path.join(src, 'types')
 export const SCHEMA_PATH = path.join(ROOT_OUTPUT, 'datasworn.schema.json')
 export const SOURCE_SCHEMA_PATH = path.join(
 	ROOT_OUTPUT,
-	'datasworn-source.schema.json',
+	'datasworn-source.schema.json'
 )
 export const SOURCEDATA_SCHEMA_PATH = path.join(
 	ROOT_SOURCE_DATA,
-	'datasworn-source.schema.json',
+	'datasworn-source.schema.json'
 )
 
 export const SCHEMA_DELVE_OUT = path.join(
 	ROOT_OUTPUT,
-	'datasworn-delve.schema.json',
+	'datasworn-delve.schema.json'
 )
 
 export const SCHEMA_DELVE_IN = path.join(
 	ROOT_OUTPUT,
-	'datasworn-delve-source.schema.json',
+	'datasworn-delve-source.schema.json'
 )
 
 export const SCHEMA_ID = 'https://ironswornrpg.com/datasworn.schema.json'
@@ -74,3 +65,5 @@ export const DefsKey = 'definitions' as const
 
 /** Identifier for the type at the root of a Datasworn JSON file. */
 export const rootSchemaName = 'RulesPackage'
+
+export * from '../pkg-core/IdElements/CONST.js'

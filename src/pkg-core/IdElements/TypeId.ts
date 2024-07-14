@@ -1,6 +1,5 @@
-import type { satisfies } from 'semver'
 import type * as Datasworn from '../Datasworn.js'
-import CONST from './CONST.js'
+import { TypeSep } from './CONST.js'
 
 /**
  * Datasworn ID elements that represent specific types of Datasworn object. They appear in the second position, immediately after the {@link RulesPackageId} element.
@@ -143,7 +142,7 @@ namespace TypeId {
 
 	export function canHaveEmbed(
 		typeId: string,
-		typeIsEmbedded = false,
+		typeIsEmbedded = false
 	): typeId is Embedding {
 		return getEmbeddableTypes(typeId as Any, typeIsEmbedded).length > 0
 	}
@@ -161,7 +160,7 @@ namespace TypeId {
 
 	export function getEmbeddableTypes(
 		embeddingType: Any,
-		typeIsEmbedded = false,
+		typeIsEmbedded = false
 	): Embeddable[] {
 		if (typeIsEmbedded) return EmbeddableInEmbeddedTypeMap[embeddingType] ?? []
 
@@ -188,7 +187,7 @@ namespace TypeId {
 	function expandTypePath(typeId: Embedding, path: string[] = []) {
 		const isPrimary = path.length === 0
 		const thisPath = [...path, typeId]
-		if (!isPrimary) EmbeddedTypePath.push(thisPath.join(CONST.TypeSep))
+		if (!isPrimary) EmbeddedTypePath.push(thisPath.join(TypeSep))
 		if (typeId in EmbedTypeMap) {
 			for (const childTypeId of EmbedTypeMap[typeId])
 				if (
@@ -228,7 +227,7 @@ namespace TypeId {
 	>
 
 	export function getEmbeddedPropertyType(
-		typeId: TypeId.Any,
+		typeId: TypeId.Any
 	): 'array' | 'dictionary' {
 		if (Primary.includes(typeId as Primary)) return 'dictionary'
 
@@ -236,7 +235,7 @@ namespace TypeId {
 
 		if (propKey == null)
 			throw new Error(
-				`Expected an embeddable TypeId, but got ${String(typeId)}`,
+				`Expected an embeddable TypeId, but got ${String(typeId)}`
 			)
 
 		return EmbeddedPropertyType[propKey]
@@ -305,7 +304,7 @@ namespace TypeId {
 		return result
 	}
 	export function getEmbeddedPropertyKey<T extends Embeddable>(
-		typeId: T,
+		typeId: T
 	): EmbeddedPropertyKey<T> {
 		const result =
 			typeId in EmbeddedPropertyKeys

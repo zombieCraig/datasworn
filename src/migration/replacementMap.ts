@@ -1,9 +1,9 @@
-import CONST from '../pkg-core/IdElements/CONST.js'
+import { PathKeySep } from '../scripts/const.js'
 import { idReplacers } from '../pkg-core/Migrations/migrations.js'
 
 const orderReplacers = (
 	[{ source: patternA }, replacementA]: [RegExp, string | null],
-	[{ source: patternB }, replacementB]: [RegExp, string | null],
+	[{ source: patternB }, replacementB]: [RegExp, string | null]
 ): number => {
 	const initialWildcard = '(\\*'
 	const anyPipe = '|'
@@ -36,15 +36,14 @@ const orderReplacers = (
 			if (captureCountDifference !== 0) return captureCountDifference
 			// use number of path separators as a proxy for specificity. more specific => higher on list
 			const slashCountDifference =
-				patternA.split(CONST.PathKeySep).length -
-				patternB.split(CONST.PathKeySep).length
+				patternA.split(PathKeySep).length - patternB.split(PathKeySep).length
 			return slashCountDifference
 		}
 	}
 }
 export const replacementMap = new Map(
 	Object.entries(idReplacers).flatMap(([k, v]) =>
-		v.map((e) => [e.old, e.new] as [RegExp, string | null]),
-	),
+		v.map((e) => [e.old, e.new] as [RegExp, string | null])
+	)
 	// .sort(orderReplacers)
 )

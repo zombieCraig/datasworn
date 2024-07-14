@@ -25,7 +25,7 @@ export const OracleDuplicateBehavior = Utils.UnionEnumFromRecord(
 		$id: 'OracleDuplicateBehavior',
 		description:
 			'Special roll instructions to use when rolling multiple times on a single oracle.',
-	},
+	}
 )
 export type OracleDuplicateBehavior = Static<typeof OracleDuplicateBehavior>
 
@@ -59,7 +59,7 @@ export const OracleRoll = Type.Object(
 		}),
 		// TODO: some way to handle e.g. 1d6 rolls?
 	},
-	{ $id: 'OracleRoll' },
+	{ $id: 'OracleRoll' }
 )
 export type OracleRoll = Static<typeof OracleRoll>
 export type TOracleRoll = typeof OracleRoll
@@ -73,19 +73,19 @@ export const OracleRollTemplate = Type.Object(
 				examples: [
 					'{{text>oracle_rollable:starforged/faction/name/affiliation}} of the {{text>oracle_rollable:starforged/faction/name/legacy}} {{text>oracle_rollable:starforged/faction/name/identity}}',
 				],
-			}),
+			})
 		),
 		text2: Type.Optional(
 			Type.Ref(Localize.TemplateString, {
 				description:
 					'A string template that may be used in place of OracleRollableRow#text2.',
-			}),
+			})
 		),
 		text3: Type.Optional(
 			Type.Ref(Localize.TemplateString, {
 				description:
 					'A string template that may be used in place of OracleRollableRow#text3.',
-			}),
+			})
 		),
 	},
 	{
@@ -94,7 +94,7 @@ export const OracleRollTemplate = Type.Object(
 		description: `Provides string templates that may be used in place of the static row text from \`OracleRollableRow#text\`, \`OracleRollableRow#text2\`, and \`OracleRollableRow#text3\`.
 
   These strings are formatted in Markdown, but use a special syntax for their placeholders: \`{{text>some_oracle_rollable_id}}\`. The placeholder should be replaced with the value of a rolled (or selected) \`OracleRollableRow#text\` from the target oracle rollable ID.`,
-	},
+	}
 )
 export type OracleRollTemplate = Static<typeof OracleRollTemplate>
 
@@ -102,6 +102,6 @@ export const OracleMatchBehavior = Type.Object(
 	{
 		text: Type.Ref(Localize.MarkdownString),
 	},
-	{ $id: 'OracleMatchBehavior' },
+	{ $id: 'OracleMatchBehavior' }
 )
 export type OracleMatchBehavior = Static<typeof OracleMatchBehavior>

@@ -1,19 +1,25 @@
-import CONST from '../IdElements/CONST.js'
+import {
+	ContentsKey,
+	CollectionsKey,
+	IdKey,
+	ReplacesKey,
+	EnhancesKey,
+} from '../IdElements/CONST.js'
 import type { Datasworn } from '../index.js'
 
 export const unsortableKeys = [
 	'columns',
 	'controls',
-	CONST.ContentsKey,
+	ContentsKey,
 	'options',
-	CONST.CollectionsKey,
+	CollectionsKey,
 	'choices',
 ] as const
-export const idKeys = [CONST.IdKey, '_key', '_index'] as const
+export const idKeys = [IdKey, '_key', '_index'] as const
 
 export const relationshipKeys = [
-	CONST.ReplacesKey,
-	CONST.EnhancesKey,
+	ReplacesKey,
+	EnhancesKey,
 	'oracle',
 	'asset',
 	'region',
@@ -149,8 +155,8 @@ export const dataswornKeyOrder = [
 	'abilities',
 	'template',
 	'rolls',
-	CONST.ContentsKey,
-	CONST.CollectionsKey,
+	ContentsKey,
+	CollectionsKey,
 	'outcomes',
 	'quest_starter',
 	'your_truth',
@@ -193,7 +199,7 @@ export function compareObjectKeys(
 	a: string,
 	b: string,
 	keyOrder: Readonly<string[]> = [],
-	unsortableKeys?: Set<string>,
+	unsortableKeys?: Set<string>
 ) {
 	const [indexA, indexB] = [a, b].map((key) => {
 		const index = keyOrder.indexOf(key)
@@ -215,18 +221,18 @@ export function compareObjectKeys(
 }
 export function sortDataswornKeys<T extends object>(
 	object: T,
-	sortOrder = dataswornKeyOrder,
+	sortOrder = dataswornKeyOrder
 ) {
 	return sortObjectKeys(object, sortOrder)
 }
 
 export function sortObjectKeys<T extends object>(
 	object: T,
-	keyOrder: Readonly<string[]> = [],
+	keyOrder: Readonly<string[]> = []
 ) {
 	if (Array.isArray(object)) return object
 	const entries = Object.entries(object).sort(([a], [b]) =>
-		compareObjectKeys(a, b, keyOrder),
+		compareObjectKeys(a, b, keyOrder)
 	)
 	return Object.fromEntries(entries) as T
 }

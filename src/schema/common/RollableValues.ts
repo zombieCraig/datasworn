@@ -23,7 +23,7 @@ const RollableValueType = Utils.UnionEnumFromRecord(
 		attached_asset_option:
 			'A reference to the value of an attached asset option.',
 	},
-	{ $id: 'RollableValueType' },
+	{ $id: 'RollableValueType' }
 )
 type RollableValueType = Static<typeof RollableValueType>
 
@@ -40,7 +40,7 @@ function RollableValueBase<
 		{
 			description: constant.description,
 			...options,
-		},
+		}
 	)
 }
 
@@ -57,7 +57,7 @@ export const AssetControlValueRef = RollableValueBase(
 			examples: ['health', 'integrity'],
 		}),
 	}),
-	{ $id: 'AssetControlValueRef' },
+	{ $id: 'AssetControlValueRef' }
 )
 
 export type AssetControlValueRef = Static<typeof AssetControlValueRef>
@@ -65,7 +65,7 @@ export type AssetControlValueRef = Static<typeof AssetControlValueRef>
 export const AttachedAssetControlValueRef = RollableValueBase(
 	'attached_asset_control',
 	Type.Pick(AssetControlValueRef, ['control']),
-	{ $id: 'AttachedAssetControlValueRef' },
+	{ $id: 'AttachedAssetControlValueRef' }
 )
 
 export type AttachedAssetControlValueRef = Static<
@@ -84,7 +84,7 @@ export const AssetOptionValueRef = RollableValueBase(
 			description: 'The dictionary key of the asset option field.',
 		}),
 	}),
-	{ $id: 'AssetOptionValueRef' },
+	{ $id: 'AssetOptionValueRef' }
 )
 
 export type AssetOptionValueRef = Static<typeof AssetOptionValueRef>
@@ -92,7 +92,7 @@ export type AssetOptionValueRef = Static<typeof AssetOptionValueRef>
 export const AttachedAssetOptionValueRef = RollableValueBase(
 	'attached_asset_option',
 	Type.Pick(AssetOptionValueRef, ['option']),
-	{ $id: 'AttachedAssetOptionValueRef' },
+	{ $id: 'AttachedAssetOptionValueRef' }
 )
 
 export type AttachedAssetOptionValueRef = Static<
@@ -104,7 +104,7 @@ export const StatValueRef = RollableValueBase(
 	Type.Object({
 		stat: Type.Ref(Player.StatKey),
 	}),
-	{ $id: 'StatValueRef' },
+	{ $id: 'StatValueRef' }
 )
 
 export type StatValueRef = Static<typeof StatValueRef>
@@ -114,7 +114,7 @@ export const ConditionMeterValueRef = RollableValueBase(
 	Type.Object({
 		condition_meter: Type.Ref(Player.ConditionMeterKey),
 	}),
-	{ $id: 'ConditionMeterValueRef' },
+	{ $id: 'ConditionMeterValueRef' }
 )
 export type ConditionMeterValueRef = Static<typeof ConditionMeterValueRef>
 
@@ -124,7 +124,7 @@ export const CustomValue = RollableValueBase(
 		label: Type.Ref(Localize.Label),
 		value: Type.Integer(),
 	}),
-	{ $id: 'CustomValue' },
+	{ $id: 'CustomValue' }
 )
 export type CustomValue = Static<typeof CustomValue>
 
@@ -143,7 +143,7 @@ export const RollableValue = Utils.DiscriminatedUnion(
 		$id: 'RollableValue',
 		description:
 			'Provides a value like a stat, condition meter, or other number (usually for use in an action roll). The expected value is an integer, or null.',
-	},
+	}
 )
 
 export type RollableValue = Static<typeof RollableValue>

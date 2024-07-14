@@ -38,12 +38,12 @@ export async function buildCorePackage({
 		copyFile(SCHEMA_PATH, path.join(jsonDir, 'datasworn.schema.json')),
 		copyFile(
 			SOURCE_SCHEMA_PATH,
-			path.join(jsonDir, 'datasworn-source.schema.json'),
+			path.join(jsonDir, 'datasworn-source.schema.json')
 		),
 		copyFile(
 			// TODO: script to build the legacy ID map?
 			LEGACY_ID_PATH,
-			path.join(jsonDir, path.basename(LEGACY_ID_PATH)),
+			path.join(jsonDir, path.basename(LEGACY_ID_PATH))
 		),
 	])
 

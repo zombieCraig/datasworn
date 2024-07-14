@@ -24,9 +24,9 @@ export const Rarity = setSourceDataSchema(
 		{
 			$id: 'Rarity',
 			description: 'A rarity, as described in Ironsworn: Delve.',
-		},
+		}
 	),
-	(schema) => ({ ...schema, additionalProperties: true }),
+	(schema) => ({ ...schema, additionalProperties: true })
 )
 export type Rarity = Static<typeof Rarity>
 export type TRarity = typeof Rarity

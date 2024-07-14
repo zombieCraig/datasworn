@@ -17,7 +17,7 @@ export type TOmitOptional<T extends TObject> = TObject<
 >
 export function OmitOptional<T extends TObject>(
 	schema: T,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const base = CloneType(schema)
 

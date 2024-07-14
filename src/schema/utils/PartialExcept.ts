@@ -24,6 +24,6 @@ export function PartialExcept<
 	return Assign(
 		Type.Pick(schema, requiredKeys),
 		Type.Partial(Type.Omit(schema, requiredKeys)),
-		options,
+		options
 	)
 }

@@ -57,8 +57,8 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 				pkg,
 				index,
 				unvalidatedRefs,
-				getSourceFiles(pkg.paths.source),
-			),
+				getSourceFiles(pkg.paths.source)
+			)
 		)
 	}
 
@@ -114,9 +114,9 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 						[
 							`✏️  Wrote JSON for ${builder.packageType} "${builder.id}" to:`,
 							...writeDestinations.map(formatPath),
-						].join('\n  📝 '),
+						].join('\n  📝 ')
 					)
-				}),
+				})
 			)
 		} catch (e) {
 			errors.push(e as Error | string)
@@ -133,8 +133,8 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 	if (errors.length > 0)
 		throw new Error(
 			['Found invalid ID references:', ...errors.map((e) => e.toString())].join(
-				'\n\t',
-			),
+				'\n\t'
+			)
 		)
 
 	await Promise.all(writeOps)
@@ -149,7 +149,7 @@ async function assemblePkgFiles(
 	{ id, paths, type }: RulesPackageConfig,
 	masterIndex: Map<string, unknown>,
 	idRefTracker: Set<string>,
-	sourceFiles: AsyncIterableIterator<string>,
+	sourceFiles: AsyncIterableIterator<string>
 ) {
 	const [sourceValidator, validator] = await validators
 
@@ -182,7 +182,7 @@ async function assemblePkgFiles(
 	for (const [k, v] of builder.index) masterIndex.set(k, v)
 
 	Log.info(
-		`✅ Assembled ${builder.index.size} identifiable nodes for ${builder.packageType} "${builder.id}" `,
+		`✅ Assembled ${builder.index.size} identifiable nodes for ${builder.packageType} "${builder.id}" `
 	)
 
 	return builder
@@ -201,7 +201,7 @@ function trackIdRefs<T>(this: Set<string>, key: unknown, v: T): T {
 async function _loadBuilderFile<T extends DataswornSource.RulesPackage>(
 	filePath: string,
 	builder: RulesPackageBuilder,
-	idRefTracker: Set<string>,
+	idRefTracker: Set<string>
 ) {
 	const track = trackIdRefs.bind(idRefTracker)
 

@@ -14,7 +14,7 @@ export const DelveSiteDomainFeature = EmbeddedType(
 	{
 		description:
 			'Represents a single Feature entry from a delve site Domain card.',
-	},
+	}
 )
 export const DelveSiteDomainDanger = EmbeddedType(
 	OracleRollableRowText,
@@ -23,7 +23,7 @@ export const DelveSiteDomainDanger = EmbeddedType(
 	{
 		description:
 			'Represents a single Danger entry from a delve site Domain card.',
-	},
+	}
 )
 
 const DelveSiteDomainFeatures = Type.Array(Type.Ref(DelveSiteDomainFeature))
@@ -38,7 +38,7 @@ export const DelveSiteDomain = setSourceDataSchema(
 				Type.Ref(Id.OracleRollableId, {
 					description:
 						'An oracle table ID containing place name elements. For examples, see oracle ID `oracle_rollable:delve/site_name/place/barrow`, and its siblings in oracle collection ID `oracle_collection:delve/site_name/place`. These oracles are used by the site name oracle from Ironsworn: Delve (`oracle_rollable:delve/site_name/format`) to create random names for delve sites.',
-				}),
+				})
 			),
 			features: Type.Intersect(
 				[
@@ -56,7 +56,7 @@ export const DelveSiteDomain = setSourceDataSchema(
 						StaticRowPartial(
 							// FIXME: disabled for now because the defaults make TypeCompiler upset
 							89,
-							98,
+							98
 
 							// {
 							// 	result: 'Something unusual or unexpected',
@@ -70,7 +70,7 @@ export const DelveSiteDomain = setSourceDataSchema(
 						),
 						StaticRowPartial(
 							99,
-							99,
+							99
 							// {
 							// result: 'You transition into a new theme'
 							// suggestions: {
@@ -80,7 +80,7 @@ export const DelveSiteDomain = setSourceDataSchema(
 						),
 						StaticRowPartial(
 							100,
-							100,
+							100
 							// {
 							// 	result: 'You transition into a new domain',
 							// 	suggestions: {
@@ -94,7 +94,7 @@ export const DelveSiteDomain = setSourceDataSchema(
 					[JsonTypeDef]: {
 						schema: toJtdElements(DelveSiteDomainFeatures),
 					},
-				},
+				}
 			),
 			dangers: Type.Intersect(
 				[
@@ -111,16 +111,16 @@ export const DelveSiteDomain = setSourceDataSchema(
 					[JsonTypeDef]: {
 						schema: toJtdElements(DelveSiteDomainDangers),
 					},
-				},
+				}
 			),
 		}),
 		'delve_site_domain',
 		{
 			$id: 'DelveSiteDomain',
 			description: 'A delve site Domain card.',
-		},
+		}
 	),
-	(schema) => ({ ...schema, additionalProperties: true }),
+	(schema) => ({ ...schema, additionalProperties: true })
 )
 
 export type DelveSiteDomain = Static<typeof DelveSiteDomain>

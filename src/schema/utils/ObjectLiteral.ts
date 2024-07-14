@@ -4,7 +4,7 @@ import { mapValues } from 'lodash-es'
 /** Transform an object of literal values into a schema representing the object. */
 
 export function ObjectLiteral<T extends Record<string, TLiteralValue>>(
-	object: T,
+	object: T
 ) {
 	return Type.Object(mapValues(object, (v) => Type.Literal(v)))
 }

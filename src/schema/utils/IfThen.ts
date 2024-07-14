@@ -33,7 +33,7 @@ export function IfThenElse<
 		ifTrue: Then
 		ifFalse?: Else
 	},
-	options: SchemaOptions = {},
+	options: SchemaOptions = {}
 ) {
 	return {
 		...options,

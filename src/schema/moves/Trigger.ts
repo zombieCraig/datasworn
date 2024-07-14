@@ -35,7 +35,7 @@ export const TriggerBy = Type.Object(
 		title: 'TriggerBy',
 		description:
 			"Information on who can activate this trigger condition. Usually this is just the player, but some asset abilities can trigger from an ally's move.",
-	},
+	}
 )
 export type TriggerBy = Static<typeof TriggerBy>
 
@@ -44,7 +44,7 @@ const TriggerConditionBase = Type.Object({
 		Type.Ref(Localize.MarkdownString, {
 			description:
 				'A markdown string of any trigger text specific to this trigger condition.',
-		}),
+		})
 	),
 	by: Type.Optional(Type.Ref(TriggerBy)),
 })
@@ -64,7 +64,7 @@ export function TriggerCondition<
 			method,
 			roll_options,
 		}),
-		options,
+		options
 	)
 }
 export type TTriggerCondition<
@@ -85,7 +85,7 @@ export type TriggerCondition<
 
 export function TriggerConditionEnhancement<T extends TTriggerCondition>(
 	triggerCondition: T,
-	options: ObjectOptions,
+	options: ObjectOptions
 ) {
 	const RollOptions = Type.Index(triggerCondition, ['roll_options'])
 	type RollOptions = typeof RollOptions
@@ -146,7 +146,7 @@ export function Trigger<
 		setDescriptions(Type.Object({ conditions }), {
 			conditions: 'Specific conditions that qualify for this trigger.',
 		}),
-		options,
+		options
 	) as TTrigger<T>
 }
 export type TTrigger<
@@ -173,7 +173,7 @@ export function TriggerEnhancement<
 			description:
 				"Describes changes/additions made to the enhanced move's trigger conditions.",
 			...options,
-		},
+		}
 	)
 }
 

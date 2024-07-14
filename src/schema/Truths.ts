@@ -21,12 +21,12 @@ export const TruthOption = Generic.IdNode(
 				}),
 				{
 					title: 'TruthOptionOracles',
-				},
-			),
+				}
+			)
 		),
 	}),
 	Type.Ref<TString>('TruthOptionId'),
-	{ $id: 'TruthOption' },
+	{ $id: 'TruthOption' }
 )
 
 export const Truth = Generic.NonCollectableNode(
@@ -39,14 +39,14 @@ export const Truth = Generic.NonCollectableNode(
 				description:
 					'Prompts for factions related to this truth, like those presented in standard isles. This is presented as a single paragraph in the original text; Datasworn uses an array (one faction prompt per string) to represent them in order to make them more suitable for programmatic use.\n\nThis property is a placeholder and may see signficant changes in v0.2.0.',
 				releaseStage: 'experimental',
-			}),
+			})
 		),
 	}),
 	'truth',
 	{
 		$id: 'Truth',
 		description: 'A setting truth category.',
-	},
+	}
 )
 
 export type Truth = Static<typeof Truth>

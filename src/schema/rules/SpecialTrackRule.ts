@@ -22,6 +22,6 @@ export const SpecialTrackRule = Type.Object(
 		$id: 'SpecialTrackRule',
 		description:
 			'Describes a special track like Bonds (classic Ironsworn), Failure (Delve), or Legacies (Starforged).',
-	},
+	}
 )
 export type SpecialTrackRule = Static<typeof SpecialTrackRule>

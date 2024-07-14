@@ -8,7 +8,7 @@ import { DefsKey } from '../const.js'
 
 const SourceValidator = TypeCompiler.Compile(
 	DataswornSourceSchema,
-	Object.values(DataswornSourceSchema[DefsKey]),
+	Object.values(DataswornSourceSchema[DefsKey])
 )
 
 export default SourceValidator

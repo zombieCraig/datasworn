@@ -22,7 +22,7 @@ export const SourcedNodeBase = Type.Object({
 		Type.Ref(Label, {
 			description:
 				"The name of this node as it appears on the page in the book, if it's different from `name`.",
-		}),
+		})
 	),
 	_source: Type.Ref(SourceInfo, {
 		description:
@@ -37,7 +37,7 @@ export const SourcedNodeBase = Type.Object({
 export function SourcedNode<TBase extends TObject>(
 	base: TBase,
 	_id: TAnyId,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const enhancedBase = FlatIntersect([SourcedNodeBase, base])
 

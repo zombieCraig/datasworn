@@ -29,12 +29,12 @@ import { pascalCase } from './string.js'
 export function generateRulesetSchemas(rulesPackage: string, rules: Rules) {
 	const ConditionMeterKey = UnionEnum(
 		Object.keys(rules.condition_meters),
-		omit(CloneType(Player.ConditionMeterKey), 'examples', 'type'),
+		omit(CloneType(Player.ConditionMeterKey), 'examples', 'type')
 	)
 
 	const StatKey = UnionEnum(
 		Object.keys(rules.stats),
-		omit(CloneType(Player.StatKey), 'examples', 'type'),
+		omit(CloneType(Player.StatKey), 'examples', 'type')
 	)
 
 	return {
@@ -47,7 +47,7 @@ export function generateRulesetSchemas(rulesPackage: string, rules: Rules) {
 function generateTagSchema(
 	rulesPackage: string,
 	tagKey: string,
-	tagRule: TagRule,
+	tagRule: TagRule
 ): SetRequired<TSchema, '$id' | 'description'> {
 	const $id = pascalCase(rulesPackage) + pascalCase(tagKey) + 'Tag'
 	const { description } = tagRule
@@ -92,13 +92,13 @@ const anyType = [...CollectableType.enum, ...NonCollectableType.enum]
 
 function generateTagSchemas(
 	rulesPackage: SnakeCase<string>,
-	tags: Record<SnakeCase<string>, TagRule>,
+	tags: Record<SnakeCase<string>, TagRule>
 ) {
 	const allowedTagProperties = Object.fromEntries(
 		anyType.map((k: CollectableType | NonCollectableType) => [
 			k,
 			{} as Record<SnakeCase<string>, TRef>,
-		]),
+		])
 	)
 
 	const tagSchemas: Record<string, TSchema> = {}
@@ -112,8 +112,8 @@ function generateTagSchemas(
 			set(
 				allowedTagProperties,
 				[objectType, tagKey].join('.'),
-				Type.Optional(Type.Ref(schema)),
-			),
+				Type.Optional(Type.Ref(schema))
+			)
 		)
 	})
 
@@ -123,11 +123,11 @@ function generateTagSchemas(
 				Type.Object(v, {
 					$id: `${pascalCase(rulesPackage)}${pascalCase(k)}Tags`,
 					additionalProperties: true,
-				}),
+				})
 			),
-			(v) => v.$id,
+			(v) => v.$id
 		),
-		(v) => isEmpty(v.properties),
+		(v) => isEmpty(v.properties)
 	)
 
 	const tagNamespacesSchema = keyBy(
@@ -137,10 +137,10 @@ function generateTagSchemas(
 				{
 					additionalProperties: true,
 					$id: k.replace(pascalCase(rulesPackage), ''),
-				},
-			),
+				}
+			)
 		),
-		(v) => v.$id,
+		(v) => v.$id
 	)
 
 	console.log(tagNamespacesSchema)
@@ -168,5 +168,5 @@ console.log(
 			value_type: 'oracle_rollable',
 			wildcard: false,
 		},
-	}),
+	})
 )

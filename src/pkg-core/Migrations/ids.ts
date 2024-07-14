@@ -1,4 +1,4 @@
-import CONST from '../IdElements/CONST.js'
+import { MdLinkPrefix, PrefixSep } from '../IdElements/CONST.js'
 
 const neverLegacyIdSubstrings = new Set([
 	',',
@@ -61,7 +61,7 @@ export function updateIdInString(
 	k: unknown,
 	v: unknown,
 	replacementMap: Record<string, string | null>,
-	unreplacedIds?: Set<string>,
+	unreplacedIds?: Set<string>
 ) {
 	switch (true) {
 		case typeof v !== 'string':
@@ -83,7 +83,7 @@ export function updateIdInString(
 export function updateIdsInMarkdown(
 	md: string,
 	replacementMap: Record<string, string | null>,
-	unreplacedIds?: Set<string>,
+	unreplacedIds?: Set<string>
 ) {
 	let newStr = md
 
@@ -92,9 +92,9 @@ export function updateIdsInMarkdown(
 		(substring: string, linkText: string, id: string) => {
 			const replacementId = updateId(id, replacementMap, unreplacedIds)
 			if (id == null) return substring
-			const newLinkText = `${CONST.MdLinkPrefix}${CONST.PrefixSep}${replacementId}`
+			const newLinkText = `${MdLinkPrefix}${PrefixSep}${replacementId}`
 			return `[${linkText}](${newLinkText})`
-		},
+		}
 	)
 	newStr = newStr.replaceAll(
 		oldMarkdownMacroPattern,
@@ -102,7 +102,7 @@ export function updateIdsInMarkdown(
 			const replacementId = updateId(id, replacementMap, unreplacedIds)
 			if (id == null) return substring
 			return `{{${directive}>${replacementId}}}`
-		},
+		}
 	)
 
 	return newStr
@@ -112,7 +112,7 @@ export function updateIdsInMarkdown(
 export function updateId(
 	id: string,
 	replacementMap: Record<string, string | null>,
-	unreplacedIds?: Set<string>,
+	unreplacedIds?: Set<string>
 ): string | null {
 	const replacement = replacementMap[id]
 

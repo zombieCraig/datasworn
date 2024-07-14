@@ -16,7 +16,7 @@ export function EmbedOnlyNode<
 	base: TBase,
 	typeId: TType,
 	parentType: TParentType,
-	options: ObjectOptions = {},
+	options: ObjectOptions = {}
 ) {
 	const $id = pascalCase(parentType) + pascalCase(typeId)
 	const idSchemaName = $id + 'Id'

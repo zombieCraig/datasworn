@@ -7,7 +7,7 @@ import type { Static } from '@sinclair/typebox'
 import { Move } from './Move.js'
 
 const moveMapping = mapValues(Move[Mapping], (schema, k) =>
-	EmbeddedPrimaryNode(schema, [], { $id: `Embedded${pascalCase(k)}Move` }),
+	EmbeddedPrimaryNode(schema, [], { $id: `Embedded${pascalCase(k)}Move` })
 )
 
 export const {

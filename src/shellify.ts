@@ -5,7 +5,7 @@ import Log from './scripts/utils/Log.js'
 
 export function shellify<T extends ShellCommandParams>(
 	{ command, args = [], options = {}, execOptions = {} }: T,
-	argCase = kebabCase,
+	argCase = kebabCase
 ) {
 	const substrings: string[] = [command, ...args.map((arg) => `"${arg}"`)]
 

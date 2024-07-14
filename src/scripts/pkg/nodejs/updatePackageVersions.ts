@@ -7,7 +7,7 @@ import { updateJSON } from '../../utils/readWrite.js'
 
 export async function updatePackageVersions(
 	dir = PKG_DIR_NODE,
-	newVersion = VERSION,
+	newVersion = VERSION
 ) {
 	const pkgs = new Bun.Glob('**/package.json').scan({
 		cwd: dir,
@@ -21,18 +21,19 @@ export async function updatePackageVersions(
 	const writeOps: Promise<unknown>[] = [
 		// the readme in the monorepo root
 		updateReadme('./README.md', newVersion),
+		updatePackageVersion(path.join(process.cwd(), 'package.json'), newVersion),
 	]
 
-	for await (const filePath of pkgs)
-		writeOps.push(updatePackageVersion(filePath, newVersion))
+	for await (const pkgPath of pkgs)
+		writeOps.push(updatePackageVersion(pkgPath, newVersion))
 
-	for await (const filePath of readmes)
-		writeOps.push(updateReadme(filePath, newVersion))
+	for await (const readmePath of readmes)
+		writeOps.push(updateReadme(readmePath, newVersion))
 
 	return await Promise.all(writeOps)
 }
 
-async function updateReadme(filePath: string, newVersion = VERSION) {
+async function updateReadme(filePath: string, newVersion: string) {
 	const file = Bun.file(filePath)
 	const markdown = await file.text()
 
@@ -47,7 +48,7 @@ async function updateReadme(filePath: string, newVersion = VERSION) {
 
 	return await Bun.write(file, newMarkdown)
 }
-async function updatePackageVersion(filePath: string, newVersion = VERSION) {
+async function updatePackageVersion(filePath: string, newVersion: string) {
 	return updateJSON<{
 		version: string
 		dependencies?: Record<string, unknown>
@@ -56,17 +57,17 @@ async function updatePackageVersion(filePath: string, newVersion = VERSION) {
 
 		if (oldVersion !== newVersion) {
 			Log.info(
-				`Updating from v${oldVersion} to v${newVersion} in ./${path.relative(
+				`Updating from v${oldVersion} to v${newVersion} in ${path.relative(
 					process.cwd(),
-					filePath,
-				)}`,
+					filePath
+				)}`
 			)
 			json.version = newVersion
 		}
 
 		const newDependencies = mapValues(
 			json.dependencies as Record<string, string>,
-			(value, key) => (key.startsWith('@datasworn/') ? newVersion : value),
+			(value, key) => (key.startsWith('@datasworn/') ? newVersion : value)
 		)
 
 		if (!isEqual(json.dependencies, newDependencies))

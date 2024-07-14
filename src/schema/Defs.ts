@@ -48,7 +48,7 @@ function validateSchemaDefinitions(defs: Record<string, TSchema>) {
 	// console.log('unusedDefinitions', unusedDefinitions)
 	if (invalidPointers.size > 0)
 		throw new Error(
-			`Missing referenced definitions: ${Array.from(invalidPointers).join(', ')}`,
+			`Missing referenced definitions: ${Array.from(invalidPointers).join(', ')}`
 		)
 }
 
@@ -89,16 +89,18 @@ const defsBase = pickBy(
 			Log.warn(`Schema has $id ${schema.$id}, but its key is ${key}`)
 
 		return true
-	},
+	}
 )
 
 validateSchemaDefinitions(defsBase)
 
 export type Defs = Record<string, TSchema>
 const entries: [string, TSchema][] = Object.values<TSchema>(defsBase).map(
-	(entry) => [entry.$id, entry],
+	(entry) => [entry.$id, entry]
 )
 
-const Defs: Defs = Object.fromEntries(entries)
+const Defs: Defs = Object.fromEntries(
+	entries.sort(([a], [b]) => a.localeCompare(b))
+)
 
 export default Defs

@@ -6,14 +6,14 @@ import * as Generic from '../generic/Dictionary.js'
 import type { TAssetAttachment } from './Enhancement.js'
 
 export function AssetPropertiesEnhanceable<Control extends TSchema>(
-	controlSchema: Control,
+	controlSchema: Control
 ) {
 	return Type.Object({
 		controls: Type.Optional(
 			Generic.Dictionary(controlSchema, {
 				description:
 					'Controls are condition meters, clocks, counters, and other asset input fields whose values are expected to change throughout the life of the asset.',
-			}),
+			})
 		),
 		suggestions: Type.Optional(Type.Ref(Metadata.Suggestions)),
 		count_as_impact: Type.Boolean({

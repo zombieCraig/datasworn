@@ -10,7 +10,13 @@ import {
 	type TUnion,
 } from '@sinclair/typebox'
 import type { Writable } from 'type-fest'
-import CONST from '../../pkg-core/IdElements/CONST.js'
+import {
+	IdKey,
+	SourceInfoKey,
+	EnhancesKey,
+	ReplacesKey,
+	type TypeSep,
+} from '../../scripts/const.js'
 import TypeId from '../../pkg-core/IdElements/TypeId.js'
 import { Computed } from './Computed.js'
 import { pascalCase } from './string.js'
@@ -18,13 +24,9 @@ import { pascalCase } from './string.js'
 const EmbeddedDictionaryKeys = Object.values(TypeId.BranchKey)
 type EmbeddedDictionaryKeys = (typeof EmbeddedDictionaryKeys)[number]
 
-const ReplacedEmbedKeys = [CONST.IdKey] as const
+const ReplacedEmbedKeys = [IdKey] as const
 type ReplacedEmbedKeys = Writable<typeof ReplacedEmbedKeys>
-const OmittedEmbedKeys = [
-	CONST.SourceInfoKey,
-	CONST.EnhancesKey,
-	CONST.ReplacesKey,
-] as const
+const OmittedEmbedKeys = [SourceInfoKey, EnhancesKey, ReplacesKey] as const
 type OmittedEmbedKeys = Writable<typeof OmittedEmbedKeys>
 
 type TTypeNode = TObject<{ type: TLiteral<string> }>
@@ -62,7 +64,7 @@ export function EmbeddedPrimaryNode<
 export type TEmbeddedNodeTypeLiteral<
 	TBase extends TTypeNode,
 	TParentType extends string,
-> = TLiteral<`${TParentType}${CONST.TypeSep}${Static<TBase>['type']}`>
+> = TLiteral<`${TParentType}${TypeSep}${Static<TBase>['type']}`>
 
 export type TEmbeddedNode<
 	TBase extends TTypeNode,

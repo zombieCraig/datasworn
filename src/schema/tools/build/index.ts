@@ -25,7 +25,7 @@ export const RulesPackageConfig = Type.Object({
 				name: Type.String(),
 				email: Type.String({ format: 'email' }),
 				url: Type.String({ format: 'uri' }),
-			}),
+			})
 		),
 		scope: UnionEnumFromRecord(
 			{
@@ -36,7 +36,7 @@ export const RulesPackageConfig = Type.Object({
 			{
 				description: 'The namespace or scope used by the package.',
 				default: PKG_SCOPE_COMMUNITY,
-			},
+			}
 		),
 	}),
 	paths: Type.Object({
