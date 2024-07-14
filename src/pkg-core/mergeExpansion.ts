@@ -2,7 +2,7 @@ import {
 	EnhancesKey,
 	ContentsKey,
 	CollectionsKey,
-	ReplacesKey,
+	ReplacesKey
 } from './IdElements/CONST.js'
 import type TypeNode from './TypeNode.js'
 import { IdParser } from './index.js'
@@ -107,7 +107,7 @@ function enhanceCollection<T extends TypeNode.Collection>(
 function applyDictionaryEnhancements<
 	T extends TypeNode.Collection,
 	TTarget extends Map<string, T> | Record<string, T>,
-	TSource extends Map<string, T> | Record<string, T>,
+	TSource extends Map<string, T> | Record<string, T>
 >(targetDictionary: TTarget, sourceDictionary: TSource) {
 	const targetMap: Map<string, T> =
 		targetDictionary instanceof Map
@@ -143,7 +143,7 @@ function applyDictionaryReplacements<
 		| TypeNode.NonCollectable
 		| TypeNode.Collection,
 	TTarget extends Map<string, T> | Record<string, T>,
-	TSource extends Map<string, T> | Record<string, T>,
+	TSource extends Map<string, T> | Record<string, T>
 >(targetDictionary: TTarget, sourceDictionary: TSource) {
 	const targetMap: Map<string, T> =
 		targetDictionary instanceof Map

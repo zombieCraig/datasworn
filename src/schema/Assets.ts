@@ -21,25 +21,24 @@ const AssetMixin = Type.Object({
 			'Module',
 			'Path',
 			'Ritual',
-			'Support Vehicle',
-		],
+			'Support Vehicle'
+		]
 	}),
 	options: Dictionary(Type.Ref<TAssetOptionField>('AssetOptionField'), {
 		description:
 			"Options are input fields set when the player purchases the asset. They're likely to remain the same through the life of the asset. Typically, they are rendered at the top of the asset card.",
-		default: {},
+		default: {}
 	}),
 	requirement: Type.Optional(
 		Type.Ref(MarkdownString, {
-			description:
-				'Describes prerequisites for purchasing or using this asset.',
+			description: 'Describes prerequisites for purchasing or using this asset.'
 		})
 	),
 	abilities: Type.Array(
 		Type.Ref<TAssetAbility>('AssetAbility', {
-			description: 'Abilities provided by this asset. Most assets have 3.',
+			description: 'Abilities provided by this asset. Most assets have 3.'
 		})
-	),
+	)
 })
 
 export const Asset = CollectableNode(
@@ -47,7 +46,7 @@ export const Asset = CollectableNode(
 		AssetMixin,
 		AssetPropertiesEnhanceable(
 			Type.Ref<TAssetControlField>('AssetControlField')
-		),
+		)
 	]),
 	'asset'
 )
@@ -62,7 +61,7 @@ export const AssetCollection = CollectionNode(
 	Type.Object({}),
 	'asset_collection',
 	{
-		$id: 'AssetCollection',
+		$id: 'AssetCollection'
 	}
 )
 export type TAssetCollection = typeof AssetCollection

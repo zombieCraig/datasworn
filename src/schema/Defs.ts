@@ -74,7 +74,7 @@ const defsBase = pickBy(
 		...Atlas,
 		...Player,
 		...Rarities,
-		...DelveSites,
+		...DelveSites
 	} as Record<string, TSchema>,
 	(schema, key) => {
 		if (typeof schema !== 'object') return false

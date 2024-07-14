@@ -16,46 +16,46 @@ export const Rules = Type.Object(
 	{
 		stats: Generic.Dictionary(Type.Ref(StatRule, { default: undefined }), {
 			description:
-				'Describes the standard stats used by player characters in this ruleset.',
+				'Describes the standard stats used by player characters in this ruleset.'
 		}),
 		condition_meters: Generic.Dictionary(
 			Type.Ref(ConditionMeterRule, { default: undefined }),
 			{
 				description:
-					'Describes the standard condition meters used by player characters in this ruleset.',
+					'Describes the standard condition meters used by player characters in this ruleset.'
 			}
 		),
 		impacts: Generic.Dictionary(
 			Type.Ref(ImpactCategory, { default: undefined }),
 			{
 				description:
-					'Describes the standard impacts/debilities used by player characters in this ruleset.',
+					'Describes the standard impacts/debilities used by player characters in this ruleset.'
 			}
 		),
 		special_tracks: Generic.Dictionary(
 			Type.Ref(SpecialTrackRule, { default: undefined }),
 			{
 				description:
-					'Describes the special tracks used by player characters in this ruleset, like Bonds (classic Ironsworn), Failure (Delve), or Legacies (Starforged).',
+					'Describes the special tracks used by player characters in this ruleset, like Bonds (classic Ironsworn), Failure (Delve), or Legacies (Starforged).'
 			}
 		),
 		tags: Generic.Dictionary(Type.Ref(TagRule), {
 			releaseStage: 'experimental',
-			default: {},
-		}),
+			default: {}
+		})
 	},
 	{
 		$id: 'Rules',
 		description:
 			'Describes rules for player characters in this ruleset, such as stats and condition meters.',
-		releaseStage: 'experimental',
+		releaseStage: 'experimental'
 	}
 )
 export type Rules = Static<typeof Rules>
 export type TRules = typeof Rules
 
 export const RulesExpansion = Type.Partial(Rules, {
-	$id: 'RulesExpansion',
+	$id: 'RulesExpansion'
 })
 
 export type RulesExpansion = Static<typeof RulesExpansion>

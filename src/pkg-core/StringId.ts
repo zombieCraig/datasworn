@@ -14,7 +14,7 @@ export type IdSegments<T extends number> = TupleOfLength<T, string>
 type IdBase<
 	L extends number,
 	TypeIds extends IdSegments<L>,
-	PathSegments extends IdSegments<L>,
+	PathSegments extends IdSegments<L>
 > = `${Join<TypeIds, CONST.TypeSep>}${CONST.PrefixSep}${Join<PathSegments, CONST.TypeSep>}`
 
 type f = IdBase<2, ['move', 'oracle_rollable'], ['foo', 'bar']>
@@ -23,7 +23,7 @@ export type Embedded<
 	TPrimary extends TypeId.Primary & TypeId.Embedding,
 	TPrimaryPath extends string,
 	TEmbedded extends TypeId.EmbeddableIn<TPrimary>,
-	TEmbeddedPath extends string,
+	TEmbeddedPath extends string
 > = IdBase<2, [TPrimary, TEmbedded], [TPrimaryPath, TEmbeddedPath]>
 
 export type EmbeddedInEmbedded<
@@ -33,7 +33,7 @@ export type EmbeddedInEmbedded<
 		TypeId.EmbeddingWhenEmbeddedType,
 	TEmbeddedPath extends string,
 	TEmbedded2 extends TypeId.EmbeddableInEmbeddedType<TEmbedded>,
-	TEmbeddedPath2 extends string,
+	TEmbeddedPath2 extends string
 > = IdBase<
 	3,
 	[TPrimary, TEmbedded, TEmbedded2],
@@ -46,7 +46,7 @@ export type EmbedIn<
 		| NonCollectable
 		| EmbedIn<any, TypeId.Embeddable, any>,
 	EmbedTypeId extends TypeId.Embeddable,
-	Key extends string | number,
+	Key extends string | number
 > = IdBase<
 	// @ts-expect-error
 	[...ExtractTypeIdParts<TBase>, EmbedTypeId]['length'],
@@ -62,7 +62,7 @@ type ExtractPathSegments<T extends `${string}${CONST.PrefixSep}${string}`> =
 type PrimaryBase<
 	TypeId extends TypeId.Primary,
 	RulesPackage extends RulesPackageId,
-	PathKeys extends DictKey[],
+	PathKeys extends DictKey[]
 > = IdBase<1, [TypeId], [Join<[RulesPackage, ...PathKeys]>]>
 
 export type Collection<
@@ -70,7 +70,7 @@ export type Collection<
 	RulesPackage extends RulesPackageId = RulesPackageId,
 	CollectionAncestorKeys extends
 		PathKeys.CollectionAncestorKeys = PathKeys.CollectionAncestorKeys,
-	Key extends string = string,
+	Key extends string = string
 > = PrimaryBase<TypeId, RulesPackage, [...CollectionAncestorKeys, Key]>
 
 export type ExtractCollectionType<T extends Collection> = T extends Collection<
@@ -84,7 +84,7 @@ export type ExtractNonCollectableType<T extends NonCollectable> =
 	T extends NonCollectable<infer U extends TypeId.NonCollectable> ? U : never
 
 export type ExtractPrimaryRulesPackage<
-	T extends `${string}:${string}${CONST.PathKeySep}${string}`,
+	T extends `${string}:${string}${CONST.PathKeySep}${string}`
 > = Split<Split<T, CONST.PrefixSep>[1], CONST.PathKeySep>[0]
 
 export type ExtractNonCollectableKey<T extends NonCollectable> =
@@ -140,7 +140,7 @@ export type Collectable<
 	RulesPackage extends RulesPackageId = RulesPackageId,
 	CollectionPathKeys extends
 		PathKeys.CollectableAncestorKeys = PathKeys.CollectableAncestorKeys,
-	Key extends string = string,
+	Key extends string = string
 > = PrimaryBase<TypeId, RulesPackage, [...CollectionPathKeys, Key]>
 
 type _AssetCollectionId = Collection<
@@ -153,7 +153,7 @@ type _AssetCollectionId = Collection<
 export type NonCollectable<
 	TypeId extends TypeId.NonCollectable = TypeId.NonCollectable,
 	RulesPackage extends RulesPackageId = RulesPackageId,
-	Key extends DictKey = DictKey,
+	Key extends DictKey = DictKey
 > = PrimaryBase<TypeId, RulesPackage, [Key]>
 
 type _TruthId = NonCollectable<'truth', 'fff', 'f'>

@@ -7,7 +7,7 @@ import {
 	TypeSep,
 	PathKeySep,
 	GlobstarString,
-	VERSION,
+	VERSION
 } from '../scripts/const.js'
 import { escapeRegExp } from 'lodash-es'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
@@ -27,7 +27,7 @@ const idBlacklist = new Set([
 	')',
 	'://',
 	'.svg',
-	'.webp',
+	'.webp'
 ])
 const stringKeyBlacklist = new Set([
 	'label',
@@ -40,7 +40,7 @@ const stringKeyBlacklist = new Set([
 	'result',
 	'url',
 	'license',
-	'icon',
+	'icon'
 ])
 
 function mightBeId(value: unknown) {
@@ -162,7 +162,7 @@ export async function generateIdMap(
 			}
 
 			return unmappedIds.add(id)
-		}),
+		})
 	])
 
 	if (unmappedIds.size > 0) {

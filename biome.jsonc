@@ -70,7 +70,7 @@
 			// TODO: migrate to double quotes when there aren't any branches to worry about
 			"jsxQuoteStyle": "single",
 			"quoteStyle": "single",
-			"trailingCommas": "es5"
+			"trailingCommas": "none"
 		}
 	},
 	"vcs": {

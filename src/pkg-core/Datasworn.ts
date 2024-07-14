@@ -5239,7 +5239,7 @@ export interface DelveSite {
 					min: 100
 					max: 100
 				}
-			},
+			}
 		]
 	type: 'delve_site'
 }
@@ -5384,7 +5384,7 @@ export interface DelveSiteDomain {
 					min: 100
 					max: 100
 				}
-			},
+			}
 		]
 	dangers: DelveSiteDomainDanger[] &
 		[
@@ -5417,7 +5417,7 @@ export interface DelveSiteDomain {
 					min: 43
 					max: 45
 				}
-			},
+			}
 		]
 	type: 'delve_site_domain'
 }
@@ -5564,7 +5564,7 @@ export interface DelveSiteTheme {
 					min: 17
 					max: 20
 				}
-			},
+			}
 		]
 	dangers: DelveSiteThemeDanger[] &
 		[
@@ -5639,7 +5639,7 @@ export interface DelveSiteTheme {
 					min: 29
 					max: 30
 				}
-			},
+			}
 		]
 	type: 'delve_site_theme'
 }

@@ -26,10 +26,10 @@ export const NpcNature = Type.Ref(Localize.Label, {
 		'Human',
 		'Machine',
 		'Monster',
-		'Vehicle',
+		'Vehicle'
 	],
 	$id: 'NpcNature',
-	[Namespace]: ns,
+	[Namespace]: ns
 })
 export type NpcNature = Static<typeof NpcNature>
 
@@ -37,12 +37,12 @@ const NpcMixin = FlatIntersect([
 	Generic.Cyclopedia,
 	Type.Object({
 		rank: Type.Ref(Progress.ChallengeRank, {
-			description: 'The suggested challenge rank for this NPC.',
+			description: 'The suggested challenge rank for this NPC.'
 		}),
 		nature: Type.Ref(NpcNature),
 		drives: Type.Array(Type.Ref(Localize.MarkdownString)),
-		tactics: Type.Array(Type.Ref(Localize.MarkdownString)),
-	}),
+		tactics: Type.Array(Type.Ref(Localize.MarkdownString))
+	})
 ])
 
 export const NpcVariant = EmbedOnlyNode(
@@ -57,14 +57,14 @@ export const Npc = Generic.CollectableNode(
 	FlatIntersect([
 		NpcMixin,
 		Type.Object({
-			variants: Generic.Dictionary(Type.Ref(NpcVariant), { default: {} }),
-		}),
+			variants: Generic.Dictionary(Type.Ref(NpcVariant), { default: {} })
+		})
 	]),
 	'npc',
 	{
 		[Namespace]: ns,
 		description:
-			'A non-player character entry, similar to those in Chapter 5 of the Ironsworn Rulebook, or Chapter 4 of Starforged.',
+			'A non-player character entry, similar to those in Chapter 5 of the Ironsworn Rulebook, or Chapter 4 of Starforged.'
 	}
 )
 
@@ -74,7 +74,7 @@ export const NpcCollection = Generic.CollectionNode(
 	Type.Object({}),
 	'npc_collection',
 	{
-		[Namespace]: ns,
+		[Namespace]: ns
 	}
 )
 export type NpcCollection = Static<typeof NpcCollection>

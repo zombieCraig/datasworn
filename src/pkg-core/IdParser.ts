@@ -8,7 +8,7 @@ import {
 	COLLECTION_DEPTH_MAX,
 	GlobstarString,
 	ContentsKey,
-	CollectionsKey,
+	CollectionsKey
 } from './IdElements/CONST.js'
 import TypeGuard from './IdElements/TypeGuard.js'
 import TypeId from './IdElements/TypeId.js'
@@ -19,7 +19,7 @@ import type { Datasworn, DataswornSource } from './index.js'
 import { ParseError } from './Errors.js'
 import type {
 	CollectableAncestorKeys,
-	CollectionAncestorKeys,
+	CollectionAncestorKeys
 } from './IdElements/PathKeys.js'
 import { Pattern, type PathKeys } from './IdElements/index.js'
 import type { Tree } from './Tree.js'
@@ -35,7 +35,7 @@ interface RecursiveId<
 	PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 		length: TypeIds['length']
 	},
-	Node extends UnknownNode = UnknownNode,
+	Node extends UnknownNode = UnknownNode
 > extends IdParser<TypeIds, PathSegments, Node> {
 	/** The current collection recursion depth. */
 	get recursionDepth(): this['collectionAncestorKeys']['length']
@@ -50,7 +50,7 @@ abstract class IdParser<
 	PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 		length: TypeIds['length']
 	},
-	Node extends UnknownNode = UnknownNode,
+	Node extends UnknownNode = UnknownNode
 > implements IdParser.Options<TypeIds, PathSegments>
 {
 	static #tree: DictionaryLike<Datasworn.RulesPackage> | null = null
@@ -466,7 +466,7 @@ abstract class IdParser<
 		const { typeIds, pathSegments } = this.#parseOptions(id)
 		const [primaryTypeId, ...embeddedTypeIds] = typeIds as [
 			TypeId.Primary,
-			...TypeId.Embeddable[],
+			...TypeId.Embeddable[]
 		]
 		const [primaryPath, ...embeddedPaths] = pathSegments
 		const [rulesPackage, ...pathKeys] = primaryPath.split(PathKeySep)
@@ -624,7 +624,7 @@ abstract class IdParser<
 			for (let i = 0; i < embeddedPaths.length; i++) {
 				const currentTypeIds = typeIds.slice(0, i + 1) as [
 					TypeId.Primary,
-					...string[],
+					...string[]
 				]
 				const embeddedPath = embeddedPaths[i]
 				try {
@@ -680,7 +680,7 @@ abstract class IdParser<
 
 		return {
 			typeIds,
-			pathSegments,
+			pathSegments
 		}
 	}
 
@@ -831,11 +831,11 @@ abstract class IdParser<
 	): Map<string, V>
 	protected static _getMatchesFrom<
 		V,
-		TFrom extends Record<string, V> | Array<V> | Map<string, V>,
+		TFrom extends Record<string, V> | Array<V> | Map<string, V>
 	>(obj: TFrom, matchKey?: string | number): Map<string | number, V>
 	protected static _getMatchesFrom<
 		V,
-		TFrom extends Record<string, V> | Array<V> | Map<string, V>,
+		TFrom extends Record<string, V> | Array<V> | Map<string, V>
 	>(
 		obj: TFrom,
 		matchKey: string | number = WildcardString
@@ -1041,7 +1041,7 @@ namespace IdParser {
 		TypeIds extends StringId.TypeIdParts = StringId.TypeIdParts,
 		PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 			length: TypeIds['length']
-		},
+		}
 	> = {
 		typeIds: TypeIds
 		pathSegments: PathSegments
@@ -1053,7 +1053,7 @@ abstract class EmbeddingId<
 	PathSegments extends string[] & { length: TypeIds['length'] } = string[] & {
 		length: TypeIds['length']
 	},
-	Node extends UnknownNode = UnknownNode,
+	Node extends UnknownNode = UnknownNode
 > extends IdParser<TypeIds, PathSegments, Node> {
 	/**
 	 * Create a child EmbeddedId with a given type and key.
@@ -1168,14 +1168,14 @@ namespace EmbeddingId {
 	export type EmbeddedIn<
 		T extends EmbeddingId = EmbeddingId,
 		TEmbedType extends TypeId.Embeddable = TypeId.Embeddable,
-		K extends string = string,
+		K extends string = string
 	> = T extends EmbeddingId ? EmbeddedId<EmbeddingId, TEmbedType, K> : never
 }
 
 class NonCollectableId<
 	TTypeId extends TypeId.NonCollectable = TypeId.NonCollectable,
 	RulesPackage extends string = string,
-	Key extends string = string,
+	Key extends string = string
 > extends EmbeddingId<
 	[TTypeId],
 	[Join<[RulesPackage, Key]>],
@@ -1191,7 +1191,7 @@ class NonCollectableId<
 		>
 		super({
 			typeIds: [typeId],
-			pathSegments: [pathSegment],
+			pathSegments: [pathSegment]
 		})
 	}
 }
@@ -1199,7 +1199,7 @@ class NonCollectableId<
 interface NonCollectableId<
 	TTypeId extends TypeId.NonCollectable = TypeId.NonCollectable,
 	RulesPackage extends string = string,
-	Key extends string = string,
+	Key extends string = string
 > {
 	toString(): StringId.NonCollectable<TTypeId, RulesPackage, Key>
 	get rulesPackageId(): RulesPackage
@@ -1212,7 +1212,7 @@ interface NonCollectableId<
 		T extends TTypeId extends TypeId.Embedding
 			? TypeId.EmbeddableIn<TTypeId>
 			: never,
-		K extends string,
+		K extends string
 	>(
 		embeddedTypeId: T,
 		key: string
@@ -1260,7 +1260,7 @@ class CollectableId<
 		RulesPackage extends string = string,
 		CollectableAncestorKeys extends
 			PathKeys.CollectableAncestorKeys = PathKeys.CollectableAncestorKeys,
-		Key extends string = string,
+		Key extends string = string
 	>
 	extends EmbeddingId<
 		[TTypeId],
@@ -1294,7 +1294,7 @@ class CollectableId<
 		>
 		super({
 			typeIds: [typeId],
-			pathSegments: [pathSegment],
+			pathSegments: [pathSegment]
 		})
 	}
 
@@ -1316,7 +1316,7 @@ class CollectableId<
 		const ancestorKeys = this.primaryPathKeys.slice(0, -1) as [
 			RulesPackage,
 			...Head<CollectableAncestorKeys>,
-			LastElementOf<CollectableAncestorKeys>,
+			LastElementOf<CollectableAncestorKeys>
 		]
 
 		return new CollectionId<
@@ -1393,7 +1393,7 @@ interface CollectableId<
 	RulesPackage extends string = string,
 	CollectableAncestorKeys extends
 		PathKeys.CollectableAncestorKeys = PathKeys.CollectableAncestorKeys,
-	Key extends string = string,
+	Key extends string = string
 > {
 	// declaring these so TS doesn't have to compute them
 
@@ -1408,7 +1408,7 @@ interface CollectableId<
 		T extends TTypeId extends TypeId.Embedding
 			? TypeId.EmbeddableIn<TTypeId>
 			: never,
-		K extends string,
+		K extends string
 	>(
 		embeddedTypeId: T,
 		key: string
@@ -1455,7 +1455,7 @@ class CollectionId<
 		RulesPackage extends string = string,
 		CollectionAncestorKeys extends
 			PathKeys.CollectionAncestorKeys = PathKeys.CollectionAncestorKeys,
-		Key extends string = string,
+		Key extends string = string
 	>
 	extends IdParser<
 		[TTypeId],
@@ -1479,7 +1479,7 @@ class CollectionId<
 		>
 		super({
 			typeIds: [typeId],
-			pathSegments: [pathSegment],
+			pathSegments: [pathSegment]
 		})
 	}
 
@@ -1747,7 +1747,7 @@ class CollectionId<
 							[matchKey, ...tailKeys],
 							matches,
 							forEach
-						),
+						)
 					])
 				} else if (TypeGuard.Globstar(matchKey)) {
 					// carry forward current key if it's a globstar
@@ -1765,7 +1765,7 @@ class CollectionId<
 							tailKeys,
 							matches,
 							forEach
-						),
+						)
 					])
 				} else
 					matches = CollectionId._recurseMatches(
@@ -1787,7 +1787,7 @@ interface CollectionId<
 	RulesPackage extends string = string,
 	CollectionAncestorKeys extends
 		PathKeys.CollectionAncestorKeys = PathKeys.CollectionAncestorKeys,
-	Key extends string = string,
+	Key extends string = string
 > {
 	get compositeTypeId(): TTypeId
 	get rulesPackageId(): RulesPackage
@@ -1824,7 +1824,7 @@ namespace CollectionId {
 
 	export type ChildOf<
 		T extends CollectionId,
-		K extends string = string,
+		K extends string = string
 	> = CollectableId<
 		TypeId.CollectableOf<T['primaryTypeId']>,
 		T['rulesPackageId'],
@@ -1840,7 +1840,7 @@ namespace CollectionId {
 	>
 	export type ChildCollectionOf<
 		T extends CollectionId,
-		K extends string = string,
+		K extends string = string
 	> = DropFirst<T['primaryPathKeys']> extends CollectionAncestorKeys
 		? CollectionId<
 				T['typeId'],
@@ -1855,12 +1855,12 @@ namespace CollectionId {
 			? CollectionId<T['primaryTypeId'], T['rulesPackageId'], [], K>
 			: T['collectionAncestorKeys'] extends [
 						infer U extends string,
-						infer K extends string,
+						infer K extends string
 					]
 				? CollectionId<T['primaryTypeId'], T['rulesPackageId'], [U], K>
 				: T['collectionAncestorKeys'] extends [
 							...infer U extends PathKeys.CollectionAncestorKeys,
-							infer K extends string,
+							infer K extends string
 						]
 					? CollectionId<T['primaryTypeId'], T['rulesPackageId'], U, K>
 					: never
@@ -1870,7 +1870,7 @@ namespace CollectionId {
 class EmbeddedId<
 	ParentId extends EmbeddingId = EmbeddingId,
 	TTypeId extends TypeId.Embeddable = TypeId.Embeddable,
-	Key extends string = string,
+	Key extends string = string
 > extends EmbeddingId<
 	[...ParentId['typeIds'], TTypeId],
 	[...ParentId['pathSegments'], Key] & {
@@ -1925,10 +1925,10 @@ class EmbeddedId<
 			typeIds: [...parent.typeIds, typeId] as [...ParentId['typeIds'], TTypeId],
 			pathSegments: [...parent.pathSegments, key.toString()] as [
 				...ParentId['pathSegments'],
-				Key,
+				Key
 			] & {
 				length: [...ParentId['typeIds'], TTypeId]['length']
-			},
+			}
 		} as const satisfies IdParser.Options<
 			[...ParentId['typeIds'], TTypeId],
 			[...ParentId['pathSegments'], Key] & {
@@ -1944,7 +1944,7 @@ class EmbeddedId<
 interface EmbeddedId<
 	ParentId extends EmbeddingId = EmbeddingId,
 	TTypeId extends TypeId.Embeddable = TypeId.Embeddable,
-	Key extends string = string,
+	Key extends string = string
 > {
 	toString(): `${this['compositeTypeId']}${PrefixSep}${Join<this['pathSegments'], TypeSep>}`
 
@@ -1969,7 +1969,7 @@ export {
 	CollectionId,
 	EmbeddedId,
 	IdParser,
-	type NonCollectableId,
+	type NonCollectableId
 }
 
 // const test = IdParser.parse('move_category:starforged/**') as CollectionId

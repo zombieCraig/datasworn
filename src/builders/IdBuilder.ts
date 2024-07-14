@@ -5,7 +5,7 @@ import {
 	type TRef,
 	type TSchema,
 	type TString,
-	type TUnion,
+	type TUnion
 } from '@sinclair/typebox'
 import type TypeNode from '../pkg-core/TypeNode.js'
 import {
@@ -16,7 +16,7 @@ import {
 	TypeSep,
 	PrefixSep,
 	CollectionsKey,
-	ContentsKey,
+	ContentsKey
 } from '../scripts/const.js'
 import TypeId from '../pkg-core/IdElements/TypeId.js'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
@@ -50,7 +50,7 @@ type ArrayPropKeyIn<O> = keyof O
 
 type EntryInProp<
 	O,
-	P extends DictPropKeyIn<O> | ArrayPropKeyIn<O>,
+	P extends DictPropKeyIn<O> | ArrayPropKeyIn<O>
 > = O[P] extends Array<any> ? O[P][number] : O[P][keyof O[P]]
 
 /**
@@ -95,7 +95,7 @@ namespace PathSymbol {
 
 	export class DictKey<
 		Origin,
-		Prop extends DictPropKeyIn<Origin>,
+		Prop extends DictPropKeyIn<Origin>
 	> extends PathSymbol<Origin, Prop> {
 		static readonly PATTERN = Pattern.DictKeyElement
 		static readonly WILDCARD = new RegExp(
@@ -175,7 +175,7 @@ namespace PathSymbol {
 	export class RecursiveDictKeys<
 		Origin,
 		Prop extends DictPropKeyIn<Origin>,
-		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>,
+		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>
 	> extends DictKey<Origin, Prop> {
 		readonly recursiveProperty: RecursiveProp
 
@@ -196,7 +196,7 @@ namespace PathSymbol {
 			CloneProp extends DictPropKeyIn<Origin> = Prop,
 			CloneRecursiveProp extends DictPropKeyIn<
 				EntryInProp<Origin, Prop>
-			> = RecursiveProp,
+			> = RecursiveProp
 		>() {
 			// @ts-expect-error
 			return new RecursiveDictKeys<Origin, CloneProp, CloneRecursiveProp>(
@@ -208,7 +208,7 @@ namespace PathSymbol {
 
 	export class Index<
 		Origin,
-		Key extends ArrayPropKeyIn<Origin>,
+		Key extends ArrayPropKeyIn<Origin>
 	> extends PathSymbol<Origin, Key> {
 		clone() {
 			return new Index<Origin, Key>(this.inProperty) as this
@@ -229,7 +229,7 @@ namespace PathSymbol {
  * @template CurrentNode The type of the current (last) node in an IdPattern. Used to provide typechecks for keys when chaining `add` methods.
  */
 class IdPattern<
-	CurrentNode = Datasworn.RulesPackage,
+	CurrentNode = Datasworn.RulesPackage
 > extends Array<PathFormat> {
 	static readonly TypeSep = '\\' + TypeSep
 
@@ -339,7 +339,7 @@ class IdPattern<
 		Prop extends DictPropKeyIn<CurrentNode>,
 		RecursiveProp extends DictPropKeyIn<
 			CurrentNode[Prop][keyof CurrentNode[Prop]]
-		>,
+		>
 	>(property: Prop, recursiveProperty: RecursiveProp) {
 		this.current.addRecursiveDictKeys(property, recursiveProperty)
 		return this as IdPattern<EntryInProp<CurrentNode, Prop>>
@@ -375,7 +375,7 @@ class IdPattern<
 			$id,
 			description,
 			pattern,
-			...options,
+			...options
 		})
 	}
 
@@ -391,7 +391,7 @@ class IdPattern<
 			$id,
 			description,
 			pattern,
-			...options,
+			...options
 		})
 	}
 
@@ -571,7 +571,7 @@ class PathFormat<Origin = Datasworn.RulesPackage> extends Array<
 
 	addRecursiveDictKeys<
 		Prop extends DictPropKeyIn<Origin>,
-		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>,
+		RecursiveProp extends DictPropKeyIn<EntryInProp<Origin, Prop>>
 	>(property: Prop, recursiveProperty: RecursiveProp) {
 		this.push(
 			new PathSymbol.RecursiveDictKeys<Origin, Prop, RecursiveProp>(
@@ -641,14 +641,14 @@ function computeEmbeddedTypes(pattern: IdPattern) {
 type PrimaryNodePrefix<T extends TypeId.Primary = TypeId.Primary> =
 	`${PascalCase<T>}`
 type EmbeddedPrimaryNodePrefix<
-	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary,
+	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary
 > = `Embedded${PascalCase<T>}`
 type PrimaryNodeUnionPrefix<
-	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary,
+	T extends TypeId.EmbeddablePrimary = TypeId.EmbeddablePrimary
 > = `Any${PascalCase<T>}`
 type EmbedOnlyPrefix<
 	T extends TypeId.EmbedOnly = TypeId.EmbedOnly,
-	TParent extends TypeId.CanEmbedType<T> = TypeId.CanEmbedType<T>,
+	TParent extends TypeId.CanEmbedType<T> = TypeId.CanEmbedType<T>
 > = `${PascalCase<TParent>}${PascalCase<T>}`
 
 type IdSuffix = 'Id' | 'IdWildcard'
@@ -720,7 +720,7 @@ for (const $id in permutations) {
 	)
 	ids[$id as IdSchemaName] = Type.Union(schemaIds, {
 		$id,
-		[JsonTypeDef]: { schema: JtdType.String() },
+		[JsonTypeDef]: { schema: JtdType.String() }
 	})
 	if ($id.endsWith('IdWildcard')) anyIdWildcardSchemata.push(...schemaIds)
 	else anyIdSchemata.push(...schemaIds)
@@ -733,7 +733,7 @@ ids.AnyOracleRollableRowId = Type.Union(
 		.map((schema) => Type.Ref(schema.$id as string)),
 	{
 		$id: 'AnyOracleRollableRowId',
-		[JsonTypeDef]: { schema: JtdType.String() },
+		[JsonTypeDef]: { schema: JtdType.String() }
 	}
 )
 // @ts-expect-error
@@ -745,7 +745,7 @@ ids.AnyOracleRollableRowIdWildcard = Type.Union(
 		.map((schema) => Type.Ref(schema.$id as string)),
 	{
 		$id: 'AnyOracleRollableRowIdWildcard',
-		[JsonTypeDef]: { schema: JtdType.String() },
+		[JsonTypeDef]: { schema: JtdType.String() }
 	}
 )
 // @ts-expect-error
@@ -762,7 +762,7 @@ ids.AnyId = Type.Union(
 		$id: 'AnyId',
 		description:
 			'Represents any kind of non-wildcard ID, including IDs of embedded objects.',
-		[JsonTypeDef]: { schema: JtdType.String() },
+		[JsonTypeDef]: { schema: JtdType.String() }
 	}
 )
 // @ts-expect-error
@@ -778,7 +778,7 @@ ids.AnyIdWildcard = Type.Union(
 		$id: 'AnyIdWildcard',
 		description:
 			'Represents any kind of wildcard ID, including IDs of embedded objects.',
-		[JsonTypeDef]: { schema: JtdType.String() },
+		[JsonTypeDef]: { schema: JtdType.String() }
 	}
 )
 
@@ -796,7 +796,7 @@ for (const idName in ids) {
 	const $id = `Any${typeName}` as keyof typeof ids
 	ids[$id] = Type.Union([Type.Ref(typeName), Type.Ref(`Embedded${typeName}`)], {
 		$id,
-		[JsonTypeDef]: { skip: true },
+		[JsonTypeDef]: { skip: true }
 	})
 }
 
