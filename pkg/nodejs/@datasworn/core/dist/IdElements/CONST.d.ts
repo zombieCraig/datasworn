@@ -6,6 +6,8 @@ declare namespace CONST {
     type COLLECTION_DEPTH_MIN = typeof COLLECTION_DEPTH_MIN;
     const PACKAGE_ID_LENGTH_MIN: 3;
     type PACKAGE_ID_LENGTH_MIN = typeof PACKAGE_ID_LENGTH_MIN;
+    const MdLinkPrefix: "datasworn";
+    type MdLinkPrefix = typeof MdLinkPrefix;
     /** The separator character for Datasworn IDs. */
     const PathKeySep: "/";
     type PathKeySep = typeof PathKeySep;

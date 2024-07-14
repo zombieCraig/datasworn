@@ -1,10 +1,11 @@
 /**
- *
+ * Updates any string containing a v0.0.10 ID reference to be compatible with v0.1.0.
  * @param k The key of the JSON value.
  * @param v The JSON value.
- * @param replacementMap
+ * @param replacementMap The record object that maps v0.0.10
  * @param unreplacedIds An optional set that contains any IDs that were unable to be replaced.
  * @example ```typescript
+ * import fs from 'node:fs/promises'
  * const [replacementMap, oldJson] = await Promise.all([
  *   fs.readFile('./path/to/id_replacement_hash.json'),
  *   fs.readFile('./path/to/old_datasworn_data.json')
@@ -22,4 +23,5 @@ export declare function updateIdInString(k: unknown, v: unknown, replacementMap:
  * @returns A new string with the replaced values.
  */
 export declare function updateIdsInMarkdown(md: string, replacementMap: Record<string, string | null>, unreplacedIds?: Set<string>): string;
+/** Updates a Datasworn ID string from v0.0.10 to v0.1.0. */
 export declare function updateId(id: string, replacementMap: Record<string, string | null>, unreplacedIds?: Set<string>): string | null;

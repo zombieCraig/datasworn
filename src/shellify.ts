@@ -1,4 +1,4 @@
-import { type ExecOptions, exec } from 'child_process'
+import { type ExecOptions, exec } from 'node:child_process'
 import { kebabCase } from 'lodash-es'
 import type { CamelCase } from 'type-fest'
 import Log from './scripts/utils/Log.js'

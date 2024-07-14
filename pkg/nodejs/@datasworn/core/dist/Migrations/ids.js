@@ -1,8 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateIdInString = updateIdInString;
 exports.updateIdsInMarkdown = updateIdsInMarkdown;
 exports.updateId = updateId;
+const CONST_js_1 = __importDefault(require("../IdElements/CONST.js"));
 const neverLegacyIdSubstrings = new Set([
     ',',
     '. ',
@@ -40,12 +44,13 @@ const neverMdOrIdKeys = new Set([
     'choice_type',
 ]);
 /**
- *
+ * Updates any string containing a v0.0.10 ID reference to be compatible with v0.1.0.
  * @param k The key of the JSON value.
  * @param v The JSON value.
- * @param replacementMap
+ * @param replacementMap The record object that maps v0.0.10
  * @param unreplacedIds An optional set that contains any IDs that were unable to be replaced.
  * @example ```typescript
+ * import fs from 'node:fs/promises'
  * const [replacementMap, oldJson] = await Promise.all([
  *   fs.readFile('./path/to/id_replacement_hash.json'),
  *   fs.readFile('./path/to/old_datasworn_data.json')
@@ -63,7 +68,7 @@ function updateIdInString(k, v, replacementMap, unreplacedIds) {
             return v;
         case isPlainLegacyId(k, v):
             return updateId(v, replacementMap, unreplacedIds);
-        case alwaysMdKeys.has(k):
+        // case alwaysMdKeys.has(k as string):
         default:
             return updateIdsInMarkdown(v, replacementMap, unreplacedIds);
     }
@@ -79,7 +84,8 @@ function updateIdsInMarkdown(md, replacementMap, unreplacedIds) {
         const replacementId = updateId(id, replacementMap, unreplacedIds);
         if (id == null)
             return substring;
-        return `[${linkText}](${replacementId})`;
+        const newLinkText = `${CONST_js_1.default.MdLinkPrefix}${CONST_js_1.default.PrefixSep}${replacementId}`;
+        return `[${linkText}](${newLinkText})`;
     });
     newStr = newStr.replaceAll(oldMarkdownMacroPattern, (substring, directive, id) => {
         const replacementId = updateId(id, replacementMap, unreplacedIds);
@@ -89,6 +95,7 @@ function updateIdsInMarkdown(md, replacementMap, unreplacedIds) {
     });
     return newStr;
 }
+/** Updates a Datasworn ID string from v0.0.10 to v0.1.0. */
 function updateId(id, replacementMap, unreplacedIds) {
     const replacement = replacementMap[id];
     if (replacement == null) {
@@ -98,12 +105,12 @@ function updateId(id, replacementMap, unreplacedIds) {
     return replacement;
 }
 /**
- * Matches the entire markdown macro.
+ * Matches an entire markdown macro (v0.0.10).
  * @example "{{text:starforged/oracle_rollable/factions/name/legacy}}"
  */
 const oldMarkdownMacroPattern = /\{\{(?<directive>[a-z_]+):(?<id>[a-z_\\/\\.\d]+?)\}\}/g;
 /**
- * Matches *only* the actual ID.
+ * Matches *only* the actual ID of an ID link (v0.0.10)
  * @example "[Legacy](id:starforged/oracle_rollable/factions/name/legacy)"
  */
 const oldMarkdownLinkPattern = /\[(?<linkText>\w.+?)\]\(id:(?<id>[a-z_\\/\\.\d]+?)\)/g;

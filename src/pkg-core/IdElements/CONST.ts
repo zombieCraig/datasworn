@@ -7,6 +7,9 @@ namespace CONST {
 	export const PACKAGE_ID_LENGTH_MIN = 3 as const
 	export type PACKAGE_ID_LENGTH_MIN = typeof PACKAGE_ID_LENGTH_MIN
 
+  export const MdLinkPrefix = 'datasworn' as const
+	export type MdLinkPrefix = typeof MdLinkPrefix
+
 	/** The separator character for Datasworn IDs. */
 	export const PathKeySep = '/' as const
 	export type PathKeySep = typeof PathKeySep

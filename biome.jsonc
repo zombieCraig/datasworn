@@ -3,7 +3,8 @@
 	"formatter": {
 		"include": [
 			"src/**/*.ts",
-			"pkg/nodejs/**/*.{d.ts,json}",
+			"pkg/nodejs/**/*.d.ts",
+			"pkg/nodejs/**/*.json",
 			"src/migration/history/*/*.d.ts",
 			"src/migration/history/*/*.json",
 			"src/migration/history/*/*.schema.json",
@@ -11,6 +12,7 @@
 			"source_data/**/*.json"
 		],
 		"ignore": [
+			"**/*.js",
 			"**/dist",
 			"**/docs",
 			"**/*.d.ts",
@@ -24,6 +26,25 @@
 	},
 	"organizeImports": { "enabled": true },
 	"linter": {
+		"include": [
+			"src/**/*.ts",
+			"pkg/nodejs/**/*.d.ts",
+			"pkg/nodejs/**/*.json",
+			"src/migration/history/*/*.d.ts",
+			"src/migration/history/*/*.json",
+			"src/migration/history/*/*.schema.json",
+			"datasworn/**/*.json",
+			"source_data/**/*.json"
+		],
+		"ignore": [
+			"**/*.js",
+			"**/dist",
+			"**/docs",
+			"**/*.d.ts",
+			"**/*.html",
+			"src/data-legacy",
+			"src/extras"
+		],
 		"enabled": true,
 		"rules": {
 			"recommended": true,

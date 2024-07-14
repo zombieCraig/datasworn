@@ -1,3 +1,5 @@
+import CONST from '../IdElements/CONST.js'
+
 const neverLegacyIdSubstrings = new Set([
 	',',
 	'. ',
@@ -38,12 +40,13 @@ const neverMdOrIdKeys = new Set([
 ])
 
 /**
- *
+ * Updates any string containing a v0.0.10 ID reference to be compatible with v0.1.0.
  * @param k The key of the JSON value.
  * @param v The JSON value.
- * @param replacementMap
+ * @param replacementMap The record object that maps v0.0.10
  * @param unreplacedIds An optional set that contains any IDs that were unable to be replaced.
  * @example ```typescript
+ * import fs from 'node:fs/promises'
  * const [replacementMap, oldJson] = await Promise.all([
  *   fs.readFile('./path/to/id_replacement_hash.json'),
  *   fs.readFile('./path/to/old_datasworn_data.json')
@@ -66,7 +69,7 @@ export function updateIdInString(
 			return v
 		case isPlainLegacyId(k as string | number, v as string):
 			return updateId(v, replacementMap, unreplacedIds)
-		case alwaysMdKeys.has(k as string):
+		// case alwaysMdKeys.has(k as string):
 		default:
 			return updateIdsInMarkdown(v, replacementMap, unreplacedIds)
 	}
@@ -89,7 +92,8 @@ export function updateIdsInMarkdown(
 		(substring: string, linkText: string, id: string) => {
 			const replacementId = updateId(id, replacementMap, unreplacedIds)
 			if (id == null) return substring
-			return `[${linkText}](${replacementId})`
+			const newLinkText = `${CONST.MdLinkPrefix}${CONST.PrefixSep}${replacementId}`
+			return `[${linkText}](${newLinkText})`
 		},
 	)
 	newStr = newStr.replaceAll(
@@ -104,6 +108,7 @@ export function updateIdsInMarkdown(
 	return newStr
 }
 
+/** Updates a Datasworn ID string from v0.0.10 to v0.1.0. */
 export function updateId(
 	id: string,
 	replacementMap: Record<string, string | null>,
@@ -120,13 +125,13 @@ export function updateId(
 }
 
 /**
- * Matches the entire markdown macro.
+ * Matches an entire markdown macro (v0.0.10).
  * @example "{{text:starforged/oracle_rollable/factions/name/legacy}}"
  */
 const oldMarkdownMacroPattern =
 	/\{\{(?<directive>[a-z_]+):(?<id>[a-z_\\/\\.\d]+?)\}\}/g
 /**
- * Matches *only* the actual ID.
+ * Matches *only* the actual ID of an ID link (v0.0.10)
  * @example "[Legacy](id:starforged/oracle_rollable/factions/name/legacy)"
  */
 const oldMarkdownLinkPattern =

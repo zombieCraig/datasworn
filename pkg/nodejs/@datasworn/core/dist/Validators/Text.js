@@ -26,7 +26,7 @@ const pathPattern = `${Pattern_js_1.default.RulesPackageElement.source}(?:${dict
 exports.idLike = /(?<typeId>[a-z\d_.]{3,}|\*{1,2}):(?<path>(?:[a-z_]+|\*{1,2})(?:\/(?:[a-z\d_.]+|\*{1,2})+)+|\*{2})/g;
 const idPointerPattern = new RegExp(`^${exports.idLike}$`);
 const linkSymbolPattern = new RegExp([
-    `(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
+    `(?<=\\[\\w.+?\\]\\(${CONST_js_1.default.MdLinkPrefix}${CONST_js_1.default.PrefixSep})`, // lookbehind for markdown text in square brackets, plus left paren
     `(?<id>${exports.idLike})`,
     `(?=\\))`, // lookahead for right paren
 ].join(''), 'g');

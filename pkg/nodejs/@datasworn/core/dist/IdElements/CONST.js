@@ -6,6 +6,7 @@ var CONST;
     CONST.COLLECTION_DEPTH_MAX = 4;
     CONST.COLLECTION_DEPTH_MIN = 1;
     CONST.PACKAGE_ID_LENGTH_MIN = 3;
+    CONST.MdLinkPrefix = 'datasworn';
     /** The separator character for Datasworn IDs. */
     CONST.PathKeySep = '/';
     CONST.TypeSep = '.';

@@ -19,7 +19,7 @@ const idPointerPattern = new RegExp(`^${idLike}$`)
 
 const linkSymbolPattern = new RegExp(
 	[
-		`(?<=\\[\\w.+?\\]\\(datasworn:)`, // lookbehind for markdown text in square brackets, plus left paren
+		`(?<=\\[\\w.+?\\]\\(${CONST.MdLinkPrefix}${CONST.PrefixSep})`, // lookbehind for markdown text in square brackets, plus left paren
 		`(?<id>${idLike})`,
 		`(?=\\))`, // lookahead for right paren
 	].join(''),
