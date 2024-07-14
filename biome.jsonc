@@ -43,7 +43,8 @@
 			"**/*.d.ts",
 			"**/*.html",
 			"src/data-legacy",
-			"src/extras"
+			"src/extras",
+			"node_modules"
 		],
 		"enabled": true,
 		"rules": {
