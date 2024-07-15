@@ -238,7 +238,7 @@ export type IdReplacementMap = Record<
 
 const f = []
 
-function simpleReplacer(oldId: string, newId: string): IdReplacer {
+function simpleReplacer(oldId: string, newId: string | null): IdReplacer {
 	return { oldId: new RegExp(`^${escapeRegExp(oldId)}$`), newId }
 }
 
@@ -281,6 +281,7 @@ export const idReplacers = {
 		}
 	],
 	asset: [
+		simpleReplacer('*/assets/incidental_vehicle/*', null),
 		simpleReplacer('*/assets/module/*', 'asset:*/module/*'),
 		simpleReplacer('*/assets/modules/*', 'asset:*/module/*')
 	],

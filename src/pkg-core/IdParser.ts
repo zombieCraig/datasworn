@@ -426,17 +426,17 @@ abstract class IdParser<
 		id: T,
 		tree: (typeof IdParser)['datasworn'],
 		forEach?: (id: string, node: unknown) => boolean
-	): TypeNode.ByType<ExtractTypeId<T>>
+	): Map<string, TypeNode.ByType<ExtractTypeId<T>>>
 	static getMatches<T extends IdParser>(
 		id: T,
 		tree: (typeof IdParser)['datasworn'],
 		forEach?: (id: string, node: unknown) => boolean
-	): ReturnType<T['get']>
+	): Map<string, ReturnType<T['get']>>
 	static getMatches<T extends StringId.Primary | IdParser>(
 		id: T,
 		tree = IdParser.datasworn,
 		forEach?: (id: string, node: unknown) => boolean
-	) {
+	): Map<string, unknown> {
 		const parsed = id instanceof IdParser ? id : IdParser.parse(id as any)
 
 		return parsed.getMatches(tree, forEach)

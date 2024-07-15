@@ -11,9 +11,10 @@ import {
 import { escapeRegExp } from 'lodash-es'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
 import { ROOT_HISTORY } from '../scripts/const.js'
-import { index } from '../tests/loadJson.js'
+import { index, tree } from '../tests/loadJson.js'
 import { idReplacers } from './migrations.js'
 import { CONST, TypeGuard } from '../pkg-core/IdElements/index.js'
+import { IdParser } from '../pkg-core/IdParser.js'
 
 const oldVersion = '0.0.10'
 
@@ -183,8 +184,7 @@ export async function generateIdMap(
 		switch (true) {
 			case typeof newId === 'string' && currentIds.has(newId):
 			case newId === null:
-			case oldId.includes('*'):
-			case newId?.includes('*'):
+			case IdParser.getMatches(newId as string, tree).size > 0:
 				goodIds.set(oldId, newId)
 				break
 			default:
