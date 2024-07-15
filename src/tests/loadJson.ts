@@ -1,12 +1,13 @@
 import { IdKey, PathKeySep } from '../scripts/const.js'
 import type { Datasworn } from '../pkg-core/index.js'
+import type { IdNode } from '../schema/Generic.js'
 
 const tree = new Map<string, Datasworn.RulesPackage>()
-const index = new Map<string, { [IdKey]: string }>()
+const index = new Map<string, IdNode<object>>()
 
 const files = new Bun.Glob('*/*.json')
 
-const readOps: Promise<any>[] = []
+const readOps: Promise<unknown>[] = []
 
 for await (const filePath of files.scan({ cwd: './datasworn', absolute: true }))
 	readOps.push(

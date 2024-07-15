@@ -1,5 +1,4 @@
 import { PathKeySep } from '../scripts/const.js'
-import { idReplacers } from '../pkg-core/Migrations/migrations.js'
 
 const orderReplacers = (
 	[{ source: patternA }, replacementA]: [RegExp, string | null],
@@ -41,9 +40,3 @@ const orderReplacers = (
 		}
 	}
 }
-export const replacementMap = new Map(
-	Object.entries(idReplacers).flatMap(([k, v]) =>
-		v.map((e) => [e.old, e.new] as [RegExp, string | null])
-	)
-	// .sort(orderReplacers)
-)

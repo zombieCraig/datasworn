@@ -8,7 +8,7 @@ IdParser.tree = tree
 const cases = Array.from(index).map(([id]) => [id, IdParser.get(id)._id])
 
 describe('IdParser lookup', () => {
-	test.each(cases)(`%p`, (id, lookupId) => {
+	test.each(cases)('%p', (id, lookupId) => {
 		return expect(id).toBe(lookupId)
 	})
 })

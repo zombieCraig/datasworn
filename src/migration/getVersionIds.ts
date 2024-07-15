@@ -1,4 +1,3 @@
-import { replacementMap } from './replacementMap.js'
 import { readJSON, writeJSON } from '../scripts/utils/readWrite.js'
 import path from 'node:path'
 import {
@@ -12,6 +11,9 @@ import {
 import { escapeRegExp } from 'lodash-es'
 import Pattern from '../pkg-core/IdElements/Pattern.js'
 import { ROOT_HISTORY } from '../scripts/const.js'
+import { index } from '../tests/loadJson.js'
+import { idReplacers } from './migrations.js'
+import { CONST, TypeGuard } from '../pkg-core/IdElements/index.js'
 
 const oldVersion = '0.0.10'
 
@@ -58,9 +60,9 @@ export async function forEachIdInVersion(
 	forEach: (id: string) => void
 ) {
 	const dir = path.join(ROOT_HISTORY, version)
-	const glob = `*/*.json`
+	const glob = '*/*.json'
 
-	const files = new Bun.Glob(glob).scan(dir)
+	const files = new Bun.Glob(glob).scan({ cwd: dir, absolute: true })
 
 	const readOps: Promise<unknown>[] = []
 
@@ -78,14 +80,15 @@ export async function forEachIdInVersion(
 }
 
 function getWildcardRegex(wildcardId: string) {
-	// without any wildcards, there's not much to worry about. just escape it for use in the regex.
-	return new RegExp(`^${escapeRegExp(wildcardId)}$`)
+	if (!wildcardId.includes(WildcardString))
+		// without any wildcards, there's not much to worry about. just escape it for use in the regex.
+		return new RegExp(`^${escapeRegExp(wildcardId)}$`)
 
 	const [fullTypeId, fullPath] = wildcardId.split(PrefixSep)
 	const [primaryPath, ...embeddedKeys] = fullPath.split(TypeSep)
 	const [rulesPackage, ...primaryPathKeys] = wildcardId.split(PathKeySep)
 
-	const typePattern = fullTypeId.replaceAll(TypeSep, '\\' + TypeSep)
+	const typePattern = fullTypeId.replaceAll(TypeSep, `\\${TypeSep}`)
 	let pathPattern = ''
 
 	switch (rulesPackage) {
@@ -110,16 +113,16 @@ function getWildcardRegex(wildcardId: string) {
 				pathPattern += `(/${Pattern.DictKeyElement.source})*`
 				break
 			case WildcardString:
-				pathPattern += '/' + Pattern.DictKeyElement.source
+				pathPattern += `/${Pattern.DictKeyElement.source}`
 				break
 			default:
-				pathPattern += '/' + pathKey
+				pathPattern += `/${pathKey}`
 				break
 		}
 	}
 
 	for (const embeddedKey of embeddedKeys) {
-		pathPattern += '\\' + TypeSep
+		pathPattern += `\\${TypeSep}`
 		switch (embeddedKey) {
 			case WildcardString:
 				pathPattern += `${Pattern.DictKeyElement.source}|\\d+`
@@ -136,20 +139,18 @@ function getWildcardRegex(wildcardId: string) {
 // console.log(getWildcardRegex('oracle_rollable:starforged/core/action'))
 
 export async function generateIdMap(
-	fromVersion: string,
-	toVersion: string,
+	oldVersion: string,
+	newVersion: string,
 	replacers: Map<RegExp, string | null>
 ) {
-	const currentIds = new Set<string>()
+	const currentIds = index
 	const mappedIds = new Map<string, string | null>()
 	const unmappedIds = new Set<string>()
 
 	// console.log(replacementMap)
 
 	await Promise.all([
-		forEachIdInVersion(toVersion, (id) => currentIds.add(id)),
-
-		forEachIdInVersion(fromVersion, (id) => {
+		forEachIdInVersion(oldVersion, (id) => {
 			// skip RulesPackageIds
 			if (!id.includes('/')) return
 			// skip ones that are already done
@@ -158,7 +159,7 @@ export async function generateIdMap(
 				const isMatch = pattern.test(id)
 				if (!isMatch) continue
 				if (replacer === null) return mappedIds.set(id, null)
-				else return mappedIds.set(id, id.replace(pattern, replacer))
+				return mappedIds.set(id, id.replace(pattern, replacer))
 			}
 
 			return unmappedIds.add(id)
@@ -168,7 +169,7 @@ export async function generateIdMap(
 	if (unmappedIds.size > 0) {
 		console.log(unmappedIds)
 		throw new Error(
-			`${unmappedIds.size} IDs from ${fromVersion} don't have a valid replacer. Change the regular expressions so that they can be matched to their equivalent in ${toVersion}, or explicitly assign them a null replacement (if no similarly-typed analogue exists).`
+			`${unmappedIds.size} IDs from ${oldVersion} don't have a valid replacer. Change the regular expressions so that they can be matched to their equivalent in ${newVersion}, or explicitly assign them a null replacement (if no similarly-typed analogue exists).`
 		)
 	}
 
@@ -203,10 +204,72 @@ export async function generateIdMap(
 	return goodIds
 }
 
-const data = Object.fromEntries(
-	await generateIdMap(oldVersion, VERSION, replacementMap)
-)
+// TODO: updater for ID wildcards?
 
-// console.log(data)
+const replacementMap = new Map(
+	Object.entries(idReplacers).flatMap(([k, v]) =>
+		v.map((e) => [e.oldId, e.newId] as [RegExp, string | null])
+	)
+	// .sort(orderReplacers)
+) as Map<RegExp, string | null>
 
-await writeJSON(path.join(ROOT_HISTORY, VERSION, 'id_map.json'), data)
+const masterMap = await generateIdMap(oldVersion, VERSION, replacementMap)
+
+const rulesPackages = new Map<string, Record<string, string | null>>()
+
+const commonIdMappings: Record<string, string | null> = {}
+
+for (const [k, v] of masterMap) {
+	const [rulesPkg, ..._tail] = k.split('/')
+	if (TypeGuard.Wildcard(rulesPkg)) {
+		commonIdMappings[k] = v
+		continue
+	}
+	if (!rulesPackages.has(rulesPkg)) {
+		rulesPackages.set(rulesPkg, { [k]: v })
+		continue
+	}
+	const oldValue = rulesPackages.get(rulesPkg) as Record<string, string | null>
+	const newValue = { ...oldValue, [k]: v }
+	rulesPackages.set(rulesPkg, newValue)
+}
+
+// console.log(rulesPackages)
+
+function sortByIdDepth(a: string, b: string): number {
+	const typeDepthDifference =
+		a.split(CONST.TypeSep).length - b.split(CONST.TypeSep).length
+	if (typeDepthDifference !== 0) return typeDepthDifference
+
+	const wildcardDifference =
+		a.split(CONST.WildcardString).length - b.split(CONST.WildcardString).length
+
+	if (wildcardDifference !== 0) return wildcardDifference
+
+	const pathDepthDifference =
+		a.split(CONST.PathKeySep).length - b.split(CONST.PathKeySep).length
+
+	if (pathDepthDifference !== 0) return pathDepthDifference
+
+	return a.localeCompare(b, 'en-US')
+}
+
+const writeOps: Promise<unknown>[] = []
+
+for (const [pkgId, replacements] of rulesPackages) {
+	if (TypeGuard.Wildcard(pkgId)) continue
+
+	const sorted: Record<string, string | null> = {
+		...Object.fromEntries(
+			Object.entries({ ...replacements, ...commonIdMappings })
+				.sort(([oldIdA, newIdA], [oldIdB, newIdB]) =>
+					newIdA == null || newIdB == null
+						? sortByIdDepth(oldIdA, oldIdB)
+						: sortByIdDepth(newIdA, newIdB)
+				)
+				.reverse()
+		)
+	}
+	const filePath = path.join(ROOT_HISTORY, VERSION, pkgId, 'id_map.json')
+	writeOps.push(writeJSON(filePath, sorted))
+}
