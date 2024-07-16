@@ -15,6 +15,7 @@ import { index, tree } from '../tests/loadJson.js'
 import { idReplacers } from './migrations.js'
 import { CONST, TypeGuard } from '../pkg-core/IdElements/index.js'
 import { IdParser } from '../pkg-core/IdParser.js'
+import type { Datasworn } from '../pkg-core/index.js'
 
 const oldVersion = '0.0.10'
 
@@ -219,20 +220,21 @@ const rulesPackages = new Map<string, Record<string, string | null>>()
 
 const commonIdMappings: Record<string, string | null> = {}
 
-for (const [k, v] of masterMap) {
-	const [rulesPkg, ..._tail] = k.split('/')
+for (const [oldId, newId] of masterMap) {
+	const [rulesPkg, ..._tail] = oldId.split('/')
 	if (TypeGuard.Wildcard(rulesPkg)) {
-		commonIdMappings[k] = v
+		commonIdMappings[oldId] = newId
 		continue
 	}
 	if (!rulesPackages.has(rulesPkg)) {
-		rulesPackages.set(rulesPkg, { [k]: v })
+		rulesPackages.set(rulesPkg, { [oldId]: newId })
 		continue
 	}
 	const oldValue = rulesPackages.get(rulesPkg) as Record<string, string | null>
-	const newValue = { ...oldValue, [k]: v }
+	const newValue = { ...oldValue, [oldId]: newId }
 	rulesPackages.set(rulesPkg, newValue)
 }
+
 
 // console.log(rulesPackages)
 
