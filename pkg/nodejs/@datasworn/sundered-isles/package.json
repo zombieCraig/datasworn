@@ -1,6 +1,6 @@
 {
 	"name": "@datasworn/sundered-isles",
-	"version": "0.1.0",
+	"version": "0.0.10",
 	"private": true,
 	"description": "Datasworn JSON data for the Starforged: Sundered Isles expansion.",
 	"files": ["json", "migration"],
