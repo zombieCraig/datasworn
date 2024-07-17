@@ -16,46 +16,12 @@ import { idReplacers } from './migrations.js'
 import { CONST, TypeGuard } from '../pkg-core/IdElements/index.js'
 import { IdParser } from '../pkg-core/IdParser.js'
 import type { Datasworn } from '../pkg-core/index.js'
+import { idKeyBlacklist, mightBeId, Version } from './utils/0_0_10.js'
+import { sortByIdDepth } from './utils/common.js'
 
 const oldVersion = '0.0.10'
 
 const idKeys = new Set(['_id', '$id'])
-
-const idBlacklist = new Set([
-	',',
-	'. ',
-	': ',
-	'[',
-	']',
-	'(',
-	')',
-	'://',
-	'.svg',
-	'.webp'
-])
-const stringKeyBlacklist = new Set([
-	'label',
-	'name',
-	'title',
-	'text',
-	'description',
-	'summary',
-	'_comment',
-	'result',
-	'url',
-	'license',
-	'icon'
-])
-
-function mightBeId(value: unknown) {
-	if (typeof value !== 'string') return false
-	if (!value.includes('/')) return false
-
-	// check for character sequences that can occur only in markdown strings
-	for (const char of idBlacklist) if (value.includes(char)) return false
-
-	return true
-}
 
 export async function forEachIdInVersion(
 	version: string,
@@ -71,7 +37,7 @@ export async function forEachIdInVersion(
 	for await (const file of files)
 		readOps.push(
 			readJSON(file, (k, v) => {
-				if (idKeys.has(k) || (!stringKeyBlacklist.has(k) && mightBeId(v)))
+				if (idKeys.has(k) || (!idKeyBlacklist.has(k) && mightBeId(v)))
 					forEach(v as string)
 
 				return v
@@ -185,7 +151,8 @@ export async function generateIdMap(
 		switch (true) {
 			case typeof newId === 'string' && currentIds.has(newId):
 			case newId === null:
-			case IdParser.getMatches(newId as string, tree).size > 0:
+			// @ts-expect-error
+			case IdParser.getMatches(newId, tree).size > 0:
 				goodIds.set(oldId, newId)
 				break
 			default:
@@ -205,8 +172,6 @@ export async function generateIdMap(
 	return goodIds
 }
 
-// TODO: updater for ID wildcards?
-
 const replacementMap = new Map(
 	Object.entries(idReplacers).flatMap(([k, v]) =>
 		v.map((e) => [e.oldId, e.newId] as [RegExp, string | null])
@@ -214,7 +179,7 @@ const replacementMap = new Map(
 	// .sort(orderReplacers)
 ) as Map<RegExp, string | null>
 
-const masterMap = await generateIdMap(oldVersion, VERSION, replacementMap)
+const masterMap = await generateIdMap(Version, VERSION, replacementMap)
 
 const rulesPackages = new Map<string, Record<string, string | null>>()
 
@@ -233,27 +198,6 @@ for (const [oldId, newId] of masterMap) {
 	const oldValue = rulesPackages.get(rulesPkg) as Record<string, string | null>
 	const newValue = { ...oldValue, [oldId]: newId }
 	rulesPackages.set(rulesPkg, newValue)
-}
-
-
-// console.log(rulesPackages)
-
-function sortByIdDepth(a: string, b: string): number {
-	const typeDepthDifference =
-		a.split(CONST.TypeSep).length - b.split(CONST.TypeSep).length
-	if (typeDepthDifference !== 0) return typeDepthDifference
-
-	const wildcardDifference =
-		a.split(CONST.WildcardString).length - b.split(CONST.WildcardString).length
-
-	if (wildcardDifference !== 0) return wildcardDifference
-
-	const pathDepthDifference =
-		a.split(CONST.PathKeySep).length - b.split(CONST.PathKeySep).length
-
-	if (pathDepthDifference !== 0) return pathDepthDifference
-
-	return a.localeCompare(b, 'en-US')
 }
 
 const writeOps: Promise<unknown>[] = []

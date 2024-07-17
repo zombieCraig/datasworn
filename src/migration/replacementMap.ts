@@ -1,4 +1,10 @@
-import { PathKeySep } from '../scripts/const.js'
+import { PathKeySep, VERSION } from '../scripts/const.js'
+import { generateIdMap } from './getVersionIds.js'
+import { Version } from './utils/0_0_10.js'
+
+// TODO: updater for ID wildcards?
+
+// console.log(rulesPackages)
 
 const orderReplacers = (
 	[{ source: patternA }, replacementA]: [RegExp, string | null],

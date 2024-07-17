@@ -64,19 +64,21 @@ async function buildRulesPackages(pkgs: Record<string, RulesPackageConfig>) {
 
 	const errors: (Error | string)[] = []
 
-	const writeOps: Promise<any>[] = []
+	const writeOps: Promise<unknown>[] = []
 
 	const builders = new Map<string, RulesPackageBuilder>()
 	const tree = new Map<string, Datasworn.RulesPackage>()
 
 	for (const builder of await Promise.all(buildOps)) {
-		if (builder.errors.size) {
-			errors.push(`Unable t`)
-			continue
-		}
+		if (builder.errors.size)
+			builder.errors.forEach(
+				(k, v) => new Error(`Couldn't build file "${k}", ${v}`)
+			)
+
 		tree.set(builder.id, builder.build().toJSON())
 		builders.set(builder.id, builder)
 	}
+
 
 	IdParser.tree = tree
 

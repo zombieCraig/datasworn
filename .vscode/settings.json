@@ -47,5 +47,7 @@
 	"javascript.preferences.quoteStyle": "single",
 	"typescript.preferences.quoteStyle": "single",
 	"editor.suggest.snippetsPreventQuickSuggestions": true,
-	"biome.rename": true
+	"biome.rename": false,
+	"javascript.preferences.useAliasesForRenames": false,
+	"typescript.preferences.useAliasesForRenames": false
 }

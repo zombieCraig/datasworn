@@ -90,7 +90,7 @@ function createKeyRenamersForType(typeId: TypeId.Primary) {
 
 				renamers.push({
 					oldId: RegExp(
-						`^${pkgId}/${oldType}/${oldKey}((?:\\/[a-z_/*\\d]+){${minLeadingKeys},${maxLeadingKeys}})$`
+						`^${pkgId}/${oldType}/${oldKey}((?:\\/[a-z_\*\\d]+){${minLeadingKeys},${maxLeadingKeys}})$`
 					),
 					newId: `${typeId}${CONST.PrefixSep}${pkgId}${CONST.PathKeySep}${newKey}$1`
 				})
@@ -143,7 +143,7 @@ function getPathKeyCount(typeId: TypeId.Any): { min: number; max: number } {
 		case 'atlas_entry':
 		case 'npc':
 			min = 2
-			max = 3
+			max = 4
 			break
 		case 'asset_collection': // nonrecursive collections
 		case 'move_category':
@@ -185,10 +185,22 @@ function getAncestorKeyCount(typeId: TypeId.Any) {
 	return { min, max }
 }
 
+
+
 function createIdMappers(typeId: TypeId.Any) {
 	const oldType = (legacyTypeMap[typeId] ?? legacyTypeMap[typeId]) as string
 	const { min, max } = getPathKeyCount(typeId)
-	const pathKeyCount = `{${min},${max}}`
+	let pathKeyCount: string
+
+	switch (true) {
+		case min === max:
+			pathKeyCount = `{${min}}`
+			break
+
+		default:
+			pathKeyCount = `{${min},${max}}`
+			break
+	}
 
 	const mappers: IdReplacer[] = []
 
@@ -196,10 +208,12 @@ function createIdMappers(typeId: TypeId.Any) {
 	if (TypeGuard.PrimaryType(typeId))
 		mappers.push(...createKeyRenamersForType(typeId))
 
+	const anyDictKeyOrWildcard = '(?:[a-z_]+|\\*)'
+
 	// most generic possible renamer. only applies if no others match
 	mappers.push({
 		oldId: new RegExp(
-			`^(\\*|[a-z][a-z0-9_]{3,})/${oldType}((?:\\/[a-z_/*\\d]+)${pathKeyCount})$`
+			`^(\\*|[a-z][a-z0-9_]{3,})/${oldType}((?:\\/${anyDictKeyOrWildcard})${pathKeyCount})$`
 		),
 		newId: `${typeId}${CONST.PrefixSep}$1$2`
 	})
@@ -386,12 +400,19 @@ export const idReplacers = {
 	]
 } satisfies Partial<IdReplacementMap>
 
+const genericIdReplacers = new Map<RegExp, string | null>()
+
 for (const typeId in legacyTypeMap) {
-	idReplacers[typeId as keyof typeof legacyTypeMap] ||= []
-	idReplacers[typeId as keyof typeof legacyTypeMap].push(
-		...createIdMappers(typeId as keyof typeof legacyTypeMap)
-	)
+  const mappers = createIdMappers(typeId as keyof typeof legacyTypeMap)
+		idReplacers[typeId as keyof typeof legacyTypeMap] ||= []
+		idReplacers[typeId as keyof typeof legacyTypeMap].push(...mappers)
+		for (const { oldId, newId } of mappers) {
+			if (newId?.includes('starforged')) continue
+			genericIdReplacers.set(oldId, newId)
+		}
 }
+
+console.log(genericIdReplacers)
 
 // console.log(idReplacers)
 

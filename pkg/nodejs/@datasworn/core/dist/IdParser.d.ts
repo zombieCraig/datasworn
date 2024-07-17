@@ -120,8 +120,8 @@ declare abstract class IdParser<TypeIds extends StringId.TypeIdParts = StringId.
      * @remarks Non-wildcard IDs work here too; technically they're valid as wildcard IDs. You'll just get one match (wrapped in an array).
      * @returns An array of Datasworn nodes matching the wildcard ID.
      */
-    static getMatches<T extends StringId.Primary>(id: T, tree: (typeof IdParser)['datasworn'], forEach?: (id: string, node: unknown) => boolean): TypeNode.ByType<ExtractTypeId<T>>;
-    static getMatches<T extends IdParser>(id: T, tree: (typeof IdParser)['datasworn'], forEach?: (id: string, node: unknown) => boolean): ReturnType<T['get']>;
+    static getMatches<T extends StringId.Primary>(id: T, tree: (typeof IdParser)['datasworn'], forEach?: (id: string, node: unknown) => boolean): Map<string, TypeNode.ByType<ExtractTypeId<T>>>;
+    static getMatches<T extends IdParser>(id: T, tree: (typeof IdParser)['datasworn'], forEach?: (id: string, node: unknown) => boolean): Map<string, ReturnType<T['get']>>;
     static parse(id: string): CollectionId | CollectableId | NonCollectableId | EmbeddedId;
     /**
      * Recursively assigns IDs to all eligibile nodes within a given {@link DataswornSource.RulesPackage}.
