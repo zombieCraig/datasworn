@@ -2,7 +2,7 @@
 	"name": "@datasworn/starforged",
 	"version": "0.1.0",
 	"description": "Datasworn JSON data for Ironsworn: Starforged.",
-	"files": ["icons", "images", "json"],
+	"files": ["icons", "images", "json", "migration"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/rsek/datasworn.git",

@@ -1,13 +1,13 @@
 {
-	"name": "@datasworn/sundered_isles",
+	"name": "@datasworn/sundered-isles",
 	"version": "0.1.0",
 	"private": true,
 	"description": "Datasworn JSON data for the Starforged: Sundered Isles expansion.",
-	"files": ["json"],
+	"files": ["json", "migration"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/rsek/datasworn.git",
-		"directory": "pkg/nodejs/@datasworn/sundered_isles"
+		"directory": "pkg/nodejs/@datasworn/sundered-isles"
 	},
 	"keywords": [
 		"ironsworn",
@@ -28,7 +28,8 @@
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"dependencies": {
-		"@datasworn/core": "0.1.0"
+		"@datasworn/core": "0.1.0",
+		"@datasworn/starforged": "0.1.0"
 	},
 	"authors": [
 		{

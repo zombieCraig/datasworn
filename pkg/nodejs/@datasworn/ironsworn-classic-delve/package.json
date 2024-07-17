@@ -2,7 +2,7 @@
 	"name": "@datasworn/ironsworn-classic-delve",
 	"version": "0.1.0",
 	"description": "Datasworn JSON data for the Ironsworn: Delve expansion.",
-	"files": ["json"],
+	"files": ["json", "migration"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/rsek/datasworn.git",
