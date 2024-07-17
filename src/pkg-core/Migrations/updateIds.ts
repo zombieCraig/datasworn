@@ -1,5 +1,27 @@
 import { MdLinkPrefix, PrefixSep } from '../IdElements/CONST.js'
 
+export type ReplacementMapData = Record<string, string | null>
+export type ReplacementMap = Map<string | RegExp, string | null>
+
+/**
+ * Load the parsed JSON objects from `id_map.json` and/or `id_regex_map.json` in to a Map object for efficient lookup and replacement.
+ */
+export function rehydrateReplacementMaps(...data: ReplacementMapData[]) {
+	const result = new Map<string | RegExp, string | null>()
+
+	for (const dt of data)
+		for (const key in dt) {
+			const replacer: string | null = dt[key]
+			const idPattern =
+				key.startsWith('^') && key.endsWith('$') ? new RegExp(key) : key
+			result.set(idPattern, replacer)
+		}
+
+	return result
+}
+
+
+
 const neverLegacyIdSubstrings = new Set([
 	',',
 	'. ',
