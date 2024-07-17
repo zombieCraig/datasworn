@@ -20,12 +20,12 @@ export async function updatePackageVersions(
 
 	const writeOps: Promise<unknown>[] = [
 		// the readme in the monorepo root
-		updateReadme('./README.md', newVersion),
-		updatePackageVersion(path.join(process.cwd(), 'package.json'), newVersion),
+		updateReadme('./README.md', newVersion)
+		// updatePackageVersion(path.join(process.cwd(), 'package.json'), newVersion),
 	]
 
-	for await (const pkgPath of pkgs)
-		writeOps.push(updatePackageVersion(pkgPath, newVersion))
+	// for await (const pkgPath of pkgs)
+	// 	writeOps.push(updatePackageVersion(pkgPath, newVersion))
 
 	for await (const readmePath of readmes)
 		writeOps.push(updateReadme(readmePath, newVersion))

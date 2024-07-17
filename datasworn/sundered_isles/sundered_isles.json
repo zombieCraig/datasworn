@@ -4659,7 +4659,7 @@
 			"type": "oracle_collection",
 			"oracle_type": "tables",
 			"replaces": ["oracle_collection:starforged/character"],
-			"summary": "When encountering a character, focus on what you learn or perceive as a first impression using tables such as [Character First Look](datasworn:oracle_rollable:sundered_isles/character/first_look) and [Initial Disposition](datasworn:oracle_rollable:sundered_isles/character/disposition). Then envision or generate additional details over time.",
+			"summary": "When encountering a character, focus on what you learn or perceive as a first impression using tables such as [Character First Look](datasworn:oracle_rollable:sundered_isles/character/first_look) and [Character Disposition](datasworn:oracle_rollable:sundered_isles/character/disposition). Then envision or generate additional details over time.",
 			"_source": {
 				"date": "2024-07-01",
 				"title": "Sundered Isles",
