@@ -3,7 +3,7 @@ datasworn_version: '0.1.0'
 type: expansion
 ruleset: starforged
 <<: &Source
-  date: 2024-06-11
+  date: 2024-07-01
   title: Sundered Isles
   url: https://ironswornrpg.com
   license: null
@@ -16,11 +16,13 @@ oracles:
     oracle_type: tables
     _source:
       <<: *Source
+      page: 130
     collections:
       conditions:
         name: Weather Conditions
         _source:
           <<: *Source
+          page: 130
         type: oracle_collection
         oracle_type: table_shared_text
         contents:
@@ -83,6 +85,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/weather/cursed
         _source:
           <<: *Source
+          page: 130
         rows:
           - roll: { min: 1, max: 10 }
             text: Stifling
@@ -116,6 +119,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 131
         rows:
           - roll: { min: 1, max: 5 }
             text: Ash storm

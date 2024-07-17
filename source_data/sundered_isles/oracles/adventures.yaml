@@ -24,6 +24,7 @@ oracles:
         oracle_type: tables
         _source:
           <<: *Source
+          page: 48
         contents:
           societies:
             name: Societies
@@ -196,6 +197,7 @@ oracles:
         oracle_type: tables
         _source:
           <<: *Source
+          page: 56
         contents:
           sea:
             name: Beasts of the Sea
@@ -273,7 +275,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [water](datasworn:oracle_rollable:starforged/creature/form/water) form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [water](datasworn:oracle_rollable:starforged/creature/basic_form/liquid) form.
                 # TODO
           land:
             name: Beasts of the Land
@@ -343,7 +345,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [land](datasworn:oracle_rollable:starforged/creature/form/land) form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [land](datasworn:oracle_rollable:starforged/creature/basic_form/land) form.
           shore_and_river:
             name: Beasts of the Shore and River
             type: oracle_rollable
@@ -384,7 +386,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [land](datasworn:oracle_rollable:starforged/creature/form/land) or [water](datasworn:oracle_rollable:starforged/creature/form/water) form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [land](datasworn:oracle_rollable:starforged/creature/basic_form/land) or [water](datasworn:oracle_rollable:starforged/creature/basic_form/liquid) form.
           sky:
             name: Beasts of the Sky
             type: oracle_rollable
@@ -425,4 +427,4 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it an [air](datasworn:oracle_rollable:starforged/creature/form/air) form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it an [air](datasworn:oracle_rollable:starforged/creature/basic_form/air) form.

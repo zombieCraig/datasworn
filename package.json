@@ -4,6 +4,7 @@
 	"description": "Internal tools used to develop Datasworn packages.",
 	"type": "module",
 	"private": true,
+	"workspaces": ["./pkg/nodejs/*/*"],
 	"scripts": {
 		"check": "tsc --project tsconfig.json --noEmit",
 		"build:schema": "bun ./src/scripts/schema/buildSchema.ts",
@@ -31,12 +32,12 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
 		"@types/bun": "latest",
-		"@types/fs-extra": "^11.0.4",
 		"@types/json-pointer": "^1.0.34",
 		"@types/json-schema": "^7.0.15",
 		"@types/lodash-es": "^4.17.12",
 		"esbuild": "0.23.0",
 		"json-schema": "^0.4.0",
+		"release-it": "^17.6.0",
 		"tsconfig-paths": "^4.2.0",
 		"type-fest": "^4.21.0",
 		"typescript": "^5.5.3"

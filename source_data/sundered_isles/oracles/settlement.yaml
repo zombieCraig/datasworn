@@ -3,7 +3,7 @@ datasworn_version: '0.1.0'
 type: expansion
 ruleset: starforged
 <<: &Source
-  date: 2024-06-11
+  date: 2024-07-01
   title: Sundered Isles
   url: https://ironswornrpg.com
   license: null
@@ -16,13 +16,15 @@ oracles:
     oracle_type: tables
     _source:
       <<: *Source
+      page: 164
     contents:
       location:
-        name: Location
+        name: Settlement Location
         type: oracle_rollable
         oracle_type: table_text2
         _source:
           <<: *Source
+          page: 164
         rows:
           - roll: { min: 1, max: 60 }
             text: Shore
@@ -49,6 +51,7 @@ oracles:
         recommended_rolls: { min: 1, max: 2 }
         _source:
           <<: *Source
+          page: 165
         rows:
           - roll: { min: 1, max: 10 }
             text: Ancient
@@ -99,6 +102,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/settlement/first_look_cursed
         _source:
           <<: *Source
+          page: 166
         rows:
           - roll: { min: 1, max: 2 }
             text: Adorned with colorful banners
@@ -204,6 +208,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 167
         rows:
           - roll: { min: 1, max: 2 }
             text: Armed with sorcerous weapons
@@ -280,6 +285,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 169
         rows:
           - roll: { min: 1, max: 10 }
             text: Acting to fulfill a dreadful bargain with a cursed power
@@ -313,6 +319,7 @@ oracles:
         recommended_rolls: { min: 1, max: 2 }
         _source:
           <<: *Source
+          page: 170
         rows:
           - roll: { min: 1, max: 1 }
             text: A valuable nearby resource is uncovered, and the race is on to claim or control it
@@ -527,6 +534,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 173
         rows:
           - roll: { min: 1, max: 1 }
             text: Gold coins and a pile of bones sit within the murky waters of an old well
@@ -667,6 +675,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/settlement/name_cursed
         _source:
           <<: *Source
+          page: 175
         rows:
           - roll: { min: 1, max: 1 }
             text: Alerius
@@ -879,6 +888,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 175
         rows:
           - roll: { min: 1, max: 2 }
             text: Barrowcrest
@@ -981,6 +991,7 @@ oracles:
         name: Settlement Size
         _source:
           <<: *Source
+          page: 164
         type: oracle_collection
         oracle_type: table_shared_text2
         contents:
@@ -1049,11 +1060,13 @@ oracles:
         oracle_type: tables
         _source:
           <<: *Source
+          page: 167
         collections:
           controlling_faction:
             name: Settlement Controlling Faction
             _source:
               <<: *Source
+              page: 167
             type: oracle_collection
             oracle_type: table_shared_text
             contents:
@@ -1126,6 +1139,7 @@ oracles:
             oracle_type: table_text
             _source:
               <<: *Source
+              page: 167
             rows:
               - roll: { min: 1, max: 5 }
                 text: Hostile
@@ -1153,6 +1167,7 @@ oracles:
             oracle_type: table_text
             _source:
               <<: *Source
+              page: 167
             rows:
               - roll: { min: 1, max: 10 }
                 text: Ruthless
@@ -1183,6 +1198,7 @@ oracles:
           text2: Typical Facilities and Services
         _source:
           <<: *Source
+          page: 168
         contents:
           shore:
             name: Shore

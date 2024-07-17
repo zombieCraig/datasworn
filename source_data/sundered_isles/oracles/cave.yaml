@@ -3,7 +3,7 @@ datasworn_version: '0.1.0'
 type: expansion
 ruleset: starforged
 <<: &Source
-  date: 2024-06-11
+  date: 2024-07-01
   title: Sundered Isles
   url: https://ironswornrpg.com
   license: null
@@ -16,6 +16,7 @@ oracles:
     oracle_type: tables
     _source:
       <<: *Source
+      page: 204
     contents:
       type:
         name: Cave Type
@@ -23,6 +24,7 @@ oracles:
         oracle_type: table_text2
         _source:
           <<: *Source
+          page: 204
         rows:
           - roll: { min: 1, max: 60 }
             text: Sea Cave
@@ -46,6 +48,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/cave/threshold_cursed
         _source:
           <<: *Source
+          page: 205
         rows:
           - roll: { min: 1, max: 6 }
             text: Archway of carved stone
@@ -95,6 +98,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 205
         rows:
           - roll: { min: 1, max: 7 }
             text: Bloody trail leading inside
@@ -138,6 +142,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/cave/lurking_threat_cursed
         _source:
           <<: *Source
+          page: 207
         rows:
           - roll: { min: 1, max: 15 }
             text: Chilling cold
@@ -187,6 +192,7 @@ oracles:
         column_labels: *LurkingThreat.column_labels
         _source:
           <<: *Source
+          page: 207
         rows:
           - roll: { min: 1, max: 25 }
             text: Dark-dwelling beings
@@ -215,6 +221,7 @@ oracles:
         oracle_type: table_shared_text2
         _source:
           <<: *Source
+          page: 204
         contents:
           sea:
             name: Sea Cave
@@ -264,6 +271,7 @@ oracles:
         oracle_type: tables
         _source:
           <<: *Source
+          page: 208
         contents:
           feature:
             name: Sea Cave Features
@@ -276,6 +284,7 @@ oracles:
                 cursed_by: oracle_rollable:sundered_isles/cave/sea/feature_cursed
             _source:
               <<: *Source
+              page: 208
             rows:
               - roll: { min: 1, max: 1 }
                 text: Abandoned boat
@@ -434,6 +443,7 @@ oracles:
                 curse_behavior: replace_result
             _source:
               <<: *Source
+              page: 209
             rows:
               - roll: { min: 1, max: 5 }
                 text: Bewitching illusion
@@ -482,6 +492,7 @@ oracles:
             tags: *SeaTag
             _source:
               <<: *Source
+              page: 209
             rows:
               - roll: { min: 1, max: 20 }
                 <<: &LurkingThreat
@@ -546,6 +557,7 @@ oracles:
             tags: *SeaTag
             _source:
               <<: *Source
+              page: 209
             rows:
               - roll: { min: 1, max: 10 }
                 text: Advance warning of a danger
@@ -589,6 +601,7 @@ oracles:
             recommended_rolls: { min: 1, max: 2 }
             _source:
               <<: *Source
+              page: 209
             rows:
               - roll: { min: 1, max: 10 }
                 text: Elaborate trap or puzzle
@@ -626,6 +639,7 @@ oracles:
         oracle_type: tables
         _source:
           <<: *Source
+          page: 210
         contents:
           feature:
             name: Inland Cave Features
@@ -638,6 +652,7 @@ oracles:
             recommended_rolls: { min: 1, max: 2 }
             _source:
               <<: *Source
+              page: 210
             rows:
               - roll: { min: 1, max: 1 }
                 text: Abandoned camp
@@ -796,6 +811,7 @@ oracles:
                 curse_behavior: replace_result
             _source:
               <<: *Source
+              page: 211
             rows:
               - roll: { min: 1, max: 5 }
                 text: Bewitching illusion
@@ -844,6 +860,7 @@ oracles:
             tags: *InlandTag
             _source:
               <<: *Source
+              page: 211
             rows:
               - roll: { min: 1, max: 20 }
                 <<: *LurkingThreat
@@ -905,6 +922,7 @@ oracles:
             tags: *InlandTag
             _source:
               <<: *Source
+              page: 211
             rows:
               - roll: { min: 1, max: 10 }
                 text: Advance warning of a danger
@@ -934,6 +952,7 @@ oracles:
             recommended_rolls: { min: 1, max: 2 }
             _source:
               <<: *Source
+              page: 211
             rows:
               - roll: { min: 1, max: 10 }
                 text: Ancient Tomb

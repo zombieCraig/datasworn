@@ -3,7 +3,7 @@ datasworn_version: "0.1.0"
 type: expansion
 ruleset: starforged
 <<: &Source
-  date: 2024-06-11
+  date: 2024-07-01
   title: Sundered Isles
   url: https://ironswornrpg.com
   license: null
@@ -16,6 +16,7 @@ oracles:
     oracle_type: tables
     _source:
       <<: *Source
+      page: 212
     contents:
       location:
         name: Ruin Location
@@ -24,6 +25,7 @@ oracles:
         summary: When learning about a distant ruin, use this table to reveal its location. If you come upon a ruin in your travels, pick a location as appropriate to your surroundings.
         _source:
           <<: *Source
+          page: 212
         rows:
           - roll: { min: 1, max: 20 }
             text: Sea
@@ -55,6 +57,7 @@ oracles:
         oracle_type: table_text2
         _source:
           <<: *Source
+          page: 213
         rows:
         - roll: { min: 1, max: 10 }
           text: Devastated
@@ -86,6 +89,7 @@ oracles:
         oracle_type: table_text
         _source:
           <<: *Source
+          page: 213
         rows:
           - roll: { min: 1, max: 5 }
             text: Unimpressive structure
@@ -113,6 +117,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/ruin/first_look_cursed
         _source:
           <<: *Source
+          page: 214
         rows:
           - roll: { min: 1, max: 2 }
             text: Adorned with faded colors
@@ -214,6 +219,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 213
         rows:
           - roll: { min: 1, max: 3 }
             text: Among titanic bones
@@ -289,6 +295,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/ruin/mystery_cursed
         _source:
           <<: *Source
+          page: 216
         rows:
           - roll: { min: 1, max: 10 }
             text: Calamitous downfall
@@ -331,6 +338,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 216
         rows:
           - roll: { min: 1, max: 10 }
             text: Corrupted religion
@@ -371,6 +379,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/ruin/cipher_cursed
         _source:
           <<: *Source
+          page: 216
         rows:
           - roll: { min: 1, max: 10 }
             text: Carved glyphs
@@ -403,6 +412,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 216
         rows:
           - roll: { min: 1, max: 10 }
             text: Deadly trap or infernal mechanism
@@ -434,6 +444,7 @@ oracles:
             cursed_by: oracle_rollable:sundered_isles/ruin/feature_cursed
         _source:
           <<: *Source
+          page: 217
         rows:
           - roll: { min: 1, max: 1 }
             text: Alchemical experiments or supplies
@@ -651,6 +662,7 @@ oracles:
             curse_behavior: replace_result
         _source:
           <<: *Source
+          page: 218
         rows:
           - roll: { min: 1, max: 2 }
             text: Animate statues or machines
@@ -758,6 +770,7 @@ oracles:
         oracle_type: table_text
         _source:
           <<: *Source
+          page: 219
         rows:
           - roll: { min: 1, max: 4 }
             text: Confounding puzzle
@@ -842,6 +855,7 @@ oracles:
         oracle_type: table_text
         _source:
           <<: *Source
+          page: 219
         rows:
           - roll: { min: 1, max: 5 }
             text: Access to an untouched area

@@ -3,7 +3,7 @@ datasworn_version: "0.1.0"
 type: expansion
 ruleset: starforged
 <<: &Source
-  date: 2024-06-11
+  date: 2024-07-01
   title: Sundered Isles
   url: https://ironswornrpg.com
   license: null
@@ -11,10 +11,11 @@ ruleset: starforged
     - name: Shawn Tomkin
 atlas:
   realms:
-    name: Realms
+    name: Select Your Realm
     type: atlas_collection
     _source:
       <<: *Source
+      page: 69
     contents:
       seafaring:
         type: atlas_entry
@@ -42,6 +43,7 @@ atlas:
           Ready to set sail with the wind in your hair and a vow in your heart? Chart a course for the seafaring realm.
         _source:
           <<: *Source
+          page: 70
       skyfaring:
         type: atlas_entry
         name: The Skyfaring Realm
@@ -67,6 +69,7 @@ atlas:
           Ready to soar through the skies and battle with pirates in the dark heart of a thundercloud? Launch your ship into the skyfaring realm.
         _source:
           <<: *Source
+          page: 72
       starfaring:
         type: atlas_entry
         name: The Starfaring Realm
@@ -90,3 +93,4 @@ atlas:
           Ready to wade into battle in your ironclad exosuit armed with a blade of scintillating energy? The starfaring realm awaits.
         _source:
           <<: *Source
+          page: 74

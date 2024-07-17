@@ -33,7 +33,7 @@ oracles:
             recommended_rolls: { min: 1, max: 2 }
             tags:
               sundered_isles:
-                cursed_by: oracle_rollable:sundered_isles/getting_underway/your_character/your_backstory_cursed
+                cursed_by: oracle_rollable:sundered_isles/getting_underway/create_your_character/your_backstory_cursed
             _source:
               <<: *Source
               page: 92
@@ -101,7 +101,7 @@ oracles:
             tags:
               sundered_isles:
                 cursed_version_of:
-                  - oracle_rollable:sundered_isles/getting_underway/your_character/your_backstory
+                  - oracle_rollable:sundered_isles/getting_underway/create_your_character/your_backstory
                 curse_behavior: replace_result
             _source:
               <<: *Source
