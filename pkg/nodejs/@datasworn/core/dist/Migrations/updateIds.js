@@ -1,9 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.rehydrateReplacementMaps = rehydrateReplacementMaps;
 exports.updateIdInString = updateIdInString;
 exports.updateIdsInMarkdown = updateIdsInMarkdown;
 exports.updateId = updateId;
 const CONST_js_1 = require("../IdElements/CONST.js");
+/**
+ * Load the parsed JSON objects from `id_map.json` and/or `id_regex_map.json` in to a Map object for efficient lookup and replacement.
+ */
+function rehydrateReplacementMaps(...data) {
+    const result = new Map();
+    for (const dt of data)
+        for (const key in dt) {
+            const replacer = dt[key];
+            const idPattern = key.startsWith('^') && key.endsWith('$') ? new RegExp(key) : key;
+            result.set(idPattern, replacer);
+        }
+    return result;
+}
 const neverLegacyIdSubstrings = new Set([
     ',',
     '. ',
