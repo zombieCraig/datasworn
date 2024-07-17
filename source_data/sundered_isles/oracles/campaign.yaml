@@ -3,7 +3,7 @@ datasworn_version: "0.1.0"
 type: expansion
 ruleset: starforged
 <<: &Source
-  date: 2024-06-11
+  date: 2024-07-01
   title: Sundered Isles
   url: https://ironswornrpg.com
   license: null
@@ -18,8 +18,8 @@ oracles:
       - oracle_collection:starforged/campaign_launch
     _source: *Source
     collections:
-      faction_inspiration:
-        name: Faction Inspiration
+      factions:
+        name: Factions of the Isles
         type: oracle_collection
         oracle_type: tables
         _source:
@@ -35,6 +35,7 @@ oracles:
                 faction_type: society
             _source:
               <<: *Source
+              page: 52
             rows:
               - roll: { min: 1, max: 10 }
                 text: Akiya
@@ -76,6 +77,7 @@ oracles:
                 faction_type: organization
             _source:
               <<: *Source
+              page: 53
             rows:
               - roll: { min: 1, max: 10 }
                 text: Bloody Skulls
@@ -117,6 +119,7 @@ oracles:
                 faction_type: empire
             _source:
               <<: *Source
+              page: 54
             rows:
               - roll: { min: 1, max: 10 }
                 text: Argosy Company
@@ -155,6 +158,7 @@ oracles:
             summary: People transformed or bound by dreadful curses
             _source:
               <<: *Source
+              page: 55
             rows:
               - roll: { min: 1, max: 10 }
                 text: Acheron’s Armada
@@ -741,7 +745,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it a water form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [water](datasworn:oracle_rollable:starforged/creature/form/water) form.
                 # TODO
           land:
             name: Beasts of the Land
@@ -810,7 +814,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it a land form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [land](datasworn:oracle_rollable:starforged/creature/form/land) form.
           shore_and_river:
             name: Beasts of the Shore and River
             type: oracle_rollable
@@ -850,7 +854,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it a land or water form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it a [land](datasworn:oracle_rollable:starforged/creature/form/land) or [water](datasworn:oracle_rollable:starforged/creature/form/water) form.
           sky:
             name: Beasts of the Sky
             type: oracle_rollable
@@ -890,7 +894,7 @@ oracles:
               - roll: { min: 96, max: 100 }
                 text: Abomination
                 text2: Various Ranks
-                text3: Generate this beast using the Starforged creature oracles (page 336 of the Starforged rulebook), giving it an air form.
+                text3: Generate this beast using the Starforged [creature oracles](datasworn:oracle_collection:starforged/creature), giving it an [air](datasworn:oracle_rollable:starforged/creature/form/air) form.
       notable_locations:
         name: Notable Locations
         oracle_type: tables
