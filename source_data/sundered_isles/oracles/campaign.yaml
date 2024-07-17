@@ -681,6 +681,7 @@ oracles:
               text3: Description
             _source:
               <<: *Source
+              page: 58
             rows:
               - roll: { min: 1, max: 15 }
                 text: Predatory Shark
@@ -754,6 +755,7 @@ oracles:
             column_labels: *Beasts.column_labels
             _source:
               <<: *Source
+              page: 60
             rows:
               - roll: { min: 1, max: 25 }
                 text: Predatory Big Cat
@@ -822,6 +824,7 @@ oracles:
             column_labels: *Beasts.column_labels
             _source:
               <<: *Source
+              page: 62
             rows:
               - roll: { min: 1, max: 20 }
                 text: Great Crocodile
@@ -862,6 +865,7 @@ oracles:
             column_labels: *Beasts.column_labels
             _source:
               <<: *Source
+              page: 63
             rows:
               - roll: { min: 1, max: 20 }
                 text: Great Hawk
