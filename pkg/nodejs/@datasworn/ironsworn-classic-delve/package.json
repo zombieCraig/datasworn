@@ -1,6 +1,6 @@
 {
 	"name": "@datasworn/ironsworn-classic-delve",
-	"version": "0.1.0",
+	"version": "0.0.10",
 	"description": "Datasworn JSON data for the Ironsworn: Delve expansion.",
 	"files": ["json", "migration"],
 	"repository": {
@@ -17,14 +17,14 @@
 		}
 	],
 	"scripts": {
-		"release": "release-it --dry-run"
+		"release": "release-it"
 	},
 	"license": "(CC-BY-4.0 OR CC-BY-NC-4.0)",
 	"bugs": {
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"dependencies": {
-		"@datasworn/ironsworn-classic": "0.1.0"
+		"@datasworn/ironsworn-classic": "0.0.10"
 	},
 	"authors": [
 		{

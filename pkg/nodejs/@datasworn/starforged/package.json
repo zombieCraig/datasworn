@@ -1,6 +1,6 @@
 {
 	"name": "@datasworn/starforged",
-	"version": "0.1.0",
+	"version": "0.0.10",
 	"description": "Datasworn JSON data for Ironsworn: Starforged.",
 	"files": ["icons", "images", "json", "migration"],
 	"repository": {
@@ -9,7 +9,7 @@
 		"directory": "pkg/nodejs/@datasworn/starforged"
 	},
 	"scripts": {
-		"release": "release-it --dry-run"
+		"release": "release-it"
 	},
 	"keywords": ["ironsworn", "datasworn", "starforged", "TTRPG"],
 	"contributors": [
@@ -24,7 +24,7 @@
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"dependencies": {
-		"@datasworn/core": "0.1.0"
+		"@datasworn/core": "0.0.10"
 	},
 	"authors": [
 		{
