@@ -21,7 +21,9 @@
 			"**/.github",
 			"**/.vscode",
 			"src/data-legacy",
-			"src/extras"
+			"src/extras",
+			"package.json",
+			"package-lock.json"
 		]
 	},
 	"organizeImports": { "enabled": true },
