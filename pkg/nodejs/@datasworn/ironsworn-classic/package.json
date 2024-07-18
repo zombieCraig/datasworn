@@ -8,6 +8,20 @@
 		"url": "git+https://github.com/rsek/datasworn.git",
 		"directory": "pkg/nodejs/@datasworn/ironsworn-classic"
 	},
+	"scripts": {
+		"release": "release-it"
+	},
+	"release-it": {
+		"git": false,
+		"plugins": {
+			"@release-it/bumper": {
+				"out": {
+					"file": "package.json",
+					"path": ["dependencies.@datasworn/core"]
+				}
+			}
+		}
+	},
 	"keywords": ["ironsworn", "datasworn", "TTRPG"],
 	"contributors": [
 		{
@@ -21,7 +35,7 @@
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"dependencies": {
-		"@datasworn/core": "0.1.0"
+		"@datasworn/core": "0.0.10"
 	},
 	"authors": [
 		{

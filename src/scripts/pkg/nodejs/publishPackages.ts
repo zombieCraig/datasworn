@@ -56,14 +56,15 @@ const corePkgPath = path.join(PKG_DIR_NODE, corePkgId)
 
 const ops: Promise<unknown>[] = []
 
-ops.push(publishCommand(corePkgPath, { dryRun: true }))
+// ops.push(publishCommand(corePkgPath, { dryRun: true }))
+ops.push(releaseIt(corePkgPath))
 
-for (const { pkg } of Object.values(pkgConfig)) {
-	ops.push(
-		publishCommand(path.join(PKG_DIR_NODE, pkg.scope, pkg.name), {
-			dryRun: true
-		})
-	)
-}
+// for (const { pkg } of Object.values(pkgConfig)) {
+// 	ops.push(
+// 		publishCommand(path.join(PKG_DIR_NODE, pkg.scope, pkg.name), {
+// 			dryRun: true
+// 		})
+// 	)
+// }
 
 await Promise.all(ops)

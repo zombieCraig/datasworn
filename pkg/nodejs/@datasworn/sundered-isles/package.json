@@ -9,6 +9,17 @@
 		"url": "git+https://github.com/rsek/datasworn.git",
 		"directory": "pkg/nodejs/@datasworn/sundered-isles"
 	},
+	"release-it": {
+		"git": false,
+		"plugins": {
+			"@release-it/bumper": {
+				"out": {
+					"file": "package.json",
+					"path": ["dependencies.@datasworn/starforged"]
+				}
+			}
+		}
+	},
 	"keywords": [
 		"ironsworn",
 		"datasworn",
@@ -28,8 +39,7 @@
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"dependencies": {
-		"@datasworn/core": "0.1.0",
-		"@datasworn/starforged": "0.1.0"
+		"@datasworn/starforged": "0.0.10"
 	},
 	"authors": [
 		{
