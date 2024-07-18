@@ -11,10 +11,7 @@
 		"directory": "pkg/nodejs/@datasworn/core"
 	},
 	"scripts": {
-		"release": "release-it"
-	},
-	"release-it": {
-		"git": false
+		"release": "release-it --dry-run"
 	},
 	"keywords": ["ironsworn", "datasworn", "dataforged", "TTRPG"],
 	"contributors": [

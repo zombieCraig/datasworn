@@ -1,0 +1,9 @@
+{
+	"$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+	"git": {
+		"requireCleanWorkingDir": false
+	},
+	"npm": {
+		"publish": false
+	}
+}

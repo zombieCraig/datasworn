@@ -1,6 +1,6 @@
 {
 	"name": "@datasworn/ironsworn-classic",
-	"version": "0.0.10",
+	"version": "0.1.0",
 	"description": "Datasworn JSON data for the Ironsworn RPG.",
 	"files": ["json", "migration"],
 	"repository": {
@@ -9,18 +9,7 @@
 		"directory": "pkg/nodejs/@datasworn/ironsworn-classic"
 	},
 	"scripts": {
-		"release": "release-it"
-	},
-	"release-it": {
-		"git": false,
-		"plugins": {
-			"@release-it/bumper": {
-				"out": {
-					"file": "package.json",
-					"path": ["dependencies.@datasworn/core"]
-				}
-			}
-		}
+		"release": "release-it --dry-run"
 	},
 	"keywords": ["ironsworn", "datasworn", "TTRPG"],
 	"contributors": [
@@ -35,7 +24,7 @@
 		"url": "https://github.com/rsek/datasworn/issues"
 	},
 	"dependencies": {
-		"@datasworn/core": "0.0.10"
+		"@datasworn/core": "0.1.0"
 	},
 	"authors": [
 		{
