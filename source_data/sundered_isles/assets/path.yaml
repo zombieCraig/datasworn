@@ -68,7 +68,7 @@ assets:
           starforged:
             recommended: true
           core:
-            supernatural: true
+            technological: true
         abilities:
           - enabled: true
             text: |-
