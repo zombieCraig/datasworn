@@ -1,0 +1,116 @@
+_id: fe_runners
+datasworn_version: "0.1.0"
+type: ruleset
+assets:
+  companion:
+    type: asset_collection
+    _source:
+      <<: &Source
+        title: 'Fe-Runners Rulebook'
+        license: https://creativecommons.org/licenses/by/4.0
+        url: https://zombiecraig.itch.io/fe-runners
+        date: 2024-08-10
+        authors:
+          - name: Craig Smith
+    name: Companion Assets
+    color: &CompanionAsset.color '#3d8b8a'
+    contents:
+      sexy_hologram:
+        name: Sexy Hologram
+        type: asset
+        <<: &CompanionAsset
+          category: Companion
+          color: *CompanionAsset.color
+          _source:
+            <<: *Source
+            title: 'Fe-Runner Assets'
+          options:
+            name:
+              field_type: text
+              label: name
+        abilities:
+          - enabled: true
+            text: A very attractive hologram can be emitted from a small pocket device you carry. They do not have health but are vulnerable to loss or destruction.  When alone you may make a Hearten move with them.
+          - enabled: false
+            text: When using charm, pacify or encourage during a Compel move, you may use them to add +1 to the roll.
+          - enabled: false
+            text: Once per session, you may ignore the effects of Endure Stress by remembering motivational messages that they have told you before.
+      child:
+        name: Child
+        type: asset
+        <<: *CompanionAsset
+        controls:
+          health:
+            <<: &BiologicalCompanionHealth
+              label: health
+              min: 0
+              field_type: condition_meter
+              controls:
+                out_of_action:
+                  label: out of action
+                  field_type: checkbox
+                  disables_asset: true
+              moves: &BiologicalCompanionHealth.moves
+                suffer:
+                  - move:fe_runners/suffer/companion_takes_a_hit
+                recover:
+                  - move:fe_runners/recover/heal
+            max: 3
+            value: 3
+        abilities:
+          - enabled: true
+            text: A cute but mischievous child is always around.  Once per situation, when you score a miss, you may envision the child causing mischief or getting into danger. Roll on +its health, on a strong hit, the child accidently turns the situation in your favor; take +2 momentum. On a weak hit, it provides distraction or mild boon; take +1 momentum. On a miss, it faces its own cost or makes the situation worse.
+          - enabled: false
+            text: When Companion Takes a Hit, on a miss you become enraged and receive +1 on your next move (not a progress move).
+          - enabled: false
+            text: |-
+              Sometimes the child says random things about their mysterious past that often reveal new insight to your current quest.   Use your oracle dice to choose a table (1–25: Action, 26–50: Theme, 51–75: Descriptor, 76–100: Focus). Then, roll to learn what the child says.  If you connect it to your quest, take +1 momentum
+      summoned_animal:
+        name: Summoned Animal
+        type: asset
+        <<: *CompanionAsset
+        controls: 
+          health:
+            <<: *BiologicalCompanionHealth
+            max: 4
+            min: 0
+            value: 4
+        abilities:
+          - enabled: true
+            text: You may summon a captured animal to aid in battle. When you Strike aided by your animal, add +1. If you Clash, take +1 momentum on a hit.
+          - enabled: false
+            text: When you Explore a System with haste, you may mount the animal to receive +1 to the roll.
+          - enabled: false
+            text: Once per situation, when you Face Danger and your animal has already been summoned.  You may reroll one challenge die.
+      survey_drone:
+        name: Survey Drone
+        type: asset
+        <<: *CompanionAsset
+        controls: 
+          health: &MechanicalCompanionHealth
+            <<: *BiologicalCompanionHealth
+            max: 5
+            value: 5
+            moves:
+              <<: *BiologicalCompanionHealth.moves
+              recover:
+                - move:fe_runners/recover/repair
+        abilities:
+          - enabled: true
+            text: The drone may scan the path ahead when performing the Explore the System move, add +1.
+          - enabled: false
+            text: You may send the drone out to Explore the System quickly with its sensors, or Face Danger to detect a threat, roll +its health and take +1 momentum on a hit.
+          - enabled: false
+            text: You may use the drone to Gather Information about a scene or scan an area.  When you do, add +1 to the roll
+      symbiote:
+        name: Symbiote
+        type: asset
+        <<: *CompanionAsset
+        abilities:
+          - enabled: true
+            text: ◆	An entity has woven itself into your digital existence.  You can always hear its thoughts and it lives just below the surface. When you Enter the Fray, roll +spirit first, on a hit, the Symbiote empowers you; take +1 on Enter the Fray or the following action.  On a miss, the Symbiote has other plans and you are overcome with visions; Endure Stress (-1) and take an automatic miss on Enter the Fray.
+          - enabled: false
+            text: ◇	The Symbiote appears as a vision in your scene and offers their own commentary.  Ask the Oracle if the information is useful at 50/50 chance. If yes, you feel confident in your actions; take +1 momentum.  On a no, Endure Stress (-1)
+          - enabled: false
+            text: ◇	When you Face Desolation and you succumb to despair, the Symbiote takes over.  Forsake all Vows, clear forsaken and traumatized, reset spirit to full and immediate Swear an Iron Vow as the Symbiote.
+        
