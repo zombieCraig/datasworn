@@ -1,0 +1,139 @@
+_id: fe_runners
+datasworn_version: '0.1.0'
+type: expansion
+ruleset: starforged
+<<: &Source
+  date: 2024-08-10
+  title: 'Fe-Runners Rulebook'
+  url: ttps://zombiecraig.itch.io/fe-runners
+  license: https://creativecommons.org/licenses/by-nc-sa/4.0
+  authors:
+    - name: Craig Smith
+oracles: 
+  node:
+    name: Node Discovery Oracles
+    type: oracle_collection
+    oracle_type: tables
+    _source:
+      <<: *Source
+      page: 64
+    summary: |-
+      You will come across new nodes on the network as you scour the Net.  Different network segments have 
+      different types of nodes that will exist on them.  Each node has a card for the network segment as well 
+      as a Node type card.  You will first roll to determine the initial node type by rolling on the nature of the 
+      node.
+    contents: 
+      segment:
+        name: Segment
+        type: oracle_rollable
+        oracle_type: table_text
+        _source:
+          <<: *Source
+          page: 64
+        rows:
+          - roll: { min: 1, max: 30 }
+            text: Core Segment
+          - roll: { min: 31, max: 60 }
+            text: Corporate Segment (CorpNet)
+          - roll: { min: 61, max: 85 }
+            text: Government Segment (GovNet)
+          - roll: { min: 86, max: 100 }
+            text: Underground Segment (Darknet)
+      misc_node:
+        name: Miscellaneous Node
+        type: oracle_rollable
+        oracle_type: table_text
+        summary: |-
+           Random devices and nodes that can be found in Core, Corporate and Government sectors.  These are often forgotten devices.  Roll on [[Theme]](datasworn:oracle_rollable:fe_runners/core/theme) or additional context inspiration.
+        _source:
+          <<: *Source
+          page: 65
+        rows:
+          - roll: { min: 1, max: 9 }
+            text: Router
+          - roll: { min: 10, max: 18 }
+            text: Forgotten website
+          - roll: { min: 19, max: 27 }
+            text: Media device
+          - roll: { min: 28, max: 36 }
+            text: Infrastructure Equipment
+          - roll: { min: 37, max: 45 }
+            text: Insecure Workstation
+          - roll: { min: 46, max: 54 }
+            text: Consumer Product
+          - roll: { min: 55, max: 63 }
+            text: Vending Machine
+          - roll: { min: 64, max: 72 }
+            text: Billboard
+          - roll: { min: 73, max: 81 }
+            text: Nanny Cam
+          - roll: { min: 82, max: 90 }
+            text: Toy
+          - roll: { min: 91, max: 98 }
+            text: Appliance
+          - roll: { min: 99, max: 100 }
+            text: Transit Vehicle
+      node_encounter:
+        name: Node Encounter
+        type: oracle_rollable
+        oracle_type: table_text
+        _source:
+          <<: *Source
+          page: 66 
+        rows:
+          - roll: { min: 1, max: 10 }
+            text: Security bot / drone
+          - roll: { min: 11, max: 20 }
+            text: Virus / Malicious Entity
+          - roll: { min: 21, max: 30 }
+            text: Fe-Runner
+          - roll: { min: 31, max: 40 }
+            text: Encrypted data / media
+          - roll: { min: 41, max: 50 }
+            text: A robot
+          - roll: { min: 51, max: 60 }
+            text: A trap
+          - roll: { min: 61, max: 70 }
+            text: An animal
+          - roll: { min: 71, max: 80 }
+            text: An unexpected discovery
+          - roll: { min: 81, max: 90 }
+            text: An item
+          - roll: { min: 91, max: 100 }
+            text: A person
+      system_area:
+        name: System Area
+        type: oracle_rollable
+        oracle_type: table_text
+        summary: |-
+           When exploring a node type not listed under Node Types, you can use this chart for inspiration for what type of area you are in.
+        _source:
+          <<: *Source
+          page: 66
+        rows:
+          - roll: { min: 1, max: 10 }
+            text: Lobby
+          - roll: { min: 11, max: 20 }
+            text: Meeting
+          - roll: { min: 21, max: 30 }
+            text: Recreational
+          - roll: { min: 31, max: 40 }
+            text: Research
+          - roll: { min: 41, max: 50 }
+            text: Production
+          - roll: { min: 51, max: 60 }
+            text: Observation
+          - roll: { min: 61, max: 70 }
+            text: Security
+          - roll: { min: 71, max: 80 }
+            text: Roll [Theme](datasworn:oracle_rollable:fe_runners/core/theme)
+            oracle_rolls:
+              - oracle: oracle_rollable:fe_runners/core/theme
+                auto: true
+          - roll: { min: 81, max: 90 }
+            text: Roll [Focus](datasworn:oracle_rollable:fe_runners/core/focus)
+            oracle_rolls:
+            - oracle: oracle_rollable:fe_runners/core/focus
+              auto: true
+          - roll: { min: 91, max: 100 }
+            text: Storage

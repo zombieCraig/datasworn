@@ -1,26 +1,20 @@
 _id: fe_runners
 datasworn_version: "0.1.0"
-type: ruleset
-# source: &Source
-#   url: https://zombiecraig.itch.io/fe-runners
-#   authors:
-#     - name: Craig Smith
-#   title: 'Fe-Runners'
-#   license: https://creativecommons.org/licenses/by-nc-sa/4.0
-#   date: 2024-08-10
-# last full text dump: tdb
+type: expansion
+ruleset: starforged
+<<: &Source
+  date: 2024-08-10
+  title: 'Fe-Runners Rulebook'
+  url: ttps://zombiecraig.itch.io/fe-runners
+  license: https://creativecommons.org/licenses/by-nc-sa/4.0
+  authors:
+    - name: Craig Smith
 truths:
   netdependency:
     name: Net Dependency
     type: truth
     _source:
-      <<: &Source
-        title: 'Fe-Runners Rulebook'
-        license: https://creativecommons.org/licenses/by/4.0
-        url: https://zombiecraig.itch.io/fe-runners
-        date: 2024-08-10
-        authors:
-          - name: Craig Smith
+      <<: *Source
       page: 40
     your_character: |-
        What influence does the net have on the general population?

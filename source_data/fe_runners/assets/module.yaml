@@ -1,16 +1,18 @@
 _id: fe_runners
 datasworn_version: "0.1.0"
-type: ruleset
+type: expansion
+ruleset: starforged
+<<: &Source
+  date: 2024-08-10
+  title: 'Fe-Runners Rulebook'
+  url: ttps://zombiecraig.itch.io/fe-runners
+  license: https://creativecommons.org/licenses/by-nc-sa/4.0
+  authors:
+    - name: Craig Smith
 assets:
   module:
     _source:
-      <<: &Source
-        title: 'Fe-Runners Rulebook'
-        license: https://creativecommons.org/licenses/by/4.0
-        url: https://zombiecraig.itch.io/fe-runners
-        date: 2024-08-10
-        authors:
-          - name: Craig Smith
+      <<: *Source
     name: Module Assets
     type: asset_collection
     color: &ModuleAsset.color '#7f5a90'
@@ -120,6 +122,6 @@ assets:
             max: 5
             value: 0
             min: 0
-            
+
 
 

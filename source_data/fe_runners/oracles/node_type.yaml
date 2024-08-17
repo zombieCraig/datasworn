@@ -1,0 +1,56 @@
+_id: fe_runners
+datasworn_version: '0.1.0'
+type: expansion
+ruleset: starforged
+<<: &Source
+  date: 2024-08-10
+  title: 'Fe-Runners Rulebook'
+  url: ttps://zombiecraig.itch.io/fe-runners
+  license: https://creativecommons.org/licenses/by-nc-sa/4.0
+  authors:
+    - name: Craig Smith
+oracles: 
+  node_type:
+    name: Node Types
+    oracle_type: tables
+    type: oracle_collection
+    _source:
+      <<: *Source
+      page: 79
+    summary: Use when you [Explore the System](datasworn:move:fe_runners/exploration/explore_the_system) to help describe your area.
+    collections: 
+      social:
+        name: Social / Communications
+        type: oracle_collection
+        oracle_type: tables
+        _source:
+          <<: &CollectionSource
+            <<: *Source
+            page: 79
+        contents: 
+          area:
+            <<: &Area
+              name: Area
+              summary: The general area type
+              oracle_type: table_text
+              type: oracle_rollable
+            _source:
+              <<: *CollectionSource
+            rows:
+              - roll: { min: 1, max: 10 }
+                text: Welcome Area
+              - roll: { min: 11, max: 30 }
+                text: Corridor / Hallway
+              - roll: { min: 31, max: 50 }
+                text: Meeting Area
+              - roll: { min: 51, max: 69 }
+                text: Private Area
+              - roll: { min: 70, max: 75 }
+                text: Public Postings
+              - roll: { min: 76, max: 84 }
+                text: Entertainment
+              - roll: { min: 85, max: 95 }
+                text: Large room or opening
+              - roll: { min: 96, max: 100 }
+                text: Data Lockers / Storage
+
