@@ -1379,7 +1379,7 @@ moves:
           __When you uncover a helpful situation or feature when exploring a system__, roll on the following 
           table.  If you are making this move as a result of a strong hit on the [Explore the System](datasworn:move:fe_runners/exploration/explore_the_system) move, you may 
           pick or envision an opportunity instead of rolling.  Most systems have their own opportunity tables you 
-          may also roll on in the [Node Types](datasowrn:oracle_rollable:fe_runners/node_type/node_types) Section.
+          may also roll on in the [Node Types](datasowrn:oracle_collection:fe_runners/node_type) Section.
           Then choose one.
           ●  Gain insight or prepare: Take +1 momentum
           ●  Take action now: You and your allies may make a move (not a progress move) which directly 
@@ -1402,7 +1402,7 @@ moves:
             type: oracle_rollable
             rows:
               - roll: { min: 1, max: 30 }
-                text: Roll on [Node Type](datasowrn:oracle_rollable:fe_runners/node_type/node_types) Peril or [Story Complication](oracle_rollable:fe_runners/core/story_complication)
+                text: Roll on [Node Type](datasowrn:oracle_collection:fe_runners/node_type) Peril or [Story Complication](oracle_rollable:fe_runners/core/story_complication)
               - roll: { min: 31, max: 45 }
                 text: Roll on [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)
               - roll: { min: 46, max: 57 }
@@ -1428,7 +1428,7 @@ moves:
         text: |-
           __When you encounter a risky situation within a system__, envision the danger or roll on the following 
           table.  If making this roll based on [[Explore the System]](datasworn:move:fe_runners/exploration/explore_the_system) move, you can instead roll on that nodes specific 
-          Perils table in the [[Node Types]](datasowrn:oracle_rollable:fe_runners/node_type/node_types) section.
+          Perils table in the [[Node Types]](datasowrn:oracle_collection:fe_runners/node_type) section.
 
           {{table>move.oracle_rollable:fe_runners/exploration/reveal_danger.reveal_danger}}}}
         _source:
