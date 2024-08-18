@@ -31,24 +31,24 @@ assets:
         abilities:
           - enabled: true
             text: |-
-              When making a move to crack or reverse engineer cryptographic data, you may Sacrifice Power (-2) and reroll any one die.
+              When making a move to crack or reverse engineer cryptographic data, you may [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) (-2) and reroll any one die.
           - enabled: false
             text: |-
               If you have the artist path, you may take an additional +1 when using one of those skills
           - enabled: false
             text: |-
-              When you Develop an Artifact or Reverse Engineer an Artifact, you may roll +integrity instead.  On a miss, Withstand Damage (-1)
+              When you [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) or [Reverse Engineer an Artifact](datasworn:move:fe_runners/artifact/reverse_engineer_an_artifact), you may roll +integrity instead.  On a __miss__, [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) (-1)
       high_speed_connection:
         name: High Speed Connection
         type: asset
         <<: *ModuleAsset
         abilities:
           - enabled: true
-            text: When you Map a Route, and score a strong hit, take +1 momentum
+            text: When you [Map a Route](datasworn:move:fe_runners/exploration/map_route), and score a __strong hit__, take +1 momentum
           - enabled: false
-            text: When you Disconnect while being chased, add +1 to the roll.
+            text: When you [Disconnect](datasworn:move:fe_runners/exploration/disconnect) while being chased, add +1 to the roll.
           - enabled: false
-            text: When you Enter the Fray you may use additional power to move faster, add +1 and Sacrifice Power (-1)
+            text: When you [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray) you may use additional power to move faster, add +1 and [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) (-1)
       encrypted_backup_drive:
         name: Encrypted Backup Drive
         type: asset
@@ -57,29 +57,29 @@ assets:
           - enabled: true
             text: When you are forced to lose something, you may instead roll +integrity, on a success you have a safe backup and do not suffer the loss.
           - enabled: false
-            text: You have increased offline storage, if you are in need of something (within reason) you may power up your drive to see if you have it available.  Roll +supply, on a strong hit, you have what you are looking for and take +1 momentum.
+            text: You have increased offline storage, if you are in need of something (within reason) you may power up your drive to see if you have it available.  Roll +supply, on a __strong hit__, you have what you are looking for and take +1 momentum.
           - enabled: false
-            text: When you Swear an Iron Vow that is a courier mission, you may add +1.  On a strong hit add +2 momentum.
+            text: When you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) that is a courier mission, you may add +1.  On a strong hit add +2 momentum.
       battery_backup:
         name: Battery Backup
         type: asset
         <<: *ModuleAsset
         abilities:
           - enabled: true
-            text: You may Recharge (+wits) using your battery backup, on a weak hit or a miss, the battery is drained and can not be used again until next session or you Sojourn. You may also use this on an Ally’s rig.
+            text: You may [Recharge](datasworn:move:fe_runners/recover/recharge) (+wits) using your battery backup, on a __weak hit__ or a __miss__, the battery is drained and can not be used again until next session or you [Sojourn](datasworn:move:fe_runners/recover/sojourn). You may also use this on an Ally’s rig.
           - enabled: false
-            text: If you suffer Sacrifice Power and your battery isn’t drained yet, you may instead use your battery’s charge to take up to 2 points of the penalty.  Then consider the battery drained using the rules above.
+            text: If you suffer [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) and your battery isn’t drained yet, you may instead use your battery’s charge to take up to 2 points of the penalty.  Then consider the battery drained using the rules above.
           - enabled: false
-            text: When you Withstand Damage you may instead sacrifice this battery asset.  If you choose to do this, the battery will explode in a few seconds, anyone around the explosion must Pay the Price.  The battery can not be repaired.
+            text: When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) you may instead sacrifice this battery asset.  If you choose to do this, the battery will explode in a few seconds, anyone around the explosion must [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).  The battery can not be repaired.
       software_defined_radio:
         name: Software Defined Radio
         type: asset
         <<: *ModuleAsset
         abilities:
           - enabled: true
-            text: When you attempt to Make a Connection remotely, you can use your radio to adjust to a frequency or channel that will give you an advantage.  Add +1.
+            text: When you attempt to [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) remotely, you can use your radio to adjust to a frequency or channel that will give you an advantage.  Add +1.
           - enabled: false
-            text: You may use Gather Information to scan the airwaves and intercept or locate hidden or private communication channels.
+            text: You may use [Gather Information](datasworn:move:fe_runners/adventure/gather_information) to scan the airwaves and intercept or locate hidden or private communication channels.
           - enabled: false
             text: You may add +1 to any roll when combined with an artifact that uses wireless communication to interact with a hardware device such as a door, vehicle or infrastructure.
       coolant_system:
@@ -88,22 +88,22 @@ assets:
         <<: *ModuleAsset
         abilities:
           - enabled: true
-            text: When you Withstand Damage, add +1.  On a strong hit, take +1 momentum.
+            text: When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage), add +1.  On a __strong hit__, take +1 momentum.
           - enabled: false
-            text: When you React Under Fire, you may add +1, on a strong hit with a match you can take an additional +1 momentum.
+            text: When you [React Under Fire](datasworn:move:fe_runners/combat/react_under_fire), you may add +1, on a __strong hit__ with a __match__ you can take an additional +1 momentum.
           - enabled: false
-            text: You may use your Coolant System to speed up recharging.  When you Recharge and get a strong hit you may take an additional +supply.
+            text: You may use your Coolant System to speed up recharging.  When you [Recharge](datasworn:move:fe_runners/recover/recharge) and get a __strong hit__ you may take an additional +supply.
       av_defense_system:
         name: AV (Anti-Virus) Defense System
         type: asset
         <<: *ModuleAsset
         abilities:
           - enabled: true
-            text: When you use Clash against a Virus or Worm, you can convert a weak hit to a strong hit, once per combat session.
+            text: When you use [Clash](datasworn:move:starforged/combat/clash) against a Virus or Worm, you can convert a __weak hit__ to a __strong hit__, once per combat session.
           - enabled: false
-            text: If you obtain an artifact that is a virus or worm, you may run it against your AV ahead of time to determine how effective the virus is at avoiding detection.  When you release the virus or worm and Enter the Fray, add +1 to the roll, on a hit take +1 momentum.
+            text: If you obtain an artifact that is a virus or worm, you may run it against your AV ahead of time to determine how effective the virus is at avoiding detection.  When you release the virus or worm and [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray), add +1 to the roll, on a __hit__ take +1 momentum.
           - enabled: false
-            text: When you Withstand Damage caused by a virus or a worm, you may instead redirect the damage to the AV Defense System.  The AV Defense System will be down until a successful Repair of a cost of 2 points is done.
+            text: When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) caused by a virus or a worm, you may instead redirect the damage to the AV Defense System.  The AV Defense System will be down until a successful Repair of a cost of 2 points is done.
       social_engineering_toolkit:
         name: Social Engineering Toolkit
         type: asset
@@ -112,7 +112,7 @@ assets:
           - enabled: true
             text: You may use this tool to alter your voice and appearance to someone else after recording a brief sample of your target. The ability to hold the guise weakens over time.  The guise starts at a rank of 5.  Roll the attack die, if higher than the guise stat,  your disguise fails.  If equal or less than your guise value, you are successful, however subtract run from your guise progress bar.
           - enabled: false
-            text: When you lie to Make a Connection, you may reroll the challenge die.
+            text: When you lie to [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection), you may reroll the challenge die.
           - enabled: false
             text: When you enter an event or situation using deception, add +1 momentum
         controls: 

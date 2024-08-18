@@ -4513,7 +4513,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "A very attractive hologram can be emitted from a small pocket device you carry. They do not have health but are vulnerable to loss or destruction.  When alone you may make a Hearten move with them.",
+							"text": "A very attractive hologram can be emitted from a small pocket device you carry. They do not have health but are vulnerable to loss or destruction.  When alone you may make a [Hearten](datasworn:move:fe_runners/recover/hearten) move with them.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4531,7 +4531,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "Once per session, you may ignore the effects of Endure Stress by remembering motivational messages that they have told you before.",
+							"text": "Once per session, you may ignore the effects of [Endure Stress](datasworn:move:fe_runners/suffer/endure_stress) by remembering motivational messages that they have told you before.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4597,7 +4597,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "A cute but mischievous child is always around.  Once per situation, when you score a miss, you may envision the child causing mischief or getting into danger. Roll on +its health, on a strong hit, the child accidently turns the situation in your favor; take +2 momentum. On a weak hit, it provides distraction or mild boon; take +1 momentum. On a miss, it faces its own cost or makes the situation worse.",
+							"text": "A cute but mischievous child is always around.  Once per situation, when you score a __miss__, you may envision the child causing mischief or getting into danger. Roll on +its health, on a __strong hit__, the child accidently turns the situation in your favor; take +2 momentum. On a __weak hit__, it provides distraction or mild boon; take +1 momentum. On a __miss__, it faces its own cost or makes the situation worse.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4606,7 +4606,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When Companion Takes a Hit, on a miss you become enraged and receive +1 on your next move (not a progress move).",
+							"text": "When [Companion Takes a Hit](datasworn:move:fe_runners/suffer/companion_takes_a_hit), on a __miss__ you become enraged and receive +1 on your next move (not a progress move).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4615,7 +4615,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "Sometimes the child says random things about their mysterious past that often reveal new insight to your current quest.   Use your oracle dice to choose a table (1–25: Action, 26–50: Theme, 51–75: Descriptor, 76–100: Focus). Then, roll to learn what the child says.  If you connect it to your quest, take +1 momentum",
+							"text": "Sometimes the child says random things about their mysterious past that often reveal new insight to your current quest.   Use your oracle dice to choose a table (1–25: [Action](oracle_rollable:fe_runners/core/action), 26–50: [Theme](oracle_rollable:fe_runners/core/theme), 51–75: [Descriptor](oracle_rollable:fe_runners/core/descriptor), 76–100: [Focus](oracle_rollable:fe_runners/core/focus)). Then, roll to learn what the child says.  If you connect it to your quest, take +1 momentum",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4680,7 +4680,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You may summon a captured animal to aid in battle. When you Strike aided by your animal, add +1. If you Clash, take +1 momentum on a hit.",
+							"text": "You may summon a captured animal to aid in battle. When you [Strike](datasworn:move:fe_runners/combat/strike) aided by your animal, add +1. If you Clash, take +1 momentum on a hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4689,7 +4689,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Explore a System with haste, you may mount the animal to receive +1 to the roll.",
+							"text": "When you [Explore a System](datasworn:move:fe_runners/exploration/explore_the_system) with haste, you may mount the animal to receive +1 to the roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4698,7 +4698,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "Once per situation, when you Face Danger and your animal has already been summoned.  You may reroll one challenge die.",
+							"text": "Once per situation, when you [Face Danger](datasworn:move:starforged/adventure/face_danger) and your animal has already been summoned.  You may reroll one challenge die.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4763,7 +4763,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "The drone may scan the path ahead when performing the Explore the System move, add +1.",
+							"text": "The drone may scan the path ahead when performing the [Explore the System](datasworn:move:fe_runners/exploration/explore_the_system) move, add +1.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4772,7 +4772,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may send the drone out to Explore the System quickly with its sensors, or Face Danger to detect a threat, roll +its health and take +1 momentum on a hit.",
+							"text": "You may send the drone out to [Explore the System](datasworn:move:fe_runners/exploration/explore_the_system) quickly with its sensors, or [Face Danger](datasworn:move:starforged/adventure/face_danger) to detect a threat, roll +its health and take +1 momentum on a hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4781,7 +4781,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may use the drone to Gather Information about a scene or scan an area.  When you do, add +1 to the roll",
+							"text": "You may use the drone to [Gather Information](datasworn:move:fe_runners/adventure/gather_information) about a scene or scan an area.  When you do, add +1 to the roll",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4819,7 +4819,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "◆\tAn entity has woven itself into your digital existence.  You can always hear its thoughts and it lives just below the surface. When you Enter the Fray, roll +spirit first, on a hit, the Symbiote empowers you; take +1 on Enter the Fray or the following action.  On a miss, the Symbiote has other plans and you are overcome with visions; Endure Stress (-1) and take an automatic miss on Enter the Fray.",
+							"text": "An entity has woven itself into your digital existence.  You can always hear its thoughts and it lives just below the surface. When you [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray), roll +spirit first, on a __hit__, the Symbiote empowers you; take +1 on [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray) or the following action.  On a __miss__, the Symbiote has other plans and you are overcome with visions; [Endure Stress](datasworn:move:fe_runners/suffer/endure_stress) (-1) and take an automatic miss on [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4828,7 +4828,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "◇\tThe Symbiote appears as a vision in your scene and offers their own commentary.  Ask the Oracle if the information is useful at 50/50 chance. If yes, you feel confident in your actions; take +1 momentum.  On a no, Endure Stress (-1)",
+							"text": "The Symbiote appears as a vision in your scene and offers their own commentary.  [Ask the Oracle](datasworn:move:fe_runners/fate/ask_the_oracle) if the information is useful at 50/50 chance. If yes, you feel confident in your actions; take +1 momentum.  On a no, [Endure Stress](datasworn:move:fe_runners/suffer/endure_stress) (-1)",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4837,7 +4837,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "◇\tWhen you Face Desolation and you succumb to despair, the Symbiote takes over.  Forsake all Vows, clear forsaken and traumatized, reset spirit to full and immediate Swear an Iron Vow as the Symbiote.",
+							"text": "When you [Face Desolation](datasworn:move:fe_runners/threshold/face_desolation) and you succumb to despair, the Symbiote takes over.  [Forsake all Vows](datasworn:move:fe_runners/quest/forsake_your_vow), clear forsaken and traumatized, reset spirit to full and immediate [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) as the Symbiote.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4890,7 +4890,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When making a move to crack or reverse engineer cryptographic data, you may Sacrifice Power (-2) and reroll any one die.",
+							"text": "When making a move to crack or reverse engineer cryptographic data, you may [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) (-2) and reroll any one die.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4908,7 +4908,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Develop an Artifact or Reverse Engineer an Artifact, you may roll +integrity instead.  On a miss, Withstand Damage (-1)",
+							"text": "When you [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) or [Reverse Engineer an Artifact](datasworn:move:fe_runners/artifact/reverse_engineer_an_artifact), you may roll +integrity instead.  On a __miss__, [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) (-1)",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4941,7 +4941,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Map a Route, and score a strong hit, take +1 momentum",
+							"text": "When you [Map a Route](datasworn:move:fe_runners/exploration/map_route), and score a __strong hit__, take +1 momentum",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4950,7 +4950,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Disconnect while being chased, add +1 to the roll.",
+							"text": "When you [Disconnect](datasworn:move:fe_runners/exploration/disconnect) while being chased, add +1 to the roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -4959,7 +4959,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Enter the Fray you may use additional power to move faster, add +1 and Sacrifice Power (-1)",
+							"text": "When you [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray) you may use additional power to move faster, add +1 and [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) (-1)",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5001,7 +5001,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You have increased offline storage, if you are in need of something (within reason) you may power up your drive to see if you have it available.  Roll +supply, on a strong hit, you have what you are looking for and take +1 momentum.",
+							"text": "You have increased offline storage, if you are in need of something (within reason) you may power up your drive to see if you have it available.  Roll +supply, on a __strong hit__, you have what you are looking for and take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5010,7 +5010,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Swear an Iron Vow that is a courier mission, you may add +1.  On a strong hit add +2 momentum.",
+							"text": "When you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) that is a courier mission, you may add +1.  On a strong hit add +2 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5043,7 +5043,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You may Recharge (+wits) using your battery backup, on a weak hit or a miss, the battery is drained and can not be used again until next session or you Sojourn. You may also use this on an Ally’s rig.",
+							"text": "You may [Recharge](datasworn:move:fe_runners/recover/recharge) (+wits) using your battery backup, on a __weak hit__ or a __miss__, the battery is drained and can not be used again until next session or you [Sojourn](datasworn:move:fe_runners/recover/sojourn). You may also use this on an Ally’s rig.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5052,7 +5052,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "If you suffer Sacrifice Power and your battery isn’t drained yet, you may instead use your battery’s charge to take up to 2 points of the penalty.  Then consider the battery drained using the rules above.",
+							"text": "If you suffer [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) and your battery isn’t drained yet, you may instead use your battery’s charge to take up to 2 points of the penalty.  Then consider the battery drained using the rules above.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5061,7 +5061,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Withstand Damage you may instead sacrifice this battery asset.  If you choose to do this, the battery will explode in a few seconds, anyone around the explosion must Pay the Price.  The battery can not be repaired.",
+							"text": "When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) you may instead sacrifice this battery asset.  If you choose to do this, the battery will explode in a few seconds, anyone around the explosion must [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).  The battery can not be repaired.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5094,7 +5094,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you attempt to Make a Connection remotely, you can use your radio to adjust to a frequency or channel that will give you an advantage.  Add +1.",
+							"text": "When you attempt to [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) remotely, you can use your radio to adjust to a frequency or channel that will give you an advantage.  Add +1.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5103,7 +5103,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may use Gather Information to scan the airwaves and intercept or locate hidden or private communication channels.",
+							"text": "You may use [Gather Information](datasworn:move:fe_runners/adventure/gather_information) to scan the airwaves and intercept or locate hidden or private communication channels.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5145,7 +5145,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Withstand Damage, add +1.  On a strong hit, take +1 momentum.",
+							"text": "When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage), add +1.  On a __strong hit__, take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5154,7 +5154,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you React Under Fire, you may add +1, on a strong hit with a match you can take an additional +1 momentum.",
+							"text": "When you [React Under Fire](datasworn:move:fe_runners/combat/react_under_fire), you may add +1, on a __strong hit__ with a __match__ you can take an additional +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5163,7 +5163,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may use your Coolant System to speed up recharging.  When you Recharge and get a strong hit you may take an additional +supply.",
+							"text": "You may use your Coolant System to speed up recharging.  When you [Recharge](datasworn:move:fe_runners/recover/recharge) and get a __strong hit__ you may take an additional +supply.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5196,7 +5196,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you use Clash against a Virus or Worm, you can convert a weak hit to a strong hit, once per combat session.",
+							"text": "When you use [Clash](datasworn:move:starforged/combat/clash) against a Virus or Worm, you can convert a __weak hit__ to a __strong hit__, once per combat session.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5205,7 +5205,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "If you obtain an artifact that is a virus or worm, you may run it against your AV ahead of time to determine how effective the virus is at avoiding detection.  When you release the virus or worm and Enter the Fray, add +1 to the roll, on a hit take +1 momentum.",
+							"text": "If you obtain an artifact that is a virus or worm, you may run it against your AV ahead of time to determine how effective the virus is at avoiding detection.  When you release the virus or worm and [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray), add +1 to the roll, on a __hit__ take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5214,7 +5214,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Withstand Damage caused by a virus or a worm, you may instead redirect the damage to the AV Defense System.  The AV Defense System will be down until a successful Repair of a cost of 2 points is done.",
+							"text": "When you [Withstand Damage](datasworn:move:starforged/suffer/withstand_damage) caused by a virus or a worm, you may instead redirect the damage to the AV Defense System.  The AV Defense System will be down until a successful Repair of a cost of 2 points is done.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5256,7 +5256,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you lie to Make a Connection, you may reroll the challenge die.",
+							"text": "When you lie to [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection), you may reroll the challenge die.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5329,7 +5329,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you make a move by lying, bluffing, stealing or cheating +2.  On a strong hit with a match, your deception creates an unexpected opportunity; take the value of your shadow as +momentum.",
+							"text": "When you make a move by lying, bluffing, stealing or cheating +2.  On a __strong hit__ with a __match__, your deception creates an unexpected opportunity; take the value of your shadow as +momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5338,7 +5338,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Make a Connection, you may roll +shadow.  On a strong hit you gain an additional connection or knowledge unbeknown to the person you connected with.",
+							"text": "When you [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection), you may roll +shadow.  On a __strong hit__ you gain an additional connection or knowledge unbeknown to the person you connected with.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5347,7 +5347,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you make a quick escape or con your way out of a situation and burn momentum to gain a strong hit, take +1 momentum after you reset.  Envision how this success leaves you fated for future trouble, mark 2 ticks on your quest legacy track.",
+							"text": "When you make a quick escape or con your way out of a situation and burn momentum to gain a __strong hit__, take +1 momentum after you reset.  Envision how this success leaves you fated for future trouble, mark 2 ticks on your quest legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5380,7 +5380,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "After you Swear an Iron Vow against a specific company, organization or faction that is an enemy to your cause.  After you Fulfill Your Vow, you may take an extra legacy reward of one rank higher.",
+							"text": "After you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) against a specific company, organization or faction that is an enemy to your cause.  After you [Fulfill Your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow), you may take an extra legacy reward of one rank higher.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5398,7 +5398,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When Paying the Price against a sworn enemy, you may convert the roll into a strong hit, once per session.",
+							"text": "When [Paying the Price](datasworn:move:fe_runners/fate/pay_the_price) against a sworn enemy, you may convert the roll into a strong hit, once per session.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5431,7 +5431,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "May Develop an Artifact to create a Virus or Worm that can not be directly controlled once released.  Envision its goal or objective that it uses once released.",
+							"text": "May [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) to create a Virus or Worm that can not be directly controlled once released.  Envision its goal or objective that it uses once released.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5440,7 +5440,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "May clear the Infected impact on your rig or an Ally’s rig once per rig.",
+							"text": "May clear the __Infected__ impact on your rig or an Ally’s rig once per rig.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5449,7 +5449,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "May Develop an Artifact to create a botnet that once spread can be controlled as a swarm. Use Automated Attack to determine the outcome.",
+							"text": "May [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) to create a botnet that once spread can be controlled as a swarm. Use [Automated Attack](datasworn:move:fe_runners/combat/automate_attack) to determine the outcome.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5482,7 +5482,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When making the Gain Entry move, you can take additional +1 at the cost of supply",
+							"text": "When making the [Gain Entry](datasworn:move:fe_runners/exploration/gain_entry) move, you can take additional +1 at the cost of supply",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5491,7 +5491,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "May Develop an Artifact to produce cracking tools that assist in gaining entry or finding security weaknesses.  These tools require Utilize an Artifact to use.",
+							"text": "May [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) to produce cracking tools that assist in gaining entry or finding security weaknesses.  These tools require [Utilize an Artifact](datasworn:move:fe_runners/artifact/utilize_an_artifact) to use.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5500,7 +5500,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When Reversing an Artifact, take +1 on the roll.  On a miss, only suffer -1 momentum.",
+							"text": "When [Reversing an Artifact](datasworn:move:fe_runners/artifact/reverse_engineer_an_artifact), take +1 on the roll.  On a miss, only suffer -1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5533,7 +5533,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When making the Gain Entry move, take +2 bonus to the roll.",
+							"text": "When making the [Gain Entry](datasworn:move:fe_runners/exploration/gain_entry) move, take +2 bonus to the roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5542,7 +5542,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When making a Utilize an Artifact specialized in gaining entry, you may burn -2 Momentum for a +2 bonus to the roll.",
+							"text": "When making a [Utilize an Artifact](datasworn:move:fe_runners/artifact/utilize_an_artifact) specialized in gaining entry, you may burn -2 Momentum for a +2 bonus to the roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5551,7 +5551,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When Exploring a System, you may convert a Reveal a Danger to Find an Opportunity, once per session.",
+							"text": "When [Exploring a System](datasworn:move:fe_runners/exploration/explore_the_system), you may convert a [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger) to [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity), once per session.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5584,7 +5584,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Secure an Advantage you may lean on defensive past expertise to gain a +2 to the roll.",
+							"text": "When you [Secure an Advantage](datasworn:move:fe_runners/adventure/secure_an_advantage) you may lean on defensive past expertise to gain a +2 to the roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5593,7 +5593,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Endure Harm you may instead, let your rig take the hit.",
+							"text": "When you [Endure Harm](datasworn:move:fe_runners/suffer/endure_harm) you may instead, let your rig take the hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5602,7 +5602,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you React Under Fire you may roll on your rig’s +integrity",
+							"text": "When you [React Under Fire](datasworn:move:fe_runners/combat/react_under_fire) you may roll on your rig’s +integrity",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5635,7 +5635,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Gather Information on new technology you can take +1 to the roll and take +1 to momentum on a hit.",
+							"text": "When you [Gather Information](datasworn:move:fe_runners/adventure/gather_information) on new technology you can take +1 to the roll and take +1 to momentum on a hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5644,7 +5644,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may aid an ally that is using the Develop an Artifact move by providing newly discovered techniques or information.  Add +1 to their roll.",
+							"text": "You may aid an ally that is using the [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) move by providing newly discovered techniques or information.  Add +1 to their roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5653,7 +5653,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When Reversing an Artifact, you may rely on colleagues and use +heart or +edge instead of +wits.",
+							"text": "When [Reversing an Artifact](datasworn:move:fe_runners/artifact/reverse_engineer_an_artifact), you may rely on colleagues and use +heart or +edge instead of +wits.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5686,7 +5686,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you are hunting someone, Swear an Iron Vow and see it done. Add +1. On a strong hit, you have a solid lead and may mark progress on the quest.  When you Fulfill your Vow on a hunt, make the legacy reward one rank higher.",
+							"text": "When you are hunting someone, [Swear an Iron](datasworn:move:fe_runners/quest/swear_an_iron_vow) Vow and see it done. Add +1. On a strong hit, you have a solid lead and may mark progress on the quest.  When you Fulfill your Vow on a hunt, make the legacy reward one rank higher.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5695,7 +5695,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Gain Information related to a hunt, add +1.  On a match, you reveal a surprising or sinister aspect to the hunt. Choose one:\n\n•\tForge ahead: Mark progress on the quest.  If you matched on a strong hit, also take +2 momentum\n•\tChange loyalties: Forsake your Vow and mark 2 ticks on your bonds legacy track.",
+							"text": "When you [Gather Information](datasworn:move:fe_runners/adventure/gather_information) related to a hunt, add +1.  On a match, you reveal a surprising or sinister aspect to the hunt. Choose one:\n\n•\tForge ahead: Mark progress on the quest.  If you matched on a __strong hit__, also take +2 momentum\n•\tChange loyalties: Forsake your Vow and mark 2 ticks on your bonds legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5704,7 +5704,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Take Decisive Action against your hunt, you may reroll one challenge die.",
+							"text": "When you [Take Decisive Action](datasworn:move:fe_runners/combat/take_decisive_action) against your hunt, you may reroll one challenge die.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5737,7 +5737,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When using a move involving deciphering encrypted content, add +2.  On a strong hit, also take +1 momentum.",
+							"text": "When using a move involving deciphering encrypted content, add +2.  On a __strong hit__, also take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5746,7 +5746,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Infiltrate a Segment, you may utilize your knowledge of weak cryptography to reroll one challenge die.",
+							"text": "When you [Infiltrate a Segment](datasworn:move:fe_runners/exploration/infiltrate_segment), you may utilize your knowledge of weak cryptography to reroll one challenge die.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5755,7 +5755,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When Reversing an Artifact that utilizes encryption, may roll +supply instead, in order to break the encryption without locating a key.",
+							"text": "When [Reversing an Artifact](datasworn:move:fe_runners/artifact/reverse_engineer_an_artifact) that utilizes encryption, may roll +supply instead, in order to break the encryption without locating a key.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5806,7 +5806,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "On a forcible Disconnect where your route would be lost.  Roll +stealth to maintain the route but suffer the rest of the disconnect penalties.",
+							"text": "On a forcible [Disconnect](datasworn:move:fe_runners/exploration/disconnect) where your route would be lost.  Roll +stealth to maintain the route but suffer the rest of the disconnect penalties.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5821,7 +5821,7 @@
 					"_id": "asset:fe_runners/path/steganographer"
 				},
 				"kernel_dev": {
-					"name": "Kenel Dev",
+					"name": "Kernel Dev",
 					"type": "asset",
 					"category": "Path",
 					"color": "#3f7faa",
@@ -5839,7 +5839,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When using Develop an Artifact move, can develop a one time use artifact that bends normal reality",
+							"text": "When using [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) move, can develop a one time use artifact that bends normal reality",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5848,7 +5848,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Overcome Destruction, you may reroll one action dice.",
+							"text": "When using [Overcome Destruction](datasworn:move:fe_runners/threshold/overcome_destruction), you may reroll one action dice.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5857,7 +5857,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "Whenever using Repair, your depth of knowledge is so great, it is considered to be with aid.",
+							"text": "Whenever using [Repair](datasworn:move:fe_runners/recover/repair), your depth of knowledge is so great, it is considered to be with aid.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5890,7 +5890,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When using Map Route, when you have a weak hit,  you do not have to suffer a cost.",
+							"text": "When using [Map Route](datasworn:move:fe_runners/exploration/map_route), when you have a __weak hit__,  you do not have to suffer a cost.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5899,7 +5899,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Explore the System, you may take a +1 on the roll",
+							"text": "When using [Explore the System](datasworn:move:fe_runners/exploration/explore_the_system), you may take a +1 on the roll",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5908,7 +5908,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Map Route and you get a strong hit, mark an extra progress on your route.",
+							"text": "When using [Map Route](datasworn:move:fe_runners/exploration/map_route) and you get a __strong hit__, mark an extra progress on your route.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5941,7 +5941,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Swear an Iron Vow to resolve a dispute, negotiate an agreement, or gather support, add +1. On a strong hit, mark progress on the quest. When you Fulfill your Vow on a diplomatic mission (formidable or greater) and score a hit, also mark 2 ticks on your bonds legacy track.",
+							"text": "When you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) to resolve a dispute, negotiate an agreement, or gather support, add +1. On a strong hit, mark progress on the quest. When you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) on a diplomatic mission (formidable or greater) and score a hit, also mark 2 ticks on your bonds legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5950,7 +5950,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you make a move to diffuse, reason, or negotiate, add +1.  On a miss, you may take a different tack. Envision this new approach, reroll all dice and add +2.  If you score a miss yet again, face a dire complication or blow to your reputation, Pay the Price.",
+							"text": "When you make a move to diffuse, reason, or negotiate, add +1.  On a __miss__, you may take a different tack. Envision this new approach, reroll all dice and add +2.  If you score a miss yet again, face a dire complication or blow to your reputation, [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -5959,7 +5959,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Make a Connection or Sojourn, add +1.  If you Sojourn and score a strong hit with a match, you are shown great kindness or respect; take +2 momentum or make an extra recovery with an automatic strong hit.",
+							"text": "When you [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) or [Sojourn](datasworn:move:fe_runners/recover/sojourn), add +1.  If you [Sojourn](datasworn:move:fe_runners/recover/sojourn) and score a __strong hit__ with a __match__, you are shown great kindness or respect; take +2 momentum or make an extra recovery with an automatic __strong hit__.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6001,7 +6001,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Develop an Artifact move, develop an automated tool by stringing together actions or other tools.  When using this artifact, roll on Automate Attack to see if it succeeds.",
+							"text": "When using [Develop an Artifact](datasworn:move:fe_runners/artifact/develop_an_artifact) move, develop an automated tool by stringing together actions or other tools.  When using this artifact, roll on [Automate Attack](datasworn:move:fe_runners/combat/automate_attack) to see if it succeeds.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6010,7 +6010,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Automate Attack you may rely on your knowledge of cause and effect to improve your outcome.  Add +1 to the roll",
+							"text": "When using [Automate Attack](datasworn:move:fe_runners/combat/automate_attack) you may rely on your knowledge of cause and effect to improve your outcome.  Add +1 to the roll",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6085,7 +6085,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You are equipped with an advanced implant or custom mod to your avatar.  When you make a move directly aided by your augment, envision how it gives you exceptional capabilities and add +1.  On a strong hit with a match, your augment exceeds expectations; take +2 momentum. On a miss with a match, the augment is broken; You must Repair and spend 3 repair points to bring it back to working condition.",
+							"text": "You are equipped with an advanced implant or custom mod to your avatar.  When you make a move directly aided by your augment, envision how it gives you exceptional capabilities and add +1.  On a __strong hit__ with a __match__, your augment exceeds expectations; take +2 momentum. On a __miss__ with a __match__, the augment is broken; You must [Repair](datasworn:move:fe_runners/recover/repair) and spend 3 repair points to bring it back to working condition.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6103,7 +6103,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you must Endure Harm or Face Death, you may instead, mark an augment as broken.  Repair it as detailed above.",
+							"text": "When you must [Endure Harm](datasworn:move:fe_runners/suffer/endure_harm) or [Face Death](datasworn:move:fe_runners/threshold/face_death), you may instead, mark an augment as broken.  [Repair](datasworn:move:fe_runners/recover/repair) it as detailed above.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6136,7 +6136,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You can make a digital copy of just about anything instantaneously.  If there are protections on the data, use Reverse Engineer an Artifact, and apply it to removal of the protection on the duplicate copy only.",
+							"text": "You can make a digital copy of just about anything instantaneously.  If there are protections on the data, use [Reverse Engineer an Artifact](datasworn:move:fe_runners/artifact/reverse_engineer_an_artifact), and apply it to removal of the protection on the duplicate copy only.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6145,7 +6145,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Compel involving trading or bartering, add +1.  If they want something in return, you may Ask the Oracle to see if you already have a copy of what they need.",
+							"text": "When using [Compel](datasworn:move:fe_runners/adventure/compel) involving trading or bartering, add +1.  If they want something in return, you may [Ask the Oracle](datasworn:move:fe_runners/fate/ask_the_oracle) to see if you already have a copy of what they need.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6154,7 +6154,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Swear an Iron Vow to acquire something rare, add +1. On a strong hit, you already have an idea where to start.  Mark progress.  When you Fulfill your Vow mark +2 ticks on your legacy bonds.",
+							"text": "When you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) to acquire something rare, add +1. On a __strong hit__, you already have an idea where to start.  Mark progress.  When you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) mark +2 ticks on your legacy bonds.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6187,7 +6187,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You are hunted by a power or authority.  When you make a move you may improve the result to a strong hit.  If you do, mark 1 segment of a 4 segment clock to indicate hunters closing in.  When the clock is filled, a notable foe or force has tracked you down. If you overcome or escape them, reset the clock and mark +1 tick on your quests legacy track.",
+							"text": "You are hunted by a power or authority.  When you make a move you may improve the result to a __strong hit__.  If you do, mark 1 segment of a 4 segment clock to indicate hunters closing in.  When the clock is filled, a notable foe or force has tracked you down. If you overcome or escape them, reset the clock and mark +1 tick on your quests legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6205,7 +6205,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Fulfill your Vow of extreme or greater by clearing your name or defeating the power or authority who marked you as a fugitive, gain this ability at no cost. You may then exchange this asset for another with the same number of marked abilities.",
+							"text": "When you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) of extreme or greater by clearing your name or defeating the power or authority who marked you as a fugitive, gain this ability at no cost. You may then exchange this asset for another with the same number of marked abilities.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6248,7 +6248,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you make a move Repair a rig or equipment, add +1 and take +1 momentum on a hit",
+							"text": "When you make a move [Repair](datasworn:move:fe_runners/recover/repair) a rig or equipment, add +1 and take +1 momentum on a hit",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6257,7 +6257,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You can find alternative power sources to give your equipment a surge of extra juice.  Use Secure an Advantage and for each hit take +1 Supply.",
+							"text": "You can find alternative power sources to give your equipment a surge of extra juice.  Use [Secure an Advantage](datasworn:move:fe_runners/adventure/secure_an_advantage) and for each hit take +1 Supply.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6266,7 +6266,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You can utilize real world infrastructure to forcibly disconnect another user but it is risky.  Roll +supply, on a strong hit they are knocked offline for a few rounds. On a miss you must Disconnect. On a weak hit nothing noticeable happens.",
+							"text": "You can utilize real world infrastructure to forcibly disconnect another user but it is risky.  Roll +supply, on a __strong hit__ they are knocked offline for a few rounds. On a __miss__ you must [Disconnect](datasworn:move:fe_runners/exploration/disconnect). On a __weak hit__ nothing noticeable happens.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6299,7 +6299,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "A vision of someone often manifests in your environment, only you can see them.  You can call on them to talk to them for insight, add +1.  On a weak hit, also Endure Stress (-1).  On a strong hit with a match, add 1 tick on your bonds legacy track.",
+							"text": "A vision of someone often manifests in your environment, only you can see them.  You can call on them to talk to them for insight, add +1.  On a __weak hit__, also [Endure Stress](datasworn:move:fe_runners/suffer/endure_stress) (-1).  On a __strong hit__ with a __match__, add 1 tick on your bonds legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6308,7 +6308,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Face Death the vision will appear to help, add +1. On a strong hit, envision what they share with you and mark 2 ticks on your bonds legacy track",
+							"text": "When you [Face Death](datasworn:move:fe_runners/threshold/face_death) the vision will appear to help, add +1. On a __strong hit__, envision what they share with you and mark 2 ticks on your bonds legacy track",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6317,7 +6317,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "One time only, when you Fulfill your Vow (extreme or greater) in service to the vision, take this ability at no cost and choose one:\n\n•\tLet them go: Mark 2 ticks on your bonds legacy for each marked ability and discard this asset\n•\tBolster your link: When you use a Cyber Psychotic ability take +1 momentum.",
+							"text": "One time only, when you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) (extreme or greater) in service to the vision, take this ability at no cost and choose one:\n\n•\tLet them go: Mark 2 ticks on your bonds legacy for each marked ability and discard this asset\n•\tBolster your link: When you use a Cyber Psychotic ability take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6350,7 +6350,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You have learned to move things around in your digital world with mind.  You may push, pull, lift or constrict objects and beings about your size or smaller. When you are in a risky situation and draw on your powers to make a move, add +2 and Lose Momentum (-2).",
+							"text": "You have learned to move things around in your digital world with mind.  You may push, pull, lift or constrict objects and beings about your size or smaller. When you are in a risky situation and draw on your powers to make a move, add +2 and [Lose Momentum](datasworn:move:fe_runners/suffer/lose_momentum) (-2).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6359,7 +6359,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "As above, you may instead draw on your powers to change the outcome of an action. If you do, add +2 (after you roll) and Lose Momentum (-3).",
+							"text": "As above, you may instead draw on your powers to change the outcome of an action. If you do, add +2 (after you roll) and [Lose Momentum](datasworn:move:fe_runners/suffer/lose_momentum) (-3).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6368,7 +6368,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When your momentum is at its max, you may attempt great kinetic feats, such as manipulating large objects and creating destructive bursts of concussive force. To do so, reset momentum. Then, as you make a single move fueled by your powers, take a strong hit. If in a fight, mark progress.",
+							"text": "When your momentum is at its max, you may attempt great kinetic feats, such as manipulating large objects and creating destructive bursts of concussive force. To do so, reset momentum. Then, as you make a single move fueled by your powers, take a __strong hit__. If in a fight, mark progress.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6401,7 +6401,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Aid an Ally through leadership, coordination or planning, add +1. On a strong hit, any allies who are present take +1 momentum.",
+							"text": "When you [Aid an Ally](datasworn:move:fe_runners/adventure/aid_your_ally) through leadership, coordination or planning, add +1. On a __strong hit__, any allies who are present take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6410,7 +6410,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Enter the Fray (+heart) by coordinating with your team as they wade into the fight, make your move before your allies act. On a strong hit, all allies may take an automatic strong hit.  On a strong hit with a match, also mark progress on any objectives in this fight.",
+							"text": "When you [Enter the Fray](datasworn:move:fe_runners/combat/enter_the_fray) (+heart) by coordinating with your team as they wade into the fight, make your move before your allies act. On a __strong hit__, all allies may take an automatic strong hit.  On a __strong hit__ with a __match__, also mark progress on any objectives in this fight.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6419,7 +6419,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you make a move to influence someone (not an ally) through leadership, add +1 and take +1 momentum on a hit. On a strong hit, with a match, your command galvanized them to unexpected action. Take another +1 momentum, and mark 1 tick on your bonds legacy.",
+							"text": "When you make a move to influence someone (not an ally) through leadership, add +1 and take +1 momentum on a hit. On a __strong hit__, with a __match__, your command galvanized them to unexpected action. Take another +1 momentum, and mark 1 tick on your bonds legacy.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6452,7 +6452,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When you Swear an Iron Vow (formidable or greater) to recover valuable knowledge or an extraordinary artifact, reroll any dice. When you Reach a Milestone in the pursuit of that quest, take +2 momentum.  When you Fulfill your Vow and score a hit, also mark 2 ticks on your discoveries legacy track.",
+							"text": "When you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) (formidable or greater) to recover valuable knowledge or an extraordinary artifact, reroll any dice. When you [Reach a Milestone](datasworn:move:fe_runners/quest/reach_a_milestone) in the pursuit of that quest, take +2 momentum.  When you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) and score a hit, also mark 2 ticks on your discoveries legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6461,7 +6461,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you make a roll to conduct extended research or study, reroll any challenge dice.  On a match, you may piece together an extraordinary or harrowing new theory; envision the nature of this revelation and mark 1 tick on your discovery legacy track.",
+							"text": "When you make a roll to conduct extended research or study, reroll any challenge dice.  On a __match__, you may piece together an extraordinary or harrowing new theory; envision the nature of this revelation and mark 1 tick on your discovery legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6470,7 +6470,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you recall esoteric knowledge to Secure an Advantage or Gain Ground, add +1. On a hit, envision the obscure but helpful fact, or technique you put to use, and take +1 momentum.",
+							"text": "When you recall esoteric knowledge to [Secure an Advantage](datasworn:move:starforged/adventure/secure_an_advantage) or [Gain Ground](datasworn:move:fe_runners/combat/gain_ground), add +1. On a __hit__, envision the obscure but helpful fact, or technique you put to use, and take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6503,7 +6503,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You have military cyber training.  When you Swear an Iron Vow to attack or defend from a large scale war operation, you may reroll any dice.  When you Fulfill your Vow, make the legacy reward one rank higher.",
+							"text": "You have military cyber training.  When you [Swear an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) to attack or defend from a large scale war operation, you may reroll any dice.  When you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow), make the legacy reward one rank higher.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6512,7 +6512,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you Make a Connection by searching out or making contact with someone, add +1 and take +1 momentum on a hit.  On a strong hit with a match, this mission pits you up against an unresolved aspect of your past or a hated foe; mark 2 ticks on your quests legacy track",
+							"text": "When you [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) by searching out or making contact with someone, add +1 and take +1 momentum on a hit.  On a __strong hit__ with a __match__, this mission pits you up against an unresolved aspect of your past or a hated foe; mark 2 ticks on your quests legacy track",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6521,7 +6521,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "After defeating someone, you may Recharge off of the remnants of their connection.",
+							"text": "After defeating someone, you may [Recharge](datasworn:move:fe_runners/recover/recharge) off of the remnants of their connection.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6554,7 +6554,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When Swearing an Iron Vow against a stronger political power or institution, reroll any dice.  When you Reach a Milestone in pursuit of this quest, take +2 momentum.  When you Fulfill your Vow mark 2 ticks on your legacy bonds.",
+							"text": "When [Swearing an Iron Vow](datasworn:move:fe_runners/quest/swear_an_iron_vow) against a stronger political power or institution, reroll any dice.  When you [Reach a Milestone](datasworn:move:fe_runners/quest/reach_a_milestone) in pursuit of this quest, take +2 momentum.  When you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) mark 2 ticks on your legacy bonds.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6563,7 +6563,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Compel (+heart) to convince someone to switch sides or abandon a side, add +1 and take +1 momentum on a hit.",
+							"text": "When using [Compel](datasworn:move:fe_runners/adventure/compel) (+heart) to convince someone to switch sides or abandon a side, add +1 and take +1 momentum on a hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6572,7 +6572,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You tend to frequent a lot of hubs, When Making a Connection in a hub, you may reroll one die.  On a strong hit with a match this person is also uniquely suited for what you are looking for.  On a miss with a match this person turns out to be associated with a conflicting political power or institution and puts your current mission in immediate jeopardy.",
+							"text": "You tend to frequent a lot of hubs, When [Making a Connection](datasworn:move:fe_runners/connection/make_a_connection) in a hub, you may reroll one die.  On a __strong hit__ with a __match__ this person is also uniquely suited for what you are looking for.  On a miss with a match this person turns out to be associated with a conflicting political power or institution and puts your current mission in immediate jeopardy.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6605,7 +6605,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You may use Hearten in isolation.  If you attempt to Hearten with another person, subtract -1 from your roll.",
+							"text": "You may use [Hearten](datasworn:move:fe_runners/recover/hearten) in isolation.  If you attempt to [Hearten](datasworn:move:fe_runners/recover/hearten) with another person, subtract -1 from your roll.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6614,7 +6614,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may Create a Connection with a bot, AI, or any semi-intelligent artifact as if it was a person.  If you Create a Connection with a person it must be remote and not face-to-face.",
+							"text": "You may [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) with a bot, AI, or any semi-intelligent artifact as if it was a person.  If you [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) with a person it must be remote and not face-to-face.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6623,7 +6623,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When using Compel not in isolation, you may add +1 to your roll at the cost of Endure Stress (-2)",
+							"text": "When using [Compel](datasworn:move:fe_runners/adventure/compel) not in isolation, you may add +1 to your roll at the cost of [Endure Stress](datasworn:move:fe_runners/suffer/endure_stress) (-2)",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6656,7 +6656,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You can analyze the vast digital streams and pull visions and information from them.  You may Ask the Oracle for details using interpretive oracles such as Action, Theme, Descriptor, Focus. If you record the answer and later face a situation which gives truth to the vision, take an automatic strong hit (one time only) when making a move to act on the foresight.  Then clear the vision, only one may be used at a time.",
+							"text": "You can analyze the vast digital streams and pull visions and information from them.  You may [Ask the Oracle](datasworn:move:fe_runners/fate/ask_the_oracle) for details using interpretive oracles such as [Action](oracle_rollable:fe_runners/core/action), [Theme](oracle_rollable:fe_runners/core/theme), [Descriptor](oracle_rollable:fe_runners/core/descriptor), [Focus](oracle_rollable:fe_runners/core/focus). If you record the answer and later face a situation which gives truth to the vision, take an automatic __strong hit__ (one time only) when making a move to act on the foresight.  Then clear the vision, only one may be used at a time.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6665,7 +6665,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may shift through the vast data streams to Gather Information about a place, person or artifact to gain some more insight.  Roll +supply and take +1 momentum on a hit.",
+							"text": "You may shift through the vast data streams to [Gather Information](datasworn:move:fe_runners/adventure/gather_information) about a place, person or artifact to gain some more insight.  Roll +supply and take +1 momentum on a hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6674,7 +6674,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "If playing with a Sentient AI, and it appears, you may Ask the Oracle if the outcome is positive using Likely odds.  If not, you may add +1 when peacefully interacting with an AI or semi-intelligent system.",
+							"text": "If playing with a Sentient AI, and it appears, you may [Ask the Oracle](datasworn:move:fe_runners/fate/ask_the_oracle) if the outcome is positive using Likely odds.  If not, you may add +1 when peacefully interacting with an AI or semi-intelligent system.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6758,7 +6758,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "When using Compel to de-escalate a situation, add +1 and take +1 momentum on a hit.",
+							"text": "When using [Compel](datasworn:move:fe_runners/adventure/compel) to de-escalate a situation, add +1 and take +1 momentum on a hit.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6767,7 +6767,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "May attempt to Make a Connection (+heart) with an enemy.  On success, they will start to feel conflicted.  You can continue to make progress on the bond even while having conflicting objectives.  Use Test Your Connection to resolve their internal conflict.",
+							"text": "May attempt to [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection) (+heart) with an enemy.  On success, they will start to feel conflicted.  You can continue to make progress on the bond even while having conflicting objectives.  Use [Test Your Relationship](datasworn:move:fe_runners/connection/test_your_relationship) to resolve their internal conflict.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6776,7 +6776,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "Being a negotiator also makes you quite savvy at bartering.  You may reroll your action dice once but Lose Momentum (-1).",
+							"text": "Being a negotiator also makes you quite savvy at bartering.  You may reroll your action dice once but [Lose Momentum](datasworn:move:fe_runners/suffer/lose_momentum) (-1).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6809,7 +6809,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You have a stash of useful things like batteries.  When using Recharge, add +1.  On a strong hit take +1 supply and +1 momentum.",
+							"text": "You have a stash of useful things like batteries.  When using [Recharge](datasworn:move:fe_runners/recover/recharge), add +1.  On a __strong hit__ take +1 supply and +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6818,7 +6818,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "You may use your survivalist knowledge when you Secure an Advantage or try to Gain Ground, add +1. On a hit, envision the helpful fact, or technique you put to use, and take +1 momentum.",
+							"text": "You may use your survivalist knowledge when you [Secure an Advantage](datasworn:move:fe_runners/adventure/secure_an_advantage) or try to [Gain Ground](datasworn:move:fe_runners/combat/gain_ground), add +1. On a __hit__, envision the helpful fact, or technique you put to use, and take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6827,7 +6827,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you attempt a Repair, add +1 to the roll.  On a hit,  you can add +1 additional repair point to the outcome.",
+							"text": "When you attempt a [Repair](datasworn:move:fe_runners/recover/repair), add +1 to the roll.  On a hit,  you can add +1 additional repair point to the outcome.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6860,7 +6860,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "◇\tYou may create digital artwork that can be placed or implemented in an artifact.  Upon creation, roll the action die.  If it is less than your spirit, add +1 spirit and +1 momentum.",
+							"text": "You may create digital artwork that can be placed or implemented in an artifact.  Upon creation, roll the action die.  If it is less than your spirit, add +1 spirit and +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6869,7 +6869,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "◇\tWhen you embed your artwork into an artifact, roll +stat that represents the artifact's nature.  On a strong hit, the artifact becomes legendary and extends the life of the artifact.  Mark 2 ticks on your bonds legacy track.  On a weak hit, the artifact becomes famous but short-lived, mark 1 tick instead.  On a miss, the art is severely disliked, or fails in some way.  Pay the Price.",
+							"text": "When you embed your artwork into an artifact, roll +stat that represents the artifact's nature.  On a __strong hit__, the artifact becomes legendary and extends the life of the artifact.  Mark 2 ticks on your bonds legacy track.  On a __weak hit__, the artifact becomes famous but short-lived, mark 1 tick instead.  On a __miss__, the art is severely disliked, or fails in some way.  [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6878,7 +6878,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "◇\tYou may use your artwork to build a brand. Use the rules above, on a hit, it becomes the brand, logo or representation of the artifact, group or product. When the art is visible in a situation that involves Compel you may reroll any one die. On a hit, add +1 momentum.",
+							"text": "You may use your artwork to build a brand. Use the rules above, on a __hit__, it becomes the brand, logo or representation of the artifact, group or product. When the art is visible in a situation that involves [Compel](datasworn:move:fe_runners/adventure/compel) you may reroll any one die. On a hit, add +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -6947,6 +6947,14 @@
 							"label": "integrity",
 							"field_type": "condition_meter",
 							"min": 0,
+							"moves": {
+								"suffer": [
+									"move:fe_runners/suffer/withstand_damage"
+								],
+								"recover": [
+									"move:fe_runners/recover/repair"
+								]
+							},
 							"controls": {
 								"overheated": {
 									"label": "overheated",

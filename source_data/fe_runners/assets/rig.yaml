@@ -40,11 +40,11 @@ assets:
               label: integrity
               field_type: condition_meter
               min: 0
-              # moves:
-              #   suffer:
-              #     - move:starforged/suffer/withstand_damage
-              #   recover:
-              #     - move:starforged/recover/repair
+              moves:
+                suffer:
+                  - move:fe_runners/suffer/withstand_damage
+                recover:
+                  - move:fe_runners/recover/repair
               controls:
                 overheated: &Rig.Overheated
                   label: overheated
