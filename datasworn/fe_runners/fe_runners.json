@@ -13,6 +13,519 @@
 	"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
 	"url": "ttps://zombiecraig.itch.io/fe-runners",
 	"oracles": {
+		"campaign_launch": {
+			"name": "Campaign Launch Oracles",
+			"oracle_type": "tables",
+			"type": "oracle_collection",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 49
+			},
+			"contents": {
+				"character_path": {
+					"name": "Character Path",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 49
+					},
+					"summary": "You will want to select two path assets.  This will help shape your character's goals and personality.  You can roll on the below paths table if you are undecided.",
+					"oracle_type": "table_text",
+					"type": "oracle_rollable",
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 5
+							},
+							"text": "[Admin](datasworn:asset:fe_runners/path/admin)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.0"
+						},
+						{
+							"roll": {
+								"min": 6,
+								"max": 8
+							},
+							"text": "[Anarchist](datasworn:asset:fe_runners/path/anarchist)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.1"
+						},
+						{
+							"roll": {
+								"min": 9,
+								"max": 11
+							},
+							"text": "[Archivist](datasworn:asset:fe_runners/path/archivist)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.2"
+						},
+						{
+							"roll": {
+								"min": 12,
+								"max": 14
+							},
+							"text": "[Augmented](datasworn:asset:fe_runners/path/augmented)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.3"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 17
+							},
+							"text": "[Automation](datasworn:asset:fe_runners/path/automation)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.4"
+						},
+						{
+							"roll": {
+								"min": 18,
+								"max": 20
+							},
+							"text": "[Cloak](datasworn:asset:fe_runners/path/cloak)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.5"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 23
+							},
+							"text": "[Cryptologist](datasworn:asset:fe_runners/path/cryptologist)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.6"
+						},
+						{
+							"roll": {
+								"min": 24,
+								"max": 26
+							},
+							"text": "[Cyber Psychotic](datasworn:asset:fe_runners/path/cyber_psychotic)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.7"
+						},
+						{
+							"roll": {
+								"min": 27,
+								"max": 29
+							},
+							"text": "[Exploit Developer](datasworn:asset:fe_runners/path/exploit_developer)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.8"
+						},
+						{
+							"roll": {
+								"min": 30,
+								"max": 32
+							},
+							"text": "[Fugitive](datasworn:asset:fe_runners/path/fugitive)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.9"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 37
+							},
+							"text": "[Gamer](datasworn:asset:fe_runners/path/gamer)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.10"
+						},
+						{
+							"roll": {
+								"min": 38,
+								"max": 40
+							},
+							"text": "[Hacktivist](datasworn:asset:fe_runners/path/hacktivist)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.11"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 43
+							},
+							"text": "[Kernel Dev](datasworn:asset:fe_runners/path/kernel_dev)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.12"
+						},
+						{
+							"roll": {
+								"min": 44,
+								"max": 46
+							},
+							"text": "[Kinetic](datasworn:asset:fe_runners/path/kinetic)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.13"
+						},
+						{
+							"roll": {
+								"min": 47,
+								"max": 49
+							},
+							"text": "[Leader](datasworn:asset:fe_runners/path/leader)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.14"
+						},
+						{
+							"roll": {
+								"min": 50,
+								"max": 53
+							},
+							"text": "[Mercenary](datasworn:asset:fe_runners/path/mercenary)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.15"
+						},
+						{
+							"roll": {
+								"min": 54,
+								"max": 56
+							},
+							"text": "[Negotiator](datasworn:asset:fe_runners/path/negotiator)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.16"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 59
+							},
+							"text": "[Net Analyst](datasworn:asset:fe_runners/path/net_analyst)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.17"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 63
+							},
+							"text": "[Net Whisperer](datasworn:asset:fe_runners/path/net_whisperer)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.18"
+						},
+						{
+							"roll": {
+								"min": 64,
+								"max": 66
+							},
+							"text": "[Pen Tester](datasworn:asset:fe_runners/path/pen_tester)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.19"
+						},
+						{
+							"roll": {
+								"min": 67,
+								"max": 69
+							},
+							"text": "[Pirate](datasworn:asset:fe_runners/path/pirate)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.20"
+						},
+						{
+							"roll": {
+								"min": 70,
+								"max": 72
+							},
+							"text": "[Policy Maker](datasworn:asset:fe_runners/path/policy_maker)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.21"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 75
+							},
+							"text": "[Prepper](datasworn:asset:fe_runners/path/prepper)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.22"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 78
+							},
+							"text": "[Recluse](datasworn:asset:fe_runners/path/recluse)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.23"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 81
+							},
+							"text": "[Researcher](datasworn:asset:fe_runners/path/researcher)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.24"
+						},
+						{
+							"roll": {
+								"min": 82,
+								"max": 86
+							},
+							"text": "[Scammer](datasworn:asset:fe_runners/path/scammer)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.25"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 89
+							},
+							"text": "[Steganographer](datasworn:asset:fe_runners/path/steganographer)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.26"
+						},
+						{
+							"roll": {
+								"min": 90,
+								"max": 92
+							},
+							"text": "[Technician](datasworn:asset:fe_runners/path/technician)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.27"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 95
+							},
+							"text": "[Threat Hunter](datasworn:asset:fe_runners/path/threat_hunter)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.28"
+						},
+						{
+							"roll": {
+								"min": 96,
+								"max": 100
+							},
+							"text": "[VX Author](datasworn:asset:fe_runners/path/vx_author)",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/character_path.29"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/campaign_launch/character_path"
+				},
+				"backstory_prompts": {
+					"name": "Backstory Prompts",
+					"oracle_type": "table_text",
+					"type": "oracle_rollable",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 51
+					},
+					"summary": "For some backstory inspiration, roll or pick from the table below. Then, take a moment to elaborate on the suggestion. Or just leave it a bit vague and mysterious for now; you can flesh it out in play.",
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 3
+							},
+							"text": "Witnessed a family tragedy caused by corporate greed, sparking rebellion.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.0"
+						},
+						{
+							"roll": {
+								"min": 4,
+								"max": 7
+							},
+							"text": "Child prodigy, recruited by a mysterious online mentor.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.1"
+						},
+						{
+							"roll": {
+								"min": 8,
+								"max": 11
+							},
+							"text": "Born into a Fe-Runner family, trained from a young age.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.2"
+						},
+						{
+							"roll": {
+								"min": 12,
+								"max": 15
+							},
+							"text": "Discovered a hidden truth about the world that changed their path.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.3"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 19
+							},
+							"text": "Was framed for a crime they didn't commit, forced to become a fugitive.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.4"
+						},
+						{
+							"roll": {
+								"min": 20,
+								"max": 23
+							},
+							"text": "Lost someone close due to corporate negligence, seeks revenge.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.5"
+						},
+						{
+							"roll": {
+								"min": 24,
+								"max": 27
+							},
+							"text": "Possesses a strange connection to the digital world, almost mystical.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.6"
+						},
+						{
+							"roll": {
+								"min": 28,
+								"max": 31
+							},
+							"text": "Witnessed the brutality of the government enforcers, vowed to fight back.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.7"
+						},
+						{
+							"roll": {
+								"min": 32,
+								"max": 35
+							},
+							"text": "Ex-military data analyst turned rogue hacker.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.8"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 39
+							},
+							"text": "Self-taught tech whiz, a master of improvisation.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.9"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 43
+							},
+							"text": "Former corporate drone, disillusioned with the system.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.10"
+						},
+						{
+							"roll": {
+								"min": 44,
+								"max": 48
+							},
+							"text": "Streetwise hustler with unmatched social engineering skills.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.11"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 52
+							},
+							"text": "A talented artist whose coding is a form of digital graffiti.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.12"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 56
+							},
+							"text": "Driven by a thirst for knowledge, uncovering the secrets of the world.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.13"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 60
+							},
+							"text": "Fights for the underdog, protecting the marginalized from corporate control.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.14"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 64
+							},
+							"text": "Obsessed with a personal vendetta against a specific corporation.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.15"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 68
+							},
+							"text": "Seeks to dismantle the corporate power structure, create a new world.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.16"
+						},
+						{
+							"roll": {
+								"min": 69,
+								"max": 72
+							},
+							"text": "Driven by the thrill of the challenge, the ultimate puzzle to solve.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.17"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 76
+							},
+							"text": "Haunted by a past mistake, atonement fuels their hacking.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.18"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 80
+							},
+							"text": "Struggles with addiction, using their skills to support it.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.19"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 84
+							},
+							"text": "Morally ambiguous, willing to play both sides for their own ends.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.20"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 88
+							},
+							"text": "Hates humanity, sees the digital world as the future.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.21"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 92
+							},
+							"text": "Has a unique trait or implant that enhances their hacking abilities.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.22"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 96
+							},
+							"text": "Carries a hidden past, a secret identity they desperately protect.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.23"
+						},
+						{
+							"roll": {
+								"min": 97,
+								"max": 100
+							},
+							"text": "Famous (or infamous) in the Fe-Runner underworld, a legend among hackers.",
+							"_id": "oracle_rollable.row:fe_runners/campaign_launch/backstory_prompts.24"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/campaign_launch/backstory_prompts"
+				}
+			},
+			"collections": {},
+			"_id": "oracle_collection:fe_runners/campaign_launch"
+		},
 		"core": {
 			"name": "Core Oracles",
 			"type": "oracle_collection",
@@ -4114,6 +4627,362 @@
 					},
 					"_id": "oracle_rollable:fe_runners/node/segment"
 				},
+				"core_segment_node_type": {
+					"name": "Core Segment Node Type",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 64
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 15
+							},
+							"text": "[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.0"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 30
+							},
+							"text": "Commerce",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.1"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 45
+							},
+							"text": "Gaming",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.2"
+						},
+						{
+							"roll": {
+								"min": 46,
+								"max": 60
+							},
+							"text": "Entertainment",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.3"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 75
+							},
+							"text": "Education",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.4"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 90
+							},
+							"text": "News & Media",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.5"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "Science & Research",
+							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.6"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/core_segment_node_type"
+				},
+				"corporate_segment_node_type": {
+					"name": "Corporate Segment Node Type",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 64
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 15
+							},
+							"text": "Manufacturing",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.0"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 30
+							},
+							"text": "Infrastructure",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.1"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 45
+							},
+							"text": "Legal",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.2"
+						},
+						{
+							"roll": {
+								"min": 46,
+								"max": 60
+							},
+							"text": "Hospitality",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.3"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 75
+							},
+							"text": "Advertising & Marketing",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.4"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 90
+							},
+							"text": "Security",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.5"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)",
+							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.6"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/corporate_segment_node_type"
+				},
+				"government_segment_node_type": {
+					"name": "Government Segment Node Type",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 64
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 9
+							},
+							"text": "Legal",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.0"
+						},
+						{
+							"roll": {
+								"min": 10,
+								"max": 19
+							},
+							"text": "Law Enforcement",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.1"
+						},
+						{
+							"roll": {
+								"min": 20,
+								"max": 29
+							},
+							"text": "Military",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.2"
+						},
+						{
+							"roll": {
+								"min": 30,
+								"max": 39
+							},
+							"text": "Education",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.3"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 49
+							},
+							"text": "Healthcare",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.4"
+						},
+						{
+							"roll": {
+								"min": 50,
+								"max": 59
+							},
+							"text": "Infrastructure",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.5"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 69
+							},
+							"text": "Social Services",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.6"
+						},
+						{
+							"roll": {
+								"min": 70,
+								"max": 79
+							},
+							"text": "Foreign Affairs",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.7"
+						},
+						{
+							"roll": {
+								"min": 80,
+								"max": 89
+							},
+							"text": "Social / Communications",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.8"
+						},
+						{
+							"roll": {
+								"min": 90,
+								"max": 100
+							},
+							"text": "Security",
+							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/government_segment_node_type"
+				},
+				"underground_segment_node_type": {
+					"name": "Underground Segment Node Type",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 65
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 13
+							},
+							"text": "Gambling (Entertainment)",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.0"
+						},
+						{
+							"roll": {
+								"min": 14,
+								"max": 26
+							},
+							"text": "Programming",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.1"
+						},
+						{
+							"roll": {
+								"min": 27,
+								"max": 39
+							},
+							"text": "Commerce",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.2"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 52
+							},
+							"text": "Criminal Activity",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.3"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 65
+							},
+							"text": "Manufacturing",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.4"
+						},
+						{
+							"roll": {
+								"min": 66,
+								"max": 78
+							},
+							"text": "[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.5"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 91
+							},
+							"text": "Political / Radical Groups",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.6"
+						},
+						{
+							"roll": {
+								"min": 92,
+								"max": 100
+							},
+							"text": "Security",
+							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.7"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/underground_segment_node_type"
+				},
 				"misc_node": {
 					"name": "Miscellaneous Node",
 					"type": "oracle_rollable",
@@ -4235,6 +5104,522 @@
 						"text": "Result"
 					},
 					"_id": "oracle_rollable:fe_runners/node/misc_node"
+				},
+				"node_popularity": {
+					"name": "Node Popularity",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 65
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 14
+							},
+							"text": "Abandoned",
+							"_id": "oracle_rollable.row:fe_runners/node/node_popularity.0"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 35
+							},
+							"text": "Handful",
+							"_id": "oracle_rollable.row:fe_runners/node/node_popularity.1"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 59
+							},
+							"text": "Dozens",
+							"_id": "oracle_rollable.row:fe_runners/node/node_popularity.2"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 84
+							},
+							"text": "Hundreds",
+							"_id": "oracle_rollable.row:fe_runners/node/node_popularity.3"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 100
+							},
+							"text": "Thousands",
+							"_id": "oracle_rollable.row:fe_runners/node/node_popularity.4"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/node_popularity"
+				},
+				"node_cluster_size": {
+					"name": "Node Cluster Size",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"summary": "Nodes can be clustered into larger entities.  Use this article to envision the type of environment the node exists in.",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 65
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 15
+							},
+							"text": "Solitary Node",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.0"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 34
+							},
+							"text": "A few loosely connected nodes",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.1"
+						},
+						{
+							"roll": {
+								"min": 35,
+								"max": 47
+							},
+							"text": "Several nodes attached to a large node",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.2"
+						},
+						{
+							"roll": {
+								"min": 48,
+								"max": 62
+							},
+							"text": "A large complex of nodes",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.3"
+						},
+						{
+							"roll": {
+								"min": 63,
+								"max": 75
+							},
+							"text": "A city of nodes",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.4"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 86
+							},
+							"text": "A densely populated block of nodes",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.5"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 95
+							},
+							"text": "A terrain of nodes with their own clusters",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.6"
+						},
+						{
+							"roll": {
+								"min": 96,
+								"max": 100
+							},
+							"text": "A planet containing nodes",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_size.7"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/node_cluster_size"
+				},
+				"node_cluster_theme": {
+					"name": "Node Cluster Theme",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 66
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 2
+							},
+							"text": "Abstract",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.0"
+						},
+						{
+							"roll": {
+								"min": 3,
+								"max": 4
+							},
+							"text": "Alien",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.1"
+						},
+						{
+							"roll": {
+								"min": 5,
+								"max": 7
+							},
+							"text": "Apocalyptic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.2"
+						},
+						{
+							"roll": {
+								"min": 8,
+								"max": 9
+							},
+							"text": "Asian Fusion",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.3"
+						},
+						{
+							"roll": {
+								"min": 10,
+								"max": 11
+							},
+							"text": "Black & White",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.4"
+						},
+						{
+							"roll": {
+								"min": 12,
+								"max": 13
+							},
+							"text": "Cavernous",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.5"
+						},
+						{
+							"roll": {
+								"min": 14,
+								"max": 17
+							},
+							"text": "Cinematic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.6"
+						},
+						{
+							"roll": {
+								"min": 18,
+								"max": 19
+							},
+							"text": "Comic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.7"
+						},
+						{
+							"roll": {
+								"min": 20,
+								"max": 23
+							},
+							"text": "Dystopian",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.8"
+						},
+						{
+							"roll": {
+								"min": 24,
+								"max": 25
+							},
+							"text": "Fantasy",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.9"
+						},
+						{
+							"roll": {
+								"min": 26,
+								"max": 27
+							},
+							"text": "Floating",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.10"
+						},
+						{
+							"roll": {
+								"min": 28,
+								"max": 29
+							},
+							"text": "Forest",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.11"
+						},
+						{
+							"roll": {
+								"min": 30,
+								"max": 32
+							},
+							"text": "Friendly",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.12"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 35
+							},
+							"text": "Frozen",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.13"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 39
+							},
+							"text": "Futuristic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.14"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 42
+							},
+							"text": "Glitches",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.15"
+						},
+						{
+							"roll": {
+								"min": 43,
+								"max": 44
+							},
+							"text": "Glitzy",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.16"
+						},
+						{
+							"roll": {
+								"min": 45,
+								"max": 46
+							},
+							"text": "Holograms",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.17"
+						},
+						{
+							"roll": {
+								"min": 47,
+								"max": 48
+							},
+							"text": "Horror",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.18"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 51
+							},
+							"text": "Industrial",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.19"
+						},
+						{
+							"roll": {
+								"min": 52,
+								"max": 55
+							},
+							"text": "Luxury",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.20"
+						},
+						{
+							"roll": {
+								"min": 56,
+								"max": 57
+							},
+							"text": "Medieval",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.21"
+						},
+						{
+							"roll": {
+								"min": 58,
+								"max": 59
+							},
+							"text": "Metallic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.22"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 62
+							},
+							"text": "Minimalistic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.23"
+						},
+						{
+							"roll": {
+								"min": 63,
+								"max": 65
+							},
+							"text": "Modern",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.24"
+						},
+						{
+							"roll": {
+								"min": 66,
+								"max": 67
+							},
+							"text": "Mountainous",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.25"
+						},
+						{
+							"roll": {
+								"min": 68,
+								"max": 69
+							},
+							"text": "Neon",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.26"
+						},
+						{
+							"roll": {
+								"min": 70,
+								"max": 71
+							},
+							"text": "Overgrown",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.27"
+						},
+						{
+							"roll": {
+								"min": 72,
+								"max": 73
+							},
+							"text": "Prehistoric",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.28"
+						},
+						{
+							"roll": {
+								"min": 74,
+								"max": 75
+							},
+							"text": "Public Events",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.29"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 77
+							},
+							"text": "Rainy",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.30"
+						},
+						{
+							"roll": {
+								"min": 78,
+								"max": 79
+							},
+							"text": "Realistic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.31"
+						},
+						{
+							"roll": {
+								"min": 80,
+								"max": 82
+							},
+							"text": "Retro",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.32"
+						},
+						{
+							"roll": {
+								"min": 83,
+								"max": 84
+							},
+							"text": "Sandy",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.33"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 86
+							},
+							"text": "Space",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.34"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 88
+							},
+							"text": "Swamp",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.35"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 90
+							},
+							"text": "Traditional",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.36"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 92
+							},
+							"text": "Volcanic",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.37"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 94
+							},
+							"text": "Water",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.38"
+						},
+						{
+							"roll": {
+								"min": 95,
+								"max": 96
+							},
+							"text": "Waterfalls",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.39"
+						},
+						{
+							"roll": {
+								"min": 97,
+								"max": 98
+							},
+							"text": "Western",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.40"
+						},
+						{
+							"roll": {
+								"min": 99,
+								"max": 100
+							},
+							"text": "Wintery",
+							"_id": "oracle_rollable.row:fe_runners/node/node_cluster_theme.41"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/node/node_cluster_theme"
 				},
 				"node_encounter": {
 					"name": "Node Encounter",
