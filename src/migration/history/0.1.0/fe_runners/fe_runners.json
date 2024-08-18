@@ -4419,6 +4419,1352 @@
 			"collections": {},
 			"_id": "oracle_collection:fe_runners/core"
 		},
+		"malicious_entities": {
+			"name": "Malicious Entities",
+			"oracle_type": "tables",
+			"type": "oracle_collection",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 67
+			},
+			"summary": "Use these tables for unknown viruses, worms, robots, AI and other programs you run into.",
+			"collections": {
+				"entity": {
+					"name": "Malicious Entity Oracles",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 67
+					},
+					"contents": {
+						"scale": {
+							"name": "Scale",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 67
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 3
+									},
+									"text": "Miniscule (bug size)",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/scale.0"
+								},
+								{
+									"roll": {
+										"min": 4,
+										"max": 10
+									},
+									"text": "Tiny (rodent size)",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/scale.1"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 25
+									},
+									"text": "Small (dog size)",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/scale.2"
+								},
+								{
+									"roll": {
+										"min": 26,
+										"max": 60
+									},
+									"text": "Medium (person size)",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/scale.3"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 90
+									},
+									"text": "Large (vehicle size)",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/scale.4"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 100
+									},
+									"text": "Huge (whale size)",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/scale.5"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/malicious_entities/entity/scale"
+						},
+						"basic_form": {
+							"name": "Basic Form",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 67
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 3
+									},
+									"text": "Amoeba / pseudopod",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.0"
+								},
+								{
+									"roll": {
+										"min": 4,
+										"max": 6
+									},
+									"text": "Amorphous / elemental",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.1"
+								},
+								{
+									"roll": {
+										"min": 7,
+										"max": 12
+									},
+									"text": "Avian / winged",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.2"
+								},
+								{
+									"roll": {
+										"min": 13,
+										"max": 19
+									},
+									"text": "Beast / mammal",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.3"
+								},
+								{
+									"roll": {
+										"min": 20,
+										"max": 22
+									},
+									"text": "Crustation / shelled",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.4"
+								},
+								{
+									"roll": {
+										"min": 23,
+										"max": 24
+									},
+									"text": "Fish / torpedo-shaped",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.5"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 37
+									},
+									"text": "Humanoid / bi-pedal",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.6"
+								},
+								{
+									"roll": {
+										"min": 38,
+										"max": 49
+									},
+									"text": "Insectoid / exoskeleton",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.7"
+								},
+								{
+									"roll": {
+										"min": 50,
+										"max": 51
+									},
+									"text": "Jellyfish / gasbag",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.8"
+								},
+								{
+									"roll": {
+										"min": 52,
+										"max": 56
+									},
+									"text": "Lizard / reptilian",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.9"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 58
+									},
+									"text": "Octopoid / tentacled",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.10"
+								},
+								{
+									"roll": {
+										"min": 59,
+										"max": 63
+									},
+									"text": "Plant / fungus",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.11"
+								},
+								{
+									"roll": {
+										"min": 64,
+										"max": 65
+									},
+									"text": "Ray / flat-bodied",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.12"
+								},
+								{
+									"roll": {
+										"min": 66,
+										"max": 68
+									},
+									"text": "Snake / eel",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.13"
+								},
+								{
+									"roll": {
+										"min": 69,
+										"max": 83
+									},
+									"text": "Spider / web-weaver",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.14"
+								},
+								{
+									"roll": {
+										"min": 84,
+										"max": 85
+									},
+									"text": "Starfish / symmetrical",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.15"
+								},
+								{
+									"roll": {
+										"min": 86,
+										"max": 90
+									},
+									"text": "Worm / slug / larva",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.16"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 100
+									},
+									"text": "Roll Twice",
+									"oracle_rolls": [
+										{
+											"oracle": "oracle_rollable:fe_runners/malicious_entities/entity/basic_form",
+											"auto": true,
+											"dice": null,
+											"duplicates": "reroll",
+											"number_of_rolls": 1
+										}
+									],
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.17"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/malicious_entities/entity/basic_form"
+						},
+						"first_look": {
+							"name": "Malicious Entity First Look",
+							"type": "oracle_rollable",
+							"oracle_type": "table_text",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 67
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 2
+									},
+									"text": "Antennae or sensors",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.0"
+								},
+								{
+									"roll": {
+										"min": 3,
+										"max": 4
+									},
+									"text": "Armored",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.1"
+								},
+								{
+									"roll": {
+										"min": 5,
+										"max": 6
+									},
+									"text": "Beautiful",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.2"
+								},
+								{
+									"roll": {
+										"min": 7,
+										"max": 8
+									},
+									"text": "Biotech",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.3"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 10
+									},
+									"text": "Bony or gaunt",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.4"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 12
+									},
+									"text": "Brutish or muscled",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.5"
+								},
+								{
+									"roll": {
+										"min": 13,
+										"max": 14
+									},
+									"text": "Camouflage",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.6"
+								},
+								{
+									"roll": {
+										"min": 15,
+										"max": 16
+									},
+									"text": "Claws or talons",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.7"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 18
+									},
+									"text": "Comprised of many entities",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.8"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 20
+									},
+									"text": "Corrupted or Infected",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.9"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 22
+									},
+									"text": "Crystalline",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.10"
+								},
+								{
+									"roll": {
+										"min": 23,
+										"max": 24
+									},
+									"text": "Dead or undead",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.11"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 26
+									},
+									"text": "Distinctive Markings",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.12"
+								},
+								{
+									"roll": {
+										"min": 27,
+										"max": 28
+									},
+									"text": "Distinctive Sounds",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.13"
+								},
+								{
+									"roll": {
+										"min": 29,
+										"max": 30
+									},
+									"text": "Elongated Neck",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.14"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 32
+									},
+									"text": "Energy Emissions",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.15"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 34
+									},
+									"text": "Extra limbs",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.16"
+								},
+								{
+									"roll": {
+										"min": 35,
+										"max": 36
+									},
+									"text": "Faceless or inexpressive",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.17"
+								},
+								{
+									"roll": {
+										"min": 37,
+										"max": 38
+									},
+									"text": "Fangs or rows of teeth",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.18"
+								},
+								{
+									"roll": {
+										"min": 39,
+										"max": 40
+									},
+									"text": "Feathered",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.19"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 42
+									},
+									"text": "Fungal growth",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.20"
+								},
+								{
+									"roll": {
+										"min": 43,
+										"max": 44
+									},
+									"text": "Fur, hair or filaments",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.21"
+								},
+								{
+									"roll": {
+										"min": 45,
+										"max": 46
+									},
+									"text": "Glowing eyes",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.22"
+								},
+								{
+									"roll": {
+										"min": 47,
+										"max": 48
+									},
+									"text": "Graceful",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.23"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 50
+									},
+									"text": "Hideous",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.24"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 52
+									},
+									"text": "Hooded or crested",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.25"
+								},
+								{
+									"roll": {
+										"min": 53,
+										"max": 54
+									},
+									"text": "Immobile or trapped",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.26"
+								},
+								{
+									"roll": {
+										"min": 55,
+										"max": 56
+									},
+									"text": "Injured or scarred",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.27"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 58
+									},
+									"text": "Iridescent",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.28"
+								},
+								{
+									"roll": {
+										"min": 59,
+										"max": 60
+									},
+									"text": "Long-limbed",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.29"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 62
+									},
+									"text": "Luminescent",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.30"
+								},
+								{
+									"roll": {
+										"min": 63,
+										"max": 64
+									},
+									"text": "Mandible or pincers",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.31"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 66
+									},
+									"text": "Many-eyed",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.32"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 68
+									},
+									"text": "Mechanical",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.33"
+								},
+								{
+									"roll": {
+										"min": 69,
+										"max": 70
+									},
+									"text": "Mineral or metallic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.34"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 72
+									},
+									"text": "Multi-jointed",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.35"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 74
+									},
+									"text": "Multi-segmented body",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.36"
+								},
+								{
+									"roll": {
+										"min": 75,
+										"max": 76
+									},
+									"text": "Ornamented or colorful",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.37"
+								},
+								{
+									"roll": {
+										"min": 77,
+										"max": 78
+									},
+									"text": "Oversized mouth",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.38"
+								},
+								{
+									"roll": {
+										"min": 79,
+										"max": 80
+									},
+									"text": "Prominent tail",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.39"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 82
+									},
+									"text": "Prominent wings or fins",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.40"
+								},
+								{
+									"roll": {
+										"min": 83,
+										"max": 84
+									},
+									"text": "Ridges or plates",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.41"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 86
+									},
+									"text": "Scaled",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.42"
+								},
+								{
+									"roll": {
+										"min": 87,
+										"max": 88
+									},
+									"text": "Single-eyed or oversized eyes",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.43"
+								},
+								{
+									"roll": {
+										"min": 89,
+										"max": 90
+									},
+									"text": "Spikes or spines",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.44"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 92
+									},
+									"text": "Stinger or barbs",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.45"
+								},
+								{
+									"roll": {
+										"min": 93,
+										"max": 94
+									},
+									"text": "Tentacles or tendrils",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.46"
+								},
+								{
+									"roll": {
+										"min": 95,
+										"max": 96
+									},
+									"text": "Translucent",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.47"
+								},
+								{
+									"roll": {
+										"min": 97,
+										"max": 98
+									},
+									"text": "Treaded locomotion",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.48"
+								},
+								{
+									"roll": {
+										"min": 99,
+										"max": 100
+									},
+									"text": "Visible symbiote",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/first_look.49"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/malicious_entities/entity/first_look"
+						},
+						"encountered_behavior": {
+							"name": "Encountered Behavior",
+							"type": "oracle_rollable",
+							"oracle_type": "table_text",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 67
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 5
+									},
+									"text": "Ambusher",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.0"
+								},
+								{
+									"roll": {
+										"min": 6,
+										"max": 10
+									},
+									"text": "Predator",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.1"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 14
+									},
+									"text": "Builder",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.2"
+								},
+								{
+									"roll": {
+										"min": 15,
+										"max": 19
+									},
+									"text": "Camouflager",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.3"
+								},
+								{
+									"roll": {
+										"min": 20,
+										"max": 24
+									},
+									"text": "Chaotic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.4"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 29
+									},
+									"text": "Hibernator",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.5"
+								},
+								{
+									"roll": {
+										"min": 30,
+										"max": 33
+									},
+									"text": "Hoarder",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.6"
+								},
+								{
+									"roll": {
+										"min": 34,
+										"max": 37
+									},
+									"text": "Hunter",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.7"
+								},
+								{
+									"roll": {
+										"min": 38,
+										"max": 41
+									},
+									"text": "Inquisitive",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.8"
+								},
+								{
+									"roll": {
+										"min": 42,
+										"max": 46
+									},
+									"text": "Lurer",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.9"
+								},
+								{
+									"roll": {
+										"min": 47,
+										"max": 51
+									},
+									"text": "Migratory",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.10"
+								},
+								{
+									"roll": {
+										"min": 52,
+										"max": 55
+									},
+									"text": "Mimic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.11"
+								},
+								{
+									"roll": {
+										"min": 56,
+										"max": 60
+									},
+									"text": "Nester",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.12"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 65
+									},
+									"text": "Pack hunter",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.13"
+								},
+								{
+									"roll": {
+										"min": 66,
+										"max": 70
+									},
+									"text": "Parasitic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.14"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 75
+									},
+									"text": "Power drainer",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.15"
+								},
+								{
+									"roll": {
+										"min": 76,
+										"max": 80
+									},
+									"text": "Prey",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.16"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 85
+									},
+									"text": "Protector",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.17"
+								},
+								{
+									"roll": {
+										"min": 86,
+										"max": 90
+									},
+									"text": "Scavenger",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.18"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 95
+									},
+									"text": "Tracker",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.19"
+								},
+								{
+									"roll": {
+										"min": 96,
+										"max": 100
+									},
+									"text": "Roll twice",
+									"oracle_rolls": [
+										{
+											"oracle": "oracle_rollable:fe_runners/malicious_entities/entity/encountered_behavior",
+											"auto": false,
+											"dice": null,
+											"duplicates": "reroll",
+											"number_of_rolls": 1
+										}
+									],
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.20"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/malicious_entities/entity/encountered_behavior"
+						},
+						"revealed_entity_aspect": {
+							"name": "Revealed Entity Aspect",
+							"type": "oracle_rollable",
+							"oracle_type": "table_text",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 67
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 2
+									},
+									"text": "Adaptable",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.0"
+								},
+								{
+									"roll": {
+										"min": 3,
+										"max": 4
+									},
+									"text": "Alternative movement",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.1"
+								},
+								{
+									"roll": {
+										"min": 5,
+										"max": 6
+									},
+									"text": "Alternative senses / detection",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.2"
+								},
+								{
+									"roll": {
+										"min": 7,
+										"max": 8
+									},
+									"text": "Broadcaster",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.3"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 10
+									},
+									"text": "Burrower",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.4"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 12
+									},
+									"text": "Causes interference",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.5"
+								},
+								{
+									"roll": {
+										"min": 13,
+										"max": 14
+									},
+									"text": "Chameleon",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.6"
+								},
+								{
+									"roll": {
+										"min": 15,
+										"max": 16
+									},
+									"text": "Clever",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.7"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 18
+									},
+									"text": "Consumes Energy",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.8"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 20
+									},
+									"text": "Controlled or puppeteered",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.9"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 22
+									},
+									"text": "Controls lesser entities",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.10"
+								},
+								{
+									"roll": {
+										"min": 23,
+										"max": 24
+									},
+									"text": "Corrupting",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.11"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 26
+									},
+									"text": "Data thief",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.12"
+								},
+								{
+									"roll": {
+										"min": 27,
+										"max": 28
+									},
+									"text": "Death fascination",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.13"
+								},
+								{
+									"roll": {
+										"min": 29,
+										"max": 30
+									},
+									"text": "Electric shock",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.14"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 32
+									},
+									"text": "Encryptor",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.15"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 34
+									},
+									"text": "Energy manipulation",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.16"
+								},
+								{
+									"roll": {
+										"min": 35,
+										"max": 36
+									},
+									"text": "Enhanced senses",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.17"
+								},
+								{
+									"roll": {
+										"min": 37,
+										"max": 38
+									},
+									"text": "Enhanced strength",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.18"
+								},
+								{
+									"roll": {
+										"min": 39,
+										"max": 40
+									},
+									"text": "Enhanced protections",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.19"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 42
+									},
+									"text": "Entangling",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.20"
+								},
+								{
+									"roll": {
+										"min": 43,
+										"max": 44
+									},
+									"text": "Extradimensional",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.21"
+								},
+								{
+									"roll": {
+										"min": 45,
+										"max": 46
+									},
+									"text": "Hallucinogenic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.22"
+								},
+								{
+									"roll": {
+										"min": 47,
+										"max": 48
+									},
+									"text": "Hidden symbiote",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.23"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 50
+									},
+									"text": "Hive mind",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.24"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 52
+									},
+									"text": "Honeypot",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.25"
+								},
+								{
+									"roll": {
+										"min": 53,
+										"max": 54
+									},
+									"text": "Illusionary",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.26"
+								},
+								{
+									"roll": {
+										"min": 55,
+										"max": 56
+									},
+									"text": "Imprisoner",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.27"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 58
+									},
+									"text": "Infected",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.28"
+								},
+								{
+									"roll": {
+										"min": 59,
+										"max": 60
+									},
+									"text": "Infectious",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.29"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 62
+									},
+									"text": "Intimidating threat display",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.30"
+								},
+								{
+									"roll": {
+										"min": 63,
+										"max": 64
+									},
+									"text": "Limited sense",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.31"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 66
+									},
+									"text": "Linked to environment",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.32"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 68
+									},
+									"text": "Mental influence or control",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.33"
+								},
+								{
+									"roll": {
+										"min": 69,
+										"max": 70
+									},
+									"text": "Metamorphic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.34"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 72
+									},
+									"text": "Misinformation",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.35"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 74
+									},
+									"text": "Paralytic toxin",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.36"
+								},
+								{
+									"roll": {
+										"min": 75,
+										"max": 76
+									},
+									"text": "Parasitic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.37"
+								},
+								{
+									"roll": {
+										"min": 77,
+										"max": 78
+									},
+									"text": "Power source",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.38"
+								},
+								{
+									"roll": {
+										"min": 79,
+										"max": 80
+									},
+									"text": "Projectile attack",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.39"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 82
+									},
+									"text": "Regeneration",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.40"
+								},
+								{
+									"roll": {
+										"min": 83,
+										"max": 84
+									},
+									"text": "Replication",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.41"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 86
+									},
+									"text": "Sacrificial defense",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.42"
+								},
+								{
+									"roll": {
+										"min": 87,
+										"max": 88
+									},
+									"text": "Shapechanger",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.43"
+								},
+								{
+									"roll": {
+										"min": 89,
+										"max": 90
+									},
+									"text": "Spawns offspring",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.44"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 92
+									},
+									"text": "Telekinetic",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.45"
+								},
+								{
+									"roll": {
+										"min": 93,
+										"max": 94
+									},
+									"text": "Teleportation",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.46"
+								},
+								{
+									"roll": {
+										"min": 95,
+										"max": 96
+									},
+									"text": "Territorial",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.47"
+								},
+								{
+									"roll": {
+										"min": 97,
+										"max": 98
+									},
+									"text": "Warps time",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.48"
+								},
+								{
+									"roll": {
+										"min": 99,
+										"max": 100
+									},
+									"text": "Unreliable",
+									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/revealed_entity_aspect.49"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/malicious_entities/entity/revealed_entity_aspect"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/malicious_entities/entity"
+				}
+			},
+			"contents": {},
+			"_id": "oracle_collection:fe_runners/malicious_entities"
+		},
 		"node_type": {
 			"name": "Node Types",
 			"oracle_type": "tables",
