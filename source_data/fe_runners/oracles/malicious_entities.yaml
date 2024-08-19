@@ -93,10 +93,14 @@ oracles:
                 oracle_rolls:
                   - oracle: oracle_rollable:fe_runners/malicious_entities/entity/basic_form
                     auto: true
+                    number_of_rolls: 2
           first_look:
             name: Malicious Entity First Look
             type: oracle_rollable
             oracle_type: table_text
+            recommended_rolls:
+              min: 1
+              max: 2
             _source:
               <<: *CollectionSource
             rows:
@@ -251,11 +255,15 @@ oracles:
                 text: Roll twice
                 oracle_rolls: 
                   - oracle: oracle_rollable:fe_runners/malicious_entities/entity/encountered_behavior
-                    auto: false
+                    auto: true
+                    number_of_rolls: 2
           revealed_entity_aspect:
             name: Revealed Entity Aspect
             type: oracle_rollable
             oracle_type: table_text
+            recommended_rolls:
+              min: 1
+              max: 2
             _source:
               <<: *CollectionSource
             rows:

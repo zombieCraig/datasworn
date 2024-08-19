@@ -4690,9 +4690,9 @@
 										{
 											"oracle": "oracle_rollable:fe_runners/malicious_entities/entity/basic_form",
 											"auto": true,
+											"number_of_rolls": 2,
 											"dice": null,
-											"duplicates": "reroll",
-											"number_of_rolls": 1
+											"duplicates": "reroll"
 										}
 									],
 									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/basic_form.17"
@@ -4709,6 +4709,10 @@
 							"name": "Malicious Entity First Look",
 							"type": "oracle_rollable",
 							"oracle_type": "table_text",
+							"recommended_rolls": {
+								"min": 1,
+								"max": 2
+							},
 							"_source": {
 								"date": "2024-08-10",
 								"title": "Fe-Runners Rulebook",
@@ -5316,10 +5320,10 @@
 									"oracle_rolls": [
 										{
 											"oracle": "oracle_rollable:fe_runners/malicious_entities/entity/encountered_behavior",
-											"auto": false,
+											"auto": true,
+											"number_of_rolls": 2,
 											"dice": null,
-											"duplicates": "reroll",
-											"number_of_rolls": 1
+											"duplicates": "reroll"
 										}
 									],
 									"_id": "oracle_rollable.row:fe_runners/malicious_entities/entity/encountered_behavior.20"
@@ -5336,6 +5340,10 @@
 							"name": "Revealed Entity Aspect",
 							"type": "oracle_rollable",
 							"oracle_type": "table_text",
+							"recommended_rolls": {
+								"min": 1,
+								"max": 2
+							},
 							"_source": {
 								"date": "2024-08-10",
 								"title": "Fe-Runners Rulebook",
@@ -7199,6 +7207,3360 @@
 			},
 			"collections": {},
 			"_id": "oracle_collection:fe_runners/node"
+		},
+		"social": {
+			"name": "Social Oracles",
+			"type": "oracle_collection",
+			"oracle_type": "tables",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 70
+			},
+			"contents": {
+				"hub": {
+					"name": "Hub Oracle",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"summary": "These are casual nodes in the network where people socialize.",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 70
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 8
+							},
+							"text": "Bar",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.0"
+						},
+						{
+							"roll": {
+								"min": 9,
+								"max": 16
+							},
+							"text": "Night Market",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.1"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 24
+							},
+							"text": "Trading post",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.2"
+						},
+						{
+							"roll": {
+								"min": 25,
+								"max": 32
+							},
+							"text": "Shopping Complex",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.3"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 40
+							},
+							"text": "Remote outpost",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.4"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 48
+							},
+							"text": "An oasis",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.5"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 56
+							},
+							"text": "Old arcade spot",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.6"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 64
+							},
+							"text": "Park",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.7"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 72
+							},
+							"text": "Boats tethered together",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.8"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 80
+							},
+							"text": "Hidden bunker",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.9"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 88
+							},
+							"text": "Night club",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.10"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 96
+							},
+							"text": "Transit station",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.11"
+						},
+						{
+							"roll": {
+								"min": 97,
+								"max": 98
+							},
+							"text": "Desert Gathering",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.12"
+						},
+						{
+							"roll": {
+								"min": 99,
+								"max": 100
+							},
+							"text": "Party under a bridge",
+							"_id": "oracle_rollable.row:fe_runners/social/hub.13"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/hub"
+				},
+				"hanging_out": {
+					"name": "Hanging out oracle",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"summary": "An oracle for casual down time.  Envision this as an incoming invite.",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 70
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 5
+							},
+							"text": "Retro Arcade Bar",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.0"
+						},
+						{
+							"roll": {
+								"min": 6,
+								"max": 10
+							},
+							"text": "Neon Karaoke Bar",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.1"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 15
+							},
+							"text": "Art Gallery",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.2"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 20
+							},
+							"text": "Hidden Rooftop Garden",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.3"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 25
+							},
+							"text": "Dance Club",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.4"
+						},
+						{
+							"roll": {
+								"min": 26,
+								"max": 30
+							},
+							"text": "Stream and Chill",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.5"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 35
+							},
+							"text": "AI Cafe",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.6"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 40
+							},
+							"text": "Concert",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.7"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 45
+							},
+							"text": "Maze",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.8"
+						},
+						{
+							"roll": {
+								"min": 46,
+								"max": 50
+							},
+							"text": "Puzzle Room",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.9"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 55
+							},
+							"text": "Target Range / Lazer Tag",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.10"
+						},
+						{
+							"roll": {
+								"min": 56,
+								"max": 60
+							},
+							"text": "E-Sporting Event",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.11"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 65
+							},
+							"text": "Astral Projection Simulator",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.12"
+						},
+						{
+							"roll": {
+								"min": 66,
+								"max": 70
+							},
+							"text": "Forest Walk",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.13"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 75
+							},
+							"text": "Scavenger Hunt",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.14"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 80
+							},
+							"text": "Game Night",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.15"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 85
+							},
+							"text": "Virtual Pet Park",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.16"
+						},
+						{
+							"roll": {
+								"min": 86,
+								"max": 90
+							},
+							"text": "Virtual World Building",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.17"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 95
+							},
+							"text": "Premier Night",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.18"
+						},
+						{
+							"roll": {
+								"min": 96,
+								"max": 100
+							},
+							"text": "Racing",
+							"_id": "oracle_rollable.row:fe_runners/social/hanging_out.19"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/hanging_out"
+				},
+				"location_name": {
+					"name": "Location Name Oracle",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 70
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 16
+							},
+							"text": "[Descriptor](oracle_rollable:fe_runners/core/descriptor) + [Action](oracle_rollable:fe_runners/core/action)",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} {{text>oracle_rollable:fe_runners/core/action}}"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/location_name.0"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 32
+							},
+							"text": "[Theme](oracle_rollable:fe_runners/core/action) + [Focus](oracle_rollable:fe_runners/core/focus)",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/action}} {{text>oracle_rollable:fe_runners/core/focus}}"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/location_name.1"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 48
+							},
+							"text": "[Theme](oracle_rollable:fe_runners/core/focus) + [Theme](oracle_rollable:fe_runners/core/theme)",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/focus}} {{text>oracle_rollable:fe_runners/core/theme}}"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/location_name.2"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 64
+							},
+							"text": "[Descriptor](oracle_rollable:fe_runners/core/descriptor) + [Focus](oracle_rollable:fe_runners/core/focus)",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} {{text>oracle_rollable:fe_runners/core/focus}}"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/location_name.3"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 82
+							},
+							"text": "[Theme](oracle_rollable:fe_runners/core/theme) + Location Type",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/theme}} <Location Type>"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/location_name.4"
+						},
+						{
+							"roll": {
+								"min": 83,
+								"max": 100
+							},
+							"text": "[Descriptor](oracle_rollable:fe_runners/core/descriptor) + Location Type",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} <Location Type>"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/location_name.5"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/location_name"
+				},
+				"fe_runner_handles": {
+					"name": "Fe-Runner Handles",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"recommended_rolls": {
+						"min": 1,
+						"max": 2
+					},
+					"summary": "Handles are code names that people use online.  Roll once or twice on the following table.  You can add numbers or additional descriptions to make them more unique, Example: Black_Alchemist47",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 71
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 2
+							},
+							"text": "Binary",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.0"
+						},
+						{
+							"roll": {
+								"min": 3,
+								"max": 4
+							},
+							"text": "Phoenix",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.1"
+						},
+						{
+							"roll": {
+								"min": 5,
+								"max": 6
+							},
+							"text": "Packet",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.2"
+						},
+						{
+							"roll": {
+								"min": 7,
+								"max": 8
+							},
+							"text": "Byt3",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.3"
+						},
+						{
+							"roll": {
+								"min": 9,
+								"max": 10
+							},
+							"text": "Wisper",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.4"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 12
+							},
+							"text": "Night",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.5"
+						},
+						{
+							"roll": {
+								"min": 13,
+								"max": 14
+							},
+							"text": "Enigma",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.6"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 16
+							},
+							"text": "Kernel",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.7"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 18
+							},
+							"text": "0Day",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.8"
+						},
+						{
+							"roll": {
+								"min": 19,
+								"max": 20
+							},
+							"text": "Master",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.9"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 22
+							},
+							"text": "Exploit",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.10"
+						},
+						{
+							"roll": {
+								"min": 23,
+								"max": 24
+							},
+							"text": "Heart",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.11"
+						},
+						{
+							"roll": {
+								"min": 25,
+								"max": 26
+							},
+							"text": "King",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.12"
+						},
+						{
+							"roll": {
+								"min": 27,
+								"max": 28
+							},
+							"text": "Zombie",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.13"
+						},
+						{
+							"roll": {
+								"min": 29,
+								"max": 30
+							},
+							"text": "Krypto",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.14"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 32
+							},
+							"text": "N1ght",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.15"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 34
+							},
+							"text": "Ghost",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.16"
+						},
+						{
+							"roll": {
+								"min": 35,
+								"max": 36
+							},
+							"text": "Phones",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.17"
+						},
+						{
+							"roll": {
+								"min": 37,
+								"max": 38
+							},
+							"text": "R1der",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.18"
+						},
+						{
+							"roll": {
+								"min": 39,
+								"max": 40
+							},
+							"text": "0verflow",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.19"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 42
+							},
+							"text": "Cyber",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.20"
+						},
+						{
+							"roll": {
+								"min": 43,
+								"max": 44
+							},
+							"text": "0wl",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.21"
+						},
+						{
+							"roll": {
+								"min": 45,
+								"max": 46
+							},
+							"text": "Digital",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.22"
+						},
+						{
+							"roll": {
+								"min": 47,
+								"max": 48
+							},
+							"text": "Pan1c",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.23"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 50
+							},
+							"text": "Savior",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.24"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 52
+							},
+							"text": "Circuit",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.25"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 54
+							},
+							"text": "Data",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.26"
+						},
+						{
+							"roll": {
+								"min": 55,
+								"max": 56
+							},
+							"text": "Rabbit",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.27"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 58
+							},
+							"text": "Queen",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.28"
+						},
+						{
+							"roll": {
+								"min": 59,
+								"max": 60
+							},
+							"text": "Virus",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.29"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 62
+							},
+							"text": "X or Z",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.30"
+						},
+						{
+							"roll": {
+								"min": 63,
+								"max": 64
+							},
+							"text": "Ace",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.31"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 66
+							},
+							"text": "Fire",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.32"
+						},
+						{
+							"roll": {
+								"min": 67,
+								"max": 68
+							},
+							"text": "C0d3",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.33"
+						},
+						{
+							"roll": {
+								"min": 69,
+								"max": 70
+							},
+							"text": "Null",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.34"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 72
+							},
+							"text": "Scr1pt",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.35"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 74
+							},
+							"text": "Maverick",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.36"
+						},
+						{
+							"roll": {
+								"min": 75,
+								"max": 76
+							},
+							"text": "Exa",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.37"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 78
+							},
+							"text": "Alchemist",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.38"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 80
+							},
+							"text": "Bug",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.39"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 82
+							},
+							"text": "Shell",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.40"
+						},
+						{
+							"roll": {
+								"min": 83,
+								"max": 84
+							},
+							"text": "Weaver",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.41"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 86
+							},
+							"text": "Spectre",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.42"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 88
+							},
+							"text": "Lurker",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.43"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 90
+							},
+							"text": "Raven",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.44"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 92
+							},
+							"text": "Damien",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.45"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 94
+							},
+							"text": "Gorilla",
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.46"
+						},
+						{
+							"roll": {
+								"min": 95,
+								"max": 100
+							},
+							"text": "Roll [Focus](oracle_rollable:fe_runners/core/focus)",
+							"oracle_rolls": [
+								{
+									"oracle": "oracle_rollable:fe_runners/core/focus",
+									"auto": true,
+									"dice": null,
+									"duplicates": "reroll",
+									"number_of_rolls": 1
+								}
+							],
+							"_id": "oracle_rollable.row:fe_runners/social/fe_runner_handles.47"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/fe_runner_handles"
+				},
+				"character_first_look": {
+					"name": "Character First Look",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"recommended_rolls": {
+						"min": 1,
+						"max": 2
+					},
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 71
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 3
+							},
+							"text": "Flashy",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.0"
+						},
+						{
+							"roll": {
+								"min": 4,
+								"max": 6
+							},
+							"text": "Accompanied",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.1"
+						},
+						{
+							"roll": {
+								"min": 7,
+								"max": 9
+							},
+							"text": "Glows",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.2"
+						},
+						{
+							"roll": {
+								"min": 10,
+								"max": 12
+							},
+							"text": "Aged",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.3"
+						},
+						{
+							"roll": {
+								"min": 13,
+								"max": 15
+							},
+							"text": "Athletic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.4"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 18
+							},
+							"text": "Distracted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.5"
+						},
+						{
+							"roll": {
+								"min": 19,
+								"max": 21
+							},
+							"text": "Augmented",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.6"
+						},
+						{
+							"roll": {
+								"min": 22,
+								"max": 24
+							},
+							"text": "Eccentric",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.7"
+						},
+						{
+							"roll": {
+								"min": 25,
+								"max": 27
+							},
+							"text": "Energetic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.8"
+						},
+						{
+							"roll": {
+								"min": 28,
+								"max": 29
+							},
+							"text": "Gloomy",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.9"
+						},
+						{
+							"roll": {
+								"min": 30,
+								"max": 31
+							},
+							"text": "Angered",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.10"
+						},
+						{
+							"roll": {
+								"min": 32,
+								"max": 33
+							},
+							"text": "Graceful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.11"
+						},
+						{
+							"roll": {
+								"min": 34,
+								"max": 35
+							},
+							"text": "Haggard",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.12"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 37
+							},
+							"text": "Ill-equipped",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.13"
+						},
+						{
+							"roll": {
+								"min": 38,
+								"max": 39
+							},
+							"text": "Imposing",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.14"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 41
+							},
+							"text": "Large",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.15"
+						},
+						{
+							"roll": {
+								"min": 42,
+								"max": 44
+							},
+							"text": "Animal",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.16"
+						},
+						{
+							"roll": {
+								"min": 45,
+								"max": 47
+							},
+							"text": "Alien",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.17"
+						},
+						{
+							"roll": {
+								"min": 48,
+								"max": 50
+							},
+							"text": "Plain",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.18"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 52
+							},
+							"text": "Poised",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.19"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 54
+							},
+							"text": "Scarred",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.20"
+						},
+						{
+							"roll": {
+								"min": 55,
+								"max": 57
+							},
+							"text": "Exotic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.21"
+						},
+						{
+							"roll": {
+								"min": 58,
+								"max": 59
+							},
+							"text": "Scruffy",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.22"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 61
+							},
+							"text": "Shifty",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.23"
+						},
+						{
+							"roll": {
+								"min": 62,
+								"max": 63
+							},
+							"text": "Obese",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.24"
+						},
+						{
+							"roll": {
+								"min": 64,
+								"max": 66
+							},
+							"text": "Drunk",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.25"
+						},
+						{
+							"roll": {
+								"min": 67,
+								"max": 69
+							},
+							"text": "Tattooed",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.26"
+						},
+						{
+							"roll": {
+								"min": 70,
+								"max": 72
+							},
+							"text": "Threatened",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.27"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 74
+							},
+							"text": "Uncanny",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.28"
+						},
+						{
+							"roll": {
+								"min": 75,
+								"max": 76
+							},
+							"text": "Disabled",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.29"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 79
+							},
+							"text": "Well-equipmed",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.30"
+						},
+						{
+							"roll": {
+								"min": 80,
+								"max": 81
+							},
+							"text": "Deathly",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.31"
+						},
+						{
+							"roll": {
+								"min": 82,
+								"max": 84
+							},
+							"text": "Youthful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.32"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 87
+							},
+							"text": "Model",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.33"
+						},
+						{
+							"roll": {
+								"min": 88,
+								"max": 90
+							},
+							"text": "Hybrid",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.34"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 93
+							},
+							"text": "Robotic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.35"
+						},
+						{
+							"roll": {
+								"min": 94,
+								"max": 95
+							},
+							"text": "Translucent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.36"
+						},
+						{
+							"roll": {
+								"min": 96,
+								"max": 97
+							},
+							"text": "Spikes",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.37"
+						},
+						{
+							"roll": {
+								"min": 98,
+								"max": 100
+							},
+							"text": "Anti-social",
+							"_id": "oracle_rollable.row:fe_runners/social/character_first_look.38"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/character_first_look"
+				},
+				"character_disposition": {
+					"name": "Character Disposition",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 72
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 6
+							},
+							"text": "Helpful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.0"
+						},
+						{
+							"roll": {
+								"min": 7,
+								"max": 14
+							},
+							"text": "Friendly",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.1"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 22
+							},
+							"text": "Cooperative",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.2"
+						},
+						{
+							"roll": {
+								"min": 23,
+								"max": 30
+							},
+							"text": "Curious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.3"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Indifferent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.4"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "Suspicious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.5"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "Wanting",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.6"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Desperate",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.7"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 78
+							},
+							"text": "Demanding",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.8"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 86
+							},
+							"text": "Unfriendly",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.9"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 94
+							},
+							"text": "Threatening",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.10"
+						},
+						{
+							"roll": {
+								"min": 95,
+								"max": 100
+							},
+							"text": "Hostile",
+							"_id": "oracle_rollable.row:fe_runners/social/character_disposition.11"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/character_disposition"
+				},
+				"trademark_avatar": {
+					"name": "Trademark Avatar Characteristic",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"recommended_rolls": {
+						"min": 1,
+						"max": 2
+					},
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 72
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 2
+							},
+							"text": "Animalistic features",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.0"
+						},
+						{
+							"roll": {
+								"min": 3,
+								"max": 4
+							},
+							"text": "Animated shadow",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.1"
+						},
+						{
+							"roll": {
+								"min": 5,
+								"max": 6
+							},
+							"text": "Antique artifact",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.2"
+						},
+						{
+							"roll": {
+								"min": 7,
+								"max": 8
+							},
+							"text": "Armor or shield",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.3"
+						},
+						{
+							"roll": {
+								"min": 9,
+								"max": 10
+							},
+							"text": "Body mods and piercings",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.4"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 12
+							},
+							"text": "Cartoonish",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.5"
+						},
+						{
+							"roll": {
+								"min": 13,
+								"max": 14
+							},
+							"text": "Chains and spikes",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.6"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 16
+							},
+							"text": "Compulsive collector",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.7"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 18
+							},
+							"text": "Constant Humming",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.8"
+						},
+						{
+							"roll": {
+								"min": 19,
+								"max": 20
+							},
+							"text": "Constantly singing",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.9"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 22
+							},
+							"text": "Covered in Ads",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.10"
+						},
+						{
+							"roll": {
+								"min": 23,
+								"max": 24
+							},
+							"text": "Cybernetic appendage",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.11"
+						},
+						{
+							"roll": {
+								"min": 25,
+								"max": 26
+							},
+							"text": "Digital compass",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.12"
+						},
+						{
+							"roll": {
+								"min": 27,
+								"max": 28
+							},
+							"text": "Excessive gesturing",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.13"
+						},
+						{
+							"roll": {
+								"min": 29,
+								"max": 30
+							},
+							"text": "Exotic language",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.14"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 32
+							},
+							"text": "Exposed brain",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.15"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 34
+							},
+							"text": "Extensive Tattoos",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.16"
+						},
+						{
+							"roll": {
+								"min": 35,
+								"max": 36
+							},
+							"text": "Eye attachment",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.17"
+						},
+						{
+							"roll": {
+								"min": 37,
+								"max": 38
+							},
+							"text": "Fluid or Liquid Chrome form",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.18"
+						},
+						{
+							"roll": {
+								"min": 39,
+								"max": 40
+							},
+							"text": "Formal speech at all times",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.19"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 42
+							},
+							"text": "Ghostly presence",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.20"
+						},
+						{
+							"roll": {
+								"min": 43,
+								"max": 44
+							},
+							"text": "Glitches",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.21"
+						},
+						{
+							"roll": {
+								"min": 45,
+								"max": 46
+							},
+							"text": "Glowing Skin",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.22"
+						},
+						{
+							"roll": {
+								"min": 47,
+								"max": 48
+							},
+							"text": "Holograms",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.23"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 50
+							},
+							"text": "Hoodie",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.24"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 52
+							},
+							"text": "Hover",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.25"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 54
+							},
+							"text": "Loves food",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.26"
+						},
+						{
+							"roll": {
+								"min": 55,
+								"max": 56
+							},
+							"text": "Mask wearer",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.27"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 58
+							},
+							"text": "Master of disguise",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.28"
+						},
+						{
+							"roll": {
+								"min": 59,
+								"max": 60
+							},
+							"text": "Mismatched clothing",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.29"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 62
+							},
+							"text": "Monocle",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.30"
+						},
+						{
+							"roll": {
+								"min": 63,
+								"max": 64
+							},
+							"text": "Music Lover",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.31"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 66
+							},
+							"text": "Neon Hair",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.32"
+						},
+						{
+							"roll": {
+								"min": 67,
+								"max": 68
+							},
+							"text": "Obsessive compulsive behavior",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.33"
+						},
+						{
+							"roll": {
+								"min": 69,
+								"max": 70
+							},
+							"text": "Oversized weapon",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.34"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 72
+							},
+							"text": "Particle trail",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.35"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 74
+							},
+							"text": "Pet companion (non-interactive)",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.36"
+						},
+						{
+							"roll": {
+								"min": 75,
+								"max": 76
+							},
+							"text": "Pixelated",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.37"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 78
+							},
+							"text": "Rapid-fire speech",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.38"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 80
+							},
+							"text": "Scarred",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.39"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 82
+							},
+							"text": "Speaks in riddles",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.40"
+						},
+						{
+							"roll": {
+								"min": 83,
+								"max": 84
+							},
+							"text": "Specific Uniform",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.41"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 86
+							},
+							"text": "Stuttering speech",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.42"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 88
+							},
+							"text": "Talking to themselves",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.43"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 90
+							},
+							"text": "Three eyes",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.44"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 92
+							},
+							"text": "Unique Facial Feature",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.45"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 94
+							},
+							"text": "Unique hat",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.46"
+						},
+						{
+							"roll": {
+								"min": 95,
+								"max": 96
+							},
+							"text": "Unpredictable mood swings",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.47"
+						},
+						{
+							"roll": {
+								"min": 97,
+								"max": 98
+							},
+							"text": "Virtual flames",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.48"
+						},
+						{
+							"roll": {
+								"min": 99,
+								"max": 100
+							},
+							"text": "Voice amplifier",
+							"_id": "oracle_rollable.row:fe_runners/social/trademark_avatar.49"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/trademark_avatar"
+				},
+				"character_role": {
+					"name": "Character Role",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 73
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 2
+							},
+							"text": "Agent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.0"
+						},
+						{
+							"roll": {
+								"min": 3,
+								"max": 4
+							},
+							"text": "AI",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.1"
+						},
+						{
+							"roll": {
+								"min": 5,
+								"max": 6
+							},
+							"text": "Activist",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.2"
+						},
+						{
+							"roll": {
+								"min": 7,
+								"max": 8
+							},
+							"text": "Admin",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.3"
+						},
+						{
+							"roll": {
+								"min": 9,
+								"max": 10
+							},
+							"text": "Anarchist",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.4"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 12
+							},
+							"text": "Artisan",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.5"
+						},
+						{
+							"roll": {
+								"min": 13,
+								"max": 14
+							},
+							"text": "Bounty Hunter",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.6"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 16
+							},
+							"text": "Courier",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.7"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 18
+							},
+							"text": "Criminal",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.8"
+						},
+						{
+							"roll": {
+								"min": 19,
+								"max": 20
+							},
+							"text": "Cryptologist",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.9"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 22
+							},
+							"text": "Cultist",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.10"
+						},
+						{
+							"roll": {
+								"min": 23,
+								"max": 24
+							},
+							"text": "Developer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.11"
+						},
+						{
+							"roll": {
+								"min": 25,
+								"max": 26
+							},
+							"text": "Diplomat",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.12"
+						},
+						{
+							"roll": {
+								"min": 27,
+								"max": 28
+							},
+							"text": "Doomsday Prepper",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.13"
+						},
+						{
+							"roll": {
+								"min": 29,
+								"max": 30
+							},
+							"text": "Engineer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.14"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 32
+							},
+							"text": "Entertainer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.15"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 34
+							},
+							"text": "Fe-Runner",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.16"
+						},
+						{
+							"roll": {
+								"min": 35,
+								"max": 36
+							},
+							"text": "Fugitive",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.17"
+						},
+						{
+							"roll": {
+								"min": 37,
+								"max": 38
+							},
+							"text": "Gamer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.18"
+						},
+						{
+							"roll": {
+								"min": 39,
+								"max": 40
+							},
+							"text": "Guard",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.19"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 42
+							},
+							"text": "Guide",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.20"
+						},
+						{
+							"roll": {
+								"min": 43,
+								"max": 44
+							},
+							"text": "Historian",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.21"
+						},
+						{
+							"roll": {
+								"min": 45,
+								"max": 46
+							},
+							"text": "Hunter",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.22"
+						},
+						{
+							"roll": {
+								"min": 47,
+								"max": 48
+							},
+							"text": "Investigator",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.23"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 50
+							},
+							"text": "Laborer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.24"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 52
+							},
+							"text": "Lawkeeper",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.25"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 54
+							},
+							"text": "Leader",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.26"
+						},
+						{
+							"roll": {
+								"min": 55,
+								"max": 56
+							},
+							"text": "Mercenary",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.27"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 58
+							},
+							"text": "Merchant",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.28"
+						},
+						{
+							"roll": {
+								"min": 59,
+								"max": 60
+							},
+							"text": "Net Specialist",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.29"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 62
+							},
+							"text": "Outcast",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.30"
+						},
+						{
+							"roll": {
+								"min": 63,
+								"max": 64
+							},
+							"text": "Pirate",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.31"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 66
+							},
+							"text": "Psychic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.32"
+						},
+						{
+							"roll": {
+								"min": 67,
+								"max": 68
+							},
+							"text": "Preacher",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.33"
+						},
+						{
+							"roll": {
+								"min": 69,
+								"max": 70
+							},
+							"text": "Prophet",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.34"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 72
+							},
+							"text": "Raider",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.35"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 74
+							},
+							"text": "Researcher",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.36"
+						},
+						{
+							"roll": {
+								"min": 75,
+								"max": 76
+							},
+							"text": "Scammer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.37"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 78
+							},
+							"text": "Scholar",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.38"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 80
+							},
+							"text": "Scout",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.39"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 82
+							},
+							"text": "Smuggler",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.40"
+						},
+						{
+							"roll": {
+								"min": 83,
+								"max": 84
+							},
+							"text": "Soldier",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.41"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 86
+							},
+							"text": "Technician",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.42"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 88
+							},
+							"text": "Thief",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.43"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 90
+							},
+							"text": "Threat Hunter",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.44"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 92
+							},
+							"text": "Wanderer",
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.45"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 95
+							},
+							"text": "[Action](oracle_rollable:fe_runners/core/action) + [Theme](oracle_rollable:fe_runners/core/theme)",
+							"template": {
+								"text": "{{text>oracle_rollable:fe_runners/core/action}} {{text>(oracle_rollable:fe_runners/core/theme)}}"
+							},
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.46"
+						},
+						{
+							"roll": {
+								"min": 96,
+								"max": 100
+							},
+							"text": "Roll twice",
+							"oracle_rolls": [
+								{
+									"oracle": "oracle_rollable:fe_runners/social/character_role",
+									"auto": true,
+									"number_of_rolls": 2,
+									"dice": null,
+									"duplicates": "reroll"
+								}
+							],
+							"_id": "oracle_rollable.row:fe_runners/social/character_role.47"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/character_role"
+				},
+				"character_details": {
+					"name": "Character Details",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"recommended_rolls": {
+						"min": 1,
+						"max": 2
+					},
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 74
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 1
+							},
+							"text": "Adventurous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.0"
+						},
+						{
+							"roll": {
+								"min": 2,
+								"max": 2
+							},
+							"text": "Afflicted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.1"
+						},
+						{
+							"roll": {
+								"min": 3,
+								"max": 3
+							},
+							"text": "Aggressive",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.2"
+						},
+						{
+							"roll": {
+								"min": 4,
+								"max": 4
+							},
+							"text": "Ambitious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.3"
+						},
+						{
+							"roll": {
+								"min": 5,
+								"max": 5
+							},
+							"text": "Anxious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.4"
+						},
+						{
+							"roll": {
+								"min": 6,
+								"max": 6
+							},
+							"text": "Apathetic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.5"
+						},
+						{
+							"roll": {
+								"min": 7,
+								"max": 7
+							},
+							"text": "Artistic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.6"
+						},
+						{
+							"roll": {
+								"min": 8,
+								"max": 8
+							},
+							"text": "Bitter",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.7"
+						},
+						{
+							"roll": {
+								"min": 9,
+								"max": 9
+							},
+							"text": "Black-hearted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.8"
+						},
+						{
+							"roll": {
+								"min": 10,
+								"max": 10
+							},
+							"text": "Boastful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.9"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 11
+							},
+							"text": "Boisterous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.10"
+						},
+						{
+							"roll": {
+								"min": 12,
+								"max": 12
+							},
+							"text": "Bold",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.11"
+						},
+						{
+							"roll": {
+								"min": 13,
+								"max": 13
+							},
+							"text": "Brave",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.12"
+						},
+						{
+							"roll": {
+								"min": 14,
+								"max": 14
+							},
+							"text": "Cautious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.13"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 15
+							},
+							"text": "Charismatic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.14"
+						},
+						{
+							"roll": {
+								"min": 16,
+								"max": 16
+							},
+							"text": "Compassionate",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.15"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 17
+							},
+							"text": "Conceited",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.16"
+						},
+						{
+							"roll": {
+								"min": 18,
+								"max": 18
+							},
+							"text": "Confident",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.17"
+						},
+						{
+							"roll": {
+								"min": 19,
+								"max": 19
+							},
+							"text": "Connected",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.18"
+						},
+						{
+							"roll": {
+								"min": 20,
+								"max": 20
+							},
+							"text": "Cowardly",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.19"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 21
+							},
+							"text": "Criminal",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.20"
+						},
+						{
+							"roll": {
+								"min": 22,
+								"max": 22
+							},
+							"text": "Critical",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.21"
+						},
+						{
+							"roll": {
+								"min": 23,
+								"max": 23
+							},
+							"text": "Cunning",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.22"
+						},
+						{
+							"roll": {
+								"min": 24,
+								"max": 24
+							},
+							"text": "Curious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.23"
+						},
+						{
+							"roll": {
+								"min": 25,
+								"max": 25
+							},
+							"text": "Dangerous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.24"
+						},
+						{
+							"roll": {
+								"min": 26,
+								"max": 26
+							},
+							"text": "Deceitful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.25"
+						},
+						{
+							"roll": {
+								"min": 27,
+								"max": 27
+							},
+							"text": "Defiant",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.26"
+						},
+						{
+							"roll": {
+								"min": 28,
+								"max": 28
+							},
+							"text": "Determined",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.27"
+						},
+						{
+							"roll": {
+								"min": 29,
+								"max": 29
+							},
+							"text": "Disabled",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.28"
+						},
+						{
+							"roll": {
+								"min": 30,
+								"max": 30
+							},
+							"text": "Disguised",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.29"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 31
+							},
+							"text": "Driven",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.30"
+						},
+						{
+							"roll": {
+								"min": 32,
+								"max": 32
+							},
+							"text": "Dying",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.31"
+						},
+						{
+							"roll": {
+								"min": 33,
+								"max": 33
+							},
+							"text": "Envious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.32"
+						},
+						{
+							"roll": {
+								"min": 34,
+								"max": 34
+							},
+							"text": "Experienced",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.33"
+						},
+						{
+							"roll": {
+								"min": 35,
+								"max": 35
+							},
+							"text": "Faithful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.34"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 36
+							},
+							"text": "Faithless",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.35"
+						},
+						{
+							"roll": {
+								"min": 37,
+								"max": 37
+							},
+							"text": "Flirtatious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.36"
+						},
+						{
+							"roll": {
+								"min": 38,
+								"max": 38
+							},
+							"text": "Generous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.37"
+						},
+						{
+							"roll": {
+								"min": 39,
+								"max": 39
+							},
+							"text": "Gifted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.38"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 40
+							},
+							"text": "Greedy",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.39"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 41
+							},
+							"text": "Grief-stricken",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.40"
+						},
+						{
+							"roll": {
+								"min": 42,
+								"max": 42
+							},
+							"text": "Hardhearted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.41"
+						},
+						{
+							"roll": {
+								"min": 43,
+								"max": 43
+							},
+							"text": "Heartbroken",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.42"
+						},
+						{
+							"roll": {
+								"min": 44,
+								"max": 44
+							},
+							"text": "Honorable",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.43"
+						},
+						{
+							"roll": {
+								"min": 45,
+								"max": 45
+							},
+							"text": "Hot-tempered",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.44"
+						},
+						{
+							"roll": {
+								"min": 46,
+								"max": 46
+							},
+							"text": "Hunted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.45"
+						},
+						{
+							"roll": {
+								"min": 47,
+								"max": 47
+							},
+							"text": "Impulsive",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.46"
+						},
+						{
+							"roll": {
+								"min": 48,
+								"max": 48
+							},
+							"text": "Incompetent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.47"
+						},
+						{
+							"roll": {
+								"min": 49,
+								"max": 49
+							},
+							"text": "Indebted",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.48"
+						},
+						{
+							"roll": {
+								"min": 50,
+								"max": 50
+							},
+							"text": "Independent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.49"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 51
+							},
+							"text": "Indulgent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.50"
+						},
+						{
+							"roll": {
+								"min": 52,
+								"max": 52
+							},
+							"text": "Infamous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.51"
+						},
+						{
+							"roll": {
+								"min": 53,
+								"max": 53
+							},
+							"text": "Influential",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.52"
+						},
+						{
+							"roll": {
+								"min": 54,
+								"max": 54
+							},
+							"text": "Insensitive",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.53"
+						},
+						{
+							"roll": {
+								"min": 55,
+								"max": 55
+							},
+							"text": "Insightful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.54"
+						},
+						{
+							"roll": {
+								"min": 56,
+								"max": 56
+							},
+							"text": "Intelligent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.55"
+						},
+						{
+							"roll": {
+								"min": 57,
+								"max": 57
+							},
+							"text": "Intolerant",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.56"
+						},
+						{
+							"roll": {
+								"min": 58,
+								"max": 58
+							},
+							"text": "Ironsworn",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.57"
+						},
+						{
+							"roll": {
+								"min": 59,
+								"max": 59
+							},
+							"text": "Kind",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.58"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 60
+							},
+							"text": "Lonely",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.59"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 61
+							},
+							"text": "Loving",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.60"
+						},
+						{
+							"roll": {
+								"min": 62,
+								"max": 62
+							},
+							"text": "Loyal",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.61"
+						},
+						{
+							"roll": {
+								"min": 63,
+								"max": 63
+							},
+							"text": "Manipulative",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.62"
+						},
+						{
+							"roll": {
+								"min": 64,
+								"max": 64
+							},
+							"text": "Misled",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.63"
+						},
+						{
+							"roll": {
+								"min": 65,
+								"max": 65
+							},
+							"text": "Oblivious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.64"
+						},
+						{
+							"roll": {
+								"min": 66,
+								"max": 66
+							},
+							"text": "Obsessed",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.65"
+						},
+						{
+							"roll": {
+								"min": 67,
+								"max": 67
+							},
+							"text": "Oppressed",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.66"
+						},
+						{
+							"roll": {
+								"min": 68,
+								"max": 68
+							},
+							"text": "Powerful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.67"
+						},
+						{
+							"roll": {
+								"min": 69,
+								"max": 69
+							},
+							"text": "Proud",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.68"
+						},
+						{
+							"roll": {
+								"min": 70,
+								"max": 70
+							},
+							"text": "Quiet",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.69"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 71
+							},
+							"text": "Quirky",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.70"
+						},
+						{
+							"roll": {
+								"min": 72,
+								"max": 72
+							},
+							"text": "Rebellious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.71"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 73
+							},
+							"text": "Reclusive",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.72"
+						},
+						{
+							"roll": {
+								"min": 74,
+								"max": 74
+							},
+							"text": "Relaxed",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.73"
+						},
+						{
+							"roll": {
+								"min": 75,
+								"max": 75
+							},
+							"text": "Remorseful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.74"
+						},
+						{
+							"roll": {
+								"min": 76,
+								"max": 76
+							},
+							"text": "Resourceful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.75"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 77
+							},
+							"text": "Ruthless",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.76"
+						},
+						{
+							"roll": {
+								"min": 78,
+								"max": 78
+							},
+							"text": "Secretive",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.77"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 79
+							},
+							"text": "Selfish",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.78"
+						},
+						{
+							"roll": {
+								"min": 80,
+								"max": 80
+							},
+							"text": "Sociable",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.79"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 81
+							},
+							"text": "Stealthy",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.80"
+						},
+						{
+							"roll": {
+								"min": 82,
+								"max": 82
+							},
+							"text": "Stern",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.81"
+						},
+						{
+							"roll": {
+								"min": 83,
+								"max": 83
+							},
+							"text": "Stingy",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.82"
+						},
+						{
+							"roll": {
+								"min": 84,
+								"max": 84
+							},
+							"text": "Stoic",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.83"
+						},
+						{
+							"roll": {
+								"min": 85,
+								"max": 85
+							},
+							"text": "Strong",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.84"
+						},
+						{
+							"roll": {
+								"min": 86,
+								"max": 86
+							},
+							"text": "Stubborn",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.85"
+						},
+						{
+							"roll": {
+								"min": 87,
+								"max": 87
+							},
+							"text": "Successful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.86"
+						},
+						{
+							"roll": {
+								"min": 88,
+								"max": 88
+							},
+							"text": "Superstitious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.87"
+						},
+						{
+							"roll": {
+								"min": 89,
+								"max": 89
+							},
+							"text": "Suspicious",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.88"
+						},
+						{
+							"roll": {
+								"min": 90,
+								"max": 90
+							},
+							"text": "Talented",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.89"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 91
+							},
+							"text": "Tough",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.90"
+						},
+						{
+							"roll": {
+								"min": 92,
+								"max": 92
+							},
+							"text": "Traitorous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.91"
+						},
+						{
+							"roll": {
+								"min": 93,
+								"max": 93
+							},
+							"text": "Vengeful",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.92"
+						},
+						{
+							"roll": {
+								"min": 94,
+								"max": 94
+							},
+							"text": "Villainous",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.93"
+						},
+						{
+							"roll": {
+								"min": 95,
+								"max": 95
+							},
+							"text": "Violent",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.94"
+						},
+						{
+							"roll": {
+								"min": 96,
+								"max": 96
+							},
+							"text": "Wary",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.95"
+						},
+						{
+							"roll": {
+								"min": 97,
+								"max": 97
+							},
+							"text": "Weak",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.96"
+						},
+						{
+							"roll": {
+								"min": 98,
+								"max": 98
+							},
+							"text": "Weary",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.97"
+						},
+						{
+							"roll": {
+								"min": 99,
+								"max": 99
+							},
+							"text": "Wild",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.98"
+						},
+						{
+							"roll": {
+								"min": 100,
+								"max": 100
+							},
+							"text": "Wise",
+							"_id": "oracle_rollable.row:fe_runners/social/character_details.99"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/character_details"
+				},
+				"character_goals": {
+					"name": "Character Goals",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 75
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 2
+							},
+							"text": "Avenge a wrong",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.0"
+						},
+						{
+							"roll": {
+								"min": 3,
+								"max": 4
+							},
+							"text": "Build a home",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.1"
+						},
+						{
+							"roll": {
+								"min": 5,
+								"max": 7
+							},
+							"text": "Build a relationship",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.2"
+						},
+						{
+							"roll": {
+								"min": 8,
+								"max": 10
+							},
+							"text": "Claim a resource",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.3"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 12
+							},
+							"text": "Collect a debt",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.4"
+						},
+						{
+							"roll": {
+								"min": 13,
+								"max": 14
+							},
+							"text": "Craft an object",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.5"
+						},
+						{
+							"roll": {
+								"min": 15,
+								"max": 16
+							},
+							"text": "Cure an ill",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.6"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 18
+							},
+							"text": "Defeat a rival",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.7"
+						},
+						{
+							"roll": {
+								"min": 19,
+								"max": 20
+							},
+							"text": "Defend a person",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.8"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 23
+							},
+							"text": "Defend a place",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.9"
+						},
+						{
+							"roll": {
+								"min": 24,
+								"max": 25
+							},
+							"text": "Discover a truth",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.10"
+						},
+						{
+							"roll": {
+								"min": 26,
+								"max": 27
+							},
+							"text": "End a conflict",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.11"
+						},
+						{
+							"roll": {
+								"min": 28,
+								"max": 29
+							},
+							"text": "Escape a captor",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.12"
+						},
+						{
+							"roll": {
+								"min": 30,
+								"max": 31
+							},
+							"text": "Fight injustice",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.13"
+						},
+						{
+							"roll": {
+								"min": 32,
+								"max": 33
+							},
+							"text": "Find a person",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.14"
+						},
+						{
+							"roll": {
+								"min": 34,
+								"max": 35
+							},
+							"text": "Forge an alliance",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.15"
+						},
+						{
+							"roll": {
+								"min": 36,
+								"max": 37
+							},
+							"text": "Gain knowledge",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.16"
+						},
+						{
+							"roll": {
+								"min": 38,
+								"max": 39
+							},
+							"text": "Gain riches",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.17"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 41
+							},
+							"text": "Maintain order",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.18"
+						},
+						{
+							"roll": {
+								"min": 42,
+								"max": 43
+							},
+							"text": "Make an agreement",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.19"
+						},
+						{
+							"roll": {
+								"min": 44,
+								"max": 45
+							},
+							"text": "Obtain an object",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.20"
+						},
+						{
+							"roll": {
+								"min": 46,
+								"max": 47
+							},
+							"text": "Pay a debt",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.21"
+						},
+						{
+							"roll": {
+								"min": 48,
+								"max": 49
+							},
+							"text": "Protect a lifeform",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.22"
+						},
+						{
+							"roll": {
+								"min": 50,
+								"max": 51
+							},
+							"text": "Protect a secret",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.23"
+						},
+						{
+							"roll": {
+								"min": 52,
+								"max": 53
+							},
+							"text": "Prove worthiness",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.24"
+						},
+						{
+							"roll": {
+								"min": 54,
+								"max": 55
+							},
+							"text": "Rebel against power",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.25"
+						},
+						{
+							"roll": {
+								"min": 56,
+								"max": 57
+							},
+							"text": "Refute a falsehood",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.26"
+						},
+						{
+							"roll": {
+								"min": 58,
+								"max": 59
+							},
+							"text": "Repair a technology",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.27"
+						},
+						{
+							"roll": {
+								"min": 60,
+								"max": 61
+							},
+							"text": "Resolve a dispute",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.28"
+						},
+						{
+							"roll": {
+								"min": 62,
+								"max": 63
+							},
+							"text": "Restore a relationship",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.29"
+						},
+						{
+							"roll": {
+								"min": 64,
+								"max": 65
+							},
+							"text": "Sabotage a technology",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.30"
+						},
+						{
+							"roll": {
+								"min": 66,
+								"max": 68
+							},
+							"text": "Secure a resource",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.31"
+						},
+						{
+							"roll": {
+								"min": 69,
+								"max": 70
+							},
+							"text": "Seek redemption",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.32"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 72
+							},
+							"text": "Seize power",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.33"
+						},
+						{
+							"roll": {
+								"min": 73,
+								"max": 74
+							},
+							"text": "Solve a mystery",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.34"
+						},
+						{
+							"roll": {
+								"min": 75,
+								"max": 76
+							},
+							"text": "Spread faith",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.35"
+						},
+						{
+							"roll": {
+								"min": 77,
+								"max": 78
+							},
+							"text": "Travel to a place",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.36"
+						},
+						{
+							"roll": {
+								"min": 79,
+								"max": 80
+							},
+							"text": "Undermine a relationship",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.37"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "[Action](oracle_rollable:fe_runners/core/action) + [Theme](oracle_rollable:fe_runners/core/theme)",
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.38"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "Roll twice",
+							"oracle_rolls": [
+								{
+									"oracle": "oracle_rollable:fe_runners/social/character_goals",
+									"auto": true,
+									"number_of_rolls": 2,
+									"dice": null,
+									"duplicates": "reroll"
+								}
+							],
+							"_id": "oracle_rollable.row:fe_runners/social/character_goals.39"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/social/character_goals"
+				}
+			},
+			"collections": {},
+			"_id": "oracle_collection:fe_runners/social"
 		}
 	},
 	"assets": {
