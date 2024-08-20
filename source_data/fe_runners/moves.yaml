@@ -1232,74 +1232,73 @@ moves:
                   stat: wits
           text:  When you delve into the inner systems of a node you have gained entry to...
         oracles: 
-          explore_weak_hit_edge:
-            name: Explore the System Weak Hit with Edge
-            oracle_type: table_text
-            type: oracle_rollable
+          edge:
+            name: Edge
+            <<: &ExploreTheSystem
+              oracle_type: column_text
+              type: oracle_rollable
             rows:
               - roll: {min: 1, max: 45}
-                text:  Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)
+                text: &ExploreTheSystem.0 'Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)'
               - roll: { min: 46, max: 65}
-                text: Mark Progress
+                text: &ExploreTheSystem.1 'Mark Progress'
               - roll: { min: 66, max: 75}
-                text: 'Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
+                text: &ExploreTheSystem.2 'Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
               - roll: { min: 76, max: 80}
-                text: 'Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
+                text: &ExploreTheSystem.3 'Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
               - roll: { min: 81, max: 100}
-                text:  Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).
-          explore_weak_hit_shadow:
-            name: Explore the System Weak Hit with Shadow
-            oracle_type: table_text
-            type: oracle_rollable
+                text: &ExploreTheSystem.4 'Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).'
+          shadow:
+            name: Shadow
+            <<: *ExploreTheSystem
             rows:
               - roll: {min: 1, max: 30}
-                text:  Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)
+                text:  *ExploreTheSystem.0 
               - roll: { min: 31, max: 65}
-                text: Mark Progress
+                text: *ExploreTheSystem.1 
               - roll: { min: 66, max: 90}
-                text: 'Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
+                text: *ExploreTheSystem.2 
               - roll: { min: 91, max: 99}
-                text: 'Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
+                text: *ExploreTheSystem.3 
               - roll: { min: 100, max: 100}
-                text:  Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).
-          explore_weak_hit_wits:
-            name: Explore the System Weak Hit with Wits
-            oracle_type: table_text
-            type: oracle_rollable
+                text: *ExploreTheSystem.4 
+          wits:
+            name: Wits
+            <<: *ExploreTheSystem
             rows:
               - roll: {min: 1, max: 40}
-                text:  Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)
+                text: *ExploreTheSystem.0
               - roll: { min: 41, max: 55}
-                text: Mark Progress
+                text: *ExploreTheSystem.1
               - roll: { min: 56, max: 80}
-                text: 'Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
+                text: *ExploreTheSystem.2
               - roll: { min: 81, max: 99}
-                text: 'Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).'
+                text: *ExploreTheSystem.3
               - roll: { min: 100, max: 100}
-                text:  Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).
+                text: *ExploreTheSystem.4
         text: |-
-          __When you delve into the inner systems of a node you have gained entry to__.  Envision your 
-          surroundings, use the [System Area Oracle](datasowrn:oracle_rollable:fe_runners/node/system_area) for inspiration.
+          __When you delve into the inner systems of a node you have gained entry to__.  Envision your surroundings, use the [System Area Oracle](datasowrn:oracle_rollable:fe_runners/node/system_area) for inspiration.
           If you navigate the system with:
-          ●  With haste: Roll +edge
-          ●  With stealth or trickery: Roll +shadow
-          ●  With observation, intuition or expertise: Roll +wits
+
+            ●  With haste: Roll +edge
+            ●  With stealth or trickery: Roll +shadow
+            ●  With observation, intuition or expertise: Roll +wits
+
           On a __strong hit__, you explore deeper into the system.  Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).
+          
           On a __weak hit__, roll on the following table according to your stat. 
+          
           On a __miss__, [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)
 
-          {{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_edge}} 
-          {{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow}} 
-          {{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_wits}}
+          {{table_columns>move:fe_runners/exploration/explore_the_system}}
         outcomes:
           strong_hit:
             text: On a __strong hit__, you explore deeper into the system.  Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity)
           weak_hit:
             text: |-
               On a __weak hit__, roll on the following table according to your stat. 
-              {{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_edge}} 
-              {{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow}} 
-              {{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_wits}}
+              
+              {{table_columns>move:fe_runners/exploration/explore_the_system}}
           miss:
             text: On a __miss__, [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)
         _source:
@@ -1355,25 +1354,29 @@ moves:
             oracle_type: table_text
             type: oracle_rollable
             rows:
-              - roll: { min: 1, max: 25 }
-                text: You locate a shortcut or hidden path
-              - roll: { min: 26, max: 45 }
-                text: An aspect of this system is revealed
+              - roll: { min: 1, max: 30 }
+                text: Roll on your [Node Type](datasowrn:oracle_collection:fe_runners/node_type) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)
+              - roll: { min: 31, max: 45 }
+                text: Roll on your [Segment Node](datasowrn:oracle_collection:fe_runners/segment) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)
               - roll: { min: 46, max: 57 }
-                text: You locate a secure area
+                text: You locate a shortcut or hidden path
               - roll: { min: 58, max: 68 }
+                text: An aspect of this system is revealed
+              - roll: { min: 69, max: 76 }
+                text: You locate a secure area
+              - roll: { min: 77, max: 79 }
                 text: A clue offers insight or direction
-              - roll: { min: 69, max: 78 }
+              - roll: { min: 80, max: 82 }
                 text: You get the drop on an enemy or security system
-              - roll: { min: 79, max: 86 }
+              - roll: { min: 83, max: 85 }
                 text: This area provides an opportunity to scavenge
-              - roll: { min: 87, max: 90 }
+              - roll: { min: 86, max: 88 }
                 text: You locate an interesting or helpful object
-              - roll: { min: 91, max: 94 }
+              - roll: { min: 89, max: 91 }
                 text: You are alerted to a potential threat
-              - roll: { min: 95, max: 98 }
+              - roll: { min: 92, max: 94 }
                 text: You encounter someone or something that might support you
-              - roll: { min: 99, max: 100 }
+              - roll: { min: 95, max: 100 }
                 text: You encounter someone in need of help
         text: |-
           __When you uncover a helpful situation or feature when exploring a system__, roll on the following 
@@ -1404,7 +1407,7 @@ moves:
               - roll: { min: 1, max: 30 }
                 text: Roll on [Node Type](datasowrn:oracle_collection:fe_runners/node_type) Peril or [Story Complication](oracle_rollable:fe_runners/core/story_complication)
               - roll: { min: 31, max: 45 }
-                text: Roll on [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)
+                text: Roll on [Segment Oracle](datasowrn:oracle_collection:fe_runners/segment) Peril or [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)
               - roll: { min: 46, max: 57 }
                 text: You encounter a hostile person or thing
               - roll: { min: 58, max: 68 }

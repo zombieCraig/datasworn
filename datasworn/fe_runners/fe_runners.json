@@ -12,6 +12,76 @@
 	"date": "2024-08-10",
 	"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
 	"url": "ttps://zombiecraig.itch.io/fe-runners",
+	"rules": {
+		"impacts": {
+			"misfortunes": {
+				"label": "misfortunes",
+				"description": "As with all impacts, misfortunes affect your max momentum and momentum reset. In addition, if you are wounded, shaken, or unprepared, you cannot increase the associated condition meter.",
+				"contents": {
+					"wounded": {
+						"label": "wounded",
+						"description": "Wounded may be marked when you are at 0 health and fail to [Endure Harm](datasworn:move:starforged/suffer/endure_harm). You are severely injured.",
+						"prevents_recovery": [
+							"health"
+						],
+						"permanent": false,
+						"shared": false
+					},
+					"shaken": {
+						"label": "shaken",
+						"description": "Shaken may be marked when you are at 0 spirit and fail to [Endure Stress](datasworn:move:starforged/suffer/endure_stress). You are despairing or distraught.",
+						"prevents_recovery": [
+							"spirit"
+						],
+						"permanent": false,
+						"shared": false
+					},
+					"unregulated": {
+						"label": "unregulated (power)",
+						"description": "Unregulated is marked when you [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) and are reduced to 0 supply. if you lose resources consider losing Fe or portions of the data you are trying to collect.  If it's related to supply, imagine that with lower power you can’t multitask as well.",
+						"shared": true,
+						"prevents_recovery": [
+							"supply"
+						],
+						"permanent": false
+					}
+				}
+			},
+			"current_rig": {
+				"label": "Current Rig",
+				"description": "This impact related to your rig and it's integrity.",
+				"contents": {
+					"overheated": {
+						"label": "overheated",
+						"description": "Overheated is marked when you [Withstand Damange](datasworn:move:fe_runners/suffer/withstand_damage) and are reduced to 0 integrity. Coolant is depleted and the system is so hot that components are locking up.",
+						"prevents_recovery": [
+							"integrity"
+						],
+						"permanent": false,
+						"shared": false
+					},
+					"infected": {
+						"label": "infected",
+						"description": "May be marked when your rig is at 0 integrity and you fail to [Withstand Damage](datasworn:move:fe_runners/suffer/withstand_damage). Your defenses were down and your systems core processor has been directly infected.  A virus is embedded into your system permanently.  Only a specific VX Author path has the ability to remove an infection.",
+						"prevents_recovery": [
+							"integrity"
+						],
+						"permanent": false,
+						"shared": false
+					}
+				}
+			},
+			"vehicle_troubles": {
+				"label": "Vehicle Trouble",
+				"description": "Not applicable for Fe-Runners",
+				"contents": {}
+			}
+		},
+		"condition_meters": {},
+		"stats": {},
+		"special_tracks": {},
+		"tags": {}
+	},
 	"oracles": {
 		"campaign_launch": {
 			"name": "Campaign Launch Oracles",
@@ -7207,6 +7277,1556 @@
 			},
 			"collections": {},
 			"_id": "oracle_collection:fe_runners/node"
+		},
+		"segment": {
+			"name": "Segment Oracles",
+			"oracle_type": "tables",
+			"type": "oracle_collection",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 75
+			},
+			"summary": "The Segment oracles cover general features, perils and opportunities for an overall segment.  These tables are often called from the [Node Types](datasowrn:oracle_collection:fe_runners/node_type) oracles.",
+			"collections": {
+				"core": {
+					"name": "Core Segment",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 75
+					},
+					"contents": {
+						"feature": {
+							"name": "Feature",
+							"summary": "The general feeling of an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 6
+									},
+									"text": "Unusually quiet",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.0"
+								},
+								{
+									"roll": {
+										"min": 7,
+										"max": 12
+									},
+									"text": "A fight breaks out",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.1"
+								},
+								{
+									"roll": {
+										"min": 13,
+										"max": 18
+									},
+									"text": "Someone is watching you",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.2"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 24
+									},
+									"text": "Active protest",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.3"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 30
+									},
+									"text": "Party",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.4"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 36
+									},
+									"text": "Loitering",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.5"
+								},
+								{
+									"roll": {
+										"min": 37,
+										"max": 42
+									},
+									"text": "Influencer is here",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.6"
+								},
+								{
+									"roll": {
+										"min": 43,
+										"max": 48
+									},
+									"text": "Popup store/event",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.7"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 54
+									},
+									"text": "Elderly person causing a stir",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.8"
+								},
+								{
+									"roll": {
+										"min": 55,
+										"max": 60
+									},
+									"text": "Littered with Ads",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.9"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 66
+									},
+									"text": "Very Busy",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.10"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 72
+									},
+									"text": "Gang or squad present",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.11"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 78
+									},
+									"text": "Broken / Damaged",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.12"
+								},
+								{
+									"roll": {
+										"min": 79,
+										"max": 84
+									},
+									"text": "Political Representation",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.13"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 90
+									},
+									"text": "Political Representation",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.14"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 100
+									},
+									"text": "Roll [Descriptor](oracle_rollable:fe_runners/core/descriptor) + [Focus](oracle_rollable:fe_runners/core/focus)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} {{text>oracle_rollable:fe_runners/core/focus}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/core/feature.15"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/core/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "Peril for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 8
+									},
+									"text": "You get an update, it’s not good",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.0"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 16
+									},
+									"text": "Arrival of an enemy",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.1"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 24
+									},
+									"text": "Your Ex is here",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.2"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 32
+									},
+									"text": "Area sectioned off for maintenance",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.3"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 40
+									},
+									"text": "Disturbing evidence",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.4"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 48
+									},
+									"text": "Lured to danger",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.5"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 56
+									},
+									"text": "Being watched or followed",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.6"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 64
+									},
+									"text": "A fight breaks out involving you",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.7"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 72
+									},
+									"text": "Unwanted attention from authorities",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.8"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 80
+									},
+									"text": "A person from your past is in trouble",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.9"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 85
+									},
+									"text": "The area is unstable",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.10"
+								},
+								{
+									"roll": {
+										"min": 86,
+										"max": 90
+									},
+									"text": "Corruption",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.11"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 98
+									},
+									"text": "Roll [Action](oracle_rollable:fe_runners/core/action) + [Theme](oracle_rollable:fe_runners/core/theme)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/action}} {{text>oracle_rollable:fe_runners/core/theme}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.12"
+								},
+								{
+									"roll": {
+										"min": 99,
+										"max": 100
+									},
+									"text": "Roll twice, if same, make it worse",
+									"oracle_rolls": [
+										{
+											"oracle": "oracle_rollable:fe_runners/segment/core/peril",
+											"auto": true,
+											"number_of_rolls": 2,
+											"dice": null,
+											"duplicates": "reroll"
+										}
+									],
+									"_id": "oracle_rollable.row:fe_runners/segment/core/peril.13"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/core/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "Opportunity for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 13
+									},
+									"text": "Intriguing offer, unexpected source",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 14,
+										"max": 28
+									},
+									"text": "An old friend",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 29,
+										"max": 43
+									},
+									"text": "Festival with social opportunity",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 44,
+										"max": 58
+									},
+									"text": "Needed item, resource",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 59,
+										"max": 73
+									},
+									"text": "A path becomes more clear",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 74,
+										"max": 88
+									},
+									"text": "You’ve attracted attention, but good",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.5"
+								},
+								{
+									"roll": {
+										"min": 89,
+										"max": 94
+									},
+									"text": "Easy to maneuver unnoticed",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.6"
+								},
+								{
+									"roll": {
+										"min": 95,
+										"max": 100
+									},
+									"text": "Local gossip provides opportunity",
+									"_id": "oracle_rollable.row:fe_runners/segment/core/opportunity.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/core/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/segment/core"
+				},
+				"corporate": {
+					"name": "Corporate Segment (CorpNet)",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 75
+					},
+					"contents": {
+						"feature": {
+							"name": "Feature",
+							"summary": "The general feeling of an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 8
+									},
+									"text": "A meeting / Gathering",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.0"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 16
+									},
+									"text": "Busy environment",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.1"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 24
+									},
+									"text": "Lots of screens and terminals",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.2"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 32
+									},
+									"text": "Elegant decor",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.3"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 40
+									},
+									"text": "New hire",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.4"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 48
+									},
+									"text": "Restructuring",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.5"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 56
+									},
+									"text": "Party / Celebration",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.6"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 64
+									},
+									"text": "A team building event",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.7"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 72
+									},
+									"text": "An exec is present",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.8"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 80
+									},
+									"text": "Maintenance is here",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.9"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 90
+									},
+									"text": "New product or feature",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.10"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 100
+									},
+									"text": "Roll [Descriptor](oracle_rollable:fe_runners/core/descriptor) + [Focus](oracle_rollable:fe_runners/core/focus)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} {{text>oracle_rollable:fe_runners/core/focus}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/feature.11"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/corporate/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "Peril for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 9
+									},
+									"text": "Lots of cameras, sensors",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.0"
+								},
+								{
+									"roll": {
+										"min": 10,
+										"max": 18
+									},
+									"text": "A guard has taken notice of you",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.1"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 27
+									},
+									"text": "Lured into a trap",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.2"
+								},
+								{
+									"roll": {
+										"min": 28,
+										"max": 36
+									},
+									"text": "System malfunction blocking you",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.3"
+								},
+								{
+									"roll": {
+										"min": 37,
+										"max": 45
+									},
+									"text": "An enemy Fe-Runner",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.4"
+								},
+								{
+									"roll": {
+										"min": 46,
+										"max": 54
+									},
+									"text": "An enemy from your past is here",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.5"
+								},
+								{
+									"roll": {
+										"min": 55,
+										"max": 63
+									},
+									"text": "Evidence of injustice or blackmail",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.6"
+								},
+								{
+									"roll": {
+										"min": 64,
+										"max": 72
+									},
+									"text": "An Affair",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.7"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 81
+									},
+									"text": "Chaotic virus present",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.8"
+								},
+								{
+									"roll": {
+										"min": 82,
+										"max": 90
+									},
+									"text": "Extra security blocking passage",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.9"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 98
+									},
+									"text": "Roll [Action](oracle_rollable:fe_runners/core/action) + [Theme](oracle_rollable:fe_runners/core/theme)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/action}} {{text>oracle_rollable:fe_runners/core/theme}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.10"
+								},
+								{
+									"roll": {
+										"min": 99,
+										"max": 100
+									},
+									"text": "Roll twice, if same, make it worse",
+									"oracle_rolls": [
+										{
+											"oracle": "oracle_rollable:fe_runners/segment/corporate/peril",
+											"auto": true,
+											"number_of_rolls": 2,
+											"dice": null,
+											"duplicates": "reroll"
+										}
+									],
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/peril.11"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/corporate/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "Opportunity for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 17
+									},
+									"text": "Located backups",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 18,
+										"max": 34
+									},
+									"text": "Information for security found",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 35,
+										"max": 50
+									},
+									"text": "Knowledge, tool or resource",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 66
+									},
+									"text": "A friend works here",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 83
+									},
+									"text": "Backdoor or shortcut",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 84,
+										"max": 100
+									},
+									"text": "Unprotected area",
+									"_id": "oracle_rollable.row:fe_runners/segment/corporate/opportunity.5"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/corporate/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/segment/corporate"
+				},
+				"government": {
+					"name": "Government Segment (GovNet)",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 75
+					},
+					"contents": {
+						"feature": {
+							"name": "Feature",
+							"summary": "The general feeling of an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 8
+									},
+									"text": "Older technology",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.0"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 16
+									},
+									"text": "Maps and graphs",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.1"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 24
+									},
+									"text": "Patrol",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.2"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 32
+									},
+									"text": "Storage areas",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.3"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 40
+									},
+									"text": "Someone important",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.4"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 48
+									},
+									"text": "Restructuring",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.5"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 56
+									},
+									"text": "Announcements are playing",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.6"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 64
+									},
+									"text": "Practice drills",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.7"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 72
+									},
+									"text": "Strangely empty",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.8"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 80
+									},
+									"text": "New technology",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.9"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 90
+									},
+									"text": "Important meeting / discussion",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.10"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 100
+									},
+									"text": "Roll [Descriptor](oracle_rollable:fe_runners/core/descriptor) + [Focus](oracle_rollable:fe_runners/core/focus)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} {{text>oracle_rollable:fe_runners/core/focus}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/government/feature.11"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/government/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "Peril for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 8
+									},
+									"text": "Additional security",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.0"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 16
+									},
+									"text": "Area blocks comms",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.1"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 24
+									},
+									"text": "You have been noticed",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.2"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 32
+									},
+									"text": "Attack bot",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.3"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 40
+									},
+									"text": "Additional protection blocks you",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.4"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 48
+									},
+									"text": "Detailed ID required",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.5"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 56
+									},
+									"text": "Something is on the move",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.6"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 64
+									},
+									"text": "You are being hunted",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.7"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 72
+									},
+									"text": "Alarms triggered",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.8"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 80
+									},
+									"text": "A trace has started",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.9"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 84
+									},
+									"text": "A fight has broken out",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.10"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 90
+									},
+									"text": "Uncover a conspiracy",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.11"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 98
+									},
+									"text": "Roll [Action](oracle_rollable:fe_runners/core/action) + [Theme](oracle_rollable:fe_runners/core/theme)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/action}} {{text>oracle_rollable:fe_runners/core/theme}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.12"
+								},
+								{
+									"roll": {
+										"min": 99,
+										"max": 100
+									},
+									"text": "Roll twice, if same, make it worse",
+									"oracle_rolls": [
+										{
+											"oracle": "oracle_rollable:fe_runners/segment/corporate/peril",
+											"auto": true,
+											"number_of_rolls": 2,
+											"dice": null,
+											"duplicates": "reroll"
+										}
+									],
+									"_id": "oracle_rollable.row:fe_runners/segment/government/peril.13"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/government/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "Opportunity for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 12
+									},
+									"text": "Confidential information",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 13,
+										"max": 24
+									},
+									"text": "Detailed insight",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 36
+									},
+									"text": "Overhead a useful conversation",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 37,
+										"max": 48
+									},
+									"text": "Got the code for something",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 62
+									},
+									"text": "Found a new useful technology",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 63,
+										"max": 74
+									},
+									"text": "An open comms channel",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.5"
+								},
+								{
+									"roll": {
+										"min": 75,
+										"max": 86
+									},
+									"text": "Needed item or resource",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.6"
+								},
+								{
+									"roll": {
+										"min": 87,
+										"max": 100
+									},
+									"text": "Someone is willing to help",
+									"_id": "oracle_rollable.row:fe_runners/segment/government/opportunity.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/government/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/segment/government"
+				},
+				"underground": {
+					"name": "Underground Segment (DarkNet)",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 75
+					},
+					"contents": {
+						"feature": {
+							"name": "Feature",
+							"summary": "The general feeling of an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 8
+									},
+									"text": "Abstract shapes and neon",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.0"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 16
+									},
+									"text": "Avatars all look the same",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.1"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 24
+									},
+									"text": "Empty but for a single person",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.2"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 32
+									},
+									"text": "Bustling area",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.3"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 40
+									},
+									"text": "Normal physics/rules don’t apply",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.4"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 48
+									},
+									"text": "Extremely intricate art",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.5"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 56
+									},
+									"text": "Stacks of unsorted information",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.6"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 64
+									},
+									"text": "Everything is in a foreign language",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.7"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 72
+									},
+									"text": "Loud underground music playing",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.8"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 80
+									},
+									"text": "Dark themed environment",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.9"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 90
+									},
+									"text": "Fantastical setting",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.10"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 100
+									},
+									"text": "Roll [Descriptor](oracle_rollable:fe_runners/core/descriptor) + [Focus](oracle_rollable:fe_runners/core/focus)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/descriptor}} {{text>oracle_rollable:fe_runners/core/focus}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/feature.11"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/underground/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "Peril for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 8
+									},
+									"text": "Active raid in progress",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.0"
+								},
+								{
+									"roll": {
+										"min": 9,
+										"max": 16
+									},
+									"text": "Enemy Fe-Runner spotted you",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.1"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 24
+									},
+									"text": "Something feels off with gear",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.2"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 32
+									},
+									"text": "Additional access required",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.3"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 40
+									},
+									"text": "Challenged to a dual",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.4"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 48
+									},
+									"text": "You are trapped",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.5"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 56
+									},
+									"text": "People from GovNet",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.6"
+								},
+								{
+									"roll": {
+										"min": 57,
+										"max": 64
+									},
+									"text": "A corporation you know",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.7"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 72
+									},
+									"text": "A fight has broken out",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.8"
+								},
+								{
+									"roll": {
+										"min": 73,
+										"max": 80
+									},
+									"text": "An injustice is taking place",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.9"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 85
+									},
+									"text": "A new (bad) virus is discovered",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.10"
+								},
+								{
+									"roll": {
+										"min": 86,
+										"max": 90
+									},
+									"text": "A new (bad) weapon / tool",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.11"
+								},
+								{
+									"roll": {
+										"min": 91,
+										"max": 98
+									},
+									"text": "Roll [Action](oracle_rollable:fe_runners/core/action) + [Theme](oracle_rollable:fe_runners/core/theme)",
+									"template": {
+										"text": "{{text>oracle_rollable:fe_runners/core/action}} {{text>oracle_rollable:fe_runners/core/theme}}"
+									},
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.12"
+								},
+								{
+									"roll": {
+										"min": 99,
+										"max": 100
+									},
+									"text": "Roll twice, if same, make it worse",
+									"oracle_rolls": [
+										{
+											"oracle": "oracle_rollable:fe_runners/segment/core/peril",
+											"auto": true,
+											"number_of_rolls": 2,
+											"dice": null,
+											"duplicates": "reroll"
+										}
+									],
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/peril.13"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/underground/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "Opportunity for an area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 75
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 16
+									},
+									"text": "Someone you know is here",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 17,
+										"max": 32
+									},
+									"text": "A source, tool or person is here",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 48
+									},
+									"text": "You learn something secret",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 49,
+										"max": 64
+									},
+									"text": "Someone is on your side",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 65,
+										"max": 80
+									},
+									"text": "You discover a backdoor",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 81,
+										"max": 100
+									},
+									"text": "You learn of a new tool",
+									"_id": "oracle_rollable.row:fe_runners/segment/underground/opportunity.5"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/segment/underground/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/segment/underground"
+				}
+			},
+			"contents": {},
+			"_id": "oracle_collection:fe_runners/segment"
 		},
 		"social": {
 			"name": "Social Oracles",
@@ -14969,9 +16589,9 @@
 						"text": "When you delve into the inner systems of a node you have gained entry to..."
 					},
 					"oracles": {
-						"explore_weak_hit_edge": {
-							"name": "Explore the System Weak Hit with Edge",
-							"oracle_type": "table_text",
+						"edge": {
+							"name": "Edge",
+							"oracle_type": "column_text",
 							"type": "oracle_rollable",
 							"rows": [
 								{
@@ -14980,7 +16600,7 @@
 										"max": 45
 									},
 									"text": "Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_edge.0"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.edge.0"
 								},
 								{
 									"roll": {
@@ -14988,7 +16608,7 @@
 										"max": 65
 									},
 									"text": "Mark Progress",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_edge.1"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.edge.1"
 								},
 								{
 									"roll": {
@@ -14996,7 +16616,7 @@
 										"max": 75
 									},
 									"text": "Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_edge.2"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.edge.2"
 								},
 								{
 									"roll": {
@@ -15004,7 +16624,7 @@
 										"max": 80
 									},
 									"text": "Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_edge.3"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.edge.3"
 								},
 								{
 									"roll": {
@@ -15012,19 +16632,15 @@
 										"max": 100
 									},
 									"text": "Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_edge.4"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.edge.4"
 								}
 							],
 							"dice": "1d100",
-							"column_labels": {
-								"roll": "Roll",
-								"text": "Result"
-							},
-							"_id": "move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_edge"
+							"_id": "move.oracle_rollable:fe_runners/exploration/explore_the_system.edge"
 						},
-						"explore_weak_hit_shadow": {
-							"name": "Explore the System Weak Hit with Shadow",
-							"oracle_type": "table_text",
+						"shadow": {
+							"name": "Shadow",
+							"oracle_type": "column_text",
 							"type": "oracle_rollable",
 							"rows": [
 								{
@@ -15033,7 +16649,7 @@
 										"max": 30
 									},
 									"text": "Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow.0"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.shadow.0"
 								},
 								{
 									"roll": {
@@ -15041,7 +16657,7 @@
 										"max": 65
 									},
 									"text": "Mark Progress",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow.1"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.shadow.1"
 								},
 								{
 									"roll": {
@@ -15049,7 +16665,7 @@
 										"max": 90
 									},
 									"text": "Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow.2"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.shadow.2"
 								},
 								{
 									"roll": {
@@ -15057,7 +16673,7 @@
 										"max": 99
 									},
 									"text": "Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow.3"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.shadow.3"
 								},
 								{
 									"roll": {
@@ -15065,19 +16681,15 @@
 										"max": 100
 									},
 									"text": "Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow.4"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.shadow.4"
 								}
 							],
 							"dice": "1d100",
-							"column_labels": {
-								"roll": "Roll",
-								"text": "Result"
-							},
-							"_id": "move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow"
+							"_id": "move.oracle_rollable:fe_runners/exploration/explore_the_system.shadow"
 						},
-						"explore_weak_hit_wits": {
-							"name": "Explore the System Weak Hit with Wits",
-							"oracle_type": "table_text",
+						"wits": {
+							"name": "Wits",
+							"oracle_type": "column_text",
 							"type": "oracle_rollable",
 							"rows": [
 								{
@@ -15086,7 +16698,7 @@
 										"max": 40
 									},
 									"text": "Mark progress and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_wits.0"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.wits.0"
 								},
 								{
 									"roll": {
@@ -15094,7 +16706,7 @@
 										"max": 55
 									},
 									"text": "Mark Progress",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_wits.1"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.wits.1"
 								},
 								{
 									"roll": {
@@ -15102,7 +16714,7 @@
 										"max": 80
 									},
 									"text": "Choose one: Mark progress or [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_wits.2"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.wits.2"
 								},
 								{
 									"roll": {
@@ -15110,7 +16722,7 @@
 										"max": 99
 									},
 									"text": "Take both: Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_wits.3"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.wits.3"
 								},
 								{
 									"roll": {
@@ -15118,24 +16730,20 @@
 										"max": 100
 									},
 									"text": "Mark progresses twice and [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger).",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.explore_weak_hit_wits.4"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/explore_the_system.wits.4"
 								}
 							],
 							"dice": "1d100",
-							"column_labels": {
-								"roll": "Roll",
-								"text": "Result"
-							},
-							"_id": "move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_wits"
+							"_id": "move.oracle_rollable:fe_runners/exploration/explore_the_system.wits"
 						}
 					},
-					"text": "__When you delve into the inner systems of a node you have gained entry to__.  Envision your \nsurroundings, use the [System Area Oracle](datasowrn:oracle_rollable:fe_runners/node/system_area) for inspiration.\nIf you navigate the system with:\n●  With haste: Roll +edge\n●  With stealth or trickery: Roll +shadow\n●  With observation, intuition or expertise: Roll +wits\nOn a __strong hit__, you explore deeper into the system.  Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).\nOn a __weak hit__, roll on the following table according to your stat. \nOn a __miss__, [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)\n\n{{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_edge}} \n{{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow}} \n{{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_wits}}",
+					"text": "__When you delve into the inner systems of a node you have gained entry to__.  Envision your surroundings, use the [System Area Oracle](datasowrn:oracle_rollable:fe_runners/node/system_area) for inspiration.\nIf you navigate the system with:\n\n  ●  With haste: Roll +edge\n  ●  With stealth or trickery: Roll +shadow\n  ●  With observation, intuition or expertise: Roll +wits\n\nOn a __strong hit__, you explore deeper into the system.  Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity).\n\nOn a __weak hit__, roll on the following table according to your stat. \n\nOn a __miss__, [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)\n\n{{table_columns>move:fe_runners/exploration/explore_the_system}}",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you explore deeper into the system.  Mark progress and [Find an Opportunity](datasworn:move:fe_runners/exploration/find_an_opportunity)"
 						},
 						"weak_hit": {
-							"text": "On a __weak hit__, roll on the following table according to your stat. \n{{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_edge}} \n{{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_shadow}} \n{{table>move.oracle_rollable:fe_runners/exploration/explore_the_system.explore_weak_hit_wits}}"
+							"text": "On a __weak hit__, roll on the following table according to your stat. \n\n{{table_columns>move:fe_runners/exploration/explore_the_system}}"
 						},
 						"miss": {
 							"text": "On a __miss__, [Reveal a Danger](datasworn:move:fe_runners/exploration/reveal_danger)"
@@ -15222,17 +16830,17 @@
 								{
 									"roll": {
 										"min": 1,
-										"max": 25
+										"max": 30
 									},
-									"text": "You locate a shortcut or hidden path",
+									"text": "Roll on your [Node Type](datasowrn:oracle_collection:fe_runners/node_type) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.0"
 								},
 								{
 									"roll": {
-										"min": 26,
+										"min": 31,
 										"max": 45
 									},
-									"text": "An aspect of this system is revealed",
+									"text": "Roll on your [Segment Node](datasowrn:oracle_collection:fe_runners/segment) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.1"
 								},
 								{
@@ -15240,7 +16848,7 @@
 										"min": 46,
 										"max": 57
 									},
-									"text": "You locate a secure area",
+									"text": "You locate a shortcut or hidden path",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.2"
 								},
 								{
@@ -15248,56 +16856,72 @@
 										"min": 58,
 										"max": 68
 									},
-									"text": "A clue offers insight or direction",
+									"text": "An aspect of this system is revealed",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.3"
 								},
 								{
 									"roll": {
 										"min": 69,
-										"max": 78
+										"max": 76
 									},
-									"text": "You get the drop on an enemy or security system",
+									"text": "You locate a secure area",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.4"
 								},
 								{
 									"roll": {
-										"min": 79,
-										"max": 86
+										"min": 77,
+										"max": 79
 									},
-									"text": "This area provides an opportunity to scavenge",
+									"text": "A clue offers insight or direction",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.5"
 								},
 								{
 									"roll": {
-										"min": 87,
-										"max": 90
+										"min": 80,
+										"max": 82
 									},
-									"text": "You locate an interesting or helpful object",
+									"text": "You get the drop on an enemy or security system",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.6"
 								},
 								{
 									"roll": {
-										"min": 91,
-										"max": 94
+										"min": 83,
+										"max": 85
 									},
-									"text": "You are alerted to a potential threat",
+									"text": "This area provides an opportunity to scavenge",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.7"
 								},
 								{
 									"roll": {
-										"min": 95,
-										"max": 98
+										"min": 86,
+										"max": 88
 									},
-									"text": "You encounter someone or something that might support you",
+									"text": "You locate an interesting or helpful object",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.8"
 								},
 								{
 									"roll": {
-										"min": 99,
+										"min": 89,
+										"max": 91
+									},
+									"text": "You are alerted to a potential threat",
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.9"
+								},
+								{
+									"roll": {
+										"min": 92,
+										"max": 94
+									},
+									"text": "You encounter someone or something that might support you",
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.10"
+								},
+								{
+									"roll": {
+										"min": 95,
 										"max": 100
 									},
 									"text": "You encounter someone in need of help",
-									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.9"
+									"_id": "move.oracle_rollable.row:fe_runners/exploration/find_an_opportunity.find_an_opportunity.11"
 								}
 							],
 							"dice": "1d100",
@@ -15352,7 +16976,7 @@
 										"min": 31,
 										"max": 45
 									},
-									"text": "Roll on [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)",
+									"text": "Roll on [Segment Oracle](datasowrn:oracle_collection:fe_runners/segment) Peril or [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)",
 									"_id": "move.oracle_rollable.row:fe_runners/exploration/reveal_danger.reveal_danger.1"
 								},
 								{
