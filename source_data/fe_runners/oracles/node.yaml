@@ -70,17 +70,17 @@ oracles:
           page: 64
         rows:
           - roll: { min: 1, max: 15 }
-            text: 'Manufacturing'
+            text: '[Manufacturing](datasowrn:oracle_collection:fe_runners/node_type/manufacturing)'
           - roll: { min: 16, max: 30 }
-            text: 'Infrastructure'
+            text: '[Infrastructure](datasowrn:oracle_collection:fe_runners/node_type/infrastructure)'
           - roll: { min: 31, max: 45 }
-            text: 'Legal'
+            text: '[Legal](datasowrn:oracle_collection:fe_runners/node_type/legal)'
           - roll: { min: 46, max: 60 }
-            text: 'Hospitality'
+            text: '[Hospitality](datasowrn:oracle_collection:fe_runners/node_type/hospitality)'
           - roll: { min: 61, max: 75 }
-            text: 'Advertising & Marketing'
+            text: '[Advertising & Marketing](datasowrn:oracle_collection:fe_runners/node_type/advertising)'
           - roll: { min: 76, max: 90 }
-            text: 'Security'
+            text: '[Security](datasowrn:oracle_collection:fe_runners/node_type/security)'
           - roll: { min: 91, max: 100 }
             text: '[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)'
       government_segment_node_type:
@@ -92,25 +92,25 @@ oracles:
           page: 64
         rows:
           - roll: { min: 1, max: 9 }
-            text: 'Legal'
+            text: '[Legal](datasowrn:oracle_collection:fe_runners/node_type/legal)'
           - roll: { min: 10, max: 19 }
-            text: 'Law Enforcement'
+            text: '[Law Enforcement](datasowrn:oracle_collection:fe_runners/node_type/law_enforcement)'
           - roll: { min: 20, max: 29 }
-            text: 'Military'
+            text: '[Military](datasowrn:oracle_collection:fe_runners/node_type/military)'
           - roll: { min: 30, max: 39 }
             text: '[Education](datasowrn:oracle_collection:fe_runners/node_type/education)'
           - roll: { min: 40, max: 49 }
-            text: 'Healthcare'
+            text: '[Healthcare](datasowrn:oracle_collection:fe_runners/node_type/healthcare)'
           - roll: { min: 50, max: 59 }
-            text: 'Infrastructure'
+            text: '[Infrastructure](datasowrn:oracle_collection:fe_runners/node_type/infrastructure)'
           - roll: { min: 60, max: 69 }
-            text: 'Social Services'
+            text: '[Social Services](datasowrn:oracle_collection:fe_runners/node_type/social_service)'
           - roll: { min: 70, max: 79 }
-            text: 'Foreign Affairs'
+            text: '[Foreign Affairs](datasowrn:oracle_collection:fe_runners/node_type/foreign_affairs)'
           - roll: { min: 80, max: 89 }
             text: '[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)'
           - roll: { min: 90, max: 100 }
-            text: 'Security'
+            text: '[Security](datasowrn:oracle_collection:fe_runners/node_type/security)'
       underground_segment_node_type:
         name: Underground Segment Node Type
         type: oracle_rollable
@@ -128,13 +128,13 @@ oracles:
           - roll: { min: 40, max: 52 }
             text: 'Criminal Activity'
           - roll: { min: 53, max: 65 }
-            text: 'Manufacturing'
+            text: '[Manufacturing](datasowrn:oracle_collection:fe_runners/node_type/manufacturing)'
           - roll: { min: 66, max: 78 }
             text: '[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)'
           - roll: { min: 79, max: 91 }
             text: 'Political / Radical Groups'
           - roll: { min: 92, max: 100 }
-            text: 'Security'
+            text: '[Security](datasowrn:oracle_collection:fe_runners/node_type/security)'
       misc_node:
         name: Miscellaneous Node
         type: oracle_rollable
