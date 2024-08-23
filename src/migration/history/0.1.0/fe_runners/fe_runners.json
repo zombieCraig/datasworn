@@ -14158,6 +14158,1389 @@
 					},
 					"collections": {},
 					"_id": "oracle_collection:fe_runners/node_type/foreign_affairs"
+				},
+				"programming": {
+					"name": "Programming",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 96
+					},
+					"contents": {
+						"area": {
+							"name": "Area",
+							"summary": "The general area type",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 96
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 10
+									},
+									"text": "Lounge",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.0"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 30
+									},
+									"text": "Message Board",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.1"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 50
+									},
+									"text": "Documentation",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.2"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 69
+									},
+									"text": "Prototyping",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.3"
+								},
+								{
+									"roll": {
+										"min": 70,
+										"max": 75
+									},
+									"text": "Library and Tooling",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.4"
+								},
+								{
+									"roll": {
+										"min": 76,
+										"max": 84
+									},
+									"text": "Work den",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.5"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 95
+									},
+									"text": "Equipment",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.6"
+								},
+								{
+									"roll": {
+										"min": 96,
+										"max": 100
+									},
+									"text": "File Server",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/area.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/programming/area"
+						},
+						"feature": {
+							"name": "Feature",
+							"summary": "A feature of the area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 96
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 3
+									},
+									"text": "Messy",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.0"
+								},
+								{
+									"roll": {
+										"min": 4,
+										"max": 15
+									},
+									"text": "Strange avatars",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.1"
+								},
+								{
+									"roll": {
+										"min": 16,
+										"max": 18
+									},
+									"text": "Unstable environment",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.2"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 20
+									},
+									"text": "Neon graffiti",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.3"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 22
+									},
+									"text": "Animated memes",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.4"
+								},
+								{
+									"roll": {
+										"min": 23,
+										"max": 24
+									},
+									"text": "Lots of stickers",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.5"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 26
+									},
+									"text": "Underglow lights",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.6"
+								},
+								{
+									"roll": {
+										"min": 27,
+										"max": 28
+									},
+									"text": "Miniatures scattered about",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.7"
+								},
+								{
+									"roll": {
+										"min": 29,
+										"max": 30
+									},
+									"text": "Music emanating",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.8"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 32
+									},
+									"text": "Party",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.9"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 34
+									},
+									"text": "Programmers oblivious of you",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.10"
+								},
+								{
+									"roll": {
+										"min": 35,
+										"max": 38
+									},
+									"text": "Programmers taking a break",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.11"
+								},
+								{
+									"roll": {
+										"min": 39,
+										"max": 42
+									},
+									"text": "Lots of blinking lights",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.12"
+								},
+								{
+									"roll": {
+										"min": 43,
+										"max": 45
+									},
+									"text": "Clattering of keyboard keys",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.13"
+								},
+								{
+									"roll": {
+										"min": 46,
+										"max": 49
+									},
+									"text": "Electronic toys",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.14"
+								},
+								{
+									"roll": {
+										"min": 50,
+										"max": 59
+									},
+									"text": "Soldering equipment",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.15"
+								},
+								{
+									"roll": {
+										"min": 60,
+										"max": 62
+									},
+									"text": "Portable storage devices",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.16"
+								},
+								{
+									"roll": {
+										"min": 63,
+										"max": 66
+									},
+									"text": "Array of monitors",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.17"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 70
+									},
+									"text": "A used leather couch",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.18"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/feature.19"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/programming/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "A Peril",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 96
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 10
+									},
+									"text": "It’s a trap or ruse",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.0"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 20
+									},
+									"text": "Code complexity is too high",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.1"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 30
+									},
+									"text": "You tripped a security system",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.2"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 40
+									},
+									"text": "Automation discovered you",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.3"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 50
+									},
+									"text": "Surprise meaning revealed",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.4"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 60
+									},
+									"text": "Rival Fe-Runner",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.5"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 70
+									},
+									"text": "Must deal with a virus/infection",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.6"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/peril.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/programming/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "An Opportunity",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 96
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 14
+									},
+									"text": "Discover a useful backdoor",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 15,
+										"max": 29
+									},
+									"text": "Locate a vulnerability",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 30,
+										"max": 44
+									},
+									"text": "Discover a useful tool",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 45,
+										"max": 59
+									},
+									"text": "Learn something new",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 60,
+										"max": 70
+									},
+									"text": "Find a useful connection",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity",
+									"_id": "oracle_rollable.row:fe_runners/node_type/programming/opportunity.5"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/programming/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/node_type/programming"
+				},
+				"criminal": {
+					"name": "Criminal Activity",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 97
+					},
+					"contents": {
+						"area": {
+							"name": "Area",
+							"summary": "The general area type",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 97
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 10
+									},
+									"text": "Corridor",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.0"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 30
+									},
+									"text": "Security",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.1"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 50
+									},
+									"text": "Interrogation",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.2"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 69
+									},
+									"text": "Meeting",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.3"
+								},
+								{
+									"roll": {
+										"min": 70,
+										"max": 75
+									},
+									"text": "Meeting Area",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.4"
+								},
+								{
+									"roll": {
+										"min": 76,
+										"max": 84
+									},
+									"text": "Office",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.5"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 95
+									},
+									"text": "Storage",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.6"
+								},
+								{
+									"roll": {
+										"min": 96,
+										"max": 100
+									},
+									"text": "Records",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/area.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/criminal/area"
+						},
+						"feature": {
+							"name": "Feature",
+							"summary": "A feature of the area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 97
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 3
+									},
+									"text": "Smokey",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.0"
+								},
+								{
+									"roll": {
+										"min": 4,
+										"max": 15
+									},
+									"text": "Gang members loitering",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.1"
+								},
+								{
+									"roll": {
+										"min": 16,
+										"max": 18
+									},
+									"text": "Crime boss is here",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.2"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 20
+									},
+									"text": "Illegal goods",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.3"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 22
+									},
+									"text": "You hear screams for help",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.4"
+								},
+								{
+									"roll": {
+										"min": 23,
+										"max": 24
+									},
+									"text": "Openly displayed weapons",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.5"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 26
+									},
+									"text": "Liquids on the floor and walls",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.6"
+								},
+								{
+									"roll": {
+										"min": 27,
+										"max": 28
+									},
+									"text": "Recently trashed",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.7"
+								},
+								{
+									"roll": {
+										"min": 29,
+										"max": 30
+									},
+									"text": "Graffiti",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.8"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 32
+									},
+									"text": "Locked crates",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.9"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 34
+									},
+									"text": "Dangerous chemicals",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.10"
+								},
+								{
+									"roll": {
+										"min": 35,
+										"max": 38
+									},
+									"text": "Additional security systems",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.11"
+								},
+								{
+									"roll": {
+										"min": 39,
+										"max": 42
+									},
+									"text": "Blaring loud music",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.12"
+								},
+								{
+									"roll": {
+										"min": 43,
+										"max": 45
+									},
+									"text": "An intense argument",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.13"
+								},
+								{
+									"roll": {
+										"min": 46,
+										"max": 49
+									},
+									"text": "A TV only playing static",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.14"
+								},
+								{
+									"roll": {
+										"min": 50,
+										"max": 59
+									},
+									"text": "Room is covered in plastic",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.15"
+								},
+								{
+									"roll": {
+										"min": 60,
+										"max": 62
+									},
+									"text": "Several Fe-Runners",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.16"
+								},
+								{
+									"roll": {
+										"min": 63,
+										"max": 66
+									},
+									"text": "Government involvement",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.17"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 70
+									},
+									"text": "Corporate involvement",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.18"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/feature.19"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/criminal/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "A Peril",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 97
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 10
+									},
+									"text": "Active raid occurs",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.0"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 20
+									},
+									"text": "Rival gang shows up",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.1"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 30
+									},
+									"text": "Witness atrocity",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.2"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 40
+									},
+									"text": "Encounter Rival Fe-Runner",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.3"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 50
+									},
+									"text": "You path is blocked",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.4"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 60
+									},
+									"text": "Friend is in trouble",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.5"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 70
+									},
+									"text": "You are being traced",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.6"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/peril.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/criminal/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "An Opportunity",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 97
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 14
+									},
+									"text": "You find a useful resource",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 15,
+										"max": 29
+									},
+									"text": "You locate useful information",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 30,
+										"max": 44
+									},
+									"text": "You discover a weakness",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 45,
+										"max": 59
+									},
+									"text": "A path becomes clear",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 60,
+										"max": 70
+									},
+									"text": "Discover evidence",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity",
+									"_id": "oracle_rollable.row:fe_runners/node_type/criminal/opportunity.5"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/criminal/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/node_type/criminal"
+				},
+				"political": {
+					"name": "Political / Radical Group",
+					"type": "oracle_collection",
+					"oracle_type": "tables",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 98
+					},
+					"contents": {
+						"area": {
+							"name": "Area",
+							"summary": "The general area type",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 98
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 10
+									},
+									"text": "Meeting Room",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.0"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 30
+									},
+									"text": "Propaganda",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.1"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 50
+									},
+									"text": "Comms",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.2"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 69
+									},
+									"text": "Logistics",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.3"
+								},
+								{
+									"roll": {
+										"min": 70,
+										"max": 75
+									},
+									"text": "Hallway / Corridor",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.4"
+								},
+								{
+									"roll": {
+										"min": 76,
+										"max": 84
+									},
+									"text": "Security",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.5"
+								},
+								{
+									"roll": {
+										"min": 85,
+										"max": 95
+									},
+									"text": "Secret Area",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.6"
+								},
+								{
+									"roll": {
+										"min": 96,
+										"max": 100
+									},
+									"text": "Records",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/area.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/political/area"
+						},
+						"feature": {
+							"name": "Feature",
+							"summary": "A feature of the area",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 98
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 3
+									},
+									"text": "Images everywhere",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.0"
+								},
+								{
+									"roll": {
+										"min": 4,
+										"max": 15
+									},
+									"text": "Flags",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.1"
+								},
+								{
+									"roll": {
+										"min": 16,
+										"max": 18
+									},
+									"text": "Bustling",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.2"
+								},
+								{
+									"roll": {
+										"min": 19,
+										"max": 20
+									},
+									"text": "Noisey",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.3"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 22
+									},
+									"text": "Stacked Boxes",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.4"
+								},
+								{
+									"roll": {
+										"min": 23,
+										"max": 24
+									},
+									"text": "Several large monitors",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.5"
+								},
+								{
+									"roll": {
+										"min": 25,
+										"max": 26
+									},
+									"text": "Riot shields",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.6"
+								},
+								{
+									"roll": {
+										"min": 27,
+										"max": 28
+									},
+									"text": "Lots of paint cans",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.7"
+								},
+								{
+									"roll": {
+										"min": 29,
+										"max": 30
+									},
+									"text": "Loudspeaker announcements",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.8"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 32
+									},
+									"text": "Pamphlets / Spam",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.9"
+								},
+								{
+									"roll": {
+										"min": 33,
+										"max": 34
+									},
+									"text": "An organizer is rallying people",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.10"
+								},
+								{
+									"roll": {
+										"min": 35,
+										"max": 38
+									},
+									"text": "Large groups of people",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.11"
+								},
+								{
+									"roll": {
+										"min": 39,
+										"max": 42
+									},
+									"text": "Two people whispering to each other",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.12"
+								},
+								{
+									"roll": {
+										"min": 43,
+										"max": 45
+									},
+									"text": "Security watches this area",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.13"
+								},
+								{
+									"roll": {
+										"min": 46,
+										"max": 49
+									},
+									"text": "Rowdy celebration",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.14"
+								},
+								{
+									"roll": {
+										"min": 50,
+										"max": 59
+									},
+									"text": "Internal drama",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.15"
+								},
+								{
+									"roll": {
+										"min": 60,
+										"max": 62
+									},
+									"text": "Press / Media is present",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.16"
+								},
+								{
+									"roll": {
+										"min": 63,
+										"max": 66
+									},
+									"text": "A celebrity is here",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.17"
+								},
+								{
+									"roll": {
+										"min": 67,
+										"max": 70
+									},
+									"text": "Terminals",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.18"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/feature.19"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/political/feature"
+						},
+						"peril": {
+							"name": "Peril",
+							"summary": "A Peril",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 98
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 10
+									},
+									"text": "Encounter Rival Fe-Runner",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.0"
+								},
+								{
+									"roll": {
+										"min": 11,
+										"max": 20
+									},
+									"text": "You are recorded by equipment",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.1"
+								},
+								{
+									"roll": {
+										"min": 21,
+										"max": 30
+									},
+									"text": "Security is onto you",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.2"
+								},
+								{
+									"roll": {
+										"min": 31,
+										"max": 40
+									},
+									"text": "Dangerous DarkNet ties",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.3"
+								},
+								{
+									"roll": {
+										"min": 41,
+										"max": 50
+									},
+									"text": "Dead-end or other setback",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.4"
+								},
+								{
+									"roll": {
+										"min": 51,
+										"max": 60
+									},
+									"text": "A friend is caught up in this",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.5"
+								},
+								{
+									"roll": {
+										"min": 61,
+										"max": 70
+									},
+									"text": "Some people have identified you",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.6"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/peril.7"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/political/peril"
+						},
+						"opportunity": {
+							"name": "Opportunity",
+							"summary": "An Opportunity",
+							"oracle_type": "table_text",
+							"type": "oracle_rollable",
+							"_source": {
+								"date": "2024-08-10",
+								"title": "Fe-Runners Rulebook",
+								"url": "ttps://zombiecraig.itch.io/fe-runners",
+								"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+								"authors": [
+									{
+										"name": "Craig Smith"
+									}
+								],
+								"page": 98
+							},
+							"rows": [
+								{
+									"roll": {
+										"min": 1,
+										"max": 14
+									},
+									"text": "Discover plans",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/opportunity.0"
+								},
+								{
+									"roll": {
+										"min": 15,
+										"max": 29
+									},
+									"text": "Find a useful connection",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/opportunity.1"
+								},
+								{
+									"roll": {
+										"min": 30,
+										"max": 44
+									},
+									"text": "Target audience details",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/opportunity.2"
+								},
+								{
+									"roll": {
+										"min": 45,
+										"max": 59
+									},
+									"text": "Learn underlying motivation",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/opportunity.3"
+								},
+								{
+									"roll": {
+										"min": 60,
+										"max": 70
+									},
+									"text": "Your path becomes clearer",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/opportunity.4"
+								},
+								{
+									"roll": {
+										"min": 71,
+										"max": 100
+									},
+									"text": "Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity",
+									"_id": "oracle_rollable.row:fe_runners/node_type/political/opportunity.5"
+								}
+							],
+							"dice": "1d100",
+							"column_labels": {
+								"roll": "Roll",
+								"text": "Result"
+							},
+							"_id": "oracle_rollable:fe_runners/node_type/political/opportunity"
+						}
+					},
+					"collections": {},
+					"_id": "oracle_collection:fe_runners/node_type/political"
 				}
 			},
 			"contents": {},
@@ -14527,7 +15910,7 @@
 								"min": 1,
 								"max": 13
 							},
-							"text": "Gambling (Entertainment)",
+							"text": "[Gambling (Entertainment)](datasowrn:oracle_collection:fe_runners/node_type/entertainment)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.0"
 						},
 						{
@@ -14535,7 +15918,7 @@
 								"min": 14,
 								"max": 26
 							},
-							"text": "Programming",
+							"text": "[Programming](datasowrn:oracle_collection:fe_runners/node_type/programming)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.1"
 						},
 						{
@@ -14551,7 +15934,7 @@
 								"min": 40,
 								"max": 52
 							},
-							"text": "Criminal Activity",
+							"text": "[Criminal Activity](datasowrn:oracle_collection:fe_runners/node_type/criminal)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.3"
 						},
 						{
@@ -14575,7 +15958,7 @@
 								"min": 79,
 								"max": 91
 							},
-							"text": "Political / Radical Groups",
+							"text": "[Political / Radical Groups](datasowrn:oracle_collection:fe_runners/node_type/political)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.6"
 						},
 						{

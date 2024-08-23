@@ -120,19 +120,19 @@ oracles:
           page: 65
         rows:
           - roll: { min: 1, max: 13 }
-            text: 'Gambling (Entertainment)'
+            text: '[Gambling (Entertainment)](datasowrn:oracle_collection:fe_runners/node_type/entertainment)'
           - roll: { min: 14, max: 26 }
-            text: 'Programming'
+            text: '[Programming](datasowrn:oracle_collection:fe_runners/node_type/programming)'
           - roll: { min: 27, max: 39 }
             text: '[Commerce](datasowrn:oracle_collection:fe_runners/node_type/commerce)'
           - roll: { min: 40, max: 52 }
-            text: 'Criminal Activity'
+            text: '[Criminal Activity](datasowrn:oracle_collection:fe_runners/node_type/criminal)'
           - roll: { min: 53, max: 65 }
             text: '[Manufacturing](datasowrn:oracle_collection:fe_runners/node_type/manufacturing)'
           - roll: { min: 66, max: 78 }
             text: '[Social / Communications](datasowrn:oracle_collection:fe_runners/node_type/social)'
           - roll: { min: 79, max: 91 }
-            text: 'Political / Radical Groups'
+            text: '[Political / Radical Groups](datasowrn:oracle_collection:fe_runners/node_type/political)'
           - roll: { min: 92, max: 100 }
             text: '[Security](datasowrn:oracle_collection:fe_runners/node_type/security)'
       misc_node:
