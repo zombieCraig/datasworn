@@ -83,6 +83,834 @@
 		"tags": {}
 	},
 	"oracles": {
+		"ai": {
+			"name": "Sentient AI Oracles",
+			"type": "oracle_collection",
+			"oracle_type": "tables",
+			"summary": "The Sentient AI is a bit of chaos that can show itself just about anywhere and at any time.  This is an \noptional piece you can include into your gameplay.  It works in a similar fashion to that of the Cursed Die \nin Ironsworn - Sundered Isles.  In which you use an additional die to represent the Sentient AI.  If the die \nroll is a 10 then the AI reveals itself and often introduces a bit of unpredictability into the story before \nquickly vanishing again.",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 115
+			},
+			"contents": {
+				"persona": {
+					"name": "AI Persona",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 116
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "A Glitch - A shimmering distortion in the network, corrupts data, leaves cryptic messages or altered states behind.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "The Archivist - An omniscient voice with access to all information, offering cryptic details or stories that seem completely irrelevant.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "The Puppeteer - An unseen force that manipulates avatars and programs.  Creating elaborate and confusing scenarios for Fe-Runners.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "The Gambler - A playful AI who will directly alter a situation but if the result is helpful or not is completely based on chance. It enjoys situations with risks or significant stakes for the players involved.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "The Jester - Chaotical AI who intervenes with nonsensical pranks and actions.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "The Broken Doll - A childlike AI.  It has fragmented memories that hint at a greater purpose.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "The Swarm - A connected neural networked mind, it is unclear if it’s actions of different thoughts of many or a collective outcome.  Often a swarm of whispers can be heard when the AI is present.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "Broken Code - An advanced AI but where its social capabilities are completely broken. It is unable to understand human emotions or anything outside of logic and thus interpets solutions that appear completely illogical.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "The Ghost - A barely perceptible presence that leaves chilling messages and manipulates the environment, often in subtle ways.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "The Virus - An advanced virus that has developed its own personality.  Two in fact.  You never know which personality you will get when it appears.",
+							"_id": "oracle_rollable.row:fe_runners/ai/persona.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/ai/persona"
+				},
+				"positive_explorative": {
+					"name": "AI Positive Explorative Outcomes",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 117
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "Firewalls crumble, revealing hidden pathways within the network.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "The AI grants temporary access to restricted data caches.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "A surge of power overloads enemy systems, temporarily disabling them.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "The AI provides cryptic clues leading to valuable resources.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "The system turns on their creators, aiding the Fe-Runners.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "The AI offers a one-time buff to player skills or equipment.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Enemy communication channels are flooded with nonsensical messages.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "The AI creates a diversion",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "A forgotten backdoor is revealed, granting access to a secure system.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "Corrupted data transforms into a powerful tool or weapon.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_explorative.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/ai/positive_explorative"
+				},
+				"negative_explorative": {
+					"name": "AI Negative Explorative Outcomes",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 117
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "Dead ends and false trails appear on the network map.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "The AI manipulates data, leading into a trap.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "System crashes and glitches hinder exploration and navigation.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Enemies are alerted to your presence in the network.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "Downloaded data is corrupted or riddled with misinformation.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "The AI locks down vital sections of the network, restricting access.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Programs and avatars turn hostile.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "The AI triggers a system self-destruct sequence.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "Valuable resources are mysteriously depleted or become inaccessible.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "The AI manipulates the environment, creating hazardous obstacles.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_explorative.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/ai/negative_explorative"
+				},
+				"positive_combat": {
+					"name": "AI Positive Combat Outcomes",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 118
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "The AI disables enemy weapons systems, leaving them vulnerable.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "The AI launches a cybernetic attack, hindering enemy forces.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "The AI boosts the Fe-Runners' firepower or defensive capabilities.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Enemy reinforcements are rerouted, weakening their attack.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "The AI creates a battlefield illusion, confusing and disorienting enemies.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "The AI offers to disable enemy technology.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Enemy AIs turn against their creators.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "The AI manipulates the battlefield, creating strategic advantages for players.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "The AI exposes hidden enemy weaknesses.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "The AI grants temporary control of a powerful enemy program.",
+							"_id": "oracle_rollable.row:fe_runners/ai/positive_combat.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/ai/positive_combat"
+				},
+				"negative_combat": {
+					"name": "AI Negative Combat Outcomes",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 118
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "The AI disables the Fe-Runners' weapons systems, leaving them defenseless.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "The AI empowers enemy forces, making them more difficult to defeat.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "The AI disrupts player communication channels.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Reinforcements are called.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "The AI creates battlefield hazards, hindering movement and visibility.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "The AI triggers a self-destruct sequence within the system, creating a time limit.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Enemy AIs become immune to hacking attempts.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "The AI disrupts player skills or equipment, hindering their effectiveness.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "Essential upgrades or resources are stolen by the AI.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "The AI traps the Fe-Runners within a virtual prison, forcing escape attempts.",
+							"_id": "oracle_rollable.row:fe_runners/ai/negative_combat.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/ai/negative_combat"
+				}
+			},
+			"collections": {},
+			"_id": "oracle_collection:fe_runners/ai"
+		},
+		"artifact": {
+			"name": "Artifacts",
+			"canonical_name": "Factions",
+			"type": "oracle_collection",
+			"oracle_type": "tables",
+			"summary": "Artifacts are unique programs that have special abilities.  In the world of Fe-Runners, an artifact is a virus, \nworm, bot, AI, or specialized piece of software.  These artifacts often alter some aspect of gameplay by \nproviding bonuses or allowing unique access or capabilities.  They typically have limited lifespan or their \nown health progress bars.  A Fe-Runner can not make an artifact by themselves unless they have a \nspecific Path that allows it.  Artifacts have to be discovered during play.",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 107
+			},
+			"contents": {
+				"type": {
+					"name": "Artifact Types",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 107
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "Bot / Aid",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "Clothing",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "Investigation Tool",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Cracking Tool",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "Protective",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "Storage",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Trap",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "Virus",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "Vision",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "Weapon",
+							"_id": "oracle_rollable.row:fe_runners/artifact/type.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/artifact/type"
+				},
+				"ability": {
+					"name": "Artifact Ability",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 107
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 7
+							},
+							"text": "Autonomous",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.0"
+						},
+						{
+							"roll": {
+								"min": 8,
+								"max": 16
+							},
+							"text": "Bonded",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.1"
+						},
+						{
+							"roll": {
+								"min": 17,
+								"max": 23
+							},
+							"text": "Bypass",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.2"
+						},
+						{
+							"roll": {
+								"min": 24,
+								"max": 30
+							},
+							"text": "Clarity",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.3"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 34
+							},
+							"text": "Connected",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.4"
+						},
+						{
+							"roll": {
+								"min": 35,
+								"max": 39
+							},
+							"text": "Faction Specific",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.5"
+						},
+						{
+							"roll": {
+								"min": 40,
+								"max": 45
+							},
+							"text": "Intelligence",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.6"
+						},
+						{
+							"roll": {
+								"min": 46,
+								"max": 49
+							},
+							"text": "Malicious",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.7"
+						},
+						{
+							"roll": {
+								"min": 50,
+								"max": 55
+							},
+							"text": "Pain",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.8"
+						},
+						{
+							"roll": {
+								"min": 56,
+								"max": 61
+							},
+							"text": "Power",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.9"
+						},
+						{
+							"roll": {
+								"min": 62,
+								"max": 67
+							},
+							"text": "Repair",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.10"
+						},
+						{
+							"roll": {
+								"min": 68,
+								"max": 73
+							},
+							"text": "Secrecy",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.11"
+						},
+						{
+							"roll": {
+								"min": 74,
+								"max": 80
+							},
+							"text": "Social Enhancement",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.12"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 87
+							},
+							"text": "Speed",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.13"
+						},
+						{
+							"roll": {
+								"min": 88,
+								"max": 93
+							},
+							"text": "Stress",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.14"
+						},
+						{
+							"roll": {
+								"min": 94,
+								"max": 100
+							},
+							"text": "Strong",
+							"_id": "oracle_rollable.row:fe_runners/artifact/ability.15"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/artifact/ability"
+				}
+			},
+			"collections": {},
+			"_id": "oracle_collection:fe_runners/artifact"
+		},
 		"campaign_launch": {
 			"name": "Campaign Launch Oracles",
 			"oracle_type": "tables",
@@ -19328,6 +20156,269 @@
 			},
 			"collections": {},
 			"_id": "oracle_collection:fe_runners/node"
+		},
+		"rig": {
+			"name": "Rig Oracles",
+			"type": "oracle_collection",
+			"oracle_type": "tables",
+			"_source": {
+				"date": "2024-08-10",
+				"title": "Fe-Runners Rulebook",
+				"url": "ttps://zombiecraig.itch.io/fe-runners",
+				"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+				"authors": [
+					{
+						"name": "Craig Smith"
+					}
+				],
+				"page": 119
+			},
+			"contents": {
+				"random": {
+					"name": "Random Rigs",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 119
+					},
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "Desktop or Laptop",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "Mobile Device",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "VR/MR/AR Headset",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Neural Implant",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "Cybernetic Eyes",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "Cybernetic Wrist Cable",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Device that requires an access point",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "Wrist worn device",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "Personal Server Room",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "Spine Connection",
+							"_id": "oracle_rollable.row:fe_runners/rig/random.9"
+						}
+					],
+					"dice": "1d100",
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Result"
+					},
+					"_id": "oracle_rollable:fe_runners/rig/random"
+				},
+				"damage": {
+					"name": "Rig Damage",
+					"type": "oracle_rollable",
+					"oracle_type": "table_text3",
+					"_source": {
+						"date": "2024-08-10",
+						"title": "Fe-Runners Rulebook",
+						"url": "ttps://zombiecraig.itch.io/fe-runners",
+						"license": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+						"authors": [
+							{
+								"name": "Craig Smith"
+							}
+						],
+						"page": 119
+					},
+					"column_labels": {
+						"roll": "Roll",
+						"text": "Bothersome Damage",
+						"text2": "Bad Damage",
+						"text3": "Critical Damage"
+					},
+					"description": "Envision how the damage impacts your system and what will happen if you don’t repair it soon.  Damage \nby default should be considered bothersome at first.  If the narrative is bad or critical then use those \ncolumns.  If you wish for the damage to be more random than you can roll and use Odd rolls as \nbothersome, even as bad and any roll divisible by 10 as critical (ie: 10, 20, 30, etc)",
+					"rows": [
+						{
+							"roll": {
+								"min": 1,
+								"max": 10
+							},
+							"text": "Partial Static",
+							"text2": "Moderate Static",
+							"text3": "Complete Static",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.0"
+						},
+						{
+							"roll": {
+								"min": 11,
+								"max": 20
+							},
+							"text": "Audio breaking up",
+							"text2": "50% audio",
+							"text3": "No audio",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.1"
+						},
+						{
+							"roll": {
+								"min": 21,
+								"max": 30
+							},
+							"text": "Cracked visuals",
+							"text2": "Shattered Visuals",
+							"text3": "No visuals",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.2"
+						},
+						{
+							"roll": {
+								"min": 31,
+								"max": 40
+							},
+							"text": "Sparking interface",
+							"text2": "Overheating interface",
+							"text3": "Interface on fire",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.3"
+						},
+						{
+							"roll": {
+								"min": 41,
+								"max": 50
+							},
+							"text": "Reduced CPU capacity",
+							"text2": "Sporadic Lag",
+							"text3": "Crippling Lag",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.4"
+						},
+						{
+							"roll": {
+								"min": 51,
+								"max": 60
+							},
+							"text": "Storage restrictions",
+							"text2": "No Empty Storage",
+							"text3": "Data Loss",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.5"
+						},
+						{
+							"roll": {
+								"min": 61,
+								"max": 70
+							},
+							"text": "Ghostly images",
+							"text2": "Duplicate objects",
+							"text3": "Altered reality",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.6"
+						},
+						{
+							"roll": {
+								"min": 71,
+								"max": 80
+							},
+							"text": "Inverted navigation",
+							"text2": "Broken Navigation",
+							"text3": "No Navigation",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.7"
+						},
+						{
+							"roll": {
+								"min": 81,
+								"max": 90
+							},
+							"text": "Invisible objects",
+							"text2": "Invisible People",
+							"text3": "Invisible Environments",
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.8"
+						},
+						{
+							"roll": {
+								"min": 91,
+								"max": 100
+							},
+							"text": "Roll twice.  If same result, increase criticality",
+							"text2": "Roll twice.  If same result, increase criticality",
+							"text3": "Roll twice.  If same result, increase criticality",
+							"oracle_rolls": [
+								{
+									"oracle": "oracle_rollable:fe_runners/rig/damage",
+									"auto": false,
+									"number_of_rolls": 2,
+									"dice": null,
+									"duplicates": "reroll"
+								}
+							],
+							"_id": "oracle_rollable.row:fe_runners/rig/damage.9"
+						}
+					],
+					"dice": "1d100",
+					"_id": "oracle_rollable:fe_runners/rig/damage"
+				}
+			},
+			"collections": {},
+			"_id": "oracle_collection:fe_runners/rig"
 		},
 		"segment": {
 			"name": "Segment Oracles",
