@@ -1055,7 +1055,7 @@ moves:
           text:  When you are connecting to network and are playing Fe-Runners as an extension...
         text: |-
           __ When you are connecting to network and are playing Fe-Runners as an extension__, transfer the 
-          heart and spirit values to your Fe-Runners character sheet. Envision how you are jacking into the Net 
+          health and spirit values to your Fe-Runners character sheet. Envision how you are jacking into the Net 
           and take +1 momentum for coming into the online world refreshed.
         _source:
           <<: *Source
@@ -1462,7 +1462,7 @@ moves:
         text: |-
           __When you forcibly need to disconnect from the network or a system__, envision the situation and how 
           you are disconnecting.  If you are at a safe location you may simply disconnect without making a roll and 
-          assume a __strong hit__.  If playing Fe-Runners as an extension of another game, transfer the heart and spirit 
+          assume a __strong hit__.  If playing Fe-Runners as an extension of another game, transfer the health and spirit 
           values to your other character sheet. Ensure you advance any tension clocks while disconnected.
 
           ●  Being chased, evading: Roll +edge

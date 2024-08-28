@@ -632,7 +632,6 @@
 		},
 		"artifact": {
 			"name": "Artifacts",
-			"canonical_name": "Factions",
 			"type": "oracle_collection",
 			"oracle_type": "tables",
 			"summary": "Artifacts are unique programs that have special abilities.  In the world of Fe-Runners, an artifact is a virus, \nworm, bot, AI, or specialized piece of software.  These artifacts often alter some aspect of gameplay by \nproviding bonuses or allowing unique access or capabilities.  They typically have limited lifespan or their \nown health progress bars.  A Fe-Runner can not make an artifact by themselves unless they have a \nspecific Path that allows it.  Artifacts have to be discovered during play.",

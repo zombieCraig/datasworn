@@ -110,7 +110,7 @@ assets:
         <<: *ModuleAsset
         abilities:
           - enabled: true
-            text: You may use this tool to alter your voice and appearance to someone else after recording a brief sample of your target. The ability to hold the guise weakens over time.  The guise starts at a rank of 5.  Roll the attack die, if higher than the guise stat,  your disguise fails.  If equal or less than your guise value, you are successful, however subtract run from your guise progress bar.
+            text: You may use this tool to alter your voice and appearance to someone else after recording a brief sample of your target. The ability to hold the guise weakens over time.  The guise starts at a rank of 5.  Roll the action die, if higher than the guise stat,  your disguise fails.  If equal or less than your guise value, you are successful, however subtract run from your guise progress bar.
           - enabled: false
             text: When you lie to [Make a Connection](datasworn:move:fe_runners/connection/make_a_connection), you may reroll the challenge die.
           - enabled: false
