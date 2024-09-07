@@ -87,7 +87,7 @@
 			"name": "Sentient AI Oracles",
 			"type": "oracle_collection",
 			"oracle_type": "tables",
-			"summary": "The Sentient AI is a bit of chaos that can show itself just about anywhere and at any time.  This is an \noptional piece you can include into your gameplay.  It works in a similar fashion to that of the Cursed Die \nin Ironsworn - Sundered Isles.  In which you use an additional die to represent the Sentient AI.  If the die \nroll is a 10 then the AI reveals itself and often introduces a bit of unpredictability into the story before \nquickly vanishing again.",
+			"summary": "The Sentient AI is a bit of chaos that can show itself just about anywhere and at any time.  This is an optional piece you can include into your gameplay.  It works in a similar fashion to that of the Cursed Die in Ironsworn - Sundered Isles.  In which you use an additional die to represent the Sentient AI.  If the die roll is a 10 then the AI reveals itself and often introduces a bit of unpredictability into the story before quickly vanishing again.",
 			"_source": {
 				"date": "2024-08-10",
 				"title": "Fe-Runners Rulebook",
@@ -634,7 +634,7 @@
 			"name": "Artifacts",
 			"type": "oracle_collection",
 			"oracle_type": "tables",
-			"summary": "Artifacts are unique programs that have special abilities.  In the world of Fe-Runners, an artifact is a virus, \nworm, bot, AI, or specialized piece of software.  These artifacts often alter some aspect of gameplay by \nproviding bonuses or allowing unique access or capabilities.  They typically have limited lifespan or their \nown health progress bars.  A Fe-Runner can not make an artifact by themselves unless they have a \nspecific Path that allows it.  Artifacts have to be discovered during play.",
+			"summary": "Artifacts are unique programs that have special abilities.  In the world of Fe-Runners, an artifact is a virus, worm, bot, AI, or specialized piece of software.  These artifacts often alter some aspect of gameplay by providing bonuses or allowing unique access or capabilities.  They typically have limited lifespan or their own health progress bars.  A Fe-Runner can not make an artifact by themselves unless they have a specific Path that allows it.  Artifacts have to be discovered during play.",
 			"_source": {
 				"date": "2024-08-10",
 				"title": "Fe-Runners Rulebook",
@@ -26101,7 +26101,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "You may use this tool to alter your voice and appearance to someone else after recording a brief sample of your target. The ability to hold the guise weakens over time.  The guise starts at a rank of 5.  Roll the attack die, if higher than the guise stat,  your disguise fails.  If equal or less than your guise value, you are successful, however subtract run from your guise progress bar.",
+							"text": "You may use this tool to alter your voice and appearance to someone else after recording a brief sample of your target. The ability to hold the guise weakens over time.  The guise starts at a rank of 5.  Roll the action die, if higher than the guise stat,  your disguise fails.  If equal or less than your guise value, you are successful, however subtract run from your guise progress bar.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -26549,7 +26549,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "When you [Gather Information](datasworn:move:fe_runners/adventure/gather_information) related to a hunt, add +1.  On a match, you reveal a surprising or sinister aspect to the hunt. Choose one:\n\n•\tForge ahead: Mark progress on the quest.  If you matched on a __strong hit__, also take +2 momentum\n•\tChange loyalties: Forsake your Vow and mark 2 ticks on your bonds legacy track.",
+							"text": "When you [Gather Information](datasworn:move:fe_runners/adventure/gather_information) related to a hunt, add +1.  On a match, you reveal a surprising or sinister aspect to the hunt. Choose one:\n\n  * __Forge ahead__: Mark progress on the quest.  If you matched on a __strong hit__, also take +2 momentum\n  * __Change loyalties__: Forsake your Vow and mark 2 ticks on your bonds legacy track.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -26897,7 +26897,7 @@
 					"abilities": [
 						{
 							"enabled": true,
-							"text": "Choose an initial skill:\n\n◇\tFPS - You may add +1 when you are involved in ranged combat.\n◇\tRPG - You may add +1 when you are involved in armed melee combat.\n◇\tFighter - You may add +1 in a brawl.",
+							"text": "Choose an initial skill:\n\n  * __FPS__ - You may add +1 when you are involved in ranged combat.\n  * __RPG__ - You may add +1 when you are involved in armed melee combat.\n  * __Fighter__ - You may add +1 in a brawl.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -27171,7 +27171,7 @@
 						},
 						{
 							"enabled": false,
-							"text": "One time only, when you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) (extreme or greater) in service to the vision, take this ability at no cost and choose one:\n\n•\tLet them go: Mark 2 ticks on your bonds legacy for each marked ability and discard this asset\n•\tBolster your link: When you use a Cyber Psychotic ability take +1 momentum.",
+							"text": "One time only, when you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) (extreme or greater) in service to the vision, take this ability at no cost and choose one:\n\n  * __Let them go__: Mark 2 ticks on your bonds legacy for each marked ability and discard this asset\n  * __Bolster your link__: When you use a Cyber Psychotic ability take +1 momentum.",
 							"options": {},
 							"controls": {},
 							"oracles": {},
@@ -29420,7 +29420,7 @@
 							}
 						]
 					},
-					"text": "__ When you want to automate the entire battle and get to the outcome__, envision your objective and roll. If you primarily...\n\n  * Fight at range, or using your speed and the environment to your advantage: Roll +edge.\n  * Fight depending on your courage, leadership, or companions: Roll +heart.\n  * Fight in close to overpower your foe: Roll +iron.\n  * Fight using trickery to befuddle your foe: Roll +shadow.\n  * Fight using careful tactics to outsmart your foe: Roll +wits.\n\nOn a __strong hit__, you achieve your objective unconditionally. You and any allies who joined the battle may take +2 momentum.\n\nOn a __weak hit__, you achieve your objective, but not without cost. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).\n\nOn a __miss__, you are defeated or the objective is lost. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).",
+					"text": "__When you want to automate the entire battle and get to the outcome__, envision your objective and roll. If you primarily...\n\n  * Fight at range, or using your speed and the environment to your advantage: Roll +edge.\n  * Fight depending on your courage, leadership, or companions: Roll +heart.\n  * Fight in close to overpower your foe: Roll +iron.\n  * Fight using trickery to befuddle your foe: Roll +shadow.\n  * Fight using careful tactics to outsmart your foe: Roll +wits.\n\nOn a __strong hit__, you achieve your objective unconditionally. You and any allies who joined the battle may take +2 momentum.\n\nOn a __weak hit__, you achieve your objective, but not without cost. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).\n\nOn a __miss__, you are defeated or the objective is lost. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you achieve your objective unconditionally. You and any allies who joined the battle may take +2 momentum."
@@ -29479,7 +29479,7 @@
 						"text": "When you are connecting to network and are playing Fe-Runners as an extension...",
 						"conditions": []
 					},
-					"text": "__ When you are connecting to network and are playing Fe-Runners as an extension__, transfer the \nheart and spirit values to your Fe-Runners character sheet. Envision how you are jacking into the Net \nand take +1 momentum for coming into the online world refreshed.",
+					"text": "__When you are connecting to network and are playing Fe-Runners as an extension__, transfer the \nhealth and spirit values to your Fe-Runners character sheet. Envision how you are jacking into the Net \nand take +1 momentum for coming into the online world refreshed.",
 					"_source": {
 						"date": "2024-08-10",
 						"title": "Fe-Runners Rulebook",
@@ -30265,13 +30265,13 @@
 						],
 						"text": "When you forcibly need to disconnect from the network or a system..."
 					},
-					"text": "__When you forcibly need to disconnect from the network or a system__, envision the situation and how \nyou are disconnecting.  If you are at a safe location you may simply disconnect without making a roll and \nassume a __strong hit__.  If playing Fe-Runners as an extension of another game, transfer the heart and spirit \nvalues to your other character sheet. Ensure you advance any tension clocks while disconnected.\n\n●  Being chased, evading: Roll +edge\n●  Forced disconnect: Roll +iron\n●  Covering tracks while disconnecting: Roll +shadow\n\nOn a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the \nCore segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If \nthis was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll.\n\nOn a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes \nhave been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again.\n\nOn a __miss__, You disconnect it the worst way.  Envision what happens and apply the appropriate Suffer Move.  On a match, [[Endure Harm]](datasworn:move:fe_runners/suffer/endure_harm) (-2).",
+					"text": "__When you forcibly need to disconnect from the network or a system__, envision the situation and how you are disconnecting.  If you are at a safe location you may simply disconnect without making a roll and  assume a __strong hit__.  If playing Fe-Runners as an extension of another game, transfer the health and spirit  values to your other character sheet. Ensure you advance any tension clocks while disconnected.\n\n  * Being chased, evading: Roll +edge\n  * Forced disconnect: Roll +iron\n  * Covering tracks while disconnecting: Roll +shadow\n\nOn a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the Core segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If this was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll.\n\nOn a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes have been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again.\n\nOn a __miss__, You disconnect it the worst way.  Envision what happens and apply the appropriate Suffer Move.  On a match, [[Endure Harm]](datasworn:move:fe_runners/suffer/endure_harm) (-2).",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the \nCore segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If \nthis was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll."
+							"text": "On a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the Core segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If this was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll."
 						},
 						"weak_hit": {
-							"text": "On a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes \nhave been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again."
+							"text": "On a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes have been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again."
 						},
 						"miss": {
 							"text": "On a __miss__, You disconnect it the worst way.  Envision what happens and apply the appropriate Suffer Move.  On a match, [[Endure Harm]](datasworn:move:fe_runners/suffer/endure_harm) (-2)."
@@ -30334,13 +30334,13 @@
 						],
 						"text": "When you develop a virus, bot, AI, tool with special capabilities..."
 					},
-					"text": "__When you develop a virus, bot, AI, tool with special capabilities__, and you have a Path or special \ncircumstance that allows you to create an artifact.  Envision what special ability the artifact will have and \nRoll +wits.\n\nOn a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision \nwhat that is or roll on Artifact Ability for inspiration.  Give your artifact a name.\n\nOn a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious \nweakness or flaw. Give your artifact a name.\n\nOn a __miss__, You are unable to create the artifact.  You must envision a Suffer move, or [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)\n\nOn __hit__ with a __match__, the code is a very unique attribute such as a flashy animation, or unique flare.  \nWhen someone uses or sees this tool it is unforgettable.",
+					"text": "__When you develop a virus, bot, AI, tool with special capabilities__, and you have a Path or special circumstance that allows you to create an artifact.  Envision what special ability the artifact will have and Roll +wits.\n\nOn a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision what that is or roll on Artifact Ability for inspiration.  Give your artifact a name.\n\nOn a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious weakness or flaw. Give your artifact a name.\n\nOn a __miss__, You are unable to create the artifact.  You must envision a Suffer move, or [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)\n\nOn __hit__ with a __match__, the code is a very unique attribute such as a flashy animation, or unique flare.  When someone uses or sees this tool it is unforgettable.",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision \nwhat that is or roll on Artifact Ability for inspiration.  Give your artifact a name."
+							"text": "On a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision what that is or roll on Artifact Ability for inspiration.  Give your artifact a name."
 						},
 						"weak_hit": {
-							"text": "On a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious \nweakness or flaw. Give your artifact a name."
+							"text": "On a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious weakness or flaw. Give your artifact a name."
 						},
 						"miss": {
 							"text": "On a __miss__, You are unable to create the artifact.  You must envision a Suffer move, or [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)"
@@ -30421,7 +30421,7 @@
 						],
 						"text": "When you have an artifact that requires skill of the user in order to use its special feature..."
 					},
-					"text": "__When you have an artifact that requires skill of the user in order to use its special feature__, think \nabout what the tool is doing and what you need to do to help.\n\n●  When speed is of the essence: +edge\n●  When utilizing social engineering: +heart\n●  When needing to use brute force: +iron\n●  When trying to go undetected: +shadow\n●  When solving a puzzle or riddle: +wits\n\nOn a __strong hit__, you are successful and the artifact works brilliantly.  +2 Momentum\nOn a __weak hit__, the artifact is successful but has caused an additional complication or problem.\nOn a __miss__, you failed to use the artifact correctly.  [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)",
+					"text": "__When you have an artifact that requires skill of the user in order to use its special feature__, think about what the tool is doing and what you need to do to help.\n\n  * When speed is of the essence: +edge\n  * When utilizing social engineering: +heart\n  * When needing to use brute force: +iron\n  * When trying to go undetected: +shadow\n  * When solving a puzzle or riddle: +wits\n\nOn a __strong hit__, you are successful and the artifact works brilliantly.  +2 Momentum\nOn a __weak hit__, the artifact is successful but has caused an additional complication or problem.\nOn a __miss__, you failed to use the artifact correctly.  [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you are successful and the artifact works brilliantly.  +2 Momentum"
@@ -30526,7 +30526,7 @@
 						"text": "When you are delayed or disadvantaged...",
 						"conditions": []
 					},
-					"text": "__When you are delayed or disadvantaged__. Suffer -1 momentum for a minor setback, -2 for a serious \nsetback or -3 for a major setback.\n\nWhen your momentum is at a minimum (-6) and you must suffer -momentum, choose one:\n\n●  Envision how the price is paid and apply the cost to a different move\n●  Envision how this undermines your progress on a vow, expedition, connection, combat and \n  clear 1 unit of progress. Troublesome = 3 boxes, dangerous = 2 boxes, formidable = 1 box, \n  extreme = 2 ticks, epic = 1 tick.",
+					"text": "__When you are delayed or disadvantaged__. Suffer -1 momentum for a minor setback, -2 for a serious \nsetback or -3 for a major setback.\n\nWhen your momentum is at a minimum (-6) and you must suffer -momentum, choose one:\n\n  * Envision how the price is paid and apply the cost to a different move\n  *  Envision how this undermines your progress on a vow, expedition, connection, combat and clear 1 unit of progress. Troublesome = 3 boxes, dangerous = 2 boxes, formidable = 1 box, extreme = 2 ticks, epic = 1 tick.",
 					"_source": {
 						"date": "2024-08-10",
 						"title": "Fe-Runners Rulebook",
@@ -30801,7 +30801,7 @@
 						"text": "Whenever you lose or consume extra power...",
 						"conditions": []
 					},
-					"text": "__Whenever you lose or consume extra power__, suffer -1 supply for a minor loss, -2 for a serious loss and -3 for a major loss.\n\nIf your supply is exhausted (reduced to 0), mark __unregulated__.  When you suffer a loss of power while \nunregulated, envision how this will cause hardship and apply the cost to a different suffer move.",
+					"text": "__Whenever you lose or consume extra power__, suffer -1 supply for a minor loss, -2 for a serious loss and -3 for a major loss.\n\nIf your supply is exhausted (reduced to 0), mark __unregulated__.  When you suffer a loss of power while unregulated, envision how this will cause hardship and apply the cost to a different suffer move.",
 					"_source": {
 						"date": "2024-08-10",
 						"title": "Fe-Runners Rulebook",
@@ -30919,16 +30919,16 @@
 							"_id": "move.oracle_rollable:fe_runners/suffer/withstand_damage.withstand_damage"
 						}
 					},
-					"text": "__When your rig faces a damaging situation or environment__, suffer -1 rig health for minor damage, -2 for \nserious damage and -3 for major damage.  If your rig’s health is 0, [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) equal to any \nremaining damage.\n\nThen if your rig’s health is 0 and you choose to resist damage, roll +rig health.\n\nOn a __strong hit__, choose one:\n\n●  If your rig is not overheated, take +1 rig health\n●  Maintain focus: take +1 momentum\n\nOn a __weak hit__, if your rig is not overheated, you may [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-1) in exchange for +1 rig health.  \nOtherwise, carry on.\n\nOn a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your \nrig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken \nmodule by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).\n\n{{table>move.oracle_rollable:fe_runners/suffer/withstand_damage.withstand_damage}}",
+					"text": "__When your rig faces a damaging situation or environment__, suffer -1 rig health for minor damage, -2 for serious damage and -3 for major damage.  If your rig’s health is 0, [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) equal to any remaining damage.\n\nThen if your rig’s health is 0 and you choose to resist damage, roll +rig health.\n\nOn a __strong hit__, choose one:\n\n  * If your rig is not overheated, take +1 rig health\n  * Maintain focus: take +1 momentum\n\nOn a __weak hit__, if your rig is not overheated, you may [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-1) in exchange for +1 rig health.  Otherwise, carry on.\n\nOn a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your rig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken module by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).\n\n{{table>move.oracle_rollable:fe_runners/suffer/withstand_damage.withstand_damage}}",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__, choose one:\n\n●  If your rig is not overheated, take +1 rig health\n●  Maintain focus: take +1 momentum"
+							"text": "On a __strong hit__, choose one:\n\n  * If your rig is not overheated, take +1 rig health\n  * Maintain focus: take +1 momentum"
 						},
 						"weak_hit": {
 							"text": "On a __weak hit__, if your rig is not overheated, you may [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-1) in exchange for +1 rig health. Otherwise, carry on."
 						},
 						"miss": {
-							"text": "On a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your \nrig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken \nmodule by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).\n\n{{table>move.oracle_rollable:starforged/suffer/withstand_damage.withstand_damage}}"
+							"text": "On a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your rig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken module by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).\n\n{{table>move.oracle_rollable:starforged/suffer/withstand_damage.withstand_damage}}"
 						}
 					},
 					"_source": {
@@ -30987,7 +30987,7 @@
 							}
 						]
 					},
-					"text": "__When you are disconnected and spend time recovering__, roll +heart.\n\nOn a __strong hit__, this personal reset was perfect. You and your allies can choose two recovery moves: [[Heal]](datasworn:move:fe_runners/recover/heal), [[Repair]](datasworn:move:fe_runners/recover/repair) or [[Recharge]](datasworn:move:fe_runners/recover/recharge). Instead of rolling, assume an automatic strong hit for each. An individual move can be taken more than once.\nOn a __weak hit__, same as above, but time is short or resources are strained.  You and your allies make one recovery move instead of two, with no more than three moves total for the group.\nOn a __miss__, choose one:\n\n  ●  The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.\n  ●  You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).",
+					"text": "__When you are disconnected and spend time recovering__, roll +heart.\n\nOn a __strong hit__, this personal reset was perfect. You and your allies can choose two recovery moves: [[Heal]](datasworn:move:fe_runners/recover/heal), [[Repair]](datasworn:move:fe_runners/recover/repair) or [[Recharge]](datasworn:move:fe_runners/recover/recharge). Instead of rolling, assume an automatic strong hit for each. An individual move can be taken more than once.\nOn a __weak hit__, same as above, but time is short or resources are strained.  You and your allies make one recovery move instead of two, with no more than three moves total for the group.\nOn a __miss__, choose one:\n\n  * The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.\n  * You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, this personal reset was perfect. You and your allies can choose two recovery moves: [[Heal]](datasworn:move:fe_runners/recover/heal), [[Repair]](datasworn:move:fe_runners/recover/repair) or [[Recharge]](datasworn:move:fe_runners/recover/recharge). Instead of rolling, assume an automatic strong hit for each. An individual move can be taken more than once."
@@ -30996,7 +30996,7 @@
 							"text": "On a __weak hit__, same as above, but time is short or resources are strained.  You and your allies make one recovery move instead of two, with no more than three moves total for the group."
 						},
 						"miss": {
-							"text": "On a __miss__, choose one:\n\n  ●  The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.\n  ●  You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)."
+							"text": "On a __miss__, choose one:\n\n  * The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.\n  * You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)."
 						}
 					},
 					"_source": {
@@ -31171,13 +31171,13 @@
 							}
 						]
 					},
-					"text": "__ When you make repairs to your rig or other equipment__, envision the situation and roll, +wits.  If you are making repairs to your core rig, you will need to disconnect to repair it.\n\nOn a __hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when \nsomeone or something is helping you and you are in a non-hostile area.  By yourself is when you are in \na non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when \nbeing attacked or in a hazardous environment.\n\nSituation     | Strong Hit | Weak Hit\n--------------|------------|---------\nWith Aid      | 4 points   | 2 points\nBy Yourself   | 3 points   | 1 points\nUnder Fire    | 2 points   | 0 points\n\nSpend repair points as follows. Unused points are discarded.\n\n  ●  Clear the overheated impact of your rig: 2 points\n  ●  Repair a module: 2 points\n  ●  Take +1 health for the rig: 1 point\n  ●  Repair any other component: 3 points\n  ●  Repair any other component but suffer a complication or malfunction: 2 points\n\nOn a __miss__, the repairs are not made and the situation worsens. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).",
+					"text": "__ When you make repairs to your rig or other equipment__, envision the situation and roll, +wits.  If you are making repairs to your core rig, you will need to disconnect to repair it.\n\nOn a __hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when being attacked or in a hazardous environment.\n\nSituation     | Strong Hit | Weak Hit\n--------------|------------|---------\nWith Aid      | 4 points   | 2 points\nBy Yourself   | 3 points   | 1 points\nUnder Fire    | 2 points   | 0 points\n\nSpend repair points as follows. Unused points are discarded.\n\n  * Clear the overheated impact of your rig: 2 points\n  * Repair a module: 2 points\n  * Take +1 health for the rig: 1 point\n  * Repair any other component: 3 points\n  * Repair any other component but suffer a complication or malfunction: 2 points\n\nOn a __miss__, the repairs are not made and the situation worsens. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when \nsomeone or something is helping you and you are in a non-hostile area.  By yourself is when you are in \na non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when \nbeing attacked or in a hazardous environment.\n\nSituation     | Strong Hit | Weak Hit\n--------------|------------|---------\nWith Aid      | 4 points   | 2 points\nBy Yourself   | 3 points   | 1 points\nUnder Fire    | 2 points   | 0 points\n\nSpend repair points as follows. Unused points are discarded.\n\n  ●  Clear the overheated impact of your rig: 2 points\n  ●  Repair a module: 2 points\n  ●  Take +1 health for the rig: 1 point\n  ●  Repair any other component: 3 points\n  ●  Repair any other component but suffer a complication or malfunction: 2 points"
+							"text": "On a __strong hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when being attacked or in a hazardous environment.\n\nSituation     | Strong Hit | Weak Hit\n--------------|------------|---------\nWith Aid      | 4 points   | 2 points\nBy Yourself   | 3 points   | 1 points\nUnder Fire    | 2 points   | 0 points\n\nSpend repair points as follows. Unused points are discarded.\n\n  * Clear the overheated impact of your rig: 2 points\n  * Repair a module: 2 points\n  * Take +1 health for the rig: 1 point\n  * Repair any other component: 3 points\n  * Repair any other component but suffer a complication or malfunction: 2 points"
 						},
 						"weak_hit": {
-							"text": "On a __weak hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when \nsomeone or something is helping you and you are in a non-hostile area.  By yourself is when you are in \na non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when \nbeing attacked or in a hazardous environment.\n\nSituation     | Strong Hit | Weak Hit\n--------------|------------|---------\nWith Aid      | 4 points   | 2 points\nBy Yourself   | 3 points   | 1 points\nUnder Fire    | 2 points   | 0 points\n\nSpend repair points as follows. Unused points are discarded.\n\n  ●  Clear the overheated impact of your rig: 2 points\n  ●  Repair a module: 2 points\n  ●  Take +1 health for the rig: 1 point\n  ●  Repair any other component: 3 points\n  ●  Repair any other component but suffer a complication or malfunction: 2 points"
+							"text": "On a __weak hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when being attacked or in a hazardous environment.\n\nSituation     | Strong Hit | Weak Hit\n--------------|------------|---------\nWith Aid      | 4 points   | 2 points\nBy Yourself   | 3 points   | 1 points\nUnder Fire    | 2 points   | 0 points\n\nSpend repair points as follows. Unused points are discarded.\n\n  * Clear the overheated impact of your rig: 2 points\n  * Repair a module: 2 points\n  * Take +1 health for the rig: 1 point\n  * Repair any other component: 3 points\n  * Repair any other component but suffer a complication or malfunction: 2 points"
 						},
 						"miss": {
 							"text": "On a __miss__, the repairs are not made and the situation worsens. [Pay the Price](datasworn:move:starforged/fate/pay_the_price)."
@@ -31248,10 +31248,10 @@
 						],
 						"text": "When you attempt to recharge your rig..."
 					},
-					"text": "__When you attempt to recharge your rig__. Imagine how you are obtaining power to recharge your rig:\n\n  ●  If bartering or asking for juice: Roll +heart\n  ●  Forcibly patching into a power source: Roll +iron\n  ●  Secretively draining power from an existing source: Roll +shadow\n  ●  Scavenge power or batteries: Roll +wits\n\nOn a __strong hit__, choose one:\n  ●  If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.\n  ●  If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum.\n\nOn a __weak hit__, as above but you must first deal with a cost, complication or demand.  Envision the nature of the obstacle.  You can use the Theme oracle for inspiration.\nOn a __miss__, you gain nothing and your situation worsens.  [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).",
+					"text": "__When you attempt to recharge your rig__. Imagine how you are obtaining power to recharge your rig:\n\n  * If bartering or asking for juice: Roll +heart\n  * Forcibly patching into a power source: Roll +iron\n  * Secretively draining power from an existing source: Roll +shadow\n  * Scavenge power or batteries: Roll +wits\n\nOn a __strong hit__, choose one:\n  * If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.\n  * If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum.\n\nOn a __weak hit__, as above but you must first deal with a cost, complication or demand.  Envision the nature of the obstacle.  You can use the Theme oracle for inspiration.\nOn a __miss__, you gain nothing and your situation worsens.  [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).",
 					"outcomes": {
 						"strong_hit": {
-							"text": "On a __strong hit__, choose one:\n  ●  If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.\n  ●  If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum."
+							"text": "On a __strong hit__, choose one:\n  * If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.\n  * If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum."
 						},
 						"weak_hit": {
 							"text": "On a __weak hit__, as above but you must first deal with a cost, complication or demand.  Envision the nature of the obstacle.  You can use the Theme oracle for inspiration."
@@ -31408,7 +31408,7 @@
 							}
 						]
 					},
-					"text": "__When your rig is destroyed or irrevocably damaged__, You must discard the asset and any modules \nattached or associated with it.  You must forcibly [[Disconnect]](datasworn:move:fe_runners/exploration/disconnect).\n\nIf you survive, you may use your connections to replace some of what is lost  To learn the cost, roll the \nchallenge dice and compare to the progress on your bonds legacy track.\n\nOn a __strong hit__, you can call in a favor.  This comes without conditions.\nOn a __weak hit__, you owe someone. You must mark __indebted__ and [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) to complete an extreme quest in their service.  When you complete the duty-bound quest, clear the impact.\nOn a __miss__, as with the weak hit result but the quest is against your nature, forces you to [[Forsake Your Vow]](datasworn:move:fe_runners/quest/forsake_your_vow) on another quest, or is in the service of an enemy.\n\nIf you accept the cost, take 1 experience for every marked ability on the discarded assets (minimum 3 experience).  Spend the experience only on a new rig and modules.",
+					"text": "__When your rig is destroyed or irrevocably damaged__, You must discard the asset and any modules attached or associated with it.  You must forcibly [[Disconnect]](datasworn:move:fe_runners/exploration/disconnect).\n\nIf you survive, you may use your connections to replace some of what is lost  To learn the cost, roll the challenge dice and compare to the progress on your bonds legacy track.\n\nOn a __strong hit__, you can call in a favor.  This comes without conditions.\nOn a __weak hit__, you owe someone. You must mark __indebted__ and [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) to complete an extreme quest in their service.  When you complete the duty-bound quest, clear the impact.\nOn a __miss__, as with the weak hit result but the quest is against your nature, forces you to [[Forsake Your Vow]](datasworn:move:fe_runners/quest/forsake_your_vow) on another quest, or is in the service of an enemy.\n\nIf you accept the cost, take 1 experience for every marked ability on the discarded assets (minimum 3 experience).  Spend the experience only on a new rig and modules.",
 					"outcomes": {
 						"strong_hit": {
 							"text": "On a __strong hit__, you can call in a favor.  This comes without conditions.\n\nIf you accept the cost, take 1 experience for every marked ability on the discarded assets (minimum 3 experience). Spend this experience only on a new command vehicle, modules, and support vehicles."
@@ -32000,8 +32000,8 @@
 						"max": 33
 					},
 					"summary": "People are oblivious.",
-					"description": "Everything is connected in this world but people \ngenerally are obvious to it.  Smart devices are accepted as normal and people \ndo not spend time thinking about how they work.  People trust corporations to \nprovide for them.",
-					"quest_starter": "A powerful corporation is pushing out a new upgraded \ntechnology and forcing an upgrade by giving away the new improved version \nfor free.  This is very strange behavior and there must be a secret reason \nbehind it, but what is it?",
+					"description": "Everything is connected in this world but people generally are obvious to it.  Smart devices are accepted as normal and people do not spend time thinking about how they work.  People trust corporations to provide for them.",
+					"quest_starter": "A powerful corporation is pushing out a new upgraded technology and forcing an upgrade by giving away the new improved version for free.  This is very strange behavior and there must be a secret reason behind it, but what is it?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/netdependency.0"
 				},
@@ -32011,8 +32011,8 @@
 						"max": 67
 					},
 					"summary": "The Creator.",
-					"description": "The network protocols were created by a brilliant inventor who \nhas since long been deceased.  The world has been built on top of this \nperson's creation but few understand its underlying workings and secrets.  \nPeople are free to make their own creations.",
-					"quest_starter": "There are rumors of a hidden area that nobody has located yet.  \n This area is the key to new capabilities but could change the existing balance.  \n Will you be the one to find it and use it for good?",
+					"description": "The network protocols were created by a brilliant inventor who has since long been deceased.  The world has been built on top of this person's creation but few understand its underlying workings and secrets.  People are free to make their own creations.",
+					"quest_starter": "There are rumors of a hidden area that nobody has located yet. This area is the key to new capabilities but could change the existing balance.  Will you be the one to find it and use it for good?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/netdependency.1"
 				},
@@ -32022,8 +32022,8 @@
 						"max": 100
 					},
 					"summary": "Zero Trust.",
-					"description": "The network was built by the military and shared with other \nnations.  Nothing on the network can be trusted as each faction tries to spy on \nand curate all forms of intelligence.  The network is touted as “open” but the \nworld has built their tools on a system that doesn’t trust them.",
-					"quest_starter": "There is an underground resistance movement, they stand to \nupset the balance of power of the factions.  The powers that be are closing in \nquickly and they need help.  Will you come to their aid?",
+					"description": "The network was built by the military and shared with other nations.  Nothing on the network can be trusted as each faction tries to spy on and curate all forms of intelligence.  The network is touted as “open” but the world has built their tools on a system that doesn’t trust them.",
+					"quest_starter": "There is an underground resistance movement, they stand to upset the balance of power of the factions.  The powers that be are closing in quickly and they need help.  Will you come to their aid?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/netdependency.2"
 				}
@@ -32054,8 +32054,8 @@
 						"max": 33
 					},
 					"summary": "The old never dies.",
-					"description": "Previous tech still exists and has either been retrofitted \nto be connected or is a representation of the old.  Old technology and new are \nmerged and indistinguishable from each other.",
-					"quest_starter": "There are reports of a vehicle that is acting erratically.  The \nowner feels that the vehicle is possessed by a soul but it’s probably a \nmalfunctioning AI.  Right?",
+					"description": "Previous tech still exists and has either been retrofitted to be connected or is a representation of the old.  Old technology and new are merged and indistinguishable from each other.",
+					"quest_starter": "There are reports of a vehicle that is acting erratically.  The owner feels that the vehicle is possessed by a soul but it’s probably a malfunctioning AI.  Right?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/previoustech.0"
 				},
@@ -32065,8 +32065,8 @@
 						"max": 67
 					},
 					"summary": "Beyond comprehension.",
-					"description": "What built the foundation of the network and \ntechnology has been lost to the current people.  Either it has become too \ncomplicated to understand or a great tragedy has destroyed the source.  \nMany portions of the core network are a mystery and are more advanced than \nwas the population is currently capable of making.",
-					"quest_starter": "There are stories of a memory that was once uploaded to the \nnetwork.  It is said to be sentient and moves through the original backplane.  \nFinding it and communicating with it could unlock secrets that could change \neverything.",
+					"description": "What built the foundation of the network and technology has been lost to the current people.  Either it has become too complicated to understand or a great tragedy has destroyed the source.  Many portions of the core network are a mystery and are more advanced than was the population is currently capable of making.",
+					"quest_starter": "There are stories of a memory that was once uploaded to the network.  It is said to be sentient and moves through the original backplane.  Finding it and communicating with it could unlock secrets that could change everything.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/previoustech.1"
 				},
@@ -32076,8 +32076,8 @@
 						"max": 100
 					},
 					"summary": "The past is but a memory.",
-					"description": "Technology has gone through so many iterations \nthat people do not know or remember older technology.  Old technology is a \nrelic and mystery when found.  There is no modern support for old storage \nsystems, radio waves or power adapters.",
-					"quest_starter": "You found an old cassette.  You have no idea what it is or how \nto access it but you have been told it contains details on how to make a radio \nreceiver for an older broadcasting station.  You wonder, what if anything, is on \nthis device and what is a broadcasting station?",
+					"description": "Technology has gone through so many iterations that people do not know or remember older technology.  Old technology is a relic and mystery when found.  There is no modern support for old storage systems, radio waves or power adapters.",
+					"quest_starter": "You found an old cassette.  You have no idea what it is or how to access it but you have been told it contains details on how to make a radio receiver for an older broadcasting station.  You wonder, what if anything, is on this device and what is a broadcasting station?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/previoustech.2"
 				}
@@ -32107,8 +32107,8 @@
 						"max": 33
 					},
 					"summary": "Future tech.",
-					"description": "The world has advanced technology such as multi story \nholograms, flying cars, humanoid robots, and the ability to read and interact \ndirectly with the mind.",
-					"quest_starter": "A friend has reached out to you about a missing person.  They \nbelieve there was a last scene at a park and have requested that you look \nthrough memories of the people that were in the area for clues as to what \nhappened.",
+					"description": "The world has advanced technology such as multi story holograms, flying cars, humanoid robots, and the ability to read and interact directly with the mind.",
+					"quest_starter": "A friend has reached out to you about a missing person.  They believe there was a last scene at a park and have requested that you look through memories of the people that were in the area for clues as to what happened.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/moderntech.0"
 				},
@@ -32118,8 +32118,8 @@
 						"max": 67
 					},
 					"summary": "Constant advancements.",
-					"description": "Technology is expanding rapidly.  It seems that \nthere are new versions of technology coming out every other day.  Just when \nyou think you’ve seen it all, the latest version comes out with another never \nbefore seen feature.",
-					"quest_starter": "A major company is about to release a new contact lens that \ncan directly interact with the brain.  There are large fears on the implications \nof such a device and you have been asked to infiltrate the company and \nsabotage their efforts.",
+					"description": "Technology is expanding rapidly.  It seems that there are new versions of technology coming out every other day.  Just when you think you’ve seen it all, the latest version comes out with another never before seen feature.",
+					"quest_starter": "A major company is about to release a new contact lens that can directly interact with the brain.  There are large fears on the implications of such a device and you have been asked to infiltrate the company and sabotage their efforts.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/moderntech.1"
 				},
@@ -32129,8 +32129,8 @@
 						"max": 100
 					},
 					"summary": "Current tech.",
-					"description": "Technology is largely based on the existing technology of this \ntime period.  It has only advanced slightly allowing better direct computer \ninterfaces and visualizations but most of the technology is standard laptops \nand server systems hosting cloud computing data.  Quantum technology is \nstill in its infancy stage.",
-					"quest_starter": "A top political figure was filmed committing a crime.  They \nclaim it was a deep fake.  An election is looming and the truth could change \nthe tides.  Discover the truth that will alter the upcoming election.",
+					"description": "Technology is largely based on the existing technology of this time period.  It has only advanced slightly allowing better direct computer interfaces and visualizations but most of the technology is standard laptops and server systems hosting cloud computing data.  Quantum technology is still in its infancy stage.",
+					"quest_starter": "A top political figure was filmed committing a crime.  They claim it was a deep fake.  An election is looming and the truth could change the tides.  Discover the truth that will alter the upcoming election.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/moderntech.2"
 				}
@@ -32161,8 +32161,8 @@
 						"max": 33
 					},
 					"summary": "Fe Ledger.",
-					"description": "When a Fe-Runner makes a vow they embed an encrypted \npromise directly into the backplane of the Fe architecture.  The architecture \nhas a giant ledger of all the vows ever made.  It requires the Fe-Runners bio \nimprint to decrypt the vow.",
-					"quest_starter": "A friend recently went missing.  After digging around you \nfound out that their last vow was added to the ledger last week but strangely \nit was left unencrypted.  Why did they leave the vow unencrypted, did they \nknow something was going to happen to them?  Will you take the vow on in \ntheir place?",
+					"description": "When a Fe-Runner makes a vow they embed an encrypted promise directly into the backplane of the Fe architecture.  The architecture has a giant ledger of all the vows ever made.  It requires the Fe-Runners bio imprint to decrypt the vow.",
+					"quest_starter": "A friend recently went missing.  After digging around you found out that their last vow was added to the ledger last week but strangely it was left unencrypted.  Why did they leave the vow unencrypted, did they know something was going to happen to them?  Will you take the vow on in their place?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/ironvows.0"
 				},
@@ -32172,8 +32172,8 @@
 						"max": 67
 					},
 					"summary": "Tradition.",
-					"description": "When a Fe-Runner swears a vow they state “By Iron, I vow” as \nwas the long dead old tradition but it still stands as a promise that holds \nhonored meaning.",
-					"quest_starter": "A faction you have long been at odds with has set an Iron vow \nto something you greatly oppose.  What did they set their vow to and what \nwill yours be to stop them?",
+					"description": "When a Fe-Runner swears a vow they state “By Iron, I vow” as was the long dead old tradition but it still stands as a promise that holds honored meaning.",
+					"quest_starter": "A faction you have long been at odds with has set an Iron vow to something you greatly oppose.  What did they set their vow to and what will yours be to stop them?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/ironvows.1"
 				},
@@ -32183,8 +32183,8 @@
 						"max": 100
 					},
 					"summary": "Iron Frames.",
-					"description": "Most rigs' outer frames are built with Iron either as solid metal \nor infused into the material.  When a Fe-Runner makes a vow they place \ntheir hand on the frame to swear the vow.",
-					"quest_starter": "You have had your rig for as long as you can remember.  You \npromise to get a new one.  What will be your last vow on this rig that will \nenable you to move on.",
+					"description": "Most rigs' outer frames are built with Iron either as solid metal or infused into the material.  When a Fe-Runner makes a vow they place their hand on the frame to swear the vow.",
+					"quest_starter": "You have had your rig for as long as you can remember.  You promise to get a new one.  What will be your last vow on this rig that will enable you to move on.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/ironvows.2"
 				}
@@ -32215,8 +32215,8 @@
 						"max": 33
 					},
 					"summary": "Open Source and Open Architectures.",
-					"description": "Society expects software to be \nopen and people build on each other's works all the time.  Digital piracy is \nnot a thing as digital assets are considered a community resource.  Digital \ncrimes are often focused on protection of users' privacy and currency based \nthefts.",
-					"quest_starter": "Somebody has been adding stealth code to common open \nsource libraries used in chat programs.  They are siphoning millions of \nprivate messages.  You recognize the writing style from some posts you saw \nin the DarkNet.  Time to track down the source.",
+					"description": "Society expects software to be open and people build on each other's works all the time.  Digital piracy is not a thing as digital assets are considered a community resource.  Digital crimes are often focused on protection of users' privacy and currency based thefts.",
+					"quest_starter": "Somebody has been adding stealth code to common open source libraries used in chat programs.  They are siphoning millions of private messages.  You recognize the writing style from some posts you saw in the DarkNet.  Time to track down the source.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/digitalcrimes.0"
 				},
@@ -32226,8 +32226,8 @@
 						"max": 67
 					},
 					"summary": "Intellectual Property Rights.",
-					"description": "All ideas are considered based on existing \nideas and those ideas belong to the corporations.  No idea is unique and \ntherefore you always owe somebody something.  Corporations usually \nattempt to extort money out of inventors and even users of software based \non some claim that they own some intellectual property or another.  Threats \nare made to courts but they rarely involve law enforcement.",
-					"quest_starter": "Several low income people have been recently targeted by a \nnew pop-up corporation and have automatically transferred a large part of \ntheir savings based on some unspecified violation..  The one common thread \nseems to be they had all listened to a new song recently.  This appears to be \na scam and this company is somehow using this song to identify its victims.  \nBreak into the corporation and get the money back to the people.",
+					"description": "All ideas are considered based on existing ideas and those ideas belong to the corporations.  No idea is unique and therefore you always owe somebody something.  Corporations usually attempt to extort money out of inventors and even users of software based on some claim that they own some intellectual property or another.  Threats are made to courts but they rarely involve law enforcement.",
+					"quest_starter": "Several low income people have been recently targeted by a new pop-up corporation and have automatically transferred a large part of their savings based on some unspecified violation..  The one common thread seems to be they had all listened to a new song recently.  This appears to be a scam and this company is somehow using this song to identify its victims.  Break into the corporation and get the money back to the people.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/digitalcrimes.1"
 				},
@@ -32237,8 +32237,8 @@
 						"max": 100
 					},
 					"summary": "Hacking is a Crime.",
-					"description": "The government regulates all software and violations \nof any laws will be treated as illegal activity and can result in jail time.  It is \nillegal to create hacking tools or anything that would undermine the existing \nlaws.  Non-government employed Fe-Runners are considered criminals and \noutlaws.",
-					"quest_starter": "Two rival government factions have been secretly hacking \neach other for years and blaming the hacks on innocent civilians.  You could \npick a side but instead you rather see them both go down.  Devise a plan to \nmake them pay.",
+					"description": "The government regulates all software and violations of any laws will be treated as illegal activity and can result in jail time.  It is illegal to create hacking tools or anything that would undermine the existing laws.  Non-government employed Fe-Runners are considered criminals and outlaws.",
+					"quest_starter": "Two rival government factions have been secretly hacking each other for years and blaming the hacks on innocent civilians.  You could pick a side but instead you rather see them both go down.  Devise a plan to make them pay.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/digitalcrimes.2"
 				}
@@ -32269,8 +32269,8 @@
 						"max": 33
 					},
 					"summary": "Magic does not exist.",
-					"description": "Magic is illusions that always have a logical and \nscientific explanation",
-					"quest_starter": "A recent politician was video taped having an affair but you \nhappen to know for a fact they were home at the time of that recording \nbecause you were going through their home network looking for intel.  Do \nyou seek to prove they were framed or do use this information to your \nadvantage?",
+					"description": "Magic is illusions that always have a logical and scientific explanation",
+					"quest_starter": "A recent politician was video taped having an affair but you happen to know for a fact they were home at the time of that recording because you were going through their home network looking for intel.  Do you seek to prove they were framed or do use this information to your advantage?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/magic.0"
 				},
@@ -32280,8 +32280,8 @@
 						"max": 67
 					},
 					"summary": "There are mysteries on the net.",
-					"description": "Most things can be easily explained and \nare very logical.  After all, everything on the Net is a logical computer.  \nHowever, people have seen things that shouldn’t exist or work.  Things that \nwould define their programming or the capabilities of known hardware.",
-					"quest_starter": "There are reports of a new technology that can not overheat \nno matter how much you push your rig.  Is it possible this technology is real?  \nWho else is after this answer?",
+					"description": "Most things can be easily explained and are very logical.  After all, everything on the Net is a logical computer.  However, people have seen things that shouldn’t exist or work.  Things that would define their programming or the capabilities of known hardware.",
+					"quest_starter": "There are reports of a new technology that can not overheat no matter how much you push your rig.  Is it possible this technology is real?  Who else is after this answer?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/magic.1"
 				},
@@ -32291,8 +32291,8 @@
 						"max": 100
 					},
 					"summary": "We live in a simulation.",
-					"description": "The world has rules and laws that can not be \nbroken…until they are.  Reality can be bent from within.  The world is locked \ninto a simulation and with very advanced tech and insight it is possible to \nbend the laws of reality in ways that shouldn’t be possible.  Advanced code \nis merely a spell incantation.",
-					"quest_starter": "A friend of yours has been locked away in prison.  You can \ntake care of the electronics but not the actual guards.  Seek a method to \nunlock the skills needed to alter their physical reality and help them escape.",
+					"description": "The world has rules and laws that can not be broken…until they are.  Reality can be bent from within.  The world is locked into a simulation and with very advanced tech and insight it is possible to bend the laws of reality in ways that shouldn’t be possible.  Advanced code is merely a spell incantation.",
+					"quest_starter": "A friend of yours has been locked away in prison.  You can take care of the electronics but not the actual guards.  Seek a method to unlock the skills needed to alter their physical reality and help them escape.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/magic.2"
 				}
@@ -32323,8 +32323,8 @@
 						"max": 33
 					},
 					"summary": "Basic Assistants.",
-					"description": "AI is more of a hands free technology than a thinking \nsystem.  It can only do one task at a time and can not chain complex \nactions together.  It’s great for sending a message hands free but it won’t \nbe doing your homework.",
-					"quest_starter": "A woman received a message from her partner. The kicker \nis that their partner had died in a plane crash the day before.  Does \nsomeone have access to their phone? Why would they be pretending to \nbe the same person?",
+					"description": "AI is more of a hands free technology than a thinking system.  It can only do one task at a time and can not chain complex actions together.  It’s great for sending a message hands free but it won’t be doing your homework.",
+					"quest_starter": "A woman received a message from her partner. The kicker is that their partner had died in a plane crash the day before.  Does someone have access to their phone? Why would they be pretending to be the same person?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/artificial_intelligence.0"
 				},
@@ -32334,8 +32334,8 @@
 						"max": 67
 					},
 					"summary": "Complex data comprehension.",
-					"description": "AI is capable of crunching large sets of \ndata and quickly shifting it through it for you to provide a summary.  They \ndo not provide emotions but can look up facts and can handle multi-step \ninstructions.  They know key information about their user such as likes, \ncalendar and contacts.",
-					"quest_starter": "A new system has been developed by the government to \nanalyze citizen behavior and determine which people are bad people \nbefore they have done anything wrong.  The system seems to be very \nbiased towards specific groups of people.  What are the motivations for \nthis program and how can you stop it?",
+					"description": "AI is capable of crunching large sets of data and quickly shifting it through it for you to provide a summary.  They do not provide emotions but can look up facts and can handle multi-step instructions.  They know key information about their user such as likes, calendar and contacts.",
+					"quest_starter": "A new system has been developed by the government to analyze citizen behavior and determine which people are bad people before they have done anything wrong.  The system seems to be very biased towards specific groups of people.  What are the motivations for this program and how can you stop it?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/artificial_intelligence.1"
 				},
@@ -32345,8 +32345,8 @@
 						"max": 100
 					},
 					"summary": "Full personality.",
-					"description": "The AI is a multi-modal AI that can comprehend multiple \ntypes of sensor data such as audio, text and images.  Each AI has its own \nunique personality and comes with the Rig. You can use the character \npersonality Oracle to determine what your AI is like.  They can \ncommunicate and function like a normal human but will not act out physical \ntasks and are mostly used for research and bouncing ideas off of.",
-					"quest_starter": "An AI has taken over a school and locked all the children \n inside for their own protection.  The AI has determined that it is a better \n parent than their actual parents and is the best chance for success for the \n children.  It is aggressively protecting the property from any adults.  Can \n you reason with the AI or trick it into shutting down?",
+					"description": "The AI is a multi-modal AI that can comprehend multiple types of sensor data such as audio, text and images.  Each AI has its own unique personality and comes with the Rig. You can use the character personality Oracle to determine what your AI is like.  They can communicate and function like a normal human but will not act out physical tasks and are mostly used for research and bouncing ideas off of.",
+					"quest_starter": "An AI has taken over a school and locked all the children inside for their own protection.  The AI has determined that it is a better parent than their actual parents and is the best chance for success for the children.  It is aggressively protecting the property from any adults.  Can you reason with the AI or trick it into shutting down?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/artificial_intelligence.2"
 				}
@@ -32377,8 +32377,8 @@
 						"max": 33
 					},
 					"summary": "Operator.",
-					"description": "These entities do not operate on their own but instead are being \ncontrolled remotely but a person or a call center worth of people.  These \nentities phone home to a central node to get their next instructions.  \nWhoever controls the central node controls the whole fleet.  If the central \nnode is destroyed then the connected entities cease to perform any new \nactivities.",
-					"quest_starter": "There is a massive call center that uses worms and botnets \nto set up fake sites and warnings to scam old people out of all of their \nsavings.  They are ruining lives and they must be stopped. You need to \nlocate their facility, shut them down and make them pay.",
+					"description": "These entities do not operate on their own but instead are being controlled remotely but a person or a call center worth of people.  These entities phone home to a central node to get their next instructions.  Whoever controls the central node controls the whole fleet.  If the central node is destroyed then the connected entities cease to perform any new activities.",
+					"quest_starter": "There is a massive call center that uses worms and botnets to set up fake sites and warnings to scam old people out of all of their savings.  They are ruining lives and they must be stopped. You need to locate their facility, shut them down and make them pay.",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/virus_worms_botnets.0"
 				},
@@ -32388,8 +32388,8 @@
 						"max": 67
 					},
 					"summary": "Single Minded Mission.",
-					"description": "They have been programmed for one main task \nand their job is to accomplish that task.  They work independently from \ntheir creator but are not capable of advanced reasoning or logic.",
-					"quest_starter": "A swarm of bots have spread through the net.  They are \ntrying to hack into payment systems to siphon money out and lock them \ninto transfer funds in the Fe backplane that only the creator of the bots can \nunlock.  The authorities have not been able to locate the creator and even \nsuspect that they have been kidnapped or are feared to be dead.  What \nhas happened to them?  How will you locate them and return the lost \nfunds?",
+					"description": "They have been programmed for one main task and their job is to accomplish that task.  They work independently from their creator but are not capable of advanced reasoning or logic.",
+					"quest_starter": "A swarm of bots have spread through the net.  They are trying to hack into payment systems to siphon money out and lock them into transfer funds in the Fe backplane that only the creator of the bots can unlock.  The authorities have not been able to locate the creator and even suspect that they have been kidnapped or are feared to be dead.  What has happened to them?  How will you locate them and return the lost funds?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/virus_worms_botnets.1"
 				},
@@ -32399,8 +32399,8 @@
 						"max": 100
 					},
 					"summary": "Independent Artificial Life.",
-					"description": "These entities seek to “survive”.  Their goal is \nto spread and have longevity.  They do not want to be seen as it increases \ntheir chances of being eradicated.  They “feed” off of whatever their main \nmotivation that was programmed into them.  They want to spread and \nsurvive.",
-					"quest_starter": "After analyzing code for a life support system you find out \nthat the code has a major flaw in it.  The flaw is so bad the life support \nsystem should have already shut down.  What is odd is that it hasn’t.  After \na bit more investigation you discover that a virus has attached itself to the \nsystem and has been controlling and regulating support themselves, \nperhaps even better than the original system.  You are not the only one \nwho has detected them and a group is working on making an antivirus \nprogram to eradicate the infection, however that may destroy the life \nsupport system, endangering millions.  Do you try to save the virus?",
+					"description": "These entities seek to “survive”.  Their goal is to spread and have longevity.  They do not want to be seen as it increases their chances of being eradicated.  They “feed” off of whatever their main motivation that was programmed into them.  They want to spread and survive.",
+					"quest_starter": "After analyzing code for a life support system you find out that the code has a major flaw in it.  The flaw is so bad the life support system should have already shut down.  What is odd is that it hasn’t.  After a bit more investigation you discover that a virus has attached itself to the system and has been controlling and regulating support themselves, perhaps even better than the original system.  You are not the only one who has detected them and a group is working on making an antivirus program to eradicate the infection, however that may destroy the life support system, endangering millions.  Do you try to save the virus?",
 					"oracles": {},
 					"_id": "truth.option:fe_runners/virus_worms_botnets.2"
 				}

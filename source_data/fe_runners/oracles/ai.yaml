@@ -15,11 +15,7 @@ oracles:
     type: oracle_collection
     oracle_type: tables
     summary: |-
-      The Sentient AI is a bit of chaos that can show itself just about anywhere and at any time.  This is an 
-      optional piece you can include into your gameplay.  It works in a similar fashion to that of the Cursed Die 
-      in Ironsworn - Sundered Isles.  In which you use an additional die to represent the Sentient AI.  If the die 
-      roll is a 10 then the AI reveals itself and often introduces a bit of unpredictability into the story before 
-      quickly vanishing again.
+      The Sentient AI is a bit of chaos that can show itself just about anywhere and at any time.  This is an optional piece you can include into your gameplay.  It works in a similar fashion to that of the Cursed Die in Ironsworn - Sundered Isles.  In which you use an additional die to represent the Sentient AI.  If the die roll is a 10 then the AI reveals itself and often introduces a bit of unpredictability into the story before quickly vanishing again.
     _source:
       <<: *Source
       page: 115

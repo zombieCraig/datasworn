@@ -112,8 +112,8 @@ assets:
             text: |-
               When you [Gather Information](datasworn:move:fe_runners/adventure/gather_information) related to a hunt, add +1.  On a match, you reveal a surprising or sinister aspect to the hunt. Choose one:
 
-              •	Forge ahead: Mark progress on the quest.  If you matched on a __strong hit__, also take +2 momentum
-              •	Change loyalties: Forsake your Vow and mark 2 ticks on your bonds legacy track.
+                * __Forge ahead__: Mark progress on the quest.  If you matched on a __strong hit__, also take +2 momentum
+                * __Change loyalties__: Forsake your Vow and mark 2 ticks on your bonds legacy track.
           - enabled: false
             text: When you [Take Decisive Action](datasworn:move:fe_runners/combat/take_decisive_action) against your hunt, you may reroll one challenge die.
       cryptologist:
@@ -191,9 +191,9 @@ assets:
             text: |-
               Choose an initial skill:
 
-              ◇	FPS - You may add +1 when you are involved in ranged combat.
-              ◇	RPG - You may add +1 when you are involved in armed melee combat.
-              ◇	Fighter - You may add +1 in a brawl.
+                * __FPS__ - You may add +1 when you are involved in ranged combat.
+                * __RPG__ - You may add +1 when you are involved in armed melee combat.
+                * __Fighter__ - You may add +1 in a brawl.
           - enabled: false
             text: On a __strong hit__, take an extra +1 momentum
       augmented:
@@ -260,8 +260,8 @@ assets:
             text: |-
               One time only, when you [Fulfill your Vow](datasworn:move:fe_runners/quest/fulfill_your_vow) (extreme or greater) in service to the vision, take this ability at no cost and choose one:
 
-              •	Let them go: Mark 2 ticks on your bonds legacy for each marked ability and discard this asset
-              •	Bolster your link: When you use a Cyber Psychotic ability take +1 momentum.
+                * __Let them go__: Mark 2 ticks on your bonds legacy for each marked ability and discard this asset
+                * __Bolster your link__: When you use a Cyber Psychotic ability take +1 momentum.
       kinetic:
         name: Kinetic
         type: asset

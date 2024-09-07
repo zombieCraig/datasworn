@@ -1010,7 +1010,7 @@ moves:
                 - using: stat
                   stat: wits
         text: |-
-          __ When you want to automate the entire battle and get to the outcome__, envision your objective and roll. If you primarily...
+          __When you want to automate the entire battle and get to the outcome__, envision your objective and roll. If you primarily...
 
             * Fight at range, or using your speed and the environment to your advantage: Roll +edge.
             * Fight depending on your courage, leadership, or companions: Roll +heart.
@@ -1054,7 +1054,7 @@ moves:
         trigger:
           text:  When you are connecting to network and are playing Fe-Runners as an extension...
         text: |-
-          __ When you are connecting to network and are playing Fe-Runners as an extension__, transfer the 
+          __When you are connecting to network and are playing Fe-Runners as an extension__, transfer the 
           health and spirit values to your Fe-Runners character sheet. Envision how you are jacking into the Net 
           and take +1 momentum for coming into the online world refreshed.
         _source:
@@ -1460,33 +1460,24 @@ moves:
                   stat: shadow
           text: When you forcibly need to disconnect from the network or a system...
         text: |-
-          __When you forcibly need to disconnect from the network or a system__, envision the situation and how 
-          you are disconnecting.  If you are at a safe location you may simply disconnect without making a roll and 
-          assume a __strong hit__.  If playing Fe-Runners as an extension of another game, transfer the health and spirit 
-          values to your other character sheet. Ensure you advance any tension clocks while disconnected.
+          __When you forcibly need to disconnect from the network or a system__, envision the situation and how you are disconnecting.  If you are at a safe location you may simply disconnect without making a roll and  assume a __strong hit__.  If playing Fe-Runners as an extension of another game, transfer the health and spirit  values to your other character sheet. Ensure you advance any tension clocks while disconnected.
 
-          ●  Being chased, evading: Roll +edge
-          ●  Forced disconnect: Roll +iron
-          ●  Covering tracks while disconnecting: Roll +shadow
+            * Being chased, evading: Roll +edge
+            * Forced disconnect: Roll +iron
+            * Covering tracks while disconnecting: Roll +shadow
 
-          On a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the 
-          Core segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If 
-          this was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll.
+          On a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the Core segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If this was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll.
 
-          On a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes 
-          have been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again.
+          On a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes have been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again.
 
           On a __miss__, You disconnect it the worst way.  Envision what happens and apply the appropriate Suffer Move.  On a match, [[Endure Harm]](datasworn:move:fe_runners/suffer/endure_harm) (-2).
         outcomes:
           strong_hit:
             text: |-
-              On a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the 
-              Core segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If 
-              this was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll.
+              On a __strong hit__, you successfully disconnect as intended.  Next time you connect you will start at the Core segment.  You can retrace your steps back without having to [[Map Route]](datasworn:move:fe_runners/exploration/map_route) or [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment).  If this was a system, you can attempt to [[Gain Entry]](datasworn:move:fe_runners/exploration/gain_entry) at a later time with a +1 to the roll.
           weak_hit:
             text: |-
-              On a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes 
-              have been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again.
+              On a __weak hit__, You manage to disconnect but your route is burned, mapping progress and relay nodes have been compromised and can not be used again.  You will need to use [[Map Route]](datasworn:move:fe_runners/exploration/map_route) and [[Infiltrate Segment]](datasworn:move:fe_runners/exploration/infiltrate_segment) again.
           miss:
             text: On a __miss__, You disconnect it the worst way.  Envision what happens and apply the appropriate Suffer Move.  On a match, [[Endure Harm]](datasworn:move:fe_runners/suffer/endure_harm) (-2).
         _source:
@@ -1514,29 +1505,22 @@ moves:
                   stat: wits
           text: When you develop a virus, bot, AI, tool with special capabilities...
         text: |-
-          __When you develop a virus, bot, AI, tool with special capabilities__, and you have a Path or special 
-          circumstance that allows you to create an artifact.  Envision what special ability the artifact will have and 
-          Roll +wits.
+          __When you develop a virus, bot, AI, tool with special capabilities__, and you have a Path or special circumstance that allows you to create an artifact.  Envision what special ability the artifact will have and Roll +wits.
 
-          On a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision 
-          what that is or roll on Artifact Ability for inspiration.  Give your artifact a name.
+          On a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision what that is or roll on Artifact Ability for inspiration.  Give your artifact a name.
 
-          On a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious 
-          weakness or flaw. Give your artifact a name.
+          On a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious weakness or flaw. Give your artifact a name.
 
           On a __miss__, You are unable to create the artifact.  You must envision a Suffer move, or [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)
           
-          On __hit__ with a __match__, the code is a very unique attribute such as a flashy animation, or unique flare.  
-          When someone uses or sees this tool it is unforgettable.
+          On __hit__ with a __match__, the code is a very unique attribute such as a flashy animation, or unique flare.  When someone uses or sees this tool it is unforgettable.
         outcomes:
           strong_hit:
             text: |-
-              On a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision 
-              what that is or roll on Artifact Ability for inspiration.  Give your artifact a name.
+              On a __strong hit__, you create what you were after.  It also has an additional feature or capability.  Envision what that is or roll on Artifact Ability for inspiration.  Give your artifact a name.
           weak_hit:
             text: |-
-              On a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious 
-              weakness or flaw. Give your artifact a name.
+              On a __weak hit__, You create what you are after but it is frail and has limited use, lifespan or an obvious weakness or flaw. Give your artifact a name.
           miss:
             text: On a __miss__, You are unable to create the artifact.  You must envision a Suffer move, or [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price)
         _source:
@@ -1575,14 +1559,13 @@ moves:
                   stat: wits
           text:  When you have an artifact that requires skill of the user in order to use its special feature...
         text: |-
-          __When you have an artifact that requires skill of the user in order to use its special feature__, think 
-          about what the tool is doing and what you need to do to help.
+          __When you have an artifact that requires skill of the user in order to use its special feature__, think about what the tool is doing and what you need to do to help.
 
-          ●  When speed is of the essence: +edge
-          ●  When utilizing social engineering: +heart
-          ●  When needing to use brute force: +iron
-          ●  When trying to go undetected: +shadow
-          ●  When solving a puzzle or riddle: +wits
+            * When speed is of the essence: +edge
+            * When utilizing social engineering: +heart
+            * When needing to use brute force: +iron
+            * When trying to go undetected: +shadow
+            * When solving a puzzle or riddle: +wits
 
           On a __strong hit__, you are successful and the artifact works brilliantly.  +2 Momentum
           On a __weak hit__, the artifact is successful but has caused an additional complication or problem.
@@ -1648,10 +1631,8 @@ moves:
 
           When your momentum is at a minimum (-6) and you must suffer -momentum, choose one:
 
-          ●  Envision how the price is paid and apply the cost to a different move
-          ●  Envision how this undermines your progress on a vow, expedition, connection, combat and 
-            clear 1 unit of progress. Troublesome = 3 boxes, dangerous = 2 boxes, formidable = 1 box, 
-            extreme = 2 ticks, epic = 1 tick.
+            * Envision how the price is paid and apply the cost to a different move
+            *  Envision how this undermines your progress on a vow, expedition, connection, combat and clear 1 unit of progress. Troublesome = 3 boxes, dangerous = 2 boxes, formidable = 1 box, extreme = 2 ticks, epic = 1 tick.
         _source:
           <<: *Source
           page: 141
@@ -1820,8 +1801,7 @@ moves:
         text: |-
           __Whenever you lose or consume extra power__, suffer -1 supply for a minor loss, -2 for a serious loss and -3 for a major loss.
 
-          If your supply is exhausted (reduced to 0), mark __unregulated__.  When you suffer a loss of power while 
-          unregulated, envision how this will cause hardship and apply the cost to a different suffer move.
+          If your supply is exhausted (reduced to 0), mark __unregulated__.  When you suffer a loss of power while unregulated, envision how this will cause hardship and apply the cost to a different suffer move.
         _source:
           <<: *Source
           page: 142
@@ -1861,23 +1841,18 @@ moves:
               - roll: { min: 96, max: 100 }
                 text: 'Your rig is hot but somehow still seems functional.'
         text: |-
-          __When your rig faces a damaging situation or environment__, suffer -1 rig health for minor damage, -2 for 
-          serious damage and -3 for major damage.  If your rig’s health is 0, [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) equal to any 
-          remaining damage.
+          __When your rig faces a damaging situation or environment__, suffer -1 rig health for minor damage, -2 for serious damage and -3 for major damage.  If your rig’s health is 0, [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) equal to any remaining damage.
 
           Then if your rig’s health is 0 and you choose to resist damage, roll +rig health.
 
           On a __strong hit__, choose one:
 
-          ●  If your rig is not overheated, take +1 rig health
-          ●  Maintain focus: take +1 momentum
+            * If your rig is not overheated, take +1 rig health
+            * Maintain focus: take +1 momentum
 
-          On a __weak hit__, if your rig is not overheated, you may [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-1) in exchange for +1 rig health.  
-          Otherwise, carry on.
+          On a __weak hit__, if your rig is not overheated, you may [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-1) in exchange for +1 rig health.  Otherwise, carry on.
 
-          On a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your 
-          rig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken 
-          module by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).
+          On a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your rig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken module by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).
 
           {{table>move.oracle_rollable:fe_runners/suffer/withstand_damage.withstand_damage}}
         outcomes:
@@ -1885,15 +1860,13 @@ moves:
             text: |-
               On a __strong hit__, choose one:
 
-              ●  If your rig is not overheated, take +1 rig health
-              ●  Maintain focus: take +1 momentum
+                * If your rig is not overheated, take +1 rig health
+                * Maintain focus: take +1 momentum
           weak_hit:
             text: On a __weak hit__, if your rig is not overheated, you may [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-1) in exchange for +1 rig health. Otherwise, carry on.
           miss:
             text: |-
-              On a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your 
-              rig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken 
-              module by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).
+              On a __miss__, it’s worse than you thought.  Suffer an additional -1 rig health or [[Lose Momentum]](datasworn:move:fe_runners/suffer/lose_momentum) (-2).  If your rig’s health is 0, mark the rig as __overheated__ or __infected__, mark a module as broken, destroy a broken module by discarding it or roll on the table below.  If your rig is destroyed, [[Overcome Destruction]](datasworn:move:fe_runners/threshold/overcome_destruction).
 
               {{table>move.oracle_rollable:starforged/suffer/withstand_damage.withstand_damage}}
         _source:
@@ -1930,8 +1903,8 @@ moves:
           On a __weak hit__, same as above, but time is short or resources are strained.  You and your allies make one recovery move instead of two, with no more than three moves total for the group.
           On a __miss__, choose one:
 
-            ●  The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.
-            ●  You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).
+            * The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.
+            * You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).
         outcomes:
           strong_hit:
             text: |-
@@ -1943,8 +1916,8 @@ moves:
             text: |-
               On a __miss__, choose one:
 
-                ●  The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.
-                ●  You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).
+                * The community needs your help or makes a costly demand in exchange.  Envision what they ask you for.  If you agree then [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) and resolve this move as a strong hit.
+                * You find no relief and your situation worsens. [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).
         _source:
           <<: *Source
           page: 144
@@ -2053,10 +2026,7 @@ moves:
         text: |-
           __ When you make repairs to your rig or other equipment__, envision the situation and roll, +wits.  If you are making repairs to your core rig, you will need to disconnect to repair it.
           
-          On a __hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when 
-          someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in 
-          a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when 
-          being attacked or in a hazardous environment.
+          On a __hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when being attacked or in a hazardous environment.
 
           Situation     | Strong Hit | Weak Hit
           --------------|------------|---------
@@ -2066,20 +2036,17 @@ moves:
 
           Spend repair points as follows. Unused points are discarded.
 
-            ●  Clear the overheated impact of your rig: 2 points
-            ●  Repair a module: 2 points
-            ●  Take +1 health for the rig: 1 point
-            ●  Repair any other component: 3 points
-            ●  Repair any other component but suffer a complication or malfunction: 2 points
+            * Clear the overheated impact of your rig: 2 points
+            * Repair a module: 2 points
+            * Take +1 health for the rig: 1 point
+            * Repair any other component: 3 points
+            * Repair any other component but suffer a complication or malfunction: 2 points
 
           On a __miss__, the repairs are not made and the situation worsens. [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price).
         outcomes:
           strong_hit:
             text: |-
-              On a __strong hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when 
-              someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in 
-              a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when 
-              being attacked or in a hazardous environment.
+              On a __strong hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when being attacked or in a hazardous environment.
 
               Situation     | Strong Hit | Weak Hit
               --------------|------------|---------
@@ -2089,17 +2056,14 @@ moves:
 
               Spend repair points as follows. Unused points are discarded.
 
-                ●  Clear the overheated impact of your rig: 2 points
-                ●  Repair a module: 2 points
-                ●  Take +1 health for the rig: 1 point
-                ●  Repair any other component: 3 points
-                ●  Repair any other component but suffer a complication or malfunction: 2 points
+                * Clear the overheated impact of your rig: 2 points
+                * Repair a module: 2 points
+                * Take +1 health for the rig: 1 point
+                * Repair any other component: 3 points
+                * Repair any other component but suffer a complication or malfunction: 2 points
           weak_hit:
             text: |-
-              On a __weak hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when 
-              someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in 
-              a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when 
-              being attacked or in a hazardous environment.
+              On a __weak hit__ you gain repair points appropriate for the situation, see the chart below.  With aid, is when someone or something is helping you and you are in a non-hostile area.  By yourself is when you are in a non-hostile area that you can work from.  Under fire is when you are repairing in a crisis such as when being attacked or in a hazardous environment.
 
               Situation     | Strong Hit | Weak Hit
               --------------|------------|---------
@@ -2109,11 +2073,11 @@ moves:
 
               Spend repair points as follows. Unused points are discarded.
 
-                ●  Clear the overheated impact of your rig: 2 points
-                ●  Repair a module: 2 points
-                ●  Take +1 health for the rig: 1 point
-                ●  Repair any other component: 3 points
-                ●  Repair any other component but suffer a complication or malfunction: 2 points
+                * Clear the overheated impact of your rig: 2 points
+                * Repair a module: 2 points
+                * Take +1 health for the rig: 1 point
+                * Repair any other component: 3 points
+                * Repair any other component but suffer a complication or malfunction: 2 points
           miss:
             text: On a __miss__, the repairs are not made and the situation worsens. [Pay the Price](datasworn:move:starforged/fate/pay_the_price).
         _source:
@@ -2149,14 +2113,14 @@ moves:
         text: |-
           __When you attempt to recharge your rig__. Imagine how you are obtaining power to recharge your rig:
 
-            ●  If bartering or asking for juice: Roll +heart
-            ●  Forcibly patching into a power source: Roll +iron
-            ●  Secretively draining power from an existing source: Roll +shadow
-            ●  Scavenge power or batteries: Roll +wits
+            * If bartering or asking for juice: Roll +heart
+            * Forcibly patching into a power source: Roll +iron
+            * Secretively draining power from an existing source: Roll +shadow
+            * Scavenge power or batteries: Roll +wits
 
           On a __strong hit__, choose one:
-            ●  If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.
-            ●  If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum.
+            * If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.
+            * If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum.
 
           On a __weak hit__, as above but you must first deal with a cost, complication or demand.  Envision the nature of the obstacle.  You can use the Theme oracle for inspiration.
           On a __miss__, you gain nothing and your situation worsens.  [[Pay the Price]](datasworn:move:fe_runners/fate/pay_the_price).
@@ -2164,8 +2128,8 @@ moves:
           strong_hit:
             text: |-
               On a __strong hit__, choose one:
-                ●  If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.
-                ●  If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum.
+                * If you are UNREGULATED, clear the impact and take +1 supply, otherwise take +2 supply.
+                * If you are in need of a resource or service that can be reasonably obtained, you acquire it. Take +1 momentum.
           weak_hit:
             text: On a __weak hit__, as above but you must first deal with a cost, complication or demand.  Envision the nature of the obstacle.  You can use the Theme oracle for inspiration.
           miss:
@@ -2270,11 +2234,9 @@ moves:
               roll_options:
                 - using: bonds_legacy
         text: |-
-          __When your rig is destroyed or irrevocably damaged__, You must discard the asset and any modules 
-          attached or associated with it.  You must forcibly [[Disconnect]](datasworn:move:fe_runners/exploration/disconnect).
+          __When your rig is destroyed or irrevocably damaged__, You must discard the asset and any modules attached or associated with it.  You must forcibly [[Disconnect]](datasworn:move:fe_runners/exploration/disconnect).
           
-          If you survive, you may use your connections to replace some of what is lost  To learn the cost, roll the 
-          challenge dice and compare to the progress on your bonds legacy track.
+          If you survive, you may use your connections to replace some of what is lost  To learn the cost, roll the challenge dice and compare to the progress on your bonds legacy track.
 
           On a __strong hit__, you can call in a favor.  This comes without conditions.
           On a __weak hit__, you owe someone. You must mark __indebted__ and [[Swear an Iron Vow]](datasworn:move:fe_runners/quest/swear_an_iron_vow) to complete an extreme quest in their service.  When you complete the duty-bound quest, clear the impact.
