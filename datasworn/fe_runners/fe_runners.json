@@ -18931,7 +18931,7 @@
 								"min": 1,
 								"max": 15
 							},
-							"text": "[Social / Communications](datasworn:oracle_collection:fe_runners/node_type/social)",
+							"text": "[Social / Communications](datasworn:oracle_rollable:fe_runners/node_type/social/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.0"
 						},
 						{
@@ -18939,7 +18939,7 @@
 								"min": 16,
 								"max": 30
 							},
-							"text": "[Commerce](datasworn:oracle_collection:fe_runners/node_type/commerce)",
+							"text": "[Commerce](datasworn:oracle_rollable:fe_runners/node_type/commerce/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.1"
 						},
 						{
@@ -18947,7 +18947,7 @@
 								"min": 31,
 								"max": 45
 							},
-							"text": "[Gaming](datasworn:oracle_collection:fe_runners/node_type/gaming)",
+							"text": "[Gaming](datasworn:oracle_rollable:fe_runners/node_type/gaming/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.2"
 						},
 						{
@@ -18955,7 +18955,7 @@
 								"min": 46,
 								"max": 60
 							},
-							"text": "[Entertainment](datasworn:oracle_collection:fe_runners/node_type/entertainment)",
+							"text": "[Entertainment](datasworn:oracle_rollable:fe_runners/node_type/entertainment/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.3"
 						},
 						{
@@ -18963,7 +18963,7 @@
 								"min": 61,
 								"max": 75
 							},
-							"text": "[Education](datasworn:oracle_collection:fe_runners/node_type/education)",
+							"text": "[Education](datasworn:oracle_rollable:fe_runners/node_type/education/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.4"
 						},
 						{
@@ -18971,7 +18971,7 @@
 								"min": 76,
 								"max": 90
 							},
-							"text": "[News & Media](datasworn:oracle_collection:fe_runners/node_type/news)",
+							"text": "[News & Media](datasworn:oracle_rollable:fe_runners/node_type/news/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.5"
 						},
 						{
@@ -18979,7 +18979,7 @@
 								"min": 91,
 								"max": 100
 							},
-							"text": "[Science & Research](datasworn:oracle_collection:fe_runners/node_type/science)",
+							"text": "[Science & Research](datasworn:oracle_rollable:fe_runners/node_type/science/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/core_segment_node_type.6"
 						}
 					],
@@ -19012,7 +19012,7 @@
 								"min": 1,
 								"max": 15
 							},
-							"text": "[Manufacturing](datasworn:oracle_collection:fe_runners/node_type/manufacturing)",
+							"text": "[Manufacturing](datasworn:oracle_rollable:fe_runners/node_type/manufacturing/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.0"
 						},
 						{
@@ -19020,7 +19020,7 @@
 								"min": 16,
 								"max": 30
 							},
-							"text": "[Infrastructure](datasworn:oracle_collection:fe_runners/node_type/infrastructure)",
+							"text": "[Infrastructure](datasworn:oracle_rollable:fe_runners/node_type/infrastructure/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.1"
 						},
 						{
@@ -19028,7 +19028,7 @@
 								"min": 31,
 								"max": 45
 							},
-							"text": "[Legal](datasworn:oracle_collection:fe_runners/node_type/legal)",
+							"text": "[Legal](datasworn:oracle_rollable:fe_runners/node_type/legal/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.2"
 						},
 						{
@@ -19036,7 +19036,7 @@
 								"min": 46,
 								"max": 60
 							},
-							"text": "[Hospitality](datasworn:oracle_collection:fe_runners/node_type/hospitality)",
+							"text": "[Hospitality](datasworn:oracle_rollable:fe_runners/node_type/hospitality/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.3"
 						},
 						{
@@ -19044,7 +19044,7 @@
 								"min": 61,
 								"max": 75
 							},
-							"text": "[Advertising & Marketing](datasworn:oracle_collection:fe_runners/node_type/advertising)",
+							"text": "[Advertising & Marketing](datasworn:oracle_rollable:fe_runners/node_type/advertising/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.4"
 						},
 						{
@@ -19052,7 +19052,7 @@
 								"min": 76,
 								"max": 90
 							},
-							"text": "[Security](datasworn:oracle_collection:fe_runners/node_type/security)",
+							"text": "[Security](datasworn:oracle_rollable:fe_runners/node_type/security/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.5"
 						},
 						{
@@ -19060,7 +19060,7 @@
 								"min": 91,
 								"max": 100
 							},
-							"text": "[Social / Communications](datasworn:oracle_collection:fe_runners/node_type/social)",
+							"text": "[Social / Communications](datasworn:oracle_rollable:fe_runners/node_type/social/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/corporate_segment_node_type.6"
 						}
 					],
@@ -19093,7 +19093,7 @@
 								"min": 1,
 								"max": 9
 							},
-							"text": "[Legal](datasworn:oracle_collection:fe_runners/node_type/legal)",
+							"text": "[Legal](datasworn:oracle_rollable:fe_runners/node_type/legal/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.0"
 						},
 						{
@@ -19101,7 +19101,7 @@
 								"min": 10,
 								"max": 19
 							},
-							"text": "[Law Enforcement](datasworn:oracle_collection:fe_runners/node_type/law_enforcement)",
+							"text": "[Law Enforcement](datasworn:oracle_rollable:fe_runners/node_type/law_enforcement/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.1"
 						},
 						{
@@ -19109,7 +19109,7 @@
 								"min": 20,
 								"max": 29
 							},
-							"text": "[Military](datasworn:oracle_collection:fe_runners/node_type/military)",
+							"text": "[Military](datasworn:oracle_rollable:fe_runners/node_type/military/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.2"
 						},
 						{
@@ -19117,7 +19117,7 @@
 								"min": 30,
 								"max": 39
 							},
-							"text": "[Education](datasworn:oracle_collection:fe_runners/node_type/education)",
+							"text": "[Education](datasworn:oracle_rollable:fe_runners/node_type/education/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.3"
 						},
 						{
@@ -19125,7 +19125,7 @@
 								"min": 40,
 								"max": 49
 							},
-							"text": "[Healthcare](datasworn:oracle_collection:fe_runners/node_type/healthcare)",
+							"text": "[Healthcare](datasworn:oracle_rollable:fe_runners/node_type/healthcare/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.4"
 						},
 						{
@@ -19133,7 +19133,7 @@
 								"min": 50,
 								"max": 59
 							},
-							"text": "[Infrastructure](datasworn:oracle_collection:fe_runners/node_type/infrastructure)",
+							"text": "[Infrastructure](datasworn:oracle_rollable:fe_runners/node_type/infrastructure/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.5"
 						},
 						{
@@ -19141,7 +19141,7 @@
 								"min": 60,
 								"max": 69
 							},
-							"text": "[Social Services](datasworn:oracle_collection:fe_runners/node_type/social_service)",
+							"text": "[Social Services](datasworn:oracle_rollable:fe_runners/node_type/social_service/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.6"
 						},
 						{
@@ -19149,7 +19149,7 @@
 								"min": 70,
 								"max": 79
 							},
-							"text": "[Foreign Affairs](datasworn:oracle_collection:fe_runners/node_type/foreign_affairs)",
+							"text": "[Foreign Affairs](datasworn:oracle_rollable:fe_runners/node_type/foreign_affairs/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.7"
 						},
 						{
@@ -19157,7 +19157,7 @@
 								"min": 80,
 								"max": 89
 							},
-							"text": "[Social / Communications](datasworn:oracle_collection:fe_runners/node_type/social)",
+							"text": "[Social / Communications](datasworn:oracle_rollable:fe_runners/node_type/social/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.8"
 						},
 						{
@@ -19165,7 +19165,7 @@
 								"min": 90,
 								"max": 100
 							},
-							"text": "[Security](datasworn:oracle_collection:fe_runners/node_type/security)",
+							"text": "[Security](datasworn:oracle_rollable:fe_runners/node_type/security/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/government_segment_node_type.9"
 						}
 					],
@@ -19198,7 +19198,7 @@
 								"min": 1,
 								"max": 13
 							},
-							"text": "[Gambling (Entertainment)](datasworn:oracle_collection:fe_runners/node_type/entertainment)",
+							"text": "[Gambling (Entertainment)](datasworn:oracle_rollable:fe_runners/node_type/entertainment/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.0"
 						},
 						{
@@ -19206,7 +19206,7 @@
 								"min": 14,
 								"max": 26
 							},
-							"text": "[Programming](datasworn:oracle_collection:fe_runners/node_type/programming)",
+							"text": "[Programming](datasworn:oracle_rollable:fe_runners/node_type/programming/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.1"
 						},
 						{
@@ -19214,7 +19214,7 @@
 								"min": 27,
 								"max": 39
 							},
-							"text": "[Commerce](datasworn:oracle_collection:fe_runners/node_type/commerce)",
+							"text": "[Commerce](datasworn:oracle_rollable:fe_runners/node_type/commerce/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.2"
 						},
 						{
@@ -19222,7 +19222,7 @@
 								"min": 40,
 								"max": 52
 							},
-							"text": "[Criminal Activity](datasworn:oracle_collection:fe_runners/node_type/criminal)",
+							"text": "[Criminal Activity](datasworn:oracle_rollable:fe_runners/node_type/criminal/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.3"
 						},
 						{
@@ -19230,7 +19230,7 @@
 								"min": 53,
 								"max": 65
 							},
-							"text": "[Manufacturing](datasworn:oracle_collection:fe_runners/node_type/manufacturing)",
+							"text": "[Manufacturing](datasworn:oracle_rollable:fe_runners/node_type/manufacturing/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.4"
 						},
 						{
@@ -19238,7 +19238,7 @@
 								"min": 66,
 								"max": 78
 							},
-							"text": "[Social / Communications](datasworn:oracle_collection:fe_runners/node_type/social)",
+							"text": "[Social / Communications](datasworn:oracle_rollable:fe_runners/node_type/social/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.5"
 						},
 						{
@@ -19246,7 +19246,7 @@
 								"min": 79,
 								"max": 91
 							},
-							"text": "[Political / Radical Groups](datasworn:oracle_collection:fe_runners/node_type/political)",
+							"text": "[Political / Radical Groups](datasworn:oracle_rollable:fe_runners/node_type/political/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.6"
 						},
 						{
@@ -19254,7 +19254,7 @@
 								"min": 92,
 								"max": 100
 							},
-							"text": "[Security](datasworn:oracle_collection:fe_runners/node_type/security)",
+							"text": "[Security](datasworn:oracle_rollable:fe_runners/node_type/security/area)",
 							"_id": "oracle_rollable.row:fe_runners/node/underground_segment_node_type.7"
 						}
 					],
