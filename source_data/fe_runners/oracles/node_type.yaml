@@ -101,7 +101,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Lots of terminals
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: &Peril
               name: Peril
@@ -126,7 +126,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You found data on you
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: &Opportunity
               name: Opportunity
@@ -147,7 +147,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You find an interesting person
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       commerce:
         name: Commerce
         type: oracle_collection
@@ -222,7 +222,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Dirty
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -243,7 +243,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Extra security
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -260,7 +260,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Additional insight is gained
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       gaming:
         name: Gaming
         type: oracle_collection
@@ -335,7 +335,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Action is about to start
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -356,7 +356,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You are disadvantaged
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -373,7 +373,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Discover insight on a future game
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       entertainment:
         name: Entertainment
         type: oracle_collection
@@ -448,7 +448,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Mellow vibes
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -469,7 +469,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Extra surveillance
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -486,7 +486,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Invited to VIP area
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       education:
         name: Education
         type: oracle_collection
@@ -561,7 +561,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Government sponsored
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -582,7 +582,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You are involved in a dispute
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -599,7 +599,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You find the resource you need
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       news:
         name: News & Media
         type: oracle_collection
@@ -673,7 +673,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Lots of detail
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -694,7 +694,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You are blackmailed
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -711,7 +711,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You learn something first
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       science:
         name: Science & Research
         type: oracle_collection
@@ -786,7 +786,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Lots of x rays
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -807,7 +807,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Exposed to something unknown
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -824,7 +824,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Identify the area you are looking for
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity    
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity    
       manufacturing:
         name: Manufacturing
         type: oracle_collection
@@ -899,7 +899,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Crowded with inventory
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -920,7 +920,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Extra encryption
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -937,7 +937,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: A weakness is identified
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity 
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity 
       legal:
         name: Legal
         type: oracle_collection
@@ -1012,7 +1012,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Statue
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1033,7 +1033,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You are recognized
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1050,7 +1050,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Alter something in your favor
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       hospitality:
         name: Hospitality
         type: oracle_collection
@@ -1125,7 +1125,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Sporadic electricity
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1146,7 +1146,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Infestation
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1163,7 +1163,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You find a hidden passage
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       advertising:
         name: Advertising & Marketing
         type: oracle_collection
@@ -1238,7 +1238,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Lots of boxes
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1259,7 +1259,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Strange encryption used
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1276,7 +1276,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Can access their profiler software
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       security:
         name: Security
         type: oracle_collection
@@ -1351,7 +1351,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Ergonomic furniture
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1372,7 +1372,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Rival Fe-Runner
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1389,7 +1389,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Find a tool / weapon
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity        
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity        
       law_enforcement:
         name: Law Enforcement
         type: oracle_collection
@@ -1464,7 +1464,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Someone recently passed
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1485,7 +1485,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You find info on yourself
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1502,7 +1502,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You can alter something
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity 
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity 
       military:
         name: Military
         type: oracle_collection
@@ -1577,7 +1577,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Radio chatter
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1598,7 +1598,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Area is under attack
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1615,7 +1615,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You find a shortcut
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       healthcare:
         name: Healthcare
         type: oracle_collection
@@ -1690,7 +1690,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: A game of solitaire
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1711,7 +1711,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: A patient you know is in trouble
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1728,7 +1728,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You make a positive change
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       infrastructure:
         name: Infrastructure
         type: oracle_collection
@@ -1803,7 +1803,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: A ventilation shaft
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1824,7 +1824,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Attracted government attention
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1841,7 +1841,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: You locate a useful manual
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       social_service:
         name: Social Service
         type: oracle_collection
@@ -1916,7 +1916,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Someone desperate
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -1937,7 +1937,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: A hard past is revealed
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -1954,7 +1954,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Useful past knowledge
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       foreign_affairs:
         name: Foreign Affairs
         type: oracle_collection
@@ -2029,7 +2029,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Additional Security checks
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -2050,7 +2050,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You are being traced
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -2067,7 +2067,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Disrupt something
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       programming:
         name: Programming
         type: oracle_collection
@@ -2142,7 +2142,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: A used leather couch
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -2163,7 +2163,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Must deal with a virus/infection
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -2180,7 +2180,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Find a useful connection
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       criminal:
         name: Criminal Activity
         type: oracle_collection
@@ -2255,7 +2255,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Corporate involvement
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -2276,7 +2276,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: You are being traced
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -2293,7 +2293,7 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Discover evidence
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
       political:
         name: Political / Radical Group
         type: oracle_collection
@@ -2368,7 +2368,7 @@ oracles:
               - roll: { min: 67, max: 70 }
                 text: Terminals
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Feature
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Feature
           peril:
             <<: *Peril
             _source:
@@ -2389,7 +2389,7 @@ oracles:
               - roll: { min: 61, max: 70 }
                 text: Some people have identified you
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Peril
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Peril
           opportunity:
             <<: *Opportunity
             _source:
@@ -2406,5 +2406,5 @@ oracles:
               - roll: { min: 60, max: 70 }
                 text: Your path becomes clearer
               - roll: { min: 71, max: 100 }
-                text: Roll on [Segment](datasowrn:oracle_collection:fe_runners/segment) Opportunity
+                text: Roll on [Segment](datasworn:oracle_collection:fe_runners/segment) Opportunity
 

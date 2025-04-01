@@ -1142,7 +1142,7 @@ moves:
 
             On a __weak hit__, same as above but at a cost:
             ●  Suffer [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) (-1)
-            ●  Face a peril. Roll on the [Node Encounter Oracle](datasowrn:oracle_rollable:fe_runners/node/node_encounter)
+            ●  Face a peril. Roll on the [Node Encounter Oracle](datasworn:oracle_rollable:fe_runners/node/node_encounter)
             On a __miss__, you can not establish your next route.  Do not mark progress, [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price)
         outcomes:
           strong_hit:
@@ -1159,7 +1159,7 @@ moves:
             text: |-
               On a __weak hit__, same as above but at a cost:
               ●  Suffer [Sacrifice Power](datasworn:move:fe_runners/suffer/sacrifice_power) (-1)
-              ●  Face a peril. Roll on the [Node Encounter Oracle](datasowrn:oracle_rollable:fe_runners/node/node_encounter)
+              ●  Face a peril. Roll on the [Node Encounter Oracle](datasworn:oracle_rollable:fe_runners/node/node_encounter)
           miss:
             text: |-
               On a __miss__, you can not establish your next route.  Do not mark progress, [Pay the Price](datasworn:move:fe_runners/fate/pay_the_price)
@@ -1277,7 +1277,7 @@ moves:
               - roll: { min: 100, max: 100}
                 text: *ExploreTheSystem.4
         text: |-
-          __When you delve into the inner systems of a node you have gained entry to__.  Envision your surroundings, use the [System Area Oracle](datasowrn:oracle_rollable:fe_runners/node/system_area) for inspiration.
+          __When you delve into the inner systems of a node you have gained entry to__.  Envision your surroundings, use the [System Area Oracle](datasworn:oracle_rollable:fe_runners/node/system_area) for inspiration.
           If you navigate the system with:
 
             ●  With haste: Roll +edge
@@ -1355,9 +1355,9 @@ moves:
             type: oracle_rollable
             rows:
               - roll: { min: 1, max: 30 }
-                text: Roll on your [Node Type](datasowrn:oracle_collection:fe_runners/node_type) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)
+                text: Roll on your [Node Type](datasworn:oracle_collection:fe_runners/node_type) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)
               - roll: { min: 31, max: 45 }
-                text: Roll on your [Segment Node](datasowrn:oracle_collection:fe_runners/segment) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)
+                text: Roll on your [Segment Node](datasworn:oracle_collection:fe_runners/segment) Opportunity or [Story Clue](oracle_rollable:fe_runners/core/story_clue)
               - roll: { min: 46, max: 57 }
                 text: You locate a shortcut or hidden path
               - roll: { min: 58, max: 68 }
@@ -1382,7 +1382,7 @@ moves:
           __When you uncover a helpful situation or feature when exploring a system__, roll on the following 
           table.  If you are making this move as a result of a strong hit on the [Explore the System](datasworn:move:fe_runners/exploration/explore_the_system) move, you may 
           pick or envision an opportunity instead of rolling.  Most systems have their own opportunity tables you 
-          may also roll on in the [Node Types](datasowrn:oracle_collection:fe_runners/node_type) Section.
+          may also roll on in the [Node Types](datasworn:oracle_collection:fe_runners/node_type) Section.
           Then choose one.
           ●  Gain insight or prepare: Take +1 momentum
           ●  Take action now: You and your allies may make a move (not a progress move) which directly 
@@ -1405,9 +1405,9 @@ moves:
             type: oracle_rollable
             rows:
               - roll: { min: 1, max: 30 }
-                text: Roll on [Node Type](datasowrn:oracle_collection:fe_runners/node_type) Peril or [Story Complication](oracle_rollable:fe_runners/core/story_complication)
+                text: Roll on [Node Type](datasworn:oracle_collection:fe_runners/node_type) Peril or [Story Complication](oracle_rollable:fe_runners/core/story_complication)
               - roll: { min: 31, max: 45 }
-                text: Roll on [Segment Oracle](datasowrn:oracle_collection:fe_runners/segment) Peril or [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)
+                text: Roll on [Segment Oracle](datasworn:oracle_collection:fe_runners/segment) Peril or [[Story Complication]](oracle_rollable:fe_runners/core/story_complication)
               - roll: { min: 46, max: 57 }
                 text: You encounter a hostile person or thing
               - roll: { min: 58, max: 68 }
@@ -1431,7 +1431,7 @@ moves:
         text: |-
           __When you encounter a risky situation within a system__, envision the danger or roll on the following 
           table.  If making this roll based on [[Explore the System]](datasworn:move:fe_runners/exploration/explore_the_system) move, you can instead roll on that nodes specific 
-          Perils table in the [[Node Types]](datasowrn:oracle_collection:fe_runners/node_type) section.
+          Perils table in the [[Node Types]](datasworn:oracle_collection:fe_runners/node_type) section.
 
           {{table>move.oracle_rollable:fe_runners/exploration/reveal_danger.reveal_danger}}}}
         _source:

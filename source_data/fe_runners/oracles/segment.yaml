@@ -17,7 +17,7 @@ oracles:
     _source:
       <<: *Source
       page: 75
-    summary:  The Segment oracles cover general features, perils and opportunities for an overall segment.  These tables are often called from the [Node Types](datasowrn:oracle_collection:fe_runners/node_type) oracles.
+    summary:  The Segment oracles cover general features, perils and opportunities for an overall segment.  These tables are often called from the [Node Types](datasworn:oracle_collection:fe_runners/node_type) oracles.
     collections: 
       core:
         name: Core Segment
